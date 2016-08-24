@@ -1,5 +1,7 @@
-
-public class Stats 
+namespace Character
 {
-
+  public class Stats 
+  {
+  
+  }
 }
