@@ -1,6 +1,9 @@
 language: csharp
 solution: ActionRpgKit.sln
+mono:
+  - 2.10.8
 install:
+  - nuget install NUnit -Version 2.6.4
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
   - nuget restore ActionRpgKit.sln
 script:
