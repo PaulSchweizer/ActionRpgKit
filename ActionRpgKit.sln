@@ -1,8 +1,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{78BF7B94-78C5-BCF6-4DA6-7759C0647D10}") = "ActionRpgKit", "Assembly-CSharp.csproj", "{E0D0BE98-6E37-A49E-2D6A-598AA81884E7}"
+Project("{78BF7B94-78C5-BCF6-4DA6-7759C0647D10}") = "ActionRpgKit_Unity", "Assembly-CSharp.csproj", "{E0D0BE98-6E37-A49E-2D6A-598AA81884E7}"
 EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
