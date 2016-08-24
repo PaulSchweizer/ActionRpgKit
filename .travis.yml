@@ -6,7 +6,7 @@ script:
   - xbuild /p:Configuration=Debug ActionRpgKit.sln
 before_install:
   - sudo apt-get install nunit-console
-before_script:
+install:
   - nuget restore ActionRpgKit.sln
 after_script:
   - nunit-console 
