@@ -41,6 +41,10 @@
   <ItemGroup>
      <!-- <Compile Include="Assets\Scripts\Core\Character\Actor.cs" /> -->
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{E0D0BE98-6E37-A49E-2D6A-598AA81884E7}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
