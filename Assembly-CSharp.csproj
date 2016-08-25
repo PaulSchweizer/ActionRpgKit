@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="Core\GameTime.cs" />
     <Compile Include="Core\Character\Stats.cs" />
+    <Compile Include="Core\Character\Attribute.cs" />
     <Compile Include="Tests\Core\Character\StatsTests.cs" />
+    <Compile Include="Tests\Core\Character\AttributeTests.cs" />
     <Reference Include="nunit.framework">
      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
     </Reference>
