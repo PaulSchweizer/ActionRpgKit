@@ -13,7 +13,7 @@ namespace CharacterTests
         [SetUp]
         public void SetUp ()                                                  
         {
-            charStats = new Character.Stats(10, 0, 0);
+            charStats = new Character.Stats();
         }
 
         [Test]
