@@ -12,7 +12,7 @@ namespace CharacterTests
         [SetUp]
         public void SetUp ()
         {
-            primaryAttribute = new Character.PrimaryAttribute();
+            primaryAttribute = new Character.PrimaryAttribute("PrimaryTestAttr", 0, 999, 10);
             GameTime.time = 0f;
         }
         
