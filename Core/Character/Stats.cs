@@ -39,7 +39,7 @@ namespace Character
         /// <summary>
         /// Initialize the Stats with default primary attribute values.
         /// </summary>
-        public Stats (float body = 0, float mind = 0, float soul = 0)
+        public EnemyStats (float body = 0, float mind = 0, float soul = 0)
         {
             // Primary Attributes
             Body = new Attribute("Body", 0, 999, body);
