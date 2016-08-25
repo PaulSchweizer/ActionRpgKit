@@ -18,9 +18,6 @@ namespace Character
         public IAttribute Level;
         public IAttribute Life;
         public IAttribute Magic;
-        
-        // Skills
-        private List<ISkill> _skills;
 
         /// <summary>
         /// Initialize the Stats with default primary attribute values.
@@ -43,22 +40,6 @@ namespace Character
             Magic = new VolumeAttribute("Magic", 
                 x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
                 new IAttribute[] { Level, Soul }, 0, 999);
-
-            // Skills
-            _skills = new List<ISkill>();
-        }
-
-        public List<ISkill> Skills 
-        {
-            get
-            {
-                return _skills;
-            }
-        }
-
-        public void AddSkill (ISkill skill)
-        {
-            Skills.Add(skill);
         }
 
         public override string ToString()
