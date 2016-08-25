@@ -19,6 +19,7 @@ namespace CharacterTests
         [Test]
         public void PrimaryAttributeTest()
         {
+            Assert.AreEqual(charStats, 0);
         }
     }
 }
