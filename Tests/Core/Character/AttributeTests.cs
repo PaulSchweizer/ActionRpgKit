@@ -100,9 +100,9 @@ namespace CharacterTests
         [Test]
         public void VolumeAttributeTest()
         {
-            Assert.AreEqual(23, (int)(Life.Value));
-            Assert.AreEqual(23, (int)(Life.MaxValue));
             Assert.AreEqual(0, (int)(Life.MinValue));
+            Assert.AreEqual(23, (int)(Life.MaxValue));
+            Assert.AreEqual(23, (int)(Life.Value));
 
             // charStats.Life.Value = 10;
             // Assert.AreEqual(10, (int)(charStats.Life.Value));
