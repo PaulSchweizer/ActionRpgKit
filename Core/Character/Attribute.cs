@@ -107,6 +107,14 @@ namespace Character.Attribute
             }
         }
         
+        public List<Modifier> Modifiers
+        {
+            get
+            {
+                return _modifiers;
+            }
+        }
+        
         public void AddModifier(Modifier modifier)
         {
             modifier.Activate();
