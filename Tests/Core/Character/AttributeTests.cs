@@ -18,7 +18,7 @@ namespace CharacterTests
         public void SetUp ()
         {
             Body = new PrimaryAttribute("Body", 0, 999, 10);
-            Experience new PrimaryAttribute("Experience");
+            Experience = new PrimaryAttribute("Experience");
             Level = new SecondaryAttribute("Level",
                         x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f, 
                         new IAttribute[] { Experience }, 0, 99);
