@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Character
+namespace Character.Attribute
 {
     public interface IAttribute
     {
@@ -10,6 +10,8 @@ namespace Character
         float Value { get; set; }
         float MaxValue { get; set; }
         float MinValue { get; set; }
+        List<Modifier> Modifiers { get; }
+        void AddModifier(Modifier modifier);
     }
   
     public class PrimaryAttribute : IAttribute
@@ -90,6 +92,48 @@ namespace Character
             set
             {
                 _minValue = value;
+            }
+        }
+        
+        public void AddModifier(Modifier modifier)
+        {
+            modifier.Activate();
+            _modifiers.Add(modifier);
+        }
+    }
+    
+    public class Modifier 
+    {
+        private string _name;
+        private float _value;
+        private float _duration;
+        
+        public Modifier (string name, 
+                         float value, 
+                         float duration)
+        {
+            _name = name;
+            Value = value;
+            _duration = duration;
+        }
+
+        public string Name 
+        {
+            get 
+            {
+                return _name;
+            }
+        }
+    
+        public float Value 
+        {
+            get 
+            {
+                return _value;
+            }
+            set
+            {
+                _value = value;
             }
         }
     }
