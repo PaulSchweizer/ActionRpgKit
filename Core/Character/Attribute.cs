@@ -204,11 +204,15 @@ namespace Character.Attribute
             _attributes = attributes;
         } 
         
-        protected override float BaseValue
+        public override float BaseValue
         {
             get
             {
                 return _formula(_attributes);
+            }
+            set
+            {
+                base.BaseValue = value;
             }
         }
     }
