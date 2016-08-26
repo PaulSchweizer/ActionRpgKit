@@ -48,7 +48,19 @@ namespace CharacterTests
             GameTime.time += 1;
             Assert.AreEqual(0, Body.Value);
             
+            // Add some more modifiers
+            GameTime.time = 0;
+            Body.AddModifier(new Modifier("StrengthBuff", 10, 10));
+            Body.AddModifier(new Modifier("AnotherStrengthBuff", 20, 5));
+            Assert.AreEqual(30, Body.Value);
+
+            GameTime.time = 5;
+            Assert.AreEqual(10, Body.Value);
+            Assert.AreEqual(1, Body.Modifiers.Count);
             
+            GameTime.time = 10;
+            Assert.AreEqual(10, Body.Value);
+            Assert.AreEqual(0, Body.Modifiers.Count);  
         }
     }
 }
