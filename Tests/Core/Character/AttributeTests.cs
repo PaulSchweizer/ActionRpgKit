@@ -48,7 +48,7 @@ namespace CharacterTests
             GameTime.time += 1;
             Assert.AreEqual(0, Body.Value);
             
-            // Add some more modifiers
+            // Add some more modifiers and advance time
             GameTime.time = 0;
             Body.AddModifier(new Modifier("StrengthBuff", 10, 10));
             Body.AddModifier(new Modifier("AnotherStrengthBuff", 20, 5));
