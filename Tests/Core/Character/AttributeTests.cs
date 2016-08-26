@@ -79,13 +79,19 @@ namespace CharacterTests
             Assert.AreEqual(99, Level.MaxValue);
             Assert.AreEqual(0, Level.Value);
             
-            // Try setting it
-            Level.Value = 13; 
-            Assert.AreEqual(0, Level.Value);
+            // Try directly setting it
+            Level.Value = float.MaxValue;
+            Assert.AreEqual(99, Level.Value);
+            Level.Value = float.MinValue;
+            Assert.AreEqual(99, Level.Value);
             
             // Change the contributing attributes
-            Experience.Value = 100;
-            Assert.AreEqual(1, Level.Value);
+            for (int i=0; i < 100; i++)
+            {
+                float xp = i * i * 100;
+                Experience.Value = xp;
+                Assert.AreEqual(i, (int)(Level.Value));
+            }
         }
     }
 }
