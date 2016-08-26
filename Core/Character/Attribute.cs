@@ -48,6 +48,11 @@ namespace Character.Attribute
         /// Remove a modifier from the attribute.
         /// </summary>
         void RemoveModifier(Modifier modifier);
+        
+        /// <summary>
+        /// Whether the attribute is modified by a modifier.
+        /// </summary>
+        bool IsModified { get; }
     }
     
     /// <summary>
@@ -164,8 +169,54 @@ namespace Character.Attribute
         {
             Modifiers.Remove(modifier);
         }
+        
+        public bool IsModified 
+        {
+            get 
+            {
+                for (int i = Modifiers.Count - 1; i >= 0; i--)
+                {
+                    if (Modifiers[i].IsActive)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
     }
-    
+
+    public class SecondaryAttribute : PrimaryAttribute
+    {
+        public delegate float Formula(IAttribute[] attributes);
+        
+        Formula _formula;
+        IAttribute[] _attributes;
+        
+        public SecondaryAttribute (string name, 
+                                   Formula formula, 
+                                   IAttribute[] attributes,
+                                   float minValue = float.MinValue,
+                                   float maxValue = float.MaxValue) : 
+                                   base(name, minValue, maxValue)
+        {
+            _formula = formula;
+            _attributes = attributes;
+        } 
+        
+        protected override float BaseValue
+        {
+            get
+            {
+                return _formula(_attributes);
+            }
+            set
+            {
+                base.BaseValue = value;
+            }
+        }
+    }
+ 
     public class Modifier 
     {
         private string _name;
