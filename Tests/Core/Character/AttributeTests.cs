@@ -1,18 +1,20 @@
 
 using System;
 using NUnit.Framework;
+using Character.Attribute;
+
 namespace CharacterTests
 {
     [TestFixture]
     [Category("Character.Attribute")]
     public class CharacterAttributeTests
     {
-        Character.PrimaryAttribute Body;
+        PrimaryAttribute Body;
         
         [SetUp]
         public void SetUp ()
         {
-            Body = new Character.PrimaryAttribute("Body", 0, 999, 10);
+            Body = new PrimaryAttribute("Body", 0, 999, 10);
             GameTime.time = 0f;
         }
         
