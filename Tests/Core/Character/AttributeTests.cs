@@ -100,21 +100,24 @@ namespace CharacterTests
         [Test]
         public void VolumeAttributeTest()
         {
-            Assert.AreEqual(0, (int)(Life.MinValue));
-            Assert.AreEqual(23, (int)(Life.MaxValue));
-            Assert.AreEqual(23, (int)(Life.Value));
-
-            // charStats.Life.Value = 10;
-            // Assert.AreEqual(10, (int)(charStats.Life.Value));
-
-            // charStats.Life.Value -= 10;
-            // Assert.AreEqual(0, (int)(charStats.Life.Value));
-
-            // charStats.Life.Value -= 10;
-            // Assert.AreEqual(0, (int)(charStats.Life.Value));
-
-            // charStats.Life.Value = 999999;
-            // Assert.AreEqual(23, (int)(charStats.Life.Value));
+            // Check the default values
+            Assert.AreEqual(0, Life.MinValue);
+            Assert.AreEqual(23, Life.MaxValue);
+            Assert.AreEqual(23, Life.Value);
+            
+            // Set the value
+            // Life.Value = 10;
+            // Assert.AreEqual(10, Life.Value);
+            // Life.Value -= 10;
+            // Assert.AreEqual(0, Life.Value);
+            
+            // Dropping below the minimum
+            // Life.Value -= 10;
+            // Assert.AreEqual(0, Life.Value);
+    
+            // Exceeding the maximum
+            // Life.Value = float.MaxValue;
+            // Assert.AreEqual(23, Life.Value);
 
             // charStats.Experience.Value = 100;
             // Assert.AreEqual(28, (int)(charStats.Life.MaxValue));
