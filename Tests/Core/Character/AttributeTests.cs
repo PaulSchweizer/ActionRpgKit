@@ -36,7 +36,7 @@ namespace CharacterTests
             
             // Add a basic modifier
             Body.AddModifier(new Modifier("StrengthBuff", 10, 10));
-            Assert.AreEqual(20, Body.Value);
+            Assert.AreEqual(10, Body.Value);
             
         }
     }
