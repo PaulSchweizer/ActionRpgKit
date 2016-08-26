@@ -153,5 +153,13 @@ namespace Character.Attribute
                 _value = value;
             }
         }
+        
+        public bool IsActive
+        {
+            get
+            {
+                return true;
+            }
+        }
     }
 }
