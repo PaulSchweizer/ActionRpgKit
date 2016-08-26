@@ -39,9 +39,9 @@ namespace CharacterTests
             // Set some values
             Body.Value = 12;
             Assert.AreEqual(Body.Value, 12);     
-            Body.Value = 10000;
+            Body.Value = float.MaxValue;
             Assert.AreEqual(Body.Value, 999);
-            Body.Value = -10000;
+            Body.Value = float.MinValue;
             Assert.AreEqual(Body.Value, 0);
             
             // Add a modifier
