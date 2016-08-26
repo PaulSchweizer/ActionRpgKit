@@ -39,7 +39,7 @@ namespace CharacterTests
             Assert.AreEqual(10, Body.Value);
             
             // Advance in time
-            for(int i=0; i<11; i++)
+            for(int i=0; i<10; i++)
             {
                 GameTime.time = i;
                 Assert.AreEqual(10, Body.Value);
