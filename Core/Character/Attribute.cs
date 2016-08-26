@@ -12,6 +12,7 @@ namespace Character.Attribute
         float MinValue { get; set; }
         List<Modifier> Modifiers { get; }
         void AddModifier(Modifier modifier);
+        void RemoveModifier(Modifier modifier);
     }
   
     public class PrimaryAttribute : IAttribute
@@ -61,6 +62,17 @@ namespace Character.Attribute
             get
             {
                 float value = BaseValue;
+                for (int i = Modifiers.Count - 1; i >= 0; i--)
+                {
+                    if (Modifiers[i].IsActive)
+                    {
+                        value += Modifiers[i].Value;
+                    }
+                    else
+                    {
+                        RemoveModifier(Modifiers[i]);
+                    }
+                }
                 return Math.Max(MinValue, Math.Min(MaxValue, value));
             }
             set
@@ -99,6 +111,11 @@ namespace Character.Attribute
         {
             modifier.Activate();
             _modifiers.Add(modifier);
+        }
+        
+        public void RemoveModifier(Modifier modifier)
+        {
+            Modifiers.Remove(modifier);
         }
     }
     
