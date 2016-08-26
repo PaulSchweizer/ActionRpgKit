@@ -77,7 +77,15 @@ namespace CharacterTests
             // Check the default values
             Assert.AreEqual(0, Level.MinValue);
             Assert.AreEqual(99, Level.MaxValue);
-            Assert.AreEqual(10, Level.Value);
+            Assert.AreEqual(0, Level.Value);
+            
+            // Try setting it
+            Level.Value = 13; 
+            Assert.AreEqual(0, Level.Value);
+            
+            // Change the contributing attributes
+            Experience.Value = 100;
+            Assert.AreEqual(1, Level.Value);
         }
     }
 }
