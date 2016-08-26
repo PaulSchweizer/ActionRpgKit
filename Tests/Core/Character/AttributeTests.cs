@@ -11,18 +11,21 @@ namespace CharacterTests
     {
         PrimaryAttribute Body;
         PrimaryAttribute Experience;
-        
         SecondaryAttribute Level;
+        VolumeAttribute Life;
         
         [SetUp]
         public void SetUp ()
         {
+            GameTime.time = 0f;
             Body = new PrimaryAttribute("Body", 0, 999, 10);
             Experience = new PrimaryAttribute("Experience");
             Level = new SecondaryAttribute("Level",
                         x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f, 
                         new IAttribute[] { Experience }, 0, 99);
-            GameTime.time = 0f;
+            Life = new VolumeAttribute("Life", 
+                        x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
+                        new IAttribute[] { Level, Body }, 0, 999);
         }
         
         [Test]
@@ -92,6 +95,35 @@ namespace CharacterTests
                 Experience.Value = xp;
                 Assert.AreEqual(i, Level.Value);
             }
+        }
+        
+        [Test]
+        public void VolumeAttributeTest()
+        {
+            Assert.AreEqual(23, (int)(Life.Value));
+            Assert.AreEqual(23, (int)(Life.MaxValue));
+            Assert.AreEqual(0, (int)(Life.MinValue));
+
+            // charStats.Life.Value = 10;
+            // Assert.AreEqual(10, (int)(charStats.Life.Value));
+
+            // charStats.Life.Value -= 10;
+            // Assert.AreEqual(0, (int)(charStats.Life.Value));
+
+            // charStats.Life.Value -= 10;
+            // Assert.AreEqual(0, (int)(charStats.Life.Value));
+
+            // charStats.Life.Value = 999999;
+            // Assert.AreEqual(23, (int)(charStats.Life.Value));
+
+            // charStats.Experience.Value = 100;
+            // Assert.AreEqual(28, (int)(charStats.Life.MaxValue));
+
+            // charStats.Body.AddModifier(new Character.Modifier("StrengthBuff", 11, 10));
+            // Assert.AreEqual(32, (int)(charStats.Life.MaxValue));
+
+            // GameTime.time = 11f;
+            // Assert.AreEqual(28, (int)(charStats.Life.MaxValue));
         }
     }
 }
