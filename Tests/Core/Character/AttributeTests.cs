@@ -10,20 +10,27 @@ namespace CharacterTests
     public class AttributeTests
     {
         PrimaryAttribute Body;
+        PrimaryAttribute Experience;
+        
+        SecondaryAttribute Level;
         
         [SetUp]
         public void SetUp ()
         {
             Body = new PrimaryAttribute("Body", 0, 999, 10);
+            Experience new PrimaryAttribute("Experience");
+            Level = new SecondaryAttribute("Level",
+                        x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f, 
+                        new IAttribute[] { Experience }, 0, 99);
             GameTime.time = 0f;
         }
         
         [Test]
-        public void PrimaryAttributeTest()
+        public void PrimaryAttributeTest ()
         {
             // Check the default values
-            Assert.AreEqual(999, Body.MaxValue);
             Assert.AreEqual(0, Body.MinValue);
+            Assert.AreEqual(999, Body.MaxValue);
             Assert.AreEqual(10, Body.Value);
 
             // Set some values
@@ -57,10 +64,20 @@ namespace CharacterTests
             GameTime.time = 5;
             Assert.AreEqual(10, Body.Value);
             Assert.AreEqual(1, Body.Modifiers.Count);
+            Assert.IsTrue(Body.IsModified);
             
             GameTime.time = 10;
             Assert.AreEqual(0, Body.Value);
             Assert.AreEqual(0, Body.Modifiers.Count);  
+        }
+        
+        [Test]
+        public void SecondaryAttributeTest ()
+        {
+            // Check the default values
+            Assert.AreEqual(0, Level.MinValue);
+            Assert.AreEqual(99, Level.MaxValue);
+            Assert.AreEqual(10, Level.Value);
         }
     }
 }
