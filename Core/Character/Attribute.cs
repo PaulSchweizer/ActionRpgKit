@@ -227,23 +227,24 @@ namespace Character.Attribute
                                 Formula formula, 
                                 IAttribute[] attributes,
                                 float minValue = float.MinValue,
-                                float maxValue =float.MaxValue) : 
+                                float maxValue = float.MaxValue) : 
                                 base(name, formula, attributes, minValue, maxValue)
         {
             _currentValue = MaxValue;
         }
         
-        public override float Value
-        {
-            get
-            {
-                return _currentValue;
-            }
-            set
-            {
-                _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
-            }
-        }
+        // public override float Value
+        // {
+        //     get
+        //     {
+        //         return _currentValue;
+        //     }
+        //     set
+        //     {
+        //         _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
+        //          _value = Math.Max(MinValue, Math.Min(MaxValue, value));
+        //     }
+        // }
 
         public override float MaxValue
         {
@@ -254,14 +255,6 @@ namespace Character.Attribute
             set 
             {
                 _absoluteMaxValue = value;
-            }
-        }
-
-        public override float MinValue
-        {
-            get
-            {
-                return 0f;
             }
         }
     }
