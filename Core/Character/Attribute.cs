@@ -74,6 +74,7 @@ namespace Character.Attribute
                         RemoveModifier(Modifiers[i]);
                     }
                 }
+                return value;
                 return Math.Max(MinValue, Math.Min(MaxValue, value));
             }
             set
