@@ -81,16 +81,16 @@ namespace CharacterTests
             
             // Try directly setting it
             Level.Value = float.MaxValue;
-            Assert.AreEqual(99, Level.Value);
+            Assert.AreEqual(0, Level.Value);
             Level.Value = float.MinValue;
-            Assert.AreEqual(99, Level.Value);
+            Assert.AreEqual(0, Level.Value);
             
             // Change the contributing attributes
             for (int i=0; i < 100; i++)
             {
                 float xp = i * i * 100;
                 Experience.Value = xp;
-                Assert.AreEqual(i, (int)(Level.Value));
+                Assert.AreEqual(i, Level.Value);
             }
         }
     }
