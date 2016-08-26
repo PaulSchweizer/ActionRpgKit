@@ -38,6 +38,14 @@ namespace CharacterTests
             Body.AddModifier(new Modifier("StrengthBuff", 10, 10));
             Assert.AreEqual(10, Body.Value);
             
+            // Advance in time
+            for(int i=0; i<11; i++)
+            {
+                GameTime.time = i;
+                Assert.AreEqual(10, charStats.Body.Value);
+            }
+            GameTime.time += 1;
+            Assert.AreEqual(0, charStats.Body.Value);
         }
     }
 }
