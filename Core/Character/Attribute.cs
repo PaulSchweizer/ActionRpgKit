@@ -21,6 +21,7 @@ namespace Character.Attribute
         private float _value;
         private float _minValue;
         private float _maxValue;
+        private List<Modifier> _modifiers = new List<Modifier>();
 
         public PrimaryAttribute (string name, 
                                  float minValue = float.MinValue, 
