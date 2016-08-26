@@ -3,18 +3,56 @@ using System.Collections.Generic;
 
 namespace Character.Attribute
 {
+    /// <summary>
+    /// Interface for Attributes. 
+    /// </summary>
     public interface IAttribute
     {
+        /// <summary>
+        /// The name of the attribute. 
+        /// </summary>
         string Name { get; set; }
+        
+        /// <summary>
+        /// The unmodified base value.
+        /// </summary>
         float BaseValue { get; set; }
+        
+        /// <summary>
+        /// The actual, modified value, still within the min, max range.
+        /// </summary>
         float Value { get; set; }
+        
+        /// <summary>
+        /// The maximum value.
+        /// </summary>
         float MaxValue { get; set; }
+        
+        /// <summary>
+        /// The minimum value.
+        /// </summary>
         float MinValue { get; set; }
+
+        /// <summary>
+        /// All modifiers on the attribute. 
+        /// There is no check to determine whether they are active or not.
+        /// </summary>
         List<Modifier> Modifiers { get; }
+        
+        /// <summary>
+        /// Add a new modifier to the attribute and activate it.
+        /// </summary>
         void AddModifier(Modifier modifier);
+
+        /// <summary>
+        /// Remove a modifier from the attribute.
+        /// </summary>
         void RemoveModifier(Modifier modifier);
     }
-  
+    
+    /// <summary>
+    /// Represents a simple float value. 
+    /// </summary>
     public class PrimaryAttribute : IAttribute
     {
         private string _name;
