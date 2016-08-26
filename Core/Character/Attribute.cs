@@ -54,7 +54,7 @@ namespace Character.Attribute
             }
             set
             {
-                _value = value;
+                _value = Math.Max(MinValue, Math.Min(MaxValue, value));
             }
         }
 
