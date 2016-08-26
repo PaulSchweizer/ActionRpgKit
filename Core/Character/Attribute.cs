@@ -210,10 +210,6 @@ namespace Character.Attribute
             {
                 return _formula(_attributes);
             }
-            set
-            {
-                base.BaseValue = value;
-            }
         }
     }
  
