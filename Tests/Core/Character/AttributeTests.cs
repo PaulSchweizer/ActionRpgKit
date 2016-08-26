@@ -34,7 +34,7 @@ namespace CharacterTests
             Body.Value = -10000;
             Assert.AreEqual(Body.Value, 0);
             
-            // Add a basic modifier
+            // Add a modifier
             Body.AddModifier(new Modifier("StrengthBuff", 10, 10));
             Assert.AreEqual(10, Body.Value);
             
@@ -42,10 +42,13 @@ namespace CharacterTests
             for(int i=0; i<11; i++)
             {
                 GameTime.time = i;
-                Assert.AreEqual(10, charStats.Body.Value);
+                Assert.AreEqual(10, Body.Value);
             }
+            // Until the modifier's life cycle is over
             GameTime.time += 1;
-            Assert.AreEqual(0, charStats.Body.Value);
+            Assert.AreEqual(0, Body.Value);
+            
+            
         }
     }
 }
