@@ -124,6 +124,7 @@ namespace Character.Attribute
         private string _name;
         private float _value;
         private float _duration;
+        private float _endTime;
         
         public Modifier (string name, 
                          float value, 
@@ -154,11 +155,24 @@ namespace Character.Attribute
             }
         }
         
+        public void Activate ()
+        {
+            _endTime = GameTime.time + _duration;
+        }
+
+        public float RemainingTime
+        {
+            get
+            {
+                return _endTime - GameTime.time;
+            }
+        }
+
         public bool IsActive
         {
             get
             {
-                return true;
+                return RemainingTime > 0;
             }
         }
     }
