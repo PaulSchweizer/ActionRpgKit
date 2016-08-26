@@ -7,7 +7,7 @@ namespace CharacterTests
 {
     [TestFixture]
     [Category("Character.Attribute")]
-    public class CharacterAttributeTests
+    public class AttributeTests
     {
         PrimaryAttribute Body;
         
