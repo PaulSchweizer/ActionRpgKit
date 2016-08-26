@@ -59,7 +59,7 @@ namespace CharacterTests
             Assert.AreEqual(1, Body.Modifiers.Count);
             
             GameTime.time = 10;
-            Assert.AreEqual(10, Body.Value);
+            Assert.AreEqual(0, Body.Value);
             Assert.AreEqual(0, Body.Modifiers.Count);  
         }
     }
