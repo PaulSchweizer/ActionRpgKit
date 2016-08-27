@@ -221,7 +221,7 @@ namespace Character.Attribute
     {
 
         // private float _currentValue;
-        // private float _absoluteMaxValue;
+        private float _absoluteMaxValue;
 
         public VolumeAttribute (string name, 
                                 Formula formula, 
@@ -245,17 +245,17 @@ namespace Character.Attribute
         //     }
         // }
 
-        // public override float MaxValue
-        // {
-        //     get
-        //     {
-        //         return Math.Min(_absoluteMaxValue, base.BaseValue);
-        //     }
-        //     set 
-        //     {
-        //         _absoluteMaxValue = value;
-        //     }
-        // }
+        public override float MaxValue
+        {
+            get
+            {
+                return Math.Min(_absoluteMaxValue, base.BaseValue);
+            }
+            set 
+            {
+                _absoluteMaxValue = value;
+            }
+        }
     }
  
     public class Modifier 
