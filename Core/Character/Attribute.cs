@@ -233,18 +233,18 @@ namespace Character.Attribute
             _currentValue = MaxValue;
         }
         
-        // public override float Value
-        // {
-        //     get
-        //     {
-        //         return _currentValue;
-        //     }
-        //     set
-        //     {
-        //         _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
-        //          _value = Math.Max(MinValue, Math.Min(MaxValue, value));
-        //     }
-        // }
+        public override float Value
+        {
+            get
+            {
+                return _currentValue;
+            }
+            set
+            {
+                _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
+                 _value = Math.Max(MinValue, Math.Min(MaxValue, value));
+            }
+        }
 
         public override float MaxValue
         {
