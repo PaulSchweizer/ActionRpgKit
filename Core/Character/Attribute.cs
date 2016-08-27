@@ -220,7 +220,7 @@ namespace Character.Attribute
      public class VolumeAttribute : SecondaryAttribute
     {
 
-        // private float _currentValue;
+        private float _currentValue;
         private float _absoluteMaxValue;
 
         public VolumeAttribute (string name, 
@@ -230,20 +230,20 @@ namespace Character.Attribute
                                 float maxValue = float.MaxValue) : 
                                 base(name, formula, attributes, minValue, maxValue)
         {
-            // _currentValue = MaxValue;
+            _currentValue = MaxValue;
         }
         
-        // public override float Value
-        // {
-        //     get
-        //     {
-        //         return _currentValue;
-        //     }
-        //     set
-        //     {
-        //         _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
-        //     }
-        // }
+        public override float Value
+        {
+            get
+            {
+                return _currentValue;
+            }
+            set
+            {
+                _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
+            }
+        }
 
         public override float MaxValue
         {
