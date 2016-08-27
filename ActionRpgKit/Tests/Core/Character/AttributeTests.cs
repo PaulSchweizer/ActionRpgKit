@@ -71,6 +71,7 @@ namespace CharacterTests
             GameTime.time = 10;
             Assert.AreEqual(0, Body.Value);
             Assert.AreEqual(0, Body.Modifiers.Count);
+            Assert.IsFalse(Body.IsModified);
         }
 
         [Test]
@@ -127,6 +128,16 @@ namespace CharacterTests
             Assert.AreEqual(32, Life.MaxValue);
             GameTime.time = 11f;
             Assert.AreEqual(28, Life.MaxValue);
+        }
+
+        [Test]
+        public void PrettyRepresentationTest()
+        {
+            Body.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
+            string repr = "Body      : 20  (0 - 999)\n" +
+                          "            + [StrengthBuff]:  10, 10/10 sec";
+            Console.WriteLine(Body.ToString());
+            Assert.AreEqual(repr, Body.ToString());
         }
     }
 }

@@ -195,6 +195,16 @@ namespace Character.Attribute
                 return false;
             }
         }
+
+        public override string ToString()
+        {
+            string repr = String.Format("{0, -10}: {1,-3} ({2} - {3})", Name, Value, MinValue, MaxValue);
+            for (int i = 0; i < Modifiers.Count; i++)
+            {
+                repr += "\n            + " + Modifiers[i].ToString();
+            }
+            return repr;
+        }
     }
 
     /// <summary>
@@ -345,6 +355,11 @@ namespace Character.Attribute
             {
                 return RemainingTime > 0;
             }
+        }
+
+        public override string ToString()
+        {
+            return String.Format("[{0}]: {1,3}, {2}/{3} sec", Name, Value, RemainingTime, _duration);
         }
     }
 }
