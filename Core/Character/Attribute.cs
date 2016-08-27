@@ -231,7 +231,7 @@ namespace Character.Attribute
     {
 
         private float _currentValue;
-        // private float _absoluteMaxValue;
+        private float _absoluteMaxValue;
 
         public VolumeAttribute (string name, 
                                 Formula formula, 
@@ -241,6 +241,7 @@ namespace Character.Attribute
                                 base(name, formula, attributes, minValue, maxValue)
         {
             _currentValue = BaseValue;
+            _absoluteMax = maxValue;
         }
         
         public override float Value
