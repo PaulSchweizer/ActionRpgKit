@@ -242,7 +242,6 @@ namespace Character.Attribute
             set
             {
                 _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
-                 _value = Math.Max(MinValue, Math.Min(MaxValue, value));
             }
         }
 
