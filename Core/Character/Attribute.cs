@@ -240,7 +240,7 @@ namespace Character.Attribute
                                 float maxValue = float.MaxValue) : 
                                 base(name, formula, attributes, minValue, maxValue)
         {
-            _currentValue = MaxValue;
+            _currentValue = BaseValue;
         }
         
         public override float Value
