@@ -249,7 +249,7 @@ namespace Character.Attribute
         {
             get
             {
-                return Math.Min(_absoluteMaxValue, base.BaseValue);
+                return Math.Min(_absoluteMaxValue, BaseValue);
             }
             set 
             {
