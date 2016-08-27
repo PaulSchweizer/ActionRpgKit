@@ -223,15 +223,15 @@ namespace Character.Attribute
         // private float _currentValue;
         // private float _absoluteMaxValue;
 
-        // public VolumeAttribute (string name, 
-        //                         Formula formula, 
-        //                         IAttribute[] attributes,
-        //                         float minValue = float.MinValue,
-        //                         float maxValue = float.MaxValue) : 
-        //                         base(name, formula, attributes, minValue, maxValue)
-        // {
-        //     _currentValue = MaxValue;
-        // }
+        public VolumeAttribute (string name, 
+                                Formula formula, 
+                                IAttribute[] attributes,
+                                float minValue = float.MinValue,
+                                float maxValue = float.MaxValue) : 
+                                base(name, formula, attributes, minValue, maxValue)
+        {
+            // _currentValue = MaxValue;
+        }
         
         // public override float Value
         // {
