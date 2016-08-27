@@ -1,6 +1,6 @@
-public static class GameTime
+﻿public static class GameTime
 {
-    private static float _fixedTime; 
+    private static float _fixedTime;
 
     public static float time
     {

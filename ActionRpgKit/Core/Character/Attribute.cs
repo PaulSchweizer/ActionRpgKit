@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Character.Attribute
@@ -12,22 +12,22 @@ namespace Character.Attribute
         /// The name of the attribute. 
         /// </summary>
         string Name { get; set; }
-        
+
         /// <summary>
         /// The unmodified base value.
         /// </summary>
         float BaseValue { get; set; }
-        
+
         /// <summary>
         /// The actual, modified value, still within the min, max range.
         /// </summary>
         float Value { get; set; }
-        
+
         /// <summary>
         /// The maximum value.
         /// </summary>
         float MaxValue { get; set; }
-        
+
         /// <summary>
         /// The minimum value.
         /// </summary>
@@ -37,24 +37,24 @@ namespace Character.Attribute
         /// All modifiers on the attribute. 
         /// There is no check to determine whether they are active or not.
         /// </summary>
-        List<Modifier> Modifiers { get; }
-        
+        List<IModifier> Modifiers { get; }
+
         /// <summary>
         /// Add a new modifier to the attribute and activate it.
         /// </summary>
-        void AddModifier(Modifier modifier);
+        void AddModifier(IModifier modifier);
 
         /// <summary>
         /// Remove a modifier from the attribute.
         /// </summary>
-        void RemoveModifier(Modifier modifier);
-        
+        void RemoveModifier(IModifier modifier);
+
         /// <summary>
         /// Whether the attribute is modified by a modifier.
         /// </summary>
         bool IsModified { get; }
     }
-    
+
     /// <summary>
     /// Represents a simple float value. 
     /// </summary>
@@ -64,10 +64,14 @@ namespace Character.Attribute
         private float _value;
         private float _minValue;
         private float _maxValue;
-        private List<Modifier> _modifiers = new List<Modifier>();
+        private List<IModifier> _modifiers = new List<IModifier>();
 
-        public PrimaryAttribute (string name, 
-                                 float minValue = float.MinValue, 
+        public PrimaryAttribute()
+        {
+        }
+
+        public PrimaryAttribute(string name,
+                                 float minValue = float.MinValue,
                                  float maxValue = float.MaxValue,
                                  float value = 0)
         {
@@ -100,7 +104,7 @@ namespace Character.Attribute
                 _value = Math.Max(MinValue, Math.Min(MaxValue, value));
             }
         }
-        
+
         /// <summary>
         /// The final value with all modifiers applied to it.
         /// Setting it sets the BaseValue.
@@ -154,32 +158,32 @@ namespace Character.Attribute
                 _minValue = value;
             }
         }
-        
-        public List<Modifier> Modifiers
+
+        public List<IModifier> Modifiers
         {
             get
             {
                 return _modifiers;
             }
         }
-        
-        public void AddModifier(Modifier modifier)
+
+        public void AddModifier(IModifier modifier)
         {
             modifier.Activate();
             _modifiers.Add(modifier);
         }
-        
-        public void RemoveModifier(Modifier modifier)
+
+        public void RemoveModifier(IModifier modifier)
         {
             Modifiers.Remove(modifier);
         }
-        
+
         /// <summary>
         /// Check if any active modifiers exist. 
         /// </summary> 
-        public bool IsModified 
+        public bool IsModified
         {
-            get 
+            get
             {
                 for (int i = Modifiers.Count - 1; i >= 0; i--)
                 {
@@ -199,21 +203,25 @@ namespace Character.Attribute
     public class SecondaryAttribute : PrimaryAttribute
     {
         public delegate float Formula(IAttribute[] attributes);
-        
-        Formula _formula;
-        IAttribute[] _attributes;
-        
-        public SecondaryAttribute (string name, 
-                                   Formula formula, 
+
+        protected Formula _formula;
+        protected IAttribute[] _attributes;
+
+        public SecondaryAttribute(string name,
+                                   Formula formula,
                                    IAttribute[] attributes,
                                    float minValue = float.MinValue,
-                                   float maxValue = float.MaxValue) : 
+                                   float maxValue = float.MaxValue) :
                                    base(name, minValue, maxValue)
         {
             _formula = formula;
             _attributes = attributes;
-        } 
-        
+        }
+
+        public SecondaryAttribute()
+        {
+        }
+
         public override float BaseValue
         {
             get
@@ -226,24 +234,29 @@ namespace Character.Attribute
             }
         }
     }
- 
-     public class VolumeAttribute : SecondaryAttribute
+
+    public class VolumeAttribute : SecondaryAttribute
     {
 
         private float _currentValue;
         private float _absoluteMaxValue;
 
-        public VolumeAttribute (string name, 
-                                Formula formula, 
-                                IAttribute[] attributes,
-                                float minValue = float.MinValue,
-                                float maxValue = float.MaxValue) : 
-                                base(name, formula, attributes, minValue, maxValue)
+        public VolumeAttribute(string name,
+                               Formula formula,
+                               IAttribute[] attributes,
+                               float minValue = float.MinValue,
+                               float maxValue = float.MaxValue) : base ()
         {
+            Name = name;
+            _formula = formula;
+            _attributes = attributes;
+            MinValue = minValue;
+            MaxValue = maxValue;
+
             _currentValue = BaseValue;
-            _absoluteMax = maxValue;
+            _absoluteMaxValue = maxValue;
         }
-        
+
         public override float Value
         {
             get
@@ -256,28 +269,36 @@ namespace Character.Attribute
             }
         }
 
-        // public override float MaxValue
-        // {
-        //     get
-        //     {
-        //         return Math.Min(_absoluteMaxValue, BaseValue);
-        //     }
-        //     set 
-        //     {
-        //         _absoluteMaxValue = value;
-        //     }
-        // }
+        public override float MaxValue
+        {
+             get
+             {
+                 return Math.Min(_absoluteMaxValue, BaseValue);
+             }
+             set 
+             {
+                 _absoluteMaxValue = value;
+             }
+         }
     }
- 
-    public class Modifier 
+
+    public interface IModifier
+    {
+        string Name { get; }
+        float Value { get; }
+        void Activate();
+        bool IsActive { get; }
+    }
+
+    public class TimeBasedModifier : IModifier
     {
         private string _name;
         private float _value;
         private float _duration;
         private float _endTime;
-        
-        public Modifier (string name, 
-                         float value, 
+
+        public TimeBasedModifier(string name,
+                         float value,
                          float duration)
         {
             _name = name;
@@ -285,17 +306,17 @@ namespace Character.Attribute
             _duration = duration;
         }
 
-        public string Name 
+        public string Name
         {
-            get 
+            get
             {
                 return _name;
             }
         }
-    
-        public float Value 
+
+        public float Value
         {
-            get 
+            get
             {
                 return _value;
             }
@@ -304,8 +325,8 @@ namespace Character.Attribute
                 _value = value;
             }
         }
-        
-        public void Activate ()
+
+        public void Activate()
         {
             _endTime = GameTime.time + _duration;
         }
