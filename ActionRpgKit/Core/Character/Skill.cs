@@ -16,8 +16,6 @@ namespace Character.Skill
         float CooldownTime { get; }
 
         bool Match();
-        bool TriggerSkill();
-        bool CanBeUsed { get; }
         void UseSkill();
     }
 
@@ -118,33 +116,6 @@ namespace Character.Skill
         public bool Match()
         {
             throw new NotImplementedException();
-        }
-
-        public bool CanBeUsed
-        {
-            get
-            {
-                return GameTime.time > _endTime;
-            }
-        }
-
-        public bool TriggerSkill()
-        {
-            if (!CanBeUsed)
-            {
-                return false;
-            }
-            _endTime = GameTime.time + CooldownTime;
-            PreUseCountdown();
-            return true;
-        }
-
-        public virtual void PreUseCountdown()
-        {
-            //
-            // Implement a Coroutine in MonoBehaviour
-            //
-            UseSkill();
         }
 
         public void UseSkill()

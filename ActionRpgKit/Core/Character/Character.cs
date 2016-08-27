@@ -9,7 +9,7 @@ namespace Character
         string Name { get; }
         List<ISkill> Skills { get; }
         void LearnSkill(ISkill skill);
-        void UseSkill (ISkill skill);
+        void TriggerSkill(ISkill skill);
     }
 
     public class Character : ICharacter
@@ -43,7 +43,7 @@ namespace Character
             _skills.Add(skill);
         }
 
-        public void UseSkill(ISkill skill)
+        public void TriggerSkill(ISkill skill)
         {
             throw new NotImplementedException();
         }

@@ -11,18 +11,25 @@ namespace CharacterTests
 
         ICharacter player;
 
+        PassiveSkill passiveSkill;
+
         [SetUp]
         public void SetUp ()
         {
             player = new Player("John");
+            passiveSkill = new PassiveSkill("ShadowStrength",
+                                            "Description for B",
+                                            cost: 20,
+                                            preUseTime: 20,
+                                            cooldownTime: 20);
         }
 
         [Test]
         public void UsingSkillTest ()
         {
-            PassiveSkill skill = new PassiveSkill("ShadowStrength");
-            player.LearnSkill(skill);
-            player.UseSkill(player.Skills[0]);
+            player.LearnSkill(passiveSkill);
+            player.TriggerSkill(passiveSkill);
+
         }
     }
 }
