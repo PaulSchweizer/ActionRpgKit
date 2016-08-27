@@ -100,7 +100,11 @@ namespace Character.Attribute
                 _value = Math.Max(MinValue, Math.Min(MaxValue, value));
             }
         }
-
+        
+        /// <summary>
+        /// The final value with all modifiers applied to it.
+        /// Setting it sets the BaseValue.
+        /// </summary>
         public virtual float Value
         {
             get
@@ -170,6 +174,9 @@ namespace Character.Attribute
             Modifiers.Remove(modifier);
         }
         
+        /// <summary>
+        /// Check if any active modifiers exist. 
+        /// </summary> 
         public bool IsModified 
         {
             get 
@@ -186,6 +193,9 @@ namespace Character.Attribute
         }
     }
 
+    /// <summary>
+    /// The Value is calculated through a given formula.
+    /// </summary> 
     public class SecondaryAttribute : PrimaryAttribute
     {
         public delegate float Formula(IAttribute[] attributes);
@@ -221,7 +231,7 @@ namespace Character.Attribute
     {
 
         private float _currentValue;
-        private float _absoluteMaxValue;
+        // private float _absoluteMaxValue;
 
         public VolumeAttribute (string name, 
                                 Formula formula, 
@@ -245,17 +255,17 @@ namespace Character.Attribute
             }
         }
 
-        public override float MaxValue
-        {
-            get
-            {
-                return Math.Min(_absoluteMaxValue, BaseValue);
-            }
-            set 
-            {
-                _absoluteMaxValue = value;
-            }
-        }
+        // public override float MaxValue
+        // {
+        //     get
+        //     {
+        //         return Math.Min(_absoluteMaxValue, BaseValue);
+        //     }
+        //     set 
+        //     {
+        //         _absoluteMaxValue = value;
+        //     }
+        // }
     }
  
     public class Modifier 
