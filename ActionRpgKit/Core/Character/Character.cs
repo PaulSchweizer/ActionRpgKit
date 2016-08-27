@@ -9,13 +9,14 @@ namespace Character
         string Name { get; }
         List<ISkill> Skills { get; }
         void LearnSkill(ISkill skill);
-        void TriggerSkill(ISkill skill);
+        bool TriggerSkill(ISkill skill);
     }
 
     public class Character : ICharacter
     {
         private string _name;
         private List<ISkill> _skills = new List<ISkill>();
+        private List<float> _skillEndTimes = new List<float>();
 
         public Character(string name)
         {
@@ -38,14 +39,25 @@ namespace Character
             }
         }
 
-        public void LearnSkill(ISkill skill)
+        public void LearnSkill (ISkill skill)
         {
             _skills.Add(skill);
+            _skillEndTimes.Add(-1);
         }
 
-        public void TriggerSkill(ISkill skill)
+        public bool TriggerSkill (ISkill skill)
         {
-            throw new NotImplementedException();
+            if (!SkillCanBeUsed(skill))
+            {
+                return false;
+            }
+            _skillEndTimes[Skills.IndexOf(skill)] = GameTime.time + skill.CooldownTime;
+            return true;
+        }
+
+        private bool SkillCanBeUsed (ISkill skill)
+        {
+            return GameTime.time > _skillEndTimes[Skills.IndexOf(skill)];
         }
     }
 

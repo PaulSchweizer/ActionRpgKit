@@ -16,9 +16,10 @@ namespace CharacterTests
         [SetUp]
         public void SetUp ()
         {
+            GameTime.time = 0;
             player = new Player("John");
             passiveSkill = new PassiveSkill("ShadowStrength",
-                                            "Description for B",
+                                            "A Description",
                                             cost: 20,
                                             preUseTime: 20,
                                             cooldownTime: 20);
@@ -27,9 +28,17 @@ namespace CharacterTests
         [Test]
         public void UsingSkillTest ()
         {
+            // Trigger a Skill
             player.LearnSkill(passiveSkill);
-            player.TriggerSkill(passiveSkill);
+            bool triggered = player.TriggerSkill(passiveSkill);
+            Assert.IsTrue(triggered);
+            triggered = player.TriggerSkill(passiveSkill);
+            Assert.IsFalse(triggered);
 
+            // Advance in Time
+            GameTime.time = 21;
+            triggered = player.TriggerSkill(passiveSkill);
+            Assert.IsTrue(triggered);
         }
     }
 }
