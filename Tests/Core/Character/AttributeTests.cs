@@ -23,7 +23,7 @@ namespace CharacterTests
             Level = new SecondaryAttribute("Level",
                         x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f, 
                         new IAttribute[] { Experience }, 0, 99);
-            Life = new VolumeAttribute("Life", 
+            Life = new SecondaryAttribute("Life", 
                          x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
                          new IAttribute[] { Level, Body }, 0, 999);
         }
