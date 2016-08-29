@@ -12,7 +12,6 @@ namespace CharacterTests
         PrimaryAttribute Experience;
         SecondaryAttribute Level;
         VolumeAttribute Life;
-        SimpleVolumeAttribute Magic;
 
         [SetUp]
         public void SetUp ()
@@ -24,9 +23,6 @@ namespace CharacterTests
                         x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f,
                         new IAttribute[] { Experience }, 0, 99);
             Life = new VolumeAttribute("Life",
-                         x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
-                         new IAttribute[] { Level, Body }, 0, 999);
-            Magic = new SimpleVolumeAttribute("Magic",
                          x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
                          new IAttribute[] { Level, Body }, 0, 999);
         }
@@ -132,15 +128,6 @@ namespace CharacterTests
             Assert.AreEqual(32, Life.MaxValue);
             GameTime.time = 11f;
             Assert.AreEqual(28, Life.MaxValue);
-        }
-
-        [Test]
-        public void SimpleVolumeAttributeTest ()
-        {
-            // Check the default values
-            Assert.AreEqual(0, Magic.MinValue);
-            Assert.AreEqual(23, Magic.MaxValue);
-            Assert.AreEqual(23, Magic.Value);
         }
 
         [Test]
