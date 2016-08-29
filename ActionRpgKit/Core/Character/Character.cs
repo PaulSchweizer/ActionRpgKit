@@ -72,6 +72,10 @@ namespace Character
 
         private bool SkillCanBeUsed (ISkill skill)
         {
+            if (!Skills.Contains(skill))
+            {
+                return false;
+            }
             if (Stats.Magic.Value < skill.Cost)
             {
                 return false;
