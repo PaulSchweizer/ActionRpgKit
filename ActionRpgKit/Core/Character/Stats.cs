@@ -18,8 +18,8 @@ namespace Character.Stats
         public PlayerStats ()
         {
             // Primary Attributes
-            Soul = new BaseAttribute("Soul", 0, 999, 0);
-            Experience = new Attribute("Experience");
+            Soul = new PrimaryAttribute("Soul", 0, 999, 0);
+            Experience = new PrimaryAttribute("Experience");
 
             // Secondary Attributes
             Level = new SecondaryAttribute("Level",
