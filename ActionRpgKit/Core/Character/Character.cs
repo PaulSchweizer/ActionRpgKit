@@ -21,6 +21,11 @@ namespace Character
         private List<ISkill> _skills = new List<ISkill>();
         private List<float> _skillEndTimes = new List<float>();
 
+        public BaseCharacter (string name)
+        {
+            _name = name;
+        }
+
         public string Name
         {
             get
@@ -77,18 +82,16 @@ namespace Character
 
     public class Player : BaseCharacter
     {
-        public Player(string name)
+        public Player(string name) : base(name)
         {   
-            Name = name;
             Stats = new PlayerStats();
         }
     }
 
     public class Enemy : BaseCharacter
     {
-        public Enemy(string name)
+        public Enemy(string name) : base(name)
         {   
-            Name = name;
             Stats = new EnemyStats();
         }
     }
