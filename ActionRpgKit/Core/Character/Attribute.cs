@@ -292,6 +292,46 @@ namespace Character.Attribute
          }
     }
 
+    public class SimpleVolumeAttribute : PrimaryAttribute
+    {
+
+        private float _currentValue;
+        private float _absoluteMaxValue;
+        
+        public SimpleVolumeAttribute(string name,
+                                     float minValue = float.MinValue,
+                                     float maxValue = float.MaxValue,
+                                     float value = 0)) : base (name, minValue, maxValue, value)
+        {
+            _currentValue = BaseValue;
+            _absoluteMaxValue = maxValue;
+        }
+
+        public override float Value
+        {
+            get
+            {
+                return _currentValue;
+            }
+            set
+            {
+                _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
+            }
+        }
+
+        public override float MaxValue
+        {
+             get
+             {
+                 return Math.Min(_absoluteMaxValue, BaseValue);
+             }
+             set 
+             {
+                 _absoluteMaxValue = value;
+             }
+         }
+    }
+
     public interface IModifier
     {
         string Name { get; }
