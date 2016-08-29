@@ -12,13 +12,13 @@ namespace Character
         bool TriggerSkill(ISkill skill);
     }
 
-    public class Character : ICharacter
+    public class BaseCharacter : ICharacter
     {
         private string _name;
         private List<ISkill> _skills = new List<ISkill>();
         private List<float> _skillEndTimes = new List<float>();
 
-        public Character(string name)
+        public BaseCharacter(string name)
         {
             _name = name;
         }
@@ -61,7 +61,7 @@ namespace Character
         }
     }
 
-    public class Player : Character
+    public class Player : BaseCharacter
     {
         public Player(string name) : base(name)
         {   
