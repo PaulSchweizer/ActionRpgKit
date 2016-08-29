@@ -12,9 +12,10 @@ namespace CharacterTests
         PrimaryAttribute Experience;
         SecondaryAttribute Level;
         VolumeAttribute Life;
+        SimpleVolumeAttribute Magic;
 
         [SetUp]
-        public void SetUp()
+        public void SetUp ()
         {
             GameTime.time = 0f;
             Body = new PrimaryAttribute("Body", 0, 999, 10);
@@ -25,10 +26,13 @@ namespace CharacterTests
             Life = new VolumeAttribute("Life",
                          x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
                          new IAttribute[] { Level, Body }, 0, 999);
+            Magic = new SimpleVolumeAttribute("Magic",
+                         x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
+                         new IAttribute[] { Level, Body }, 0, 999);
         }
 
         [Test]
-        public void PrimaryAttributeTest()
+        public void PrimaryAttributeTest ()
         {
             // Check the default values
             Assert.AreEqual(0, Body.MinValue);
@@ -75,7 +79,7 @@ namespace CharacterTests
         }
 
         [Test]
-        public void SecondaryAttributeTest()
+        public void SecondaryAttributeTest ()
         {
             // Check the default values
             Assert.AreEqual(0, Level.MinValue);
@@ -98,7 +102,7 @@ namespace CharacterTests
         }
 
         [Test]
-        public void VolumeAttributeTest()
+        public void VolumeAttributeTest ()
         {
             // Check the default values
             Assert.AreEqual(0, Life.MinValue);
@@ -131,7 +135,16 @@ namespace CharacterTests
         }
 
         [Test]
-        public void PrettyRepresentationTest()
+        public void SimpleVolumeAttributeTest ()
+        {
+            // Check the default values
+            Assert.AreEqual(0, Magic.MinValue);
+            Assert.AreEqual(23, Magic.MaxValue);
+            Assert.AreEqual(23, Magic.Value);
+        }
+
+        [Test]
+        public void PrettyRepresentationTest ()
         {
             Body.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
             string repr = "Body      : 20  (0 - 999)\n" +
