@@ -1,3 +1,4 @@
+using System;
 using Character.Attribute;
 
 namespace Character.Stats 
