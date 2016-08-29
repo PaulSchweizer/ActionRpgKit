@@ -22,31 +22,44 @@ namespace CharacterTests
             enemy = new BaseCharacter("Zombie");
             passiveSkill = new PassiveSkill("ShadowStrength",
                                             "A Description",
-                                            cost: 20,
-                                            preUseTime: 20,
-                                            cooldownTime: 20);
+                                            cost: 10,
+                                            preUseTime: 10,
+                                            cooldownTime: 10);
         }
 
         [Test]
         public void UsingSkillTest ()
         {
-            // Trigger a Skill
-            player.LearnSkill(passiveSkill);
+            // Player triggers a Skill that is not learned yet
             bool triggered = player.TriggerSkill(passiveSkill);
+            Assert.IsFalse(triggered);
+            // Player learns the Skill and triggers it
+            player.LearnSkill(passiveSkill);
+            triggered = player.TriggerSkill(passiveSkill);
             Assert.IsTrue(triggered);
+            // Player triggers it again right away, which is not possible due to cooldown time
             triggered = player.TriggerSkill(passiveSkill);
             Assert.IsFalse(triggered);
             
             // Enemy uses the passive skill
-            triggered = enemy.TriggerSkill(passiveSkill);
-            Assert.IsFalse(triggered);
             enemy.LearnSkill(passiveSkill);
             Assert.IsTrue(triggered);
 
-            // Advance in Time
+            // Advance in Time and trigger again
+            GameTime.time = 11;
+            triggered = player.TriggerSkill(passiveSkill);
+            Assert.IsTrue(triggered);
+            triggered = enemy.TriggerSkill(passiveSkill);
+            Assert.IsTrue(triggered);
+            
+            // Take the use costs into account
             GameTime.time = 21;
             triggered = player.TriggerSkill(passiveSkill);
             Assert.IsTrue(triggered);
+            GameTime.time = 31;
+            // Can't be triggered because of lack of energy
+            triggered = player.TriggerSkill(passiveSkill);
+            Assert.IsFalse(triggered);
         }
     }
 }
