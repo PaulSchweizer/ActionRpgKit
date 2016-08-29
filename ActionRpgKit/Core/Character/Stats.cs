@@ -7,7 +7,7 @@ namespace Character.Stats
         IAttribute Magic { get; set; }
     }
     
-    public class PlayerStats
+    public class PlayerStats : IStats
     {
         public IAttribute Soul;
         public IAttribute Experience;
@@ -42,7 +42,7 @@ namespace Character.Stats
         }
     }
     
-    public class EnemyStats
+    public class EnemyStats : IStats
     {
         private IAttribute _magic;
         
