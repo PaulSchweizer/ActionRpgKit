@@ -10,6 +10,7 @@ namespace CharacterTests
     {
 
         ICharacter player;
+        ICharacter enemy;
 
         PassiveSkill passiveSkill;
 
@@ -17,7 +18,8 @@ namespace CharacterTests
         public void SetUp ()
         {
             GameTime.time = 0;
-            player = new Player("John");
+            player = new Character("John");
+            enemy = new Character("Zombie");
             passiveSkill = new PassiveSkill("ShadowStrength",
                                             "A Description",
                                             cost: 20,
