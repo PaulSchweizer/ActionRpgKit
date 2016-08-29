@@ -301,7 +301,7 @@ namespace Character.Attribute
         public SimpleVolumeAttribute(string name,
                                      float minValue = float.MinValue,
                                      float maxValue = float.MaxValue,
-                                     float value = 0)) : base (name, minValue, maxValue, value)
+                                     float value = 0) : base (name, minValue, maxValue, value)
         {
             _currentValue = BaseValue;
             _absoluteMaxValue = maxValue;
