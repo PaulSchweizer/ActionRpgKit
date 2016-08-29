@@ -32,10 +32,15 @@ namespace CharacterTests
         {
             // Trigger a Skill
             player.LearnSkill(passiveSkill);
+            enemy.LearnSkill(passiveSkill);
             bool triggered = player.TriggerSkill(passiveSkill);
             Assert.IsTrue(triggered);
             triggered = player.TriggerSkill(passiveSkill);
             Assert.IsFalse(triggered);
+            
+            // Enemy uses the passive skill
+            triggered = enemy.TriggerSkill(passiveSkill);
+            Assert.IsTrue(triggered);
 
             // Advance in Time
             GameTime.time = 21;
