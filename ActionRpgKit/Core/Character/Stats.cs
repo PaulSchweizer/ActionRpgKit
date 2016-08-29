@@ -49,7 +49,7 @@ namespace Character.Stats
         
         public EnemyStats ()
         {
-            Magic = new BaseAttribute("Magic", 0, 999, 0);
+            Magic = new PrimaryAttribute("Magic", 0, 999, 0);
         }
         
         public IAttribute Magic 
