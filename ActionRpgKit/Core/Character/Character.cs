@@ -7,27 +7,36 @@ namespace Character
     public interface ICharacter
     {
         string Name { get; }
+        IStats Stats { get; set;}
         List<ISkill> Skills { get; }
-        void LearnSkill(ISkill skill);
-        bool TriggerSkill(ISkill skill);
+        void LearnSkill (ISkill skill);
+        bool TriggerSkill (ISkill skill);
     }
 
     public class BaseCharacter : ICharacter
     {
         private string _name;
+        private IStats _stats;
         private List<ISkill> _skills = new List<ISkill>();
         private List<float> _skillEndTimes = new List<float>();
-
-        public BaseCharacter(string name)
-        {
-            _name = name;
-        }
 
         public string Name
         {
             get
             {
                 return _name;
+            }
+        }
+
+        public IStats Stats
+        {
+            get
+            {
+                return _stats;
+            }
+            set
+            {
+                _stats = value;
             }
         }
 
@@ -57,14 +66,29 @@ namespace Character
 
         private bool SkillCanBeUsed (ISkill skill)
         {
+            if (Stats.Magic.Value < skill.Cost)
+            {
+                return false;
+            }
             return GameTime.time > _skillEndTimes[Skills.IndexOf(skill)];
         }
     }
 
     public class Player : BaseCharacter
     {
-        public Player(string name) : base(name)
+        public Player(string name)
         {   
+            Name = name;
+            Stats = new PlayerStats();
+        }
+    }
+
+    public class Enemy : BaseCharacter
+    {
+        public Enemy(string name)
+        {   
+            Name = name;
+            Stats = new EnemyStats();
         }
     }
 
