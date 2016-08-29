@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Character.Skill;
+using Character.Stats;
 
 namespace Character
 {
