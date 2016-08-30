@@ -66,6 +66,7 @@ namespace Character
             {
                 return false;
             }
+            Stats.Magic.Value -= skill.Cost;
             _skillEndTimes[Skills.IndexOf(skill)] = GameTime.time + skill.CooldownTime;
             return true;
         }
@@ -80,7 +81,7 @@ namespace Character
             {
                 return false;
             }
-            return GameTime.time > _skillEndTimes[Skills.IndexOf(skill)];
+            return GameTime.time >= _skillEndTimes[Skills.IndexOf(skill)];
         }
     }
 

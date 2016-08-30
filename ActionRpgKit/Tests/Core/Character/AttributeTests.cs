@@ -10,21 +10,27 @@ namespace CharacterTests
     {
         PrimaryAttribute Body;
         PrimaryAttribute Experience;
+        PrimaryAttribute MagicRegenerationRate;
         SecondaryAttribute Level;
         VolumeAttribute Life;
+        VolumeAttribute Magic;
 
         [SetUp]
         public void SetUp ()
         {
-            GameTime.time = 0f;
+            GameTime.Reset();
             Body = new PrimaryAttribute("Body", 0, 999, 10);
             Experience = new PrimaryAttribute("Experience");
+            MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate", 0, 99, 1);
             Level = new SecondaryAttribute("Level",
                         x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f,
                         new IAttribute[] { Experience }, 0, 99);
             Life = new VolumeAttribute("Life",
                          x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
                          new IAttribute[] { Level, Body }, 0, 999);
+            Magic = new VolumeAttribute("Magic",
+                    x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
+                    new IAttribute[] { Level, Body }, 0, 999);
         }
 
         [Test]
@@ -98,7 +104,7 @@ namespace CharacterTests
         }
 
         [Test]
-        public void VolumeAttributeTest ()
+        public void LifeTest ()
         {
             // Check the default values
             Assert.AreEqual(0, Life.MinValue);

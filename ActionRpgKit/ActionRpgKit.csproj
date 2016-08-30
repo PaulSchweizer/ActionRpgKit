@@ -56,6 +56,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Core\Character\AttributeTests.cs" />
     <Compile Include="Tests\Core\Character\CharacterTests.cs" />
+    <Compile Include="Tests\Core\Character\StatsTests.cs" />
+    <Compile Include="Tests\Core\GameTimeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
