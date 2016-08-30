@@ -56,7 +56,7 @@ namespace CharacterTests
             
             // Take the use costs into account
             GameTime.time = 21;
-            // Can't be triggered because of lack of energy
+            // Can't be triggered a third time because of lack of energy
             triggered = player.TriggerSkill(passiveSkill);
             Assert.IsFalse(triggered);
         }
