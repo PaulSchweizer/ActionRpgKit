@@ -25,6 +25,7 @@ namespace CharacterTests
                                             cost: 10,
                                             preUseTime: 10,
                                             cooldownTime: 10);
+            enemy.Stats.Magic.Value = 30;
         }
 
         [Test]
@@ -54,9 +55,6 @@ namespace CharacterTests
             
             // Take the use costs into account
             GameTime.time = 21;
-            triggered = player.TriggerSkill(passiveSkill);
-            Assert.IsTrue(triggered);
-            GameTime.time = 31;
             // Can't be triggered because of lack of energy
             triggered = player.TriggerSkill(passiveSkill);
             Assert.IsFalse(triggered);
