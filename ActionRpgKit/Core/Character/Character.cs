@@ -54,6 +54,19 @@ namespace Character
             }
         }
 
+        private bool SkillCanBeUsed(ISkill skill)
+        {
+            if (!Skills.Contains(skill))
+            {
+                return false;
+            }
+            if (Stats.Magic.Value < skill.Cost)
+            {
+                return false;
+            }
+            return GameTime.time >= _skillEndTimes[Skills.IndexOf(skill)];
+        }
+
         public void LearnSkill (ISkill skill)
         {
             _skills.Add(skill);
@@ -68,20 +81,26 @@ namespace Character
             }
             Stats.Magic.Value -= skill.Cost;
             _skillEndTimes[Skills.IndexOf(skill)] = GameTime.time + skill.CooldownTime;
+            PreUseCountdown();
             return true;
         }
 
-        private bool SkillCanBeUsed (ISkill skill)
+        public virtual void PreUseCountdown()
         {
-            if (!Skills.Contains(skill))
-            {
-                return false;
-            }
-            if (Stats.Magic.Value < skill.Cost)
-            {
-                return false;
-            }
-            return GameTime.time >= _skillEndTimes[Skills.IndexOf(skill)];
+            //
+            // Implement a Coroutine in Monobehaviour
+            //
+            UseSkill();
+        }
+
+        private void UseSkill()
+        {
+            ApplyBuffs();
+        }
+
+        private void ApplyBuffs()
+        {
+            throw new NotImplementedException();
         }
     }
 
