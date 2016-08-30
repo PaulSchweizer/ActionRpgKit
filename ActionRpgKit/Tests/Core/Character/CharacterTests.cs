@@ -44,6 +44,7 @@ namespace CharacterTests
             
             // Enemy uses the passive skill
             enemy.LearnSkill(passiveSkill);
+            triggered = enemy.TriggerSkill(passiveSkill);
             Assert.IsTrue(triggered);
 
             // Advance in Time and trigger again
