@@ -38,6 +38,14 @@ namespace Character.Stats
             Magic = new VolumeAttribute("Magic", 
                     x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
                     new IAttribute[] { Level, Soul }, 0, 999);
+                    
+            this["Body"] = Body;
+            this["Mind"] = Mind;
+            this["Soul"] = Soul;
+            this["Experience"] = Experience;
+            this["Level"] = Level;
+            this["MagicRegenerationRate"] = MagicRegenerationRate;
+            this["Magic"] = Magic;
         }
     }
     
@@ -46,6 +54,20 @@ namespace Character.Stats
         public EnemyStats ()
         {
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
+            Body = new PrimaryAttribute("Body", 0, 999, 0);
+            Mind = new PrimaryAttribute("Mind", 0, 999, 0);
+            Soul = new PrimaryAttribute("Soul", 0, 999, 0);
+            Experience = new PrimaryAttribute("Experience");
+            Level = new PrimaryAttribute("Level");
+            MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate");
+            Magic = new PrimaryAttribute("Magic");
+            this["Body"] = Body;
+            this["Mind"] = Mind;
+            this["Soul"] = Soul;
+            this["Experience"] = Experience;
+            this["Level"] = Level;
+            this["MagicRegenerationRate"] = MagicRegenerationRate;
+            this["Magic"] = Magic;
         }
     }
 }
