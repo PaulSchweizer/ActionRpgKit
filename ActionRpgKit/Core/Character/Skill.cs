@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Character;
+using Character.Attribute;
 
 namespace Character.Skill
 {
@@ -32,6 +33,8 @@ namespace Character.Skill
         private float _preUseTime;
         private float _cooldownTime;
         private float _endTime = -1;
+        private float value;
+        private string affectedAttributeName;
 
         public PassiveSkill(string name)
         {
@@ -121,6 +124,7 @@ namespace Character.Skill
 
         public void Use(ICharacter user)
         {
+            Modifier modifier = new Modifier(Name, ); 
             throw new NotImplementedException();
         }
     }
