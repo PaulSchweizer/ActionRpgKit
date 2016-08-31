@@ -18,7 +18,7 @@ namespace Character.Skill
         float CooldownTime { get; }
 
         bool Match();
-        void UseSkill();
+        void Use(ICharacter user);
     }
 
     /// <summary>
