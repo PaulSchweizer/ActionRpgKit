@@ -14,7 +14,7 @@ namespace Character.Stats
         public IAttribute Level;
         public IAttribute MagicRegenerationRate;
         
-        public BaseStats ()
+        protected void AssignAttributesToDict ()
         {
             Add("Body", Body);
             Add("Mind", Mind);
@@ -49,6 +49,7 @@ namespace Character.Stats
             Magic = new VolumeAttribute("Magic", 
                     x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
                     new IAttribute[] { Level, Soul }, 0, 999);
+            AssignAttributesToDict();
         }
     }
     
@@ -63,6 +64,7 @@ namespace Character.Stats
             Level = new PrimaryAttribute("Level");
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate");
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
+            AssignAttributesToDict();
         }
     }
 }
