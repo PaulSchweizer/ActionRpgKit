@@ -118,12 +118,7 @@ namespace Character.Skill
             throw new NotImplementedException();
         }
 
-        public void UseSkill()
-        {
-            ApplyBuffs();
-        }
-
-        public void ApplyBuffs()
+        public void Use(ICharacter user)
         {
             throw new NotImplementedException();
         }
