@@ -74,6 +74,8 @@ namespace ActionRpgKit.Tests.Core.Character
             player.LearnSkill(passiveSkill);
             player.TriggerSkill(passiveSkill);
             Assert.AreEqual(10, player.Stats.Body.Value);
+            GameTime.time = 10;
+            Assert.AreEqual(0, player.Stats.Body.Value);
         }
     }
 }
