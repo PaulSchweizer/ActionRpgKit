@@ -81,26 +81,21 @@ namespace Character
             }
             Stats.Magic.Value -= skill.Cost;
             _skillEndTimes[Skills.IndexOf(skill)] = GameTime.time + skill.CooldownTime;
-            PreUseCountdown();
+            PreUseCountdown(skill);
             return true;
         }
 
-        public virtual void PreUseCountdown()
+        public virtual void PreUseCountdown(ISkill skill)
         {
             //
             // Implement a Coroutine in Monobehaviour
             //
-            UseSkill();
+            UseSkill(skill);
         }
 
-        private void UseSkill()
+        private void UseSkill(ISkill skill)
         {
-            ApplyBuffs();
-        }
-
-        private void ApplyBuffs()
-        {
-            throw new NotImplementedException();
+            skill.Use(this);
         }
     }
 
