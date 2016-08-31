@@ -43,19 +43,6 @@ namespace Character.Skill
             _name = name;
         }
 
-        public PassiveSkill(string name,
-                             string description,
-                             float cost,
-                             float preUseTime,
-                             float cooldownTime)
-        {
-            _name = name;
-            _description = description;
-            _cost = cost;
-            _preUseTime = preUseTime;
-            _cooldownTime = cooldownTime;
-        }
-
         public PassiveSkill(int id,
                             string name,
                             string description,
