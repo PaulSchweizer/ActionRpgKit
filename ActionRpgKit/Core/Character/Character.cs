@@ -104,7 +104,7 @@ namespace Character
             {
                 return false;
             }
-            Stats.Magic.Value -= skill.Cost;
+            Stats[skill.EnergyAttributeName].Value -= skill.Cost;
             _skillEndTimes[Skills.IndexOf(skill)] = GameTime.time + skill.CooldownTime;
             PreUseCountdown(skill);
             return true;
