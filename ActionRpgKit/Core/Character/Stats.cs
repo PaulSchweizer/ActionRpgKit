@@ -16,7 +16,6 @@ namespace Character.Stats
         
         public BaseStats ()
         {
-            System.Attribute[] attrs = System.Attribute.GetCustomAttributes(this); 
             Add("Body", Body);
             Add("Mind", Mind);
             Add("Soul", Soul);
