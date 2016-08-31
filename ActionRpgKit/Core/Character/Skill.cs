@@ -6,26 +6,53 @@ using Character.Attribute;
 namespace Character.Skill
 {
     /// <summary>
-    /// Interface for Skills.
-    /// </summary>
+    /// Interface for Skills.</summary>
     public interface ISkill
     {
+        /// <summary>
+        /// Unique identifier for the Skill. </summary>
+        /// <remarks>This can be used to create a database of Skills.</remarks>
         int Id { get; }
+        
+        /// <summary>
+        /// Name of the Skill.</summary>  
         string Name { get; }
+        
+        /// <summary>
+        /// A description.</summary>          
         string Description { get; }
+        
+        /// <summary>
+        /// The energy costs of the Skill.</summary>  
         float Cost { get; }
+        
+        /// <summary>
+        /// The name of the Attribute that provides the energy for the Skill.</summary>  
         string EnergyAttributeName { get; }
+
+        /// <summary>
+        /// Return a modifier for the modified attribute.</summary>  
         IModifier Modifier { get; }
+        
+        /// <summary>
+        /// The time prior to the usage.</summary>  
         float PreUseTime { get; }
+        
+        /// <summary>
+        /// The time it takes until the Skill can be used again.</summary>  
         float CooldownTime { get; }
 
+        /// <summary>
+        /// Whether the skill matches the given series of items.</summary>  
         bool Match();
+        
+        /// <summary>
+        /// The Skill is used and takes effect.</summary>  
         void Use(ICharacter user);
     }
 
     /// <summary>
-    /// A passive Skill acts on the User itself.
-    /// </summary>
+    /// A passive Skill acts on the User itself.</summary>
     public class PassiveSkill : ISkill
     {
         private int _id;
@@ -108,6 +135,8 @@ namespace Character.Skill
             }
         }
 
+        /// <summary>
+        /// A new TimeBasedModifier is returned everytime it is requested.</summary>  
         public IModifier Modifier 
         { 
             get 
@@ -136,7 +165,9 @@ namespace Character.Skill
         {
             throw new NotImplementedException();
         }
-
+        
+        /// <summary>
+        /// Add the modifier to the modified attribute.</summary>  
         public void Use(ICharacter user)
         {
              user.Stats[_modifiedAttributeName].AddModifier(Modifier);
