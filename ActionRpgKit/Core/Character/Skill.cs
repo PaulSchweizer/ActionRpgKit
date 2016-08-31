@@ -14,6 +14,7 @@ namespace Character.Skill
         string Name { get; }
         string Description { get; }
         float Cost { get; }
+        IModifier Modifier { get; }
         float PreUseTime { get; }
         float CooldownTime { get; }
 
@@ -30,11 +31,12 @@ namespace Character.Skill
         private string _name;
         private string _description;
         private float _cost;
+        private float _duration;
         private float _preUseTime;
         private float _cooldownTime;
         private float _endTime = -1;
-        private float modifierValue;
-        private string modifiedAttributeName;
+        private float _modifierValue;
+        private string _modifiedAttributeName;
 
         public PassiveSkill(string name)
         {
@@ -58,15 +60,21 @@ namespace Character.Skill
                             string name,
                             string description,
                             float cost,
+                            float duration,
                             float preUseTime,
-                            float cooldownTime)
+                            float cooldownTime,
+                            float modifierValue,
+                            string modifiedAttributeName)
         {
             _id = id;
             _name = name;
             _description = description;
             _cost = cost;
+            _duration = duration;
             _preUseTime = preUseTime;
             _cooldownTime = cooldownTime;
+            _modifierValue = modifierValue;
+            _modifiedAttributeName = modifiedAttributeName;
         }
 
         public int Id
@@ -101,6 +109,14 @@ namespace Character.Skill
             }
         }
 
+        public IModifier Modifier 
+        { 
+            get 
+            {
+                return new TimeBasedModifier(Name, _modifierValue, _duration);
+            }
+        }
+
         public float CooldownTime
         {
             get
@@ -124,7 +140,7 @@ namespace Character.Skill
 
         public void Use(ICharacter user)
         {
-            throw new NotImplementedException();
+             user.Stats[_modifiedAttributeName].AddModifier(Modifier);
         }
     }
 }
