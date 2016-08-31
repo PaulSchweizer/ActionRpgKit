@@ -41,7 +41,7 @@ namespace Character.Stats
         }
     }
     
-    public class EnemyStats : IStats
+    public class EnemyStats : BaseStats
     {
         public EnemyStats ()
         {
