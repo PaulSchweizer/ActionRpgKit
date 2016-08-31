@@ -13,11 +13,22 @@ namespace Character.Stats
         public IAttribute Experience;
         public IAttribute Level;
         public IAttribute MagicRegenerationRate;
+        
+        public BaseStats ()
+        {
+            this["Body"] = Body;
+            this["Mind"] = Mind;
+            this["Soul"] = Soul;
+            this["Experience"] = Experience;
+            this["Level"] = Level;
+            this["MagicRegenerationRate"] = MagicRegenerationRate;
+            this["Magic"] = Magic;
+        }
     }
     
     public class PlayerStats : BaseStats
     {
-        public PlayerStats ()
+        public PlayerStats () : base()
         {
             // Primary Attributes
             Body = new PrimaryAttribute("Body", 0, 999, 0);
@@ -38,20 +49,12 @@ namespace Character.Stats
             Magic = new VolumeAttribute("Magic", 
                     x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
                     new IAttribute[] { Level, Soul }, 0, 999);
-                    
-            this["Body"] = Body;
-            this["Mind"] = Mind;
-            this["Soul"] = Soul;
-            this["Experience"] = Experience;
-            this["Level"] = Level;
-            this["MagicRegenerationRate"] = MagicRegenerationRate;
-            this["Magic"] = Magic;
         }
     }
     
     public class EnemyStats : BaseStats
     {
-        public EnemyStats ()
+        public EnemyStats () : base()
         {
             Body = new PrimaryAttribute("Body", 0, 999, 0);
             Mind = new PrimaryAttribute("Mind", 0, 999, 0);
@@ -60,13 +63,6 @@ namespace Character.Stats
             Level = new PrimaryAttribute("Level");
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate");
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
-            this["Body"] = Body;
-            this["Mind"] = Mind;
-            this["Soul"] = Soul;
-            this["Experience"] = Experience;
-            this["Level"] = Level;
-            this["MagicRegenerationRate"] = MagicRegenerationRate;
-            this["Magic"] = Magic;
         }
     }
 }
