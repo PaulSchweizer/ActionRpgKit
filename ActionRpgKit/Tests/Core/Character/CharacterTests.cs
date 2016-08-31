@@ -67,7 +67,7 @@ namespace ActionRpgKit.Tests.Core.Character
         {
             player.LearnSkill(passiveSkill);
             player.TriggerSkill(passiveSkill);
-            Assert.IsTrue(33, player.Stats.Body.Value);
+            Assert.AreEqual(33, player.Stats.Body.Value);
         }
     }
 }
