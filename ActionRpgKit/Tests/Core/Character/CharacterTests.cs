@@ -24,8 +24,11 @@ namespace ActionRpgKit.Tests.Core.Character
             passiveSkill = new PassiveSkill("ShadowStrength",
                                             "A Description",
                                             cost: 10,
+                                            duration: 10,
                                             preUseTime: 10,
-                                            cooldownTime: 5);
+                                            cooldownTime: 5,
+                                            modifierValue: 10,
+                                            modifiedAttributeName: "Body");
             enemy.Stats.Magic.Value = 30;
         }
 
