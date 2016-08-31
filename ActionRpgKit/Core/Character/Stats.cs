@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Character.Stats 
 {
+    ///
+    ///
+    ///
     public abstract class BaseStats : Dictionary<string, IAttribute>
     {
         public IAttribute Magic;
