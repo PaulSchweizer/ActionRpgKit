@@ -18,11 +18,11 @@ namespace Character.Stats
         {
             Add("Body", Body);
             Add("Mind", Mind);
-            Add("Soul", Soul;
-            Add("Experience", Experience;
-            Add("Level", Level;
-            Add("MagicRegenerationRate", MagicRegenerationRate;
-            Add("Magic", Magic;
+            Add("Soul", Soul);
+            Add("Experience", Experience);
+            Add("Level", Level);
+            Add("MagicRegenerationRate", MagicRegenerationRate);
+            Add("Magic", Magic);
         }
     }
     
