@@ -16,13 +16,13 @@ namespace Character.Stats
         
         public BaseStats ()
         {
-            this["Body"] = Body;
-            this["Mind"] = Mind;
-            this["Soul"] = Soul;
-            this["Experience"] = Experience;
-            this["Level"] = Level;
-            this["MagicRegenerationRate"] = MagicRegenerationRate;
-            this["Magic"] = Magic;
+            Add("Body", Body);
+            Add("Mind", Mind);
+            Add("Soul", Soul;
+            Add("Experience", Experience;
+            Add("Level", Level;
+            Add("MagicRegenerationRate", MagicRegenerationRate;
+            Add("Magic", Magic;
         }
     }
     
