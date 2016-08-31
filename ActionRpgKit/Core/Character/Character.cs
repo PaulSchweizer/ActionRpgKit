@@ -8,7 +8,7 @@ namespace Character
     public interface ICharacter
     {
         string Name { get; }
-        IStats Stats { get; set;}
+        BaseStats Stats { get; set;}
         List<ISkill> Skills { get; }
         void LearnSkill (ISkill skill);
         bool TriggerSkill (ISkill skill);
@@ -17,7 +17,7 @@ namespace Character
     public class BaseCharacter : ICharacter
     {
         private string _name;
-        private IStats _stats;
+        private BaseStats _stats;
         private List<ISkill> _skills = new List<ISkill>();
         private List<float> _skillEndTimes = new List<float>();
 
@@ -34,7 +34,7 @@ namespace Character
             }
         }
 
-        public IStats Stats
+        public BaseStats Stats
         {
             get
             {
