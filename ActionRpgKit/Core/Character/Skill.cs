@@ -33,8 +33,8 @@ namespace Character.Skill
         private float _preUseTime;
         private float _cooldownTime;
         private float _endTime = -1;
-        private float value;
-        private string affectedAttributeName;
+        private float modifierValue;
+        private string modifiedAttributeName;
 
         public PassiveSkill(string name)
         {
