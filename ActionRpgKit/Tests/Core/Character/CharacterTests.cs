@@ -30,7 +30,7 @@ namespace ActionRpgKit.Tests.Core.Character
                                             cooldownTime: 5,
                                             modifierValue: 10,
                                             modifiedAttributeName: "Body",
-                                            energyAttribute="Magic");
+                                            energyAttributeName="Magic");
             enemy.Stats.Magic.Value = 30;
         }
 
