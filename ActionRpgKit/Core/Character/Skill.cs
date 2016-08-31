@@ -23,18 +23,6 @@ namespace Character.Skill
         string Description { get; }
         
         /// <summary>
-        /// The energy costs of the Skill.</summary>  
-        float Cost { get; }
-        
-        /// <summary>
-        /// The name of the Attribute that provides the energy for the Skill.</summary>  
-        string EnergyAttributeName { get; }
-
-        /// <summary>
-        /// Return a modifier for the modified attribute.</summary>  
-        IModifier Modifier { get; }
-        
-        /// <summary>
         /// The time prior to the usage.</summary>  
         float PreUseTime { get; }
         
@@ -52,8 +40,21 @@ namespace Character.Skill
     }
 
     /// <summary>
+    /// A magic Skill costs magic energy on each use.</summary>
+    public interface IMagicSkill : ISkill
+    {
+        /// <summary>
+        /// The energy costs of the Skill.</summary>  
+        float Cost { get; }
+        
+        /// <summary>
+        /// The name of the Attribute that provides the energy for the Skill.</summary>  
+        string EnergyAttributeName { get; }
+    }
+
+    /// <summary>
     /// A passive Skill acts on the User itself.</summary>
-    public class PassiveSkill : ISkill
+    public class PassiveSkill : IMagicSkill
     {
         private int _id;
         private string _name;
@@ -137,12 +138,9 @@ namespace Character.Skill
 
         /// <summary>
         /// A new TimeBasedModifier is returned everytime it is requested.</summary>  
-        public IModifier Modifier 
+        private IModifier GetModifier ()
         { 
-            get 
-            {
-                return new TimeBasedModifier(Name, _modifierValue, _duration);
-            }
+            return new TimeBasedModifier(Name, _modifierValue, _duration);
         }
 
         public float CooldownTime
@@ -170,7 +168,7 @@ namespace Character.Skill
         /// Add the modifier to the modified attribute.</summary>  
         public void Use(ICharacter user)
         {
-             user.Stats[_modifiedAttributeName].AddModifier(Modifier);
+             user.Stats[_modifiedAttributeName].AddModifier(GetModifier());
         }
     }
 }
