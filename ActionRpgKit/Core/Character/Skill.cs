@@ -54,7 +54,7 @@ namespace Character.Skill
 
     /// <summary>
     /// A passive Skill acts on the User itself.</summary>
-    public class PassiveSkill : IMagicSkill
+    public class PassiveMagicSkill : IMagicSkill
     {
         private int _id;
         private string _name;
@@ -68,21 +68,16 @@ namespace Character.Skill
         private string _modifiedAttributeName;
         private string _energyAttributeName;
 
-        public PassiveSkill(string name)
-        {
-            _name = name;
-        }
-
-        public PassiveSkill(int id,
-                            string name,
-                            string description,
-                            float cost,
-                            float duration,
-                            float preUseTime,
-                            float cooldownTime,
-                            float modifierValue,
-                            string modifiedAttributeName,
-                            string energyAttributeName)
+        public PassiveMagicSkill(int id,
+                                 string name,
+                                 string description,
+                                 float cost,
+                                 float duration,
+                                 float preUseTime,
+                                 float cooldownTime,
+                                 float modifierValue,
+                                 string modifiedAttributeName,
+                                 string energyAttributeName)
         {
             _id = id;
             _name = name;
