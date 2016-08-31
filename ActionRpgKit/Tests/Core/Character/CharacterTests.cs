@@ -21,8 +21,9 @@ namespace ActionRpgKit.Tests.Core.Character
             GameTime.Reset();
             player = new Player("John");
             enemy = new Enemy("Zombie");
-            passiveSkill = new PassiveSkill("ShadowStrength",
-                                            "A Description",
+            passiveSkill = new PassiveSkill(id: 0,
+                                            name: "ShadowStrength",
+                                            description: "A Description",
                                             cost: 10,
                                             duration: 10,
                                             preUseTime: 10,
