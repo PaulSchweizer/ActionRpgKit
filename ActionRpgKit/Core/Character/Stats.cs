@@ -53,14 +53,13 @@ namespace Character.Stats
     {
         public EnemyStats ()
         {
-            Magic = new PrimaryAttribute("Magic", 0, 999, 0);
             Body = new PrimaryAttribute("Body", 0, 999, 0);
             Mind = new PrimaryAttribute("Mind", 0, 999, 0);
             Soul = new PrimaryAttribute("Soul", 0, 999, 0);
             Experience = new PrimaryAttribute("Experience");
             Level = new PrimaryAttribute("Level");
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate");
-            Magic = new PrimaryAttribute("Magic");
+            Magic = new PrimaryAttribute("Magic", 0, 999, 0);
             this["Body"] = Body;
             this["Mind"] = Mind;
             this["Soul"] = Soul;
