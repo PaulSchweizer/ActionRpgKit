@@ -124,7 +124,6 @@ namespace Character.Skill
 
         public void Use(ICharacter user)
         {
-            Modifier modifier = new Modifier(Name, ); 
             throw new NotImplementedException();
         }
     }
