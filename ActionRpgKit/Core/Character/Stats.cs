@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Character.Stats 
 {
-    public abstract class BaseStats<TKey, TValue> : Dictionary<TKey, TValue>
+    public abstract class BaseStats<string, IAttribute> : Dictionary<string, IAttribute>
     {
         public IAttribute Magic;
         public IAttribute Body;
