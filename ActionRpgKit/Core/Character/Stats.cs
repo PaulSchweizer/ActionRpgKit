@@ -10,6 +10,7 @@ namespace Character.Stats
     
     public class PlayerStats : IStats
     {
+        public IAttribute Body;
         public IAttribute Mind;
         public IAttribute Soul;
         public IAttribute Experience;
@@ -20,6 +21,7 @@ namespace Character.Stats
         public PlayerStats ()
         {
             // Primary Attributes
+            Body = new PrimaryAttribute("Body", 0, 999, 0);
             Mind = new PrimaryAttribute("Mind", 0, 999, 0);
             Soul = new PrimaryAttribute("Soul", 0, 999, 0);
             Experience = new PrimaryAttribute("Experience");
