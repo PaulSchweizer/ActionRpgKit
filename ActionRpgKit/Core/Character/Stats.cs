@@ -1,23 +1,22 @@
 using System;
 using Character.Attribute;
+using System.Collections.Generic;
 
 namespace Character.Stats 
 {
-    public interface IStats
+    public abstract BaseStats<TKey, TValue> : Dictionary<TKey, TValue>
     {
-        IAttribute Magic { get; set; }
-    }
-    
-    public class PlayerStats : IStats
-    {
+        public IAttribute Magic;
         public IAttribute Body;
         public IAttribute Mind;
         public IAttribute Soul;
         public IAttribute Experience;
         public IAttribute Level;
         public IAttribute MagicRegenerationRate;
-        private IAttribute _magic;
-       
+    }
+    
+    public class PlayerStats : BaseStats
+    {
         public PlayerStats ()
         {
             // Primary Attributes
@@ -40,39 +39,13 @@ namespace Character.Stats
                     x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
                     new IAttribute[] { Level, Soul }, 0, 999);
         }
-        
-        public IAttribute Magic 
-        {
-            get 
-            {
-                return _magic;
-            }
-            set
-            {
-                _magic = value;
-            }
-        }
     }
     
     public class EnemyStats : IStats
     {
-        private IAttribute _magic;
-        
         public EnemyStats ()
         {
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
-        }
-        
-        public IAttribute Magic 
-        {
-            get 
-            {
-                return _magic;
-            }
-            set
-            {
-                _magic = value;
-            }
         }
     }
 }
