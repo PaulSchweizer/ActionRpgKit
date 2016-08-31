@@ -23,7 +23,7 @@ namespace ActionRpgKit.Tests.Core.Character
             enemy = new Enemy("Zombie");
             passiveSkill = new PassiveSkill(id: 0,
                                             name: "ShadowStrength",
-                                            description: "A Description",
+                                            description: "A +10 Buff to the user's strength.",
                                             cost: 10,
                                             duration: 10,
                                             preUseTime: 10,
