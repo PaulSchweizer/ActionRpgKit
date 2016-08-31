@@ -69,9 +69,11 @@ namespace ActionRpgKit.Tests.Core.Character
         [Test]
         public void PassiveSkillTest ()
         {
+            // Test the Modifer on the Body Attribute
+            Assert.AreEqual(0, player.Stats.Body.Value);
             player.LearnSkill(passiveSkill);
             player.TriggerSkill(passiveSkill);
-            Assert.AreEqual(33, player.Stats.Body.Value);
+            Assert.AreEqual(10, player.Stats.Body.Value);
         }
     }
 }
