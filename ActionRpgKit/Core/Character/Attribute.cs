@@ -201,7 +201,7 @@ namespace Character.Attribute
             string repr = String.Format("{0, -10}: {1,-3} ({2} - {3})", Name, Value, MinValue, MaxValue);
             for (int i = 0; i < Modifiers.Count; i++)
             {
-                repr = String.Format("{0}\n{1, 13}+ ", repr, Modifiers[i].ToString());
+                repr += "\n + " + Modifiers[i].ToString();
             }
             return repr;
         }
