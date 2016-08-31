@@ -9,12 +9,12 @@ namespace Character.Stats
     ///
     public abstract class BaseStats : Dictionary<string, IAttribute>
     {
-        public IAttribute Magic;
         public IAttribute Body;
         public IAttribute Mind;
         public IAttribute Soul;
         public IAttribute Experience;
         public IAttribute Level;
+        public IAttribute Magic;
         public IAttribute MagicRegenerationRate;
         
         protected void AssignAttributesToDict ()
