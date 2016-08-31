@@ -29,7 +29,8 @@ namespace ActionRpgKit.Tests.Core.Character
                                             preUseTime: 10,
                                             cooldownTime: 5,
                                             modifierValue: 10,
-                                            modifiedAttributeName: "Body");
+                                            modifiedAttributeName: "Body",
+                                            energyAttribute="Magic");
             enemy.Stats.Magic.Value = 30;
         }
 
