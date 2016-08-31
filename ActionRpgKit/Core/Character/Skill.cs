@@ -14,6 +14,7 @@ namespace Character.Skill
         string Name { get; }
         string Description { get; }
         float Cost { get; }
+        string EnergyAttributeName { get; }
         IModifier Modifier { get; }
         float PreUseTime { get; }
         float CooldownTime { get; }
@@ -37,6 +38,7 @@ namespace Character.Skill
         private float _endTime = -1;
         private float _modifierValue;
         private string _modifiedAttributeName;
+        private string _energyAttributeName;
 
         public PassiveSkill(string name)
         {
@@ -51,7 +53,8 @@ namespace Character.Skill
                             float preUseTime,
                             float cooldownTime,
                             float modifierValue,
-                            string modifiedAttributeName)
+                            string modifiedAttributeName,
+                            string energyAttributeName)
         {
             _id = id;
             _name = name;
@@ -62,6 +65,7 @@ namespace Character.Skill
             _cooldownTime = cooldownTime;
             _modifierValue = modifierValue;
             _modifiedAttributeName = modifiedAttributeName;
+            _energyAttributeName = energyAttributeName;
         }
 
         public int Id
@@ -93,6 +97,14 @@ namespace Character.Skill
             get
             {
                 return _cost;
+            }
+        }
+
+        public float EnergyAttributeName
+        {
+            get
+            {
+                retuen _energyAttributeName;
             }
         }
 
