@@ -66,14 +66,12 @@ namespace Character.Attribute
         private float _maxValue;
         private List<IModifier> _modifiers = new List<IModifier>();
 
-        public PrimaryAttribute()
-        {
-        }
+        public PrimaryAttribute () {}
 
-        public PrimaryAttribute(string name,
-                                 float minValue = float.MinValue,
-                                 float maxValue = float.MaxValue,
-                                 float value = 0)
+        public PrimaryAttribute (string name,
+                                  float minValue = float.MinValue,
+                                  float maxValue = float.MaxValue,
+                                  float value = 0)
         {
             Name = name;
             MinValue = minValue;
@@ -166,21 +164,18 @@ namespace Character.Attribute
                 return _modifiers;
             }
         }
-
-        public void AddModifier(IModifier modifier)
+        
+        public void AddModifier (IModifier modifier)
         {
             modifier.Activate();
             _modifiers.Add(modifier);
         }
 
-        public void RemoveModifier(IModifier modifier)
+        public void RemoveModifier (IModifier modifier)
         {
             Modifiers.Remove(modifier);
         }
 
-        /// <summary>
-        /// Check if any active modifiers exist. 
-        /// </summary> 
         public bool IsModified
         {
             get
@@ -201,7 +196,7 @@ namespace Character.Attribute
             string repr = String.Format("{0, -10}: {1,-3} ({2} - {3})", Name, Value, MinValue, MaxValue);
             for (int i = 0; i < Modifiers.Count; i++)
             {
-                repr += "\n            + " + Modifiers[i].ToString();
+                repr += "\n             + " + Modifiers[i].ToString();
             }
             return repr;
         }
@@ -212,12 +207,25 @@ namespace Character.Attribute
     /// </summary> 
     public class SecondaryAttribute : PrimaryAttribute
     {
+        /// <summary>
+        /// Formula delegate to calculate the base value of the attribute.
+        /// </summary> 
+        /// <param name="attributes"> A list of attributes</param>
         public delegate float Formula(IAttribute[] attributes);
-
+        
+        /// <summary>
+        /// Formula to calculate the base value of the attribute. 
+        /// </summary> 
         protected Formula _formula;
+        
+        /// <summary>
+        /// Input attributes for the formula.
+        /// </summary> 
         protected IAttribute[] _attributes;
 
-        public SecondaryAttribute(string name,
+        public SecondaryAttribute() {}
+
+        public SecondaryAttribute (string name,
                                    Formula formula,
                                    IAttribute[] attributes,
                                    float minValue = float.MinValue,
@@ -226,10 +234,6 @@ namespace Character.Attribute
         {
             _formula = formula;
             _attributes = attributes;
-        }
-
-        public SecondaryAttribute()
-        {
         }
 
         public override float BaseValue
@@ -244,18 +248,29 @@ namespace Character.Attribute
             }
         }
     }
-
+    
+    /// <summary>
+    /// Represents a volume of something, e.g. magic, life.
+    /// The base value is derived through a formula and serves as 
+    /// the maximum value.
+    /// </summary> 
     public class VolumeAttribute : SecondaryAttribute
     {
-
+        /// <summary>
+        /// The current value of the attribute.
+        /// </summary> 
         private float _currentValue;
+        
+        /// <summary>
+        /// The absolute maximum of the attribute.
+        /// </summary> 
         private float _absoluteMaxValue;
 
-        public VolumeAttribute(string name,
-                               Formula formula,
-                               IAttribute[] attributes,
-                               float minValue = float.MinValue,
-                               float maxValue = float.MaxValue) : base ()
+        public VolumeAttribute (string name,
+                                Formula formula,
+                                IAttribute[] attributes,
+                                float minValue = float.MinValue,
+                                float maxValue = float.MaxValue) : base ()
         {
             Name = name;
             _formula = formula;
@@ -267,6 +282,9 @@ namespace Character.Attribute
             _absoluteMaxValue = maxValue;
         }
 
+        /// <summary>
+        /// Represents the current value.
+        /// </summary> 
         public override float Value
         {
             get
@@ -278,7 +296,11 @@ namespace Character.Attribute
                 _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
             }
         }
-
+        
+        /// <summary>
+        /// The maximum value is congruent with the current base value, but never 
+        /// bigger than a absolute maximum. 
+        /// </summary> 
         public override float MaxValue
         {
              get
@@ -292,10 +314,19 @@ namespace Character.Attribute
          }
     }
 
+    /// <summary>
+    /// The base value is a simple float as opposed to a formula based.
+    /// </summary> 
     public class SimpleVolumeAttribute : PrimaryAttribute
     {
-
+        /// <summary>
+        /// The current value of the attribute.
+        /// </summary> 
         private float _currentValue;
+
+        /// <summary>
+        /// The absolute maximum of the attribute.
+        /// </summary> 
         private float _absoluteMaxValue;
         
         public SimpleVolumeAttribute(string name,
@@ -331,15 +362,36 @@ namespace Character.Attribute
              }
          }
     }
-
+    
+    /// <summary>
+    /// Interface for modifiers that alter an attribute.
+    /// </summary> 
     public interface IModifier
     {
+        /// <summary>
+        /// The name of the modifier.
+        /// </summary> 
         string Name { get; }
+        
+        /// <summary>
+        /// The value of the modifier.
+        /// </summary> 
         float Value { get; }
+        
+        /// <summary>
+        /// Activating the modifier.
+        /// </summary> 
         void Activate();
+        
+        /// <summary>
+        /// Determine whether the modifier is active.
+        /// </summary> 
         bool IsActive { get; }
     }
 
+    /// <summary>
+    /// Modifier that affects an attribute over a certain period of time.
+    /// </summary> 
     public class TimeBasedModifier : IModifier
     {
         private string _name;
@@ -375,12 +427,18 @@ namespace Character.Attribute
                 _value = value;
             }
         }
-
+        
+        /// <summary>
+        /// Set the end time.
+        /// </summary> 
         public void Activate()
         {
             _endTime = GameTime.time + _duration;
         }
-
+        
+        /// <summary>
+        /// The remaining time based on the current game time.
+        /// </summary> 
         public float RemainingTime
         {
             get
@@ -388,7 +446,10 @@ namespace Character.Attribute
                 return _endTime - GameTime.time;
             }
         }
-
+        
+        /// <summary>
+        /// Whether there is any remaining time.
+        /// </summary> 
         public bool IsActive
         {
             get
