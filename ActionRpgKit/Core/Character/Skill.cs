@@ -46,10 +46,7 @@ namespace Character.Skill
         /// <summary>
         /// The energy costs of the Skill.</summary>  
         float Cost { get; }
-        
-        /// <summary>
-        /// The name of the Attribute that provides the energy for the Skill.</summary>  
-        string EnergyAttributeName { get; }
+
     }
 
     /// <summary>
@@ -66,7 +63,6 @@ namespace Character.Skill
         private float _endTime = -1;
         private float _modifierValue;
         private string _modifiedAttributeName;
-        private string _energyAttributeName;
 
         public PassiveMagicSkill(int id,
                                  string name,
@@ -88,7 +84,6 @@ namespace Character.Skill
             _cooldownTime = cooldownTime;
             _modifierValue = modifierValue;
             _modifiedAttributeName = modifiedAttributeName;
-            _energyAttributeName = energyAttributeName;
         }
 
         public int Id
@@ -120,14 +115,6 @@ namespace Character.Skill
             get
             {
                 return _cost;
-            }
-        }
-
-        public string EnergyAttributeName
-        {
-            get
-            {
-                return _energyAttributeName;
             }
         }
 
