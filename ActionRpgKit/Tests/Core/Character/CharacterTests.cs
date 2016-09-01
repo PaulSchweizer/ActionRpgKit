@@ -73,7 +73,7 @@ namespace ActionRpgKit.Tests.Core.Character
         public void FighterTest ()
         {
             // Check the defaults 
-            Assert.IsTrue(Enemy.CanAttack);
+            Assert.IsTrue(enemy.CanAttack);
         }
     }
 }
