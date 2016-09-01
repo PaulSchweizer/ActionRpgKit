@@ -14,6 +14,7 @@ namespace ActionRpgKit.Tests.Core.Character
         Enemy enemy;
 
         PassiveMagicSkill passiveMagicSkill;
+        ICombatSkill meleeSkill;
 
         [SetUp]
         public void SetUp ()
@@ -21,6 +22,7 @@ namespace ActionRpgKit.Tests.Core.Character
             GameTime.Reset();
             player = new Player("John");
             enemy = new Enemy("Zombie");
+            enemy.Stats.Magic.Value = 30;
             passiveMagicSkill = new PassiveMagicSkill(id: 0,
                                             name: "ShadowStrength",
                                             description: "A +10 Buff to the user's strength.",
@@ -30,7 +32,12 @@ namespace ActionRpgKit.Tests.Core.Character
                                             cooldownTime: 5,
                                             modifierValue: 10,
                                             modifiedAttributeName: "Body");
-            enemy.Stats.Magic.Value = 30;
+            meleeSkill = new MeleeSkill(id: 1,
+                                        name: "SwordFighting",
+                                        description: "How to wield a sword.",
+                                        preUseTime: 1,
+                                        cooldownTime: 1,
+                                        damage: 1);
         }
 
         [Test]
@@ -72,8 +79,7 @@ namespace ActionRpgKit.Tests.Core.Character
         [Test]
         public void FighterTest ()
         {
-            // Check the defaults 
-            Assert.IsTrue(enemy.CanAttack);
+            enemy.LearnCombatSkill(meleeSkill);
         }
     }
 }
