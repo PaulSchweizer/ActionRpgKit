@@ -109,7 +109,7 @@ namespace Character
                 return false;
             }
             Stats.Magic.Value -= magicSkill.Cost;
-            _skillEndTimes[MagicSkills.IndexOf(magicSkill)] = GameTime.time + magicSkill.CooldownTime;
+            _magicSkillEndTimes[MagicSkills.IndexOf(magicSkill)] = GameTime.time + magicSkill.CooldownTime;
             PreUseCountdown(magicSkill);
             return true;
         }
