@@ -44,6 +44,9 @@ namespace ActionRpgKit.Tests.Core.Character
             player.LearnMagicSkill(passiveMagicSkill);
             triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsTrue(triggered);
+            
+            // Check the effect on the modified attribute
+            Assert.AreEqual(10, player.Stats.Body.Value);
 
             // Player triggers it again right away, which is not possible due to cooldown time
             triggered = player.TriggerMagicSkill(passiveMagicSkill);
@@ -67,15 +70,10 @@ namespace ActionRpgKit.Tests.Core.Character
         }
         
         [Test]
-        public void PassiveMagicSkillEffectTest ()
+        public void FighterTest ()
         {
-            // Test the Modifer on the Body Attribute
-            Assert.AreEqual(0, player.Stats.Body.Value);
-            player.LearnMagicSkill(passiveMagicSkill);
-            player.TriggerMagicSkill(passiveMagicSkill);
-            Assert.AreEqual(10, player.Stats.Body.Value);
-            GameTime.time = 10;
-            Assert.AreEqual(0, player.Stats.Body.Value);
+            // Check the defaults 
+            Assert.IsTrue(Enemy.Stats.CanAttack);
         }
     }
 }
