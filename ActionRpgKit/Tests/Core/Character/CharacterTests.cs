@@ -64,7 +64,11 @@ namespace ActionRpgKit.Tests.Core.Character
             GameTime.time = 10;
             triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsFalse(triggered);
-            
+        }
+        
+        [Test]
+        public void PassiveMagicSkillEffectTest ()
+        {
             // Test the Modifer on the Body Attribute
             Assert.AreEqual(0, player.Stats.Body.Value);
             player.LearnMagicSkill(passiveMagicSkill);
