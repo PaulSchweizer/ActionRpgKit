@@ -37,6 +37,13 @@ namespace Character
     }
     
     /// <summary>
+    /// Character can fight.</summary>  
+    public interface IFighter
+    {
+        bool CanAttack { get; }
+    }
+    
+    /// <summary>
     /// Base implementation of a Character.</summary>
     public class BaseCharacter : ICharacter, IMagicUser
     {
