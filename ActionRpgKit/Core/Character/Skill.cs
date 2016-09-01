@@ -72,8 +72,7 @@ namespace Character.Skill
                                  float preUseTime,
                                  float cooldownTime,
                                  float modifierValue,
-                                 string modifiedAttributeName,
-                                 string energyAttributeName)
+                                 string modifiedAttributeName)
         {
             _id = id;
             _name = name;
