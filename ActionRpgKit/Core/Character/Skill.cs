@@ -123,11 +123,11 @@ namespace Character.Skill
             }
         }
 
-        public float EnergyAttributeName
+        public string EnergyAttributeName
         {
             get
             {
-                retuen _energyAttributeName;
+                return _energyAttributeName;
             }
         }
 
