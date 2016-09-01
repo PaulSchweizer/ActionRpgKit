@@ -46,7 +46,15 @@ namespace Character.Skill
         /// <summary>
         /// The energy costs of the Skill.</summary>  
         float Cost { get; }
-
+    }
+    
+    /// <summary>
+    /// A Skill to be used as an Attack in Combat.</summary>
+    public interface ICombatSkill : ISkill
+    {
+        /// <summary>
+        /// The amount of damage.</summary>  
+        float Damage { get; }
     }
 
     /// <summary>
@@ -149,7 +157,92 @@ namespace Character.Skill
         /// Add the modifier to the modified attribute.</summary>  
         public void Use(ICharacter user)
         {
-             user.Stats[_modifiedAttributeName].AddModifier(GetModifier());
+            user.Stats[_modifiedAttributeName].AddModifier(GetModifier());
+        }
+    }
+    
+    public class MeleeSkill : ICombatSkill
+    {
+        private int _id;
+        private string _name;
+        private string _description;
+        private float _preUseTime;
+        private float _cooldownTime;
+        private float _damage;
+
+        public MeleeSkill(int id,
+                          string name,
+                          string description,
+                          float preUseTime,
+                          float cooldownTime,
+                          float damage)
+        {
+            _id = id;
+            _name = name;
+            _description = description;
+            _preUseTime = preUseTime;
+            _cooldownTime = cooldownTime;
+            _damage = damage;
+        }
+        
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return _description;
+            }
+        }
+        
+        public float CooldownTime
+        {
+            get
+            {
+                return _cooldownTime;
+            }
+        }
+
+        public float PreUseTime
+        {
+            get
+            {
+                return _preUseTime;
+            }
+        }
+        
+        public float Damage 
+        { 
+            get
+            {
+                return _damage;
+            }
+        }
+
+        public bool Match()
+        {
+            throw new NotImplementedException();
+        }
+        
+        /// <summary>
+        /// Add the modifier to the modified attribute.</summary>  
+        public void Use(ICharacter user)
+        {
+            throw new NotImplementedException();
         }
     }
 }
