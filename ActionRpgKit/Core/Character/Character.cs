@@ -18,7 +18,7 @@ namespace Character
         /// Stats describing the Character.</summary>
         BaseStats Stats { get; set; }
     }
-    
+
     /// <summary>
     /// Character can use Magic.</summary>  
     public interface IMagicUser
@@ -85,7 +85,7 @@ namespace Character
         /// <returns> Whether the Skill van be used.</returns>
         private bool SkillCanBeUsed(IMagicSkill magicSkill)
         {
-            if (!Skills.Contains(magicSkill))
+            if (!MagicSkills.Contains(magicSkill))
             {
                 return false;
             }
@@ -93,7 +93,7 @@ namespace Character
             {
                 return false;
             }
-            return GameTime.time >= _magicSkillEndTimes[Skills.IndexOf(magicSkill)];
+            return GameTime.time >= _magicSkillEndTimes[MagicSkills.IndexOf(magicSkill)];
         }
 
         public void LearnMagicSkill (IMagicSkill magicSkill)
@@ -109,7 +109,7 @@ namespace Character
                 return false;
             }
             Stats.Magic.Value -= skill.Cost;
-            _skillEndTimes[Skills.IndexOf(skill)] = GameTime.time + skill.CooldownTime;
+            _skillEndTimes[MagicSkills.IndexOf(skill)] = GameTime.time + skill.CooldownTime;
             PreUseCountdown(skill);
             return true;
         }
