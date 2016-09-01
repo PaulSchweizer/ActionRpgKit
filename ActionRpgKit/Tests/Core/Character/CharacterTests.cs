@@ -42,7 +42,7 @@ namespace ActionRpgKit.Tests.Core.Character
             Assert.IsFalse(triggered);
 
             // Player learns the Skill and triggers it
-            player.LearnSkill(passiveMagicSkill);
+            player.LearnMagicSkill(passiveMagicSkill);
             triggered = player.TriggerSkill(passiveMagicSkill);
             Assert.IsTrue(triggered);
 
@@ -51,7 +51,7 @@ namespace ActionRpgKit.Tests.Core.Character
             Assert.IsFalse(triggered);
             
             // Enemy uses the same passive skill
-            enemy.LearnSkill(passiveMagicSkill);
+            enemy.LearnMagicSkill(passiveMagicSkill);
             triggered = enemy.TriggerSkill(passiveMagicSkill);
             Assert.IsTrue(triggered);
 
@@ -68,7 +68,7 @@ namespace ActionRpgKit.Tests.Core.Character
             
             // Test the Modifer on the Body Attribute
             Assert.AreEqual(0, player.Stats.Body.Value);
-            player.LearnSkill(passiveMagicSkill);
+            player.LearnMagicSkill(passiveMagicSkill);
             player.TriggerSkill(passiveMagicSkill);
             Assert.AreEqual(10, player.Stats.Body.Value);
             GameTime.time = 10;
