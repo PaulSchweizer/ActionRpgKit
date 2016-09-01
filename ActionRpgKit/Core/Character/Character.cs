@@ -28,11 +28,11 @@ namespace Character
         List<IMagicSkill> MagicSkills { get; }
 
         /// <summary>
-        /// Add a new Skill to the list of available MagicSkills.</summary>
+        /// Add a new MagicSkill.</summary>
         void LearnMagicSkill (IMagicSkill magicSkill);
 
         /// <summary>
-        /// Trigger the given Skill.</summary>
+        /// Trigger the given MagicSkill.</summary>
         bool TriggerMagicSkill (IMagicSkill magicSkill);
     }
     
@@ -40,7 +40,21 @@ namespace Character
     /// Character can fight.</summary>  
     public interface IFighter
     {
-        bool CanAttack { get; }
+        /// <summary>
+        /// Targeted enemies of the fighter.</summary>
+        List<IFighter> Enemies { get; }
+        
+        /// <summary>
+        /// CombatSkills available for this Character.</summary>
+        List<ICombatSkill> CombatSkills { get; }
+
+        /// <summary>
+        /// Add a new CombatSkill.</summary>
+        void LearnCombatSkill (ICombatSkill combatSkill);
+
+        /// <summary>
+        /// Attack with the given CombatSkill.</summary>
+        bool TriggerCombatSkill (ICombatSkill combatSkill);
     }
     
     /// <summary>
@@ -149,12 +163,30 @@ namespace Character
         // IFighter Implementations
         // ------------------------------------------------------
         
-        public bool CanAttack 
+        public List<IFighter> Enemies 
+        { 
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+        
+        public List<ICombatSkill> CombatSkills 
         {
             get
             {
-                return true;
+                return _combatSkills;
             }
+        }
+        
+        public void LearnCombatSkill (ICombatSkill combatSkill)
+        {
+            _combatSkills.Add(combatSkill);
+        }
+
+        public bool TriggerCombatSkill (ICombatSkill combatSkill)
+        {
+            throw new NotImplementedException();
         }
     }
     
