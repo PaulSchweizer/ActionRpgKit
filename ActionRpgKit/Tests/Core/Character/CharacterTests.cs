@@ -38,38 +38,38 @@ namespace ActionRpgKit.Tests.Core.Character
         public void PassiveMagicSkillTest ()
         {
             // Player triggers a Skill that is not learned yet
-            bool triggered = player.TriggerSkill(passiveMagicSkill);
+            bool triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsFalse(triggered);
 
             // Player learns the Skill and triggers it
             player.LearnMagicSkill(passiveMagicSkill);
-            triggered = player.TriggerSkill(passiveMagicSkill);
+            triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsTrue(triggered);
 
             // Player triggers it again right away, which is not possible due to cooldown time
-            triggered = player.TriggerSkill(passiveMagicSkill);
+            triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsFalse(triggered);
             
             // Enemy uses the same passive skill
             enemy.LearnMagicSkill(passiveMagicSkill);
-            triggered = enemy.TriggerSkill(passiveMagicSkill);
+            triggered = enemy.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsTrue(triggered);
 
             // Advance in Time and trigger again
             GameTime.time = 5;
             Console.WriteLine(player.Stats.Magic);
-            triggered = player.TriggerSkill(passiveMagicSkill);
+            triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsTrue(triggered);
             
             // Take the use costs into account
             GameTime.time = 10;
-            triggered = player.TriggerSkill(passiveMagicSkill);
+            triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsFalse(triggered);
             
             // Test the Modifer on the Body Attribute
             Assert.AreEqual(0, player.Stats.Body.Value);
             player.LearnMagicSkill(passiveMagicSkill);
-            player.TriggerSkill(passiveMagicSkill);
+            player.TriggerMagicSkill(passiveMagicSkill);
             Assert.AreEqual(10, player.Stats.Body.Value);
             GameTime.time = 10;
             Assert.AreEqual(0, player.Stats.Body.Value);
