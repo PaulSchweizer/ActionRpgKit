@@ -65,6 +65,8 @@ namespace Character
         private BaseStats _stats;
         private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
+        
+        private List<ICombatSkill> _combatSkills = new List<ICombatSkill>();
 
         public BaseCharacter (string name)
         {
