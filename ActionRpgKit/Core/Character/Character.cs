@@ -104,11 +104,13 @@ namespace Character
 
         public bool TriggerMagicSkill (IMagicSkill magicSkill)
         {
-            if (!magicSkill.Trigger(this))
+            if (!SkillCanBeUsed(skill))
             {
                 return false;
             }
-            PreUseCountdown(magicSkill);
+            Stats.Magic.Value -= skill.Cost;
+            _skillEndTimes[Skills.IndexOf(skill)] = GameTime.time + skill.CooldownTime;
+            PreUseCountdown(skill);
             return true;
         }
 
