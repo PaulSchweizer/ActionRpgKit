@@ -149,7 +149,7 @@ namespace Character
         // IFighter Implementations
         // ------------------------------------------------------
         
-        public CanAttack 
+        public bool CanAttack 
         {
             get
             {
