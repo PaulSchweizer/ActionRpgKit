@@ -45,7 +45,7 @@ namespace Character
     
     /// <summary>
     /// Base implementation of a Character.</summary>
-    public class BaseCharacter : ICharacter, IMagicUser
+    public class BaseCharacter : ICharacter, IMagicUser, IFighter
     {
         private string _name;
         private BaseStats _stats;
@@ -77,6 +77,10 @@ namespace Character
             }
         }
 
+        // ------------------------------------------------------
+        // IMagicUser Implementations
+        // ------------------------------------------------------
+
         public List<IMagicSkill> MagicSkills
         {
             get
@@ -90,7 +94,7 @@ namespace Character
         /// magic energy and is not in cooldown of the Skill.</summary>
         /// <param name=magicSkill>The Skill to test</param>
         /// <returns> Whether the Skill van be used.</returns>
-        private bool SkillCanBeUsed(IMagicSkill magicSkill)
+        private bool MagicSkillCanBeUsed(IMagicSkill magicSkill)
         {
             if (!MagicSkills.Contains(magicSkill))
             {
@@ -111,7 +115,7 @@ namespace Character
 
         public bool TriggerMagicSkill (IMagicSkill magicSkill)
         {
-            if (!SkillCanBeUsed(magicSkill))
+            if (!MagicSkillCanBeUsed(magicSkill))
             {
                 return false;
             }
@@ -130,15 +134,27 @@ namespace Character
             //
             // Implement a Coroutine in Monobehaviour
             //
-            UseSkill(magicSkill);
+            UseMagicSkill(magicSkill);
         }
         
         /// <summary>
         /// Triggers the use of the Skill</summary>
         /// <param name=magicSkill>The Skill to use</param>
-        private void UseSkill(IMagicSkill magicSkill)
+        private void UseMagicSkill(IMagicSkill magicSkill)
         {
             magicSkill.Use(this);
+        }
+        
+        // ------------------------------------------------------
+        // IFighter Implementations
+        // ------------------------------------------------------
+        
+        public CanAttack 
+        {
+            get
+            {
+                return true;
+            }
         }
     }
     
