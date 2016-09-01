@@ -10,8 +10,8 @@ namespace ActionRpgKit.Tests.Core.Character
     public class CharacterTests
     {
 
-        PlayerCharacter player;
-        EnemyCharacter enemy;
+        Player player;
+        Enemy enemy;
 
         PassiveMagicSkill passiveMagicSkill;
 
