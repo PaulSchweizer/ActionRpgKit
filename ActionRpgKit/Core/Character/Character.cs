@@ -73,17 +73,24 @@ namespace Character
     /// Base implementation of a Character.</summary>
     public class BaseCharacter : ICharacter, IMagicUser, IFighter
     {
-        private string _name;
+          private string _name;
         private BaseStats _stats;
+
         private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
-        
+
+        private List<IFighter> _enemies = new List<IFighter>();
         private List<ICombatSkill> _combatSkills = new List<ICombatSkill>();
+        private List<float> _combatSkillEndTimes = new List<float>();
 
         public BaseCharacter (string name)
         {
             _name = name;
         }
+
+        // --------------------------------------------------------------------
+        // ICharacter Implementations
+        // --------------------------------------------------------------------
 
         public string Name
         {
@@ -105,9 +112,21 @@ namespace Character
             }
         }
 
-        // ------------------------------------------------------
+        // --------------------------------------------------------------------
         // IMagicUser Implementations
-        // ------------------------------------------------------
+        // --------------------------------------------------------------------
+
+        public float Magic
+        {
+            get
+            {
+                return Stats.Magic.Value;
+            }
+            set
+            {
+                Stats.Magic.Value = value;
+            }
+        }
 
         public List<IMagicSkill> MagicSkills
         {
@@ -115,24 +134,6 @@ namespace Character
             {
                 return _magicSkills;
             }
-        }
-
-        /// <summary>
-        /// Check if the character knows the magic skill, has enough 
-        /// magic energy and is not in cooldown of the Skill.</summary>
-        /// <param name=magicSkill>The Skill to test</param>
-        /// <returns> Whether the Skill van be used.</returns>
-        private bool MagicSkillCanBeUsed(IMagicSkill magicSkill)
-        {
-            if (!MagicSkills.Contains(magicSkill))
-            {
-                return false;
-            }
-            if (Stats.Magic.Value < magicSkill.Cost)
-            {
-                return false;
-            }
-            return GameTime.time >= _magicSkillEndTimes[MagicSkills.IndexOf(magicSkill)];
         }
 
         public void LearnMagicSkill (IMagicSkill magicSkill)
@@ -147,52 +148,87 @@ namespace Character
             {
                 return false;
             }
-            Stats.Magic.Value -= magicSkill.Cost;
+            Magic -= magicSkill.Cost;
             _magicSkillEndTimes[MagicSkills.IndexOf(magicSkill)] = GameTime.time + magicSkill.CooldownTime;
             PreUseCountdown(magicSkill);
             return true;
         }
 
         /// <summary>
-        /// A countdown before the Skill takes action.</summary>
+        /// A countdown before the MagicSkill takes action.</summary>
         /// <remarks>This can be used for syncing animations or effects.</remarks>
         /// <param name=magicSkill>The Skill to use</param>
-        public virtual void PreUseCountdown(IMagicSkill magicSkill)
+        public virtual void PreUseCountdown (IMagicSkill magicSkill)
         {
             //
             // Implement a Coroutine in Monobehaviour
             //
             UseMagicSkill(magicSkill);
         }
-        
+
         /// <summary>
         /// Triggers the use of the Skill</summary>
         /// <param name=magicSkill>The Skill to use</param>
-        private void UseMagicSkill(IMagicSkill magicSkill)
+        private void UseMagicSkill (IMagicSkill magicSkill)
         {
             magicSkill.Use(this);
         }
-        
-        // ------------------------------------------------------
+
+        /// <summary>
+        /// Check if the character knows the magic skill, has enough
+        /// magic energy and is not in cooldown of the Skill.</summary>
+        /// <param name=magicSkill>The Skill to test</param>
+        /// <returns> Whether the Skill van be used.</returns>
+        private bool MagicSkillCanBeUsed (IMagicSkill magicSkill)
+        {
+            if (!MagicSkills.Contains(magicSkill))
+            {
+                return false;
+            }
+            if (Magic < magicSkill.Cost)
+            {
+                return false;
+            }
+            return GameTime.time >= _magicSkillEndTimes[MagicSkills.IndexOf(magicSkill)];
+        }
+
+        // --------------------------------------------------------------------
         // IFighter Implementations
-        // ------------------------------------------------------
-        
-        public List<IFighter> Enemies 
-        { 
+        // --------------------------------------------------------------------
+
+        public float Life
+        {
             get
             {
-                throw new NotImplementedException();
+                return Stats.Life.Value;
+            }
+            set
+            {
+                Stats.Life.Value = value;
             }
         }
-        
-        public List<ICombatSkill> CombatSkills 
+
+        public List<IFighter> Enemies
+        {
+            get
+            {
+                return _enemies;
+            }
+        }
+
+        public void AddEnemy (IFighter enemy)
+        {
+            Enemies.Add(enemy);
+        }
+
+        public List<ICombatSkill> CombatSkills
         {
             get
             {
                 return _combatSkills;
             }
         }
-        
+
         public void LearnCombatSkill (ICombatSkill combatSkill)
         {
             _combatSkills.Add(combatSkill);
@@ -200,7 +236,54 @@ namespace Character
 
         public bool TriggerCombatSkill (ICombatSkill combatSkill)
         {
-            throw new NotImplementedException();
+            if (!CombatSkillCanBeUsed(combatSkill))
+            {
+                return false;
+            }
+            _combatSkillEndTimes[CombatSkills.IndexOf(combatSkill)] = GameTime.time + combatSkill.CooldownTime;
+            PreUseCountdown(combatSkill);
+            return true;
+        }
+
+        /// <summary>
+        /// A countdown before the CombatSkill takes action.</summary>
+        /// <remarks>This can be used for syncing animations or effects.</remarks>
+        /// <param name=combatSkill>The Skill to use</param>
+        public virtual void PreUseCountdown (ICombatSkill combatSkill)
+        {
+            //
+            // Implement a Coroutine in Monobehaviour
+            //
+            UseCombatSkill(combatSkill);
+        }
+
+        /// <summary>
+        /// Subtract the damage from the current life</summary>
+        public void OnAttacked (IFighter attacker, float damage)
+        {
+            Life -= damage;
+        }
+
+        /// <summary>
+        /// Triggers the use of the Skill</summary>
+        /// <param name=combatSkill>The Skill to use</param>
+        private void UseCombatSkill (ICombatSkill combatSkill)
+        {
+            combatSkill.Use(this);
+        }
+
+        /// <summary>
+        /// Check if the character knows the combat skill, and is not
+        // in cooldown of the Skill.</summary>
+        /// <param name=combatSkill>The Skill to test</param>
+        /// <returns> Whether the Skill van be used.</returns>
+        private bool CombatSkillCanBeUsed (ICombatSkill combatSkill)
+        {
+            if (!CombatSkills.Contains(combatSkill))
+            {
+                return false;
+            }
+            return GameTime.time >= _combatSkillEndTimes[CombatSkills.IndexOf(combatSkill)];
         }
     }
     
