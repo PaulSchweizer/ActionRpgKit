@@ -37,7 +37,8 @@ namespace ActionRpgKit.Tests.Core.Character
                                         description: "How to wield a sword.",
                                         preUseTime: 1,
                                         cooldownTime: 1,
-                                        damage: 1);
+                                        damage: 1,
+                                        maximumTargets: 1);
         }
 
         [Test]
