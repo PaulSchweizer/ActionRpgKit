@@ -1,80 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
-using Character.Skill;
-using Character.Stats;
+using System.Collections;
+using Character;
+using Character.Attribute;
 
-namespace Character
+namespace Character.Skill
 {
     // ------------------------------------------------------------------------
     // Interfaces
     // ------------------------------------------------------------------------
 
     /// <summary>
-    /// Characters populate the game world.
-    /// They are defined by Stats.</summary>
-    public interface ICharacter
+    /// Interface for Skills.</summary>
+    public interface ISkill
     {
         /// <summary>
-        /// Name of the character.</summary>
+        /// Unique identifier for the Skill. </summary>
+        /// <remarks>This can be used to create a database of Skills.</remarks>
+        int Id { get; }
+
+        /// <summary>
+        /// Name of the Skill.</summary>
         string Name { get; }
 
         /// <summary>
-        /// Stats describing the Character.</summary>
-        BaseStats Stats { get; set; }
+        /// A description.</summary>
+        string Description { get; }
+
+        /// <summary>
+        /// The time prior to the usage.</summary>
+        float PreUseTime { get; }
+
+        /// <summary>
+        /// The time it takes until the Skill can be used again.</summary>
+        float CooldownTime { get; }
+
+        /// <summary>
+        /// Whether the skill matches the given series of items.</summary>
+        bool Match ();
     }
 
     /// <summary>
-    /// Character can use Magic.</summary>
-    public interface IMagicUser
+    /// A magic Skill costs magic energy on each use.</summary>
+    public interface IMagicSkill : ISkill
     {
         /// <summary>
-        /// The remaining magic power.</summary>
-        float Magic { get; set; }
+        /// The energy costs of the Skill.</summary>
+        float Cost { get; }
 
         /// <summary>
-        /// MagicSkills available for this Character.</summary>
-        List<IMagicSkill> MagicSkills { get; }
-
-        /// <summary>
-        /// Add a new MagicSkill.</summary>
-        void LearnMagicSkill (IMagicSkill magicSkill);
-
-        /// <summary>
-        /// Trigger the given MagicSkill.</summary>
-        bool TriggerMagicSkill (IMagicSkill magicSkill);
+        /// The Skill is used and takes effect.</summary>
+        void Use (ICharacter user);
     }
 
     /// <summary>
-    /// Character can fight.</summary>
-    public interface IFighter
+    /// A Skill to be used as an Attack in Combat.</summary>
+    public interface ICombatSkill : ISkill
     {
         /// <summary>
-        /// The remaining life.</summary>
-        float Life { get; set; }
+        /// The amount of damage.</summary>
+        float Damage { get; }
 
         /// <summary>
-        /// Targeted enemies of the fighter.</summary>
-        List<IFighter> Enemies { get; }
+        /// The maximum amount of enemies that can be targeted at once.</summary>
+        int MaximumTargets { get; }
 
         /// <summary>
-        /// Add a new enemy.</summary>
-        void AddEnemy (IFighter enemy);
-
-        /// <summary>
-        /// CombatSkills available for this Character.</summary>
-        List<ICombatSkill> CombatSkills { get; }
-
-        /// <summary>
-        /// Add a new CombatSkill.</summary>
-        void LearnCombatSkill (ICombatSkill combatSkill);
-
-        /// <summary>
-        /// Attack with the given CombatSkill.</summary>
-        bool TriggerCombatSkill (ICombatSkill combatSkill);
-
-        /// <summary>
-        /// The Fighter is being attacked.</summary>
-        void OnAttacked (IFighter attacker, float damage);
+        /// The Skill is used and takes effect.</summary>
+        void Use (IFighter user);
     }
 
     // ------------------------------------------------------------------------
@@ -82,27 +74,35 @@ namespace Character
     // ------------------------------------------------------------------------
 
     /// <summary>
-    /// Base Character implementing all Character interfaces.</summary>
-    public class BaseCharacter : ICharacter, IMagicUser, IFighter
+    /// A basic Skill implementation.</summary>
+    public abstract class BaseSkill : ISkill
     {
+        private int _id;
         private string _name;
-        private BaseStats _stats;
+        private string _description;
+        private float _preUseTime;
+        private float _cooldownTime;
 
-        private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
-        private List<float> _magicSkillEndTimes = new List<float>();
-
-        private List<IFighter> _enemies = new List<IFighter>();
-        private List<ICombatSkill> _combatSkills = new List<ICombatSkill>();
-        private List<float> _combatSkillEndTimes = new List<float>();
-
-        public BaseCharacter (string name)
+        public BaseSkill(int id,
+                         string name,
+                         string description,
+                         float preUseTime,
+                         float cooldownTime)
         {
+            _id = id;
             _name = name;
+            _description = description;
+            _preUseTime = preUseTime;
+            _cooldownTime = cooldownTime;
         }
 
-        // --------------------------------------------------------------------
-        // ICharacter Implementations
-        // --------------------------------------------------------------------
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
 
         public string Name
         {
@@ -112,215 +112,164 @@ namespace Character
             }
         }
 
-        public BaseStats Stats
+        public string Description
         {
             get
             {
-                return _stats;
-            }
-            set
-            {
-                _stats = value;
+                return _description;
             }
         }
 
-        // --------------------------------------------------------------------
-        // IMagicUser Implementations
-        // --------------------------------------------------------------------
-
-        public float Magic
+        public float CooldownTime
         {
             get
             {
-                return Stats.Magic.Value;
-            }
-            set
-            {
-                Stats.Magic.Value = value;
+                return _cooldownTime;
             }
         }
 
-        public List<IMagicSkill> MagicSkills
+        public float PreUseTime
         {
             get
             {
-                return _magicSkills;
+                return _preUseTime;
             }
         }
 
-        public void LearnMagicSkill (IMagicSkill magicSkill)
-        {
-            _magicSkills.Add(magicSkill);
-            _magicSkillEndTimes.Add(-1);
-        }
-
-        public bool TriggerMagicSkill (IMagicSkill magicSkill)
-        {
-            if (!MagicSkillCanBeUsed(magicSkill))
-            {
-                return false;
-            }
-            Magic -= magicSkill.Cost;
-            _magicSkillEndTimes[MagicSkills.IndexOf(magicSkill)] = GameTime.time + magicSkill.CooldownTime;
-            PreUseCountdown(magicSkill);
-            return true;
-        }
-
-        /// <summary>
-        /// A countdown before the MagicSkill takes action.</summary>
-        /// <remarks>This can be used for syncing animations or effects.</remarks>
-        /// <param name=magicSkill>The Skill to use</param>
-        public virtual void PreUseCountdown (IMagicSkill magicSkill)
-        {
-            //
-            // Implement a Coroutine in Monobehaviour
-            //
-            UseMagicSkill(magicSkill);
-        }
-
-        /// <summary>
-        /// Triggers the use of the Skill</summary>
-        /// <param name=magicSkill>The Skill to use</param>
-        private void UseMagicSkill (IMagicSkill magicSkill)
-        {
-            magicSkill.Use(this);
-        }
-
-        /// <summary>
-        /// Check if the character knows the magic skill, has enough
-        /// magic energy and is not in cooldown of the Skill.</summary>
-        /// <param name=magicSkill>The Skill to test</param>
-        /// <returns> Whether the Skill van be used.</returns>
-        private bool MagicSkillCanBeUsed (IMagicSkill magicSkill)
-        {
-            if (!MagicSkills.Contains(magicSkill))
-            {
-                return false;
-            }
-            if (Magic < magicSkill.Cost)
-            {
-                return false;
-            }
-            return GameTime.time >= _magicSkillEndTimes[MagicSkills.IndexOf(magicSkill)];
-        }
-
-        // --------------------------------------------------------------------
-        // IFighter Implementations
-        // --------------------------------------------------------------------
-
-        public float Life
-        {
-            get
-            {
-                return Stats.Life.Value;
-            }
-            set
-            {
-                Stats.Life.Value = value;
-            }
-        }
-
-        public List<IFighter> Enemies
-        {
-            get
-            {
-                return _enemies;
-            }
-        }
-
-        public void AddEnemy (IFighter enemy)
-        {
-            Enemies.Add(enemy);
-        }
-
-        public List<ICombatSkill> CombatSkills
-        {
-            get
-            {
-                return _combatSkills;
-            }
-        }
-
-        public void LearnCombatSkill (ICombatSkill combatSkill)
-        {
-            _combatSkills.Add(combatSkill);
-        }
-
-        public bool TriggerCombatSkill (ICombatSkill combatSkill)
-        {
-            if (!CombatSkillCanBeUsed(combatSkill))
-            {
-                return false;
-            }
-            _combatSkillEndTimes[CombatSkills.IndexOf(combatSkill)] = GameTime.time + combatSkill.CooldownTime;
-            PreUseCountdown(combatSkill);
-            return true;
-        }
-
-        /// <summary>
-        /// A countdown before the CombatSkill takes action.</summary>
-        /// <remarks>This can be used for syncing animations or effects.</remarks>
-        /// <param name=combatSkill>The Skill to use</param>
-        public virtual void PreUseCountdown (ICombatSkill combatSkill)
-        {
-            //
-            // Implement a Coroutine in Monobehaviour
-            //
-            UseCombatSkill(combatSkill);
-        }
-
-        /// <summary>
-        /// Subtract the damage from the current life</summary>
-        public void OnAttacked (IFighter attacker, float damage)
-        {
-            Life -= damage;
-        }
-
-        /// <summary>
-        /// Triggers the use of the Skill</summary>
-        /// <param name=combatSkill>The Skill to use</param>
-        private void UseCombatSkill (ICombatSkill combatSkill)
-        {
-            combatSkill.Use(this);
-        }
-
-        /// <summary>
-        /// Check if the character knows the combat skill, and is not
-        // in cooldown of the Skill.</summary>
-        /// <param name=combatSkill>The Skill to test</param>
-        /// <returns> Whether the Skill van be used.</returns>
-        private bool CombatSkillCanBeUsed (ICombatSkill combatSkill)
-        {
-            if (!CombatSkills.Contains(combatSkill))
-            {
-                return false;
-            }
-            return GameTime.time >= _combatSkillEndTimes[CombatSkills.IndexOf(combatSkill)];
-        }
+        public abstract bool Match();
     }
-
 
     // ------------------------------------------------------------------------
     // Implementations
     // ------------------------------------------------------------------------
 
     /// <summary>
-    /// Representation of a Player controllable character.</summary>
-    public class Player : BaseCharacter
+    /// A passive MagicSkill adds buffs on the User itself.</summary>
+    public class PassiveMagicSkill : BaseSkill, IMagicSkill
     {
-        public Player (string name) : base(name)
+        private float _cost;
+        private float _duration;
+        private float _endTime = -1;
+        private float _modifierValue;
+        private string _modifiedAttributeName;
+
+        public PassiveMagicSkill(int id,
+                                 string name,
+                                 string description,
+                                 float cost,
+                                 float duration,
+                                 float preUseTime,
+                                 float cooldownTime,
+                                 float modifierValue,
+                                 string modifiedAttributeName) : base(id,
+                                                                      name,
+                                                                      description,
+                                                                      preUseTime,
+                                                                      cooldownTime)
         {
-            Stats = new PlayerStats();
+            _cost = cost;
+            _duration = duration;
+            _modifierValue = modifierValue;
+            _modifiedAttributeName = modifiedAttributeName;
+        }
+
+        // --------------------------------------------------------------------
+        // ISkill implementations
+        // --------------------------------------------------------------------
+
+        public override bool Match()
+        {
+            throw new NotImplementedException();
+        }
+
+        // --------------------------------------------------------------------
+        // IMagicSkill implementations
+        // --------------------------------------------------------------------
+
+        public float Cost
+        {
+            get
+            {
+                return _cost;
+            }
+        }
+
+        /// <summary>
+        /// Add the modifier to the modified attribute.</summary>
+        public void Use (ICharacter user)
+        {
+            user.Stats[_modifiedAttributeName].AddModifier(GetModifier());
+        }
+
+        /// <summary>
+        /// A new TimeBasedModifier is returned everytime it is requested.</summary>
+        private IModifier GetModifier ()
+        {
+            return new TimeBasedModifier(Name, _modifierValue, _duration);
         }
     }
 
     /// <summary>
-    /// Representation of a Hostile, game controlled character.</summary>
-    public class Enemy : BaseCharacter
+    /// Allows to attack with a melee weapon.</summary>
+    public class MeleeSkill : BaseSkill, ICombatSkill
     {
-        public Enemy (string name) : base(name)
+
+        private float _damage;
+        private int _maximumTargets;
+
+        public MeleeSkill(int id,
+                          string name,
+                          string description,
+                          float preUseTime,
+                          float cooldownTime,
+                          float damage,
+                          int maximumTargets) : base(id,
+                                                     name,
+                                                     description,
+                                                     preUseTime,
+                                                     cooldownTime)
         {
-            Stats = new EnemyStats();
+            _damage = damage;
+            _maximumTargets = maximumTargets;
+        }
+
+        // --------------------------------------------------------------------
+        // ISkill implementations
+        // --------------------------------------------------------------------
+
+        public override bool Match ()
+        {
+            throw new NotImplementedException();
+        }
+
+        // --------------------------------------------------------------------
+        // ICombatSkill implementations
+        // --------------------------------------------------------------------
+
+        public float Damage
+        {
+            get
+            {
+                return _damage;
+            }
+        }
+
+        public int MaximumTargets
+        {
+            get
+            {
+                return _maximumTargets;
+            }
+        }
+
+        /// <summary>
+        /// Inform the attacked Characters that they are being attacked.</summary>
+        public void Use (IFighter user)
+        {
+            for (int i = Math.Min(MaximumTargets, user.Enemies.Count) - 1; i >= 0; i--)
+            {
+                user.Enemies[i].OnAttacked(user, Damage);
+            }
         }
     }
 }
