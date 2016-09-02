@@ -1,7 +1,7 @@
 language: csharp
 solution: ActionRpgKit.sln
 before_install:
-#  - sudo apt-get install doxygen
+  - sudo apt-get install doxygen
   - sudo apt-get install nunit-console
 install:
   - nuget restore ActionRpgKit.sln
@@ -9,3 +9,5 @@ install:
 script:
   - xbuild /p:Configuration=Debug ActionRpgKit.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+after_success:
+- ./create_doxygen.sh
