@@ -1,0 +1,5 @@
+<map id="SecondaryAttribute" name="SecondaryAttribute">
+<area shape="rect" id="node4" href="$db/df3/class_character_1_1_attribute_1_1_volume_attribute.xhtml" title="Represents a volume of something, e.g. magic, life. The base value is derived through a formula and s..." alt="" coords="10,763,154,884"/>
+<area shape="rect" id="node2" href="$d3/db7/class_character_1_1_attribute_1_1_primary_attribute.xhtml" title="Represents a simple float value. " alt="" coords="14,233,150,531"/>
+<area shape="rect" id="node3" href="$d7/df4/interface_character_1_1_attribute_1_1_i_attribute.xhtml" title="Interface for Attributes. " alt="" coords="15,5,149,185"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="ISkill" name="ISkill">
+<area shape="rect" id="node2" href="$df/dff/interface_character_1_1_skill_1_1_i_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat." alt="" coords="31,204,125,281"/>
+<area shape="rect" id="node4" href="$d1/d20/interface_character_1_1_skill_1_1_i_magic_skill.xhtml" title="A magic Skill costs magic energy on each use." alt="" coords="177,204,262,281"/>
+<area shape="rect" id="node3" href="$d7/ddb/class_character_1_1_skill_1_1_melee_skill.xhtml" title="{MeleeSkill\n|+ Id\l+ Name\l+ Description\l+ CooldownTime\l+ PreUseTime\l+ Damage\l&#45; _id\l&#45; _name\l&#45; _description\l&#45; _preUseTime\l&#45; _cooldownTime\l&#45; _damage\l|+ MeleeSkill()\l+ Match()\l+ Use()\l}" alt="" coords="5,366,124,634"/>
+<area shape="rect" id="node5" href="$d2/d37/class_character_1_1_skill_1_1_passive_magic_skill.xhtml" title="A passive Skill acts on the User itself." alt="" coords="149,329,317,671"/>
+</map>

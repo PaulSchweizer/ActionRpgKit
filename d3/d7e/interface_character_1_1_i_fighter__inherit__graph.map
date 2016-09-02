@@ -1,0 +1,5 @@
+<map id="IFighter" name="IFighter">
+<area shape="rect" id="node2" href="$d0/dd4/class_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="15,160,182,472"/>
+<area shape="rect" id="node3" href="$d9/dfd/class_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="" coords="5,520,88,597"/>
+<area shape="rect" id="node4" href="$d7/daf/class_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="" coords="113,520,191,597"/>
+</map>
