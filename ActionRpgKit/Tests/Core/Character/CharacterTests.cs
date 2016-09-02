@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
-using Character;
-using Character.Skill;
+using ActionRpgKit.Character;
+using ActionRpgKit.Character.Skill;
 
 namespace ActionRpgKit.Tests.Core.Character
 {
@@ -15,6 +15,7 @@ namespace ActionRpgKit.Tests.Core.Character
 
         IMagicSkill passiveMagicSkill;
         ICombatSkill meleeSkill;
+        ICombatSkill meleeMultiTargetsSkill;
 
         [SetUp]
         public void SetUp ()
@@ -39,6 +40,13 @@ namespace ActionRpgKit.Tests.Core.Character
                                         cooldownTime: 1,
                                         damage: 1,
                                         maximumTargets: 1);
+            meleeMultiTargetsSkill = new meleeMultiTargetsSkill(id: 1,
+                                            name: "MultiHit",
+                                            description: "How to wield a sword against multiple opponents.",
+                                            preUseTime: 1,
+                                            cooldownTime: 1,
+                                            damage: 1,
+                                            maximumTargets: 10);
         }
 
         [Test]
@@ -78,7 +86,7 @@ namespace ActionRpgKit.Tests.Core.Character
         }
 
         [Test]
-        public void FighterTest ()
+        public void SimpleMeeSkillTest ()
         {
             // Prepare the enemy by learning the meleeSkill
             enemy.LearnCombatSkill(meleeSkill);
@@ -95,6 +103,14 @@ namespace ActionRpgKit.Tests.Core.Character
                 Assert.AreEqual(20 - (i+1), player.Life);
                 GameTime.time += 1;
             }
+        }
+        
+        [Test]
+        public void MultiTargetsSkillTest ()
+        {
+            // Prepare the enemy by learning the meleeSkill
+            enemy.LearnCombatSkill(meleeMultiTargetsSkill);
+            Assert.IsTrue(enemy.CombatSkills.Contains(meleeMultiTargetsSkill));
         }
     }
 }
