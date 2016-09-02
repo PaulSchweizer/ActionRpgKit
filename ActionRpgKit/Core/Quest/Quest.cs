@@ -10,6 +10,9 @@ namespace ActionRpgKit.Core.Quest
     // Interfaces
     // -----------------------------------------------------------------------
 
+    /// <summary>
+    /// Interface for Quests.
+    /// </summary>
     public interface IQuest
     {
         string Name { get; set; }
