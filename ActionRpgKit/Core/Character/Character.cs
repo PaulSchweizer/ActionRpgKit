@@ -232,6 +232,7 @@ namespace Character
         public void LearnCombatSkill (ICombatSkill combatSkill)
         {
             _combatSkills.Add(combatSkill);
+            _combatSkillEndTimes.Add(-1);
         }
 
         public bool TriggerCombatSkill (ICombatSkill combatSkill)
