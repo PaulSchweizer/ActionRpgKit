@@ -40,7 +40,7 @@ namespace ActionRpgKit.Tests.Core.Character
                                         cooldownTime: 1,
                                         damage: 1,
                                         maximumTargets: 1);
-            meleeMultiTargetsSkill = new meleeMultiTargetsSkill(id: 1,
+            meleeMultiTargetsSkill = new MeleeSkill(id: 1,
                                             name: "MultiHit",
                                             description: "How to wield a sword against multiple opponents.",
                                             preUseTime: 1,
