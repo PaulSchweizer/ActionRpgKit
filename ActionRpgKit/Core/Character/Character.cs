@@ -41,9 +41,17 @@ namespace Character
     public interface IFighter
     {
         /// <summary>
+        /// The remaining life.</summary>
+        float Life { get; set; }
+
+        /// <summary>
         /// Targeted enemies of the fighter.</summary>
         List<IFighter> Enemies { get; }
-        
+
+        /// <summary>
+        /// Add a new enemy.</summary>
+        void AddEnemy (IFighter enemy);
+
         /// <summary>
         /// CombatSkills available for this Character.</summary>
         List<ICombatSkill> CombatSkills { get; }
@@ -55,6 +63,10 @@ namespace Character
         /// <summary>
         /// Attack with the given CombatSkill.</summary>
         bool TriggerCombatSkill (ICombatSkill combatSkill);
+
+        /// <summary>
+        /// The Fighter is being attacked.</summary>
+        void OnAttacked (IFighter attacker, float damage);
     }
     
     /// <summary>
