@@ -92,7 +92,7 @@ namespace ActionRpgKit.Tests.Core.Character
             for (int i=0; i < 20; i++)
             {
                 enemy.TriggerCombatSkill(meleeSkill);
-                Assert.AreEqual(20 - (i+1), player.Life.Value);
+                Assert.AreEqual(20 - (i+1), player.Life);
                 GameTime.time += 1;
             }
         }
