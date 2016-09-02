@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Character.Skill;
-using Character.Stats;
+using ActionRpgKit.Character.Skill;
+using ActionRpgKit.Character.Stats;
 
-namespace Character
+namespace ActionRpgKit.Character
 {
     /// <summary>
     /// Characters populate the game world. 
