@@ -14,6 +14,7 @@ namespace Character.Stats
         public IAttribute Soul;
         public IAttribute Experience;
         public IAttribute Level;
+        public IAttribute Life;
         public IAttribute Magic;
         public IAttribute MagicRegenerationRate;
         
@@ -24,6 +25,7 @@ namespace Character.Stats
             Add("Soul", Soul);
             Add("Experience", Experience);
             Add("Level", Level);
+            Add("Life", Life);
             Add("MagicRegenerationRate", MagicRegenerationRate);
             Add("Magic", Magic);
         }
@@ -49,7 +51,10 @@ namespace Character.Stats
                                     new IAttribute[] { Mind }, 0, 99);
   
             // Volume Attributes
-            Magic = new VolumeAttribute("Magic", 
+            Life = new VolumeAttribute("Life", 
+                   x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
+                   new IAttribute[] { Level, Body }, 0, 999);
+            Magic =new VolumeAttribute("Magic", 
                     x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
                     new IAttribute[] { Level, Soul }, 0, 999);
             AssignAttributesToDict();
@@ -65,6 +70,7 @@ namespace Character.Stats
             Soul = new PrimaryAttribute("Soul", 0, 999, 0);
             Experience = new PrimaryAttribute("Experience");
             Level = new PrimaryAttribute("Level");
+            Life = new PrimaryAttribute("Life", 0, 999, 0);
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate");
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
             AssignAttributesToDict();
