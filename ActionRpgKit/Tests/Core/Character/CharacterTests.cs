@@ -13,7 +13,7 @@ namespace ActionRpgKit.Tests.Core.Character
         Player player;
         Enemy enemy;
 
-        PassiveMagicSkill passiveMagicSkill;
+        IMagicSkill passiveMagicSkill;
         ICombatSkill meleeSkill;
 
         [SetUp]
@@ -51,14 +51,14 @@ namespace ActionRpgKit.Tests.Core.Character
             player.LearnMagicSkill(passiveMagicSkill);
             triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsTrue(triggered);
-            
+
             // Check the effect on the modified attribute
             Assert.AreEqual(10, player.Stats.Body.Value);
 
             // Player triggers it again right away, which is not possible due to cooldown time
             triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsFalse(triggered);
-            
+
             // Enemy uses the same passive skill
             enemy.LearnMagicSkill(passiveMagicSkill);
             triggered = enemy.TriggerMagicSkill(passiveMagicSkill);
@@ -69,17 +69,31 @@ namespace ActionRpgKit.Tests.Core.Character
             Console.WriteLine(player.Stats.Magic);
             triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsTrue(triggered);
-            
+
             // Take the use costs into account
             GameTime.time = 10;
             triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsFalse(triggered);
         }
-        
+
         [Test]
         public void FighterTest ()
         {
+            // Prepare the enemy by learning the meleeSkill
             enemy.LearnCombatSkill(meleeSkill);
+            Assert.IsTrue(enemy.CombatSkills.Contains(meleeSkill));
+
+            // Add the Player as an enemy
+            enemy.AddEnemy(player);
+            Assert.IsTrue(enemy.Enemies.Contains(player));
+
+            // Attack the Player until his health runs out
+            for (int i=0; i < 20; i++)
+            {
+                enemy.TriggerCombatSkill(meleeSkill);
+                Assert.AreEqual(20 - (i+1), player.Life.Value);
+                GameTime.time += 1;
+            }
         }
     }
 }
