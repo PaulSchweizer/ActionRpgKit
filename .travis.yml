@@ -3,7 +3,7 @@ solution: ActionRpgKit.sln
 before_install:
   - sudo apt-get install doxygen
   - sudo apt-get install nunit-console
-  - chmod 755 ./.push_gh_pages.sh
+  - chmod 755 ./create_doxygen.sh
 install:
   - nuget restore ActionRpgKit.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
