@@ -6,6 +6,10 @@ language: csharp
 
 solution: ActionRpgKit.sln
 
+efore_install:
+    - sudo apt-get update
+    - sudo apt-get install doxygen
+
 install:
   - nuget restore ActionRpgKit.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
@@ -14,9 +18,6 @@ install:
 script:
   - xbuild /p:Configuration=Debug ActionRpgKit.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
-  - cd $TRAVIS_BUILD_DIR
-  - chmod 777 generateDocumentationAndDeploy.sh
-  - ./generateDocumentationAndDeploy.sh
 
 # Generate and deploy documentation
 after_success:
@@ -28,7 +29,7 @@ after_success:
 addons:
   apt:
     packages:
-      - doxygen
+      - doxygen-1.8.11
       - doxygen-doc
       - doxygen-latex
       - doxygen-gui
