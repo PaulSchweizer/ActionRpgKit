@@ -9,25 +9,35 @@ solution: ActionRpgKit.sln
 install:
 - nuget restore ActionRpgKit.sln
 - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+
+# Build your code e.g. by calling make
 script:
 - xbuild /p:Configuration=Debug ActionRpgKit.sln
-- mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+- mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+
+# Generate and deploy documentation
 after_success:
-- cd $TRAVIS_BUILD_DIR
-- chmod +x create_doxygen.sh
-- "./create_doxygen.sh"
+  - cd $TRAVIS_BUILD_DIR
+  - chmod +x generateDocumentationAndDeploy.sh
+  - ./generateDocumentationAndDeploy.sh
+
+# Install dependencies
 addons:
   apt:
     packages:
-    - doxygen
-    - doxygen-doc
-    - doxygen-latex
-    - doxygen-gui
-    - graphviz
-    - nunit-console
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
+      - nunit-console
+
+# Blacklist
 branches:
   except:
   - gh-pages
+
+# Environment variables
 env:
   global:
   - GH_REPO_NAME: ActionRpgKit
