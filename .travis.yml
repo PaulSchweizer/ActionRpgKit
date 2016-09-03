@@ -7,22 +7,25 @@ language: csharp
 solution: ActionRpgKit.sln
 
 install:
-- nuget restore ActionRpgKit.sln
-- nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - nuget restore ActionRpgKit.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 
 # Build your code e.g. by calling make
 script:
-- xbuild /p:Configuration=Debug ActionRpgKit.sln
-- mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+  - xbuild /p:Configuration=Debug ActionRpgKit.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+  - cd $TRAVIS_BUILD_DIR
+  - chmod 777 generateDocumentationAndDeploy.sh
+  - ./generateDocumentationAndDeploy.sh
 
 # Generate and deploy documentation
 after_success:
   - cd $TRAVIS_BUILD_DIR
-  - chmod 777 $TRAVIS_BUILD_DIR/generateDocumentationAndDeploy.sh
-  - $TRAVIS_BUILD_DIR/generateDocumentationAndDeploy.sh
+  - chmod 777 generateDocumentationAndDeploy.sh
+  - ./generateDocumentationAndDeploy.sh
 
-  - chmod 777 $TRAVIS_BUILD_DIR/test.sh
-  - $TRAVIS_BUILD_DIR/test.sh
+  - chmod 777 test.sh
+  - ./test.sh
 
 # Install dependencies
 addons:
