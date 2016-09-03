@@ -1,14 +1,32 @@
 language: csharp
 solution: ActionRpgKit.sln
 before_install:
-  - sudo apt-get install doxygen
-  - sudo apt-get install nunit-console
-  - chmod 755 ./create_doxygen.sh
+- sudo apt-get install doxygen
+- sudo apt-get install nunit-console
 install:
-  - nuget restore ActionRpgKit.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+- nuget restore ActionRpgKit.sln
+- nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Debug ActionRpgKit.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+- xbuild /p:Configuration=Debug ActionRpgKit.sln
+- mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/bin/Debug/ActionRpgKit.dll
 after_success:
-  - ./create_doxygen.sh
+- cd $TRAVIS_BUILD_DIR
+- chmod +x create_doxygen.sh
+- "./create_doxygen.sh"
+addons:
+  apt:
+    packages:
+    - doxygen
+    - doxygen-doc
+    - doxygen-latex
+    - doxygen-gui
+    - graphviz
+branches:
+  except:
+  - gh-pages
+env:
+  global:
+  - GH_REPO_NAME: ActionRpgKit
+  - DOXYFILE: "$TRAVIS_BUILD_DIR/config.dox"
+  - GH_REPO_REF: github.com/PaulSchweizer/ActionRpgKit.git
+  - secure: NQSmLmhKl0mwXYS2maNznL3orn+gbowXwTsOzQM1CIQXQssoeTIgNjURYO9AfxgXScxMjGR11B+nCG40lCrL9zK3cDfgJVzk2dHPyYtjeb+GqjAn2PCVZFAB6N4SYEGU88bLhHzAvU3keSzLADkciDwRnWdSeBmBoUPWDTIfWAdUUgf5DekRLQLriHn4WukzxhDmFP7+SvmefEV3g5950FGsg+iceh1eiTUaRq/5zE2XXXLV6Sq3glSqk2hRLimaXRHZn2sF61JZoalovn9erh9Jm+lwO8VBYo+nYPkT5EGWOcNz8pcnlQzCAnLJ5kNLrJZMb7l1oDJ7y7ZBkw6VLfTimTGAue7opzzHnprTuF6Yrps4TPRGKO4PD567p8qNoqZZCXQoooEnCUm73F3hUUQ/YcD0m45ueFWwvOdhQexjxz304fF0YW0H2DYjbFs7KapovFPtTLdBJwduVqPcJ8/vMUG25th1RleP/fCSFMD9Y52/0O1M7W2Y+1Bj4qHkZMMgGnmCWkYOGxLlx1LGlnxpvKGtluQyQXdRziYJ2JRKVXOdMl7QgfIJ/R6lVJbVjI5iVWftT1PkR3QyUPPnnVoMNEjQ6Sr/MDfSCzGC2MjEQLvZ/TZXGr4fQHqJ1qQXUtk9qNMkmuOTx+Gn2ihEI/FtEGk6Yyt0r99GXa2AvOM=
