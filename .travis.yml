@@ -21,6 +21,9 @@ after_success:
   - chmod 777 $TRAVIS_BUILD_DIR/generateDocumentationAndDeploy.sh
   - $TRAVIS_BUILD_DIR/generateDocumentationAndDeploy.sh
 
+  - chmod 777 $TRAVIS_BUILD_DIR/test.sh
+  - $TRAVIS_BUILD_DIR/test.sh
+
 # Install dependencies
 addons:
   apt:
