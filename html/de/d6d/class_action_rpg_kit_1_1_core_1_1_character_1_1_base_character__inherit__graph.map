@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node9" href="$d0/da7/class_action_rpg_kit_1_1_core_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="" coords="89,795,172,880"/>
-<area shape="rect" id="node11" href="$db/d7e/class_action_rpg_kit_1_1_core_1_1_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="" coords="196,795,273,880"/>
-<area shape="rect" id="node2" href="$dc/d2f/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats." alt="" coords="5,41,88,143"/>
-<area shape="rect" id="node4" href="$d9/d26/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic." alt="" coords="112,41,253,143"/>
-<area shape="rect" id="node6" href="$d6/d4d/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_fighter.xhtml" title="Character can fight." alt="" coords="277,6,429,178"/>
-</map>

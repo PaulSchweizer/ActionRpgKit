@@ -1,8 +1,10 @@
 var hierarchy =
 [
-    [ "BaseStats", "de/dd8/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_base_stats.xhtml", [
-      [ "EnemyStats", "df/d6b/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_enemy_stats.xhtml", null ],
-      [ "PlayerStats", "dd/dcb/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_player_stats.xhtml", null ]
+    [ "Dictionary< string, IAttribute >", null, [
+      [ "BaseStats", "de/dd8/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_base_stats.xhtml", [
+        [ "EnemyStats", "df/d6b/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_enemy_stats.xhtml", null ],
+        [ "PlayerStats", "dd/dcb/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_player_stats.xhtml", null ]
+      ] ]
     ] ],
     [ "GameTime", "d9/db6/class_game_time.xhtml", null ],
     [ "IAttribute", "db/d8f/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_attribute.xhtml", [

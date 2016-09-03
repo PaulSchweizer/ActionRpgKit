@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['activate',['Activate',['../d6/da5/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_modifier.xhtml#ae8753efaeea05f65094a4875a694a368',1,'ActionRpgKit::Core::Character::Attribute::IModifier.Activate()'],['../dd/d62/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_time_based_modifier.xhtml#ae8753efaeea05f65094a4875a694a368',1,'ActionRpgKit::Core::Character::Attribute::TimeBasedModifier.Activate()']]],
-  ['addenemy',['AddEnemy',['../d6/d4d/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_fighter.xhtml#aed060cc3f197ec56e6be6a058b0162dc',1,'ActionRpgKit::Core::Character::IFighter.AddEnemy()'],['../d7/d90/class_action_rpg_kit_1_1_core_1_1_character_1_1_base_character.xhtml#aed060cc3f197ec56e6be6a058b0162dc',1,'ActionRpgKit::Core::Character::BaseCharacter.AddEnemy()']]],
-  ['addmodifier',['AddModifier',['../db/d8f/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a914e35740f037fcc4d0eb2a3f33632e6',1,'ActionRpgKit::Core::Character::Attribute::IAttribute.AddModifier()'],['../da/da1/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a914e35740f037fcc4d0eb2a3f33632e6',1,'ActionRpgKit::Core::Character::Attribute::PrimaryAttribute.AddModifier()']]],
-  ['assignattributestodict',['AssignAttributesToDict',['../de/dd8/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_base_stats.xhtml#a9c0b18dd34a004e84deadc59b976727c',1,'ActionRpgKit::Core::Character::Stats::BaseStats']]]
-];

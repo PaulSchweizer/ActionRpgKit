@@ -1,37 +1,18 @@
-warning: ignoring unsupported tag `ALLOW_UNICODE_NAMES    =' at line 79, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `MARKDOWN_SUPPORT       =' at line 294, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `AUTOLINK_SUPPORT       =' at line 302, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTRACT_PACKAGE        =' at line 424, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `SHOW_GROUPED_MEMB_INC  =' at line 521, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `USE_MDFILE_AS_MAINPAGE =' at line 892, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `SOURCE_TOOLTIPS        =' at line 948, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `CLANG_ASSISTED_PARSING =' at line 989, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `CLANG_OPTIONS          =' at line 997, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `HTML_EXTRA_STYLESHEET  =' at line 1102, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `HTML_INDEX_NUM_ENTRIES =' at line 1171, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `MATHJAX_FORMAT         =' at line 1452, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `MATHJAX_CODEFILE       =' at line 1480, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTERNAL_SEARCH        =' at line 1529, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `SEARCHENGINE_URL       =' at line 1540, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `SEARCHDATA_FILE        =' at line 1548, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTERNAL_SEARCH_ID     =' at line 1556, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTRA_SEARCH_MAPPINGS  =' at line 1566, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `LATEX_EXTRA_FILES      =' at line 1662, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `MAN_SUBDIR             =' at line 1804, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `GENERATE_DOCBOOK       =' at line 1850, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `DOCBOOK_OUTPUT         =' at line 1858, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `DOCBOOK_PROGRAMLISTING =' at line 1867, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTERNAL_PAGES         =' at line 2040, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `DIA_PATH               =' at line 2075, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `UML_LIMIT_NUM_FIELDS   =' at line 2169, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `DIAFILE_DIRS           =' at line 2281, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `PLANTUML_JAR_PATH      =' at line 2290, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: the dot tool could not be found at C:\Program Files (x86)\Graphviz2.38\bin
+Warning: ignoring unsupported tag `ALLOW_UNICODE_NAMES    =' at line 79, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
+Warning: Tag `CLANG_ASSISTED_PARSING' at line 989 of file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox belongs to an option that was not enabled at compile time.
+To avoid this warning please remove this line from your configuration file, upgrade it using "doxygen -u", or recompile doxygen with this feature enabled.
+Warning: Tag `CLANG_OPTIONS' at line 997 of file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox belongs to an option that was not enabled at compile time.
+To avoid this warning please remove this line from your configuration file, upgrade it using "doxygen -u", or recompile doxygen with this feature enabled.
+Warning: ignoring unsupported tag `MAN_SUBDIR             =' at line 1804, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
+Warning: ignoring unsupported tag `DOCBOOK_PROGRAMLISTING =' at line 1867, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
+Warning: ignoring unsupported tag `PLANTUML_JAR_PATH      =' at line 2290, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
+Warning: the dot tool could not be found at C:\Program Files (x86)\Graphviz2.38\bin
 Searching for include files...
 Searching for example files...
 Searching for images...
 Searching for dot files...
 Searching for msc files...
+Searching for dia files...
 Searching for files to exclude
 Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Tests
 Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Tests/Core
@@ -55,6 +36,7 @@ Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/A
 Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Tests/Core/Item
 Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Tests/Core/Quest
 Reading and parsing tag files
+Parsing files
 Preprocessing /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Core/Character/Attribute.cs...
 Parsing file /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Core/Character/Attribute.cs...
 Preprocessing /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Core/Character/Character.cs...
@@ -86,6 +68,7 @@ Searching for documented typedefs...
 Searching for members imported via using declarations...
 Searching for included using directives...
 Searching for documented variables...
+Building interface member list...
 Building member list...
 Searching for friends...
 Searching for documented defines...
@@ -112,16 +95,27 @@ Generating disk names...
 Adding source references...
 Adding xrefitems...
 Sorting member lists...
+Computing dependencies between directories...
 Generating citations page...
 Counting data structures...
 Resolving user defined references...
 Finding anchors and sections in the documentation...
+Transferring function references...
 Combining using relations...
 Adding members to index pages...
 Generating style sheet...
 Generating search indices...
 Generating example documentation...
 Generating file sources...
+Parsing code for file .NETFramework,Version=v4.5.2.AssemblyAttribute.cs...
+Parsing code for file AssemblyInfo.cs...
+Parsing code for file Attribute.cs...
+Parsing code for file Character.cs...
+Parsing code for file GameTime.cs...
+Parsing code for file Item.cs...
+Parsing code for file Quest.cs...
+Parsing code for file Skill.cs...
+Parsing code for file Stats.cs...
 Generating file documentation...
 Generating page documentation...
 Generating group documentation...
@@ -150,7 +144,98 @@ Generating docs for compound ActionRpgKit::Core::Character::Skill::ISkill...
 Generating docs for compound ActionRpgKit::Core::Character::Skill::IMagicSkill...
 Generating docs for compound ActionRpgKit::Core::Character::Skill::ICombatSkill...
 Generating docs for compound ActionRpgKit::Core::Character::Skill::BaseSkill...
-Generating docs for compound ActionRpgKit::Core::Character::Skill::PassiveMagicSkill...
+Generating docs for compound ActionRpgKit::Core::Character:sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/dd6/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_character__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/dd6/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_character__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/dd6/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_character__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/de/d4c/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_magic_user__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/de/d4c/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_magic_user__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/de/d4c/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_magic_user__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/de/d6d/class_action_rpg_kit_1_1_core_1_1_character_1_1_base_character__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/de/d6d/class_action_rpg_kit_1_1_core_1_1_character_1_1_base_character__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/de/d6d/class_action_rpg_kit_1_1_core_1_1_character_1_1_base_character__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d4/d97/class_action_rpg_kit_1_1_core_1_1_character_1_1_player__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d4/d97/class_action_rpg_kit_1_1_core_1_1_character_1_1_player__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d4/d97/class_action_rpg_kit_1_1_core_1_1_character_1_1_player__inherit__graph.map"'
+sh: 1: dot: not found
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/da/d61/class_action_rpg_kit_1_1_core_1_1_character_1_1_enemy__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/da/d61/class_action_rpg_kit_1_1_core_1_1_character_1_1_enemy__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/da/d61/class_action_rpg_kit_1_1_core_1_1_character_1_1_enemy__inherit__graph.map"'
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/db/dc8/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_fighter__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/db/dc8/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_fighter__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/db/dc8/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_fighter__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/db/d14/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_primary_attribute__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/db/d14/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_primary_attribute__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/db/d14/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_primary_attribute__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d4/d2c/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_secondary_attribute__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d4/d2c/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_secondary_attribute__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d4/d2c/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_secondary_attribute__inherit__graph.map"'
+sh: 1: sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d0/dba/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_attribute__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d0/dba/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_attribute__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d0/dba/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_attribute__inherit__graph.map"'
+dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/da/d1e/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_volume_attribute__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/da/d1e/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_volume_attribute__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/da/d1e/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_volume_attribute__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d2/d76/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_modifier__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d2/d76/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_modifier__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d2/d76/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_modifier__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dd/d95/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_simple_volume_attribute__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dd/d95/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_simple_volume_attribute__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dd/d95/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_simple_volume_attribute__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/dc5/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_magic_skill__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/dc5/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_magic_skill__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/dc5/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_magic_skill__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d7/dac/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_time_based_modifier__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d7/dac/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_time_based_modifier__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d7/dac/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_time_based_modifier__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/de/d47/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_skill__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/de/d47/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_skill__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/de/d47/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_skill__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/d32/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_combat_skill__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/d32/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_combat_skill__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/d32/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_combat_skill__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/dd7/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_passive_magic_skill__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/dd7/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_passive_magic_skill__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/dd7/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_passive_magic_skill__inherit__graph.map"'
+sh: 1: dot: not found
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d5/d68/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_base_stats__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d5/d68/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_base_stats__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d5/d68/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_base_stats__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d0/d56/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_melee_skill__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d0/d56/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_melee_skill__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d0/d56/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_melee_skill__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/da8/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_player_stats__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/da8/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_player_stats__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/da8/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_player_stats__inherit__graph.map"'
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d3/d78/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_base_skill__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d3/d78/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_base_skill__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d3/d78/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_base_skill__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/db4/interface_action_rpg_kit_1_1_core_1_1_item_1_1_i_item__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/db4/interface_action_rpg_kit_1_1_core_1_1_item_1_1_i_item__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/db4/interface_action_rpg_kit_1_1_core_1_1_item_1_1_i_item__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dd/d7b/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_enemy_stats__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dd/d7b/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_enemy_stats__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dd/d7b/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_enemy_stats__inherit__graph.map"'
+sh: 1: dot: not found
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dd/dce/class_action_rpg_kit_1_1_core_1_1_item_1_1_base_item__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dd/dce/class_action_rpg_kit_1_1_core_1_1_item_1_1_base_item__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dd/dce/class_action_rpg_kit_1_1_core_1_1_item_1_1_base_item__inherit__graph.map"'
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d9/d9e/interface_action_rpg_kit_1_1_core_1_1_quest_1_1_i_quest__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d9/d9e/interface_action_rpg_kit_1_1_core_1_1_quest_1_1_i_quest__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d9/d9e/interface_action_rpg_kit_1_1_core_1_1_quest_1_1_i_quest__inherit__graph.map"'
+sh: 1: dot: not found
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d2/d56/interface_action_rpg_kit_1_1_core_1_1_quest_1_1_i_objective__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d2/d56/interface_action_rpg_kit_1_1_core_1_1_quest_1_1_i_objective__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d2/d56/interface_action_rpg_kit_1_1_core_1_1_quest_1_1_i_objective__inherit__graph.map"'
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/dc8/class_action_rpg_kit_1_1_core_1_1_quest_1_1_base_quest__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/dc8/class_action_rpg_kit_1_1_core_1_1_quest_1_1_base_quest__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dc/dc8/class_action_rpg_kit_1_1_core_1_1_quest_1_1_base_quest__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d5/d8a/class_action_rpg_kit_1_1_core_1_1_quest_1_1_base_objective__inherit__graph.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d5/d8a/class_action_rpg_kit_1_1_core_1_1_quest_1_1_base_objective__inherit__graph.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d5/d8a/class_action_rpg_kit_1_1_core_1_1_quest_1_1_base_objective__inherit__graph.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_9ecb837a21b60474ce98456d518a780a_dep.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_9ecb837a21b60474ce98456d518a780a_dep.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_9ecb837a21b60474ce98456d518a780a_dep.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_08cc5c503820d31914a2f2729a36eee6_dep.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_08cc5c503820d31914a2f2729a36eee6_dep.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_08cc5c503820d31914a2f2729a36eee6_dep.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_51aa3327c24c42ac0a4d2f2ce0d4381c_dep.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_51aa3327c24c42ac0a4d2f2ce0d4381c_dep.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_51aa3327c24c42ac0a4d2f2ce0d4381c_dep.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_8207dc692c6f22639351b525b75cafa5_dep.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_8207dc692c6f22639351b525b75cafa5_dep.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_8207dc692c6f22639351b525b75cafa5_dep.map"'
+sh: 1: dot: not found
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_8aced4f5cb2570e3fc4d1c2659f00981_dep.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_8aced4f5cb2570e3fc4d1c2659f00981_dep.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_8aced4f5cb2570e3fc4d1c2659f00981_dep.map"'
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_706498b4d5731a6240de8837bef0e2e4_dep.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_706498b4d5731a6240de8837bef0e2e4_dep.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_706498b4d5731a6240de8837bef0e2e4_dep.map"'
+sh: 1: dot: not found
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_9dd54d8903da8692d636818bcc9c555e_dep.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_9dd54d8903da8692d636818bcc9c555e_dep.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_9dd54d8903da8692d636818bcc9c555e_dep.map"'
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_0.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_0.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_0.map"'
+sh: 1: dot: not found
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_2.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_2.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_2.map"'
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_4739576f810d48e6e0c06f46288922b6_dep.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_4739576f810d48e6e0c06f46288922b6_dep.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/dir_4739576f810d48e6e0c06f46288922b6_dep.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_3.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_3.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_3.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_1.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_1.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_1.map"'
+sh: 1: dot: not found
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_4.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_4.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_4.map"'
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_5.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_5.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_5.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_7.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_7.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_7.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_6.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_6.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_6.map"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_8.dot" -Tsvg -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_8.svg" -Tcmapx -o "/home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/inherit_graph_8.map"'
+error: Failed to rename file /home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/dd6/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_character__inherit__graph.svg to /home/travis/build/PaulSchweizer/ActionRpgKit/code_docs/ActionRpgKit/html/d6/dd6/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_character__inherit__graph.svg.tmp!
+:Skill::PassiveMagicSkill...
 Generating docs for compound ActionRpgKit::Core::Character::Skill::MeleeSkill...
 Generating docs for namespace ActionRpgKit::Core::Character::Stats
 Generating docs for compound ActionRpgKit::Core::Character::Stats::BaseStats...
@@ -164,6 +249,15 @@ Generating docs for compound ActionRpgKit::Core::Quest::IQuest...
 Generating docs for compound ActionRpgKit::Core::Quest::IObjective...
 Generating docs for compound ActionRpgKit::Core::Quest::BaseObjective...
 Generating docs for compound ActionRpgKit::Core::Quest::BaseQuest...
+Generating directory documentation...
+Generating dependency graph for directory ActionRpgKit
+Generating dependency graph for directory Character
+Generating dependency graph for directory Core
+Generating dependency graph for directory Debug
+Generating dependency graph for directory Item
+Generating dependency graph for directory obj
+Generating dependency graph for directory Properties
+Generating dependency graph for directory Quest
 Generating index page...
 Generating page index...
 Generating module index...
@@ -174,114 +268,56 @@ Generating alphabetical compound index...
 Generating hierarchical class index...
 Generating graphical class hierarchy...
 Generating member index...
-Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
+Running dot...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/37
-Running dot for graph 2/37
-Running dot for graph 3/37
-Running dot for graph 4/37
-Running dot for graph 5/37
-Running dot for graph 6/37
-Running dot for graph 7/37
-Running dot for graph 8/37
-Running dot for graph 9/37
-Running dot for graph 10/37
-Running dot for graph 11/37
-Running dot for graph 12/37
-Running dot for graph 13/37
-Running dot for graph 14/37
-Running dot for graph 15/37
-Running dot for graph 16/37
-Running dot for graph 17/37
-Running dot for graph 18/37
-Running dot for graph 19/37
-Running dot for graph 20/37
-Running dot for graph 21/37
-Running dot for graph 22/37
-Running dot for graph 23/37
-Running dot for graph 24/37
-Running dot for graph 25/37
-Running dot for graph 26/37
-Running dot for graph 27/37
-Running dot for graph 28/37
-Running dot for graph 29/37
-Running dot for graph 30/37
-Running dot for graph 31/37
-Running dot for graph 32/37
-Running dot for graph 33/37
-Running dot for graph 34/37
-Running dot for graph 35/37
-Running dot for graph 36/37
-Running dot for graph 37/37
-Patching output file 1/66
-Patching output file 2/66
-Patching output file 3/66
-Patching output file 4/66
-Patching output file 5/66
-Patching output file 6/66
-Patching output file 7/66
-Patching output file 8/66
-Patching output file 9/66
-Patching output file 10/66
-Patching output file 11/66
-Patching output file 12/66
-Patching output file 13/66
-Patching output file 14/66
-Patching output file 15/66
-Patching output file 16/66
-Patching output file 17/66
-Patching output file 18/66
-Patching output file 19/66
-Patching output file 20/66
-Patching output file 21/66
-Patching output file 22/66
-Patching output file 23/66
-Patching output file 24/66
-Patching output file 25/66
-Patching output file 26/66
-Patching output file 27/66
-Patching output file 28/66
-Patching output file 29/66
-Patching output file 30/66
-Patching output file 31/66
-Patching output file 32/66
-Patching output file 33/66
-Patching output file 34/66
-Patching output file 35/66
-Patching output file 36/66
-Patching output file 37/66
-Patching output file 38/66
-Patching output file 39/66
-Patching output file 40/66
-Patching output file 41/66
-Patching output file 42/66
-Patching output file 43/66
-Patching output file 44/66
-Patching output file 45/66
-Patching output file 46/66
-Patching output file 47/66
-Patching output file 48/66
-Patching output file 49/66
-Patching output file 50/66
-Patching output file 51/66
-Patching output file 52/66
-Patching output file 53/66
-Patching output file 54/66
-Patching output file 55/66
-Patching output file 56/66
-Patching output file 57/66
-Patching output file 58/66
-Patching output file 59/66
-Patching output file 60/66
-Patching output file 61/66
-Patching output file 62/66
-Patching output file 63/66
-Patching output file 64/66
-Patching output file 65/66
-Patching output file 66/66
-symbol cache used 201/65536 hits=11987 misses=201
-lookup cache used 281/65536 hits=769 misses=305
+Running dot for graph 1/45
+Running dot for graph 2/45
+Running dot for graph 3/45
+Running dot for graph 4/45
+Running dot for graph 5/45
+Running dot for graph 6/45
+Running dot for graph 7/45
+Running dot for graph 8/45
+Running dot for graph 9/45
+Running dot for graph 10/45
+Running dot for graph 11/45
+Running dot for graph 12/45
+Running dot for graph 13/45
+Running dot for graph 14/45
+Running dot for graph 15/45
+Running dot for graph 16/45
+Running dot for graph 17/45
+Running dot for graph 18/45
+Running dot for graph 19/45
+Running dot for graph 20/45
+Running dot for graph 21/45
+Running dot for graph 22/45
+Running dot for graph 23/45
+Running dot for graph 24/45
+Running dot for graph 25/45
+Running dot for graph 26/45
+Running dot for graph 27/45
+Running dot for graph 28/45
+Running dot for graph 29/45
+Running dot for graph 30/45
+Running dot for graph 31/45
+Running dot for graph 32/45
+Running dot for graph 33/45
+Running dot for graph 34/45
+Running dot for graph 35/45
+Running dot for graph 36/45
+Running dot for graph 37/45
+Running dot for graph 38/45
+Running dot for graph 39/45
+Running dot for graph 40/45
+Running dot for graph 41/45
+Running dot for graph 42/45
+Running dot for graph 43/45
+Running dot for graph 44/45
+Running dot for graph 45/45
+Patching output file 1/82
+lookup cache used 507/65536 hits=2306 misses=534
 finished...

@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node5" href="$de/d14/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_melee_skill.xhtml" title="Allows to attack with a melee weapon." alt="" coords="5,541,144,713"/>
-<area shape="rect" id="node7" href="$d6/d2c/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml" title="A passive MagicSkill adds buffs on the User itself." alt="" coords="168,515,339,739"/>
-<area shape="rect" id="node2" href="$dd/dd7/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_skill.xhtml" title="Interface for Skills." alt="" coords="104,5,224,160"/>
-</map>

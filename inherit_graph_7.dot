@@ -1,0 +1,10 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="IQuest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/df7/interface_action_rpg_kit_1_1_core_1_1_quest_1_1_i_quest.xhtml",tooltip="Interface for Quests. "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="BaseQuest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/d53/class_action_rpg_kit_1_1_core_1_1_quest_1_1_base_quest.xhtml"];
+}
