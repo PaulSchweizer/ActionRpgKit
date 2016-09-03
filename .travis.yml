@@ -1,14 +1,15 @@
 
 # This will run on Travis' 'new' container-based infrastructure
-sudo: false
+# sudo: false
 
 language: csharp
 
 solution: ActionRpgKit.sln
 
-efore_install:
+before_install:
     - sudo apt-get update
     - sudo apt-get install doxygen
+    - sudo apt-get nunit-console
 
 install:
   - nuget restore ActionRpgKit.sln
@@ -18,18 +19,18 @@ install:
 script:
   - xbuild /p:Configuration=Debug ActionRpgKit.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
-
-# Generate and deploy documentation
-after_success:
   - cd $TRAVIS_BUILD_DIR
   - chmod 777 generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
+
+# Generate and deploy documentation
+after_success:
 
 # Install dependencies
 addons:
   apt:
     packages:
-      - doxygen-1.8.11
+      # - doxygen
       - doxygen-doc
       - doxygen-latex
       - doxygen-gui
