@@ -1,36 +1,39 @@
-﻿public static class GameTime
+﻿namespace ActionRpgKit.Core
 {
-    private static float _fixedTime;
-    private static float _fixedDeltaTime;
-
-    public static void Reset ()
+    public static class GameTime
     {
-        _fixedTime = 0;
-        _fixedDeltaTime = 0;
-    }
+        private static float _fixedTime;
+        private static float _fixedDeltaTime;
 
-    public static float time
-    {
-        get
+        public static void Reset()
         {
-            return _fixedTime;
+            _fixedTime = 0;
+            _fixedDeltaTime = 0;
         }
-        set
-        {
-            GameTime.deltaTime = value - _fixedTime;
-            _fixedTime = value;
-        }
-    }
 
-    public static float deltaTime
-    {
-        get
+        public static float time
         {
-            return _fixedDeltaTime;
+            get
+            {
+                return _fixedTime;
+            }
+            set
+            {
+                GameTime.deltaTime = value - _fixedTime;
+                _fixedTime = value;
+            }
         }
-        set
+
+        public static float deltaTime
         {
-            _fixedDeltaTime = value;
+            get
+            {
+                return _fixedDeltaTime;
+            }
+            set
+            {
+                _fixedDeltaTime = value;
+            }
         }
     }
 }

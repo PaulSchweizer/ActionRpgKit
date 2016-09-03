@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using ActionRpgKit.Core;
 using ActionRpgKit.Core.Character;
 using ActionRpgKit.Core.Character.Skill;
 
