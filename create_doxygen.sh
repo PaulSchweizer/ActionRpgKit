@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Create the doxygen documentation
-doxyen config.dox
-
 # Publish to the "gh-pages" branch
 set -e # Exit with nonzero exit code if anything fails
 
@@ -34,8 +31,8 @@ cd ..
 # Clean out existing contents
 rm -rf out/**/* || exit 0
 
-# Run our compile script
-doCompile
+# Create the doxygen documentation
+doxyen config.dox
 
 # Now let's go have some fun with the cloned repo
 cd out
