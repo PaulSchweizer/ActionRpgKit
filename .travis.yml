@@ -10,5 +10,5 @@ install:
 script:
   - xbuild /p:Configuration=Debug ActionRpgKit.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/bin/Debug/ActionRpgKit.dll
-after_success:
   - ./create_doxygen.sh
+# after_success:
