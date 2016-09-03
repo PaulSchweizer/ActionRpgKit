@@ -1,8 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$dd/d20/interface_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats." alt="" coords="8,5,89,32"/>
-<area shape="rect" id="node2" href="$d0/dd4/class_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="140,56,248,83"/>
-<area shape="rect" id="node3" href="$d9/dfd/class_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="" coords="296,31,359,57"/>
-<area shape="rect" id="node4" href="$d7/daf/class_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="" coords="298,81,357,108"/>
-<area shape="rect" id="node5" href="$d2/d26/interface_character_1_1_i_fighter.xhtml" title="Character can fight." alt="" coords="16,56,81,83"/>
-<area shape="rect" id="node6" href="$d7/dd1/interface_character_1_1_i_magic_user.xhtml" title="Character can use Magic." alt="" coords="5,107,92,133"/>
-</map>

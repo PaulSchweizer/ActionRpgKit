@@ -1,6 +1,0 @@
-<map id="Enemy" name="Enemy">
-<area shape="rect" id="node2" href="$d0/dd4/class_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="99,160,265,472"/>
-<area shape="rect" id="node3" href="$dd/d20/interface_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats." alt="" coords="5,13,87,105"/>
-<area shape="rect" id="node4" href="$d7/dd1/interface_character_1_1_i_magic_user.xhtml" title="Character can use Magic." alt="" coords="111,13,253,105"/>
-<area shape="rect" id="node5" href="$d2/d26/interface_character_1_1_i_fighter.xhtml" title="Character can fight." alt="" coords="277,5,428,112"/>
-</map>

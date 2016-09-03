@@ -1,6 +1,0 @@
-<map id="IAttribute" name="IAttribute">
-<area shape="rect" id="node2" href="$d3/db7/class_character_1_1_attribute_1_1_primary_attribute.xhtml" title="Represents a simple float value. " alt="" coords="107,233,243,531"/>
-<area shape="rect" id="node3" href="$df/dc9/class_character_1_1_attribute_1_1_secondary_attribute.xhtml" title="The Value is calculated through a given formula. " alt="" coords="5,579,159,715"/>
-<area shape="rect" id="node5" href="$d9/d62/class_character_1_1_attribute_1_1_simple_volume_attribute.xhtml" title="The base value is a simple float as opposed to a formula based. " alt="" coords="183,586,357,707"/>
-<area shape="rect" id="node4" href="$db/df3/class_character_1_1_attribute_1_1_volume_attribute.xhtml" title="Represents a volume of something, e.g. magic, life. The base value is derived through a formula and s..." alt="" coords="10,763,154,884"/>
-</map>

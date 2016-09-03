@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d7/df4/interface_character_1_1_attribute_1_1_i_attribute.xhtml" title="Interface for Attributes. " alt="" coords="5,31,80,57"/>
-<area shape="rect" id="node2" href="$d3/db7/class_character_1_1_attribute_1_1_primary_attribute.xhtml" title="Represents a simple float value. " alt="" coords="128,31,244,57"/>
-<area shape="rect" id="node3" href="$df/dc9/class_character_1_1_attribute_1_1_secondary_attribute.xhtml" title="The Value is calculated through a given formula. " alt="" coords="303,5,436,32"/>
-<area shape="rect" id="node5" href="$d9/d62/class_character_1_1_attribute_1_1_simple_volume_attribute.xhtml" title="The base value is a simple float as opposed to a formula based. " alt="" coords="292,56,447,83"/>
-<area shape="rect" id="node4" href="$db/df3/class_character_1_1_attribute_1_1_volume_attribute.xhtml" title="Represents a volume of something, e.g. magic, life. The base value is derived through a formula and s..." alt="" coords="495,5,609,32"/>
-</map>

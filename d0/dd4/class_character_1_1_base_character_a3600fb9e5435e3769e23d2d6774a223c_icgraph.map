@@ -1,4 +1,0 @@
-<map id="UseMagicSkill" name="UseMagicSkill">
-<area shape="rect" id="node2" href="$d0/dd4/class_character_1_1_base_character.xhtml#a659e03205f114d34aaf956e0a04ecf0e" title="A countdown before the Skill takes action." alt="" coords="159,5,288,32"/>
-<area shape="rect" id="node3" href="$d0/dd4/class_character_1_1_base_character.xhtml#a0e5eb777b972a974cdedad228429369e" title="Trigger the given MagicSkill." alt="" coords="336,5,457,32"/>
-</map>
