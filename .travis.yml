@@ -24,9 +24,6 @@ after_success:
   - chmod 777 generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
 
-  - chmod 777 test.sh
-  - ./test.sh
-
 # Install dependencies
 addons:
   apt:
