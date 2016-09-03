@@ -1,5 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml" title="BaseStats" alt="" coords="5,32,88,61"/>
-<area shape="rect" id="node3" href="$df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml" title="EnemyStats" alt="" coords="137,5,231,35"/>
-<area shape="rect" id="node5" href="$d7/dbc/class_action_rpg_kit_1_1_character_1_1_stats_1_1_player_stats.xhtml" title="PlayerStats" alt="" coords="139,59,229,88"/>
+<area shape="rect" id="node1" href="$de/dd8/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_base_stats.xhtml" title="BaseStats" alt="" coords="5,32,88,61"/>
+<area shape="rect" id="node3" href="$df/d6b/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_enemy_stats.xhtml" title="EnemyStats" alt="" coords="137,5,231,35"/>
+<area shape="rect" id="node5" href="$dd/dcb/class_action_rpg_kit_1_1_core_1_1_character_1_1_stats_1_1_player_stats.xhtml" title="PlayerStats" alt="" coords="139,59,229,88"/>
 </map>

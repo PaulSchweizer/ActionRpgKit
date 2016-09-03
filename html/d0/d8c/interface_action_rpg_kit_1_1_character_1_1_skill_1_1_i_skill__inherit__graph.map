@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml" title="A basic Skill implementation." alt="" coords="163,208,283,467"/>
-<area shape="rect" id="node9" href="$d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat." alt="" coords="5,286,139,389"/>
-<area shape="rect" id="node12" href="$d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml" title="A magic Skill costs magic energy on each use." alt="" coords="307,295,392,380"/>
-<area shape="rect" id="node5" href="$d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml" title="Allows to attack with a melee weapon." alt="" coords="27,541,165,713"/>
-<area shape="rect" id="node7" href="$dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml" title="A passive MagicSkill adds buffs on the User itself." alt="" coords="239,515,409,739"/>
-</map>

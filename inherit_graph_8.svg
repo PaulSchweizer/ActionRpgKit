@@ -11,14 +11,14 @@
 <polygon fill="white" stroke="white" points="-4,5 -4,-106 287,-106 287,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<a xlink:href="d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml" target="_top" xlink:title="Interface for Skills.">
+<a xlink:href="dd/dd7/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_skill.xhtml" target="_top" xlink:title="Interface for Skills.">
 <polygon fill="white" stroke="black" points="0,-40.5 0,-61.5 38,-61.5 38,-40.5 0,-40.5"/>
 <text text-anchor="middle" x="19" y="-48.5" font-family="Helvetica,sans-Serif" font-size="10.00">ISkill</text>
 </a>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml" target="_top" xlink:title="A basic Skill implementation.">
+<a xlink:href="d8/ddb/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_base_skill.xhtml" target="_top" xlink:title="A basic Skill implementation.">
 <polygon fill="white" stroke="black" points="82,-40.5 82,-61.5 140,-61.5 140,-40.5 82,-40.5"/>
 <text text-anchor="middle" x="111" y="-48.5" font-family="Helvetica,sans-Serif" font-size="10.00">BaseSkill</text>
 </a>
@@ -30,7 +30,7 @@
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
-<a xlink:href="d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml" target="_top" xlink:title="A Skill to be used as an Attack in Combat.">
+<a xlink:href="d1/d42/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml" target="_top" xlink:title="A Skill to be used as an Attack in Combat.">
 <polygon fill="white" stroke="black" points="74.5,-80.5 74.5,-101.5 147.5,-101.5 147.5,-80.5 74.5,-80.5"/>
 <text text-anchor="middle" x="111" y="-88.5" font-family="Helvetica,sans-Serif" font-size="10.00">ICombatSkill</text>
 </a>
@@ -42,7 +42,7 @@
 </g>
 <!-- Node6 -->
 <g id="node12" class="node"><title>Node6</title>
-<a xlink:href="d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml" target="_top" xlink:title="A magic Skill costs magic energy on each use.">
+<a xlink:href="db/d74/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml" target="_top" xlink:title="A magic Skill costs magic energy on each use.">
 <polygon fill="white" stroke="black" points="78.5,-0.5 78.5,-21.5 143.5,-21.5 143.5,-0.5 78.5,-0.5"/>
 <text text-anchor="middle" x="111" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">IMagicSkill</text>
 </a>
@@ -54,7 +54,7 @@
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml" target="_top" xlink:title="Allows to attack with a melee weapon.">
+<a xlink:href="de/d14/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_melee_skill.xhtml" target="_top" xlink:title="Allows to attack with a melee weapon.">
 <polygon fill="white" stroke="black" points="202,-60.5 202,-81.5 264,-81.5 264,-60.5 202,-60.5"/>
 <text text-anchor="middle" x="233" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">MeleeSkill</text>
 </a>
@@ -66,7 +66,7 @@
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml" target="_top" xlink:title="A passive MagicSkill adds buffs on the User itself.">
+<a xlink:href="d6/d2c/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml" target="_top" xlink:title="A passive MagicSkill adds buffs on the User itself.">
 <polygon fill="white" stroke="black" points="184.5,-10.5 184.5,-31.5 281.5,-31.5 281.5,-10.5 184.5,-10.5"/>
 <text text-anchor="middle" x="233" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">PassiveMagicSkill</text>
 </a>

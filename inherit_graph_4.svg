@@ -11,14 +11,14 @@
 <polygon fill="white" stroke="white" points="-4,5 -4,-106 275,-106 275,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<a xlink:href="d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml" target="_top" xlink:title="Characters populate the game world. They are defined by Stats.">
+<a xlink:href="dc/d2f/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_character.xhtml" target="_top" xlink:title="Characters populate the game world. They are defined by Stats.">
 <polygon fill="white" stroke="black" points="3,-80.5 3,-101.5 65,-101.5 65,-80.5 3,-80.5"/>
 <text text-anchor="middle" x="34" y="-88.5" font-family="Helvetica,sans-Serif" font-size="10.00">ICharacter</text>
 </a>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml" target="_top" xlink:title="Base implementation of a Character.">
+<a xlink:href="d7/d90/class_action_rpg_kit_1_1_core_1_1_character_1_1_base_character.xhtml" target="_top" xlink:title="Base implementation of a Character.">
 <polygon fill="white" stroke="black" points="104,-40.5 104,-61.5 186,-61.5 186,-40.5 104,-40.5"/>
 <text text-anchor="middle" x="145" y="-48.5" font-family="Helvetica,sans-Serif" font-size="10.00">BaseCharacter</text>
 </a>
@@ -30,7 +30,7 @@
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" target="_top" xlink:title="Representation of a Hostile, game controlled character.">
+<a xlink:href="d0/da7/class_action_rpg_kit_1_1_core_1_1_character_1_1_enemy.xhtml" target="_top" xlink:title="Representation of a Hostile, game controlled character.">
 <polygon fill="white" stroke="black" points="222.5,-60.5 222.5,-81.5 269.5,-81.5 269.5,-60.5 222.5,-60.5"/>
 <text text-anchor="middle" x="246" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Enemy</text>
 </a>
@@ -42,7 +42,7 @@
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" target="_top" xlink:title="Representation of a Player controllable character.">
+<a xlink:href="db/d7e/class_action_rpg_kit_1_1_core_1_1_character_1_1_player.xhtml" target="_top" xlink:title="Representation of a Player controllable character.">
 <polygon fill="white" stroke="black" points="224,-20.5 224,-41.5 268,-41.5 268,-20.5 224,-20.5"/>
 <text text-anchor="middle" x="246" y="-28.5" font-family="Helvetica,sans-Serif" font-size="10.00">Player</text>
 </a>
@@ -54,7 +54,7 @@
 </g>
 <!-- Node5 -->
 <g id="node8" class="node"><title>Node5</title>
-<a xlink:href="df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" target="_top" xlink:title="Character can fight.">
+<a xlink:href="d6/d4d/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_fighter.xhtml" target="_top" xlink:title="Character can fight.">
 <polygon fill="white" stroke="black" points="9,-40.5 9,-61.5 59,-61.5 59,-40.5 9,-40.5"/>
 <text text-anchor="middle" x="34" y="-48.5" font-family="Helvetica,sans-Serif" font-size="10.00">IFighter</text>
 </a>
@@ -66,7 +66,7 @@
 </g>
 <!-- Node6 -->
 <g id="node10" class="node"><title>Node6</title>
-<a xlink:href="dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" target="_top" xlink:title="Character can use Magic.">
+<a xlink:href="d9/d26/interface_action_rpg_kit_1_1_core_1_1_character_1_1_i_magic_user.xhtml" target="_top" xlink:title="Character can use Magic.">
 <polygon fill="white" stroke="black" points="0.5,-0.5 0.5,-21.5 67.5,-21.5 67.5,-0.5 0.5,-0.5"/>
 <text text-anchor="middle" x="34" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">IMagicUser</text>
 </a>

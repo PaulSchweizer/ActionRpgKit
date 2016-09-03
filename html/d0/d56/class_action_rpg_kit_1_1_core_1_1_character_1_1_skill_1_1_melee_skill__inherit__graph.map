@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d8/ddb/class_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_base_skill.xhtml" title="A basic Skill implementation." alt="" coords="5,208,125,467"/>
+<area shape="rect" id="node4" href="$dd/dd7/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_skill.xhtml" title="Interface for Skills." alt="" coords="80,5,200,160"/>
+<area shape="rect" id="node6" href="$d1/d42/interface_action_rpg_kit_1_1_core_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat." alt="" coords="149,286,283,389"/>
+</map>

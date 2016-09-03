@@ -11,14 +11,14 @@
 <polygon fill="white" stroke="white" points="-4,5 -4,-66 459,-66 459,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<a xlink:href="d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml" target="_top" xlink:title="Interface for Attributes.">
+<a xlink:href="db/d8f/interface_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_i_attribute.xhtml" target="_top" xlink:title="Interface for Attributes.">
 <polygon fill="white" stroke="black" points="0,-20.5 0,-41.5 56,-41.5 56,-20.5 0,-20.5"/>
 <text text-anchor="middle" x="28" y="-28.5" font-family="Helvetica,sans-Serif" font-size="10.00">IAttribute</text>
 </a>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml" target="_top" xlink:title="Represents a simple float value.">
+<a xlink:href="da/da1/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml" target="_top" xlink:title="Represents a simple float value.">
 <polygon fill="white" stroke="black" points="92.5,-20.5 92.5,-41.5 179.5,-41.5 179.5,-20.5 92.5,-20.5"/>
 <text text-anchor="middle" x="136" y="-28.5" font-family="Helvetica,sans-Serif" font-size="10.00">PrimaryAttribute</text>
 </a>
@@ -30,7 +30,7 @@
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml" target="_top" xlink:title="The Value is calculated through a given formula.">
+<a xlink:href="d7/d09/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml" target="_top" xlink:title="The Value is calculated through a given formula.">
 <polygon fill="white" stroke="black" points="224,-40.5 224,-61.5 324,-61.5 324,-40.5 224,-40.5"/>
 <text text-anchor="middle" x="274" y="-48.5" font-family="Helvetica,sans-Serif" font-size="10.00">SecondaryAttribute</text>
 </a>
@@ -42,7 +42,7 @@
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
-<a xlink:href="db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml" target="_top" xlink:title="The base value is a simple float as opposed to a formula based.">
+<a xlink:href="dc/d20/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml" target="_top" xlink:title="The base value is a simple float as opposed to a formula based.">
 <polygon fill="white" stroke="black" points="216,-0.5 216,-21.5 332,-21.5 332,-0.5 216,-0.5"/>
 <text text-anchor="middle" x="274" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">SimpleVolumeAttribute</text>
 </a>
@@ -54,7 +54,7 @@
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml" target="_top" xlink:title="Represents a volume of something, e.g. magic, life. The base value is derived through a formula and s...">
+<a xlink:href="d3/da5/class_action_rpg_kit_1_1_core_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml" target="_top" xlink:title="Represents a volume of something, e.g. magic, life. The base value is derived through a formula and s...">
 <polygon fill="white" stroke="black" points="368,-40.5 368,-61.5 454,-61.5 454,-40.5 368,-40.5"/>
 <text text-anchor="middle" x="411" y="-48.5" font-family="Helvetica,sans-Serif" font-size="10.00">VolumeAttribute</text>
 </a>
