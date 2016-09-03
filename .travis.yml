@@ -18,8 +18,8 @@ script:
 # Generate and deploy documentation
 after_success:
   - cd $TRAVIS_BUILD_DIR
-  - chmod 777 generateDocumentationAndDeploy.sh
-  - ./generateDocumentationAndDeploy.sh
+  - chmod 777 $TRAVIS_BUILD_DIR/generateDocumentationAndDeploy.sh
+  - $TRAVIS_BUILD_DIR/generateDocumentationAndDeploy.sh
 
 # Install dependencies
 addons:
