@@ -9,7 +9,7 @@ solution: ActionRpgKit.sln
 before_install:
     - sudo apt-get update
     - sudo apt-get install doxygen
-    - sudo apt-get nunit-console
+    - sudo apt-get install nunit-console
 
 install:
   - nuget restore ActionRpgKit.sln
