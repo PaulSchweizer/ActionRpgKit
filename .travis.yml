@@ -31,11 +31,11 @@ addons:
   apt:
     packages:
       # - doxygen
-      - doxygen-doc
-      - doxygen-latex
-      - doxygen-gui
-      - graphviz
-      - nunit-console
+     # - doxygen-doc
+      #- doxygen-latex
+      #- doxygen-gui
+      #- graphviz
+      #- nunit-console
 
 # Blacklist
 branches:
