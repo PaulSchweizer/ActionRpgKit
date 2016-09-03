@@ -75,7 +75,7 @@ doxygen $DOXYFILE 2>&1 | tee doxygen.log
 
 ################################################################################
 ##### Copy all files from the html directory                               #####
-cp -a html/ ./
+cp -r ./html ./
 
 echo 'Uploading documentation to the gh-pages branch...'
 # Add everything in this directory (the Doxygen code documentation) to the
