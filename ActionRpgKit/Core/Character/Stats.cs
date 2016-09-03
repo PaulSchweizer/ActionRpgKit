@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using ActionRpgKit.Character.Attribute;
+using ActionRpgKit.Core.Character.Attribute;
 
-namespace ActionRpgKit.Character.Stats 
+namespace ActionRpgKit.Core.Character.Stats 
 {
     ///
     ///

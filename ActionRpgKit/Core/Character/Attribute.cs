@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ActionRpgKit.Character.Attribute
+namespace ActionRpgKit.Core.Character.Attribute
 {
     /// <summary>
     /// Interface for Attributes. 

@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using ActionRpgKit.Character.Attribute;
+using ActionRpgKit.Core.Character.Attribute;
 
 namespace ActionRpgKit.Tests.Core.Character
 {

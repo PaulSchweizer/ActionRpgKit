@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
-using ActionRpgKit.Character;
-using ActionRpgKit.Character.Skill;
+using ActionRpgKit.Core.Character;
+using ActionRpgKit.Core.Character.Skill;
 
 namespace ActionRpgKit.Tests.Core.Character
 {
