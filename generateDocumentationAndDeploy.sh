@@ -77,7 +77,7 @@ doxygen $DOXYFILE 2>&1 | tee doxygen.log
 ##### Copy all files from the html directory                               #####
 srcdir="./html"
 dstdir="./"
-for f in ${srcdir}/*.apk
+for f in ${srcdir}
 do
     cp $f $dstdir
 done
