@@ -1,5 +1,6 @@
 var class_action_rpg_kit_1_1_character_1_1_base_character =
 [
+    [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adcf475c9fca76142770e52ce2d11c246", null ],
     [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af0e004e56093c2ee34c133e20f03a9ab", null ],
     [ "LearnMagicSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab2c5b576925c44ee311d1f43d70ba649", null ],
     [ "TriggerMagicSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0e5eb777b972a974cdedad228429369e", null ],
@@ -13,8 +14,6 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
     [ "OnAttacked", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afe0130a66c72c58cb2bc272a46298d71", null ],
     [ "UseCombatSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0dbb9ad5c2c44595916b305d5c9576cd", null ],
     [ "CombatSkillCanBeUsed", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa0cf4d1ca17c419766070e52d865d5dd", null ],
-    [ "_name", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a92749b8d4b3ef0c4b1d2a4532db9032e", null ],
-    [ "_stats", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a94ef6f1f888c7a13170b9dc5a7ac3f35", null ],
     [ "_magicSkills", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad66c3013f2b05f752e59e201cc6c8eda", null ],
     [ "_magicSkillEndTimes", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab7bc8b19da2bb4a622ec6e0c0f11e46f", null ],
     [ "_enemies", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab6b502ea703ff81b2b13d0524459c46f", null ],

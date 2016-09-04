@@ -6,4 +6,6 @@ digraph "BaseQuest"
   Node1 [label="{BaseQuest\n|+ Name\l+ Description\l+ Experience\l+ Objectives\l+ IsCompleted\l- _name\l- _description\l- _experience\l- _objectives\l|+ BaseQuest()\l+ BaseQuest()\l+ CheckProgress()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
   Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
   Node2 [label="{IQuest\n|+ Name\l+ Description\l+ Experience\l+ Objectives\l+ IsCompleted\l|+ CheckProgress()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dd/dd3/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_quest.xhtml",tooltip="Interface for Quests. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node3 [label="{CleanseTheCellars\n||+ CleanseTheCellars()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d0/dc5/class_action_rpg_kit_1_1_tests_1_1_story_1_1_cleanse_the_cellars.xhtml"];
 }

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['level',['Level',['../db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#ae8f31e5285b2238f7b1dc13e673f7e09',1,'ActionRpgKit::Character::Stats::BaseStats']]],
-  ['life',['Life',['../db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a21f7b5535b96ed83f2b9ef5d48184441',1,'ActionRpgKit::Character::Stats::BaseStats']]]
+  ['herbs',['herbs',['../d5/d1e/class_action_rpg_kit_1_1_tests_1_1_story_1_1_find10_herbs_objective.xhtml#a86e867dbecd6551c7a1a23339bb11fc8',1,'ActionRpgKit::Tests::Story::Find10HerbsObjective']]]
 ];

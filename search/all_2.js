@@ -1,7 +1,7 @@
 var searchData=
 [
   ['basecharacter',['BaseCharacter',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml',1,'ActionRpgKit::Character']]],
-  ['basecharacter',['BaseCharacter',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af0e004e56093c2ee34c133e20f03a9ab',1,'ActionRpgKit::Character::BaseCharacter']]],
+  ['basecharacter',['BaseCharacter',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adcf475c9fca76142770e52ce2d11c246',1,'ActionRpgKit.Character.BaseCharacter.BaseCharacter()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af0e004e56093c2ee34c133e20f03a9ab',1,'ActionRpgKit.Character.BaseCharacter.BaseCharacter(string name)']]],
   ['baseitem',['BaseItem',['../d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml',1,'ActionRpgKit::Item']]],
   ['baseobjective',['BaseObjective',['../dd/d14/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_objective.xhtml#ac06d15fc418b02be262c0e69a8fc42e5',1,'ActionRpgKit.Story.Quest.BaseObjective.BaseObjective()'],['../dd/d14/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_objective.xhtml#a9211c0c97612e73e1a0cbec868eae815',1,'ActionRpgKit.Story.Quest.BaseObjective.BaseObjective(string name, string description)']]],
   ['baseobjective',['BaseObjective',['../dd/d14/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_objective.xhtml',1,'ActionRpgKit::Story::Quest']]],

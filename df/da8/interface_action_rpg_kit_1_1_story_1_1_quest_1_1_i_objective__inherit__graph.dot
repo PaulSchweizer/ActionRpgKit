@@ -6,4 +6,8 @@ digraph "IObjective"
   Node1 [label="{IObjective\n|+ Name\l+ Description\l+ IsCompleted\l|+ CheckProgress()\l+ OnCompletion()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
   Node2 [label="{BaseObjective\n|+ Name\l+ Description\l+ IsCompleted\l- _name\l- _description\l|+ BaseObjective()\l+ BaseObjective()\l+ CheckProgress()\l+ OnCompletion()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dd/d14/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_objective.xhtml"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node3 [label="{Find10HerbsObjective\n|+ herbs\l|+ Find10HerbsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d5/d1e/class_action_rpg_kit_1_1_tests_1_1_story_1_1_find10_herbs_objective.xhtml"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node4 [label="{GetRidOfRatsObjective\n|+ rats\l|+ GetRidOfRatsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dc/d33/class_action_rpg_kit_1_1_tests_1_1_story_1_1_get_rid_of_rats_objective.xhtml"];
 }

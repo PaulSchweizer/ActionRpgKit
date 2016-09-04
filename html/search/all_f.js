@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['remainingtime',['RemainingTime',['../d5/d34/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_time_based_modifier.xhtml#a93c51d4b3623d300d9c3aaf8bbcca58c',1,'ActionRpgKit::Character::Attribute::TimeBasedModifier']]],
-  ['removemodifier',['RemoveModifier',['../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a3701f0f96dcc74744b2c6f5d452c4902',1,'ActionRpgKit.Character.Attribute.IAttribute.RemoveModifier()'],['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a3701f0f96dcc74744b2c6f5d452c4902',1,'ActionRpgKit.Character.Attribute.PrimaryAttribute.RemoveModifier()']]],
-  ['reset',['Reset',['../d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml#a77ad624cc83a2a71aa4d5ad991d811d7',1,'ActionRpgKit::Core::GameTime']]]
+  ['quests',['Quests',['../d0/d8d/class_action_rpg_kit_1_1_story_1_1_chapter.xhtml#a0ae1197c5b1bd9f2c4629d74af21c8fc',1,'ActionRpgKit::Story::Chapter']]],
+  ['questtest',['QuestTest',['../d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml#ad182f6d0c5e3ba9251f42dba16c40957',1,'ActionRpgKit::Tests::Story::QuestTests']]],
+  ['questtests',['QuestTests',['../d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml',1,'ActionRpgKit::Tests::Story']]]
 ];
