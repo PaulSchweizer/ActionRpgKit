@@ -1,9 +1,0 @@
-digraph "Quest" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  subgraph clusterdir_9ecb837a21b60474ce98456d518a780a {
-    graph [ bgcolor="#ddddee", pencolor="black", label="ActionRpgKit" fontname="Helvetica", fontsize="10", URL="dir_9ecb837a21b60474ce98456d518a780a.xhtml"]
-  dir_c58d8a8f3f25f68c8841910dbe899a39 [shape=box, label="Quest", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_c58d8a8f3f25f68c8841910dbe899a39.xhtml"];
-  }
-}

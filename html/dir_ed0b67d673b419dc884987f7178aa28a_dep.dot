@@ -1,0 +1,9 @@
+digraph "Story" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_9ecb837a21b60474ce98456d518a780a {
+    graph [ bgcolor="#ddddee", pencolor="black", label="ActionRpgKit" fontname="Helvetica", fontsize="10", URL="dir_9ecb837a21b60474ce98456d518a780a.xhtml"]
+  dir_ed0b67d673b419dc884987f7178aa28a [shape=box, label="Story", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_ed0b67d673b419dc884987f7178aa28a.xhtml"];
+  }
+}

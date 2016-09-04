@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['time',['time',['../d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml#a8b8dfe2335a5bf90695960dc6a1c5d3b',1,'ActionRpgKit::Core::GameTime']]]
+  ['stats',['Stats',['../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml#aae675cc1ade48758b96f03e5488afce9',1,'ActionRpgKit.Character.ICharacter.Stats()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aae675cc1ade48758b96f03e5488afce9',1,'ActionRpgKit.Character.BaseCharacter.Stats()']]]
 ];
