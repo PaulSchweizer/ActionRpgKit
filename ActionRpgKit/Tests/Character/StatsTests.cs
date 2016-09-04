@@ -1,9 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
 using ActionRpgKit.Core;
-using ActionRpgKit.Core.Character.Stats;
+using ActionRpgKit.Character.Stats;
 
-namespace ActionRpgKit.Tests.Core.Stats
+namespace ActionRpgKit.Tests.Stats
 {
     [TestFixture]
     [Category("Character.Stats")]

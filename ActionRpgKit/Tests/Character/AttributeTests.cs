@@ -1,9 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
 using ActionRpgKit.Core;
-using ActionRpgKit.Core.Character.Attribute;
+using ActionRpgKit.Character.Attribute;
 
-namespace ActionRpgKit.Tests.Core.Character
+namespace ActionRpgKit.Tests.Character
 {
     [TestFixture]
     [Category("Character.Attribute")]

@@ -1,10 +1,10 @@
 ﻿using System;
 using NUnit.Framework;
 using ActionRpgKit.Core;
-using ActionRpgKit.Core.Character;
-using ActionRpgKit.Core.Character.Skill;
+using ActionRpgKit.Character;
+using ActionRpgKit.Character.Skill;
 
-namespace ActionRpgKit.Tests.Core.Character
+namespace ActionRpgKit.Tests.Character
 {
     [TestFixture]
     [Category("Character.Character")]

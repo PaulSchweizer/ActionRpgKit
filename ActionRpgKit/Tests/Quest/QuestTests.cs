@@ -1,8 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
-using ActionRpgKit.Core.Quest;
+using ActionRpgKit.Quest;
 
-namespace ActionRpgKit.Tests.Core.Quest
+namespace ActionRpgKit.Tests.Quest
 {
     [TestFixture]
     [Category("Quest")]
@@ -17,7 +17,7 @@ namespace ActionRpgKit.Tests.Core.Quest
         }
 
         [Test]
-        public void SimpleQuestTest ()
+        public void QuestTest ()
         {
             // The quest starts
             Assert.IsFalse(simpleQuest.IsCompleted);
@@ -31,6 +31,11 @@ namespace ActionRpgKit.Tests.Core.Quest
 
             // All the rats have been eradicated
             GetRidOfRatsObjective.rats = 0;
+            simpleQuest.CheckProgress();
+            Assert.IsFalse(simpleQuest.IsCompleted);
+
+            // Gather all the herbs and complete the entire quest
+            Find10HerbsObjective.herbs = 10;
             simpleQuest.CheckProgress();
             Assert.IsTrue(simpleQuest.IsCompleted);
         }
@@ -46,6 +51,8 @@ namespace ActionRpgKit.Tests.Core.Quest
 
             IObjective objectiveA = new GetRidOfRatsObjective();
             Objectives.Add(objectiveA);
+            IObjective objectiveB = new Find10HerbsObjective();
+            Objectives.Add(objectiveB);
         }
 
         public override void CheckProgress()
@@ -98,6 +105,30 @@ namespace ActionRpgKit.Tests.Core.Quest
         public override void CheckProgress()
         {
             if (rats == 0)
+            {
+                IsCompleted = true;
+            }
+        }
+
+        public override void OnCompletion()
+        {
+            Console.WriteLine("Objective \"{0}\" completed.", Name);
+        }
+    }
+
+    class Find10HerbsObjective : BaseObjective
+    {
+        public static float herbs = 0;
+
+        public Find10HerbsObjective()
+        {
+            Name = "Find 10 Herbs";
+            Description = "Gather 10 magic herbs for the wizard.";
+        }
+
+        public override void CheckProgress()
+        {
+            if (herbs == 10)
             {
                 IsCompleted = true;
             }

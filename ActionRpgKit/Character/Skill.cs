@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
-using ActionRpgKit.Core.Character;
-using ActionRpgKit.Core.Character.Attribute;
+using ActionRpgKit.Character;
+using ActionRpgKit.Character.Attribute;
 
-namespace ActionRpgKit.Core.Character.Skill
+namespace ActionRpgKit.Character.Skill
 {
     // ------------------------------------------------------------------------
     // Interfaces
