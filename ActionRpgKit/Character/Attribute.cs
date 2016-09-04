@@ -54,6 +54,11 @@ namespace ActionRpgKit.Character.Attribute
         /// Whether the attribute is modified by a modifier.
         /// </summary>
         bool IsModified { get; }
+
+        /// <summary>
+        /// Reset the Attribute to it's maximum value.
+        /// </summary>
+        void Reset();
     }
 
     /// <summary>
@@ -200,6 +205,11 @@ namespace ActionRpgKit.Character.Attribute
                 repr += "\n            + " + Modifiers[i].ToString();
             }
             return repr;
+        }
+
+        public void Reset ()
+        {
+            Value = BaseValue;
         }
     }
 

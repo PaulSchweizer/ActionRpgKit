@@ -77,11 +77,6 @@ namespace ActionRpgKit.Character.Skill
     /// A basic Skill implementation.</summary>
     public abstract class BaseSkill : ISkill
     {
-        private int _id;
-        private string _name;
-        private string _description;
-        private float _preUseTime;
-        private float _cooldownTime;
 
         public BaseSkill(int id,
                          string name,
@@ -89,51 +84,36 @@ namespace ActionRpgKit.Character.Skill
                          float preUseTime,
                          float cooldownTime)
         {
-            _id = id;
-            _name = name;
-            _description = description;
-            _preUseTime = preUseTime;
-            _cooldownTime = cooldownTime;
+            Id = id;
+            Name = name;
+            Description = description;
+            PreUseTime = preUseTime;
+            CooldownTime = cooldownTime;
         }
 
         public int Id
         {
-            get
-            {
-                return _id;
-            }
+            get;
         }
 
         public string Name
         {
-            get
-            {
-                return _name;
-            }
+            get;
         }
 
         public string Description
         {
-            get
-            {
-                return _description;
-            }
+            get;
         }
 
         public float CooldownTime
         {
-            get
-            {
-                return _cooldownTime;
-            }
+            get;
         }
 
         public float PreUseTime
         {
-            get
-            {
-                return _preUseTime;
-            }
+            get;
         }
 
         public abstract bool Match();
@@ -147,7 +127,6 @@ namespace ActionRpgKit.Character.Skill
     /// A passive MagicSkill adds buffs on the User itself.</summary>
     public class PassiveMagicSkill : BaseSkill, IMagicSkill
     {
-        private float _cost;
         private float _duration;
         private float _endTime = -1;
         private float _modifierValue;
@@ -167,10 +146,16 @@ namespace ActionRpgKit.Character.Skill
                                                                       preUseTime,
                                                                       cooldownTime)
         {
-            _cost = cost;
+            Cost = cost;
             _duration = duration;
             _modifierValue = modifierValue;
             _modifiedAttributeName = modifiedAttributeName;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} (Cost: {1}, {2} +{3} for {4} sec)", 
+                Name, Cost, _modifiedAttributeName, _modifierValue, _duration);
         }
 
         // --------------------------------------------------------------------
@@ -188,10 +173,7 @@ namespace ActionRpgKit.Character.Skill
 
         public float Cost
         {
-            get
-            {
-                return _cost;
-            }
+            get; set;
         }
 
         /// <summary>
@@ -214,9 +196,6 @@ namespace ActionRpgKit.Character.Skill
     public class MeleeSkill : BaseSkill, ICombatSkill
     {
 
-        private float _damage;
-        private int _maximumTargets;
-
         public MeleeSkill(int id,
                           string name,
                           string description,
@@ -229,8 +208,13 @@ namespace ActionRpgKit.Character.Skill
                                                      preUseTime,
                                                      cooldownTime)
         {
-            _damage = damage;
-            _maximumTargets = maximumTargets;
+            Damage = damage;
+            MaximumTargets = maximumTargets;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} (Damage: {1}, MaxTargets: {2})", Name, Damage, MaximumTargets);
         }
 
         // --------------------------------------------------------------------
@@ -248,18 +232,12 @@ namespace ActionRpgKit.Character.Skill
 
         public float Damage
         {
-            get
-            {
-                return _damage;
-            }
+            get;
         }
 
         public int MaximumTargets
         {
-            get
-            {
-                return _maximumTargets;
-            }
+            get;
         }
 
         /// <summary>

@@ -88,6 +88,32 @@ namespace ActionRpgKit.Character
             Name = name;
         }
 
+        public override string ToString()
+        {
+            string repr = String.Format("### {0} ########################\n" +
+                                "--- Primary Attributes ------------\n" +
+                                 "{1}\n{2}\n{3}\n" +
+                                 "--- Secondary Attributes ------------\n" +
+                                 "{4}\n{5}\n",
+                                 Name, 
+                                 Stats.Mind.ToString(),
+                                 Stats.Soul.ToString(),
+                                 Stats.Level.ToString(),
+                                 Stats.Life.ToString(),
+                                 Stats.Magic.ToString());
+            repr += "--- Combat Skills ------------\n";
+            for (int i = 0; i < CombatSkills.Count; i++)
+            {
+                repr += String.Format("{0}\n", CombatSkills[i].ToString());
+            }
+            repr += "--- Magic Skills ------------\n";
+            for (int i = 0; i < MagicSkills.Count; i++)
+            {
+                repr += String.Format("{0}\n", MagicSkills[i].ToString());
+            }
+            return repr;
+        }
+
         // --------------------------------------------------------------------
         // ICharacter Implementations
         // --------------------------------------------------------------------

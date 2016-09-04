@@ -62,7 +62,7 @@
     <Compile Include="Tests\Character\CharacterTests.cs" />
     <Compile Include="Tests\Character\StatsTests.cs" />
     <Compile Include="Tests\Core\GameTimeTests.cs" />
-    <Compile Include="Tests\GameController\GameController.cs" />
+    <Compile Include="Tests\GameController\GameControllerTests.cs" />
     <Compile Include="Tests\Item\ItemTests.cs" />
     <Compile Include="Tests\Story\StoryTests.cs" />
   </ItemGroup>
