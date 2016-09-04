@@ -5,8 +5,11 @@ digraph "ActionRpgKit" {
   subgraph clusterdir_9ecb837a21b60474ce98456d518a780a {
     graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_9ecb837a21b60474ce98456d518a780a.xhtml"];
     dir_9ecb837a21b60474ce98456d518a780a [shape=plaintext label="ActionRpgKit"];
-    dir_08cc5c503820d31914a2f2729a36eee6 [shape=box label="Core" color="red" fillcolor="white" style="filled" URL="dir_08cc5c503820d31914a2f2729a36eee6.xhtml"];
+    dir_5b63fb5974cb1ed5868418ec510a1c8d [shape=box label="Character" color="black" fillcolor="white" style="filled" URL="dir_5b63fb5974cb1ed5868418ec510a1c8d.xhtml"];
+    dir_08cc5c503820d31914a2f2729a36eee6 [shape=box label="Core" color="black" fillcolor="white" style="filled" URL="dir_08cc5c503820d31914a2f2729a36eee6.xhtml"];
+    dir_82f1619cc2cd5b1e15ccb552710268a6 [shape=box label="Item" color="black" fillcolor="white" style="filled" URL="dir_82f1619cc2cd5b1e15ccb552710268a6.xhtml"];
     dir_8aced4f5cb2570e3fc4d1c2659f00981 [shape=box label="obj" color="red" fillcolor="white" style="filled" URL="dir_8aced4f5cb2570e3fc4d1c2659f00981.xhtml"];
     dir_9dd54d8903da8692d636818bcc9c555e [shape=box label="Properties" color="black" fillcolor="white" style="filled" URL="dir_9dd54d8903da8692d636818bcc9c555e.xhtml"];
+    dir_c58d8a8f3f25f68c8841910dbe899a39 [shape=box label="Quest" color="black" fillcolor="white" style="filled" URL="dir_c58d8a8f3f25f68c8841910dbe899a39.xhtml"];
   }
 }

@@ -4,12 +4,6 @@ digraph "Core" {
   edge [ labelfontsize="10", labelfontname="Helvetica"];
   subgraph clusterdir_9ecb837a21b60474ce98456d518a780a {
     graph [ bgcolor="#ddddee", pencolor="black", label="ActionRpgKit" fontname="Helvetica", fontsize="10", URL="dir_9ecb837a21b60474ce98456d518a780a.xhtml"]
-  subgraph clusterdir_08cc5c503820d31914a2f2729a36eee6 {
-    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_08cc5c503820d31914a2f2729a36eee6.xhtml"];
-    dir_08cc5c503820d31914a2f2729a36eee6 [shape=plaintext label="Core"];
-    dir_51aa3327c24c42ac0a4d2f2ce0d4381c [shape=box label="Character" color="black" fillcolor="white" style="filled" URL="dir_51aa3327c24c42ac0a4d2f2ce0d4381c.xhtml"];
-    dir_8207dc692c6f22639351b525b75cafa5 [shape=box label="Item" color="black" fillcolor="white" style="filled" URL="dir_8207dc692c6f22639351b525b75cafa5.xhtml"];
-    dir_4739576f810d48e6e0c06f46288922b6 [shape=box label="Quest" color="black" fillcolor="white" style="filled" URL="dir_4739576f810d48e6e0c06f46288922b6.xhtml"];
-  }
+  dir_08cc5c503820d31914a2f2729a36eee6 [shape=box, label="Core", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_08cc5c503820d31914a2f2729a36eee6.xhtml"];
   }
 }
