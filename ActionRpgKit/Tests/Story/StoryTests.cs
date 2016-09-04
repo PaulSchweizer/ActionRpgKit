@@ -18,7 +18,11 @@ namespace ActionRpgKit.Tests.Story
         {
             storyline = new GameStoryline();
             simpleQuest = new CleanseTheCellars();
+
+            // Simulate the existence of 10 rats
             GetRidOfRatsObjective.rats = 10;
+
+            // Simulate the possession of 0 herbs
             Find10HerbsObjective.herbs = 0;
         }
 

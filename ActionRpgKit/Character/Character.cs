@@ -13,7 +13,7 @@ namespace ActionRpgKit.Character
     {
         /// <summary>
         /// Name of the character.</summary>
-        string Name { get; }
+        string Name { get; set; }
         
         /// <summary>
         /// Stats describing the Character.</summary>
@@ -74,9 +74,6 @@ namespace ActionRpgKit.Character
     /// Base implementation of a Character.</summary>
     public class BaseCharacter : ICharacter, IMagicUser, IFighter
     {
-          private string _name;
-        private BaseStats _stats;
-
         private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
 
@@ -84,9 +81,11 @@ namespace ActionRpgKit.Character
         private List<ICombatSkill> _combatSkills = new List<ICombatSkill>();
         private List<float> _combatSkillEndTimes = new List<float>();
 
+        public BaseCharacter () { }
+
         public BaseCharacter (string name)
         {
-            _name = name;
+            Name = name;
         }
 
         // --------------------------------------------------------------------
@@ -95,22 +94,12 @@ namespace ActionRpgKit.Character
 
         public string Name
         {
-            get
-            {
-                return _name;
-            }
+            get; set;
         }
 
         public BaseStats Stats
         {
-            get
-            {
-                return _stats;
-            }
-            set
-            {
-                _stats = value;
-            }
+            get; set;
         }
 
         // --------------------------------------------------------------------
@@ -293,6 +282,11 @@ namespace ActionRpgKit.Character
     /// Representation of a Player controllable character.</summary>
     public class Player : BaseCharacter
     {
+        public Player() : base()
+        {
+            Stats = new PlayerStats();
+        }
+
         public Player(string name) : base(name)
         {   
             Stats = new PlayerStats();
