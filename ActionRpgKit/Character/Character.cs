@@ -90,7 +90,7 @@ namespace ActionRpgKit.Character
 
         public override string ToString()
         {
-            string repr = String.Format("### {0} ########################\n" +
+            string repr = String.Format("### CHARACTER: {0} ########################\n" +
                                 "--- Primary Attributes ------------\n" +
                                  "{1}\n{2}\n{3}\n" +
                                  "--- Secondary Attributes ------------\n" +
