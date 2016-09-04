@@ -1,29 +1,35 @@
 ﻿using System;
 using NUnit.Framework;
-using ActionRpgKit.Quest;
+using ActionRpgKit.Story;
+using ActionRpgKit.Story.Quest;
 
-namespace ActionRpgKit.Tests.Quest
+namespace ActionRpgKit.Tests.Story
 {
+
     [TestFixture]
-    [Category("Quest")]
+    [Category("Story")]
     public class QuestTests
     {
+        Storyline storyline;
         IQuest simpleQuest;
 
         [SetUp]
-        public void SetUp ()
+        public void SetUp()
         {
+            storyline = new GameStoryline();
             simpleQuest = new CleanseTheCellars();
+            GetRidOfRatsObjective.rats = 10;
+            Find10HerbsObjective.herbs = 0;
         }
 
         [Test]
-        public void QuestTest ()
+        public void QuestTest()
         {
             // The quest starts
             Assert.IsFalse(simpleQuest.IsCompleted);
             simpleQuest.CheckProgress();
             Assert.IsFalse(simpleQuest.IsCompleted);
-               
+
             // The rats have been diminished
             GetRidOfRatsObjective.rats = 4;
             simpleQuest.CheckProgress();
@@ -39,11 +45,36 @@ namespace ActionRpgKit.Tests.Quest
             simpleQuest.CheckProgress();
             Assert.IsTrue(simpleQuest.IsCompleted);
         }
+
+        [Test]
+        public void StoryControllerTest()
+        {
+            storyline.Start();
+            Assert.AreEqual("Prolog", storyline.CurrentChapter.Name);
+
+            // No Progress
+            storyline.CheckProgress();
+            Assert.IsFalse(storyline.CurrentChapter.Quests[0].IsCompleted);
+
+            // Solve a quest
+            Find10HerbsObjective.herbs = 10;
+            storyline.CheckProgress();
+            Assert.IsFalse(storyline.CurrentChapter.Quests[0].IsCompleted);
+            Assert.AreEqual("Prolog", storyline.CurrentChapter.Name);
+
+            // Solve the second quest, this will move to the next Chapter
+            GetRidOfRatsObjective.rats = 0;
+            storyline.CheckProgress();
+            Assert.AreEqual("Epilog", storyline.CurrentChapter.Name);
+
+            // The Storyline has been completed now
+            storyline.CheckProgress();
+        }
     }
 
     class CleanseTheCellars : BaseQuest
     {
-        public CleanseTheCellars ()
+        public CleanseTheCellars()
         {
             Name = "Cleanse the cellars";
             Description = "Get rid of the rats";
@@ -53,31 +84,6 @@ namespace ActionRpgKit.Tests.Quest
             Objectives.Add(objectiveA);
             IObjective objectiveB = new Find10HerbsObjective();
             Objectives.Add(objectiveB);
-        }
-
-        public override void CheckProgress()
-        {
-            bool completed = true;
-            for (int i=0; i < Objectives.Count; i++)
-            {
-                if (Objectives[i].IsCompleted)
-                {
-                    continue;
-                }
-                Objectives[i].CheckProgress();
-                if (!Objectives[i].IsCompleted)
-                {
-                    completed = false;
-                }
-                else
-                {
-                    OnObjectiveCompletion(Objectives[i]);
-                }
-            }
-            if (completed)
-            {
-                OnCompletion();
-            }
         }
 
         public override void OnObjectiveCompletion(IObjective objective)
@@ -96,7 +102,7 @@ namespace ActionRpgKit.Tests.Quest
     {
         public static float rats = 10;
 
-        public GetRidOfRatsObjective ()
+        public GetRidOfRatsObjective()
         {
             Name = "Get rid of giant rats.";
             Description = "Get rid of the 10 rats.";
@@ -137,6 +143,34 @@ namespace ActionRpgKit.Tests.Quest
         public override void OnCompletion()
         {
             Console.WriteLine("Objective \"{0}\" completed.", Name);
+        }
+    }
+
+    class GameStoryline : Storyline
+    {
+        public GameStoryline()
+        {
+            Chapters = new Chapter[] { new PrologChapter(), new EpilogChapter() };
+        }
+    }
+
+    class PrologChapter : Chapter
+    {
+        public PrologChapter()
+        {
+            Name = "Prolog";
+            Description = "The beginnings ...";
+            Quests = new IQuest[] { new CleanseTheCellars() };
+        }
+    }
+
+    class EpilogChapter : Chapter
+    {
+        public EpilogChapter()
+        {
+            Name = "Epilog";
+            Description = "The end";
+            Quests = new IQuest[] {};
         }
     }
 }

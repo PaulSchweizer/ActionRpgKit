@@ -54,14 +54,15 @@
     <Compile Include="Character\Stats.cs" />
     <Compile Include="Core\GameTime.cs" />
     <Compile Include="Item\Item.cs" />
-    <Compile Include="Quest\Quest.cs" />
+    <Compile Include="Story\Quest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Story\Story.cs" />
     <Compile Include="Tests\Character\AttributeTests.cs" />
     <Compile Include="Tests\Character\CharacterTests.cs" />
     <Compile Include="Tests\Character\StatsTests.cs" />
     <Compile Include="Tests\Core\GameTimeTests.cs" />
     <Compile Include="Tests\Item\ItemTests.cs" />
-    <Compile Include="Tests\Quest\QuestTests.cs" />
+    <Compile Include="Tests\Story\StoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

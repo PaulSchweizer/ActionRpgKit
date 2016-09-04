@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ActionRpgKit.Quest
+namespace ActionRpgKit.Story.Quest
 {
     // -----------------------------------------------------------------------
     // Interfaces
@@ -42,7 +39,6 @@ namespace ActionRpgKit.Quest
     {
         private string _name;
         private string _description;
-        private bool _isCompleted;
 
         public BaseObjective () { }
 
@@ -78,14 +74,7 @@ namespace ActionRpgKit.Quest
 
         public bool IsCompleted
         {
-            get
-            {
-                return _isCompleted;
-            }
-            set
-            {
-                _isCompleted = value;
-            }
+            get; set;
         }
 
         public abstract void CheckProgress();
@@ -103,7 +92,6 @@ namespace ActionRpgKit.Quest
         private string _description;
         private int _experience;
         private List<IObjective> _objectives = new List<IObjective>();
-        private bool _isCompleted;
 
         public BaseQuest () { }
 
@@ -162,17 +150,33 @@ namespace ActionRpgKit.Quest
 
         public bool IsCompleted
         {
-            get
-            {
-                return _isCompleted;
-            }
-            set
-            {
-                _isCompleted = value;
-            }
+            get; set;
         }
 
-        public abstract void CheckProgress ();
+        public void CheckProgress ()
+        {
+            bool completed = true;
+            for (int i = 0; i < Objectives.Count; i++)
+            {
+                if (Objectives[i].IsCompleted)
+                {
+                    continue;
+                }
+                Objectives[i].CheckProgress();
+                if (!Objectives[i].IsCompleted)
+                {
+                    completed = false;
+                }
+                else
+                {
+                    OnObjectiveCompletion(Objectives[i]);
+                }
+            }
+            if (completed)
+            {
+                OnCompletion();
+            }
+        }
 
         public abstract void OnObjectiveCompletion(IObjective objective);
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
-using ActionRpgKit.Core.Item;
+using ActionRpgKit.Item;
 
-namespace ActionRpgKit.Tests.Core.Item
+namespace ActionRpgKit.Tests.Item
 {
     [TestFixture]
     [Category("Item")]

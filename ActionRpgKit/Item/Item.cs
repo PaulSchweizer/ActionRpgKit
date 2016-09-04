@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ActionRpgKit.Core.Item
+namespace ActionRpgKit.Item
 {
     public interface IItem
     {
