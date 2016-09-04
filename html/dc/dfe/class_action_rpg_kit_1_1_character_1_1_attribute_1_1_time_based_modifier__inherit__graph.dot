@@ -1,9 +1,0 @@
-digraph "TimeBasedModifier"
-{
- // INTERACTIVE_SVG=YES
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="{TimeBasedModifier\n|+ Name\l+ Value\l+ RemainingTime\l+ IsActive\l- _name\l- _value\l- _duration\l- _endTime\l|+ TimeBasedModifier()\l+ Activate()\l+ ToString()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
-  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
-  Node2 [label="{IModifier\n|+ Name\l+ Value\l+ IsActive\l|+ Activate()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml",tooltip="Interface for modifiers that alter an attribute. "];
-}

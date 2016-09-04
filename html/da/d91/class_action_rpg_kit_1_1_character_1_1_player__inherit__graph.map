@@ -1,0 +1,6 @@
+<map id="Player" name="Player">
+<area shape="rect" id="node2" href="$d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="93,227,272,746"/>
+<area shape="rect" id="node4" href="$d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats." alt="" coords="5,41,88,143"/>
+<area shape="rect" id="node6" href="$dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic." alt="" coords="112,41,253,143"/>
+<area shape="rect" id="node8" href="$df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight." alt="" coords="277,6,429,178"/>
+</map>

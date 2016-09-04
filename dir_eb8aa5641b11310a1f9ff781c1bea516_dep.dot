@@ -1,9 +1,0 @@
-digraph "GameController" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  subgraph clusterdir_85c4bcfa5ceba710e89aab0b6a79eab3 {
-    graph [ bgcolor="#ddddee", pencolor="black", label="Tests" fontname="Helvetica", fontsize="10", URL="dir_85c4bcfa5ceba710e89aab0b6a79eab3.xhtml"]
-  dir_eb8aa5641b11310a1f9ff781c1bea516 [shape=box, label="GameController", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_eb8aa5641b11310a1f9ff781c1bea516.xhtml"];
-  }
-}
