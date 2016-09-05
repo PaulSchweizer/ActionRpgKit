@@ -250,4 +250,27 @@ namespace ActionRpgKit.Character.Skill
             }
         }
     }
+
+    public static class SkillDatabase
+    {
+        /// <summary>
+        /// The index of the array corresponds to the id of the Skill
+        /// </summary>
+        public static ISkill[] Skills
+        {
+            get; set;
+        }
+
+        public static ISkill GetSkillByName(string name)
+        {
+            for (int i=0; i < Skills.Length; i++)
+            {
+                if (Skills[i].Name == name)
+                {
+                    return Skills[i];
+                }
+            }
+            return null;
+        }
+    }
 }
