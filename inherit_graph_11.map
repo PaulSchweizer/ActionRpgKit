@@ -1,4 +1,4 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<map id="G" name="G">
 <area shape="rect" id="node1" href="$d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml" title="Interface for Skills." alt="" coords="5,59,56,88"/>
 <area shape="rect" id="node3" href="$dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml" title="A basic Skill implementation." alt="" coords="115,59,192,88"/>
 <area shape="rect" id="node9" href="$d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat." alt="" coords="105,5,201,35"/>

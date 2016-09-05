@@ -1,14 +1,12 @@
 var hierarchy =
 [
+    [ "BaseStats", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml", [
+      [ "EnemyStats", "df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml", null ],
+      [ "PlayerStats", "d7/dbc/class_action_rpg_kit_1_1_character_1_1_stats_1_1_player_stats.xhtml", null ]
+    ] ],
     [ "Chapter", "d0/d8d/class_action_rpg_kit_1_1_story_1_1_chapter.xhtml", [
       [ "EpilogChapter", "d2/d12/class_action_rpg_kit_1_1_tests_1_1_story_1_1_epilog_chapter.xhtml", null ],
       [ "PrologChapter", "d5/d4f/class_action_rpg_kit_1_1_tests_1_1_story_1_1_prolog_chapter.xhtml", null ]
-    ] ],
-    [ "Dictionary< string, IAttribute >", null, [
-      [ "BaseStats", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml", [
-        [ "EnemyStats", "df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml", null ],
-        [ "PlayerStats", "d7/dbc/class_action_rpg_kit_1_1_character_1_1_stats_1_1_player_stats.xhtml", null ]
-      ] ]
     ] ],
     [ "GameController", "df/de4/class_action_rpg_kit_1_1_game_controller.xhtml", null ],
     [ "GameControllerTests", "dc/d9a/class_action_rpg_kit_1_1_tests_1_1_game_controller_1_1_game_controller_tests.xhtml", null ],
