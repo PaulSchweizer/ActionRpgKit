@@ -13,6 +13,16 @@ namespace ActionRpgKit.Story
     {
         private int _currentChapterIndex = -1;
 
+        public override string ToString()
+        {
+            string repr = "";
+            for (int i = 0; i < Chapters.Length; i++)
+            {
+                repr += string.Format("{0} {1}", i + 1, Chapters[i].ToString());
+            }
+            return repr;
+        }
+
         /// <summary>
         /// Starting the Storyline and initialize it to the first Chapter.
         /// </summary>
@@ -114,6 +124,25 @@ namespace ActionRpgKit.Story
         public void OnCompletion ()
         {
             Console.WriteLine("Chapter COMPLETED!");
+        }
+
+        public override string ToString()
+        {
+            string repr = "";
+            if (IsCompleted)
+            {
+                repr += string.Format("\u2611 {0} [Chapter]\n  \n{1}\n\n", Name, Description);
+            }
+            else
+            {
+                repr += string.Format("\u2610 {0} [Chapter]\n  \"{1}\"\n", Name, Description);
+            }
+
+            for (int i = 0; i < Quests.Length; i++)
+            {
+                repr += string.Format("  {0} {1}\n", i+1, Quests[i].ToString());
+            }
+            return repr;
         }
     }
 }

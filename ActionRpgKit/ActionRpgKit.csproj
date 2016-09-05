@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Character\Attribute.cs" />
     <Compile Include="Character\Character.cs" />
+    <Compile Include="Character\Inventory.cs" />
     <Compile Include="Character\Skill.cs" />
     <Compile Include="Character\Stats.cs" />
     <Compile Include="Core\GameTime.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Story\Story.cs" />
     <Compile Include="Tests\Character\AttributeTests.cs" />
     <Compile Include="Tests\Character\CharacterTests.cs" />
+    <Compile Include="Tests\Character\InventoryTests.cs" />
     <Compile Include="Tests\Character\StatsTests.cs" />
     <Compile Include="Tests\Core\GameTimeTests.cs" />
     <Compile Include="Tests\GameController\GameControllerTests.cs" />

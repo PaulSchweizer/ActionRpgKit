@@ -8,11 +8,15 @@ namespace ActionRpgKit.Tests.Item
     [Category("Item")]
     public class ItemTests
     {
-        IItem simpleItem;
+        IItem herb;
 
         [SetUp]
         public void SetUp()
         {
+            herb = new UsableItem();
+            herb.Id = 0;
+            herb.Name = "Herb";
+            herb.Description = "A common herb";
         }
 
         [Test]

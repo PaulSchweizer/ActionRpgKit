@@ -11,47 +11,50 @@ namespace ActionRpgKit.Item
 
     public abstract class BaseItem : IItem
     {
-        private int _id;
-        private string _name;
-        private string _description;
-
         public int Id
         {
-            get
-            {
-                return _id;
-            }
-
-            set
-            {
-                _id = value;
-            }
+            get; set;
         }
 
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-
-            set
-            {
-                _name = value;
-            }
+            get; set;
         }
 
         public string Description
         {
-            get
-            {
-                return _description;
-            }
+            get; set;
+        }
+    }
 
-            set
+    public class UsableItem : BaseItem
+    {
+
+    }
+
+    /// <summary>
+    /// Holds all the Items available in the Game.</summary>
+    public static class ItemDatabase
+    {
+        /// <summary>
+        /// The index of the array corresponds to the id of the IItem.</summary>
+        public static IItem[] Items
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// Retrieve the IItem by Name.</summary>
+        public static IItem GetItemByName(string name)
+        {
+            for (int i = 0; i < Items.Length; i++)
             {
-                _description = value;
+                if (Items[i].Name == name)
+                {
+                    return Items[i];
+                }
             }
+            return null;
         }
     }
 }

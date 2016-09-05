@@ -37,39 +37,39 @@ namespace ActionRpgKit.Story.Quest
 
     public abstract class BaseObjective : IObjective
     {
-        private string _name;
-        private string _description;
 
         public BaseObjective () { }
 
         public BaseObjective (string name, string description)
         {
-            _name = name;
-            _description = description;
+            Name = name;
+            Description = description;
         }
+
+        public override string ToString()
+        {
+            if (IsCompleted)
+            {
+                return string.Format("\u2611 {0} [Objective]\n        \"{1}\"", Name, Description);
+            }
+            else
+            {
+                return string.Format("\u2610 {0} [Objective]\n        \"{1}\"", Name, Description);
+            }
+        }
+
+        // -------------------------------------------------------------------
+        // IObjective implementations
+        // -------------------------------------------------------------------
 
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+            get; set;
         }
 
         public string Description
         {
-            get
-            {
-                return _description;
-            }
-            set
-            {
-                _description = value;
-            }
+            get; set;
         }
 
         public bool IsCompleted
@@ -88,9 +88,6 @@ namespace ActionRpgKit.Story.Quest
 
     public abstract class BaseQuest : IQuest
     {
-        private string _name;
-        private string _description;
-        private int _experience;
         private List<IObjective> _objectives = new List<IObjective>();
 
         public BaseQuest () { }
@@ -99,45 +96,47 @@ namespace ActionRpgKit.Story.Quest
                           string description,
                           int experience)
         {
-            _name = name;
-            _description = description;
-            _experience = experience;
+            Name = name;
+            Description = description;
+            Experience = experience;
         }
+
+        public override string ToString()
+        {
+            string repr = "";
+            if (IsCompleted)
+            {
+                repr += string.Format("\u2611 {0} [Quest]\n      \"{1}\"\n", Name, Description);
+            }
+            else
+            {
+                repr += string.Format("\u2610 {0} [Quest]\n      \"{1}\"\n", Name, Description);
+            }
+
+            for (int i = 0; i < Objectives.Count; i++)
+            {
+                repr += string.Format("    {0} {1}\n", i+1, Objectives[i].ToString());
+            }
+            return repr;
+        }
+
+        // -------------------------------------------------------------------
+        // IQuest implementations
+        // -------------------------------------------------------------------
 
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+            get; set;
         }
 
         public string Description
         {
-            get
-            {
-                return _description;
-            }
-            set
-            {
-                _description = value;
-            }
+            get; set;
         }
 
         public int Experience
         {
-            get
-            {
-                return _experience;
-            }
-            set
-            {
-                _experience = value;
-            }
+            get; set;
         }
 
         public List<IObjective> Objectives

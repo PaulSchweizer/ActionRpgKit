@@ -76,6 +76,10 @@ namespace ActionRpgKit.Tests.Story
         }
     }
 
+    // -----------------------------------------------------------------------
+    // Test Classes
+    // -----------------------------------------------------------------------
+
     class CleanseTheCellars : BaseQuest
     {
         public CleanseTheCellars()
@@ -150,7 +154,7 @@ namespace ActionRpgKit.Tests.Story
         }
     }
 
-    class GameStoryline : Storyline
+    public class GameStoryline : Storyline
     {
         public GameStoryline()
         {

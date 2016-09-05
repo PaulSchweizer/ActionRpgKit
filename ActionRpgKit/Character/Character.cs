@@ -90,7 +90,7 @@ namespace ActionRpgKit.Character
 
         public override string ToString()
         {
-            string repr = String.Format("### CHARACTER: {0} ########################\n" +
+            string repr = string.Format("### CHARACTER: {0} ########################\n" +
                                 "--- Primary Attributes ------------\n" +
                                  "{1}\n{2}\n{3}\n" +
                                  "--- Secondary Attributes ------------\n" +
@@ -104,12 +104,12 @@ namespace ActionRpgKit.Character
             repr += "--- Combat Skills ------------\n";
             for (int i = 0; i < CombatSkills.Count; i++)
             {
-                repr += String.Format("{0}\n", CombatSkills[i].ToString());
+                repr += string.Format("{0}\n", CombatSkills[i].ToString());
             }
-            repr += "--- Magic Skills ------------\n";
+            repr += "--- Magic Skills ------------";
             for (int i = 0; i < MagicSkills.Count; i++)
             {
-                repr += String.Format("{0}\n", MagicSkills[i].ToString());
+                repr += string.Format("\n{0}", MagicSkills[i].ToString());
             }
             return repr;
         }

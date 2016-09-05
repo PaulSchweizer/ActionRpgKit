@@ -251,23 +251,47 @@ namespace ActionRpgKit.Character.Skill
         }
     }
 
+    /// <summary>
+    /// Holds all the Skills available in the Game.</summary>
     public static class SkillDatabase
     {
         /// <summary>
-        /// The index of the array corresponds to the id of the Skill
-        /// </summary>
-        public static ISkill[] Skills
+        /// The index of the array corresponds to the id of the IMagicSkill.</summary>
+        public static IMagicSkill[] MagicSkills
         {
             get; set;
         }
 
-        public static ISkill GetSkillByName(string name)
+        /// <summary>
+        /// The index of the array corresponds to the id of the ICombatSkill.</summary>
+        public static ICombatSkill[] CombatSkills
         {
-            for (int i=0; i < Skills.Length; i++)
+            get; set;
+        }
+
+        /// <summary>
+        /// Retrieve the IMagicSkill by Name.</summary>
+        public static IMagicSkill GetMagicSkillByName(string name)
+        {
+            for (int i=0; i < MagicSkills.Length; i++)
             {
-                if (Skills[i].Name == name)
+                if (MagicSkills[i].Name == name)
                 {
-                    return Skills[i];
+                    return MagicSkills[i];
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Retrieve the ICombatSkill by Name.</summary>
+        public static ICombatSkill GetCombatSkillByName(string name)
+        {
+            for (int i = 0; i < CombatSkills.Length; i++)
+            {
+                if (CombatSkills[i].Name == name)
+                {
+                    return CombatSkills[i];
                 }
             }
             return null;
