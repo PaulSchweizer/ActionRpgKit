@@ -22,13 +22,12 @@ before_install:
     - sudo apt-get install doxygen-doc
     - sudo apt-get install doxygen-latex
     - sudo apt-get install doxygen-gui
-
-    - sudo apt-add-repository ppa:dperry/ppa-graphviz-test
-    - sudo apt-get update
-    - sudo apt-get autoremove graphviz
-
-    - sudo apt-get install graphviz
+   # - sudo apt-get install graphviz
     - sudo apt-get install nunit-console
+
+before_script:
+    - sudo apt-get -qq update > /dev/null
+    - sudo apt-get -qq install graphviz > /dev/null
 
 install:
   - nuget restore ActionRpgKit.sln
