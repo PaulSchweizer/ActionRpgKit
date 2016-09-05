@@ -1,37 +1,18 @@
-warning: ignoring unsupported tag `ALLOW_UNICODE_NAMES    =' at line 79, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `MARKDOWN_SUPPORT       =' at line 294, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `AUTOLINK_SUPPORT       =' at line 302, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTRACT_PACKAGE        =' at line 424, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `SHOW_GROUPED_MEMB_INC  =' at line 521, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `USE_MDFILE_AS_MAINPAGE =' at line 892, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `SOURCE_TOOLTIPS        =' at line 948, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `CLANG_ASSISTED_PARSING =' at line 989, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `CLANG_OPTIONS          =' at line 997, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `HTML_EXTRA_STYLESHEET  =' at line 1102, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `HTML_INDEX_NUM_ENTRIES =' at line 1171, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `MATHJAX_FORMAT         =' at line 1452, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `MATHJAX_CODEFILE       =' at line 1480, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTERNAL_SEARCH        =' at line 1529, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `SEARCHENGINE_URL       =' at line 1540, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `SEARCHDATA_FILE        =' at line 1548, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTERNAL_SEARCH_ID     =' at line 1556, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTRA_SEARCH_MAPPINGS  =' at line 1566, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `LATEX_EXTRA_FILES      =' at line 1662, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `MAN_SUBDIR             =' at line 1804, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `GENERATE_DOCBOOK       =' at line 1850, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `DOCBOOK_OUTPUT         =' at line 1858, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `DOCBOOK_PROGRAMLISTING =' at line 1867, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `EXTERNAL_PAGES         =' at line 2040, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `DIA_PATH               =' at line 2075, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `UML_LIMIT_NUM_FIELDS   =' at line 2169, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `DIAFILE_DIRS           =' at line 2281, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: ignoring unsupported tag `PLANTUML_JAR_PATH      =' at line 2290, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
-warning: the dot tool could not be found at C:\Program Files (x86)\Graphviz2.38\bin
+Warning: ignoring unsupported tag `ALLOW_UNICODE_NAMES    =' at line 79, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
+Warning: Tag `CLANG_ASSISTED_PARSING' at line 989 of file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox belongs to an option that was not enabled at compile time.
+To avoid this warning please remove this line from your configuration file, upgrade it using "doxygen -u", or recompile doxygen with this feature enabled.
+Warning: Tag `CLANG_OPTIONS' at line 997 of file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox belongs to an option that was not enabled at compile time.
+To avoid this warning please remove this line from your configuration file, upgrade it using "doxygen -u", or recompile doxygen with this feature enabled.
+Warning: ignoring unsupported tag `MAN_SUBDIR             =' at line 1804, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
+Warning: ignoring unsupported tag `DOCBOOK_PROGRAMLISTING =' at line 1867, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
+Warning: ignoring unsupported tag `PLANTUML_JAR_PATH      =' at line 2290, file /home/travis/build/PaulSchweizer/ActionRpgKit/config.dox
+Warning: the dot tool could not be found at C:\Program Files (x86)\Graphviz2.38\bin
 Searching for include files...
 Searching for example files...
 Searching for images...
 Searching for dot files...
 Searching for msc files...
+Searching for dia files...
 Searching for files to exclude
 Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Tests/Character
 Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Tests/Core
@@ -55,6 +36,7 @@ Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/A
 Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Tests/Item
 Searching for files in directory /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Tests/Story
 Reading and parsing tag files
+Parsing files
 Preprocessing /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Attribute.cs...
 Parsing file /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Attribute.cs...
 Preprocessing /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Character.cs...
@@ -94,6 +76,7 @@ Searching for documented typedefs...
 Searching for members imported via using declarations...
 Searching for included using directives...
 Searching for documented variables...
+Building interface member list...
 Building member list...
 Searching for friends...
 Searching for documented defines...
@@ -120,16 +103,31 @@ Generating disk names...
 Adding source references...
 Adding xrefitems...
 Sorting member lists...
+Computing dependencies between directories...
 Generating citations page...
 Counting data structures...
 Resolving user defined references...
 Finding anchors and sections in the documentation...
+Transferring function references...
 Combining using relations...
 Adding members to index pages...
 Generating style sheet...
 Generating search indices...
 Generating example documentation...
 Generating file sources...
+Parsing code for file .NETFramework,Version=v4.5.2.AssemblyAttribute.cs...
+Parsing code for file AssemblyInfo.cs...
+Parsing code for file Attribute.cs...
+Parsing code for file Character.cs...
+Parsing code for file GameController.cs...
+Parsing code for file GameControllerTests.cs...
+Parsing code for file GameTime.cs...
+Parsing code for file Item.cs...
+Parsing code for file Quest.cs...
+Parsing code for file Skill.cs...
+Parsing code for file Stats.cs...
+Parsing code for file Story.cs...
+Parsing code for file StoryTests.cs...
 Generating file documentation...
 Generating page documentation...
 Generating group documentation...
@@ -187,6 +185,19 @@ Generating docs for compound ActionRpgKit::Tests::Story::Find10HerbsObjective...
 Generating docs for compound ActionRpgKit::Tests::Story::GameStoryline...
 Generating docs for compound ActionRpgKit::Tests::Story::PrologChapter...
 Generating docs for compound ActionRpgKit::Tests::Story::EpilogChapter...
+Generating directory documentation...
+Generating dependency graph for directory ActionRpgKit
+Generating dependency graph for directory Character
+Generating dependency graph for directory Core
+Generating dependency graph for directory Debug
+Generating dependency graph for directory GameController
+Generating dependency graph for directory GameController
+Generating dependency graph for directory Item
+Generating dependency graph for directory obj
+Generating dependency graph for directory Properties
+Generating dependency graph for directory Story
+Generating dependency graph for directory Story
+Generating dependency graph for directory Tests
 Generating index page...
 Generating page index...
 Generating module index...
@@ -197,148 +208,183 @@ Generating alphabetical compound index...
 Generating hierarchical class index...
 Generating graphical class hierarchy...
 Generating member index...
-Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
+Running dot...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/50
-Running dot for graph 2/50
-Running dot for graph 3/50
-Running dot for graph 4/50
-Running dot for graph 5/50
-Running dot for graph 6/50
-Running dot for graph 7/50
-Running dot for graph 8/50
-Running dot for graph 9/50
-Running dot for graph 10/50
-Running dot for graph 11/50
-Running dot for graph 12/50
-Running dot for graph 13/50
-Running dot for graph 14/50
-Running dot for graph 15/50
-Running dot for graph 16/50
-Running dot for graph 17/50
-Running dot for graph 18/50
-Running dot for graph 19/50
-Running dot for graph 20/50
-Running dot for graph 21/50
-Running dot for graph 22/50
-Running dot for graph 23/50
-Running dot for graph 24/50
-Running dot for graph 25/50
-Running dot for graph 26/50
-Running dot for graph 27/50
-Running dot for graph 28/50
-Running dot for graph 29/50
-Running dot for graph 30/50
-Running dot for graph 31/50
-Running dot for graph 32/50
-Running dot for graph 33/50
-Running dot for graph 34/50
-Running dot for graph 35/50
-Running dot for graph 36/50
-Running dot for graph 37/50
-Running dot for graph 38/50
-Running dot for graph 39/50
-Running dot for graph 40/50
-Running dot for graph 41/50
-Running dot for graph 42/50
-Running dot for graph 43/50
-Running dot for graph 44/50
-Running dot for graph 45/50
-Running dot for graph 46/50
-Running dot for graph 47/50
-Running dot for graph 48/50
-Running dot for graph 49/50
-Running dot for graph 50/50
-Patching output file 1/87
-Patching output file 2/87
-Patching output file 3/87
-Patching output file 4/87
-Patching output file 5/87
-Patching output file 6/87
-Patching output file 7/87
-Patching output file 8/87
-Patching output file 9/87
-Patching output file 10/87
-Patching output file 11/87
-Patching output file 12/87
-Patching output file 13/87
-Patching output file 14/87
-Patching output file 15/87
-Patching output file 16/87
-Patching output file 17/87
-Patching output file 18/87
-Patching output file 19/87
-Patching output file 20/87
-Patching output file 21/87
-Patching output file 22/87
-Patching output file 23/87
-Patching output file 24/87
-Patching output file 25/87
-Patching output file 26/87
-Patching output file 27/87
-Patching output file 28/87
-Patching output file 29/87
-Patching output file 30/87
-Patching output file 31/87
-Patching output file 32/87
-Patching output file 33/87
-Patching output file 34/87
-Patching output file 35/87
-Patching output file 36/87
-Patching output file 37/87
-Patching output file 38/87
-Patching output file 39/87
-Patching output file 40/87
-Patching output file 41/87
-Patching output file 42/87
-Patching output file 43/87
-Patching output file 44/87
-Patching output file 45/87
-Patching output file 46/87
-Patching output file 47/87
-Patching output file 48/87
-Patching output file 49/87
-Patching output file 50/87
-Patching output file 51/87
-Patching output file 52/87
-Patching output file 53/87
-Patching output file 54/87
-Patching output file 55/87
-Patching output file 56/87
-Patching output file 57/87
-Patching output file 58/87
-Patching output file 59/87
-Patching output file 60/87
-Patching output file 61/87
-Patching output file 62/87
-Patching output file 63/87
-Patching output file 64/87
-Patching output file 65/87
-Patching output file 66/87
-Patching output file 67/87
-Patching output file 68/87
-Patching output file 69/87
-Patching output file 70/87
-Patching output file 71/87
-Patching output file 72/87
-Patching output file 73/87
-Patching output file 74/87
-Patching output file 75/87
-Patching output file 76/87
-Patching output file 77/87
-Patching output file 78/87
-Patching output file 79/87
-Patching output file 80/87
-Patching output file 81/87
-Patching output file 82/87
-Patching output file 83/87
-Patching output file 84/87
-Patching output file 85/87
-Patching output file 86/87
-Patching output file 87/87
-symbol cache used 236/65536 hits=13930 misses=236
-lookup cache used 361/65536 hits=994 misses=413
+Running dot for graph 1/62
+Running dot for graph 2/62
+Running dot for graph 3/62
+Running dot for graph 4/62
+Running dot for graph 5/62
+Running dot for graph 6/62
+Running dot for graph 7/62
+Running dot for graph 8/62
+Running dot for graph 9/62
+Running dot for graph 10/62
+Running dot for graph 11/62
+Running dot for graph 12/62
+Running dot for graph 13/62
+Running dot for graph 14/62
+Running dot for graph 15/62
+Running dot for graph 16/62
+Running dot for graph 17/62
+Running dot for graph 18/62
+Running dot for graph 19/62
+Running dot for graph 20/62
+Running dot for graph 21/62
+Running dot for graph 22/62
+Running dot for graph 23/62
+Running dot for graph 24/62
+Running dot for graph 25/62
+Running dot for graph 26/62
+Running dot for graph 27/62
+Running dot for graph 28/62
+Running dot for graph 29/62
+Running dot for graph 30/62
+Running dot for graph 31/62
+Running dot for graph 32/62
+Running dot for graph 33/62
+Running dot for graph 34/62
+Running dot for graph 35/62
+Running dot for graph 36/62
+Running dot for graph 37/62
+Running dot for graph 38/62
+Running dot for graph 39/62
+Running dot for graph 40/62
+Running dot for graph 41/62
+Running dot for graph 42/62
+Running dot for graph 43/62
+Running dot for graph 44/62
+Running dot for graph 45/62
+Running dot for graph 46/62
+Running dot for graph 47/62
+Running dot for graph 48/62
+Running dot for graph 49/62
+Running dot for graph 50/62
+Running dot for graph 51/62
+Running dot for graph 52/62
+Running dot for graph 53/62
+Running dot for graph 54/62
+Running dot for graph 55/62
+Running dot for graph 56/62
+Running dot for graph 57/62
+Running dot for graph 58/62
+Running dot for graph 59/62
+Running dot for graph 60/62
+Running dot for graph 61/62
+Running dot for graph 62/62
+Patching output file 1/111
+Patching output file 2/111
+Patching output file 3/111
+Patching output file 4/111
+Patching output file 5/111
+Patching output file 6/111
+Patching output file 7/111
+Patching output file 8/111
+Patching output file 9/111
+Patching output file 10/111
+Patching output file 11/111
+Patching output file 12/111
+Patching output file 13/111
+Patching output file 14/111
+Patching output file 15/111
+Patching output file 16/111
+Patching output file 17/111
+Patching output file 18/111
+Patching output file 19/111
+Patching output file 20/111
+Patching output file 21/111
+Patching output file 22/111
+Patching output file 23/111
+Patching output file 24/111
+Patching output file 25/111
+Patching output file 26/111
+Patching output file 27/111
+Patching output file 28/111
+Patching output file 29/111
+Patching output file 30/111
+Patching output file 31/111
+Patching output file 32/111
+Patching output file 33/111
+Patching output file 34/111
+Patching output file 35/111
+Patching output file 36/111
+Patching output file 37/111
+Patching output file 38/111
+Patching output file 39/111
+Patching output file 40/111
+Patching output file 41/111
+Patching output file 42/111
+Patching output file 43/111
+Patching output file 44/111
+Patching output file 45/111
+Patching output file 46/111
+Patching output file 47/111
+Patching output file 48/111
+Patching output file 49/111
+Patching output file 50/111
+Patching output file 51/111
+Patching output file 52/111
+Patching output file 53/111
+Patching output file 54/111
+Patching output file 55/111
+Patching output file 56/111
+Patching output file 57/111
+Patching output file 58/111
+Patching output file 59/111
+Patching output file 60/111
+Patching output file 61/111
+Patching output file 62/111
+Patching output file 63/111
+Patching output file 64/111
+Patching output file 65/111
+Patching output file 66/111
+Patching output file 67/111
+Patching output file 68/111
+Patching output file 69/111
+Patching output file 70/111
+Patching output file 71/111
+Patching output file 72/111
+Patching output file 73/111
+Patching output file 74/111
+Patching output file 75/111
+Patching output file 76/111
+Patching output file 77/111
+Patching output file 78/111
+Patching output file 79/111
+Patching output file 80/111
+Patching output file 81/111
+Patching output file 82/111
+Patching output file 83/111
+Patching output file 84/111
+Patching output file 85/111
+Patching output file 86/111
+Patching output file 87/111
+Patching output file 88/111
+Patching output file 89/111
+Patching output file 90/111
+Patching output file 91/111
+Patching output file 92/111
+Patching output file 93/111
+Patching output file 94/111
+Patching output file 95/111
+Patching output file 96/111
+Patching output file 97/111
+Patching output file 98/111
+Patching output file 99/111
+Patching output file 100/111
+Patching output file 101/111
+Patching output file 102/111
+Patching output file 103/111
+Patching output file 104/111
+Patching output file 105/111
+Patching output file 106/111
+Patching output file 107/111
+Patching output file 108/111
+Patching output file 109/111
+Patching output file 110/111
+Patching output file 111/111
+lookup cache used 696/65536 hits=2962 misses=751
 finished...

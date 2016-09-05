@@ -1,4 +1,4 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml" title="Interface for modifiers that alter an attribute." alt="" coords="5,5,77,35"/>
-<area shape="rect" id="node3" href="$d5/d34/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_time_based_modifier.xhtml" title="Modifier that affects an attribute over a certain period of time." alt="" coords="127,5,260,35"/>
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml" title="Interface for modifiers that alter an attribute. " alt="" coords="5,5,77,35"/>
+<area shape="rect" id="node3" href="$d5/d34/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_time_based_modifier.xhtml" title="Modifier that affects an attribute over a certain period of time. " alt="" coords="127,5,260,35"/>
 </map>

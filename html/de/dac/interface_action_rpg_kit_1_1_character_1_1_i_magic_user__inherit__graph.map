@@ -1,4 +1,4 @@
-<map id="G" name="G">
+<map id="IMagicUser" name="IMagicUser">
 <area shape="rect" id="node3" href="$d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="9,158,188,677"/>
 <area shape="rect" id="node5" href="$d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="" coords="5,735,88,820"/>
 <area shape="rect" id="node7" href="$d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="" coords="112,726,189,829"/>

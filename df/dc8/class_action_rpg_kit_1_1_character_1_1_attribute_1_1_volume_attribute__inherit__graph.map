@@ -1,5 +1,5 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml" title="The Value is calculated through a given formula." alt="" coords="5,688,157,843"/>
-<area shape="rect" id="node4" href="$d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml" title="Represents a simple float value." alt="" coords="13,277,149,640"/>
-<area shape="rect" id="node6" href="$d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml" title="Interface for Attributes." alt="" coords="13,5,149,229"/>
+<map id="VolumeAttribute" name="VolumeAttribute">
+<area shape="rect" id="node2" href="$df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml" title="The Value is calculated through a given formula. " alt="" coords="5,688,157,843"/>
+<area shape="rect" id="node4" href="$d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml" title="Represents a simple float value. " alt="" coords="13,277,149,640"/>
+<area shape="rect" id="node6" href="$d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml" title="Interface for Attributes. " alt="" coords="13,5,149,229"/>
 </map>
