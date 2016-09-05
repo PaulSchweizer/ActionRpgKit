@@ -26,6 +26,7 @@ before_install:
     - sudo apt-get update
     - sudo apt-get install graphviz
     - sudo apt-get install nunit-console
+    - sudo dpkg -L libhtmlparser-java
 
 install:
   - nuget restore ActionRpgKit.sln
