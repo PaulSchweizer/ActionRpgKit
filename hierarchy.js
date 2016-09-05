@@ -61,6 +61,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "QuestTests", "d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml", null ],
+    [ "SkillDatabase", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml", null ],
     [ "Storyline", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml", [
       [ "GameStoryline", "d0/d7c/class_action_rpg_kit_1_1_tests_1_1_story_1_1_game_storyline.xhtml", null ]
     ] ]
