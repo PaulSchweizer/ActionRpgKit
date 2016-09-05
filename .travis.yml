@@ -18,11 +18,15 @@ before_install:
     - sudo apt-get update
     - sudo apt-get install python-software-properties
     - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
-    - sudo apt-get update
     - sudo apt-get install doxygen
     - sudo apt-get install doxygen-doc
     - sudo apt-get install doxygen-latex
     - sudo apt-get install doxygen-gui
+
+    - sudo apt-add-repository ppa:dperry/ppa-graphviz-test
+    - sudo apt-get update
+    - sudo apt-get autoremove graphviz
+
     - sudo apt-get install graphviz
     - sudo apt-get install nunit-console
 
@@ -34,12 +38,12 @@ install:
 script:
   - xbuild /p:Configuration=Debug ActionRpgKit.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
-
-# Generate and deploy documentation
-after_success:
   - cd $TRAVIS_BUILD_DIR
   - chmod 777 generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
+
+# Generate and deploy documentation
+after_success:
 
 # Install dependencies
 addons:
