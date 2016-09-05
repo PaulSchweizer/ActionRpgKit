@@ -24,6 +24,7 @@ before_install:
     - sudo apt-get install graphviz
     - sudo apt-get install nunit-console
     - dpkg -L Graphviz
+    - ls /usr/share/graphviz
 
 install:
   - nuget restore ActionRpgKit.sln
