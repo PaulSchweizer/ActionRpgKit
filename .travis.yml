@@ -20,13 +20,10 @@ before_install:
     - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
     - sudo apt-get update
     - sudo apt-get install doxygen
-    - sudo apt-get install doxygen-doc
-    - sudo apt-get install doxygen-latex
-    - sudo apt-get install doxygen-gui
     - sudo apt-get update
     - sudo apt-get install graphviz
     - sudo apt-get install nunit-console
-    - dpkg -L graphviz
+    - dpkg -L Graphviz
 
 install:
   - nuget restore ActionRpgKit.sln
