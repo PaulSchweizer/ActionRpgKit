@@ -18,16 +18,14 @@ before_install:
     - sudo apt-get update
     - sudo apt-get install python-software-properties
     - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
+    - sudo apt-get update
     - sudo apt-get install doxygen
     - sudo apt-get install doxygen-doc
     - sudo apt-get install doxygen-latex
     - sudo apt-get install doxygen-gui
-   # - sudo apt-get install graphviz
+    - sudo apt-get update
+    - sudo apt-get install graphviz
     - sudo apt-get install nunit-console
-
-before_script:
-    - sudo apt-get -qq update > /dev/null
-    - sudo apt-get -qq install graphviz > /dev/null
 
 install:
   - nuget restore ActionRpgKit.sln
