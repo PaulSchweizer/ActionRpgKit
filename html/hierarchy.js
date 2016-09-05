@@ -28,8 +28,14 @@ var hierarchy =
     [ "IFighter", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml", [
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
     ] ],
+    [ "IInventory", "d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml", [
+      [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", null ],
+      [ "SimpleInventory", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml", null ]
+    ] ],
     [ "IItem", "d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml", [
-      [ "BaseItem", "d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml", null ]
+      [ "BaseItem", "d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml", [
+        [ "UsableItem", "d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml", null ]
+      ] ]
     ] ],
     [ "IMagicUser", "dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml", [
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
@@ -60,6 +66,7 @@ var hierarchy =
         [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
       ] ]
     ] ],
+    [ "ItemDatabase", "dd/d83/class_action_rpg_kit_1_1_item_1_1_item_database.xhtml", null ],
     [ "QuestTests", "d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml", null ],
     [ "SkillDatabase", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml", null ],
     [ "Storyline", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml", [

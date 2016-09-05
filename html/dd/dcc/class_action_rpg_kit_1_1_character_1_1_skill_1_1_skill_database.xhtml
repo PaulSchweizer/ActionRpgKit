@@ -90,23 +90,33 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="ActionRpgKit::Character::Skill::SkillDatabase" -->
+<p>Holds all the Skills available in the Game.  
+ <a href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#details">More...</a></p>
+
 <p><a href="../../d5/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database-members.xhtml">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml">ISkill</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a8a703462634b986f8b36aa2b1d3815f7">GetSkillByName</a> (string name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#af3d709e93dda41e266a77d322b2b9d3d">GetMagicSkillByName</a> (string name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml" title="A magic Skill costs magic energy on each use.">IMagicSkill</a> by Name.  <a href="#af3d709e93dda41e266a77d322b2b9d3d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a98a5130d84a236e0ac5c154abf7d8727">GetCombatSkillByName</a> (string name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat.">ICombatSkill</a> by Name.  <a href="#a98a5130d84a236e0ac5c154abf7d8727"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml">ISkill</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#ad8b314b9f7fb9b79b20d2c20e201adea">Skills</a><code> [get, set]</code></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the array corresponds to the id of the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>.  <a href="#ad8b314b9f7fb9b79b20d2c20e201adea"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#adf413916f8f7114302312e56039b3e1e">MagicSkills</a><code> [get, set]</code></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the array corresponds to the id of the <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml" title="A magic Skill costs magic energy on each use.">IMagicSkill</a>.  <a href="#adf413916f8f7114302312e56039b3e1e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a477a2afc1815f36fc89dfeece16ac81d">CombatSkills</a><code> [get, set]</code></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the array corresponds to the id of the <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat.">ICombatSkill</a>.  <a href="#a477a2afc1815f36fc89dfeece16ac81d"></a><br/></td></tr>
 </table>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a8a703462634b986f8b36aa2b1d3815f7"></a><!-- doxytag: member="ActionRpgKit::Character::Skill::SkillDatabase::GetSkillByName" ref="a8a703462634b986f8b36aa2b1d3815f7" args="(string name)" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Holds all the Skills available in the Game. </p>
+</div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="af3d709e93dda41e266a77d322b2b9d3d"></a><!-- doxytag: member="ActionRpgKit::Character::Skill::SkillDatabase::GetMagicSkillByName" ref="af3d709e93dda41e266a77d322b2b9d3d" args="(string name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml">ISkill</a> <a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a8a703462634b986f8b36aa2b1d3815f7">GetSkillByName</a> </td>
+          <td class="memname">static <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> <a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#af3d709e93dda41e266a77d322b2b9d3d">GetMagicSkillByName</a> </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
@@ -116,21 +126,57 @@ Properties</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Retrieve the <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml" title="A magic Skill costs magic energy on each use.">IMagicSkill</a> by Name. </p>
+
 </div>
 </div>
-<hr/><h2>Property Documentation</h2>
-<a class="anchor" id="ad8b314b9f7fb9b79b20d2c20e201adea"></a><!-- doxytag: member="ActionRpgKit::Character::Skill::SkillDatabase::Skills" ref="ad8b314b9f7fb9b79b20d2c20e201adea" args="" -->
+<a class="anchor" id="a98a5130d84a236e0ac5c154abf7d8727"></a><!-- doxytag: member="ActionRpgKit::Character::Skill::SkillDatabase::GetCombatSkillByName" ref="a98a5130d84a236e0ac5c154abf7d8727" args="(string name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml">ISkill</a> [] <a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#ad8b314b9f7fb9b79b20d2c20e201adea">Skills</a><code> [static, get, set]</code></td>
+          <td class="memname">static <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a> <a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a98a5130d84a236e0ac5c154abf7d8727">GetCombatSkillByName</a> </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td><code> [inline, static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>The index of the array corresponds to the id of the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>. </p>
+<p>Retrieve the <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat.">ICombatSkill</a> by Name. </p>
+
+</div>
+</div>
+<hr/><h2>Property Documentation</h2>
+<a class="anchor" id="adf413916f8f7114302312e56039b3e1e"></a><!-- doxytag: member="ActionRpgKit::Character::Skill::SkillDatabase::MagicSkills" ref="adf413916f8f7114302312e56039b3e1e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> [] <a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#adf413916f8f7114302312e56039b3e1e">MagicSkills</a><code> [static, get, set]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The index of the array corresponds to the id of the <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml" title="A magic Skill costs magic energy on each use.">IMagicSkill</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a477a2afc1815f36fc89dfeece16ac81d"></a><!-- doxytag: member="ActionRpgKit::Character::Skill::SkillDatabase::CombatSkills" ref="a477a2afc1815f36fc89dfeece16ac81d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a> [] <a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a477a2afc1815f36fc89dfeece16ac81d">CombatSkills</a><code> [static, get, set]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The index of the array corresponds to the id of the <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat.">ICombatSkill</a>. </p>
 
 </div>
 </div>
@@ -160,7 +206,7 @@ Properties</h2></td></tr>
       <li class="navelem"><a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>      </li>
       <li class="navelem"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml">SkillDatabase</a>      </li>
 
-    <li class="footer">Generated on Mon Sep 5 2016 03:39:09 for Action RPG Kit by
+    <li class="footer">Generated on Mon Sep 5 2016 06:03:22 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

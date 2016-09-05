@@ -58,6 +58,8 @@ Preprocessing /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Charact
 Parsing file /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Attribute.cs...
 Preprocessing /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Character.cs...
 Parsing file /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Character.cs...
+Preprocessing /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Inventory.cs...
+Parsing file /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Inventory.cs...
 Preprocessing /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Skill.cs...
 Parsing file /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Skill.cs...
 Preprocessing /home/travis/build/PaulSchweizer/ActionRpgKit/ActionRpgKit/Character/Stats.cs...
@@ -143,6 +145,9 @@ Generating docs for compound ActionRpgKit::Character::IFighter...
 Generating docs for compound ActionRpgKit::Character::BaseCharacter...
 Generating docs for compound ActionRpgKit::Character::Player...
 Generating docs for compound ActionRpgKit::Character::Enemy...
+Generating docs for compound ActionRpgKit::Character::IInventory...
+Generating docs for compound ActionRpgKit::Character::SimpleInventory...
+Generating docs for compound ActionRpgKit::Character::PlayerInventory...
 Generating docs for namespace ActionRpgKit::Character::Attribute
 Generating docs for compound ActionRpgKit::Character::Attribute::IAttribute...
 Generating docs for compound ActionRpgKit::Character::Attribute::PrimaryAttribute...
@@ -168,6 +173,8 @@ Generating docs for compound ActionRpgKit::Core::GameTime...
 Generating docs for namespace ActionRpgKit::Item
 Generating docs for compound ActionRpgKit::Item::IItem...
 Generating docs for compound ActionRpgKit::Item::BaseItem...
+Generating docs for compound ActionRpgKit::Item::UsableItem...
+Generating docs for compound ActionRpgKit::Item::ItemDatabase...
 Generating docs for namespace ActionRpgKit::Story
 Generating docs for compound ActionRpgKit::Story::Storyline...
 Generating docs for compound ActionRpgKit::Story::Chapter...
@@ -202,145 +209,161 @@ Generating file member index...
 Generating example index...
 finalizing index lists...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/51
-Running dot for graph 2/51
-Running dot for graph 3/51
-Running dot for graph 4/51
-Running dot for graph 5/51
-Running dot for graph 6/51
-Running dot for graph 7/51
-Running dot for graph 8/51
-Running dot for graph 9/51
-Running dot for graph 10/51
-Running dot for graph 11/51
-Running dot for graph 12/51
-Running dot for graph 13/51
-Running dot for graph 14/51
-Running dot for graph 15/51
-Running dot for graph 16/51
-Running dot for graph 17/51
-Running dot for graph 18/51
-Running dot for graph 19/51
-Running dot for graph 20/51
-Running dot for graph 21/51
-Running dot for graph 22/51
-Running dot for graph 23/51
-Running dot for graph 24/51
-Running dot for graph 25/51
-Running dot for graph 26/51
-Running dot for graph 27/51
-Running dot for graph 28/51
-Running dot for graph 29/51
-Running dot for graph 30/51
-Running dot for graph 31/51
-Running dot for graph 32/51
-Running dot for graph 33/51
-Running dot for graph 34/51
-Running dot for graph 35/51
-Running dot for graph 36/51
-Running dot for graph 37/51
-Running dot for graph 38/51
-Running dot for graph 39/51
-Running dot for graph 40/51
-Running dot for graph 41/51
-Running dot for graph 42/51
-Running dot for graph 43/51
-Running dot for graph 44/51
-Running dot for graph 45/51
-Running dot for graph 46/51
-Running dot for graph 47/51
-Running dot for graph 48/51
-Running dot for graph 49/51
-Running dot for graph 50/51
-Running dot for graph 51/51
-Patching output file 1/88
-Patching output file 2/88
-Patching output file 3/88
-Patching output file 4/88
-Patching output file 5/88
-Patching output file 6/88
-Patching output file 7/88
-Patching output file 8/88
-Patching output file 9/88
-Patching output file 10/88
-Patching output file 11/88
-Patching output file 12/88
-Patching output file 13/88
-Patching output file 14/88
-Patching output file 15/88
-Patching output file 16/88
-Patching output file 17/88
-Patching output file 18/88
-Patching output file 19/88
-Patching output file 20/88
-Patching output file 21/88
-Patching output file 22/88
-Patching output file 23/88
-Patching output file 24/88
-Patching output file 25/88
-Patching output file 26/88
-Patching output file 27/88
-Patching output file 28/88
-Patching output file 29/88
-Patching output file 30/88
-Patching output file 31/88
-Patching output file 32/88
-Patching output file 33/88
-Patching output file 34/88
-Patching output file 35/88
-Patching output file 36/88
-Patching output file 37/88
-Patching output file 38/88
-Patching output file 39/88
-Patching output file 40/88
-Patching output file 41/88
-Patching output file 42/88
-Patching output file 43/88
-Patching output file 44/88
-Patching output file 45/88
-Patching output file 46/88
-Patching output file 47/88
-Patching output file 48/88
-Patching output file 49/88
-Patching output file 50/88
-Patching output file 51/88
-Patching output file 52/88
-Patching output file 53/88
-Patching output file 54/88
-Patching output file 55/88
-Patching output file 56/88
-Patching output file 57/88
-Patching output file 58/88
-Patching output file 59/88
-Patching output file 60/88
-Patching output file 61/88
-Patching output file 62/88
-Patching output file 63/88
-Patching output file 64/88
-Patching output file 65/88
-Patching output file 66/88
-Patching output file 67/88
-Patching output file 68/88
-Patching output file 69/88
-Patching output file 70/88
-Patching output file 71/88
-Patching output file 72/88
-Patching output file 73/88
-Patching output file 74/88
-Patching output file 75/88
-Patching output file 76/88
-Patching output file 77/88
-Patching output file 78/88
-Patching output file 79/88
-Patching output file 80/88
-Patching output file 81/88
-Patching output file 82/88
-Patching output file 83/88
-Patching output file 84/88
-Patching output file 85/88
-Patching output file 86/88
-Patching output file 87/88
-Patching output file 88/88
-symbol cache used 238/65536 hits=14004 misses=238
-lookup cache used 365/65536 hits=1002 misses=417
+Running dot for graph 1/57
+Running dot for graph 2/57
+Running dot for graph 3/57
+Running dot for graph 4/57
+Running dot for graph 5/57
+Running dot for graph 6/57
+Running dot for graph 7/57
+Running dot for graph 8/57
+Running dot for graph 9/57
+Running dot for graph 10/57
+Running dot for graph 11/57
+Running dot for graph 12/57
+Running dot for graph 13/57
+Running dot for graph 14/57
+Running dot for graph 15/57
+Running dot for graph 16/57
+Running dot for graph 17/57
+Running dot for graph 18/57
+Running dot for graph 19/57
+Running dot for graph 20/57
+Running dot for graph 21/57
+Running dot for graph 22/57
+Running dot for graph 23/57
+Running dot for graph 24/57
+Running dot for graph 25/57
+Running dot for graph 26/57
+Running dot for graph 27/57
+Running dot for graph 28/57
+Running dot for graph 29/57
+Running dot for graph 30/57
+Running dot for graph 31/57
+Running dot for graph 32/57
+Running dot for graph 33/57
+Running dot for graph 34/57
+Running dot for graph 35/57
+Running dot for graph 36/57
+Running dot for graph 37/57
+Running dot for graph 38/57
+Running dot for graph 39/57
+Running dot for graph 40/57
+Running dot for graph 41/57
+Running dot for graph 42/57
+Running dot for graph 43/57
+Running dot for graph 44/57
+Running dot for graph 45/57
+Running dot for graph 46/57
+Running dot for graph 47/57
+Running dot for graph 48/57
+Running dot for graph 49/57
+Running dot for graph 50/57
+Running dot for graph 51/57
+Running dot for graph 52/57
+Running dot for graph 53/57
+Running dot for graph 54/57
+Running dot for graph 55/57
+Running dot for graph 56/57
+Running dot for graph 57/57
+Patching output file 1/98
+Patching output file 2/98
+Patching output file 3/98
+Patching output file 4/98
+Patching output file 5/98
+Patching output file 6/98
+Patching output file 7/98
+Patching output file 8/98
+Patching output file 9/98
+Patching output file 10/98
+Patching output file 11/98
+Patching output file 12/98
+Patching output file 13/98
+Patching output file 14/98
+Patching output file 15/98
+Patching output file 16/98
+Patching output file 17/98
+Patching output file 18/98
+Patching output file 19/98
+Patching output file 20/98
+Patching output file 21/98
+Patching output file 22/98
+Patching output file 23/98
+Patching output file 24/98
+Patching output file 25/98
+Patching output file 26/98
+Patching output file 27/98
+Patching output file 28/98
+Patching output file 29/98
+Patching output file 30/98
+Patching output file 31/98
+Patching output file 32/98
+Patching output file 33/98
+Patching output file 34/98
+Patching output file 35/98
+Patching output file 36/98
+Patching output file 37/98
+Patching output file 38/98
+Patching output file 39/98
+Patching output file 40/98
+Patching output file 41/98
+Patching output file 42/98
+Patching output file 43/98
+Patching output file 44/98
+Patching output file 45/98
+Patching output file 46/98
+Patching output file 47/98
+Patching output file 48/98
+Patching output file 49/98
+Patching output file 50/98
+Patching output file 51/98
+Patching output file 52/98
+Patching output file 53/98
+Patching output file 54/98
+Patching output file 55/98
+Patching output file 56/98
+Patching output file 57/98
+Patching output file 58/98
+Patching output file 59/98
+Patching output file 60/98
+Patching output file 61/98
+Patching output file 62/98
+Patching output file 63/98
+Patching output file 64/98
+Patching output file 65/98
+Patching output file 66/98
+Patching output file 67/98
+Patching output file 68/98
+Patching output file 69/98
+Patching output file 70/98
+Patching output file 71/98
+Patching output file 72/98
+Patching output file 73/98
+Patching output file 74/98
+Patching output file 75/98
+Patching output file 76/98
+Patching output file 77/98
+Patching output file 78/98
+Patching output file 79/98
+Patching output file 80/98
+Patching output file 81/98
+Patching output file 82/98
+Patching output file 83/98
+Patching output file 84/98
+Patching output file 85/98
+Patching output file 86/98
+Patching output file 87/98
+Patching output file 88/98
+Patching output file 89/98
+Patching output file 90/98
+Patching output file 91/98
+Patching output file 92/98
+Patching output file 93/98
+Patching output file 94/98
+Patching output file 95/98
+Patching output file 96/98
+Patching output file 97/98
+Patching output file 98/98
+symbol cache used 246/65536 hits=14447 misses=246
+lookup cache used 385/65536 hits=1039 misses=437
 finished...
