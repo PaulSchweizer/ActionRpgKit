@@ -1,16 +1,18 @@
 ﻿using System;
 using NUnit.Framework;
+using ActionRpgKit;
+using ActionRpgKit.Item;
 using ActionRpgKit.Core;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Story;
 using ActionRpgKit.Tests.Story;
 
-namespace ActionRpgKit.Tests.GameController
+namespace ActionRpgKit.Tests
 {
     [TestFixture]
-    [Category("GameController")]
-    public class GameControllerTests
+    [Category("MainController")]
+    public class MainControllerTests
     {
 
         Player player;
@@ -39,16 +41,26 @@ namespace ActionRpgKit.Tests.GameController
             Separator();
             StartStoryline();
             Separator();
-            storyline.CurrentChapter.ToString();
+            Console.WriteLine("Player kills the 10 rats.");
+            GetRidOfRatsObjective.rats = 0;
+            storyline.CheckProgress();
+            Console.WriteLine(storyline.CurrentChapter.ToString());
             Separator();
-            Console.WriteLine("Gather some of the herbs");
-            
+            Console.WriteLine("Player runs around and gathers the 10 herbs");
+            MainController.player.Inventory.AddItem(ItemDatabase.GetItemByName("Herb"), 10);
+            //Find10HerbsObjective.herbs = 10;
+            storyline.CheckProgress();
+            Console.WriteLine(storyline.CurrentChapter.ToString());
+            Separator();
         }
 
         private void InitItemDatabase()
         {
-            // IItem herb = new Item();
-            // ItemDatabase.Items = new IItem[] { herb };
+            IItem herb = new UsableItem();
+            herb.Id = 0;
+            herb.Name = "Herb";
+            herb.Description = "A common herb";
+            ItemDatabase.Items = new IItem[] { herb };
         }
 
         private void InitSkillDatabase()

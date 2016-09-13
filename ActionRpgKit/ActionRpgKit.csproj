@@ -54,7 +54,7 @@
     <Compile Include="Character\Skill.cs" />
     <Compile Include="Character\Stats.cs" />
     <Compile Include="Core\GameTime.cs" />
-    <Compile Include="GameController\GameController.cs" />
+    <Compile Include="MainController\MainController.cs" />
     <Compile Include="Item\Item.cs" />
     <Compile Include="Story\Quest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,7 +64,7 @@
     <Compile Include="Tests\Character\InventoryTests.cs" />
     <Compile Include="Tests\Character\StatsTests.cs" />
     <Compile Include="Tests\Core\GameTimeTests.cs" />
-    <Compile Include="Tests\GameController\GameControllerTests.cs" />
+    <Compile Include="Tests\MainController\MainControllerTests.cs" />
     <Compile Include="Tests\Item\ItemTests.cs" />
     <Compile Include="Tests\Story\StoryTests.cs" />
   </ItemGroup>

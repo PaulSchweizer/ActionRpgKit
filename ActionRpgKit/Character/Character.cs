@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Character.Stats;
 using ActionRpgKit.Core;
+using ActionRpgKit.Character;
 
 namespace ActionRpgKit.Character
 {
@@ -18,6 +19,8 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Stats describing the Character.</summary>
         BaseStats Stats { get; set; }
+
+        IInventory Inventory { get; set; }
     }
 
     /// <summary>
@@ -72,7 +75,7 @@ namespace ActionRpgKit.Character
     
     /// <summary>
     /// Base implementation of a Character.</summary>
-    public class BaseCharacter : ICharacter, IMagicUser, IFighter
+    public abstract class BaseCharacter : ICharacter, IMagicUser, IFighter
     {
         private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
@@ -92,10 +95,11 @@ namespace ActionRpgKit.Character
         {
             string repr = string.Format("### CHARACTER: {0} ########################\n" +
                                 "--- Primary Attributes ------------\n" +
-                                 "{1}\n{2}\n{3}\n" +
+                                 "{1}\n{2}\n{3}\n{4}\n" +
                                  "--- Secondary Attributes ------------\n" +
-                                 "{4}\n{5}\n",
-                                 Name, 
+                                 "{5}\n{6}\n",
+                                 Name,
+                                 Stats.Body.ToString(),
                                  Stats.Mind.ToString(),
                                  Stats.Soul.ToString(),
                                  Stats.Level.ToString(),
@@ -123,10 +127,9 @@ namespace ActionRpgKit.Character
             get; set;
         }
 
-        public BaseStats Stats
-        {
-            get; set;
-        }
+        public BaseStats Stats { get; set; }
+
+        public abstract IInventory Inventory { get; set; }
 
         // --------------------------------------------------------------------
         // IMagicUser Implementations
@@ -308,14 +311,30 @@ namespace ActionRpgKit.Character
     /// Representation of a Player controllable character.</summary>
     public class Player : BaseCharacter
     {
+        IInventory _inventory;
+
         public Player() : base()
         {
             Stats = new PlayerStats();
+            Inventory = new PlayerInventory();
         }
 
         public Player(string name) : base(name)
         {   
             Stats = new PlayerStats();
+            Inventory = new PlayerInventory();
+        }
+
+        public IInventory Inventory
+        {
+            get
+            {
+                return _inventory;
+            }
+            set
+            {
+                _inventory = value;
+            }
         }
     }
     
@@ -323,9 +342,24 @@ namespace ActionRpgKit.Character
     /// Representation of a Hostile, game controlled character.</summary>
     public class Enemy : BaseCharacter
     {
+        IInventory _inventory;
+
         public Enemy(string name) : base(name)
         {   
             Stats = new EnemyStats();
+            Inventory = new SimpleInventory();
+        }
+
+        public IInventory Inventory
+        {
+            get
+            {
+                return _inventory;
+            }
+            set
+            {
+                _inventory = value;
+            }
         }
     }
 }

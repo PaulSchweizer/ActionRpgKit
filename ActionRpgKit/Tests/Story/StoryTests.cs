@@ -85,7 +85,7 @@ namespace ActionRpgKit.Tests.Story
         public CleanseTheCellars()
         {
             Name = "Cleanse the cellars";
-            Description = "Get rid of the rats";
+            Description = "Get rid of the rats to reach the magic herbs.";
             Experience = 100;
 
             IObjective objectiveA = new GetRidOfRatsObjective();

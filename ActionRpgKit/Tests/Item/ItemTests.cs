@@ -20,8 +20,10 @@ namespace ActionRpgKit.Tests.Item
         }
 
         [Test]
-        public void ItemTest()
+        public void ItemDatabaseTest()
         {
+            ItemDatabase.Items = new IItem[] { herb };
+            Assert.AreEqual(1, ItemDatabase.Items.Length);
         }
     }
 }

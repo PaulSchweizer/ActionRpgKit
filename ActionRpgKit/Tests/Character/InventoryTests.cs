@@ -10,32 +10,57 @@ namespace ActionRpgKit.Tests.Character
     [Category("Character.Inventory")]
     public class InventoryTests
     {
-        IItem herb;
-        IInventory SimpleInventory;
-        IInventory PlayerInventory;
+        
+        IInventory simpleInventory;
+        PlayerInventory playerInventory;
 
         [SetUp]
         public void SetUp()
         {
-            herb = new UsableItem();
+            IItem herb = new UsableItem();
             herb.Id = 0;
             herb.Name = "Herb";
             herb.Description = "A common herb";
-
-            SimpleInventory = new SimpleInventory();
-            PlayerInventory = new PlayerInventory();
+            ItemDatabase.Items = new IItem[] { herb };
         }
 
         [Test]
         public void SimpleInventoryTest()
         {
-            SimpleInventory.Items = new IItem[] { herb };
+            IItem herb = ItemDatabase.GetItemByName("Herb");
+            simpleInventory = new SimpleInventory(new IItem[] { herb },
+                                                  new int[] { 1 });
+            Assert.AreEqual(1, simpleInventory.ItemCount);
+            Console.WriteLine(simpleInventory.ToString());
         }
 
         [Test]
         public void PlayerInventoryTest()
         {
-            PlayerInventory.Items = new IItem[] { herb };
+            playerInventory = new PlayerInventory();
+            Assert.AreEqual(0, playerInventory.ItemCount);
+            IItem herb = ItemDatabase.GetItemByName("Herb");
+            playerInventory.AddItem(herb);
+            Assert.AreEqual(1, playerInventory.ItemCount);
+            playerInventory.AddItem(herb, 9);
+            Console.WriteLine(playerInventory.ToString());
+            Assert.AreEqual(1, playerInventory.ItemCount);
+            playerInventory.RemoveItem(herb, 9);
+            Assert.AreEqual(1, playerInventory.ItemCount);
+            playerInventory.RemoveItem(herb, 1);
+            Assert.AreEqual(0, playerInventory.ItemCount);
+        }
+
+        [Test]
+        public void NergeInventoriesTest()
+        {
+            playerInventory = new PlayerInventory();
+            Assert.AreEqual(0, playerInventory.ItemCount);
+            IItem herb = ItemDatabase.GetItemByName("Herb");
+            simpleInventory = new SimpleInventory(new IItem[] { herb },
+                                                  new int[] { 1 });
+            playerInventory.AddInventory(simpleInventory);
+            Assert.AreEqual(1, playerInventory.ItemCount);
         }
     }
 }
