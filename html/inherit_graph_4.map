@@ -1,3 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml" title="GameTime" alt="" coords="7,5,92,35"/>
+<area shape="rect" id="node1" href="$d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml" title="An inventory holds Items." alt="" coords="5,32,85,61"/>
+<area shape="rect" id="node3" href="$d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml" title="Inventory allows to add and remove items." alt="" coords="136,5,248,35"/>
+<area shape="rect" id="node5" href="$de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml" title="This inventory holds afixed size array of items." alt="" coords="135,59,249,88"/>
 </map>

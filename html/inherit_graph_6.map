@@ -1,5 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml" title="An inventory holds Items." alt="" coords="5,32,85,61"/>
-<area shape="rect" id="node3" href="$d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml" title="Inventory allows to add and remove items." alt="" coords="136,5,248,35"/>
-<area shape="rect" id="node5" href="$de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml" title="This inventory holds afixed size array of items." alt="" coords="135,59,249,88"/>
+<area shape="rect" id="node1" href="$d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats." alt="" coords="9,5,92,35"/>
+<area shape="rect" id="node3" href="$d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="144,59,253,88"/>
+<area shape="rect" id="node5" href="$d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="" coords="303,32,364,61"/>
+<area shape="rect" id="node7" href="$d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="" coords="304,85,363,115"/>
+<area shape="rect" id="node8" href="$df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight." alt="" coords="17,59,84,88"/>
+<area shape="rect" id="node10" href="$dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic." alt="" coords="7,112,95,141"/>
 </map>

@@ -1,7 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml" title="Interface for Attributes." alt="" coords="5,32,80,61"/>
-<area shape="rect" id="node3" href="$d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml" title="Represents a simple float value." alt="" coords="129,32,244,61"/>
-<area shape="rect" id="node5" href="$df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml" title="The Value is calculated through a given formula." alt="" coords="304,5,437,35"/>
-<area shape="rect" id="node9" href="$db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml" title="The base value is a simple float as opposed to a formula based." alt="" coords="293,59,448,88"/>
-<area shape="rect" id="node7" href="$d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml" title="Represents a volume of something, e.g. magic, life. The base value is derived through a formula and s..." alt="" coords="496,5,611,35"/>
+<area shape="rect" id="node1" href="$d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml" title="IItem" alt="" coords="7,5,57,35"/>
+<area shape="rect" id="node3" href="$d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml" title="BaseItem" alt="" coords="108,5,185,35"/>
+<area shape="rect" id="node5" href="$d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml" title="UsableItem" alt="" coords="236,5,324,35"/>
 </map>

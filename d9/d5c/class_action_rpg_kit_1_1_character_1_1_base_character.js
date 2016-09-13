@@ -22,6 +22,7 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
     [ "_combatSkillEndTimes", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a4b8f0e756cf927f8d4a18f22268f4d44", null ],
     [ "Name", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9", null ],
     [ "Stats", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aae675cc1ade48758b96f03e5488afce9", null ],
+    [ "Inventory", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ac6fd71c883d9567268f93c8ce3f01f09", null ],
     [ "Magic", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a27a953a6009cb1a1ac653e6722a78880", null ],
     [ "MagicSkills", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6b5200dc114f9b407da8f6447fef03d5", null ],
     [ "Life", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa4aea9bbf9e54f9950950e1ccb3cd18d", null ],

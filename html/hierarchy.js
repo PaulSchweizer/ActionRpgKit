@@ -8,8 +8,6 @@ var hierarchy =
       [ "EpilogChapter", "d2/d12/class_action_rpg_kit_1_1_tests_1_1_story_1_1_epilog_chapter.xhtml", null ],
       [ "PrologChapter", "d5/d4f/class_action_rpg_kit_1_1_tests_1_1_story_1_1_prolog_chapter.xhtml", null ]
     ] ],
-    [ "GameController", "df/de4/class_action_rpg_kit_1_1_game_controller.xhtml", null ],
-    [ "GameControllerTests", "dc/d9a/class_action_rpg_kit_1_1_tests_1_1_game_controller_1_1_game_controller_tests.xhtml", null ],
     [ "GameTime", "d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml", null ],
     [ "IAttribute", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml", [
       [ "PrimaryAttribute", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml", [
@@ -67,6 +65,8 @@ var hierarchy =
       ] ]
     ] ],
     [ "ItemDatabase", "dd/d83/class_action_rpg_kit_1_1_item_1_1_item_database.xhtml", null ],
+    [ "MainController", "da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml", null ],
+    [ "MainControllerTests", "d6/dea/class_action_rpg_kit_1_1_tests_1_1_main_controller_tests.xhtml", null ],
     [ "QuestTests", "d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml", null ],
     [ "SkillDatabase", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml", null ],
     [ "Storyline", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml", [
