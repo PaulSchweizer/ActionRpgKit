@@ -67,7 +67,7 @@ namespace ActionRpgKit.Character
         public override string ToString()
         {
             string repr = "";
-            repr += string.Format("______________________\n");
+            repr += string.Format("_INVENTORY____________\n");
             for (int i = 0; i < ItemCount; i++)
             {
                 repr += string.Format("|{0, -15}|{1, 4}|\n",
