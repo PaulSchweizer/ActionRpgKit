@@ -65,6 +65,7 @@
     <Compile Include="Tests\Character\StatsTests.cs" />
     <Compile Include="Tests\Core\GameTimeTests.cs" />
     <Compile Include="Tests\MainController\MainControllerTests.cs" />
+    <Compile Include="Tests\MainController\StorylineImplementationTest.cs" />
     <Compile Include="Tests\Item\ItemTests.cs" />
     <Compile Include="Tests\Story\StoryTests.cs" />
   </ItemGroup>
