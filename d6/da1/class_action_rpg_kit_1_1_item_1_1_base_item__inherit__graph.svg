@@ -22,7 +22,7 @@
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml" target="_top" xlink:title="{UsableItem\n||}">
+<a xlink:href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml" target="_top" xlink:title="This item is usable for Skills.">
 <polygon fill="white" stroke="black" points="3.5,-0.5 3.5,-63.5 70.5,-63.5 70.5,-0.5 3.5,-0.5"/>
 <text text-anchor="middle" x="37" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">UsableItem</text>
 <polyline fill="none" stroke="black" points="3.5,-42.5 70.5,-42.5 "/>
@@ -38,7 +38,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<a xlink:href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml" target="_top" xlink:title="{IItem\n|+ Id\l+ Name\l+ Description\l|}">
+<a xlink:href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml" target="_top" xlink:title="An Item is something that is usable by Characters.">
 <polygon fill="white" stroke="black" points="-0.5,-226.5 -0.5,-315.5 74.5,-315.5 74.5,-226.5 -0.5,-226.5"/>
 <text text-anchor="middle" x="37" y="-302.5" font-family="Helvetica,sans-Serif" font-size="10.00">IItem</text>
 <polyline fill="none" stroke="black" points="-0.5,-294.5 74.5,-294.5 "/>

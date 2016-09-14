@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml" title="{BaseItem\n|+ Id\l+ Name\l+ Description\l|}" alt="" coords="5,173,104,293"/>
-<area shape="rect" id="node5" href="$d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml" title="{UsableItem\n||}" alt="" coords="11,341,99,427"/>
+<area shape="rect" id="node3" href="$d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml" title="Basic implementation of the IItem." alt="" coords="5,173,104,293"/>
+<area shape="rect" id="node5" href="$d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml" title="This item is usable for Skills." alt="" coords="11,341,99,427"/>
 </map>

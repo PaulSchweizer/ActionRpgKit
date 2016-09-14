@@ -389,6 +389,6 @@ Patching output file 107/110
 Patching output file 108/110
 Patching output file 109/110
 Patching output file 110/110
-symbol cache used 284/65536 hits=17187 misses=284
+symbol cache used 284/65536 hits=17214 misses=284
 lookup cache used 455/65536 hits=1236 misses=523
 finished...
