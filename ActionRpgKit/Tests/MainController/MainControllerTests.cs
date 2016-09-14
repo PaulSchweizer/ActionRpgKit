@@ -6,7 +6,7 @@ using ActionRpgKit.Core;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Story;
-using ActionRpgKit.Tests.Story;
+using ActionRpgKit.Tests;
 
 namespace ActionRpgKit.Tests
 {
