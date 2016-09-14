@@ -117,6 +117,7 @@ namespace ActionRpgKit.Character
             {
                 repr += string.Format("\n{0}", MagicSkills[i].ToString());
             }
+            repr += "\n";
             repr += Inventory.ToString();
             return repr;
         }
