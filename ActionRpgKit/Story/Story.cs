@@ -123,7 +123,7 @@ namespace ActionRpgKit.Story
 
         public void OnCompletion ()
         {
-            Console.WriteLine("Chapter {0} COMPLETED!", Name);
+            Console.WriteLine("\u2610 Chapter {0} COMPLETED!", Name);
         }
 
         public override string ToString()
