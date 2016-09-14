@@ -1,6 +1,6 @@
 
 # This will run on Travis' 'new' container-based infrastructure
-# sudo: false
+sudo: false
 
 language: csharp
 
@@ -15,12 +15,12 @@ env:
   - secure: NQSmLmhKl0mwXYS2maNznL3orn+gbowXwTsOzQM1CIQXQssoeTIgNjURYO9AfxgXScxMjGR11B+nCG40lCrL9zK3cDfgJVzk2dHPyYtjeb+GqjAn2PCVZFAB6N4SYEGU88bLhHzAvU3keSzLADkciDwRnWdSeBmBoUPWDTIfWAdUUgf5DekRLQLriHn4WukzxhDmFP7+SvmefEV3g5950FGsg+iceh1eiTUaRq/5zE2XXXLV6Sq3glSqk2hRLimaXRHZn2sF61JZoalovn9erh9Jm+lwO8VBYo+nYPkT5EGWOcNz8pcnlQzCAnLJ5kNLrJZMb7l1oDJ7y7ZBkw6VLfTimTGAue7opzzHnprTuF6Yrps4TPRGKO4PD567p8qNoqZZCXQoooEnCUm73F3hUUQ/YcD0m45ueFWwvOdhQexjxz304fF0YW0H2DYjbFs7KapovFPtTLdBJwduVqPcJ8/vMUG25th1RleP/fCSFMD9Y52/0O1M7W2Y+1Bj4qHkZMMgGnmCWkYOGxLlx1LGlnxpvKGtluQyQXdRziYJ2JRKVXOdMl7QgfIJ/R6lVJbVjI5iVWftT1PkR3QyUPPnnVoMNEjQ6Sr/MDfSCzGC2MjEQLvZ/TZXGr4fQHqJ1qQXUtk9qNMkmuOTx+Gn2ihEI/FtEGk6Yyt0r99GXa2AvOM=
 
 before_install:
-    - sudo apt-get update
-    - sudo apt-get install python-software-properties
-    - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
-    - sudo apt-get install doxygen
+    # - sudo apt-get update
+    # - sudo apt-get install python-software-properties
+    # - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
+    # - sudo apt-get install doxygen
     # - sudo apt-get install graphviz
-    - sudo apt-get install nunit-console
+    # - sudo apt-get install nunit-console
 
 install:
   - nuget restore ActionRpgKit.sln
@@ -30,23 +30,23 @@ install:
 script:
   - xbuild /p:Configuration=Debug ActionRpgKit.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
-  - cd $TRAVIS_BUILD_DIR
-  - chmod 777 generateDocumentationAndDeploy.sh
-  - ./generateDocumentationAndDeploy.sh
 
 # Generate and deploy documentation
 after_success:
+  - cd $TRAVIS_BUILD_DIR
+  - chmod 777 generateDocumentationAndDeploy.sh
+  - ./generateDocumentationAndDeploy.sh
 
 # Install dependencies
 addons:
   apt:
     packages:
-      # - doxygen
-      #- doxygen-doc
-      #- doxygen-latex
-      #- doxygen-gui
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
       - graphviz
-      #- nunit-console
+      - nunit-console
 
 # Blacklist
 branches:

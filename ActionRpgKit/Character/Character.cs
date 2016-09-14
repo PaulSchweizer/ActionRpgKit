@@ -325,7 +325,7 @@ namespace ActionRpgKit.Character
             Inventory = new PlayerInventory();
         }
 
-        public IInventory Inventory
+        public override IInventory Inventory
         {
             get
             {
@@ -350,7 +350,7 @@ namespace ActionRpgKit.Character
             Inventory = new SimpleInventory();
         }
 
-        public IInventory Inventory
+        public override IInventory Inventory
         {
             get
             {
