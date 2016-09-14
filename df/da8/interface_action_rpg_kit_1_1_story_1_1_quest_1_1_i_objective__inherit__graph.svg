@@ -45,7 +45,7 @@
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="../../d5/d1e/class_action_rpg_kit_1_1_tests_1_1_story_1_1_find10_herbs_objective.xhtml" target="_top" xlink:title="{Find10HerbsObjective\n|+ herbs\l|+ Find10HerbsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}">
+<a xlink:href="../../d8/d6a/class_action_rpg_kit_1_1_tests_1_1_find10_herbs_objective.xhtml" target="_top" xlink:title="{Find10HerbsObjective\n|+ herbs\l|+ Find10HerbsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-89.5 128,-89.5 128,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="64" y="-76.5" font-family="Helvetica,sans-Serif" font-size="10.00">Find10HerbsObjective</text>
 <polyline fill="none" stroke="black" points="0,-68.5 128,-68.5 "/>
@@ -58,12 +58,17 @@
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M99.2049,-117.313C94.6232,-107.902 90.0783,-98.5663 85.8521,-89.8855"/>
-<polygon fill="none" stroke="midnightblue" points="96.0755,-118.881 103.6,-126.34 102.369,-115.817 96.0755,-118.881"/>
+<path fill="none" stroke="midnightblue" d="M92.4619,-117.313C87.9164,-107.902 83.5459,-98.5663 79.6324,-89.8855"/>
+<polygon fill="none" stroke="midnightblue" points="89.3351,-118.886 96.8645,-126.34 95.6268,-115.818 89.3351,-118.886"/>
+</g>
+<!-- Node2&#45;&gt;Node3 -->
+<g id="edge8" class="edge"><title>Node2&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M105.948,-117.313C101.33,-107.902 96.6108,-98.5663 92.0719,-89.8855"/>
+<polygon fill="none" stroke="midnightblue" points="102.816,-118.876 110.335,-126.34 109.112,-115.816 102.816,-118.876"/>
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="../../dc/d33/class_action_rpg_kit_1_1_tests_1_1_story_1_1_get_rid_of_rats_objective.xhtml" target="_top" xlink:title="{GetRidOfRatsObjective\n|+ rats\l|+ GetRidOfRatsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}">
+<a xlink:href="../../dc/d06/class_action_rpg_kit_1_1_tests_1_1_get_rid_of_rats_objective.xhtml" target="_top" xlink:title="{GetRidOfRatsObjective\n|+ rats\l|+ GetRidOfRatsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}">
 <polygon fill="white" stroke="black" points="145.5,-0.5 145.5,-89.5 280.5,-89.5 280.5,-0.5 145.5,-0.5"/>
 <text text-anchor="middle" x="213" y="-76.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetRidOfRatsObjective</text>
 <polyline fill="none" stroke="black" points="145.5,-68.5 280.5,-68.5 "/>
@@ -76,8 +81,13 @@
 </g>
 <!-- Node2&#45;&gt;Node4 -->
 <g id="edge6" class="edge"><title>Node2&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M177.319,-117.313C181.963,-107.902 186.569,-98.5663 190.853,-89.8855"/>
-<polygon fill="none" stroke="midnightblue" points="174.151,-115.823 172.865,-126.34 180.429,-118.921 174.151,-115.823"/>
+<path fill="none" stroke="midnightblue" d="M170.576,-117.313C175.256,-107.902 180.037,-98.5663 184.633,-89.8855"/>
+<polygon fill="none" stroke="midnightblue" points="167.409,-115.822 166.13,-126.34 173.689,-118.916 167.409,-115.822"/>
+</g>
+<!-- Node2&#45;&gt;Node4 -->
+<g id="edge10" class="edge"><title>Node2&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M184.062,-117.313C188.67,-107.902 193.102,-98.5663 197.072,-89.8855"/>
+<polygon fill="none" stroke="midnightblue" points="180.894,-115.824 179.6,-126.34 187.169,-118.926 180.894,-115.824"/>
 </g>
 </g>
 </svg>

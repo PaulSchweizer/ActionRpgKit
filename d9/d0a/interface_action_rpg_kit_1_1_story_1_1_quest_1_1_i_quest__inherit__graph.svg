@@ -84,7 +84,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="../../d0/dc5/class_action_rpg_kit_1_1_tests_1_1_story_1_1_cleanse_the_cellars.xhtml" target="_top" xlink:title="{CleanseTheCellars\n||+ CleanseTheCellars()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}">
+<a xlink:href="../../d0/db8/class_action_rpg_kit_1_1_tests_1_1_cleanse_the_cellars.xhtml" target="_top" xlink:title="{CleanseTheCellars\n||+ CleanseTheCellars()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}">
 <polygon fill="white" stroke="black" points="-0.5,-0.5 -0.5,-89.5 134.5,-89.5 134.5,-0.5 -0.5,-0.5"/>
 <text text-anchor="middle" x="67" y="-76.5" font-family="Helvetica,sans-Serif" font-size="10.00">CleanseTheCellars</text>
 <polyline fill="none" stroke="black" points="-0.5,-68.5 134.5,-68.5 "/>
@@ -97,8 +97,13 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M67,-116.351C67,-107.124 67,-98.1603 67,-89.8792"/>
-<polygon fill="none" stroke="midnightblue" points="63.5001,-116.447 67,-126.447 70.5001,-116.447 63.5001,-116.447"/>
+<path fill="none" stroke="midnightblue" d="M60.3694,-116.351C60.4957,-107.124 60.7223,-98.1603 61.0491,-89.8792"/>
+<polygon fill="none" stroke="midnightblue" points="56.8687,-116.413 60.2717,-126.447 63.8684,-116.481 56.8687,-116.413"/>
+</g>
+<!-- Node2&#45;&gt;Node3 -->
+<g id="edge6" class="edge"><title>Node2&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M73.6306,-116.351C73.5043,-107.124 73.2777,-98.1603 72.9509,-89.8792"/>
+<polygon fill="none" stroke="midnightblue" points="70.1316,-116.481 73.7283,-126.447 77.1313,-116.413 70.1316,-116.481"/>
 </g>
 </g>
 </svg>

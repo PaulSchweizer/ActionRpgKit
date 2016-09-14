@@ -26,7 +26,7 @@
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="../../d0/d7c/class_action_rpg_kit_1_1_tests_1_1_story_1_1_game_storyline.xhtml" target="_top" xlink:title="{GameStoryline\n||+ GameStoryline()\l}">
+<a xlink:href="../../d4/d25/class_action_rpg_kit_1_1_tests_1_1_game_storyline.xhtml" target="_top" xlink:title="{GameStoryline\n||+ GameStoryline()\l}">
 <polygon fill="white" stroke="black" points="10,-0.5 10,-63.5 106,-63.5 106,-0.5 10,-0.5"/>
 <text text-anchor="middle" x="58" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameStoryline</text>
 <polyline fill="none" stroke="black" points="10,-42.5 106,-42.5 "/>
@@ -37,8 +37,13 @@
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M58,-90.0622C58,-80.7193 58,-71.6599 58,-63.5847"/>
-<polygon fill="none" stroke="midnightblue" points="54.5001,-90.2783 58,-100.278 61.5001,-90.2784 54.5001,-90.2783"/>
+<path fill="none" stroke="midnightblue" d="M51.3319,-90.0622C51.4668,-80.7193 51.7684,-71.6599 52.2367,-63.5847"/>
+<polygon fill="none" stroke="midnightblue" points="47.8304,-90.2509 51.2509,-100.278 54.8302,-90.3065 47.8304,-90.2509"/>
+</g>
+<!-- Node1&#45;&gt;Node2 -->
+<g id="edge4" class="edge"><title>Node1&#45;&gt;Node2</title>
+<path fill="none" stroke="midnightblue" d="M64.6681,-90.0622C64.5332,-80.7193 64.2316,-71.6599 63.7633,-63.5847"/>
+<polygon fill="none" stroke="midnightblue" points="61.1698,-90.3065 64.7491,-100.278 68.1696,-90.2509 61.1698,-90.3065"/>
 </g>
 </g>
 </svg>

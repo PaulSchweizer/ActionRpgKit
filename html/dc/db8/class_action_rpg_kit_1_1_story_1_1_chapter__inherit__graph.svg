@@ -25,7 +25,7 @@
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="../../d2/d12/class_action_rpg_kit_1_1_tests_1_1_story_1_1_epilog_chapter.xhtml" target="_top" xlink:title="{EpilogChapter\n||+ EpilogChapter()\l}">
+<a xlink:href="../../d2/d15/class_action_rpg_kit_1_1_tests_1_1_epilog_chapter.xhtml" target="_top" xlink:title="{EpilogChapter\n||+ EpilogChapter()\l}">
 <polygon fill="white" stroke="black" points="-0.5,-0.5 -0.5,-63.5 92.5,-63.5 92.5,-0.5 -0.5,-0.5"/>
 <text text-anchor="middle" x="46" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">EpilogChapter</text>
 <polyline fill="none" stroke="black" points="-0.5,-42.5 92.5,-42.5 "/>
@@ -36,12 +36,17 @@
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M70.5975,-91.4813C66.5769,-81.7587 62.6399,-72.2384 59.1356,-63.7644"/>
-<polygon fill="none" stroke="midnightblue" points="67.4107,-92.934 74.4666,-100.837 73.8794,-90.2589 67.4107,-92.934"/>
+<path fill="none" stroke="midnightblue" d="M63.8811,-91.4813C59.9536,-81.7587 56.3042,-72.2384 53.2817,-63.7644"/>
+<polygon fill="none" stroke="midnightblue" points="60.686,-92.9148 67.7203,-100.837 67.162,-90.2573 60.686,-92.9148"/>
+</g>
+<!-- Node1&#45;&gt;Node2 -->
+<g id="edge6" class="edge"><title>Node1&#45;&gt;Node2</title>
+<path fill="none" stroke="midnightblue" d="M77.314,-91.4813C73.2002,-81.7587 68.9757,-72.2384 64.9896,-63.7644"/>
+<polygon fill="none" stroke="midnightblue" points="74.1356,-92.9532 81.2129,-100.837 80.597,-90.2605 74.1356,-92.9532"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="../../d5/d4f/class_action_rpg_kit_1_1_tests_1_1_story_1_1_prolog_chapter.xhtml" target="_top" xlink:title="{PrologChapter\n||+ PrologChapter()\l}">
+<a xlink:href="../../de/d0a/class_action_rpg_kit_1_1_tests_1_1_prolog_chapter.xhtml" target="_top" xlink:title="{PrologChapter\n||+ PrologChapter()\l}">
 <polygon fill="white" stroke="black" points="110,-0.5 110,-63.5 204,-63.5 204,-0.5 110,-0.5"/>
 <text text-anchor="middle" x="157" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">PrologChapter</text>
 <polyline fill="none" stroke="black" points="110,-42.5 204,-42.5 "/>
@@ -52,8 +57,13 @@
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M131.955,-91.4813C136.049,-81.7587 140.058,-72.2384 143.626,-63.7644"/>
-<polygon fill="none" stroke="midnightblue" points="128.671,-90.2629 128.016,-100.837 135.122,-92.9793 128.671,-90.2629"/>
+<path fill="none" stroke="midnightblue" d="M125.239,-91.4813C129.426,-81.7587 133.722,-72.2384 137.772,-63.7644"/>
+<polygon fill="none" stroke="midnightblue" points="121.953,-90.2647 121.27,-100.837 128.397,-92.9986 121.953,-90.2647"/>
+</g>
+<!-- Node1&#45;&gt;Node3 -->
+<g id="edge8" class="edge"><title>Node1&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M138.672,-91.4813C142.672,-81.7587 146.393,-72.2384 149.479,-63.7644"/>
+<polygon fill="none" stroke="midnightblue" points="135.388,-90.2611 134.762,-100.837 141.847,-92.9601 135.388,-90.2611"/>
 </g>
 </g>
 </svg>

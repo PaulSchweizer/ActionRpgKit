@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d8/d88/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_quest.xhtml" title="{BaseQuest\n|+ Name\l+ Description\l+ Experience\l+ Objectives\l+ IsCompleted\l&#45; _objectives\l|+ BaseQuest()\l+ BaseQuest()\l+ ToString()\l+ CheckProgress()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}" alt="" coords="5,243,184,501"/>
+<area shape="rect" id="node4" href="$dd/dd3/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_quest.xhtml" title="Interface for Quests." alt="" coords="5,5,184,195"/>
+</map>

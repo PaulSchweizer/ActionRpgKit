@@ -1,5 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$dd/dd3/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_quest.xhtml" title="Interface for Quests." alt="" coords="5,5,67,35"/>
-<area shape="rect" id="node3" href="$d8/d88/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_quest.xhtml" title="BaseQuest" alt="" coords="116,5,201,35"/>
-<area shape="rect" id="node5" href="$d0/dc5/class_action_rpg_kit_1_1_tests_1_1_story_1_1_cleanse_the_cellars.xhtml" title="CleanseTheCellars" alt="" coords="251,5,384,35"/>
+<area shape="rect" id="node1" href="$dd/dd3/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_quest.xhtml" title="Interface for Quests." alt="" coords="5,32,67,61"/>
+<area shape="rect" id="node3" href="$d8/d88/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_quest.xhtml" title="BaseQuest" alt="" coords="116,32,201,61"/>
+<area shape="rect" id="node5" href="$d0/db8/class_action_rpg_kit_1_1_tests_1_1_cleanse_the_cellars.xhtml" title="CleanseTheCellars" alt="" coords="251,5,384,35"/>
+<area shape="rect" id="node7" href="$d0/dc5/class_action_rpg_kit_1_1_tests_1_1_story_1_1_cleanse_the_cellars.xhtml" title="CleanseTheCellars" alt="" coords="251,59,384,88"/>
 </map>
