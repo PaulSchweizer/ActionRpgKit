@@ -19,7 +19,9 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Stats describing the Character.</summary>
         BaseStats Stats { get; set; }
-
+        
+        /// <summary>
+        /// Inventory of the Character.</summary>
         IInventory Inventory { get; set; }
     }
 
@@ -115,6 +117,7 @@ namespace ActionRpgKit.Character
             {
                 repr += string.Format("\n{0}", MagicSkills[i].ToString());
             }
+            repr += Inventory.ToString();
             return repr;
         }
 
