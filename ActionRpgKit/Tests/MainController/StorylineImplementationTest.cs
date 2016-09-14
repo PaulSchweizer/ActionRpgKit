@@ -1,5 +1,4 @@
 ﻿using System;
-using NUnit.Framework;
 using ActionRpgKit.Story;
 using ActionRpgKit.Story.Quest;
 
