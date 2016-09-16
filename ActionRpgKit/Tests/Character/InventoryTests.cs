@@ -47,13 +47,11 @@ namespace ActionRpgKit.Tests.Character
             Console.WriteLine(playerInventory.ToString());
             Assert.AreEqual(1, playerInventory.ItemCount);
             Assert.AreEqual(10, simpleInventory.GetQuantity(herb));
-            Assert.AreEqual(10, simpleInventory.GetQuantity(0));
             playerInventory.RemoveItem(herb, 9);
             Assert.AreEqual(1, playerInventory.ItemCount);
             playerInventory.RemoveItem(herb, 1);
             Assert.AreEqual(0, playerInventory.ItemCount);
             Assert.AreEqual(0, simpleInventory.GetQuantity(herb));
-            Assert.AreEqual(0, simpleInventory.GetQuantity(0));
         }
 
         [Test]
