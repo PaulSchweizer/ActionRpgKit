@@ -14,12 +14,12 @@ namespace ActionRpgKit.Item
         }
 
         /// <summary>
-        /// Retrieve the IItem by Name.</summary>
-        public static IItem GetItemByName(string name)
+        /// Retrieve the IItem by Id.</summary>
+        public static IItem GetItemById(int id)
         {
             for (int i = 0; i < Items.Length; i++)
             {
-                if (Items[i].Name == name)
+                if (Items[i].Id == id)
                 {
                     return Items[i];
                 }
@@ -28,12 +28,12 @@ namespace ActionRpgKit.Item
         }
 
         /// <summary>
-        /// Retrieve the IItem by Id.</summary>
-        public static IItem GetItemById(int id)
+        /// Retrieve the IItem by Name.</summary>
+        public static IItem GetItemByName(string name)
         {
             for (int i = 0; i < Items.Length; i++)
             {
-                if (Items[i].Id == id)
+                if (Items[i].Name == name)
                 {
                     return Items[i];
                 }
