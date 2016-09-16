@@ -24,8 +24,10 @@ namespace ActionRpgKit.Tests.Item
         {
             ItemDatabase.Items = new IItem[] { herb };
             Assert.AreEqual(1, ItemDatabase.Items.Length);
-            var item = ItemDatabase.GetItemByName("Herb");
-            Assert.AreEqual(item, herb);
+            var itemByName = ItemDatabase.GetItemByName("Herb");
+            Assert.AreEqual(itemByName, herb);
+            var itemById = ItemDatabase.GetItemById(0);
+            Assert.AreEqual(itemById, herb);
         }
     }
 }
