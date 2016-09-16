@@ -14,6 +14,8 @@ namespace ActionRpgKit.Character
         IEnumerable<IItem> Items { get; set; }
         IEnumerable<int> Quantities { get; set; }
         int ItemCount { get; }
+        int GetQuantity (IItem item);
+        int GetQuantity (int id);
     }
 
     /// <summary>
@@ -64,6 +66,18 @@ namespace ActionRpgKit.Character
             }
         }
 
+        public int GetQuantity (IItem item)
+        {
+            if (_items.Exists(item))
+            {
+                return _quantities[_items.FindIndex(item)];
+            }
+            else
+            {
+                return 0; 
+            }
+        }
+
         public override string ToString()
         {
             string repr = "";
@@ -72,7 +86,7 @@ namespace ActionRpgKit.Character
             {
                 repr += string.Format("|{0, -15}|{1, 4}|\n",
                                       _items[i].Name, _quantities[i]);
-                repr += string.Format("----------------------\n");
+                repr += string.Format("---------------+------\n");
             }
             return repr;
         }
@@ -115,6 +129,18 @@ namespace ActionRpgKit.Character
             get
             {
                 return _items.Count;
+            }
+        }
+
+        public int GetQuantity (IItem item)
+        {
+            if (_items.Contains(item))
+            {
+                return _quantities[_items.IndexOf(item)];
+            }
+            else
+            {
+                return 0; 
             }
         }
 
