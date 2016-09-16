@@ -26,5 +26,19 @@ namespace ActionRpgKit.Item
             }
             return null;
         }
+
+        /// <summary>
+        /// Retrieve the IItem by Id.</summary>
+        public static IItem GetItemById(int id)
+        {
+            for (int i = 0; i < Items.Length; i++)
+            {
+                if (Items[i].Id == id)
+                {
+                    return Items[i];
+                }
+            }
+            return null;
+        }
     }
 }
