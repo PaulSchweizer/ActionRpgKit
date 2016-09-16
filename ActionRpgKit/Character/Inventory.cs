@@ -15,7 +15,6 @@ namespace ActionRpgKit.Character
         IEnumerable<int> Quantities { get; set; }
         int ItemCount { get; }
         int GetQuantity (IItem item);
-        int GetQuantity (int id);
     }
 
     /// <summary>
