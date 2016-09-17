@@ -97,8 +97,23 @@ namespace ActionRpgKit.Tests.IntegrationTests
 
         private void KillAllRats()
         {
-            Console.WriteLine("Player kills the 10 rats.");
+            Console.WriteLine("Player fights the 10 rats.");
             GetRidOfRatsObjective.rats = 0;
+
+            return;
+            Enemy[] rats = new Enemy[10];
+            for(int i=0; i<10; i++)
+            {
+                rats[i] = new Enemy("Rat");
+                rats[i].Stats.Life.Value = 1;
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                MainController.Player.AddEnemy(rats[i]);
+                
+            }
+            
         }
 
         private void GatherHerbs()

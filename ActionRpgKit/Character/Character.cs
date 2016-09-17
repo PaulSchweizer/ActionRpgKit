@@ -23,6 +23,10 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Inventory of the Character.</summary>
         IInventory Inventory { get; set; }
+
+        /// <summary>
+        /// The active state of this Character.</summary>
+        IState CurrentState { get; set; }
     }
 
     /// <summary>
@@ -79,6 +83,9 @@ namespace ActionRpgKit.Character
     /// Base implementation of a Character.</summary>
     public abstract class BaseCharacter : ICharacter, IMagicUser, IFighter
     {
+        IState _currentState;
+        public IdleState _idleState;
+
         private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
 
@@ -86,7 +93,11 @@ namespace ActionRpgKit.Character
         private List<ICombatSkill> _combatSkills = new List<ICombatSkill>();
         private List<float> _combatSkillEndTimes = new List<float>();
 
-        public BaseCharacter () { }
+        public BaseCharacter ()
+        {
+            _idleState = new IdleState();
+            _currentState = _idleState;
+        }
 
         public BaseCharacter (string name)
         {
@@ -134,6 +145,18 @@ namespace ActionRpgKit.Character
         public BaseStats Stats { get; set; }
 
         public abstract IInventory Inventory { get; set; }
+
+        public IState CurrentState
+        {
+            get
+            {
+                return _currentState;
+            }
+            set
+            {
+                _currentState = value;
+            }
+        }
 
         // --------------------------------------------------------------------
         // IMagicUser Implementations
@@ -309,6 +332,7 @@ namespace ActionRpgKit.Character
             }
             return GameTime.time >= _combatSkillEndTimes[CombatSkills.IndexOf(combatSkill)];
         }
+
     }
     
     /// <summary>
@@ -347,6 +371,12 @@ namespace ActionRpgKit.Character
     public class Enemy : BaseCharacter
     {
         IInventory _inventory;
+
+        public Enemy() : base()
+        {
+            Stats = new EnemyStats();
+            Inventory = new SimpleInventory();
+        }
 
         public Enemy(string name) : base(name)
         {   
