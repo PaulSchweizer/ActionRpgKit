@@ -84,6 +84,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
@@ -124,6 +125,9 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A countdown before the CombatSkill takes action.  <a href="#a3494a6f27deb068ac754e22089ddb045"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afe0130a66c72c58cb2bc272a46298d71">OnAttacked</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> attacker, float damage)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract the damage from the current life.  <a href="#afe0130a66c72c58cb2bc272a46298d71"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml">IdleState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a50f48f0a7411f459542d716f191621ed">_idleState</a></td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td></tr>
@@ -132,6 +136,8 @@ Properties</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml">Stats</a> describing the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>.  <a href="#aae675cc1ade48758b96f03e5488afce9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ac6fd71c883d9567268f93c8ce3f01f09">Inventory</a><code> [get, set]</code></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Inventory of the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>.  <a href="#ac6fd71c883d9567268f93c8ce3f01f09"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6e1e676f407836e9ca8d6452e31069b9">CurrentState</a><code> [get, set]</code></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The active state of this <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>.  <a href="#a6e1e676f407836e9ca8d6452e31069b9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a27a953a6009cb1a1ac653e6722a78880">Magic</a><code> [get, set]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6b5200dc114f9b407da8f6447fef03d5">MagicSkills</a><code> [get]</code></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">MagicSkills available for this <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>.  <a href="#a6b5200dc114f9b407da8f6447fef03d5"></a><br/></td></tr>
@@ -153,6 +159,7 @@ Private Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the character knows the combat skill, and is not.  <a href="#aa0cf4d1ca17c419766070e52d865d5dd"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adfbf66e5f125265b32cd4111a138e223">_currentState</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad66c3013f2b05f752e59e201cc6c8eda">_magicSkills</a> = new List&lt;<a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a>&gt;()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">List&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab7bc8b19da2bb4a622ec6e0c0f11e46f">_magicSkillEndTimes</a> = new List&lt;float&gt;()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab6b502ea703ff81b2b13d0524459c46f">_enemies</a> = new List&lt;<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&gt;()</td></tr>
@@ -503,6 +510,32 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="adfbf66e5f125265b32cd4111a138e223"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_currentState" ref="adfbf66e5f125265b32cd4111a138e223" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adfbf66e5f125265b32cd4111a138e223">_currentState</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a50f48f0a7411f459542d716f191621ed"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_idleState" ref="a50f48f0a7411f459542d716f191621ed" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml">IdleState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a50f48f0a7411f459542d716f191621ed">_idleState</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ad66c3013f2b05f752e59e201cc6c8eda"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_magicSkills" ref="ad66c3013f2b05f752e59e201cc6c8eda" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -622,6 +655,23 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a6e1e676f407836e9ca8d6452e31069b9"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::CurrentState" ref="a6e1e676f407836e9ca8d6452e31069b9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6e1e676f407836e9ca8d6452e31069b9">CurrentState</a><code> [get, set]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The active state of this <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>. </p>
+
+<p>Implements <a class="el" href="../../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml#a6e1e676f407836e9ca8d6452e31069b9">ICharacter</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a27a953a6009cb1a1ac653e6722a78880"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::Magic" ref="a27a953a6009cb1a1ac653e6722a78880" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -728,7 +778,7 @@ Private Attributes</h2></td></tr>
       <li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>      </li>
       <li class="navelem"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a>      </li>
 
-    <li class="footer">Generated on Sat Sep 17 2016 04:12:06 for Action RPG Kit by
+    <li class="footer">Generated on Sat Sep 17 2016 04:56:48 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

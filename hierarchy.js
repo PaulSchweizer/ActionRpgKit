@@ -70,6 +70,9 @@ var hierarchy =
         [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
       ] ]
     ] ],
+    [ "IState", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml", [
+      [ "IdleState", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml", null ]
+    ] ],
     [ "ItemDatabase", "dd/d83/class_action_rpg_kit_1_1_item_1_1_item_database.xhtml", null ],
     [ "MainController", "da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml", null ],
     [ "QuestTests", "d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml", null ],

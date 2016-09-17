@@ -3,6 +3,7 @@ var searchData=
   ['iattribute',['IAttribute',['../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml',1,'ActionRpgKit::Character::Attribute']]],
   ['icharacter',['ICharacter',['../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml',1,'ActionRpgKit::Character']]],
   ['icombatskill',['ICombatSkill',['../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml',1,'ActionRpgKit::Character::Skill']]],
+  ['idlestate',['IdleState',['../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml',1,'ActionRpgKit::Character']]],
   ['ifighter',['IFighter',['../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml',1,'ActionRpgKit::Character']]],
   ['iinventory',['IInventory',['../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml',1,'ActionRpgKit::Character']]],
   ['iitem',['IItem',['../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml',1,'ActionRpgKit::Item']]],
@@ -12,5 +13,6 @@ var searchData=
   ['iobjective',['IObjective',['../d2/d98/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_objective.xhtml',1,'ActionRpgKit::Story::Quest']]],
   ['iquest',['IQuest',['../dd/dd3/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_quest.xhtml',1,'ActionRpgKit::Story::Quest']]],
   ['iskill',['ISkill',['../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml',1,'ActionRpgKit::Character::Skill']]],
+  ['istate',['IState',['../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml',1,'ActionRpgKit::Character']]],
   ['itemdatabase',['ItemDatabase',['../dd/d83/class_action_rpg_kit_1_1_item_1_1_item_database.xhtml',1,'ActionRpgKit::Item']]]
 ];

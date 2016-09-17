@@ -12,5 +12,6 @@ var searchData=
   ['cost',['Cost',['../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml#aba1eae5e94340341ef975c2e57085a1a',1,'ActionRpgKit::Character::Skill::IMagicSkill.Cost()'],['../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#aba1eae5e94340341ef975c2e57085a1a',1,'ActionRpgKit::Character::Skill::PassiveMagicSkill.Cost()']]],
   ['createplayer',['CreatePlayer',['../da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml#ae3e786cb9d3da75034d235364ba24e39',1,'ActionRpgKit::MainController']]],
   ['createplayercharacter',['CreatePlayerCharacter',['../db/de7/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_game_demo.xhtml#a056e5b086fb279da5420bea23e45014b',1,'ActionRpgKit::Tests::IntegrationTests::GameDemo']]],
-  ['currentchapter',['CurrentChapter',['../d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#a1885e4680c459a03f17542b45a3fc408',1,'ActionRpgKit::Story::Storyline']]]
+  ['currentchapter',['CurrentChapter',['../d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#a1885e4680c459a03f17542b45a3fc408',1,'ActionRpgKit::Story::Storyline']]],
+  ['currentstate',['CurrentState',['../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml#a6e1e676f407836e9ca8d6452e31069b9',1,'ActionRpgKit::Character::ICharacter.CurrentState()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6e1e676f407836e9ca8d6452e31069b9',1,'ActionRpgKit::Character::BaseCharacter.CurrentState()']]]
 ];
