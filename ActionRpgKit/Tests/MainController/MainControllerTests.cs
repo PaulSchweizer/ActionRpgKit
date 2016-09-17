@@ -48,7 +48,7 @@ namespace ActionRpgKit.Tests
             Separator();
             Console.WriteLine("Player runs around and gathers the 10 herbs");
             MainController.player.Inventory.AddItem(ItemDatabase.GetItemByName("Herb"), 10);
-            //Find10HerbsObjective.herbs = 10;
+            Console.WriteLine(player.ToString());
             storyline.CheckProgress();
             Console.WriteLine(storyline.CurrentChapter.ToString());
             Separator();
