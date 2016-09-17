@@ -6,8 +6,8 @@ using ActionRpgKit.Character;
 namespace ActionRpgKit.Tests.Character
 {
     [TestFixture]
-    [Category("Character.State")]
-    class StateTests
+    [Category("Character.Character")]
+    class CharacterTests
     {
         Player player;
         Enemy enemy;

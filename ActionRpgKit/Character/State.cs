@@ -38,4 +38,22 @@ namespace ActionRpgKit.Character
             throw new NotImplementedException();
         }
     }
+
+    public class MoveState : IState
+    {
+        public void EnterState()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ExitState()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateState()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

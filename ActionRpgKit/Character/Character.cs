@@ -81,10 +81,10 @@ namespace ActionRpgKit.Character
     
     /// <summary>
     /// Base implementation of a Character.</summary>
-    public abstract class BaseCharacter : ICharacter, IMagicUser, IFighter
+    public abstract class BaseCharacter : IGameObject, ICharacter, IMagicUser, IFighter
     {
-        IState _currentState;
         public IdleState _idleState;
+        public MoveState _moveState;
 
         private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
@@ -96,7 +96,8 @@ namespace ActionRpgKit.Character
         public BaseCharacter ()
         {
             _idleState = new IdleState();
-            _currentState = _idleState;
+            _moveState = new MoveState();
+            CurrentState = _idleState;
         }
 
         public BaseCharacter (string name)
@@ -134,29 +135,22 @@ namespace ActionRpgKit.Character
         }
 
         // --------------------------------------------------------------------
+        // IGameObject Implementations
+        // --------------------------------------------------------------------
+
+        public Position Position { get; set; } = new Position();
+        
+        // --------------------------------------------------------------------
         // ICharacter Implementations
         // --------------------------------------------------------------------
 
-        public string Name
-        {
-            get; set;
-        }
+        public string Name { get; set; }
 
         public BaseStats Stats { get; set; }
 
         public abstract IInventory Inventory { get; set; }
 
-        public IState CurrentState
-        {
-            get
-            {
-                return _currentState;
-            }
-            set
-            {
-                _currentState = value;
-            }
-        }
+        public IState CurrentState { get; set; }
 
         // --------------------------------------------------------------------
         // IMagicUser Implementations
