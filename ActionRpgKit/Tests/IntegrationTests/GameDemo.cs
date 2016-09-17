@@ -1,37 +1,29 @@
 ﻿using System;
 using NUnit.Framework;
-using ActionRpgKit;
 using ActionRpgKit.Item;
 using ActionRpgKit.Core;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Story;
-using ActionRpgKit.Tests;
 
-namespace ActionRpgKit.Tests
+namespace ActionRpgKit.Tests.IntegrationTests
 {
+
     [TestFixture]
-    [Category("MainController")]
-    public class MainControllerTests
+    [Category("GameDemo")]
+    public class GameDemo
     {
 
-        Player player;
         Storyline storyline = new GameStoryline();
-
-        private void Separator()
-        {
-            Console.WriteLine("////////////////////////////////////////////");
-        }
 
         [SetUp]
         public void SetUp()
         {
-            MainController.player = player;
             GameTime.Reset();
         }
 
         [Test]
-        public void RunGameTest ()
+        public void RunGameDemo()
         {
             InitItemDatabase();
             InitSkillDatabase();
@@ -42,14 +34,12 @@ namespace ActionRpgKit.Tests
             Separator();
             StartStoryline();
             Separator();
-            Console.WriteLine("Player kills the 10 rats.");
-            GetRidOfRatsObjective.rats = 0;
+            KillAllRats();
             storyline.CheckProgress();
-            Console.WriteLine(storyline.CurrentChapter.ToString());
+            Console.WriteLine(storyline.ToString());
             Separator();
-            Console.WriteLine("Player runs around and gathers the 10 herbs");
-            MainController.player.Inventory.AddItem(ItemDatabase.GetItemByName("Herb"), 10);
-            Console.WriteLine(player.ToString());
+            GatherHerbs();
+            storyline.CheckProgress();
             storyline.CheckProgress();
             Separator();
         }
@@ -75,34 +65,52 @@ namespace ActionRpgKit.Tests
                                                 modifierValue: 10,
                                                 modifiedAttributeName: "Body");
             ICombatSkill meleeSkill = new MeleeSkill(id: 0,
-                                          name: "SwordFighting",
-                                          description: "How to wield a sword.",
-                                          preUseTime: 1,
-                                          cooldownTime: 1,
-                                          damage: 1,
-                                          maximumTargets: 1);
+                                            name: "SwordFighting",
+                                            description: "How to wield a sword.",
+                                            preUseTime: 1,
+                                            cooldownTime: 1,
+                                            damage: 1,
+                                            maximumTargets: 1);
             SkillDatabase.CombatSkills = new ICombatSkill[] { meleeSkill };
             SkillDatabase.MagicSkills = new IMagicSkill[] { passiveMagicSkill };
         }
 
-        private void CreatePlayerCharacter ()
+        private void CreatePlayerCharacter()
         {
-            player = new Player();
-            player.Name = "John";
-            player.Stats.Body.Value = 20;
-            player.Stats.Mind.Value = 10;
-            player.Stats.Soul.Value = 5;
-            player.Stats.Life.Reset();
-            player.Stats.Magic.Reset();
-            player.LearnCombatSkill(SkillDatabase.GetCombatSkillByName("SwordFighting"));
-            player.LearnMagicSkill(SkillDatabase.GetMagicSkillByName("ShadowStrength"));
-            Console.WriteLine(player.ToString());
+            MainController.CreatePlayer();
+            MainController.Player.Name = "John";
+            MainController.Player.Stats.Body.Value = 20;
+            MainController.Player.Stats.Mind.Value = 10;
+            MainController.Player.Stats.Soul.Value = 5;
+            MainController.Player.Stats.Life.Reset();
+            MainController.Player.Stats.Magic.Reset();
+            MainController.Player.LearnCombatSkill(SkillDatabase.GetCombatSkillByName("SwordFighting"));
+            MainController.Player.LearnMagicSkill(SkillDatabase.GetMagicSkillByName("ShadowStrength"));
+            Console.WriteLine(MainController.Player.ToString());
         }
 
-        private void StartStoryline ()
+        private void StartStoryline()
         {
             storyline.Start();
-            Console.WriteLine(storyline.CurrentChapter.ToString());
+            Console.WriteLine(storyline.ToString());
+        }
+
+        private void KillAllRats()
+        {
+            Console.WriteLine("Player kills the 10 rats.");
+            GetRidOfRatsObjective.rats = 0;
+        }
+
+        private void GatherHerbs()
+        {
+            Console.WriteLine("Player runs around and gathers the 10 herbs");
+            MainController.Player.Inventory.AddItem(ItemDatabase.GetItemByName("Herb"), 10);
+            Console.WriteLine(MainController.Player.ToString());
+        }
+
+        private void Separator()
+        {
+            Console.WriteLine("\n////////////////////////////////////////////\n");
         }
     }
 }

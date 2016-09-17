@@ -7,16 +7,14 @@ using ActionRpgKit.Character.Skill;
 namespace ActionRpgKit.Tests.Character
 {
     [TestFixture]
-    [Category("Character.Character")]
-    public class CharacterTests
+    [Category("Character.MagicUser")]
+    public class MagicUserTests
     {
 
         Player player;
         Enemy enemy;
 
         IMagicSkill passiveMagicSkill;
-        ICombatSkill meleeSkill;
-        ICombatSkill meleeMultiTargetsSkill;
 
         [SetUp]
         public void SetUp ()
@@ -34,20 +32,6 @@ namespace ActionRpgKit.Tests.Character
                                             cooldownTime: 5,
                                             modifierValue: 10,
                                             modifiedAttributeName: "Body");
-            meleeSkill = new MeleeSkill(id: 1,
-                                        name: "SwordFighting",
-                                        description: "How to wield a sword.",
-                                        preUseTime: 1,
-                                        cooldownTime: 1,
-                                        damage: 1,
-                                        maximumTargets: 1);
-            meleeMultiTargetsSkill = new MeleeSkill(id: 1,
-                                            name: "MultiHit",
-                                            description: "How to wield a sword against multiple opponents.",
-                                            preUseTime: 1,
-                                            cooldownTime: 1,
-                                            damage: 1,
-                                            maximumTargets: 10);
         }
 
         [Test]
@@ -84,34 +68,6 @@ namespace ActionRpgKit.Tests.Character
             GameTime.time = 10;
             triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsFalse(triggered);
-        }
-
-        [Test]
-        public void SimpleMeeSkillTest ()
-        {
-            // Prepare the enemy by learning the meleeSkill
-            enemy.LearnCombatSkill(meleeSkill);
-            Assert.IsTrue(enemy.CombatSkills.Contains(meleeSkill));
-
-            // Add the Player as an enemy
-            enemy.AddEnemy(player);
-            Assert.IsTrue(enemy.Enemies.Contains(player));
-
-            // Attack the Player until his health runs out
-            for (int i=0; i < 20; i++)
-            {
-                enemy.TriggerCombatSkill(meleeSkill);
-                Assert.AreEqual(20 - (i+1), player.Life);
-                GameTime.time += 1;
-            }
-        }
-        
-        [Test]
-        public void MultiTargetsSkillTest ()
-        {
-            // Prepare the enemy by learning the meleeSkill
-            enemy.LearnCombatSkill(meleeMultiTargetsSkill);
-            Assert.IsTrue(enemy.CombatSkills.Contains(meleeMultiTargetsSkill));
         }
     }
 }

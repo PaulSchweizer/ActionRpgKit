@@ -28,6 +28,8 @@ namespace ActionRpgKit.Tests.Item
             Assert.AreEqual(itemByName, herb);
             var itemById = ItemDatabase.GetItemById(0);
             Assert.AreEqual(itemById, herb);
+            var nullItem = ItemDatabase.GetItemByName("NotExisting");
+            Assert.AreEqual(nullItem, null);
         }
     }
 }

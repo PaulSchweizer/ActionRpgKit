@@ -61,12 +61,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Story\Story.cs" />
     <Compile Include="Tests\Character\AttributeTests.cs" />
-    <Compile Include="Tests\Character\CharacterTests.cs" />
+    <Compile Include="Tests\Character\FighterTests.cs" />
+    <Compile Include="Tests\Character\MagicUserTests.cs" />
     <Compile Include="Tests\Character\InventoryTests.cs" />
     <Compile Include="Tests\Character\StatsTests.cs" />
     <Compile Include="Tests\Core\GameTimeTests.cs" />
-    <Compile Include="Tests\MainController\MainControllerTests.cs" />
-    <Compile Include="Tests\MainController\StorylineImplementationTest.cs" />
+    <Compile Include="Tests\IntegrationTests\GameDemo.cs" />
+    <Compile Include="Tests\IntegrationTests\StoryDemo.cs" />
     <Compile Include="Tests\Item\ItemTests.cs" />
     <Compile Include="Tests\Story\StoryTests.cs" />
   </ItemGroup>
