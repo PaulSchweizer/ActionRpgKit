@@ -50,7 +50,6 @@ namespace ActionRpgKit.Tests
             MainController.player.Inventory.AddItem(ItemDatabase.GetItemByName("Herb"), 10);
             Console.WriteLine(player.ToString());
             storyline.CheckProgress();
-            Console.WriteLine(storyline.CurrentChapter.ToString());
             Separator();
         }
 
