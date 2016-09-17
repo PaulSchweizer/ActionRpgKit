@@ -1,6 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node2" href="$d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="117,227,296,815"/>
-<area shape="rect" id="node4" href="$d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats." alt="" coords="5,23,112,161"/>
-<area shape="rect" id="node6" href="$dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic." alt="" coords="136,41,277,143"/>
-<area shape="rect" id="node8" href="$df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight." alt="" coords="301,6,453,178"/>
+<area shape="rect" id="node2" href="$d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="165,227,344,832"/>
+<area shape="rect" id="node4" href="$de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml" title="{IGameObject\n|+ Position\l|}" alt="" coords="5,49,104,135"/>
+<area shape="rect" id="node6" href="$d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats." alt="" coords="128,23,235,161"/>
+<area shape="rect" id="node8" href="$dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic." alt="" coords="259,41,400,143"/>
+<area shape="rect" id="node10" href="$df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight." alt="" coords="424,6,576,178"/>
 </map>

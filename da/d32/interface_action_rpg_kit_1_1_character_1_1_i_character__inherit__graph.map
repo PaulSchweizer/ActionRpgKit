@@ -1,5 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="19,193,197,781"/>
-<area shape="rect" id="node5" href="$d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="" coords="5,829,96,949"/>
-<area shape="rect" id="node7" href="$d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="" coords="120,829,211,949"/>
+<area shape="rect" id="node3" href="$d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="" coords="19,192,197,797"/>
+<area shape="rect" id="node5" href="$d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="" coords="5,845,96,965"/>
+<area shape="rect" id="node7" href="$d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="" coords="120,845,211,965"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="IState" alt="" coords="7,5,63,35"/>
-<area shape="rect" id="node3" href="$da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml" title="IdleState" alt="" coords="112,5,187,35"/>
+<area shape="rect" id="node1" href="$db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="IState" alt="" coords="7,32,63,61"/>
+<area shape="rect" id="node3" href="$da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml" title="IdleState" alt="" coords="117,5,192,35"/>
+<area shape="rect" id="node5" href="$d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml" title="MoveState" alt="" coords="112,59,197,88"/>
 </map>

@@ -6,6 +6,7 @@ var searchData=
   ['id',['Id',['../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb',1,'ActionRpgKit::Character::Skill::ISkill.Id()'],['../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb',1,'ActionRpgKit::Character::Skill::BaseSkill.Id()'],['../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb',1,'ActionRpgKit::Item::IItem.Id()'],['../d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb',1,'ActionRpgKit::Item::BaseItem.Id()']]],
   ['idlestate',['IdleState',['../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml',1,'ActionRpgKit::Character']]],
   ['ifighter',['IFighter',['../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml',1,'ActionRpgKit::Character']]],
+  ['igameobject',['IGameObject',['../de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml',1,'ActionRpgKit::Core']]],
   ['iinventory',['IInventory',['../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml',1,'ActionRpgKit::Character']]],
   ['iitem',['IItem',['../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml',1,'ActionRpgKit::Item']]],
   ['imagicskill',['IMagicSkill',['../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml',1,'ActionRpgKit::Character::Skill']]],

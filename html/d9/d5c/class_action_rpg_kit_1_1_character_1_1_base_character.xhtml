@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="title">BaseCharacter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="ActionRpgKit::Character::BaseCharacter" --><!-- doxytag: inherits="ActionRpgKit::Character::ICharacter,ActionRpgKit::Character::IMagicUser,ActionRpgKit::Character::IFighter" -->
+<!-- doxytag: class="ActionRpgKit::Character::BaseCharacter" --><!-- doxytag: inherits="ActionRpgKit::Core::IGameObject,ActionRpgKit::Character::ICharacter,ActionRpgKit::Character::IMagicUser,ActionRpgKit::Character::IFighter" -->
 <p>Base implementation of a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>.  
  <a href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#details">More...</a></p>
 <div class="dynheader">
@@ -128,9 +128,11 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml">IdleState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a50f48f0a7411f459542d716f191621ed">_idleState</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml">MoveState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae8b95ee9b7ffb6bafa0aa1eb9807acd7">_moveState</a></td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a51d5d92d61f0c8e344e8562a655d27de">Position</a><code> [get, set]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a> = new <a class="el" href="../../dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml">Position</a>()<code> [get, set]</code></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the character.  <a href="#a7ee9065718e6628dc7791b756fa6c0f9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml">BaseStats</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aae675cc1ade48758b96f03e5488afce9">Stats</a><code> [get, set]</code></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml">Stats</a> describing the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>.  <a href="#aae675cc1ade48758b96f03e5488afce9"></a><br/></td></tr>
@@ -159,7 +161,6 @@ Private Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the character knows the combat skill, and is not.  <a href="#aa0cf4d1ca17c419766070e52d865d5dd"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adfbf66e5f125265b32cd4111a138e223">_currentState</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad66c3013f2b05f752e59e201cc6c8eda">_magicSkills</a> = new List&lt;<a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a>&gt;()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">List&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab7bc8b19da2bb4a622ec6e0c0f11e46f">_magicSkillEndTimes</a> = new List&lt;float&gt;()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab6b502ea703ff81b2b13d0524459c46f">_enemies</a> = new List&lt;<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&gt;()</td></tr>
@@ -510,12 +511,12 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="adfbf66e5f125265b32cd4111a138e223"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_currentState" ref="adfbf66e5f125265b32cd4111a138e223" args="" -->
+<a class="anchor" id="a50f48f0a7411f459542d716f191621ed"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_idleState" ref="a50f48f0a7411f459542d716f191621ed" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adfbf66e5f125265b32cd4111a138e223">_currentState</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml">IdleState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a50f48f0a7411f459542d716f191621ed">_idleState</a></td>
         </tr>
       </table>
 </div>
@@ -523,12 +524,12 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a50f48f0a7411f459542d716f191621ed"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_idleState" ref="a50f48f0a7411f459542d716f191621ed" args="" -->
+<a class="anchor" id="ae8b95ee9b7ffb6bafa0aa1eb9807acd7"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_moveState" ref="ae8b95ee9b7ffb6bafa0aa1eb9807acd7" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml">IdleState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a50f48f0a7411f459542d716f191621ed">_idleState</a></td>
+          <td class="memname"><a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml">MoveState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae8b95ee9b7ffb6bafa0aa1eb9807acd7">_moveState</a></td>
         </tr>
       </table>
 </div>
@@ -602,12 +603,27 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Property Documentation</h2>
+<a class="anchor" id="a51d5d92d61f0c8e344e8562a655d27de"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::Position" ref="a51d5d92d61f0c8e344e8562a655d27de" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml">Position</a> <a class="el" href="../../dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml">Position</a><code> [get, set]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="../../de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml#a51d5d92d61f0c8e344e8562a655d27de">IGameObject</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a7ee9065718e6628dc7791b756fa6c0f9"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::Name" ref="a7ee9065718e6628dc7791b756fa6c0f9" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td>
+          <td class="memname">string <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a> = new <a class="el" href="../../dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml">Position</a>()<code> [get, set]</code></td>
         </tr>
       </table>
 </div>
@@ -778,7 +794,7 @@ Private Attributes</h2></td></tr>
       <li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>      </li>
       <li class="navelem"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a>      </li>
 
-    <li class="footer">Generated on Sat Sep 17 2016 04:56:48 for Action RPG Kit by
+    <li class="footer">Generated on Sat Sep 17 2016 06:38:16 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

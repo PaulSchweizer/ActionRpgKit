@@ -29,6 +29,9 @@ var hierarchy =
     [ "IFighter", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml", [
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
     ] ],
+    [ "IGameObject", "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml", [
+      [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
+    ] ],
     [ "IInventory", "d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml", [
       [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", null ],
       [ "SimpleInventory", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml", null ]
@@ -71,10 +74,12 @@ var hierarchy =
       ] ]
     ] ],
     [ "IState", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml", [
-      [ "IdleState", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml", null ]
+      [ "IdleState", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml", null ],
+      [ "MoveState", "d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml", null ]
     ] ],
     [ "ItemDatabase", "dd/d83/class_action_rpg_kit_1_1_item_1_1_item_database.xhtml", null ],
     [ "MainController", "da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml", null ],
+    [ "Position", "dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml", null ],
     [ "QuestTests", "d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml", null ],
     [ "SkillDatabase", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml", null ],
     [ "Storyline", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml", [
