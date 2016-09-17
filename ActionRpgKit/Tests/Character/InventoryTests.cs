@@ -46,12 +46,12 @@ namespace ActionRpgKit.Tests.Character
             playerInventory.AddItem(herb, 9);
             Console.WriteLine(playerInventory.ToString());
             Assert.AreEqual(1, playerInventory.ItemCount);
-            Assert.AreEqual(10, simpleInventory.GetQuantity(herb));
+            Assert.AreEqual(10, playerInventory.GetQuantity(herb));
             playerInventory.RemoveItem(herb, 9);
             Assert.AreEqual(1, playerInventory.ItemCount);
             playerInventory.RemoveItem(herb, 1);
             Assert.AreEqual(0, playerInventory.ItemCount);
-            Assert.AreEqual(0, simpleInventory.GetQuantity(herb));
+            Assert.AreEqual(0, playerInventory.GetQuantity(herb));
         }
 
         [Test]
