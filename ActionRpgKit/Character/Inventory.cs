@@ -13,6 +13,8 @@ namespace ActionRpgKit.Character
     {
         IEnumerable<IItem> Items { get; set; }
         IEnumerable<int> Quantities { get; set; }
+        void AddItem (IItem item, int quantity);
+        void RemoveItem (IItem item, int quantity);
         int ItemCount { get; }
         int GetQuantity (IItem item);
     }
@@ -75,6 +77,16 @@ namespace ActionRpgKit.Character
             {
                 return 0; 
             }
+        }
+
+        public void AddItem (IItem item, int quantity = 1)
+        {
+            
+        }
+
+        public void RemoveItem (IItem item, int quantity = 1)
+        {
+            
         }
 
         public override string ToString()
