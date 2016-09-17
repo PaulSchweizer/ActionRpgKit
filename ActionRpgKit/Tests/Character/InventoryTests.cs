@@ -61,9 +61,10 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual(0, playerInventory.ItemCount);
             IItem herb = ItemDatabase.GetItemByName("Herb");
             simpleInventory = new SimpleInventory(new IItem[] { herb },
-                                                  new int[] { 1 });
+                                                  new int[] { 10 });
             playerInventory.AddInventory(simpleInventory);
             Assert.AreEqual(1, playerInventory.ItemCount);
+            Assert.AreEqual(10, playerInventory.GetQuantity(herb));
         }
     }
 }
