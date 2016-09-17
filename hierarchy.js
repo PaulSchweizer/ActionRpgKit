@@ -5,11 +5,12 @@ var hierarchy =
       [ "PlayerStats", "d7/dbc/class_action_rpg_kit_1_1_character_1_1_stats_1_1_player_stats.xhtml", null ]
     ] ],
     [ "Chapter", "d0/d8d/class_action_rpg_kit_1_1_story_1_1_chapter.xhtml", [
-      [ "EpilogChapter", "d2/d15/class_action_rpg_kit_1_1_tests_1_1_epilog_chapter.xhtml", null ],
-      [ "PrologChapter", "de/d0a/class_action_rpg_kit_1_1_tests_1_1_prolog_chapter.xhtml", null ],
+      [ "EpilogChapter", "d8/d3d/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_epilog_chapter.xhtml", null ],
+      [ "PrologChapter", "d4/db9/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_prolog_chapter.xhtml", null ],
       [ "EpilogChapter", "d2/d12/class_action_rpg_kit_1_1_tests_1_1_story_1_1_epilog_chapter.xhtml", null ],
       [ "PrologChapter", "d5/d4f/class_action_rpg_kit_1_1_tests_1_1_story_1_1_prolog_chapter.xhtml", null ]
     ] ],
+    [ "GameDemo", "db/de7/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_game_demo.xhtml", null ],
     [ "GameTime", "d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml", null ],
     [ "IAttribute", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml", [
       [ "PrimaryAttribute", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml", [
@@ -45,15 +46,15 @@ var hierarchy =
     ] ],
     [ "IObjective", "d2/d98/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_objective.xhtml", [
       [ "BaseObjective", "dd/d14/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_objective.xhtml", [
-        [ "Find10HerbsObjective", "d8/d6a/class_action_rpg_kit_1_1_tests_1_1_find10_herbs_objective.xhtml", null ],
-        [ "GetRidOfRatsObjective", "dc/d06/class_action_rpg_kit_1_1_tests_1_1_get_rid_of_rats_objective.xhtml", null ],
+        [ "Find10HerbsObjective", "d6/d7d/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_find10_herbs_objective.xhtml", null ],
+        [ "GetRidOfRatsObjective", "d3/d5f/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_get_rid_of_rats_objective.xhtml", null ],
         [ "Find10HerbsObjective", "d5/d1e/class_action_rpg_kit_1_1_tests_1_1_story_1_1_find10_herbs_objective.xhtml", null ],
         [ "GetRidOfRatsObjective", "dc/d33/class_action_rpg_kit_1_1_tests_1_1_story_1_1_get_rid_of_rats_objective.xhtml", null ]
       ] ]
     ] ],
     [ "IQuest", "dd/dd3/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_quest.xhtml", [
       [ "BaseQuest", "d8/d88/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_quest.xhtml", [
-        [ "CleanseTheCellars", "d0/db8/class_action_rpg_kit_1_1_tests_1_1_cleanse_the_cellars.xhtml", null ],
+        [ "CleanseTheCellars", "dc/d01/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_cleanse_the_cellars.xhtml", null ],
         [ "CleanseTheCellars", "d0/dc5/class_action_rpg_kit_1_1_tests_1_1_story_1_1_cleanse_the_cellars.xhtml", null ]
       ] ]
     ] ],
@@ -71,11 +72,10 @@ var hierarchy =
     ] ],
     [ "ItemDatabase", "dd/d83/class_action_rpg_kit_1_1_item_1_1_item_database.xhtml", null ],
     [ "MainController", "da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml", null ],
-    [ "MainControllerTests", "d6/dea/class_action_rpg_kit_1_1_tests_1_1_main_controller_tests.xhtml", null ],
     [ "QuestTests", "d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml", null ],
     [ "SkillDatabase", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml", null ],
     [ "Storyline", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml", [
-      [ "GameStoryline", "d4/d25/class_action_rpg_kit_1_1_tests_1_1_game_storyline.xhtml", null ],
+      [ "GameStoryline", "d0/db9/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_game_storyline.xhtml", null ],
       [ "GameStoryline", "d0/d7c/class_action_rpg_kit_1_1_tests_1_1_story_1_1_game_storyline.xhtml", null ]
     ] ]
 ];

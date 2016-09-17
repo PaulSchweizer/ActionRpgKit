@@ -25,7 +25,7 @@
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="../../d2/d15/class_action_rpg_kit_1_1_tests_1_1_epilog_chapter.xhtml" target="_top" xlink:title="{EpilogChapter\n||+ EpilogChapter()\l}">
+<a xlink:href="../../d8/d3d/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_epilog_chapter.xhtml" target="_top" xlink:title="{EpilogChapter\n||+ EpilogChapter()\l}">
 <polygon fill="white" stroke="black" points="-0.5,-0.5 -0.5,-63.5 92.5,-63.5 92.5,-0.5 -0.5,-0.5"/>
 <text text-anchor="middle" x="46" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">EpilogChapter</text>
 <polyline fill="none" stroke="black" points="-0.5,-42.5 92.5,-42.5 "/>
@@ -46,7 +46,7 @@
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="../../de/d0a/class_action_rpg_kit_1_1_tests_1_1_prolog_chapter.xhtml" target="_top" xlink:title="{PrologChapter\n||+ PrologChapter()\l}">
+<a xlink:href="../../d4/db9/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_prolog_chapter.xhtml" target="_top" xlink:title="{PrologChapter\n||+ PrologChapter()\l}">
 <polygon fill="white" stroke="black" points="110,-0.5 110,-63.5 204,-63.5 204,-0.5 110,-0.5"/>
 <text text-anchor="middle" x="157" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">PrologChapter</text>
 <polyline fill="none" stroke="black" points="110,-42.5 204,-42.5 "/>

@@ -9,6 +9,7 @@ var namespaces =
     [ "ActionRpgKit.Item", "d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml", "d0/dbf/namespace_action_rpg_kit_1_1_item" ],
     [ "ActionRpgKit.Story", "de/de6/namespace_action_rpg_kit_1_1_story.xhtml", "de/de6/namespace_action_rpg_kit_1_1_story" ],
     [ "ActionRpgKit.Story.Quest", "dc/d8d/namespace_action_rpg_kit_1_1_story_1_1_quest.xhtml", "dc/d8d/namespace_action_rpg_kit_1_1_story_1_1_quest" ],
-    [ "ActionRpgKit.Tests", "d7/d73/namespace_action_rpg_kit_1_1_tests.xhtml", "d7/d73/namespace_action_rpg_kit_1_1_tests" ],
+    [ "ActionRpgKit::Tests", "d7/d73/namespace_action_rpg_kit_1_1_tests.xhtml", null ],
+    [ "ActionRpgKit.Tests.IntegrationTests", "da/d66/namespace_action_rpg_kit_1_1_tests_1_1_integration_tests.xhtml", "da/d66/namespace_action_rpg_kit_1_1_tests_1_1_integration_tests" ],
     [ "ActionRpgKit.Tests.Story", "d0/dba/namespace_action_rpg_kit_1_1_tests_1_1_story.xhtml", "d0/dba/namespace_action_rpg_kit_1_1_tests_1_1_story" ]
 ];

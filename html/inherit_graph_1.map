@@ -1,7 +1,7 @@
 <map id="G" name="G">
 <area shape="rect" id="node1" href="$d0/d8d/class_action_rpg_kit_1_1_story_1_1_chapter.xhtml" title="A step in the progression of the story." alt="" coords="7,85,73,115"/>
-<area shape="rect" id="node3" href="$d2/d15/class_action_rpg_kit_1_1_tests_1_1_epilog_chapter.xhtml" title="EpilogChapter" alt="" coords="124,5,228,35"/>
-<area shape="rect" id="node5" href="$de/d0a/class_action_rpg_kit_1_1_tests_1_1_prolog_chapter.xhtml" title="PrologChapter" alt="" coords="124,59,228,88"/>
+<area shape="rect" id="node3" href="$d8/d3d/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_epilog_chapter.xhtml" title="EpilogChapter" alt="" coords="124,5,228,35"/>
+<area shape="rect" id="node5" href="$d4/db9/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_prolog_chapter.xhtml" title="PrologChapter" alt="" coords="124,59,228,88"/>
 <area shape="rect" id="node7" href="$d2/d12/class_action_rpg_kit_1_1_tests_1_1_story_1_1_epilog_chapter.xhtml" title="EpilogChapter" alt="" coords="124,112,228,141"/>
 <area shape="rect" id="node9" href="$d5/d4f/class_action_rpg_kit_1_1_tests_1_1_story_1_1_prolog_chapter.xhtml" title="PrologChapter" alt="" coords="124,165,228,195"/>
 </map>

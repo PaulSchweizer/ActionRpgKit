@@ -1,5 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node5" href="$d8/d6a/class_action_rpg_kit_1_1_tests_1_1_find10_herbs_objective.xhtml" title="{Find10HerbsObjective\n|+ herbs\l|+ Find10HerbsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}" alt="" coords="5,429,176,549"/>
-<area shape="rect" id="node7" href="$dc/d06/class_action_rpg_kit_1_1_tests_1_1_get_rid_of_rats_objective.xhtml" title="{GetRidOfRatsObjective\n|+ rats\l|+ GetRidOfRatsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}" alt="" coords="200,429,379,549"/>
+<area shape="rect" id="node5" href="$d6/d7d/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_find10_herbs_objective.xhtml" title="{Find10HerbsObjective\n|+ herbs\l|+ Find10HerbsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}" alt="" coords="5,429,176,549"/>
+<area shape="rect" id="node7" href="$d3/d5f/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_get_rid_of_rats_objective.xhtml" title="{GetRidOfRatsObjective\n|+ rats\l|+ GetRidOfRatsObjective()\l+ CheckProgress()\l+ OnCompletion()\l}" alt="" coords="200,429,379,549"/>
 <area shape="rect" id="node2" href="$d2/d98/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_objective.xhtml" title="{IObjective\n|+ Name\l+ Description\l+ IsCompleted\l|+ CheckProgress()\l+ OnCompletion()\l}" alt="" coords="124,6,255,143"/>
 </map>

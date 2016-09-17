@@ -4,6 +4,7 @@ var searchData=
   ['attribute',['Attribute',['../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml',1,'ActionRpgKit::Character']]],
   ['character',['Character',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml',1,'ActionRpgKit']]],
   ['core',['Core',['../d1/db9/namespace_action_rpg_kit_1_1_core.xhtml',1,'ActionRpgKit']]],
+  ['integrationtests',['IntegrationTests',['../da/d66/namespace_action_rpg_kit_1_1_tests_1_1_integration_tests.xhtml',1,'ActionRpgKit::Tests']]],
   ['item',['Item',['../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml',1,'ActionRpgKit']]],
   ['quest',['Quest',['../dc/d8d/namespace_action_rpg_kit_1_1_story_1_1_quest.xhtml',1,'ActionRpgKit::Story']]],
   ['skill',['Skill',['../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml',1,'ActionRpgKit::Character']]],

@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#properties">Properties</a>  </div>
   <div class="headertitle">
 <div class="title">IInventory Interface Reference</div>  </div>
@@ -94,12 +95,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for IInventory:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d4f/interface_action_rpg_kit_1_1_character_1_1_i_inventory__inherit__graph.svg" width="288" height="387"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d4f/interface_action_rpg_kit_1_1_character_1_1_i_inventory__inherit__graph.svg" width="288" height="456"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 <p><a href="../../d7/da0/interface_action_rpg_kit_1_1_character_1_1_i_inventory-members.xhtml">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a3f960acfa542575c738b74434b8b7775">AddItem</a> (<a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a> item, int quantity)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a9b708c9b4715fdac93394f509d426551">RemoveItem</a> (<a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a> item, int quantity)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a91a446664f3eae33617168bba258871b">GetQuantity</a> (<a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a> item)</td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a0cd4eaa089306a14416c068f719d41f9">Items</a><code> [get, set]</code></td></tr>
@@ -108,7 +114,85 @@ Properties</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>An inventory holds Items. </p>
-</div><hr/><h2>Property Documentation</h2>
+</div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a3f960acfa542575c738b74434b8b7775"></a><!-- doxytag: member="ActionRpgKit::Character::IInventory::AddItem" ref="a3f960acfa542575c738b74434b8b7775" args="(IItem item, int quantity)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a3f960acfa542575c738b74434b8b7775">AddItem</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>quantity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a00ea9b38cae30e8a838cfde7c7fb03a4">PlayerInventory</a>, and <a class="el" href="../../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a00ea9b38cae30e8a838cfde7c7fb03a4">SimpleInventory</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b708c9b4715fdac93394f509d426551"></a><!-- doxytag: member="ActionRpgKit::Character::IInventory::RemoveItem" ref="a9b708c9b4715fdac93394f509d426551" args="(IItem item, int quantity)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a9b708c9b4715fdac93394f509d426551">RemoveItem</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>quantity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#afd6d65b709d14f1f66987327c456c727">PlayerInventory</a>, and <a class="el" href="../../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#afd6d65b709d14f1f66987327c456c727">SimpleInventory</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a91a446664f3eae33617168bba258871b"></a><!-- doxytag: member="ActionRpgKit::Character::IInventory::GetQuantity" ref="a91a446664f3eae33617168bba258871b" args="(IItem item)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a91a446664f3eae33617168bba258871b">GetQuantity</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a91a446664f3eae33617168bba258871b">PlayerInventory</a>, and <a class="el" href="../../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a91a446664f3eae33617168bba258871b">SimpleInventory</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Property Documentation</h2>
 <a class="anchor" id="a0cd4eaa089306a14416c068f719d41f9"></a><!-- doxytag: member="ActionRpgKit::Character::IInventory::Items" ref="a0cd4eaa089306a14416c068f719d41f9" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +263,7 @@ Properties</h2></td></tr>
       <li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>      </li>
       <li class="navelem"><a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a>      </li>
 
-    <li class="footer">Generated on Fri Sep 16 2016 23:40:32 for Action RPG Kit by
+    <li class="footer">Generated on Sat Sep 17 2016 04:12:06 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

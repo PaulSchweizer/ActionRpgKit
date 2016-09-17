@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml" title="Inventory allows to add and remove items." alt="" coords="5,174,123,381"/>
-<area shape="rect" id="node5" href="$de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml" title="This inventory holds afixed size array of items." alt="" coords="147,183,283,372"/>
+<area shape="rect" id="node3" href="$d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml" title="Inventory allows to add and remove items." alt="" coords="5,217,123,441"/>
+<area shape="rect" id="node5" href="$de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml" title="This inventory holds afixed size array of items." alt="" coords="147,209,283,450"/>
 </map>

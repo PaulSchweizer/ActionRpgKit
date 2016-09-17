@@ -10,6 +10,7 @@ var functions_dup =
     [ "g", "functions_0x67.xhtml", null ],
     [ "h", "functions_0x68.xhtml", null ],
     [ "i", "functions_0x69.xhtml", null ],
+    [ "k", "functions_0x6b.xhtml", null ],
     [ "l", "functions_0x6c.xhtml", null ],
     [ "m", "functions_0x6d.xhtml", null ],
     [ "n", "functions_0x6e.xhtml", null ],
