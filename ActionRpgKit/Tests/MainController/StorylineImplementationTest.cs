@@ -68,7 +68,7 @@ namespace ActionRpgKit.Tests
 
         public override void CheckProgress()
         {
-            int collectedHerbs = MainController.player.Inventory.GetQuantity(ItemDatabase.GetByName("Herb"));
+            int collectedHerbs = MainController.player.Inventory.GetQuantity(ItemDatabase.GetItemByName("Herb"));
             if (collectedHerbs == 10)
             {
                 IsCompleted = true;
