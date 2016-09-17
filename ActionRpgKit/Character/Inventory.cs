@@ -98,7 +98,7 @@ namespace ActionRpgKit.Character
             {
                 repr += string.Format("|{0, -15}|{1, 4}|\n",
                                       _items[i].Name, _quantities[i]);
-                repr += string.Format("---------------+------\n");
+                repr += string.Format("----------------+-----\n");
             }
             return repr;
         }
