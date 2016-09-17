@@ -160,7 +160,7 @@ namespace ActionRpgKit.Character
         {
             if (_items.Contains(item))
             {
-                _quantities[_items.IndexOf(item)] += 1;
+                _quantities[_items.IndexOf(item)] += quantity;
             }
             else
             {
@@ -173,7 +173,7 @@ namespace ActionRpgKit.Character
         {
             if (_items.Contains(item))
             {
-                _quantities[_items.IndexOf(item)] -= 1;
+                _quantities[_items.IndexOf(item)] -= quantity;
                 if (_quantities[_items.IndexOf(item)] < 1)
                 {
                     _quantities.RemoveAt(_items.IndexOf(item));
