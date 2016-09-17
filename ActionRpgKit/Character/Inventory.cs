@@ -69,9 +69,10 @@ namespace ActionRpgKit.Character
 
         public int GetQuantity (IItem item)
         {
-            if (_items.Exists(item))
+            int index = Array.IndexOf(_items, item);
+            if (index > -1)
             {
-                return _quantities[_items.FindIndex(item)];
+                return _quantities[index];
             }
             else
             {
