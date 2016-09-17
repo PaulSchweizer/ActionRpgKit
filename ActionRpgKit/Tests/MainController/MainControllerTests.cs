@@ -26,6 +26,7 @@ namespace ActionRpgKit.Tests
         [SetUp]
         public void SetUp()
         {
+            MainController.player = player;
             GameTime.Reset();
         }
 
