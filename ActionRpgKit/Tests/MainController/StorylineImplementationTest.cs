@@ -1,6 +1,7 @@
 ﻿using System;
 using ActionRpgKit.Story;
 using ActionRpgKit.Story.Quest;
+using ActionRpgKit.Item;
 
 namespace ActionRpgKit.Tests
 {
