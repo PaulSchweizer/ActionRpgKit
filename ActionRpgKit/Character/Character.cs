@@ -27,6 +27,11 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// The active state of this Character.</summary>
         IState CurrentState { get; set; }
+
+        /// <summary>
+        /// Change the State to the given state if the given state differs
+        /// from the current state.</summary>
+        void ChangeState(IState state);
     }
 
     /// <summary>
@@ -84,7 +89,7 @@ namespace ActionRpgKit.Character
     public abstract class BaseCharacter : IGameObject, ICharacter, IMagicUser, IFighter
     {
         public IdleState _idleState;
-        public MoveState _moveState;
+        public AlertState _alertState;
 
         private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
@@ -96,7 +101,7 @@ namespace ActionRpgKit.Character
         public BaseCharacter ()
         {
             _idleState = new IdleState();
-            _moveState = new MoveState();
+            _alertState = new AlertState();
             CurrentState = _idleState;
         }
 
@@ -151,6 +156,19 @@ namespace ActionRpgKit.Character
         public abstract IInventory Inventory { get; set; }
 
         public IState CurrentState { get; set; }
+
+        /// <summary>
+        /// Change the State to the given State if the given State differs
+        /// from the current State.</summary>
+        public void ChangeState(IState state)
+        {
+            if (state != CurrentState)
+            {
+                CurrentState.ExitState();
+                CurrentState = state;
+                CurrentState.EnterState();
+            }
+        }
 
         // --------------------------------------------------------------------
         // IMagicUser Implementations

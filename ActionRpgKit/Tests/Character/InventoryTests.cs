@@ -55,7 +55,7 @@ namespace ActionRpgKit.Tests.Character
         }
 
         [Test]
-        public void NergeInventoriesTest()
+        public void MergeInventoriesTest()
         {
             playerInventory = new PlayerInventory();
             Assert.AreEqual(0, playerInventory.ItemCount);

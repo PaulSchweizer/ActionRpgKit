@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ActionRpgKit.Character
 {
+    /// <summary>
+    /// Determine the state of a Character.</summary>
     public interface IState
     {
         /// <summary>
@@ -13,47 +15,56 @@ namespace ActionRpgKit.Character
         void EnterState();
 
         /// <summary>
-        /// Called every frame when the State is active.</summary>
-        void UpdateState();
-
-        /// <summary>
         /// Called right before changing to the next State.</summary>
         void ExitState();
+
+        /// <summary>
+        /// Called to perform the interal calculation of the IState.</summary>
+        void UpdateState(BaseCharacter character);
     }
 
+    /// <summary>
+    /// The initial State of a Character.</summary>
     public class IdleState : IState
     {
         public void EnterState()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void ExitState()
         {
-            throw new NotImplementedException();
+            
         }
 
-        public void UpdateState()
+        public void UpdateState(BaseCharacter character)
         {
-            throw new NotImplementedException();
+            if (character.Enemies.Count > 0)
+            {
+                character.ChangeState(character._alertState);
+            }
         }
     }
 
-    public class MoveState : IState
+    public class AlertState : IState
     {
         public void EnterState()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void ExitState()
         {
-            throw new NotImplementedException();
+            
         }
 
-        public void UpdateState()
+        public void UpdateState(BaseCharacter character)
         {
-            throw new NotImplementedException();
+            if (character.Enemies.Count == 0)
+            {
+                character.ChangeState(character._idleState);
+                return;
+            }
         }
     }
 }

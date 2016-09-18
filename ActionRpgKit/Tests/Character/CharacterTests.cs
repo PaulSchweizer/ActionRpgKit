@@ -21,9 +21,21 @@ namespace ActionRpgKit.Tests.Character
         }
 
         [Test]
-        public void InitialStateTest()
+        public void StatesTest()
         {
+            // Initial State
             Assert.IsTrue(player.CurrentState is IdleState);
+
+            // Add Enemy switches to alert state
+            player.AddEnemy(enemy);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is AlertState);
+
+            // No more Enemy switches to idle state
+            player.RemoveEnemy(enemy);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is AlertState);
+
         }
     }
 }
