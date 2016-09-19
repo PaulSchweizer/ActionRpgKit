@@ -6,7 +6,7 @@ using ActionRpgKit.Item;
 namespace ActionRpgKit.Tests.IntegrationTests
 {
 
-    class CleanseTheCellars : BaseQuest
+    class CleanseTheCellars : Quest
     {
         public CleanseTheCellars()
         {
@@ -32,7 +32,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
         }
     }
 
-    class GetRidOfRatsObjective : BaseObjective
+    class GetRidOfRatsObjective : Objective
     {
         public static float rats = 10;
 
@@ -56,7 +56,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
         }
     }
 
-    class Find10HerbsObjective : BaseObjective
+    class Find10HerbsObjective : Objective
     {
         public static float herbs = 0;
 
