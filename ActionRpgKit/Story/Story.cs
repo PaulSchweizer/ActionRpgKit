@@ -13,6 +13,16 @@ namespace ActionRpgKit.Story
     {
         private int _currentChapterIndex = -1;
 
+        public static Storyline CreateFromXml (string xml)
+        {
+            Storyline storyline;
+            XmlSerializer serializer = new XmlSerializer(typeof(Storyline));
+            StreamReader reader = new StreamReader(xml);
+            storyline = (Storyline)serializer.Deserialize(reader);
+            reader.Close();
+            return storyline;
+        }
+
         public override string ToString()
         {
             string repr = "";
