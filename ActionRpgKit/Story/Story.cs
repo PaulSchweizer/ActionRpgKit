@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Xml.Serialization;
 using ActionRpgKit.Story.Quest;
 
 namespace ActionRpgKit.Story
