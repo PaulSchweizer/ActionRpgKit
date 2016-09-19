@@ -35,12 +35,12 @@ namespace ActionRpgKit.Story.Quest
     // Abstracts
     // -----------------------------------------------------------------------
 
-    public abstract class BaseObjective : IObjective
+    public abstract class Objective : IObjective
     {
 
-        public BaseObjective () { }
+        public Objective () { }
 
-        public BaseObjective (string name, string description)
+        public Objective (string name, string description)
         {
             Name = name;
             Description = description;
@@ -86,13 +86,13 @@ namespace ActionRpgKit.Story.Quest
     // Implementations
     // -----------------------------------------------------------------------
 
-    public abstract class BaseQuest : IQuest
+    public abstract class Quest : IQuest
     {
         private List<IObjective> _objectives = new List<IObjective>();
 
-        public BaseQuest () { }
+        public Quest () { }
 
-        public BaseQuest (string name,
+        public Quest (string name,
                           string description,
                           int experience)
         {
