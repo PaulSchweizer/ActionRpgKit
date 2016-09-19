@@ -16,8 +16,10 @@ namespace ActionRpgKit.Tests.Character
         VolumeAttribute Life;
         VolumeAttribute Magic;
 
+        int _eventTriggered;
+
         [SetUp]
-        public void SetUp ()
+        public void SetUp()
         {
             GameTime.Reset();
             Body = new PrimaryAttribute("Body", 0, 999, 10);
@@ -35,7 +37,7 @@ namespace ActionRpgKit.Tests.Character
         }
 
         [Test]
-        public void PrimaryAttributeTest ()
+        public void PrimaryAttributeTest()
         {
             // Check the default values
             Assert.AreEqual(0, Body.MinValue);
@@ -82,7 +84,7 @@ namespace ActionRpgKit.Tests.Character
         }
 
         [Test]
-        public void SecondaryAttributeTest ()
+        public void SecondaryAttributeTest()
         {
             // Check the default values
             Assert.AreEqual(0, Level.MinValue);
@@ -105,7 +107,7 @@ namespace ActionRpgKit.Tests.Character
         }
 
         [Test]
-        public void LifeTest ()
+        public void LifeTest()
         {
             // Check the default values
             Assert.AreEqual(0, Life.MinValue);
@@ -138,7 +140,7 @@ namespace ActionRpgKit.Tests.Character
         }
 
         [Test]
-        public void PrettyRepresentationTest ()
+        public void PrettyRepresentationTest()
         {
             Body.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
             string repr = "Body      : 20  (0 - 999)\n" +
@@ -146,5 +148,25 @@ namespace ActionRpgKit.Tests.Character
             Console.WriteLine(Body.ToString());
             Assert.AreEqual(repr, Body.ToString());
         }
+
+        [Test]
+        public void SignalTest()
+        {
+            // Change the value and test the received signal
+            Body.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
+            Body.Value = 100;
+            Assert.AreEqual(1, _eventTriggered);
+
+            Level.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
+            Experience.Value = 100;
+            Assert.AreEqual(2, _eventTriggered);
+
+        }
+
+        public void ValueChangedDemo(IAttribute sender, float value)
+        {
+            _eventTriggered += 1;
+        }
+
     }
 }

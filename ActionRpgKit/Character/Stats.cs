@@ -17,7 +17,9 @@ namespace ActionRpgKit.Character.Stats
         public IAttribute Life;
         public IAttribute Magic;
         public IAttribute MagicRegenerationRate;
-        
+        public IAttribute AlertnessRange;
+        public IAttribute AttackRange;
+
         protected void AssignAttributesToDict ()
         {
             Add("Body", Body);
@@ -28,6 +30,8 @@ namespace ActionRpgKit.Character.Stats
             Add("Life", Life);
             Add("MagicRegenerationRate", MagicRegenerationRate);
             Add("Magic", Magic);
+            Add("AlertnessRange", AlertnessRange);
+            Add("AttackRange", AttackRange);
         }
     }
     
@@ -40,6 +44,8 @@ namespace ActionRpgKit.Character.Stats
             Mind = new PrimaryAttribute("Mind", 0, 999, 0);
             Soul = new PrimaryAttribute("Soul", 0, 999, 0);
             Experience = new PrimaryAttribute("Experience");
+            AlertnessRange = new PrimaryAttribute("AlertnessRange", 0, 999, 1);
+            AttackRange = new PrimaryAttribute("AttackRange", 0, 999, 1);
 
             // Secondary Attributes
             Level = new SecondaryAttribute("Level",
@@ -49,7 +55,7 @@ namespace ActionRpgKit.Character.Stats
                                     "MagicRegenerationRate",
                                     x => 1 + (x[0].Value / 1000),
                                     new IAttribute[] { Mind }, 0, 99);
-  
+
             // Volume Attributes
             Life = new VolumeAttribute("Life", 
                    x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
@@ -73,6 +79,8 @@ namespace ActionRpgKit.Character.Stats
             Life = new PrimaryAttribute("Life", 0, 999, 0);
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate");
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
+            AlertnessRange = new PrimaryAttribute("AlertnessRange", 0, 999, 1);
+            AttackRange = new PrimaryAttribute("AttackRange", 0, 999, 1);
             AssignAttributesToDict();
         }
     }

@@ -74,11 +74,11 @@ namespace ActionRpgKit.Tests.Character
             player.LearnCombatSkill(meleeMultiTargetsSkill);
 
             // Add the enemies
-            player.AddEnemy(enemy1);
-            player.AddEnemy(enemy2);
             player.AddEnemy(enemy3);
+            player.AddEnemy(enemy2);
+            player.AddEnemy(enemy1);
 
-            // Attack the Player until his health runs out
+            // Attack the Enemy until his health runs out
             for (int i = 0; i < 10; i++)
             {
                 player.TriggerCombatSkill(meleeMultiTargetsSkill);

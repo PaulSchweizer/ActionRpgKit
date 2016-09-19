@@ -27,15 +27,9 @@ namespace ActionRpgKit.Character
     /// The initial State of a Character.</summary>
     public class IdleState : IState
     {
-        public void EnterState()
-        {
-            
-        }
+        public void EnterState() { }
 
-        public void ExitState()
-        {
-            
-        }
+        public void ExitState() { }
 
         public void UpdateState(BaseCharacter character)
         {
@@ -48,15 +42,9 @@ namespace ActionRpgKit.Character
 
     public class AlertState : IState
     {
-        public void EnterState()
-        {
-            
-        }
+        public void EnterState() { }
 
-        public void ExitState()
-        {
-            
-        }
+        public void ExitState() { }
 
         public void UpdateState(BaseCharacter character)
         {
@@ -64,6 +52,62 @@ namespace ActionRpgKit.Character
             {
                 character.ChangeState(character._idleState);
                 return;
+            }
+
+            if (character.EnemyInAlternessRange())
+            {
+                character.ChangeState(character._chaseState);
+            }
+        }
+    }
+
+    public class ChaseState : IState
+    {
+        public void EnterState() { }
+
+        public void ExitState() { }
+
+        public void UpdateState(BaseCharacter character)
+        {
+            if (character.Enemies.Count == 0)
+            {
+                character.ChangeState(character._alertState);
+                return;
+            }
+
+            if (character.EnemyInAttackRange(character.Enemies[0]))
+            {
+                character.ChangeState(character._attackState);
+            }
+        }
+    }
+
+    public class AttackState : IState
+    {
+        public void EnterState() { }
+
+        public void ExitState() { }
+
+        public void UpdateState(BaseCharacter character)
+        {
+
+            if (character.Enemies.Count == 0)
+            {
+                character.ChangeState(character._alertState);
+                return;
+            }
+
+            // If not in Attack Range any more, chase the enemy
+            if (!character.EnemyInAttackRange(character.Enemies[0]))
+            {
+                character.ChangeState(character._chaseState);
+                return;
+            }
+
+            // Attack
+            if (character.CanAttack())
+            {
+                character.Attack(character.Enemies[0]);
             }
         }
     }

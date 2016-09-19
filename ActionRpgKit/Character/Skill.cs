@@ -128,7 +128,6 @@ namespace ActionRpgKit.Character.Skill
     public class PassiveMagicSkill : BaseSkill, IMagicSkill
     {
         private float _duration;
-        private float _endTime = -1;
         private float _modifierValue;
         private string _modifiedAttributeName;
 

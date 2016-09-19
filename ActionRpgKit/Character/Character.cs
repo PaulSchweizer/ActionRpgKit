@@ -55,6 +55,9 @@ namespace ActionRpgKit.Character
     /// Character can fight.</summary>  
     public interface IFighter
     {
+
+        Position Position { get; set; }
+
         /// <summary>
         /// The remaining life.</summary>
         float Life { get; set; }
@@ -64,8 +67,39 @@ namespace ActionRpgKit.Character
         List<IFighter> Enemies { get; }
 
         /// <summary>
+        /// A timestamp representing the next possible moment for an attack.</summary>
+        float TimeUntilNextAttack { get; set; }
+
+        /// <summary>
+        /// The current Skill that is to be used for an Attack.</summary>
+        ICombatSkill CurrentAttackSkill { get; set; }
+
+        /// <summary>
         /// Add a new enemy.</summary>
-        void AddEnemy (IFighter enemy);
+        void AddEnemy(IFighter enemy, int index);
+
+        /// <summary>
+        /// Remove an enemy.</summary>
+        void RemoveEnemy(IFighter enemy);
+
+        /// <summary>
+        /// Whether any enemy is in sight range.
+        /// Also checks whether the assigned enemies are still in alertness
+        /// range and de-registers them if not.</summary>
+        bool EnemyInAlternessRange();
+
+        /// <summary>
+        /// Whether the Character is in range for an attack.</summary>
+        bool EnemyInAttackRange(IFighter enemy);
+
+        /// <summary>
+        /// Whether the Character can attack depends on the time since the
+        /// last attack.</summary>
+        bool CanAttack();
+
+        /// <summary>
+        /// Attack the given IFighter.</summary>
+        void Attack(IFighter enemy);
 
         /// <summary>
         /// CombatSkills available for this Character.</summary>
@@ -73,15 +107,15 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Add a new CombatSkill.</summary>
-        void LearnCombatSkill (ICombatSkill combatSkill);
+        void LearnCombatSkill(ICombatSkill combatSkill);
 
         /// <summary>
         /// Attack with the given CombatSkill.</summary>
-        bool TriggerCombatSkill (ICombatSkill combatSkill);
+        bool TriggerCombatSkill(ICombatSkill combatSkill);
 
         /// <summary>
         /// The Fighter is being attacked.</summary>
-        void OnAttacked (IFighter attacker, float damage);
+        void OnAttacked(IFighter attacker, float damage);
     }
     
     /// <summary>
@@ -90,6 +124,8 @@ namespace ActionRpgKit.Character
     {
         public IdleState _idleState;
         public AlertState _alertState;
+        public ChaseState _chaseState;
+        public AttackState _attackState;
 
         private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
@@ -102,6 +138,8 @@ namespace ActionRpgKit.Character
         {
             _idleState = new IdleState();
             _alertState = new AlertState();
+            _chaseState = new ChaseState();
+            _attackState = new AttackState();
             CurrentState = _idleState;
         }
 
@@ -274,9 +312,53 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void AddEnemy (IFighter enemy)
+        public float TimeUntilNextAttack { get; set; }
+
+        public ICombatSkill CurrentAttackSkill { get; set; }
+
+        public void AddEnemy (IFighter enemy, int index=0)
         {
-            Enemies.Add(enemy);
+            Enemies.Insert(0, enemy);
+        }
+
+        public void RemoveEnemy (IFighter enemy)
+        {
+            if (Enemies.Contains(enemy))
+            {
+                Enemies.Remove(enemy);
+            }
+        }
+
+        public bool EnemyInAlternessRange ()
+        {
+            for (int i = Enemies.Count - 1; i >= 0; i--)
+            {
+                var enemy = Enemies[i];
+                if (Position.DistanceTo(Enemies[i].Position) > Stats.AlertnessRange.Value)
+                {
+                    RemoveEnemy(Enemies[i]);
+                    continue;
+                }
+                Enemies.Remove(enemy);
+                Enemies.Insert(0, enemy);
+                return true;
+            }
+            return false;
+        }
+
+        public bool EnemyInAttackRange(IFighter enemy)
+        {
+            return Position.DistanceTo(enemy.Position) <= Stats.AttackRange.Value;
+        }
+
+        public bool CanAttack ()
+        {
+            return GameTime.time > TimeUntilNextAttack;
+        }
+
+        public void Attack(IFighter enemy)
+        {
+            TriggerCombatSkill(CurrentAttackSkill);
         }
 
         public List<ICombatSkill> CombatSkills

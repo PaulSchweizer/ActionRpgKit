@@ -5,67 +5,66 @@ using ActionRpgKit.Core;
 namespace ActionRpgKit.Character.Attribute
 {
     /// <summary>
-    /// Interface for Attributes. 
-    /// </summary>
+    /// Interface for Attributes.</summary>
     public interface IAttribute
     {
         /// <summary>
-        /// The name of the attribute. 
-        /// </summary>
+        /// The name of the attribute.</summary>
         string Name { get; set; }
 
         /// <summary>
-        /// The unmodified base value.
-        /// </summary>
+        /// The unmodified base value.</summary>
         float BaseValue { get; set; }
 
         /// <summary>
-        /// The actual, modified value, still within the min, max range.
-        /// </summary>
+        /// The actual, modified value, still within the min, max range.</summary>
         float Value { get; set; }
 
         /// <summary>
-        /// The maximum value.
-        /// </summary>
+        /// The maximum value.</summary>
         float MaxValue { get; set; }
 
         /// <summary>
-        /// The minimum value.
-        /// </summary>
+        /// The minimum value.</summary>
         float MinValue { get; set; }
 
         /// <summary>
         /// All modifiers on the attribute. 
-        /// There is no check to determine whether they are active or not.
-        /// </summary>
+        /// There is no check to determine whether they are active or not.</summary>
         List<IModifier> Modifiers { get; }
 
         /// <summary>
-        /// Add a new modifier to the attribute and activate it.
-        /// </summary>
+        /// Add a new modifier to the attribute and activate it.</summary>
         void AddModifier(IModifier modifier);
 
         /// <summary>
-        /// Remove a modifier from the attribute.
-        /// </summary>
+        /// Remove a modifier from the attribute.</summary>
         void RemoveModifier(IModifier modifier);
 
         /// <summary>
-        /// Whether the attribute is modified by a modifier.
-        /// </summary>
+        /// Whether the attribute is modified by a modifier.</summary>
         bool IsModified { get; }
 
         /// <summary>
-        /// Reset the Attribute to it's maximum value.
-        /// </summary>
+        /// Reset the Attribute to it's maximum value.</summary>
         void Reset();
+
+        event ValueChangedHandler OnValueChanged;
     }
 
     /// <summary>
-    /// Represents a simple float value. 
-    /// </summary>
+    /// Handler operates whenever an IAttribute value changes.</summary>
+    /// <param name="sender">The sender</param>
+    /// <param name="value">The new value</param>
+    public delegate void ValueChangedHandler(IAttribute sender, float value);
+
+    /// <summary>
+    /// Represents a simple float value.</summary>
     public class PrimaryAttribute : IAttribute
     {
+        
+        public event ValueChangedHandler OnValueChanged;
+
         private string _name;
         private float _value;
         private float _minValue;
@@ -134,6 +133,7 @@ namespace ActionRpgKit.Character.Attribute
             set
             {
                 BaseValue = value;
+                ValueChanged(value);
             }
         }
 
@@ -197,6 +197,14 @@ namespace ActionRpgKit.Character.Attribute
             }
         }
 
+        protected void ValueChanged (float value)
+        {
+            if (OnValueChanged != null)
+            {
+                OnValueChanged(this, value);
+            }
+        }
+
         public override string ToString()
         {
             string repr = String.Format("{0, -10}: {1,-3} ({2} - {3})", Name, Value, MinValue, MaxValue);
@@ -245,6 +253,15 @@ namespace ActionRpgKit.Character.Attribute
         {
             _formula = formula;
             _attributes = attributes;
+            for (int i = 0; i < _attributes.Length; i++)
+            {
+                _attributes[i].OnValueChanged += new ValueChangedHandler(ValueChanged);
+            }
+        }
+
+        public void ValueChanged (IAttribute sender, float value)
+        {
+            ValueChanged(value);
         }
 
         public override float BaseValue
