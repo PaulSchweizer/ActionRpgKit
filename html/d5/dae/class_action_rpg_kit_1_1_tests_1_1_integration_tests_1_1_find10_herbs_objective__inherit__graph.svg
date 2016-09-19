@@ -22,16 +22,16 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<a xlink:href="../../dd/d14/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_objective.xhtml" target="_top" xlink:title="{BaseObjective\n|+ Name\l+ Description\l+ IsCompleted\l|+ BaseObjective()\l+ BaseObjective()\l+ ToString()\l+ CheckProgress()\l+ OnCompletion()\l}">
+<a xlink:href="../../d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml" target="_top" xlink:title="{Objective\n|+ Name\l+ Description\l+ IsCompleted\l|+ Objective()\l+ Objective()\l+ ToString()\l+ CheckProgress()\l+ OnCompletion()\l}">
 <polygon fill="white" stroke="black" points="14.5,-126.5 14.5,-267.5 113.5,-267.5 113.5,-126.5 14.5,-126.5"/>
-<text text-anchor="middle" x="64" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">BaseObjective</text>
+<text text-anchor="middle" x="64" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">Objective</text>
 <polyline fill="none" stroke="black" points="14.5,-246.5 113.5,-246.5 "/>
 <text text-anchor="start" x="22.5" y="-233.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Name</text>
 <text text-anchor="start" x="22.5" y="-220.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Description</text>
 <text text-anchor="start" x="22.5" y="-207.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ IsCompleted</text>
 <polyline fill="none" stroke="black" points="14.5,-199.5 113.5,-199.5 "/>
-<text text-anchor="start" x="22.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ BaseObjective()</text>
-<text text-anchor="start" x="22.5" y="-173.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ BaseObjective()</text>
+<text text-anchor="start" x="22.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Objective()</text>
+<text text-anchor="start" x="22.5" y="-173.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Objective()</text>
 <text text-anchor="start" x="22.5" y="-160.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ToString()</text>
 <text text-anchor="start" x="22.5" y="-147.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CheckProgress()</text>
 <text text-anchor="start" x="22.5" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ OnCompletion()</text>

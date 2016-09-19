@@ -48,7 +48,7 @@ var hierarchy =
       [ "TimeBasedModifier", "d5/d34/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_time_based_modifier.xhtml", null ]
     ] ],
     [ "IObjective", "d2/d98/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_objective.xhtml", [
-      [ "BaseObjective", "dd/d14/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_objective.xhtml", [
+      [ "Objective", "d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml", [
         [ "Find10HerbsObjective", "d6/d7d/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_find10_herbs_objective.xhtml", null ],
         [ "GetRidOfRatsObjective", "d3/d5f/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_get_rid_of_rats_objective.xhtml", null ],
         [ "Find10HerbsObjective", "d5/d1e/class_action_rpg_kit_1_1_tests_1_1_story_1_1_find10_herbs_objective.xhtml", null ],
@@ -56,7 +56,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "IQuest", "dd/dd3/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_quest.xhtml", [
-      [ "BaseQuest", "d8/d88/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_quest.xhtml", [
+      [ "Quest", "d3/dd9/class_action_rpg_kit_1_1_story_1_1_quest_1_1_quest.xhtml", [
         [ "CleanseTheCellars", "dc/d01/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_cleanse_the_cellars.xhtml", null ],
         [ "CleanseTheCellars", "d0/dc5/class_action_rpg_kit_1_1_tests_1_1_story_1_1_cleanse_the_cellars.xhtml", null ]
       ] ]

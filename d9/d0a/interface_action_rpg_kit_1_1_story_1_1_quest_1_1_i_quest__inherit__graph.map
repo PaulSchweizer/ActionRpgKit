@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$d8/d88/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_quest.xhtml" title="{BaseQuest\n|+ Name\l+ Description\l+ Experience\l+ Objectives\l+ IsCompleted\l&#45; _objectives\l|+ BaseQuest()\l+ BaseQuest()\l+ ToString()\l+ CheckProgress()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}" alt="" coords="5,243,184,501"/>
+<area shape="rect" id="node3" href="$d3/dd9/class_action_rpg_kit_1_1_story_1_1_quest_1_1_quest.xhtml" title="{Quest\n|+ Name\l+ Description\l+ Experience\l+ Objectives\l+ IsCompleted\l&#45; _objectives\l|+ Quest()\l+ Quest()\l+ ToString()\l+ CheckProgress()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}" alt="" coords="5,243,184,501"/>
 <area shape="rect" id="node5" href="$dc/d01/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_cleanse_the_cellars.xhtml" title="{CleanseTheCellars\n||+ CleanseTheCellars()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}" alt="" coords="5,549,184,669"/>
 </map>

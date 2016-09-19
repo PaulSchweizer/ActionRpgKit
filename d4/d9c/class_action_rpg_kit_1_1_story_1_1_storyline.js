@@ -1,5 +1,6 @@
 var class_action_rpg_kit_1_1_story_1_1_storyline =
 [
+    [ "CreateFromXml", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#a6530ad3b0873d89b06aaa66f20a7f7aa", null ],
     [ "ToString", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
     [ "Start", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#a07aaf1227e4d645f15e0a964f54ef291", null ],
     [ "NextChapter", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#a4e566c23d05752fc78b6b975b51a865b", null ],

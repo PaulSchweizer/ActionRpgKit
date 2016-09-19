@@ -8,5 +8,6 @@ var searchData=
   ['simplevolumeattribute',['SimpleVolumeAttribute',['../db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml#ac51be04ab0679ce452eeb66d112a2cf7',1,'ActionRpgKit::Character::Attribute::SimpleVolumeAttribute']]],
   ['start',['Start',['../d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#a07aaf1227e4d645f15e0a964f54ef291',1,'ActionRpgKit::Story::Storyline']]],
   ['startstoryline',['StartStoryline',['../db/de7/class_action_rpg_kit_1_1_tests_1_1_integration_tests_1_1_game_demo.xhtml#a9a99adb3fecdfde25abe5436f434a508',1,'ActionRpgKit::Tests::IntegrationTests::GameDemo']]],
-  ['storycontrollertest',['StoryControllerTest',['../d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml#a155e26953051763916be1faeb24d7cb6',1,'ActionRpgKit::Tests::Story::QuestTests']]]
+  ['storycontrollertest',['StoryControllerTest',['../d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml#a155e26953051763916be1faeb24d7cb6',1,'ActionRpgKit::Tests::Story::QuestTests']]],
+  ['storydeserializingtest',['StoryDeserializingTest',['../d1/dce/class_action_rpg_kit_1_1_tests_1_1_story_1_1_quest_tests.xhtml#ad0d9c8bda2ee3cf04428e0d98020065c',1,'ActionRpgKit::Tests::Story::QuestTests']]]
 ];

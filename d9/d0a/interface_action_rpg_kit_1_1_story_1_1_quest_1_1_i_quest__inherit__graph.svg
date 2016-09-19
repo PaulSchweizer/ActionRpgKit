@@ -58,9 +58,9 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="../../d8/d88/class_action_rpg_kit_1_1_story_1_1_quest_1_1_base_quest.xhtml" target="_top" xlink:title="{BaseQuest\n|+ Name\l+ Description\l+ Experience\l+ Objectives\l+ IsCompleted\l&#45; _objectives\l|+ BaseQuest()\l+ BaseQuest()\l+ ToString()\l+ CheckProgress()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}">
+<a xlink:href="../../d3/dd9/class_action_rpg_kit_1_1_story_1_1_quest_1_1_quest.xhtml" target="_top" xlink:title="{Quest\n|+ Name\l+ Description\l+ Experience\l+ Objectives\l+ IsCompleted\l&#45; _objectives\l|+ Quest()\l+ Quest()\l+ ToString()\l+ CheckProgress()\l+ OnObjectiveCompletion()\l+ OnCompletion()\l}">
 <polygon fill="white" stroke="black" points="-0.5,-126.5 -0.5,-319.5 134.5,-319.5 134.5,-126.5 -0.5,-126.5"/>
-<text text-anchor="middle" x="67" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">BaseQuest</text>
+<text text-anchor="middle" x="67" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">Quest</text>
 <polyline fill="none" stroke="black" points="-0.5,-298.5 134.5,-298.5 "/>
 <text text-anchor="start" x="7.5" y="-285.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Name</text>
 <text text-anchor="start" x="7.5" y="-272.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Description</text>
@@ -69,8 +69,8 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="7.5" y="-233.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ IsCompleted</text>
 <text text-anchor="start" x="7.5" y="-220.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; _objectives</text>
 <polyline fill="none" stroke="black" points="-0.5,-212.5 134.5,-212.5 "/>
-<text text-anchor="start" x="7.5" y="-199.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ BaseQuest()</text>
-<text text-anchor="start" x="7.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ BaseQuest()</text>
+<text text-anchor="start" x="7.5" y="-199.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Quest()</text>
+<text text-anchor="start" x="7.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Quest()</text>
 <text text-anchor="start" x="7.5" y="-173.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ToString()</text>
 <text text-anchor="start" x="7.5" y="-160.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CheckProgress()</text>
 <text text-anchor="start" x="7.5" y="-147.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ OnObjectiveCompletion()</text>
