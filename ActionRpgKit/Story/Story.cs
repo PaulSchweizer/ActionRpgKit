@@ -17,10 +17,9 @@ namespace ActionRpgKit.Story
 
         public static Storyline CreateFromXml (string xml)
         {
-            Storyline storyline;
             XmlSerializer serializer = new XmlSerializer(typeof(Storyline));
             StreamReader reader = new StreamReader(xml);
-            storyline = (Storyline)serializer.Deserialize(reader);
+            Storyline storyline = (Storyline)serializer.Deserialize(reader);
             reader.Close();
             return storyline;
         }
