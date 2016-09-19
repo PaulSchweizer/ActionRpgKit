@@ -81,7 +81,7 @@ namespace ActionRpgKit.Tests.Story
         {
             string currentDir = Environment.CurrentDirectory;
             DirectoryInfo directory = new DirectoryInfo(currentDir);
-            string xmlFile = string.Format("{}/storyline.xml", directory.FullName);
+            string xmlFile = string.Format("{0}/storyline.xml", directory.FullName);
             Storyline storylineFromXml = Storyline.CreateFromXml(xmlFile);
             Assert.AreEqual(2, storylineFromXml.Chapters.Length);
         }
