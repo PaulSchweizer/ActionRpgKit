@@ -81,8 +81,13 @@ namespace ActionRpgKit.Tests.Story
         public void StoryDeserializingTest()
         {
             string xmlFile = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\storyline.xml";
+            
+            xmlFile = "$TRAVIS_BUILD_DIR/ActionRpgKit/Tests.Story/storyline.xml";
             Console.WriteLine(xmlFile);
             Console.WriteLine(File.Exists(xmlFile) ? "File exists." : "File does not exist.");
+            
+            
+            
             Storyline storylineFromXml = Storyline.CreateFromXml(xmlFile);
             Assert.AreEqual(2, storylineFromXml.Chapters.Length);
         }
