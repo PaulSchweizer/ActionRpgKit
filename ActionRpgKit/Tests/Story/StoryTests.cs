@@ -82,7 +82,7 @@ namespace ActionRpgKit.Tests.Story
         {
             string xmlFile = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\storyline.xml";
             
-            xmlFile = string.Format("{0}/ActionRpgKit/Tests.Story/storyline.xml", 
+            xmlFile = string.Format("{0}/ActionRpgKit/Tests/Story/storyline.xml", 
                                     Environment.GetEnvironmentVariable("TRAVIS_BUILD_DIR"));
             Console.WriteLine(xmlFile);
             Console.WriteLine(File.Exists(xmlFile) ? "File exists." : "File does not exist.");
