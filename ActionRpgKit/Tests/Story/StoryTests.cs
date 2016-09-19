@@ -86,7 +86,7 @@ namespace ActionRpgKit.Tests.Story
             Console.WriteLine(xmlFile);
             Console.WriteLine(File.Exists(xmlFile) ? "File exists." : "File does not exist.");
             
-            
+            Console.WriteLine(Environment.GetEnvironmentVariable("TRAVIS_BUILD_DIR"));
             
             Storyline storylineFromXml = Storyline.CreateFromXml(xmlFile);
             Assert.AreEqual(2, storylineFromXml.Chapters.Length);
