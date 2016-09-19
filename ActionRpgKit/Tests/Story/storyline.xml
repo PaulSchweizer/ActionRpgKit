@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Storyline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cpandl.com">
+    <Chapter>
+        <Name>
+            Prolog
+        </Name>
+        <Description>
+            The beginnings ...
+        </Description>
+        <Quests>
+            <Quest>
+                <Name>
+                    Cleanse the cellars
+                </Name>
+                <Description>
+                    Get rid of the rats to reach the magic herbs
+                </Description>
+                <Objectives>
+                    <Objective Name="Get rid of giant rats">
+                        Get rid of the rats to reach the magic herbs
+                    </Objective>
+                    <Objective Name="Find 10 Herbs">
+                        Gather 10 magic herbs for the wizard
+                    </Objective>
+                </Objectives>
+            </Quest>
+        </Quests>
+    </Chapter>
+    <Chapter>
+        <Name>
+            Epilog
+        </Name>
+        <Description>
+            The end
+        </Description>
+    </Chapter>
+</Storyline>
