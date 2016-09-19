@@ -12,8 +12,7 @@ namespace ActionRpgKit.Story
     /// The Storyline is divided into Chapters. Each Chapter contains a number 
     /// of Quests that need to be solved in order for the Chapter to be 
     /// completed.</remarks>
-    [XmlRootAttribute("Storyline", IsNullable = false)]
-    public class Storyline
+    public abstract class Storyline
     {
         private int _currentChapterIndex = -1;
 
@@ -87,7 +86,7 @@ namespace ActionRpgKit.Story
 
     /// <summary>
     /// A step in the progression of the story.</summary>
-    public class Chapter
+    public abstract class Chapter
     {
         public string Name
         {
@@ -99,7 +98,7 @@ namespace ActionRpgKit.Story
             get; set;
         }
 
-        public Quest[] Quests
+        public IQuest[] Quests
         {
             get; set;
         }
