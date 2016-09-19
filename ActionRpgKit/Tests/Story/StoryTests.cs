@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using NUnit.Framework;
 using ActionRpgKit.Story;
 using ActionRpgKit.Story.Quest;
@@ -73,6 +74,16 @@ namespace ActionRpgKit.Tests.Story
 
             // The Storyline has been completed now
             storyline.CheckProgress();
+        }
+        
+        [Test]
+        public void StoryDeserializingTest()
+        {
+            string currentDir = Environment.CurrentDirectory;
+            DirectoryInfo directory = new DirectoryInfo(currentDir);
+            string xmlFile = string.Format("{}/storyline.xml", directory.FullName);
+            Storyline storylineFromXml = Storyline.CreateFromXml(xmlFile);
+            Assert.AreEqual(2, storylineFromXml.Chapters.Length);
         }
     }
 
