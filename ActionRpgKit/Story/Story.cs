@@ -12,7 +12,7 @@ namespace ActionRpgKit.Story
     /// The Storyline is divided into Chapters. Each Chapter contains a number 
     /// of Quests that need to be solved in order for the Chapter to be 
     /// completed.</remarks>
-    [XmlRootAttribute("Storyline", Namespace="http://www.cpandl.com", IsNullable = false)]
+    [XmlRootAttribute("Storyline", IsNullable = false)]
     public abstract class Storyline
     {
         private int _currentChapterIndex = -1;
