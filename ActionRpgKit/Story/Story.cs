@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml;
 using System.Xml.Serialization;
 using ActionRpgKit.Story.Quest;
 
@@ -11,6 +12,7 @@ namespace ActionRpgKit.Story
     /// The Storyline is divided into Chapters. Each Chapter contains a number 
     /// of Quests that need to be solved in order for the Chapter to be 
     /// completed.</remarks>
+    [XmlRootAttribute("Storyline", Namespace="http://www.cpandl.com", IsNullable = false)]
     public abstract class Storyline
     {
         private int _currentChapterIndex = -1;
