@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
 using NUnit.Framework;
 using ActionRpgKit.Story;
 using ActionRpgKit.Story.Quest;
