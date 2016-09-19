@@ -24,8 +24,7 @@ namespace ActionRpgKit.Story
         }
 
         /// <summary>
-        /// Starting the Storyline and initialize it to the first Chapter.
-        /// </summary>
+        /// Starting the Storyline and initialize it to the first Chapter.</summary>
         public void Start ()
         {
             NextChapter();
@@ -50,16 +49,14 @@ namespace ActionRpgKit.Story
         }
 
         /// <summary>
-        /// The setions o the Storyline, the list has to have at least one item.
-        /// </summary>
+        /// The Chapter of the Storyline, the list has to have at least one item.</summary>
         public Chapter[] Chapters
         {
             get; set;
         }
 
         /// <summary>
-        /// The current section in the Story.
-        /// </summary>
+        /// The current Chapter in the Story.</summary>
         public Chapter CurrentChapter
         {
             get; set;
