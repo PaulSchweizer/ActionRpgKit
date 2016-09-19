@@ -99,7 +99,7 @@ namespace ActionRpgKit.Story
             get; set;
         }
 
-        public IQuest[] Quests
+        public Quest[] Quests
         {
             get; set;
         }
