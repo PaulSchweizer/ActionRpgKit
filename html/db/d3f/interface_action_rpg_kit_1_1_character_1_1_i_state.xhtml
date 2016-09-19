@@ -88,10 +88,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="title">IState Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="ActionRpgKit::Character::IState" --><div class="dynheader">
+<!-- doxytag: class="ActionRpgKit::Character::IState" -->
+<p>Determine the state of a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>.  
+ <a href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#details">More...</a></p>
+<div class="dynheader">
 Inheritance diagram for IState:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d05/interface_action_rpg_kit_1_1_character_1_1_i_state__inherit__graph.svg" width="264" height="299"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d05/interface_action_rpg_kit_1_1_character_1_1_i_state__inherit__graph.svg" width="542" height="299"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -101,12 +104,14 @@ Inheritance diagram for IState:</div>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a1aba682a800f617df15d172bac4519fe">EnterState</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when entering the State.  <a href="#a1aba682a800f617df15d172bac4519fe"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a7ccf8090b585b1cca5658182baa14818">UpdateState</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every frame when the State is active.  <a href="#a7ccf8090b585b1cca5658182baa14818"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a9cf9fc248176b3aa65999135ed5b1d40">ExitState</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called right before changing to the next State.  <a href="#a9cf9fc248176b3aa65999135ed5b1d40"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a43375ef23c333f5029d57863cf436257">UpdateState</a> (<a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a> character)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to perform the interal calculation of the <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="Determine the state of a Character.">IState</a>.  <a href="#a43375ef23c333f5029d57863cf436257"></a><br/></td></tr>
 </table>
-<hr/><h2>Member Function Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Determine the state of a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>. </p>
+</div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a1aba682a800f617df15d172bac4519fe"></a><!-- doxytag: member="ActionRpgKit::Character::IState::EnterState" ref="a1aba682a800f617df15d172bac4519fe" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -123,27 +128,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Called when entering the State. </p>
 
-<p>Implemented in <a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml#a1aba682a800f617df15d172bac4519fe">MoveState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a1aba682a800f617df15d172bac4519fe">IdleState</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7ccf8090b585b1cca5658182baa14818"></a><!-- doxytag: member="ActionRpgKit::Character::IState::UpdateState" ref="a7ccf8090b585b1cca5658182baa14818" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a7ccf8090b585b1cca5658182baa14818">UpdateState</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Called every frame when the State is active. </p>
-
-<p>Implemented in <a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml#a7ccf8090b585b1cca5658182baa14818">MoveState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a7ccf8090b585b1cca5658182baa14818">IdleState</a>.</p>
+<p>Implemented in <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a1aba682a800f617df15d172bac4519fe">AttackState</a>, <a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#a1aba682a800f617df15d172bac4519fe">ChaseState</a>, <a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a1aba682a800f617df15d172bac4519fe">AlertState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a1aba682a800f617df15d172bac4519fe">IdleState</a>.</p>
 
 </div>
 </div>
@@ -163,7 +148,28 @@ Public Member Functions</h2></td></tr>
 
 <p>Called right before changing to the next State. </p>
 
-<p>Implemented in <a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml#a9cf9fc248176b3aa65999135ed5b1d40">MoveState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a9cf9fc248176b3aa65999135ed5b1d40">IdleState</a>.</p>
+<p>Implemented in <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a9cf9fc248176b3aa65999135ed5b1d40">AttackState</a>, <a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#a9cf9fc248176b3aa65999135ed5b1d40">ChaseState</a>, <a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a9cf9fc248176b3aa65999135ed5b1d40">AlertState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a9cf9fc248176b3aa65999135ed5b1d40">IdleState</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43375ef23c333f5029d57863cf436257"></a><!-- doxytag: member="ActionRpgKit::Character::IState::UpdateState" ref="a43375ef23c333f5029d57863cf436257" args="(BaseCharacter character)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a43375ef23c333f5029d57863cf436257">UpdateState</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a>&#160;</td>
+          <td class="paramname"><em>character</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Called to perform the interal calculation of the <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="Determine the state of a Character.">IState</a>. </p>
+
+<p>Implemented in <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a43375ef23c333f5029d57863cf436257">AttackState</a>, <a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#a43375ef23c333f5029d57863cf436257">ChaseState</a>, <a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a43375ef23c333f5029d57863cf436257">AlertState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a43375ef23c333f5029d57863cf436257">IdleState</a>.</p>
 
 </div>
 </div>
@@ -177,7 +183,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Events</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -192,7 +198,7 @@ Public Member Functions</h2></td></tr>
       <li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>      </li>
       <li class="navelem"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a>      </li>
 
-    <li class="footer">Generated on Sat Sep 17 2016 06:49:41 for Action RPG Kit by
+    <li class="footer">Generated on Mon Sep 19 2016 06:33:42 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

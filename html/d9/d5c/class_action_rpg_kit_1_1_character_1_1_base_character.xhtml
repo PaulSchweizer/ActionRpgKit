@@ -109,14 +109,26 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adcf475c9fca76142770e52ce2d11c246">BaseCharacter</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af0e004e56093c2ee34c133e20f03a9ab">BaseCharacter</a> (string name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad3af8a0034cb6abc219f9d28a78615a0">ChangeState</a> (<a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a> state)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the State to the given State if the given State differs from the current State.  <a href="#ad3af8a0034cb6abc219f9d28a78615a0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab2c5b576925c44ee311d1f43d70ba649">LearnMagicSkill</a> (<a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> magicSkill)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new MagicSkill.  <a href="#ab2c5b576925c44ee311d1f43d70ba649"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0e5eb777b972a974cdedad228429369e">TriggerMagicSkill</a> (<a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> magicSkill)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Trigger the given MagicSkill.  <a href="#a0e5eb777b972a974cdedad228429369e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a659e03205f114d34aaf956e0a04ecf0e">PreUseCountdown</a> (<a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> magicSkill)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A countdown before the MagicSkill takes action.  <a href="#a659e03205f114d34aaf956e0a04ecf0e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aed060cc3f197ec56e6be6a058b0162dc">AddEnemy</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new enemy.  <a href="#aed060cc3f197ec56e6be6a058b0162dc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a1de1730870f729235b3ee64bf1388557">AddEnemy</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy, int index=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new enemy.  <a href="#a1de1730870f729235b3ee64bf1388557"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aeef35d1383ba0bd3b241b4afa38b340e">RemoveEnemy</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove an enemy.  <a href="#aeef35d1383ba0bd3b241b4afa38b340e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adb53d4e9142c7b170fe842cbbdb700b6">EnemyInAlternessRange</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether any enemy is in sight range. Also checks whether the assigned enemies are still in alertness range and de-registers them if not.  <a href="#adb53d4e9142c7b170fe842cbbdb700b6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6ba4962cda376e693e597139fe558525">EnemyInAttackRange</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> is in range for an attack.  <a href="#a6ba4962cda376e693e597139fe558525"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#add055791730d39eaf3b51542df592142">CanAttack</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> can attack depends on the time since the last attack.  <a href="#add055791730d39eaf3b51542df592142"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af286256bac45cb4f84818931177c0feb">Attack</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Attack the given <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a>.  <a href="#af286256bac45cb4f84818931177c0feb"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae40631bd2f94916ca54e6f0d5988e563">LearnCombatSkill</a> (<a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a> combatSkill)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new CombatSkill.  <a href="#ae40631bd2f94916ca54e6f0d5988e563"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab574d6aca338e14468aab8cc9c6f6c04">TriggerCombatSkill</a> (<a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a> combatSkill)</td></tr>
@@ -128,7 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml">IdleState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a50f48f0a7411f459542d716f191621ed">_idleState</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml">MoveState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae8b95ee9b7ffb6bafa0aa1eb9807acd7">_moveState</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml">AlertState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aba630ccf58491d93a2fda46630551559">_alertState</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml">ChaseState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af29bb3087b6a9987d046e8a25b20d3ef">_chaseState</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml">AttackState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae478e44bcecb33a8d3a730be10fb878f">_attackState</a></td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a51d5d92d61f0c8e344e8562a655d27de">Position</a><code> [get, set]</code></td></tr>
@@ -147,6 +161,10 @@ Properties</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The remaining life.  <a href="#aa4aea9bbf9e54f9950950e1ccb3cd18d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af015481142aa8d1b4c3f14db2c2fa466">Enemies</a><code> [get]</code></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Targeted enemies of the fighter.  <a href="#af015481142aa8d1b4c3f14db2c2fa466"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7874a66111d3279e62e10777c6639ee1">TimeUntilNextAttack</a><code> [get, set]</code></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A timestamp representing the next possible moment for an attack.  <a href="#a7874a66111d3279e62e10777c6639ee1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a4ac5dcebc755bc867ebbf3e363d7530c">CurrentAttackSkill</a><code> [get, set]</code></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The current <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> that is to be used for an Attack.  <a href="#a4ac5dcebc755bc867ebbf3e363d7530c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a84b3739db383fde74adf040ce6e3038e">CombatSkills</a><code> [get]</code></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">CombatSkills available for this <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>.  <a href="#a84b3739db383fde74adf040ce6e3038e"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
@@ -217,6 +235,27 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad3af8a0034cb6abc219f9d28a78615a0"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::ChangeState" ref="ad3af8a0034cb6abc219f9d28a78615a0" args="(IState state)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad3af8a0034cb6abc219f9d28a78615a0">ChangeState</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a>&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change the State to the given State if the given State differs from the current State. </p>
+
+<p>Implements <a class="el" href="../../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml#ad3af8a0034cb6abc219f9d28a78615a0">ICharacter</a>.</p>
 
 </div>
 </div>
@@ -339,12 +378,43 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aed060cc3f197ec56e6be6a058b0162dc"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::AddEnemy" ref="aed060cc3f197ec56e6be6a058b0162dc" args="(IFighter enemy)" -->
+<a class="anchor" id="a1de1730870f729235b3ee64bf1388557"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::AddEnemy" ref="a1de1730870f729235b3ee64bf1388557" args="(IFighter enemy, int index=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aed060cc3f197ec56e6be6a058b0162dc">AddEnemy</a> </td>
+          <td class="memname">void <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a1de1730870f729235b3ee64bf1388557">AddEnemy</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
+          <td class="paramname"><em>enemy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Add a new enemy. </p>
+
+<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a25b02457c5cf7c988f529b9097d96df9">IFighter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeef35d1383ba0bd3b241b4afa38b340e"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::RemoveEnemy" ref="aeef35d1383ba0bd3b241b4afa38b340e" args="(IFighter enemy)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aeef35d1383ba0bd3b241b4afa38b340e">RemoveEnemy</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
           <td class="paramname"><em>enemy</em></td><td>)</td>
@@ -354,9 +424,91 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Add a new enemy. </p>
+<p>Remove an enemy. </p>
 
-<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#aed060cc3f197ec56e6be6a058b0162dc">IFighter</a>.</p>
+<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#aeef35d1383ba0bd3b241b4afa38b340e">IFighter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb53d4e9142c7b170fe842cbbdb700b6"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::EnemyInAlternessRange" ref="adb53d4e9142c7b170fe842cbbdb700b6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adb53d4e9142c7b170fe842cbbdb700b6">EnemyInAlternessRange</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Whether any enemy is in sight range. Also checks whether the assigned enemies are still in alertness range and de-registers them if not. </p>
+
+<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#adb53d4e9142c7b170fe842cbbdb700b6">IFighter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ba4962cda376e693e597139fe558525"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::EnemyInAttackRange" ref="a6ba4962cda376e693e597139fe558525" args="(IFighter enemy)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6ba4962cda376e693e597139fe558525">EnemyInAttackRange</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
+          <td class="paramname"><em>enemy</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Whether the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> is in range for an attack. </p>
+
+<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a6ba4962cda376e693e597139fe558525">IFighter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add055791730d39eaf3b51542df592142"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::CanAttack" ref="add055791730d39eaf3b51542df592142" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#add055791730d39eaf3b51542df592142">CanAttack</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Whether the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> can attack depends on the time since the last attack. </p>
+
+<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#add055791730d39eaf3b51542df592142">IFighter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af286256bac45cb4f84818931177c0feb"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::Attack" ref="af286256bac45cb4f84818931177c0feb" args="(IFighter enemy)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af286256bac45cb4f84818931177c0feb">Attack</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
+          <td class="paramname"><em>enemy</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Attack the given <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a>. </p>
+
+<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#af286256bac45cb4f84818931177c0feb">IFighter</a>.</p>
 
 </div>
 </div>
@@ -524,12 +676,38 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae8b95ee9b7ffb6bafa0aa1eb9807acd7"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_moveState" ref="ae8b95ee9b7ffb6bafa0aa1eb9807acd7" args="" -->
+<a class="anchor" id="aba630ccf58491d93a2fda46630551559"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_alertState" ref="aba630ccf58491d93a2fda46630551559" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml">MoveState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae8b95ee9b7ffb6bafa0aa1eb9807acd7">_moveState</a></td>
+          <td class="memname"><a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml">AlertState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aba630ccf58491d93a2fda46630551559">_alertState</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af29bb3087b6a9987d046e8a25b20d3ef"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_chaseState" ref="af29bb3087b6a9987d046e8a25b20d3ef" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml">ChaseState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af29bb3087b6a9987d046e8a25b20d3ef">_chaseState</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae478e44bcecb33a8d3a730be10fb878f"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::_attackState" ref="ae478e44bcecb33a8d3a730be10fb878f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml">AttackState</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae478e44bcecb33a8d3a730be10fb878f">_attackState</a></td>
         </tr>
       </table>
 </div>
@@ -614,7 +792,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Implements <a class="el" href="../../de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml#a51d5d92d61f0c8e344e8562a655d27de">IGameObject</a>.</p>
+<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a51d5d92d61f0c8e344e8562a655d27de">IFighter</a>.</p>
 
 </div>
 </div>
@@ -752,6 +930,40 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7874a66111d3279e62e10777c6639ee1"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::TimeUntilNextAttack" ref="a7874a66111d3279e62e10777c6639ee1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7874a66111d3279e62e10777c6639ee1">TimeUntilNextAttack</a><code> [get, set]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>A timestamp representing the next possible moment for an attack. </p>
+
+<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7874a66111d3279e62e10777c6639ee1">IFighter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ac5dcebc755bc867ebbf3e363d7530c"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::CurrentAttackSkill" ref="a4ac5dcebc755bc867ebbf3e363d7530c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a> <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a4ac5dcebc755bc867ebbf3e363d7530c">CurrentAttackSkill</a><code> [get, set]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The current <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> that is to be used for an Attack. </p>
+
+<p>Implements <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a4ac5dcebc755bc867ebbf3e363d7530c">IFighter</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a84b3739db383fde74adf040ce6e3038e"></a><!-- doxytag: member="ActionRpgKit::Character::BaseCharacter::CombatSkills" ref="a84b3739db383fde74adf040ce6e3038e" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -779,7 +991,7 @@ Private Attributes</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Events</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -794,7 +1006,7 @@ Private Attributes</h2></td></tr>
       <li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>      </li>
       <li class="navelem"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a>      </li>
 
-    <li class="footer">Generated on Sat Sep 17 2016 06:49:41 for Action RPG Kit by
+    <li class="footer">Generated on Mon Sep 19 2016 06:33:42 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

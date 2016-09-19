@@ -11,5 +11,7 @@ var namespace_action_rpg_kit_1_1_character =
     [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", null ],
     [ "IState", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml", null ],
     [ "IdleState", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml", null ],
-    [ "MoveState", "d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml", null ]
+    [ "AlertState", "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml", null ],
+    [ "ChaseState", "d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml", null ],
+    [ "AttackState", "d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml", null ]
 ];

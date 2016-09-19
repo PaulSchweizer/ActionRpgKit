@@ -160,7 +160,9 @@ Generating docs for compound ActionRpgKit::Character::SimpleInventory...
 Generating docs for compound ActionRpgKit::Character::PlayerInventory...
 Generating docs for compound ActionRpgKit::Character::IState...
 Generating docs for compound ActionRpgKit::Character::IdleState...
-Generating docs for compound ActionRpgKit::Character::MoveState...
+Generating docs for compound ActionRpgKit::Character::AlertState...
+Generating docs for compound ActionRpgKit::Character::ChaseState...
+Generating docs for compound ActionRpgKit::Character::AttackState...
 Generating docs for namespace ActionRpgKit::Character::Attribute
 Generating docs for compound ActionRpgKit::Character::Attribute::IAttribute...
 Generating docs for compound ActionRpgKit::Character::Attribute::PrimaryAttribute...
@@ -230,195 +232,201 @@ Generating file member index...
 Generating example index...
 finalizing index lists...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/69
-Running dot for graph 2/69
-Running dot for graph 3/69
-Running dot for graph 4/69
-Running dot for graph 5/69
-Running dot for graph 6/69
-Running dot for graph 7/69
-Running dot for graph 8/69
-Running dot for graph 9/69
-Running dot for graph 10/69
-Running dot for graph 11/69
-Running dot for graph 12/69
-Running dot for graph 13/69
-Running dot for graph 14/69
-Running dot for graph 15/69
-Running dot for graph 16/69
-Running dot for graph 17/69
-Running dot for graph 18/69
-Running dot for graph 19/69
-Running dot for graph 20/69
-Running dot for graph 21/69
-Running dot for graph 22/69
-Running dot for graph 23/69
-Running dot for graph 24/69
-Running dot for graph 25/69
-Running dot for graph 26/69
-Running dot for graph 27/69
-Running dot for graph 28/69
-Running dot for graph 29/69
-Running dot for graph 30/69
-Running dot for graph 31/69
-Running dot for graph 32/69
-Running dot for graph 33/69
-Running dot for graph 34/69
-Running dot for graph 35/69
-Running dot for graph 36/69
-Running dot for graph 37/69
-Running dot for graph 38/69
-Running dot for graph 39/69
-Running dot for graph 40/69
-Running dot for graph 41/69
-Running dot for graph 42/69
-Running dot for graph 43/69
-Running dot for graph 44/69
-Running dot for graph 45/69
-Running dot for graph 46/69
-Running dot for graph 47/69
-Running dot for graph 48/69
-Running dot for graph 49/69
-Running dot for graph 50/69
-Running dot for graph 51/69
-Running dot for graph 52/69
-Running dot for graph 53/69
-Running dot for graph 54/69
-Running dot for graph 55/69
-Running dot for graph 56/69
-Running dot for graph 57/69
-Running dot for graph 58/69
-Running dot for graph 59/69
-Running dot for graph 60/69
-Running dot for graph 61/69
-Running dot for graph 62/69
-Running dot for graph 63/69
-Running dot for graph 64/69
-Running dot for graph 65/69
-Running dot for graph 66/69
-Running dot for graph 67/69
-Running dot for graph 68/69
-Running dot for graph 69/69
-Patching output file 1/120
-Patching output file 2/120
-Patching output file 3/120
-Patching output file 4/120
-Patching output file 5/120
-Patching output file 6/120
-Patching output file 7/120
-Patching output file 8/120
-Patching output file 9/120
-Patching output file 10/120
-Patching output file 11/120
-Patching output file 12/120
-Patching output file 13/120
-Patching output file 14/120
-Patching output file 15/120
-Patching output file 16/120
-Patching output file 17/120
-Patching output file 18/120
-Patching output file 19/120
-Patching output file 20/120
-Patching output file 21/120
-Patching output file 22/120
-Patching output file 23/120
-Patching output file 24/120
-Patching output file 25/120
-Patching output file 26/120
-Patching output file 27/120
-Patching output file 28/120
-Patching output file 29/120
-Patching output file 30/120
-Patching output file 31/120
-Patching output file 32/120
-Patching output file 33/120
-Patching output file 34/120
-Patching output file 35/120
-Patching output file 36/120
-Patching output file 37/120
-Patching output file 38/120
-Patching output file 39/120
-Patching output file 40/120
-Patching output file 41/120
-Patching output file 42/120
-Patching output file 43/120
-Patching output file 44/120
-Patching output file 45/120
-Patching output file 46/120
-Patching output file 47/120
-Patching output file 48/120
-Patching output file 49/120
-Patching output file 50/120
-Patching output file 51/120
-Patching output file 52/120
-Patching output file 53/120
-Patching output file 54/120
-Patching output file 55/120
-Patching output file 56/120
-Patching output file 57/120
-Patching output file 58/120
-Patching output file 59/120
-Patching output file 60/120
-Patching output file 61/120
-Patching output file 62/120
-Patching output file 63/120
-Patching output file 64/120
-Patching output file 65/120
-Patching output file 66/120
-Patching output file 67/120
-Patching output file 68/120
-Patching output file 69/120
-Patching output file 70/120
-Patching output file 71/120
-Patching output file 72/120
-Patching output file 73/120
-Patching output file 74/120
-Patching output file 75/120
-Patching output file 76/120
-Patching output file 77/120
-Patching output file 78/120
-Patching output file 79/120
-Patching output file 80/120
-Patching output file 81/120
-Patching output file 82/120
-Patching output file 83/120
-Patching output file 84/120
-Patching output file 85/120
-Patching output file 86/120
-Patching output file 87/120
-Patching output file 88/120
-Patching output file 89/120
-Patching output file 90/120
-Patching output file 91/120
-Patching output file 92/120
-Patching output file 93/120
-Patching output file 94/120
-Patching output file 95/120
-Patching output file 96/120
-Patching output file 97/120
-Patching output file 98/120
-Patching output file 99/120
-Patching output file 100/120
-Patching output file 101/120
-Patching output file 102/120
-Patching output file 103/120
-Patching output file 104/120
-Patching output file 105/120
-Patching output file 106/120
-Patching output file 107/120
-Patching output file 108/120
-Patching output file 109/120
-Patching output file 110/120
-Patching output file 111/120
-Patching output file 112/120
-Patching output file 113/120
-Patching output file 114/120
-Patching output file 115/120
-Patching output file 116/120
-Patching output file 117/120
-Patching output file 118/120
-Patching output file 119/120
-Patching output file 120/120
-symbol cache used 314/65536 hits=19046 misses=314
-lookup cache used 503/65536 hits=1395 misses=581
+Running dot for graph 1/71
+Running dot for graph 2/71
+Running dot for graph 3/71
+Running dot for graph 4/71
+Running dot for graph 5/71
+Running dot for graph 6/71
+Running dot for graph 7/71
+Running dot for graph 8/71
+Running dot for graph 9/71
+Running dot for graph 10/71
+Running dot for graph 11/71
+Running dot for graph 12/71
+Running dot for graph 13/71
+Running dot for graph 14/71
+Running dot for graph 15/71
+Running dot for graph 16/71
+Running dot for graph 17/71
+Running dot for graph 18/71
+Running dot for graph 19/71
+Running dot for graph 20/71
+Running dot for graph 21/71
+Running dot for graph 22/71
+Running dot for graph 23/71
+Running dot for graph 24/71
+Running dot for graph 25/71
+Running dot for graph 26/71
+Running dot for graph 27/71
+Running dot for graph 28/71
+Running dot for graph 29/71
+Running dot for graph 30/71
+Running dot for graph 31/71
+Running dot for graph 32/71
+Running dot for graph 33/71
+Running dot for graph 34/71
+Running dot for graph 35/71
+Running dot for graph 36/71
+Running dot for graph 37/71
+Running dot for graph 38/71
+Running dot for graph 39/71
+Running dot for graph 40/71
+Running dot for graph 41/71
+Running dot for graph 42/71
+Running dot for graph 43/71
+Running dot for graph 44/71
+Running dot for graph 45/71
+Running dot for graph 46/71
+Running dot for graph 47/71
+Running dot for graph 48/71
+Running dot for graph 49/71
+Running dot for graph 50/71
+Running dot for graph 51/71
+Running dot for graph 52/71
+Running dot for graph 53/71
+Running dot for graph 54/71
+Running dot for graph 55/71
+Running dot for graph 56/71
+Running dot for graph 57/71
+Running dot for graph 58/71
+Running dot for graph 59/71
+Running dot for graph 60/71
+Running dot for graph 61/71
+Running dot for graph 62/71
+Running dot for graph 63/71
+Running dot for graph 64/71
+Running dot for graph 65/71
+Running dot for graph 66/71
+Running dot for graph 67/71
+Running dot for graph 68/71
+Running dot for graph 69/71
+Running dot for graph 70/71
+Running dot for graph 71/71
+Patching output file 1/124
+Patching output file 2/124
+Patching output file 3/124
+Patching output file 4/124
+Patching output file 5/124
+Patching output file 6/124
+Patching output file 7/124
+Patching output file 8/124
+Patching output file 9/124
+Patching output file 10/124
+Patching output file 11/124
+Patching output file 12/124
+Patching output file 13/124
+Patching output file 14/124
+Patching output file 15/124
+Patching output file 16/124
+Patching output file 17/124
+Patching output file 18/124
+Patching output file 19/124
+Patching output file 20/124
+Patching output file 21/124
+Patching output file 22/124
+Patching output file 23/124
+Patching output file 24/124
+Patching output file 25/124
+Patching output file 26/124
+Patching output file 27/124
+Patching output file 28/124
+Patching output file 29/124
+Patching output file 30/124
+Patching output file 31/124
+Patching output file 32/124
+Patching output file 33/124
+Patching output file 34/124
+Patching output file 35/124
+Patching output file 36/124
+Patching output file 37/124
+Patching output file 38/124
+Patching output file 39/124
+Patching output file 40/124
+Patching output file 41/124
+Patching output file 42/124
+Patching output file 43/124
+Patching output file 44/124
+Patching output file 45/124
+Patching output file 46/124
+Patching output file 47/124
+Patching output file 48/124
+Patching output file 49/124
+Patching output file 50/124
+Patching output file 51/124
+Patching output file 52/124
+Patching output file 53/124
+Patching output file 54/124
+Patching output file 55/124
+Patching output file 56/124
+Patching output file 57/124
+Patching output file 58/124
+Patching output file 59/124
+Patching output file 60/124
+Patching output file 61/124
+Patching output file 62/124
+Patching output file 63/124
+Patching output file 64/124
+Patching output file 65/124
+Patching output file 66/124
+Patching output file 67/124
+Patching output file 68/124
+Patching output file 69/124
+Patching output file 70/124
+Patching output file 71/124
+Patching output file 72/124
+Patching output file 73/124
+Patching output file 74/124
+Patching output file 75/124
+Patching output file 76/124
+Patching output file 77/124
+Patching output file 78/124
+Patching output file 79/124
+Patching output file 80/124
+Patching output file 81/124
+Patching output file 82/124
+Patching output file 83/124
+Patching output file 84/124
+Patching output file 85/124
+Patching output file 86/124
+Patching output file 87/124
+Patching output file 88/124
+Patching output file 89/124
+Patching output file 90/124
+Patching output file 91/124
+Patching output file 92/124
+Patching output file 93/124
+Patching output file 94/124
+Patching output file 95/124
+Patching output file 96/124
+Patching output file 97/124
+Patching output file 98/124
+Patching output file 99/124
+Patching output file 100/124
+Patching output file 101/124
+Patching output file 102/124
+Patching output file 103/124
+Patching output file 104/124
+Patching output file 105/124
+Patching output file 106/124
+Patching output file 107/124
+Patching output file 108/124
+Patching output file 109/124
+Patching output file 110/124
+Patching output file 111/124
+Patching output file 112/124
+Patching output file 113/124
+Patching output file 114/124
+Patching output file 115/124
+Patching output file 116/124
+Patching output file 117/124
+Patching output file 118/124
+Patching output file 119/124
+Patching output file 120/124
+Patching output file 121/124
+Patching output file 122/124
+Patching output file 123/124
+Patching output file 124/124
+symbol cache used 349/65536 hits=21311 misses=349
+lookup cache used 557/65536 hits=1571 misses=639
 finished...

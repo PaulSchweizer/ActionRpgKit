@@ -86,15 +86,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
 <li>UpdateState()
-: <a class="el" href="db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a7ccf8090b585b1cca5658182baa14818">IState</a>
-, <a class="el" href="da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a7ccf8090b585b1cca5658182baa14818">IdleState</a>
-, <a class="el" href="d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml#a7ccf8090b585b1cca5658182baa14818">MoveState</a>
+: <a class="el" href="db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a43375ef23c333f5029d57863cf436257">IState</a>
+, <a class="el" href="da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a43375ef23c333f5029d57863cf436257">IdleState</a>
+, <a class="el" href="d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#a43375ef23c333f5029d57863cf436257">ChaseState</a>
+, <a class="el" href="d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a43375ef23c333f5029d57863cf436257">AttackState</a>
+, <a class="el" href="df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a43375ef23c333f5029d57863cf436257">AlertState</a>
 </li>
 <li>Use()
-: <a class="el" href="d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#ace55abba4145754cea1fc284df909366">MeleeSkill</a>
-, <a class="el" href="d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml#a7a08b6338032d47a2bd9b46a79ee9d32">IMagicSkill</a>
-, <a class="el" href="d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml#ace55abba4145754cea1fc284df909366">ICombatSkill</a>
+: <a class="el" href="d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml#ace55abba4145754cea1fc284df909366">ICombatSkill</a>
+, <a class="el" href="d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#ace55abba4145754cea1fc284df909366">MeleeSkill</a>
 , <a class="el" href="dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a7a08b6338032d47a2bd9b46a79ee9d32">PassiveMagicSkill</a>
+, <a class="el" href="d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml#a7a08b6338032d47a2bd9b46a79ee9d32">IMagicSkill</a>
 </li>
 <li>UseCombatSkill()
 : <a class="el" href="d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0dbb9ad5c2c44595916b305d5c9576cd">BaseCharacter</a>
@@ -109,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Events</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -122,7 +124,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Sat Sep 17 2016 06:49:41 for Action RPG Kit by
+    <li class="footer">Generated on Mon Sep 19 2016 06:33:42 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

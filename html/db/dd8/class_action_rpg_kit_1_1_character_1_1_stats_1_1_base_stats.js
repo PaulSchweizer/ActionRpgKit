@@ -8,5 +8,7 @@ var class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats =
     [ "Level", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#ae8f31e5285b2238f7b1dc13e673f7e09", null ],
     [ "Life", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a21f7b5535b96ed83f2b9ef5d48184441", null ],
     [ "Magic", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#aefc917a7f98da88278c86bf6017ba3de", null ],
-    [ "MagicRegenerationRate", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a5dd8b7ec2bc857cdc4ba4a627ee7e939", null ]
+    [ "MagicRegenerationRate", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a5dd8b7ec2bc857cdc4ba4a627ee7e939", null ],
+    [ "AlertnessRange", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#aa6371d8f32caa6e9c0926305684fc14d", null ],
+    [ "AttackRange", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#ad1747556005a4ae1fea8240776581839", null ]
 ];

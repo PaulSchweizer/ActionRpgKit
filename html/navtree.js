@@ -2,7 +2,11 @@ var NAVTREE =
 [
   [ "Action RPG Kit", "index.xhtml", [
     [ "Namespaces", null, [
-      [ "Namespace List", "namespaces.xhtml", "namespaces" ]
+      [ "Namespace List", "namespaces.xhtml", "namespaces" ],
+      [ "Namespace Members", "namespacemembers.xhtml", [
+        [ "All", "namespacemembers.xhtml", null ],
+        [ "Functions", "namespacemembers_func.xhtml", null ]
+      ] ]
     ] ],
     [ "Classes", null, [
       [ "Class List", "annotated.xhtml", "annotated" ],
@@ -12,7 +16,8 @@ var NAVTREE =
         [ "All", "functions.xhtml", "functions_dup" ],
         [ "Functions", "functions_func.xhtml", null ],
         [ "Variables", "functions_vars.xhtml", null ],
-        [ "Properties", "functions_prop.xhtml", null ]
+        [ "Properties", "functions_prop.xhtml", null ],
+        [ "Events", "functions_evnt.xhtml", null ]
       ] ]
     ] ]
   ] ]

@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node11" href="$d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="" coords="152,880,243,1000"/>
-<area shape="rect" id="node13" href="$d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="" coords="267,880,357,1000"/>
-<area shape="rect" id="node2" href="$de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml" title="{IGameObject\n|+ Position\l|}" alt="" coords="5,49,104,135"/>
-<area shape="rect" id="node4" href="$d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats." alt="" coords="128,23,235,161"/>
-<area shape="rect" id="node6" href="$dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic." alt="" coords="259,41,400,143"/>
-<area shape="rect" id="node8" href="$df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight." alt="" coords="424,6,576,178"/>
+<area shape="rect" id="node11" href="$d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="" coords="160,1072,251,1192"/>
+<area shape="rect" id="node13" href="$d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="" coords="275,1072,365,1192"/>
+<area shape="rect" id="node2" href="$de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml" title="{IGameObject\n|+ Position\l|}" alt="" coords="5,119,104,204"/>
+<area shape="rect" id="node4" href="$d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats." alt="" coords="128,93,245,230"/>
+<area shape="rect" id="node6" href="$dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic." alt="" coords="269,110,411,213"/>
+<area shape="rect" id="node8" href="$df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight." alt="" coords="435,6,621,317"/>
 </map>

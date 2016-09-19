@@ -4,6 +4,7 @@ var class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute =
     [ "PrimaryAttribute", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8321e0c36d917741b2587fe9ca60227f", null ],
     [ "AddModifier", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a914e35740f037fcc4d0eb2a3f33632e6", null ],
     [ "RemoveModifier", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a3701f0f96dcc74744b2c6f5d452c4902", null ],
+    [ "ValueChanged", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa24ace4343b8f74570014ac80b5150cf", null ],
     [ "ToString", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
     [ "Reset", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a372de693ad40b3f42839c8ec6ac845f4", null ],
     [ "_name", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a92749b8d4b3ef0c4b1d2a4532db9032e", null ],
@@ -17,5 +18,6 @@ var class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute =
     [ "MaxValue", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a3ae20c57ad2176dfe07183c4f539c4b1", null ],
     [ "MinValue", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a1758c6842bb284dd445ffd60404a04d5", null ],
     [ "Modifiers", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8fb5eac914f9001852776703d6439ec7", null ],
-    [ "IsModified", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a50027866157dd66f522037fc1f811d92", null ]
+    [ "IsModified", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a50027866157dd66f522037fc1f811d92", null ],
+    [ "OnValueChanged", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a570f03fd16322973dad16e219ed0f6ce", null ]
 ];

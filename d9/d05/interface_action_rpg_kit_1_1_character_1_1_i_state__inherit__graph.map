@@ -1,4 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml" title="{IdleState\n||+ EnterState()\l+ ExitState()\l+ UpdateState()\l}" alt="" coords="5,173,120,293"/>
-<area shape="rect" id="node5" href="$d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml" title="{MoveState\n||+ EnterState()\l+ ExitState()\l+ UpdateState()\l}" alt="" coords="144,173,259,293"/>
+<area shape="rect" id="node3" href="$df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml" title="{AlertState\n||+ EnterState()\l+ ExitState()\l+ UpdateState()\l}" alt="" coords="5,173,120,293"/>
+<area shape="rect" id="node5" href="$d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml" title="{AttackState\n||+ EnterState()\l+ ExitState()\l+ UpdateState()\l}" alt="" coords="144,173,259,293"/>
+<area shape="rect" id="node7" href="$d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml" title="{ChaseState\n||+ EnterState()\l+ ExitState()\l+ UpdateState()\l}" alt="" coords="283,173,397,293"/>
+<area shape="rect" id="node9" href="$da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml" title="The initial State of a Character." alt="" coords="421,173,536,293"/>
 </map>

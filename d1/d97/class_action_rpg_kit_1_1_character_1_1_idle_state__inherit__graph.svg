@@ -22,15 +22,15 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<a xlink:href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" target="_top" xlink:title="{IState\n||+ EnterState()\l+ UpdateState()\l+ ExitState()\l}">
+<a xlink:href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" target="_top" xlink:title="Determine the state of a Character.">
 <polygon fill="white" stroke="black" points="0,-126.5 0,-215.5 86,-215.5 86,-126.5 0,-126.5"/>
 <text text-anchor="middle" x="43" y="-202.5" font-family="Helvetica,sans-Serif" font-size="10.00">IState</text>
 <polyline fill="none" stroke="black" points="0,-194.5 86,-194.5 "/>
 <text text-anchor="middle" x="43" y="-181.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="0,-173.5 86,-173.5 "/>
 <text text-anchor="start" x="8" y="-160.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ EnterState()</text>
-<text text-anchor="start" x="8" y="-147.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ UpdateState()</text>
-<text text-anchor="start" x="8" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ExitState()</text>
+<text text-anchor="start" x="8" y="-147.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ExitState()</text>
+<text text-anchor="start" x="8" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ UpdateState()</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node1 -->
