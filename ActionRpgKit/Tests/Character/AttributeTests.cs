@@ -158,11 +158,30 @@ namespace ActionRpgKit.Tests.Character
             Body.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
             Body.Value = 100;
             Assert.AreEqual(1, _valueChangedEventTriggered);
-
-            Level.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
-            Experience.Value = 100;
+            
+            // Adding a modifier triggers the signal
+            var modifier = new TimeBasedModifier("StrengthBuff", 10, 10);
+            Body.AddModifier(modifier);
             Assert.AreEqual(2, _valueChangedEventTriggered);
             
+            // Removing a modifier triggers the signal
+            Body.RemoveModifier(modifier);
+            Assert.AreEqual(3, _valueChangedEventTriggered);
+            
+            // Secondary Attributes work the same
+            Level.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
+            Experience.Value = 100;
+            Assert.AreEqual(4, _valueChangedEventTriggered);    
+            
+            // Adding a modifier triggers the signal
+            Experience.AddModifier(modifier);
+            Assert.AreEqual(5, _valueChangedEventTriggered);
+            
+            // Removing a modifier triggers the signal
+            Experience.RemoveModifier(modifier);
+            Assert.AreEqual(6, _valueChangedEventTriggered);
+            
+            // Maximum and minimum signals are emitted too.
             Body.OnMaxReached += new MaxReachedHandler(MaxReachedDemo);
             Body.Value = 999;
             Assert.AreEqual(1, _maxReachedEventTriggered);
