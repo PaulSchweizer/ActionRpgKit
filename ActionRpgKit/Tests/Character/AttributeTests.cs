@@ -16,7 +16,9 @@ namespace ActionRpgKit.Tests.Character
         VolumeAttribute Life;
         VolumeAttribute Magic;
 
-        int _eventTriggered;
+        int _valueChangedEventTriggered;
+        int _maxReachedEventTriggered;
+        int _minReachedEventTriggered;
 
         [SetUp]
         public void SetUp()
@@ -155,18 +157,34 @@ namespace ActionRpgKit.Tests.Character
             // Change the value and test the received signal
             Body.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
             Body.Value = 100;
-            Assert.AreEqual(1, _eventTriggered);
+            Assert.AreEqual(1, _valueChangedEventTriggered);
 
             Level.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
             Experience.Value = 100;
-            Assert.AreEqual(2, _eventTriggered);
+            Assert.AreEqual(2, _valueChangedEventTriggered);
+            
+            Body.OnMaxReachedChanged += new MaxReachedHandler(MaxReachedDemo);
+            Body.Value = 999;
+            Assert.AreEqual(1, _maxReachedEventTriggered);
 
+            Body.OnMinReachedChanged += new MinReachedHandler(MinReachedDemo);
+            Body.Value = -100;
+            Assert.AreEqual(1, _minReachedEventTriggered);
         }
 
         public void ValueChangedDemo(IAttribute sender, float value)
         {
-            _eventTriggered += 1;
+            _valueChangedEventTriggered += 1;
         }
 
+        public void MaxReachedDemo(IAttribute sender)
+        {
+            _maxReachedEventTriggered += 1;
+        }
+
+        public void MinReachedDemo(IAttribute sender)
+        {
+            _minReachedEventTriggered += 1;
+        }
     }
 }
