@@ -50,6 +50,8 @@ namespace ActionRpgKit.Character.Attribute
         void Reset();
 
         event ValueChangedHandler OnValueChanged;
+        event MaxReachedHandler OnMaxReached;
+        event MinReachedHandler OnMinReached;
     }
 
     /// <summary>
@@ -57,6 +59,10 @@ namespace ActionRpgKit.Character.Attribute
     /// <param name="sender">The sender</param>
     /// <param name="value">The new value</param>
     public delegate void ValueChangedHandler(IAttribute sender, float value);
+    
+    public delegate void MaxReachedHandler(IAttribute sender);
+    
+    public delegate void MinReachedHandler(IAttribute sender);
 
     /// <summary>
     /// Represents a simple float value.</summary>
@@ -64,6 +70,8 @@ namespace ActionRpgKit.Character.Attribute
     {
         
         public event ValueChangedHandler OnValueChanged;
+        public event MaxReachedHandler OnMaxReached;
+        public event MinReachedHandler OnMinReached;
 
         private string _name;
         private float _value;
