@@ -10,5 +10,7 @@ var interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute =
     [ "MinValue", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a1f8271e028fcfea0f7388b35342ae991", null ],
     [ "Modifiers", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a8fb5eac914f9001852776703d6439ec7", null ],
     [ "IsModified", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a50027866157dd66f522037fc1f811d92", null ],
-    [ "OnValueChanged", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a570f03fd16322973dad16e219ed0f6ce", null ]
+    [ "OnValueChanged", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a570f03fd16322973dad16e219ed0f6ce", null ],
+    [ "OnMaxReached", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a5ea4e0793838b73c13c077de8015283a", null ],
+    [ "OnMinReached", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a1613d22d444ae8dd4ab764a0b69a83cc", null ]
 ];

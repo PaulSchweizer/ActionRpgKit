@@ -112,12 +112,14 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new modifier to the attribute and activate it.  <a href="#a914e35740f037fcc4d0eb2a3f33632e6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a3701f0f96dcc74744b2c6f5d452c4902">RemoveModifier</a> (<a class="el" href="../../d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml">IModifier</a> modifier)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a modifier from the attribute.  <a href="#a3701f0f96dcc74744b2c6f5d452c4902"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a372de693ad40b3f42839c8ec6ac845f4">Reset</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a> to it's maximum value.  <a href="#a372de693ad40b3f42839c8ec6ac845f4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa24ace4343b8f74570014ac80b5150cf">ValueChanged</a> (float value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#af58266b7c1fc2e5658700b74d64c8693">MaxReached</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a0d6095be91fc70f5f478a63bdcf1200a">MinReached</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td></tr>
@@ -137,6 +139,8 @@ Properties</h2></td></tr>
 <tr><td colspan="2"><h2><a name="events"></a>
 Events</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#aef378f23f0766ed281eb7ad8d551b634">ValueChangedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a570f03fd16322973dad16e219ed0f6ce">OnValueChanged</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a56a445f9cbed724ff5d39a697c0caa01">MaxReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a5ea4e0793838b73c13c077de8015283a">OnMaxReached</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad2e97a1e7589e4e780518f55ec2770f0">MinReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a1613d22d444ae8dd4ab764a0b69a83cc">OnMinReached</a></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a92749b8d4b3ef0c4b1d2a4532db9032e">_name</a></td></tr>
@@ -263,15 +267,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa73e7c4dd1df5fd5fbf81c7764ee1533"></a><!-- doxytag: member="ActionRpgKit::Character::Attribute::PrimaryAttribute::ToString" ref="aa73e7c4dd1df5fd5fbf81c7764ee1533" args="()" -->
+<a class="anchor" id="af58266b7c1fc2e5658700b74d64c8693"></a><!-- doxytag: member="ActionRpgKit::Character::Attribute::PrimaryAttribute::MaxReached" ref="af58266b7c1fc2e5658700b74d64c8693" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">override string <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> </td>
+          <td class="memname">void <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#af58266b7c1fc2e5658700b74d64c8693">MaxReached</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td><code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0d6095be91fc70f5f478a63bdcf1200a"></a><!-- doxytag: member="ActionRpgKit::Character::Attribute::PrimaryAttribute::MinReached" ref="a0d6095be91fc70f5f478a63bdcf1200a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a0d6095be91fc70f5f478a63bdcf1200a">MinReached</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, protected]</code></td>
         </tr>
       </table>
 </div>
@@ -296,6 +316,22 @@ Private Attributes</h2></td></tr>
 <p>Reset the <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a> to it's maximum value. </p>
 
 <p>Implements <a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a372de693ad40b3f42839c8ec6ac845f4">IAttribute</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa73e7c4dd1df5fd5fbf81c7764ee1533"></a><!-- doxytag: member="ActionRpgKit::Character::Attribute::PrimaryAttribute::ToString" ref="aa73e7c4dd1df5fd5fbf81c7764ee1533" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override string <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -507,6 +543,36 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a5ea4e0793838b73c13c077de8015283a"></a><!-- doxytag: member="ActionRpgKit::Character::Attribute::PrimaryAttribute::OnMaxReached" ref="a5ea4e0793838b73c13c077de8015283a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a56a445f9cbed724ff5d39a697c0caa01">MaxReachedHandler</a> <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a5ea4e0793838b73c13c077de8015283a">OnMaxReached</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a5ea4e0793838b73c13c077de8015283a">IAttribute</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1613d22d444ae8dd4ab764a0b69a83cc"></a><!-- doxytag: member="ActionRpgKit::Character::Attribute::PrimaryAttribute::OnMinReached" ref="a1613d22d444ae8dd4ab764a0b69a83cc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad2e97a1e7589e4e780518f55ec2770f0">MinReachedHandler</a> <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a1613d22d444ae8dd4ab764a0b69a83cc">OnMinReached</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a1613d22d444ae8dd4ab764a0b69a83cc">IAttribute</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Attribute.cs</li>
 </ul>
@@ -533,7 +599,7 @@ Private Attributes</h2></td></tr>
       <li class="navelem"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a>      </li>
       <li class="navelem"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml">PrimaryAttribute</a>      </li>
 
-    <li class="footer">Generated on Mon Sep 19 2016 23:36:40 for Action RPG Kit by
+    <li class="footer">Generated on Tue Sep 20 2016 21:02:21 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

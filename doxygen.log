@@ -427,6 +427,6 @@ Patching output file 121/124
 Patching output file 122/124
 Patching output file 123/124
 Patching output file 124/124
-symbol cache used 351/65536 hits=21414 misses=351
-lookup cache used 560/65536 hits=1577 misses=642
+symbol cache used 359/65536 hits=21882 misses=359
+lookup cache used 572/65536 hits=1603 misses=654
 finished...
