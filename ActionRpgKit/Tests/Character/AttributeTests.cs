@@ -163,11 +163,11 @@ namespace ActionRpgKit.Tests.Character
             Experience.Value = 100;
             Assert.AreEqual(2, _valueChangedEventTriggered);
             
-            Body.OnMaxReachedChanged += new MaxReachedHandler(MaxReachedDemo);
+            Body.OnMaxReached += new MaxReachedHandler(MaxReachedDemo);
             Body.Value = 999;
             Assert.AreEqual(1, _maxReachedEventTriggered);
 
-            Body.OnMinReachedChanged += new MinReachedHandler(MinReachedDemo);
+            Body.OnMinReached += new MinReachedHandler(MinReachedDemo);
             Body.Value = -100;
             Assert.AreEqual(1, _minReachedEventTriggered);
         }
