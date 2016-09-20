@@ -142,14 +142,6 @@ namespace ActionRpgKit.Character.Attribute
             {
                 BaseValue = value;
                 ValueChanged(value);
-                if (Value == MaxValue)
-                {
-                    MaxReached();
-                }
-                else if (Value == MinValue)
-                {
-                    MinReached();
-                }
             }
         }
 
