@@ -16,3 +16,4 @@ The [Code Documentation](https://paulschweizer.github.io/ActionRpgKit/) is creat
 ## Developing
 The development is (mostly) test driven. 
 [Travis-CI](https://travis-ci.org/PaulSchweizer/ActionRpgKit/branches) is set up to run the unittests with nunit on each push and pull-request. 
+[Code Climate](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit/badges) is not properly set up as of now.
