@@ -142,6 +142,14 @@ namespace ActionRpgKit.Character.Attribute
             {
                 BaseValue = value;
                 ValueChanged(value);
+                if (value == MaxValue)
+                {
+                    MaxReached();
+                }
+                else if (value == MinValue)
+                {
+                    MinReached();
+                }
             }
         }
 
@@ -207,10 +215,6 @@ namespace ActionRpgKit.Character.Attribute
 
         protected void ValueChanged (float value)
         {
-            if (Value == MaxValue)
-            {
-                MaxReached();
-            }
             if (OnValueChanged != null)
             {
                 OnValueChanged(this, value);
