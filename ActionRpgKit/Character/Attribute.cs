@@ -142,6 +142,14 @@ namespace ActionRpgKit.Character.Attribute
             {
                 BaseValue = value;
                 ValueChanged(value);
+                if (Value == MaxValue)
+                {
+                    MaxReached();
+                }
+                else if (Value == MinValue)
+                {
+                    MinReached();
+                }
             }
         }
 
@@ -213,6 +221,27 @@ namespace ActionRpgKit.Character.Attribute
             }
         }
 
+        protected void MaxReached ()
+        {
+            if (OnMaxReached != null)
+            {
+                OnMaxReached(this);
+            }
+        }
+        
+        protected void MinReached ()
+        {
+            if (OnMinReached != null)
+            {
+                OnMinReached(this);
+            }
+        }
+
+        public void Reset ()
+        {
+            Value = BaseValue;
+        }
+
         public override string ToString()
         {
             string repr = String.Format("{0, -10}: {1,-3} ({2} - {3})", Name, Value, MinValue, MaxValue);
@@ -221,11 +250,6 @@ namespace ActionRpgKit.Character.Attribute
                 repr += "\n            + " + Modifiers[i].ToString();
             }
             return repr;
-        }
-
-        public void Reset ()
-        {
-            Value = BaseValue;
         }
     }
 
@@ -265,11 +289,6 @@ namespace ActionRpgKit.Character.Attribute
             {
                 _attributes[i].OnValueChanged += new ValueChangedHandler(ValueChanged);
             }
-        }
-
-        public void ValueChanged (IAttribute sender, float value)
-        {
-            ValueChanged(value);
         }
 
         public override float BaseValue
