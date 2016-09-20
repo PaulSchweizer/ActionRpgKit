@@ -287,7 +287,7 @@ namespace ActionRpgKit.Character.Attribute
             _attributes = attributes;
             for (int i = 0; i < _attributes.Length; i++)
             {
-                _attributes[i].OnValueChanged += new ValueChangedHandler(ValueChanged);
+                _attributes[i].OnValueChanged += new ValueChangedHandler(ValueOfFormulatAttributeChanged);
             }
         }
 
@@ -301,6 +301,11 @@ namespace ActionRpgKit.Character.Attribute
             {
                 base.BaseValue = value;
             }
+        }
+        
+        public void ValueOfFormulatAttributeChanged (IAttribute sender, float value)
+        {
+            ValueChanged(value);
         }
     }
     
