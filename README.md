@@ -1,6 +1,6 @@
 # ActionRpgKit
 
-![Build Status](https://travis-ci.org/PaulSchweizer/ActionRpgKit.svg?branch=master) [![Code Climate](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit/badges/gpa.svg)](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit)
+![Build Status](https://travis-ci.org/PaulSchweizer/ActionRpgKit.svg?branch=master)
 
 ## Overview
 A simle to use kit for creating Action RPGs. The Kit is meant to be used within the Unity Game Engine, but is designed to have no dependency to Unity. This ensures a clean separation of logic and implementation.
@@ -16,5 +16,3 @@ The [Code Documentation](https://paulschweizer.github.io/ActionRpgKit/) is creat
 ## Developing
 The development is (mostly) test driven. 
 [Travis-CI](https://travis-ci.org/PaulSchweizer/ActionRpgKit/branches) is set up to run the unittests with nunit on each push and pull-request. 
-
-[Code Climate](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit/badges) is not properly set up as of now.
