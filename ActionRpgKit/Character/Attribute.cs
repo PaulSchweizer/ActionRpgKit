@@ -211,11 +211,11 @@ namespace ActionRpgKit.Character.Attribute
             {
                 OnValueChanged(this, value);
             }
-            if (value == MaxValue)
+            if (value >= MaxValue)
             {
                 MaxReached();
             }
-            else if (value == MinValue)
+            else if (value <= MinValue)
             {
                 MinReached();
             }
