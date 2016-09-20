@@ -207,6 +207,10 @@ namespace ActionRpgKit.Character.Attribute
 
         protected void ValueChanged (float value)
         {
+            if (Value == MaxValue)
+            {
+                MaxReached();
+            }
             if (OnValueChanged != null)
             {
                 OnValueChanged(this, value);
