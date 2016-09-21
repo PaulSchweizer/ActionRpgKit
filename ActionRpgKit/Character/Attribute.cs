@@ -183,11 +183,13 @@ namespace ActionRpgKit.Character.Attribute
         {
             modifier.Activate();
             _modifiers.Add(modifier);
+            ValueChanged(Value);
         }
 
         public void RemoveModifier (IModifier modifier)
         {
             Modifiers.Remove(modifier);
+            ValueChanged(Value);
         }
 
         public bool IsModified
