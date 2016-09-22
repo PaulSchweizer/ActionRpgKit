@@ -18,6 +18,7 @@ before_install:
 
 install:
   - nuget restore ActionRpgKit.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
   - sudo apt-get install gtk-sharp2
   - curl -sS https://api.nuget.org/packages/mono.cecil.0.9.5.4.nupkg > /tmp/mono.cecil.0.9.5.4.nupkg.zip
   - unzip /tmp/mono.cecil.0.9.5.4.nupkg.zip -d /tmp/cecil
@@ -30,12 +31,10 @@ install:
   - make
   - sudo make install
   - cd ../../csMACnz/Coveralls.net-Samples
-
-# Build your code e.g. by calling make
 script:
   - xbuild /p:Configuration=Release ActionRpgKit.sln
   - export LD_LIBRARY_PATH=/usr/local/lib
-  - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+ActionRpgKit ./src/packages/NUnit.Console.3.0.0-beta-3/tools/nunit-console.exe --process=Single $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+  - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+ActionRpgKit ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe --process=Single $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Release/ActionRpgKit.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
   - cat monocovCoverage.cov
   - ls monocovCoverage
