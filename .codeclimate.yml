@@ -8,4 +8,11 @@ engines:
 ratings:
   paths: 
     - "**.cs"
-exclude_paths: ["README.md"]
+exclude_paths: 
+  - "README.md"
+  - "ActionRpgKit/Tests/Story/storyline.xml"
+  - "config.dox"
+  - "generateDocumentationAndDeploy.sh"
+  - ".gitignore"
+  - "ActionRpgKit.sln"
+  - "ActionRpgKit/ActionRpgKit.csproj"
