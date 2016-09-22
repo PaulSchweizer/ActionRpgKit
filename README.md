@@ -1,6 +1,6 @@
 # ActionRpgKit
 
-![Build Status](https://travis-ci.org/PaulSchweizer/ActionRpgKit.svg?branch=master) [![Code Climate](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit/badges/gpa.svg)](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit)
+![Build Status](https://travis-ci.org/PaulSchweizer/ActionRpgKit.svg?branch=master) [![Code Climate](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit/badges/gpa.svg)](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit) [![Coverage Status](https://coveralls.io/repos/github/PaulSchweizer/ActionRpgKit/badge.svg?branch=master)](https://coveralls.io/github/PaulSchweizer/ActionRpgKit?branch=master)
 
 ## Overview
 A simle to use kit for creating Action RPGs. The Kit is meant to be used within the Unity Game Engine, but is designed to have no dependency to Unity. This ensures a clean separation of logic and implementation.
