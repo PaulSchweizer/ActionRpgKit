@@ -16,8 +16,8 @@ env:
 
 before_install:
     - sudo apt-get update
-    - sudo apt-get install python-software-properties
-    - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
+    # - sudo apt-get install python-software-properties
+    # - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
     - sudo apt-get install doxygen
     - sudo apt-get install graphviz
     - sudo apt-get install nunit-console
@@ -31,7 +31,6 @@ install:
 script:
   - xbuild /p:Configuration=Debug ActionRpgKit.sln
   - mono --debug --profile=monocov ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
-  - monocov --export-html=$TRAVIS_BUILD_DIR/coverage $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll.cov
 
 # Generate and deploy documentation
 after_success:
