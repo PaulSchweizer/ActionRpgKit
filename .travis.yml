@@ -26,11 +26,12 @@ before_install:
 install:
   - nuget restore ActionRpgKit.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - nuget install coveralls.net -Pre 
 
 # Build your code e.g. by calling make
 script:
   - xbuild /p:Configuration=Debug ActionRpgKit.sln
-  - mono --debug --profile=monocov ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+  - mono --debug --profile=./monocov ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
 
 # Generate and deploy documentation
 after_success:
