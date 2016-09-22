@@ -9,7 +9,7 @@ assembly_info:
   assembly_informational_version: '{version}'
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: ccQ+As60wXwW+67I7IMmQUlt+z2qXhI4GKLsbMPr13JitDr3MLgx8jXcGCZCfrMm
+    secure: "ccQ+As60wXwW+67I7IMmQUlt+z2qXhI4GKLsbMPr13JitDr3MLgx8jXcGCZCfrMm"
 before_build:
   - nuget restore "ActionRpgKit.sln"
 build:
