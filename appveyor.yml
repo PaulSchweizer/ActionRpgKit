@@ -10,7 +10,7 @@ assembly_info:
   assembly_informational_version: '{version}'
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
+    secure: szzC3TcaH5mhQaV2F3r3oynX7jXfBGPWW
 before_build:
   - nuget restore "ActionRpgKit.sln"
 build:
@@ -18,7 +18,7 @@ build:
   verbosity: minimal
 test_script:
 - ps: >-
-    .\src\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe "-targetargs:""ActionRpgKit/bin/Debug/ActionRpgKit.dll"" /noshadow" -filter:"+[ActionRpgKit*]*" -output:opencoverCoverage.xml
+    .ActionRpgKit\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe "-targetargs:""ActionRpgKit/bin/Debug/ActionRpgKit.dll"" /noshadow" -filter:"+[ActionRpgKit*]*" -output:opencoverCoverage.xml
 
     $coveralls = (Resolve-Path "src/packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
     
