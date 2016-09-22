@@ -1,7 +1,3 @@
-
-# This will run on Travis' 'new' container-based infrastructure
-# sudo: false
-
 language: csharp
 
 solution: ActionRpgKit.sln
@@ -16,39 +12,49 @@ env:
 
 before_install:
     - sudo apt-get update
-    # - sudo apt-get install python-software-properties
-    # - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
     - sudo apt-get install doxygen
     - sudo apt-get install graphviz
-    - sudo apt-get install nunit-console
     - sudo apt-get update
 
 install:
   - nuget restore ActionRpgKit.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
-  - nuget install coveralls.net -Pre 
+  - sudo apt-get install gtk-sharp2
+  - curl -sS https://api.nuget.org/packages/mono.cecil.0.9.5.4.nupkg > /tmp/mono.cecil.0.9.5.4.nupkg.zip
+  - unzip /tmp/mono.cecil.0.9.5.4.nupkg.zip -d /tmp/cecil
+  - cp /tmp/cecil/lib/net40/Mono.Cecil.dll .
+  - cp /tmp/cecil/lib/net40/Mono.Cecil.dll /tmp/cecil/
+  - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../csMACnz/monocov
+  - cd ../../csMACnz/monocov
+  - cp /tmp/cecil/Mono.Cecil.dll .
+  - ./configure
+  - make
+  - sudo make install
+  - cd ../../csMACnz/Coveralls.net-Samples
 
 # Build your code e.g. by calling make
 script:
-  - xbuild /p:Configuration=Debug ActionRpgKit.sln
-  - mono --debug --profile=./monocov ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+  - xbuild /p:Configuration=Release ActionRpgKit.sln
+  - export LD_LIBRARY_PATH=/usr/local/lib
+  - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+ActionRpgKit ./src/packages/NUnit.Console.3.0.0-beta-3/tools/nunit-console.exe --process=Single $TRAVIS_BUILD_DIR/ActionRpgKit/bin/Debug/ActionRpgKit.dll
+  - monocov --export-xml=monocovCoverage monocovCoverage.cov
+  - cat monocovCoverage.cov
+  - ls monocovCoverage
+  - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
+  - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
+  - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
+  - echo $TRAVIS_COMMIT
+  - echo $TRAVIS_BRANCH
+  - echo $REPO_COMMIT_AUTHOR
+  - echo $REPO_COMMIT_AUTHOR_EMAIL
+  - echo $REPO_COMMIT_MESSAGE
+  - echo $TRAVIS_JOB_ID
+  - mono ./src/packages/coveralls.net.0.6.0/tools/csmacnz.Coveralls.exe --monocov -i ./monocovCoverage --repoToken $COVERALLS_REPO_TOKEN --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID  --serviceName travis-ci  --useRelativePaths
 
 # Generate and deploy documentation
 after_success:
   - cd $TRAVIS_BUILD_DIR
   - chmod 777 generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
-
-# Install dependencies
-addons:
-  apt:
-    packages:
-      # - doxygen
-      # - doxygen-doc
-      # - doxygen-latex
-      # - doxygen-gui
-      # - graphviz
-      # - nunit-console
 
 # Blacklist
 branches:
