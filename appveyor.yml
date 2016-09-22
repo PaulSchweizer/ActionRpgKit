@@ -19,7 +19,7 @@ test_script:
 - ps: >-
     .\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe "-targetargs:""ActionRpgKit/bin/Release/ActionRpgKit.dll"" /noshadow" -filter:"+[ActionRpgKit*]*" -output:opencoverCoverage.xml
 
-    $coveralls = (Resolve-Path "/packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
+    $coveralls = (Resolve-Path "./packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
     
     $env:APPVEYOR_BUILD_NUMBER
     
