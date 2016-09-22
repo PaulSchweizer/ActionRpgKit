@@ -1,4 +1,3 @@
-
 version: 1.0.{build}
 skip_tags: true
 configuration: Release
@@ -18,7 +17,7 @@ build:
   verbosity: minimal
 test_script:
 - ps: >-
-    .ActionRpgKit\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe "-targetargs:""ActionRpgKit/bin/Debug/ActionRpgKit.dll"" /noshadow" -filter:"+[ActionRpgKit*]*" -output:opencoverCoverage.xml
+    ActionRpgKit\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe "-targetargs:""ActionRpgKit/bin/Debug/ActionRpgKit.dll"" /noshadow" -filter:"+[ActionRpgKit*]*" -output:opencoverCoverage.xml
 
     $coveralls = (Resolve-Path "/packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
     
