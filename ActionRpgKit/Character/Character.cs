@@ -63,6 +63,10 @@ namespace ActionRpgKit.Character
         float Life { get; set; }
 
         /// <summary>
+        /// Whether the Fighter has been killed.</summary>
+        void IsDead{ get; set; }
+
+        /// <summary>
         /// Targeted enemies of the fighter.</summary>
         List<IFighter> Enemies { get; }
 
@@ -135,7 +139,7 @@ namespace ActionRpgKit.Character
         private List<ICombatSkill> _combatSkills = new List<ICombatSkill>();
         private List<float> _combatSkillEndTimes = new List<float>();
 
-        public BaseCharacter ()
+        public BaseCharacter()
         {
             _idleState = new IdleState();
             _alertState = new AlertState();
@@ -143,27 +147,25 @@ namespace ActionRpgKit.Character
             _attackState = new AttackState();
             _dyingState = new DyingState();
             CurrentState = _idleState;
-        }
-
-        public BaseCharacter (string name)
-        {
-            Name = name;
+            
+            // Connect internal signals
+            Stats.Life.OnMinReached += new MinReachedHandler(OnDeath);
         }
 
         public override string ToString()
         {
             string repr = string.Format("### CHARACTER: {0} ########################\n" +
-                                "--- Primary Attributes ------------\n" +
-                                 "{1}\n{2}\n{3}\n{4}\n" +
-                                 "--- Secondary Attributes ------------\n" +
-                                 "{5}\n{6}\n",
-                                 Name,
-                                 Stats.Body.ToString(),
-                                 Stats.Mind.ToString(),
-                                 Stats.Soul.ToString(),
-                                 Stats.Level.ToString(),
-                                 Stats.Life.ToString(),
-                                 Stats.Magic.ToString());
+                                        "--- Primary Attributes ------------\n" +
+                                         "{1}\n{2}\n{3}\n{4}\n" +
+                                         "--- Secondary Attributes ------------\n" +
+                                         "{5}\n{6}\n",
+                                         Name,
+                                         Stats.Body.ToString(),
+                                         Stats.Mind.ToString(),
+                                         Stats.Soul.ToString(),
+                                         Stats.Level.ToString(),
+                                         Stats.Life.ToString(),
+                                         Stats.Magic.ToString());
             repr += "--- Combat Skills ------------\n";
             for (int i = 0; i < CombatSkills.Count; i++)
             {
@@ -234,13 +236,13 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void LearnMagicSkill (IMagicSkill magicSkill)
+        public void LearnMagicSkill(IMagicSkill magicSkill)
         {
             _magicSkills.Add(magicSkill);
             _magicSkillEndTimes.Add(-1);
         }
 
-        public bool TriggerMagicSkill (IMagicSkill magicSkill)
+        public bool TriggerMagicSkill(IMagicSkill magicSkill)
         {
             if (!MagicSkillCanBeUsed(magicSkill))
             {
@@ -256,7 +258,7 @@ namespace ActionRpgKit.Character
         /// A countdown before the MagicSkill takes action.</summary>
         /// <remarks>This can be used for syncing animations or effects.</remarks>
         /// <param name=magicSkill>The Skill to use</param>
-        public virtual void PreUseCountdown (IMagicSkill magicSkill)
+        public virtual void PreUseCountdown(IMagicSkill magicSkill)
         {
             //
             // Implement a Coroutine in Monobehaviour
@@ -267,7 +269,7 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Triggers the use of the Skill</summary>
         /// <param name=magicSkill>The Skill to use</param>
-        private void UseMagicSkill (IMagicSkill magicSkill)
+        private void UseMagicSkill(IMagicSkill magicSkill)
         {
             magicSkill.Use(this);
         }
@@ -277,7 +279,7 @@ namespace ActionRpgKit.Character
         /// magic energy and is not in cooldown of the Skill.</summary>
         /// <param name=magicSkill>The Skill to test</param>
         /// <returns> Whether the Skill van be used.</returns>
-        private bool MagicSkillCanBeUsed (IMagicSkill magicSkill)
+        private bool MagicSkillCanBeUsed(IMagicSkill magicSkill)
         {
             if (!MagicSkills.Contains(magicSkill))
             {
@@ -306,6 +308,8 @@ namespace ActionRpgKit.Character
             }
         }
 
+        void IsDead{ get; set; }
+
         public List<IFighter> Enemies
         {
             get
@@ -318,12 +322,12 @@ namespace ActionRpgKit.Character
 
         public ICombatSkill CurrentAttackSkill { get; set; }
 
-        public void AddEnemy (IFighter enemy, int index=0)
+        public void AddEnemy(IFighter enemy, int index=0)
         {
             Enemies.Insert(0, enemy);
         }
 
-        public void RemoveEnemy (IFighter enemy)
+        public void RemoveEnemy(IFighter enemy)
         {
             if (Enemies.Contains(enemy))
             {
@@ -331,7 +335,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public bool EnemyInAlternessRange ()
+        public bool EnemyInAlternessRange()
         {
             for (int i = Enemies.Count - 1; i >= 0; i--)
             {
@@ -353,7 +357,7 @@ namespace ActionRpgKit.Character
             return Position.DistanceTo(enemy.Position) <= Stats.AttackRange.Value;
         }
 
-        public bool CanAttack ()
+        public bool CanAttack()
         {
             return GameTime.time > TimeUntilNextAttack;
         }
@@ -371,13 +375,13 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void LearnCombatSkill (ICombatSkill combatSkill)
+        public void LearnCombatSkill(ICombatSkill combatSkill)
         {
             _combatSkills.Add(combatSkill);
             _combatSkillEndTimes.Add(-1);
         }
 
-        public bool TriggerCombatSkill (ICombatSkill combatSkill)
+        public bool TriggerCombatSkill(ICombatSkill combatSkill)
         {
             if (!CombatSkillCanBeUsed(combatSkill))
             {
@@ -392,7 +396,7 @@ namespace ActionRpgKit.Character
         /// A countdown before the CombatSkill takes action.</summary>
         /// <remarks>This can be used for syncing animations or effects.</remarks>
         /// <param name=combatSkill>The Skill to use</param>
-        public virtual void PreUseCountdown (ICombatSkill combatSkill)
+        public virtual void PreUseCountdown(ICombatSkill combatSkill)
         {
             //
             // Implement a Coroutine in Monobehaviour
@@ -402,7 +406,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Subtract the damage from the current life</summary>
-        public void OnAttacked (IFighter attacker, float damage)
+        public void OnAttacked(IFighter attacker, float damage)
         {
             Life -= damage;
         }
@@ -410,7 +414,7 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Triggers the use of the Skill</summary>
         /// <param name=combatSkill>The Skill to use</param>
-        private void UseCombatSkill (ICombatSkill combatSkill)
+        private void UseCombatSkill(ICombatSkill combatSkill)
         {
             combatSkill.Use(this);
         }
@@ -420,7 +424,7 @@ namespace ActionRpgKit.Character
         // in cooldown of the Skill.</summary>
         /// <param name=combatSkill>The Skill to test</param>
         /// <returns> Whether the Skill van be used.</returns>
-        private bool CombatSkillCanBeUsed (ICombatSkill combatSkill)
+        private bool CombatSkillCanBeUsed(ICombatSkill combatSkill)
         {
             if (!CombatSkills.Contains(combatSkill))
             {
@@ -428,7 +432,14 @@ namespace ActionRpgKit.Character
             }
             return GameTime.time >= _combatSkillEndTimes[CombatSkills.IndexOf(combatSkill)];
         }
-
+        
+        /// <summary>
+        /// The Character has just been killed.</summary>
+        private void OnDeath(IAttribute sender)
+        {
+            ChangeState(_dyingState);
+            IsDead = true;
+        }
     }
     
     /// <summary>
