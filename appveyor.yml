@@ -1,9 +1,22 @@
-version: 0.0.{build}
+version: 1.0.{build}
+skip_tags: true
 configuration: Release
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
 environment:
   COVERALLS_REPO_TOKEN:
     secure: ccQ+As60wXwW+67I7IMmQUlt+z2qXhI4GKLsbMPr13JitDr3MLgx8jXcGCZCfrMm
 before_build:
-  - nuget restore 
-after_test:
-  - cmd: .\after_test.cmd
+  - nuget restore "./ActionRpgKit.sln"
+build:
+  project: ActionRpgKit.sln
+  verbosity: minimal
+
+
+
+
+
