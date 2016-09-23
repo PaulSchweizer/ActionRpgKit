@@ -11,7 +11,7 @@ namespace ActionRpgKit.Tests.Character
     public class MySetUpClass
     {
         [SetUp]
-    	RunBeforeAnyTests()
+    	public void RunBeforeAnyTests()
     	{
             CharacterTests.player = new Player();
             CharacterTests.enemy = new Enemy();
