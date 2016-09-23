@@ -4,6 +4,7 @@ using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Character.Stats;
 using ActionRpgKit.Core;
 using ActionRpgKit.Character;
+using ActionRpgKit.Attribute;
 
 namespace ActionRpgKit.Character
 {
