@@ -22,7 +22,7 @@ namespace ActionRpgKit.Tests.Character
                             cooldownTime: 1,
                             damage: 1,
                             maximumTargets: 1);
-            CharacterTests.player.LearnCombatSkill(meleeSkill);
+            CharacterTests.player.LearnCombatSkill(CharacterTests.meleeSkill);
             CharacterTests.enemy.Stats.Life.Value = 10;
             GameTime.Reset();
     	}
