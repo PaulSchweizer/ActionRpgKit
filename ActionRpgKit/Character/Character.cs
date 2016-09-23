@@ -308,7 +308,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        void IsDead{ get; set; }
+        public void IsDead { get; set; }
 
         public List<IFighter> Enemies
         {
