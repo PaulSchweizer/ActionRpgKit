@@ -455,6 +455,13 @@ namespace ActionRpgKit.Character
             Inventory = new PlayerInventory();
         }
 
+        public Player(string name) : base()
+        {
+            Name = name;
+            Stats = new PlayerStats();
+            Inventory = new PlayerInventory();
+        }
+
         public override IInventory Inventory
         {
             get
@@ -476,6 +483,13 @@ namespace ActionRpgKit.Character
 
         public Enemy() : base()
         {
+            Stats = new EnemyStats();
+            Inventory = new SimpleInventory();
+        }
+
+        public Enemy(string name) : base()
+        {
+            Name = name;
             Stats = new EnemyStats();
             Inventory = new SimpleInventory();
         }
