@@ -15,7 +15,8 @@ before_build:
 build:
   project: ActionRpgKit.sln
   verbosity: minimal
-
+after_test:
+  - cmd: .\after_test.cmd
 
 
 
