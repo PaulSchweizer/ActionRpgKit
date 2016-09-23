@@ -6,29 +6,42 @@ using ActionRpgKit.Character.Skill;
 
 namespace ActionRpgKit.Tests.Character
 {
-    [TestFixture]
-    [Category("Character.Character")]
-    class CharacterTests
+    
+    [SetUpFixture]
+    public class MySetUpClass
     {
-        Player player;
-        Enemy enemy;
-        ICombatSkill meleeSkill;
-
         [SetUp]
-        public void SetUp()
-        {
-            player = new Player();
-            enemy = new Enemy();
-            meleeSkill = new MeleeSkill(id: 1,
+    	RunBeforeAnyTests()
+    	{
+            CharacterTests.player = new Player();
+            CharacterTests.enemy = new Enemy();
+            CharacterTests.meleeSkill = new MeleeSkill(id: 1,
                             name: "SwordFighting",
                             description: "Wield a sword effectively.",
                             preUseTime: 1,
                             cooldownTime: 1,
                             damage: 1,
                             maximumTargets: 1);
-            player.LearnCombatSkill(meleeSkill);
-            enemy.Stats.Life.Value = 10;
+            CharacterTests.player.LearnCombatSkill(meleeSkill);
+            CharacterTests.enemy.Stats.Life.Value = 10;
             GameTime.Reset();
+    	}
+    }
+    
+    [TestFixture]
+    [Category("Character.Character")]
+    class CharacterTests
+    {
+        public static Player player;
+        public static Enemy enemy;
+        public static ICombatSkill meleeSkill;
+
+        [Test]
+        public void LifeCallbackTest()
+        {
+            // Set the life of the enemy to 0 and expect the enemy to die
+            enemy.Stats.Life.Value = -10;
+            Assert.AreEqual(enemy.CurrentState is DyingState);
         }
 
         [Test]
