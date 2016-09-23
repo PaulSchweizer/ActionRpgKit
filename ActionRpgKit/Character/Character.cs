@@ -64,7 +64,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Whether the Fighter has been killed.</summary>
-        void IsDead{ get; set; }
+        bool IsDead{ get; set; }
 
         /// <summary>
         /// Targeted enemies of the fighter.</summary>
