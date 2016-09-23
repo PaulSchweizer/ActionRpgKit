@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Character.Stats;
+using ActionRpgKit.Character.Attribute;
 using ActionRpgKit.Core;
 using ActionRpgKit.Character;
-using ActionRpgKit.Attribute;
 
 namespace ActionRpgKit.Character
 {
