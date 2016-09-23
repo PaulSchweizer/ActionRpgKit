@@ -41,7 +41,7 @@ namespace ActionRpgKit.Tests.Character
         {
             // Set the life of the enemy to 0 and expect the enemy to die
             enemy.Stats.Life.Value = -10;
-            Assert.AreEqual(enemy.CurrentState is DyingState);
+            Assert.IsTrue(enemy.CurrentState is DyingState);
         }
 
         [Test]
