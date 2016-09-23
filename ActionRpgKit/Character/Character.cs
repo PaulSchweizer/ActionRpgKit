@@ -126,6 +126,7 @@ namespace ActionRpgKit.Character
         public AlertState _alertState;
         public ChaseState _chaseState;
         public AttackState _attackState;
+        public DyingState _dyingState;
 
         private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
@@ -140,6 +141,7 @@ namespace ActionRpgKit.Character
             _alertState = new AlertState();
             _chaseState = new ChaseState();
             _attackState = new AttackState();
+            _dyingState = new DyingState();
             CurrentState = _idleState;
         }
 
