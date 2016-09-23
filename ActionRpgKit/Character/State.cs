@@ -111,4 +111,17 @@ namespace ActionRpgKit.Character
             }
         }
     }
+    
+    public class DyingState : IState
+    {
+        public void EnterState() { }
+
+        public void ExitState() { }
+
+        public void UpdateState(BaseCharacter character)
+        {
+
+        }
+    }
+    
 }
