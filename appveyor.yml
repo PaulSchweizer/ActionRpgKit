@@ -1,26 +1,9 @@
 version: 0.0.{build}
-skip_tags: true
 configuration: Release
-assembly_info:
-  patch: true
-  file: '**\AssemblyInfo.*'
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}'
 environment:
   COVERALLS_REPO_TOKEN:
     secure: ccQ+As60wXwW+67I7IMmQUlt+z2qXhI4GKLsbMPr13JitDr3MLgx8jXcGCZCfrMm
 before_build:
   - nuget restore 
-build:
-  project: ActionRpgKit.sln
-  verbosity: minimal
-test_script:
-- ps: >-
-    nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory tools
-    nuget install OpenCover -Version 4.6.519 -OutputDirectory tools
-    nuget install coveralls.net -Version 0.412.0 -OutputDirectory tools
-     
-    .\tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:.\tools\NUnit.Runners.2.6.4\tools\nunit-console.exe "-targetargs:""ActionRpgKit/bin/Release/ActionRpgKit.dll"" /noshadow" -filter:"+[ActionRpgKit*]*" -register:user
-
-    .\tools\coveralls.net.0.412\tools\csmacnz.Coveralls.exe --opencover -i .\results.xml 
+after_test:
+  - cmd: .\after_test.cmd
