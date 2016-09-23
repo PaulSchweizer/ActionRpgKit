@@ -11,7 +11,7 @@ install:
   - cd ../../csMACnz/monocov
   - cp /tmp/cecil/Mono.Cecil.dll .
   - ./configure
-  - make
+  # - make
   - sudo make install
   - cd ../../csMACnz/Coveralls.net-Samples
 script:
