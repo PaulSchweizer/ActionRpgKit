@@ -140,8 +140,10 @@ namespace ActionRpgKit.Character
         private List<ICombatSkill> _combatSkills = new List<ICombatSkill>();
         private List<float> _combatSkillEndTimes = new List<float>();
 
-        public BaseCharacter()
+        public BaseCharacter(BaseStats stats, IInventory inventory)
         {
+            Stats = stats;
+            Inventory = inventory;
             _idleState = new IdleState();
             _alertState = new AlertState();
             _chaseState = new ChaseState();
@@ -449,17 +451,13 @@ namespace ActionRpgKit.Character
     {
         IInventory _inventory;
 
-        public Player() : base()
+        public Player() : base(new PlayerStats(), new PlayerInventory())
         {
-            Stats = new PlayerStats();
-            Inventory = new PlayerInventory();
         }
 
-        public Player(string name) : base()
+        public Player(string name) : base(new PlayerStats(), new PlayerInventory())
         {
             Name = name;
-            Stats = new PlayerStats();
-            Inventory = new PlayerInventory();
         }
 
         public override IInventory Inventory
@@ -481,17 +479,13 @@ namespace ActionRpgKit.Character
     {
         IInventory _inventory;
 
-        public Enemy() : base()
+        public Enemy() : base(new EnemyStats(), new SimpleInventory())
         {
-            Stats = new EnemyStats();
-            Inventory = new SimpleInventory();
         }
 
-        public Enemy(string name) : base()
+        public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
         {
             Name = name;
-            Stats = new EnemyStats();
-            Inventory = new SimpleInventory();
         }
 
         public override IInventory Inventory

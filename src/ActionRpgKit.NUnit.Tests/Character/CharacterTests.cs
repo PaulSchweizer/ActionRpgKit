@@ -7,34 +7,30 @@ using ActionRpgKit.Character.Skill;
 namespace ActionRpgKit.Tests.Character
 {
     
-    [SetUpFixture]
-    public class MySetUpClass
+    [TestFixture]
+    [Category("Character.Character")]
+    class CharacterTests
     {
+        Player player;
+        Enemy enemy;
+        ICombatSkill meleeSkill;
+
         [SetUp]
-    	public void RunBeforeAnyTests()
-    	{
-            CharacterTests.player = new Player();
-            CharacterTests.enemy = new Enemy();
-            CharacterTests.meleeSkill = new MeleeSkill(id: 1,
+        public void RunBeforeAnyTests()
+        {
+            player = new Player();
+            enemy = new Enemy();
+            meleeSkill = new MeleeSkill(id: 1,
                             name: "SwordFighting",
                             description: "Wield a sword effectively.",
                             preUseTime: 1,
                             cooldownTime: 1,
                             damage: 1,
                             maximumTargets: 1);
-            CharacterTests.player.LearnCombatSkill(CharacterTests.meleeSkill);
-            CharacterTests.enemy.Stats.Life.Value = 10;
+            player.LearnCombatSkill(meleeSkill);
+            enemy.Stats.Life.Value = 10;
             GameTime.Reset();
-    	}
-    }
-    
-    [TestFixture]
-    [Category("Character.Character")]
-    class CharacterTests
-    {
-        public static Player player;
-        public static Enemy enemy;
-        public static ICombatSkill meleeSkill;
+        }
 
         [Test]
         public void LifeCallbackTest()
