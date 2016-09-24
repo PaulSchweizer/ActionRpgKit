@@ -30,7 +30,7 @@ install:
 # Build your code e.g. by calling make
 script:
   - xbuild /p:Configuration=Debug src/ActionRpgKit.sln
-  - mono --debug --profile=./monocov ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/src/ActionRpgKit/bin/Debug/ActionRpgKit.NUnit.Tests.dll
+  - mono --debug ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe $TRAVIS_BUILD_DIR/src/ActionRpgKit/bin/Debug/ActionRpgKit.NUnit.Tests.dll
 
 # Generate and deploy documentation
 after_success:

@@ -11,7 +11,7 @@ environment:
   COVERALLS_REPO_TOKEN:
     secure: LB6jKHcKcWky5k+vY2yxExfQ0uv50v5E1K533gq/ByPiwdipFlS29E6/NF890doz
 before_build:
-  - nuget restore "./ActionRpgKit.sln"
+  - nuget restore "./src/ActionRpgKit.sln"
 build:
   project: ActionRpgKit.sln
   verbosity: minimal
