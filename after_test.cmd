@@ -8,8 +8,8 @@ nuget install coveralls.net -Version 0.412.0 -OutputDirectory tools
 nuget install Doxygen -Version 1.8.9.2 -OutputDirectory tools
 nuget install GraphViz.NET -OutputDirectory tools
 
-MD code_docs
-cd code_docs
+MD doc
+cd doc
 
 git clone -b gh-pages https://git@github.com/PaulSchweizer/ActionRpgKit.git
 cd ActionRpgKit
@@ -21,7 +21,7 @@ git config user.email "travis@travis-ci.org"
 echo 'Generating Doxygen code documentation...'
 C:\projects\actionrpgkit\ActionRpgKit\tools\Doxygen.1.8.9.2\tools\doxygen.exe config_appveyor.dox
 
-dir ./
+dir
 
 xcopy /s /y C:\projects\actionrpgkit\ActionRpgKit\code_docs\html\ C:\projects\actionrpgkit\ActionRpgKit\code_docs
 
