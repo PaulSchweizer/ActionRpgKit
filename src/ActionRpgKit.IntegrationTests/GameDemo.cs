@@ -39,7 +39,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
             InitItemDatabase();
             InitSkillDatabase();
             Separator();
-            LogToFile("New Game started");
+            LogToFile("*New Game started*");
             Separator();
             CreatePlayerCharacter();
             Separator();
@@ -108,13 +108,13 @@ namespace ActionRpgKit.Tests.IntegrationTests
 
         private void KillAllRats()
         {
-            LogToFile("Player fights the 10 rats.");
+            LogToFile("*Player fights the 10 rats.*");
             GetRidOfRatsObjective.rats = 0;            
         }
 
         private void GatherHerbs()
         {
-            LogToFile("Player runs around and gathers the 10 herbs");
+            LogToFile("*Player runs around and gathers the 10 herbs*");
             MainController.Player.Inventory.AddItem(ItemDatabase.GetItemByName("Herb"), 10);
             LogToFile(MainController.Player.ToString());
         }
