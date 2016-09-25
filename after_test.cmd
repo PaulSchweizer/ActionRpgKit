@@ -19,7 +19,7 @@ git config --global push.default simple
 git config user.name "Appveyor"
 git config user.email "travis@travis-ci.org"
 
-rd /S *
+rd /S /Q *
 
 echo "" > .nojekyll
 
