@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml" title="A basic Skill implementation." alt="" coords="5,209,125,381"/>
-<area shape="rect" id="node4" href="$d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml" title="Interface for Skills." alt="" coords="68,5,188,160"/>
-<area shape="rect" id="node6" href="$d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml" title="A magic Skill costs magic energy on each use." alt="" coords="149,252,235,337"/>
-</map>

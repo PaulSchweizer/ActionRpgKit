@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node7" href="$d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml" title="Represents a volume of something, e.g. magic, life. The base value is derived through a formula and s..." alt="" coords="53,963,197,1101"/>
-<area shape="rect" id="node2" href="$d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml" title="Represents a simple float value." alt="" coords="57,278,193,693"/>
-<area shape="rect" id="node4" href="$d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml" title="Interface for Attributes." alt="" coords="57,5,193,229"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml" title="{Objective\n|+ Name\l+ Description\l+ IsCompleted\l|+ Objective()\l+ Objective()\l+ ToString()\l+ CheckProgress()\l+ OnCompletion()\l}" alt="" coords="25,192,156,381"/>
-<area shape="rect" id="node4" href="$d2/d98/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_objective.xhtml" title="{IObjective\n|+ Name\l+ Description\l+ IsCompleted\l|+ CheckProgress()\l+ OnCompletion()\l}" alt="" coords="25,6,156,143"/>
-</map>

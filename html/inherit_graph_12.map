@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="Determine the state of a Character." alt="" coords="7,85,63,115"/>
-<area shape="rect" id="node3" href="$df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml" title="AlertState" alt="" coords="117,5,197,35"/>
-<area shape="rect" id="node5" href="$d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml" title="AttackState" alt="" coords="112,59,203,88"/>
-<area shape="rect" id="node7" href="$d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml" title="ChaseState" alt="" coords="112,112,203,141"/>
-<area shape="rect" id="node9" href="$da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml" title="The initial State of a Character." alt="" coords="120,165,195,195"/>
-</map>
