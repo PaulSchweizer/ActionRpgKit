@@ -21,8 +21,6 @@ git config user.email "travis@travis-ci.org"
 
 rd /S /Q *
 
-echo "" > .nojekyll
-
 echo 'Generating Doxygen code documentation...'
 doxygen config_appveyor.dox 2>&1 | tee doxygen.log
 
