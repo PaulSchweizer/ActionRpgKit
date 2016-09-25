@@ -23,7 +23,7 @@ C:\projects\actionrpgkit\ActionRpgKit\tools\Doxygen.1.8.9.2\tools\doxygen.exe co
 
 dir
 
-xcopy /s /y ./html/. ./
+xcopy ./html/. ./ /s /y
 
 echo 'Uploading documentation to the gh-pages branch...'
 
