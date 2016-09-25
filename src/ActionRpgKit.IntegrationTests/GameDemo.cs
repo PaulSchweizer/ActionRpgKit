@@ -20,6 +20,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
         public void SetUp()
         {
             GameTime.Reset();
+            System.IO.Directory.CreateDirectory(@"C:\projects\actionrpgkit\integrationtests");
             System.IO.File.WriteAllText(@"C:\projects\actionrpgkit\integrationtests\GameDemo.md", "");
         }
 
