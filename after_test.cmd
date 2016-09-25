@@ -19,10 +19,8 @@ git config --global push.default simple
 git config user.name "Appveyor"
 git config user.email "travis@travis-ci.org"
 
-rd /S /Q *
-
 echo 'Generating Doxygen code documentation...'
-doxygen config_appveyor.dox 2>&1 | tee doxygen.log
+doxygen config_appveyor.dox
 
 xcopy ./html/. ./
 
