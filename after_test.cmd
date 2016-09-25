@@ -46,12 +46,10 @@ xcopy C:\projects\actionrpgkit\doc\ActionRpgKit\html C:\projects\actionrpgkit\do
 
 echo 'Uploading documentation to the gh-pages branch...'
 
-dir
-
 git status
 
 git add --all
 
 git commit -m "Deploy code docs to GitHub Pages Appveyor build:" -m "Commit: "
-git push --force ("https://%GH_REPO_TOKEN%@github.com/PaulSchweizer/ActionRpgKit.git")
+git push --force "https://%GH_REPO_TOKEN%@github.com/PaulSchweizer/ActionRpgKit.git"
 rem > /dev/null 2>&1
