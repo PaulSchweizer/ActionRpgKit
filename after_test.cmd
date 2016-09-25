@@ -20,7 +20,7 @@ git config user.name "Appveyor"
 git config user.email "travis@travis-ci.org"
 
 echo 'Generating Doxygen code documentation...'
-C:\projects\actionrpgkit\tools\Doxygen.1.8.9.2\bin\doxygen.exe config_appveyor.dox
+C:\projects\actionrpgkit\tools\doxygen\bin\doxygen.exe config_appveyor.dox
 
 xcopy ./html/. ./
 
