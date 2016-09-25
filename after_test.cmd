@@ -21,6 +21,8 @@ git config user.email "travis@travis-ci.org"
 del /q .\*
 for /d %%x in (.\*) do @rd /s /q "%%x"
 
+copy NUL .nojekyll
+
 echo 'Generating Doxygen code documentation...'
 C:\projects\actionrpgkit\ActionRpgKit\tools\Doxygen.1.8.9.2\tools\doxygen.exe config_appveyor.dox
 
