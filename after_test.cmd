@@ -53,5 +53,5 @@ git status
 git add --all
 
 git commit -m "Deploy code docs to GitHub Pages Appveyor build:" -m "Commit: "
-git push --force ("https://" + "$env:GH_REPO_TOKEN" + "@github.com/PaulSchweizer/ActionRpgKit.git")
+git push --force ("https://%%GH_REPO_TOKEN%%@github.com/PaulSchweizer/ActionRpgKit.git")
 rem > /dev/null 2>&1
