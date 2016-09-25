@@ -40,10 +40,10 @@ copy NUL .nojekyll
 rem Generate the Doxygen code documentation and log the output.
 echo 'Generating Doxygen code documentation...'
 rem Redirect both stderr and stdout to the log file AND the console.
-dir C:\projects\actionrpgkit\ActionRpgKit
+dir C:\projects\actionrpgkit\
 dir
 
-C:\projects\actionrpgkit\ActionRpgKit\tools\Doxygen.1.8.9.2\tools\doxygen.exe C:\projects\actionrpgkit\ActionRpgKit\config_appveyor.dox
+C:\projects\actionrpgkit\ActionRpgKit\tools\Doxygen.1.8.9.2\tools\doxygen.exe C:\projects\actionrpgkit\config_appveyor.dox
 
 xcopy C:\projects\actionrpgkit\doc\ActionRpgKit\html C:\projects\actionrpgkit\doc\ActionRpgKit /s /y
 
