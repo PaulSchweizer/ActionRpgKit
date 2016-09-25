@@ -28,8 +28,8 @@ rem GitHub is smart enough to know which files have changed and which files have
 rem stayed the same and will only update the changed files. So the gh-pages branch
 rem can be safely cleaned, and it is sure that everything pushed later is the new
 rem documentation.
-del /q .\*
-for /d %%x in (.\*) do @rd /s /q "%%x"
+rem del /q .\*
+rem for /d %%x in (.\*) do @rd /s /q "%%x"
 
 rem Need to create a .nojekyll file to allow filenames starting with an underscore
 rem to be seen on the gh-pages site. Therefore creating an empty .nojekyll file.
