@@ -22,7 +22,7 @@ git config user.email "travis@travis-ci.org"
 echo 'Generating Doxygen code documentation...'
 C:\projects\actionrpgkit\tools\doxygen\bin\doxygen.exe config_appveyor.dox
 
-xcopy /s /q .\html\. .\
+xcopy /s /q /y .\html\. .\
 
 echo 'Uploading documentation to the gh-pages branch...'
 
