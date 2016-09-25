@@ -20,13 +20,13 @@ namespace ActionRpgKit.Tests.IntegrationTests
         public void SetUp()
         {
             GameTime.Reset();
-            System.IO.File.WriteAllText(@"C:\Users\Paul\Desktop\INTEGRATIONTEST.txt", "");
+            System.IO.File.WriteAllText(@"C:\projects\actionrpgkit\INTEGRATIONTEST.txt", "");
         }
 
         private void LogToFile(string text)
         {
             using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter(@"C:\Users\Paul\Desktop\INTEGRATIONTEST.txt", true))
+            new System.IO.StreamWriter(@"C:\projects\actionrpgkit\INTEGRATIONTEST.txt", true))
             {
                 file.WriteLine(text);
             }
