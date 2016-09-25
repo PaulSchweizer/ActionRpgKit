@@ -20,6 +20,17 @@ namespace ActionRpgKit.Tests.IntegrationTests
         public void SetUp()
         {
             GameTime.Reset();
+            System.IO.File.WriteAllText(@"C:\Users\Paul\Desktop\INTEGRATIONTEST.txt", "");
+        }
+
+        private void LogToFile(string text)
+        {
+            using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(@"C:\Users\Paul\Desktop\INTEGRATIONTEST.txt", true))
+            {
+                file.WriteLine(text);
+            }
+            Console.WriteLine(text);
         }
 
         [Test]
@@ -28,7 +39,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
             InitItemDatabase();
             InitSkillDatabase();
             Separator();
-            Console.WriteLine("New Game started");
+            LogToFile("New Game started");
             Separator();
             CreatePlayerCharacter();
             Separator();
@@ -36,7 +47,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
             Separator();
             KillAllRats();
             storyline.CheckProgress();
-            Console.WriteLine(storyline.ToString());
+            LogToFile(storyline.ToString());
             Separator();
             GatherHerbs();
             storyline.CheckProgress();
@@ -86,31 +97,31 @@ namespace ActionRpgKit.Tests.IntegrationTests
             MainController.Player.Stats.Magic.Reset();
             MainController.Player.LearnCombatSkill(SkillDatabase.GetCombatSkillByName("SwordFighting"));
             MainController.Player.LearnMagicSkill(SkillDatabase.GetMagicSkillByName("ShadowStrength"));
-            Console.WriteLine(MainController.Player.ToString());
+            LogToFile(MainController.Player.ToString());
         }
 
         private void StartStoryline()
         {
             storyline.Start();
-            Console.WriteLine(storyline.ToString());
+            LogToFile(storyline.ToString());
         }
 
         private void KillAllRats()
         {
-            Console.WriteLine("Player fights the 10 rats.");
+            LogToFile("Player fights the 10 rats.");
             GetRidOfRatsObjective.rats = 0;            
         }
 
         private void GatherHerbs()
         {
-            Console.WriteLine("Player runs around and gathers the 10 herbs");
+            LogToFile("Player runs around and gathers the 10 herbs");
             MainController.Player.Inventory.AddItem(ItemDatabase.GetItemByName("Herb"), 10);
-            Console.WriteLine(MainController.Player.ToString());
+            LogToFile(MainController.Player.ToString());
         }
 
         private void Separator()
         {
-            Console.WriteLine("\n////////////////////////////////////////////\n");
+            LogToFile("\n# ////////////////////////////////////////////\n");
         }
     }
 }
