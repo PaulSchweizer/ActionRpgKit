@@ -1,6 +1,7 @@
 OpenCover
 doc
 packages
+integrationtests
 
 #################
 ## Sublime
