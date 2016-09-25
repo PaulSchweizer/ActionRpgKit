@@ -13,7 +13,7 @@ environment:
 before_build:
   - nuget restore "./src/ActionRpgKit.sln"
 build:
-  project: ActionRpgKit.sln
+  project: /src/ActionRpgKit.sln
   verbosity: minimal
 after_test:
   - cmd: .\after_test.cmd
