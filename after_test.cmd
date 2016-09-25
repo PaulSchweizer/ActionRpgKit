@@ -9,6 +9,9 @@ nuget install Doxygen -Version 1.8.9.2 -OutputDirectory tools
 nuget install GraphViz.NET -OutputDirectory tools
 
 
+dir C:\projects\actionrpgkit\tools
+
+
 MD code_docs
 cd code_docs
 
@@ -22,9 +25,13 @@ git config user.email "travis@travis-ci.org"
 echo 'Generating Doxygen code documentation...'
 C:\projects\actionrpgkit\tools\doxygen\bin\doxygen.exe config_appveyor.dox
 
-xcopy /s /q /y .\html\. .\
+
+xcopy /s /y .\html\. .\
 
 echo 'Uploading documentation to the gh-pages branch...'
+
+dir C:\projects\actionrpgkit\ActionRpgKit
+
 
 git add --all
 
