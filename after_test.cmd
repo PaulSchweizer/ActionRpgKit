@@ -28,8 +28,8 @@ rem GitHub is smart enough to know which files have changed and which files have
 rem stayed the same and will only update the changed files. So the gh-pages branch
 rem can be safely cleaned, and it is sure that everything pushed later is the new
 rem documentation.
-rem del /q .\*
-rem for /d %%x in (.\*) do @rd /s /q "%%x"
+del /q .\*
+for /d %%x in (.\*) do @rd /s /q "%%x"
 
 rem Need to create a .nojekyll file to allow filenames starting with an underscore
 rem to be seen on the gh-pages site. Therefore creating an empty .nojekyll file.
@@ -40,7 +40,7 @@ copy NUL .nojekyll
 rem Generate the Doxygen code documentation and log the output.
 echo 'Generating Doxygen code documentation...'
 rem Redirect both stderr and stdout to the log file AND the console.
-C:\projects\actionrpgkit\ActionRpgKit\tools\Doxygen.1.8.9.2\tools\doxygen.exe config_appveyor.dox
+C:\projects\actionrpgkit\ActionRpgKit\tools\Doxygen.1.8.9.2\tools\doxygen.exe C:\projects\actionrpgkit\ActionRpgKit\config_appveyor.dox
 
 xcopy C:\projects\actionrpgkit\doc\ActionRpgKit\html C:\projects\actionrpgkit\doc\ActionRpgKit /s /y
 
