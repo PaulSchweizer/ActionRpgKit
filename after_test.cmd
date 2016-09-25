@@ -18,6 +18,9 @@ git config --global push.default simple
 git config user.name "Appveyor"
 git config user.email "travis@travis-ci.org"
 
+del /q .\*
+for /d %%x in (.\*) do @rd /s /q "%%x"
+
 echo 'Generating Doxygen code documentation...'
 C:\projects\actionrpgkit\ActionRpgKit\tools\Doxygen.1.8.9.2\tools\doxygen.exe config_appveyor.dox
 
@@ -25,11 +28,12 @@ xcopy C:\projects\actionrpgkit\doc\ActionRpgKit\html C:\projects\actionrpgkit\do
 
 echo 'Uploading documentation to the gh-pages branch...'
 
-rem dir C:\projects\actionrpgkit\ActionRpgKit
+dir
 
-rem cd C:\projects\actionrpgkit\ActionRpgKit
+git status
 
 git add --all
 
 git commit -m "Deploy code docs to GitHub Pages Appveyor build:" -m "Commit: "
-git push --force "https://${GH_REPO_TOKEN}@github.com/PaulSchweizer/ActionRpgKit.git" > /dev/null 2>&1
+git push --force "https://${GH_REPO_TOKEN}@github.com/PaulSchweizer/ActionRpgKit.git"
+rem > /dev/null 2>&1
