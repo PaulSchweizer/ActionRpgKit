@@ -1,0 +1,18 @@
+digraph "ActionRpgKit" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_68267d1309a1af8e8297ef4c3efbcdba {
+    graph [ bgcolor="#ddddee", pencolor="black", label="src" fontname="Helvetica", fontsize="10", URL="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml"]
+  subgraph clusterdir_d58e0355e04404440c509f2ce5c588b7 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_d58e0355e04404440c509f2ce5c588b7.xhtml"];
+    dir_d58e0355e04404440c509f2ce5c588b7 [shape=plaintext label="ActionRpgKit"];
+    dir_30bebb0666ee320b74efc14831c6cee9 [shape=box label="Character" color="black" fillcolor="white" style="filled" URL="dir_30bebb0666ee320b74efc14831c6cee9.xhtml"];
+    dir_9434a4c16b1f8fb7e2b7840c37946cd4 [shape=box label="Core" color="black" fillcolor="white" style="filled" URL="dir_9434a4c16b1f8fb7e2b7840c37946cd4.xhtml"];
+    dir_83e98b04485f212a96461af30076b057 [shape=box label="Item" color="black" fillcolor="white" style="filled" URL="dir_83e98b04485f212a96461af30076b057.xhtml"];
+    dir_b9fc8fbba8ec089ebcc1a79b6c468699 [shape=box label="MainController" color="black" fillcolor="white" style="filled" URL="dir_b9fc8fbba8ec089ebcc1a79b6c468699.xhtml"];
+    dir_aea40506105f654fde09d8f7fcaa858b [shape=box label="Properties" color="black" fillcolor="white" style="filled" URL="dir_aea40506105f654fde09d8f7fcaa858b.xhtml"];
+    dir_8982dbf0c92ce1efe9597bd19ae631e9 [shape=box label="Story" color="black" fillcolor="white" style="filled" URL="dir_8982dbf0c92ce1efe9597bd19ae631e9.xhtml"];
+  }
+  }
+}

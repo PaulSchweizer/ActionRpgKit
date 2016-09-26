@@ -1,0 +1,16 @@
+digraph "UpdateState"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="UpdateState",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ActionRpgKit.Character.Base\lCharacter.ChangeState",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad3af8a0034cb6abc219f9d28a78615a0",tooltip="Change the State to the given State if the given State differs from the current State."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ActionRpgKit.Character.IState.\lEnterState",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a1aba682a800f617df15d172bac4519fe",tooltip="Called when entering the State."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ActionRpgKit.Character.Base\lCharacter.EnemyInAttackRange",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6ba4962cda376e693e597139fe558525",tooltip="Whether the Character is in range for an attack."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ActionRpgKit.Core.Position.\lDistanceTo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml#a8850458fdd4bc5ccdb00fb212506191e",tooltip="The distance to the given Position."];
+}

@@ -1,0 +1,12 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="IInventory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml",tooltip="An inventory holds Items."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="PlayerInventory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml",tooltip="Inventory allows to add and remove items."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SimpleInventory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml",tooltip="This inventory holds afixed size array of items."];
+}

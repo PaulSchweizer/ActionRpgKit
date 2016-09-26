@@ -1,0 +1,10 @@
+digraph "Activate"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Activate",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ActionRpgKit.Character.Attribute.\lPrimaryAttribute.AddModifier",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a914e35740f037fcc4d0eb2a3f33632e6",tooltip="Add a new modifier to the attribute and activate it."];
+}

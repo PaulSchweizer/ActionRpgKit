@@ -1,0 +1,19 @@
+digraph "BaseCharacter"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{BaseCharacter\n|+ _idleState\l+ _alertState\l+ _chaseState\l+ _attackState\l+ _dyingState\l+ Position\l+ Name\l+ Stats\l+ Inventory\l+ CurrentState\l+ Magic\l+ MagicSkills\l+ Life\l+ IsDead\l+ Enemies\l+ TimeUntilNextAttack\l+ CurrentAttackSkill\l+ CombatSkills\l- _magicSkills\l- _magicSkillEndTimes\l- _enemies\l- _combatSkills\l- _combatSkillEndTimes\l|+ BaseCharacter()\l+ ToString()\l+ ChangeState()\l+ LearnMagicSkill()\l+ TriggerMagicSkill()\l+ PreUseCountdown()\l+ AddEnemy()\l+ RemoveEnemy()\l+ EnemyInAlternessRange()\l+ EnemyInAttackRange()\land 6 more...\l- UseMagicSkill()\l- MagicSkillCanBeUsed()\l- UseCombatSkill()\l- CombatSkillCanBeUsed()\l- OnDeath()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{IGameObject\n|+ Position\l|}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml"];
+  Node3 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node3 [label="{ICharacter\n|+ Name\l+ Stats\l+ Inventory\l+ CurrentState\l|+ ChangeState()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml",tooltip="Characters populate the game world. They are defined by Stats."];
+  Node4 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node4 [label="{IMagicUser\n|+ MagicSkills\l|+ LearnMagicSkill()\l+ TriggerMagicSkill()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml",tooltip="Character can use Magic."];
+  Node5 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node5 [label="{IFighter\n|+ Position\l+ Life\l+ IsDead\l+ Enemies\l+ TimeUntilNextAttack\l+ CurrentAttackSkill\l+ CombatSkills\l|+ AddEnemy()\l+ RemoveEnemy()\l+ EnemyInAlternessRange()\l+ EnemyInAttackRange()\l+ CanAttack()\l+ Attack()\l+ LearnCombatSkill()\l+ TriggerCombatSkill()\l+ OnAttacked()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml",tooltip="Character can fight."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node6 [label="{Enemy\n|+ Inventory\l- _inventory\l|+ Enemy()\l+ Enemy()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml",tooltip="Representation of a Hostile, game controlled character."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node7 [label="{Player\n|+ Inventory\l- _inventory\l|+ Player()\l+ Player()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml",tooltip="Representation of a Player controllable character."];
+}
