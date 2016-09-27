@@ -83,6 +83,9 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual(0, Body.Value);
             Assert.AreEqual(0, Body.Modifiers.Count);
             Assert.IsFalse(Body.IsModified);
+            
+            Body.Reset();
+            Assert.AreEqual(0, Body.Value);
         }
 
         [Test]
