@@ -106,6 +106,9 @@ namespace ActionRpgKit.Tests.Character
                 Experience.Value = xp;
                 Assert.AreEqual(i, Level.Value);
             }
+            Experience.Reset();
+            Assert.AreEqual(0, Experience.Value);
+            Assert.AreEqual(0, Level.Value);
         }
 
         [Test]
