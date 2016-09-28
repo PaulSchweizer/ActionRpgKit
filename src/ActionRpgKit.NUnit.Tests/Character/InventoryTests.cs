@@ -46,6 +46,9 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual(0, simpleInventory.GetQuantity(coin));
             simpleInventory.RemoveItem(herb);
             Assert.AreEqual(1, simpleInventory.GetQuantity(herb));
+
+            // Test the pretty representation
+            simpleInventory.ToString();
         }
 
         [Test]
@@ -54,6 +57,7 @@ namespace ActionRpgKit.Tests.Character
             playerInventory = new PlayerInventory();
             Assert.AreEqual(0, playerInventory.ItemCount);
             IItem herb = ItemDatabase.GetItemByName("Herb");
+            IItem coin = ItemDatabase.GetItemByName("Coin");
             playerInventory.AddItem(herb);
             Assert.AreEqual(1, playerInventory.ItemCount);
             playerInventory.AddItem(herb, 9);
@@ -65,9 +69,14 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual(0, playerInventory.ItemCount);
             Assert.AreEqual(0, playerInventory.GetQuantity(herb));
 
-            // Iterate over Items
-            Assert.AreEqual(0, playerInventory.Quantities.ToList<int>().Count);
-            Assert.AreEqual(0, playerInventory.Items.ToList<IItem>().Count);
+            // Set and check Items and Quantities
+            playerInventory.Items = new List<IItem>() { herb, coin };
+            playerInventory.Quantities = new List<int>() { 1, 2 };
+            Assert.AreEqual(2, playerInventory.Quantities.ToList<int>().Count);
+            Assert.AreEqual(2, playerInventory.Items.ToList<IItem>().Count);
+
+            // Test the pretty representation
+            playerInventory.ToString();
         }
 
         [Test]
