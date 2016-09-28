@@ -2,6 +2,7 @@
 using System.Collections;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Attribute;
+using ActionRpgKit.Item;
 
 namespace ActionRpgKit.Character.Skill
 {
@@ -35,8 +36,12 @@ namespace ActionRpgKit.Character.Skill
         float CooldownTime { get; }
 
         /// <summary>
+        /// A sequence of Items that triggers the Skill.</summary>
+        IItem[] TriggerSequence { get; set; }
+
+        /// <summary>
         /// Whether the skill matches the given series of items.</summary>
-        bool Match ();
+        bool Match (IItem[] items);
     }
 
     /// <summary>
@@ -91,32 +96,19 @@ namespace ActionRpgKit.Character.Skill
             CooldownTime = cooldownTime;
         }
 
-        public int Id
-        {
-            get;
-        }
+        public int Id { get; }
 
-        public string Name
-        {
-            get;
-        }
+        public string Name { get; }
 
-        public string Description
-        {
-            get;
-        }
+        public string Description { get; }
 
-        public float CooldownTime
-        {
-            get;
-        }
+        public float CooldownTime { get; }
 
-        public float PreUseTime
-        {
-            get;
-        }
+        public float PreUseTime { get; }
 
-        public abstract bool Match();
+        public IItem[] TriggerSequence { get; set; }
+
+        public abstract bool Match(IItem[] items);
     }
 
     // ------------------------------------------------------------------------
@@ -161,9 +153,22 @@ namespace ActionRpgKit.Character.Skill
         // ISkill implementations
         // --------------------------------------------------------------------
 
-        public override bool Match()
+        public override bool Match(IItem [] items)
         {
-            throw new NotImplementedException();
+            if (TriggerSequence.Length != items.Length)
+            {
+                return false;
+            }
+            bool match = true;
+            for (int i = 0; i < TriggerSequence.Length; i++)
+            {
+                if (TriggerSequence[i] != items[i])
+                {
+                    match = false;
+                    break;
+                }
+            }
+            return match;
         }
 
         // --------------------------------------------------------------------
@@ -220,7 +225,7 @@ namespace ActionRpgKit.Character.Skill
         // ISkill implementations
         // --------------------------------------------------------------------
 
-        public override bool Match ()
+        public override bool Match (IItem[] items)
         {
             throw new NotImplementedException();
         }
