@@ -5,7 +5,7 @@ nuget install coveralls.net -Version 0.412.0 -OutputDirectory tools
 .\tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:.\tools\NUnit.Runners.2.6.4\tools\nunit-console.exe -targetargs:"/nologo /noshadow .\src\ActionRpgKit.NUnit.Tests\bin\Debug\ActionRpgKit.NUnit.Tests.dll" -filter:"+[ActionRpgKit]*" -register:user
 .\tools\coveralls.net.0.412\tools\csmacnz.Coveralls.exe --opencover -i .\results.xml
 
-nuget install Doxygen -Version 1.8.9.2 -OutputDirectory tools
+nuget install Doxygen -Version 1.8.8 -OutputDirectory tools
 nuget install GraphViz.NET -OutputDirectory tools
 
 rem Create a clean working directory for this script.
@@ -13,6 +13,7 @@ MD doc
 cd doc
 
 rem Get the current gh-pages branch
+rmdir ActionRpgKit /s
 git clone -b gh-pages https://git@github.com/PaulSchweizer/ActionRpgKit.git
 cd ActionRpgKit
 
@@ -21,7 +22,7 @@ rem Set the push default to simple i.e. push only the current branch.
 git config --global push.default simple
 rem Pretend to be an user called Travis CI.
 git config user.name "Appveyor"
-git config user.email "travis@travis-ci.org"
+git config user.email "appveyor@appveyor.com"
 
 rem Remove everything currently in the gh-pages branch.
 rem GitHub is smart enough to know which files have changed and which files have
@@ -41,7 +42,7 @@ rem Generate the Doxygen code documentation and log the output.
 echo 'Generating Doxygen code documentation...'
 rem Redirect both stderr and stdout to the log file AND the console.
 
-C:\projects\actionrpgkit\tools\Doxygen.1.8.9.2\tools\doxygen.exe C:\projects\actionrpgkit\config_appveyor.dox
+C:\projects\actionrpgkit\tools\Doxygen.1.8.8\tools\doxygen.exe C:\projects\actionrpgkit\config_appveyor.dox
 
 xcopy C:\projects\actionrpgkit\doc\ActionRpgKit\html C:\projects\actionrpgkit\doc\ActionRpgKit /s /y
 
