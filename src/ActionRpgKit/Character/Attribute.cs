@@ -239,9 +239,9 @@ namespace ActionRpgKit.Character.Attribute
             }
         }
 
-        public void Reset ()
+        public virtual void Reset ()
         {
-            Value = BaseValue;
+            Value = MinValue;
         }
 
         public override string ToString()
@@ -374,6 +374,11 @@ namespace ActionRpgKit.Character.Attribute
                  _absoluteMaxValue = value;
              }
          }
+
+        public override void Reset()
+        {
+            Value = MaxValue;
+        }
     }
 
     /// <summary>
@@ -423,6 +428,11 @@ namespace ActionRpgKit.Character.Attribute
                  _absoluteMaxValue = value;
              }
          }
+
+        public override void Reset()
+        {
+            Value = MaxValue;
+        }
     }
     
     /// <summary>

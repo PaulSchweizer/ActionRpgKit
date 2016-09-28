@@ -25,7 +25,7 @@ namespace ActionRpgKit.Tests.Character
         {
             GameTime.Reset();
             Body = new PrimaryAttribute("Body", 0, 999, 10);
-            Experience = new PrimaryAttribute("Experience");
+            Experience = new PrimaryAttribute("Experience", 0);
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate", 0, 99, 1);
             Level = new SecondaryAttribute("Level",
                         x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f,
@@ -83,7 +83,8 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual(0, Body.Value);
             Assert.AreEqual(0, Body.Modifiers.Count);
             Assert.IsFalse(Body.IsModified);
-            
+
+            Body.Value = 10;
             Body.Reset();
             Assert.AreEqual(0, Body.Value);
         }
@@ -145,6 +146,11 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual(32, Life.MaxValue);
             GameTime.time = 11f;
             Assert.AreEqual(28, Life.MaxValue);
+
+            // Reset
+            Life.Value = 0;
+            Life.Reset();
+            Assert.AreEqual(28, Life.Value);
         }
 
         [Test]
