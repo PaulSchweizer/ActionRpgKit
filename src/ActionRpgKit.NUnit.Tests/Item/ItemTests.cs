@@ -30,6 +30,8 @@ namespace ActionRpgKit.Tests.Item
             Assert.AreSame(itemById, herb);
             var nullItem = ItemDatabase.GetItemByName("NotExisting");
             Assert.AreSame(nullItem, null);
+            var nullItem2 = ItemDatabase.GetItemById(-1);
+            Assert.AreSame(nullItem2, null);
         }
     }
 }
