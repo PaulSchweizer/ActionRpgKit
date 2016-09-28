@@ -119,9 +119,9 @@ Inheritance diagram for ISkill:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6ea653b88ccb046c0f132110584561c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a6ea653b88ccb046c0f132110584561c1">Match</a> ()</td></tr>
-<tr class="memdesc:a6ea653b88ccb046c0f132110584561c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the skill matches the given series of items. <a href="#a6ea653b88ccb046c0f132110584561c1">More...</a><br /></td></tr>
-<tr class="separator:a6ea653b88ccb046c0f132110584561c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0e0c204d6572bbd90419b3ee943add"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a3c0e0c204d6572bbd90419b3ee943add">Match</a> (<a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[] items)</td></tr>
+<tr class="memdesc:a3c0e0c204d6572bbd90419b3ee943add"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the skill matches the given series of items. <a href="#a3c0e0c204d6572bbd90419b3ee943add">More...</a><br /></td></tr>
+<tr class="separator:a3c0e0c204d6572bbd90419b3ee943add"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -140,18 +140,22 @@ Properties</h2></td></tr>
 <tr class="memitem:afadaac89062961419f18735626aaa3d7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#afadaac89062961419f18735626aaa3d7">CooldownTime</a><code> [get]</code></td></tr>
 <tr class="memdesc:afadaac89062961419f18735626aaa3d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time it takes until the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> can be used again. <a href="#afadaac89062961419f18735626aaa3d7">More...</a><br /></td></tr>
 <tr class="separator:afadaac89062961419f18735626aaa3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3a8ad1f8527d5b40b75e1355167ef59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#ad3a8ad1f8527d5b40b75e1355167ef59">TriggerSequence</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ad3a8ad1f8527d5b40b75e1355167ef59"><td class="mdescLeft">&#160;</td><td class="mdescRight">A sequence of Items that triggers the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>. <a href="#ad3a8ad1f8527d5b40b75e1355167ef59">More...</a><br /></td></tr>
+<tr class="separator:ad3a8ad1f8527d5b40b75e1355167ef59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for Skills.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a6ea653b88ccb046c0f132110584561c1"></a>
+<a class="anchor" id="a3c0e0c204d6572bbd90419b3ee943add"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool Match </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td>
+          <td class="paramname"><em>items</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -159,7 +163,7 @@ Properties</h2></td></tr>
 
 <p>Whether the skill matches the given series of items.</p>
 
-<p>Implemented in <a class="el" href="../../d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a0b1a146cb397b81ea49c3066fe44b276">MeleeSkill</a>, <a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a0b1a146cb397b81ea49c3066fe44b276">PassiveMagicSkill</a>, and <a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#aae421e6e010e41e24f1741b7f5d7ee24">BaseSkill</a>.</p>
+<p>Implemented in <a class="el" href="../../d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e">MeleeSkill</a>, <a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e">PassiveMagicSkill</a>, and <a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#ab545387a2a194edd1ff5bd65744a6316">BaseSkill</a>.</p>
 
 </div>
 </div>
@@ -275,6 +279,28 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad3a8ad1f8527d5b40b75e1355167ef59"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a> [] TriggerSequence</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A sequence of Items that triggers the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>Skill.cs</li>
 </ul>
@@ -284,7 +310,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a></li><li class="navelem"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml">ISkill</a></li>
-    <li class="footer">Generated on Wed Sep 28 2016 04:44:35 for Action RPG Kit by
+    <li class="footer">Generated on Wed Sep 28 2016 05:10:44 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

@@ -82,7 +82,7 @@ var NAVTREEINDEX0 =
 "d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a43375ef23c333f5029d57863cf436257":[1,0,0,0,4,2],
 "d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a9cf9fc248176b3aa65999135ed5b1d40":[1,0,0,0,4,1],
 "d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml":[1,0,0,0,1,4],
-"d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a0b1a146cb397b81ea49c3066fe44b276":[1,0,0,0,1,4,2],
+"d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e":[1,0,0,0,1,4,2],
 "d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a7a0ce29c15d6e75e2fc65e73e8be03f6":[1,0,0,0,1,4,0],
 "d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2":[1,0,0,0,1,4,4],
 "d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533":[1,0,0,0,1,4,1],
@@ -134,9 +134,10 @@ var NAVTREEINDEX0 =
 "d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml#ae8753efaeea05f65094a4875a694a368":[1,0,0,0,0,1,0],
 "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml":[1,0,0,0,1,3],
 "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a34409fed9d39281ada2d7ec172a52f9b":[1,0,0,0,1,3,3],
-"d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a6ea653b88ccb046c0f132110584561c1":[1,0,0,0,1,3,0],
+"d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a3c0e0c204d6572bbd90419b3ee943add":[1,0,0,0,1,3,0],
 "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a74f25408a64b134b193a28d7acf14dcc":[1,0,0,0,1,3,4],
 "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a7ee9065718e6628dc7791b756fa6c0f9":[1,0,0,0,1,3,2],
+"d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#ad3a8ad1f8527d5b40b75e1355167ef59":[1,0,0,0,1,3,6],
 "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#afadaac89062961419f18735626aaa3d7":[1,0,0,0,1,3,5],
 "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb":[1,0,0,0,1,3,1],
 "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml":[1,0,0,0,0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af29bb3087b6a9987d046e8a25b20d3ef":[1,0,0,0,5,23],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afe0130a66c72c58cb2bc272a46298d71":[1,0,0,0,5,17],
 "da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml":[1,0,0,4],
-"da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml#a10eacc103be2c44bca148f13c79c1575":[1,0,0,4,1],
-"da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml#a5621a3f113ef5de5dfbb4c5d96a79e98":[1,0,0,4,0]
+"da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml#a10eacc103be2c44bca148f13c79c1575":[1,0,0,4,1]
 };
