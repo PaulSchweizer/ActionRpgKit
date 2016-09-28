@@ -161,7 +161,6 @@ namespace ActionRpgKit.Tests.Character
             Body.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
             string repr = "Body      : 20  (0 - 999)\n" +
                           "            + [StrengthBuff]:  10, 10/10 sec";
-            Console.WriteLine(Body.ToString());
             Assert.AreEqual(repr, Body.ToString());
         }
 

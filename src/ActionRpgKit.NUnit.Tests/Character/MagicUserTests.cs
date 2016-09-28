@@ -60,7 +60,6 @@ namespace ActionRpgKit.Tests.Character
 
             // Advance in Time and trigger again
             GameTime.time = 5;
-            Console.WriteLine(player.Stats.Magic);
             triggered = player.TriggerMagicSkill(passiveMagicSkill);
             Assert.IsTrue(triggered);
 

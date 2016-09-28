@@ -390,11 +390,6 @@ namespace ActionRpgKit.Character.Attribute
         /// The current value of the attribute.
         /// </summary> 
         private float _currentValue;
-
-        /// <summary>
-        /// The absolute maximum of the attribute.
-        /// </summary> 
-        private float _absoluteMaxValue;
         
         public SimpleVolumeAttribute(string name,
                                      float minValue = float.MinValue,
@@ -402,32 +397,7 @@ namespace ActionRpgKit.Character.Attribute
                                      float value = 0) : base (name, minValue, maxValue, value)
         {
             _currentValue = BaseValue;
-            _absoluteMaxValue = maxValue;
         }
-
-        public override float Value
-        {
-            get
-            {
-                return _currentValue;
-            }
-            set
-            {
-                _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
-            }
-        }
-
-        public override float MaxValue
-        {
-             get
-             {
-                 return Math.Min(_absoluteMaxValue, BaseValue);
-             }
-             set 
-             {
-                 _absoluteMaxValue = value;
-             }
-         }
 
         public override void Reset()
         {

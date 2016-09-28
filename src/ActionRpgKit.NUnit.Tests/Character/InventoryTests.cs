@@ -31,7 +31,6 @@ namespace ActionRpgKit.Tests.Character
             simpleInventory = new SimpleInventory(new IItem[] { herb },
                                                   new int[] { 1 });
             Assert.AreEqual(1, simpleInventory.ItemCount);
-            Console.WriteLine(simpleInventory.ToString());
             Assert.AreEqual(1, simpleInventory.GetQuantity(herb));
         }
 
@@ -44,7 +43,6 @@ namespace ActionRpgKit.Tests.Character
             playerInventory.AddItem(herb);
             Assert.AreEqual(1, playerInventory.ItemCount);
             playerInventory.AddItem(herb, 9);
-            Console.WriteLine(playerInventory.ToString());
             Assert.AreEqual(1, playerInventory.ItemCount);
             Assert.AreEqual(10, playerInventory.GetQuantity(herb));
             playerInventory.RemoveItem(herb, 9);
