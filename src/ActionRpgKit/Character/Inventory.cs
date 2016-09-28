@@ -13,8 +13,8 @@ namespace ActionRpgKit.Character
     {
         IEnumerable<IItem> Items { get; set; }
         IEnumerable<int> Quantities { get; set; }
-        void AddItem (IItem item, int quantity);
-        void RemoveItem (IItem item, int quantity);
+        void AddItem (IItem item, int quantity = 1);
+        void RemoveItem (IItem item, int quantity = 1);
         int ItemCount { get; }
         int GetQuantity (IItem item);
     }
@@ -26,9 +26,9 @@ namespace ActionRpgKit.Character
         private IItem[] _items;
         private int[] _quantities;
 
-        public SimpleInventory () { }
+        public SimpleInventory() { }
 
-        public SimpleInventory (IItem[] items, int[] quantities)
+        public SimpleInventory(IItem[] items, int[] quantities)
         {
             Items = items;
             Quantities = quantities;
@@ -67,7 +67,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public int GetQuantity (IItem item)
+        public int GetQuantity(IItem item)
         {
             int index = Array.IndexOf(_items, item);
             if (index > -1)
@@ -80,15 +80,9 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void AddItem (IItem item, int quantity = 1)
-        {
-            
-        }
+        public void AddItem(IItem item, int quantity = 1) { }
 
-        public void RemoveItem (IItem item, int quantity = 1)
-        {
-            
-        }
+        public void RemoveItem(IItem item, int quantity = 1) { }
 
         public override string ToString()
         {
@@ -144,7 +138,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public int GetQuantity (IItem item)
+        public int GetQuantity(IItem item)
         {
             if (_items.Contains(item))
             {
@@ -156,7 +150,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void AddItem (IItem item, int quantity = 1)
+        public void AddItem(IItem item, int quantity = 1)
         {
             if (_items.Contains(item))
             {
@@ -169,7 +163,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void RemoveItem (IItem item, int quantity = 1)
+        public void RemoveItem(IItem item, int quantity = 1)
         {
             if (_items.Contains(item))
             {
