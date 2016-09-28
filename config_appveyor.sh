@@ -2087,7 +2087,7 @@ HIDE_UNDOC_RELATIONS   = YES
 # set to NO
 # The default value is: NO.
 
-HAVE_DOT               = YES
+HAVE_DOT               = NO
 
 # The DOT_NUM_THREADS specifies the number of dot invocations doxygen is allowed
 # to run in parallel. When set to 0 doxygen will base this on the number of
@@ -2259,7 +2259,7 @@ INTERACTIVE_SVG        = YES
 # found. If left blank, it is assumed the dot tool can be found in the path.
 # This tag requires that the tag HAVE_DOT is set to YES.
 
-DOT_PATH               = "C:\projects\actionrpgkit\tools\GraphViz.NET.1.0.0\bin"
+DOT_PATH               =
 # "C:\projects\actionrpgkit\tools\GraphViz.NET.1.0.0\bin"
 # "C:\Program Files (x86)\Graphviz2.38\bin"
 
