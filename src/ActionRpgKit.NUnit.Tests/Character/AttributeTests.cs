@@ -15,6 +15,7 @@ namespace ActionRpgKit.Tests.Character
         SecondaryAttribute Level;
         VolumeAttribute Life;
         VolumeAttribute Magic;
+        SimpleVolumeAttribute Energy;
 
         int _valueChangedEventTriggered;
         int _maxReachedEventTriggered;
@@ -36,6 +37,7 @@ namespace ActionRpgKit.Tests.Character
             Magic = new VolumeAttribute("Magic",
                     x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
                     new IAttribute[] { Level, Body }, 0, 999);
+            Energy = new SimpleVolumeAttribute("Energy", 0, 999, 0);
         }
 
         [Test]
@@ -161,6 +163,25 @@ namespace ActionRpgKit.Tests.Character
                           "            + [StrengthBuff]:  10, 10/10 sec";
             Console.WriteLine(Body.ToString());
             Assert.AreEqual(repr, Body.ToString());
+        }
+
+        [Test]
+        public void SimpleVolumeTest()
+        {
+            // Check the default values
+            Assert.AreEqual(0, Energy.MinValue);
+            Assert.AreEqual(999, Energy.MaxValue);
+            Assert.AreEqual(0, Energy.Value);
+
+            // Try directly setting it
+            Energy.Value = float.MaxValue;
+            Assert.AreEqual(999, Energy.Value);
+
+            // Reset
+            Energy.Value = float.MinValue;
+            Assert.AreEqual(0, Energy.Value);
+            Energy.Reset();
+            Assert.AreEqual(999, Energy.Value);
         }
 
         [Test]
