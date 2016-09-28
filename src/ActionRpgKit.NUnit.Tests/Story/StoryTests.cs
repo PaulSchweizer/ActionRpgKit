@@ -75,20 +75,11 @@ namespace ActionRpgKit.Tests.Story
 
             // The Storyline has been completed now
             storyline.CheckProgress();
-        }
-        
-        [Test]
-        public void StoryDeserializingTest()
-        {
-            string xmlFile = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\storyline.xml";
-            
-            xmlFile = string.Format("{0}/ActionRpgKit/Tests/Story/storyline.xml", 
-                                    Environment.GetEnvironmentVariable("TRAVIS_BUILD_DIR"));
-            // Console.WriteLine(xmlFile);
-            // Console.WriteLine(File.Exists(xmlFile) ? "File exists." : "File does not exist.");
 
-            // Storyline storylineFromXml = Storyline.CreateFromXml(xmlFile);
-            // Assert.AreEqual(2, storylineFromXml.Chapters.Length);
+            storyline.CheckProgress();
+
+            // Trying the pretty representation just to make sure
+            storyline.ToString();
         }
     }
 
