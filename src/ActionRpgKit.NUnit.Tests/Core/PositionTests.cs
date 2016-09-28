@@ -36,6 +36,8 @@ namespace ActionRpgKit.Tests.Core
             Assert.AreEqual(1.23456789f, position1.DistanceTo(position2));
             position2.Set(-1.23456789f, 0, 0);
             Assert.AreEqual(1.23456789f, position2.DistanceTo(position1));
+            Assert.AreEqual(new int[]{0, 0, 0}, position1.Get());
+            Assert.AreEqual("0, 0, 0", position1.ToString());
         }
     }
  }
