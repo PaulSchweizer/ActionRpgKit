@@ -58,6 +58,7 @@ namespace ActionRpgKit.Tests.Character
 
             // Check if the combination matches
             Assert.IsFalse(passiveMagicSkill.Match(new IItem[] { }));
+            Assert.IsFalse(passiveMagicSkill.Match(new IItem[] { coin }));
             Assert.IsFalse(passiveMagicSkill.Match(new IItem[] { herb, coin }));
             Assert.IsFalse(passiveMagicSkill.Match(new IItem[] { coin, herb }));
             Assert.IsTrue(passiveMagicSkill.Match(new IItem[] { herb }));
