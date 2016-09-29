@@ -51,7 +51,7 @@ namespace ActionRpgKit.Story.Quest
                 repr += string.Format("\u2610 {0} [Quest]\n      \"{1}\"\n", Name, Description);
             }
 
-            for (int i = 0; i < Objectives.Count; i++)
+            for (int i = 0; i < Objectives.Length; i++)
             {
                 repr += string.Format("    {0} {1}\n", i+1, Objectives[i].ToString());
             }
