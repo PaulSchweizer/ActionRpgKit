@@ -43,8 +43,8 @@ namespace ActionRpgKit.Tests.Character
                                             preUseTime: 10,
                                             cooldownTime: 5,
                                             modifierValue: 10,
-                                            modifiedAttributeName: "Body");
-            passiveMagicSkill.TriggerSequence = new IItem[] { herb };
+                                            modifiedAttributeName: "Body",
+                                            itemSequence: new IItem[] { herb });
         }
 
         [Test]
