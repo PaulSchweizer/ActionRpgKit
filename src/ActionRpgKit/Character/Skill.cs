@@ -37,7 +37,7 @@ namespace ActionRpgKit.Character.Skill
 
         /// <summary>
         /// A sequence of Items that triggers the Skill.</summary>
-        IItem[] TriggerSequence { get; set; }
+        IItem[] ItemSequence { get; set; }
 
         /// <summary>
         /// Whether the skill matches the given series of items.</summary>
@@ -87,13 +87,15 @@ namespace ActionRpgKit.Character.Skill
                          string name,
                          string description,
                          float preUseTime,
-                         float cooldownTime)
+                         float cooldownTime,
+                         IItem[] itemSequence)
         {
             Id = id;
             Name = name;
             Description = description;
             PreUseTime = preUseTime;
             CooldownTime = cooldownTime;
+            ItemSequence = itemSequence;
         }
 
         public int Id { get; }
@@ -106,7 +108,7 @@ namespace ActionRpgKit.Character.Skill
 
         public float PreUseTime { get; }
 
-        public IItem[] TriggerSequence { get; set; }
+        public IItem[] ItemSequence { get; set; }
 
         public abstract bool Match(IItem[] items);
     }
@@ -126,16 +128,18 @@ namespace ActionRpgKit.Character.Skill
         public PassiveMagicSkill(int id,
                                  string name,
                                  string description,
-                                 float cost,
-                                 float duration,
                                  float preUseTime,
                                  float cooldownTime,
+                                 IItem[] itemSequence,
+                                 float cost,
+                                 float duration,
                                  float modifierValue,
                                  string modifiedAttributeName) : base(id,
                                                                       name,
                                                                       description,
                                                                       preUseTime,
-                                                                      cooldownTime)
+                                                                      cooldownTime,
+                                                                      itemSequence)
         {
             Cost = cost;
             _duration = duration;
@@ -205,12 +209,14 @@ namespace ActionRpgKit.Character.Skill
                           string description,
                           float preUseTime,
                           float cooldownTime,
+                          IItem[] itemSequence,
                           float damage,
                           int maximumTargets) : base(id,
                                                      name,
                                                      description,
                                                      preUseTime,
-                                                     cooldownTime)
+                                                     cooldownTime,
+                                                     itemSequence)
         {
             Damage = damage;
             MaximumTargets = maximumTargets;
