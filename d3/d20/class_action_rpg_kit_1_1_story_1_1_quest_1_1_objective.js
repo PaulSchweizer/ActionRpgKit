@@ -1,7 +1,5 @@
 var class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective =
 [
-    [ "Objective", "d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml#a6571b9b9ad91008edb1f04a5bb9e0dd9", null ],
-    [ "Objective", "d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml#a1e1dbf39e4bbacfb06492d65b45cc008", null ],
     [ "ToString", "d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
     [ "CheckProgress", "d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml#a3c7833b482251d997d4f9e4a9eb99f31", null ],
     [ "OnCompletion", "d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml#a7f4613bcef3ba38780730876a9bc353a", null ],
