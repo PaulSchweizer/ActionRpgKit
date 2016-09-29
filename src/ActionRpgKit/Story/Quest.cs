@@ -14,7 +14,7 @@ namespace ActionRpgKit.Story.Quest
         string Name { get; set; }
         string Description { get; set; }
         int Experience { get; set; }
-        IObjective[] Objectives { get; }
+        IObjective[] Objectives { get; set; }
         bool IsCompleted { get; set; }
         void CheckProgress ();
         void OnObjectiveCompletion(IObjective objective);
@@ -79,7 +79,7 @@ namespace ActionRpgKit.Story.Quest
 
         public IObjective[] Objectives
         {
-            get;
+            get; set;
         }
 
         public bool IsCompleted
