@@ -94,11 +94,8 @@ namespace ActionRpgKit.Tests.Story
             Name = "Cleanse the cellars";
             Description = "Get rid of the rats to reach the magic herbs.";
             Experience = 100;
-
-            IObjective objectiveA = new GetRidOfRatsObjective();
-            Objectives.Add(objectiveA);
-            IObjective objectiveB = new Find10HerbsObjective();
-            Objectives.Add(objectiveB);
+            Objectives = new IObjective[] {new GetRidOfRatsObjective(), 
+                                           new Find10HerbsObjective()};
         }
 
         public override void OnObjectiveCompletion(IObjective objective)
