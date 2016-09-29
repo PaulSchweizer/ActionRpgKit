@@ -3,6 +3,7 @@ using NUnit.Framework;
 using ActionRpgKit.Core;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Skill;
+using ActionRpgKit.Item;
 
 namespace ActionRpgKit.Tests.Character
 {
