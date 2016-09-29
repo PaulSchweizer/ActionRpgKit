@@ -3,6 +3,7 @@ using NUnit.Framework;
 using ActionRpgKit.Core;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Skill;
+using ActionRpgKit.Item;
 
 namespace ActionRpgKit.Tests.Character
 {
@@ -26,7 +27,8 @@ namespace ActionRpgKit.Tests.Character
                             preUseTime: 1,
                             cooldownTime: 1,
                             damage: 1,
-                            maximumTargets: 1);
+                            maximumTargets: 1,
+                            itemSequences: new IItem[] {});
             player.LearnCombatSkill(meleeSkill);
             enemy.Stats.Life.Value = 10;
             GameTime.Reset();
