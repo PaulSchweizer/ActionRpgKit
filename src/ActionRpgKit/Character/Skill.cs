@@ -159,14 +159,14 @@ namespace ActionRpgKit.Character.Skill
 
         public override bool Match(IItem [] items)
         {
-            if (TriggerSequence.Length != items.Length)
+            if (ItemSequence.Length != items.Length)
             {
                 return false;
             }
             bool match = true;
-            for (int i = 0; i < TriggerSequence.Length; i++)
+            for (int i = 0; i < ItemSequence.Length; i++)
             {
-                if (TriggerSequence[i] != items[i])
+                if (ItemSequence[i] != items[i])
                 {
                     match = false;
                     break;
