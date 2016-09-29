@@ -37,14 +37,16 @@ namespace ActionRpgKit.Tests.Character
                                         preUseTime: 1,
                                         cooldownTime: 1,
                                         damage: 1,
-                                        maximumTargets: 1);
+                                        maximumTargets: 1,
+                                        itemSequence: new IItem[]{});
             meleeMultiTargetsSkill = new MeleeSkill(id: 1,
                                             name: "MultiHit",
                                             description: "Wield a sword against multiple opponents.",
                                             preUseTime: 1,
                                             cooldownTime: 1,
                                             damage: 1,
-                                            maximumTargets: 2);
+                                            maximumTargets: 2,
+                                            itemSequence: new IItem[]{});
         }
 
         [Test]
