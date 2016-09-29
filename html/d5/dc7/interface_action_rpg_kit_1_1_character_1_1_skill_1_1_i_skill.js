@@ -6,5 +6,5 @@ var interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill =
     [ "Description", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a34409fed9d39281ada2d7ec172a52f9b", null ],
     [ "PreUseTime", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a74f25408a64b134b193a28d7acf14dcc", null ],
     [ "CooldownTime", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#afadaac89062961419f18735626aaa3d7", null ],
-    [ "TriggerSequence", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#ad3a8ad1f8527d5b40b75e1355167ef59", null ]
+    [ "ItemSequence", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a8d92a295e19d261d76c679fcfdf21740", null ]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['passivemagicskill',['PassiveMagicSkill',['../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml',1,'ActionRpgKit::Character::Skill']]],
-  ['passivemagicskill',['PassiveMagicSkill',['../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a2db4d6dd2e168327c479926f6c73e914',1,'ActionRpgKit::Character::Skill::PassiveMagicSkill']]],
+  ['passivemagicskill',['PassiveMagicSkill',['../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#af1bfb39e8943fd712f3593235edff0e2',1,'ActionRpgKit::Character::Skill::PassiveMagicSkill']]],
   ['player',['Player',['../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml',1,'ActionRpgKit::Character']]],
   ['player',['Player',['../da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml#a79f423a168fce71dc1a8668e592df36f',1,'ActionRpgKit.MainController.Player()'],['../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml#a244719265958cdd3814a61c97a6e3e98',1,'ActionRpgKit.Character.Player.Player()'],['../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml#a71f8a11bd20073028a455a23d6b7a9cf',1,'ActionRpgKit.Character.Player.Player(string name)']]],
   ['playerinventory',['PlayerInventory',['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml',1,'ActionRpgKit::Character']]],
