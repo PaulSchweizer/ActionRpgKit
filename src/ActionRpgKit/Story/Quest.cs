@@ -14,7 +14,7 @@ namespace ActionRpgKit.Story.Quest
         string Name { get; set; }
         string Description { get; set; }
         int Experience { get; set; }
-        List<IObjective> Objectives { get; }
+        IObjective[] Objectives { get; }
         bool IsCompleted { get; set; }
         void CheckProgress ();
         void OnObjectiveCompletion(IObjective objective);
