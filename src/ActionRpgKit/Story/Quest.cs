@@ -4,12 +4,11 @@ using System.Collections.Generic;
 namespace ActionRpgKit.Story.Quest
 {
     // -----------------------------------------------------------------------
-    // Interfaces
+    #region Interfaces
     // -----------------------------------------------------------------------
 
     /// <summary>
-    /// Interface for Quests.
-    /// </summary>
+    /// Interface for Quests.</summary>
     public interface IQuest
     {
         string Name { get; set; }
@@ -30,76 +29,15 @@ namespace ActionRpgKit.Story.Quest
         void CheckProgress();
         void OnCompletion();
     }
-
+    
+    #endregion
+    
     // -----------------------------------------------------------------------
-    // Abstracts
-    // -----------------------------------------------------------------------
-
-    public abstract class Objective : IObjective
-    {
-
-        public Objective () { }
-
-        public Objective (string name, string description)
-        {
-            Name = name;
-            Description = description;
-        }
-
-        public override string ToString()
-        {
-            if (IsCompleted)
-            {
-                return string.Format("\u2611 {0} [Objective]\n        \"{1}\"", Name, Description);
-            }
-            else
-            {
-                return string.Format("\u2610 {0} [Objective]\n        \"{1}\"", Name, Description);
-            }
-        }
-
-        // -------------------------------------------------------------------
-        // IObjective implementations
-        // -------------------------------------------------------------------
-
-        public string Name
-        {
-            get; set;
-        }
-
-        public string Description
-        {
-            get; set;
-        }
-
-        public bool IsCompleted
-        {
-            get; set;
-        }
-
-        public abstract void CheckProgress();
-
-        public abstract void OnCompletion();
-    }
-
-    // -----------------------------------------------------------------------
-    // Implementations
+    #region Abstracts
     // -----------------------------------------------------------------------
 
     public abstract class Quest : IQuest
     {
-        private List<IObjective> _objectives = new List<IObjective>();
-
-        public Quest () { }
-
-        public Quest (string name,
-                          string description,
-                          int experience)
-        {
-            Name = name;
-            Description = description;
-            Experience = experience;
-        }
 
         public override string ToString()
         {
@@ -139,12 +77,9 @@ namespace ActionRpgKit.Story.Quest
             get; set;
         }
 
-        public List<IObjective> Objectives
+        public IObjective[] Objectives
         {
-            get
-            {
-                return _objectives;
-            }
+            get;
         }
 
         public bool IsCompleted
@@ -155,7 +90,7 @@ namespace ActionRpgKit.Story.Quest
         public void CheckProgress ()
         {
             bool completed = true;
-            for (int i = 0; i < Objectives.Count; i++)
+            for (int i = 0; i < Objectives.Length; i++)
             {
                 if (Objectives[i].IsCompleted)
                 {
@@ -181,4 +116,45 @@ namespace ActionRpgKit.Story.Quest
 
         public abstract void OnCompletion();
     }
+    
+    public abstract class Objective : IObjective
+    {
+
+        public override string ToString()
+        {
+            if (IsCompleted)
+            {
+                return string.Format("\u2611 {0} [Objective]\n        \"{1}\"", Name, Description);
+            }
+            else
+            {
+                return string.Format("\u2610 {0} [Objective]\n        \"{1}\"", Name, Description);
+            }
+        }
+
+        // -------------------------------------------------------------------
+        // IObjective implementations
+        // -------------------------------------------------------------------
+
+        public string Name
+        {
+            get; set;
+        }
+
+        public string Description
+        {
+            get; set;
+        }
+
+        public bool IsCompleted
+        {
+            get; set;
+        }
+
+        public abstract void CheckProgress();
+
+        public abstract void OnCompletion();
+    }
+    
+    #endregion
 }
