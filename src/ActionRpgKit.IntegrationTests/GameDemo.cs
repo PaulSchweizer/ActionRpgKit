@@ -75,14 +75,16 @@ namespace ActionRpgKit.Tests.IntegrationTests
                                                 preUseTime: 10,
                                                 cooldownTime: 5,
                                                 modifierValue: 10,
-                                                modifiedAttributeName: "Body");
+                                                modifiedAttributeName: "Body",
+                                                itemSequence: new IItem(){});
             ICombatSkill meleeSkill = new MeleeSkill(id: 0,
                                             name: "SwordFighting",
                                             description: "How to wield a sword.",
                                             preUseTime: 1,
                                             cooldownTime: 1,
                                             damage: 1,
-                                            maximumTargets: 1);
+                                            maximumTargets: 1,
+                                            itemSequence: new IItem(){});
             SkillDatabase.CombatSkills = new ICombatSkill[] { meleeSkill };
             SkillDatabase.MagicSkills = new IMagicSkill[] { passiveMagicSkill };
         }
