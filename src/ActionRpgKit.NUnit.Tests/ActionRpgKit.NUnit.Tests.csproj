@@ -49,6 +49,7 @@
     <Compile Include="Character\InventoryTests.cs" />
     <Compile Include="Character\MagicUserTests.cs" />
     <Compile Include="Character\StatsTests.cs" />
+    <Compile Include="Character\SkillTests.cs" />
     <Compile Include="Core\GameTimeTests.cs" />
     <Compile Include="Core\PositionTests.cs" />
     <Compile Include="Item\ItemTests.cs" />

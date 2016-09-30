@@ -15,10 +15,14 @@ namespace ActionRpgKit.Tests.Skill
         IItem herb;
         IItem coin;
         IMagicSkill passiveMagicSkill;
+        ICombatSkill meleeSkill;
+        ICombatSkill meleeMultiTargetsSkill;
 
         [SetUp]
         public void SetUp ()
         {
+            GameTime.Reset();
+
             herb = new UsableItem();
             herb.Id = 0;
             herb.Name = "Herb";
@@ -28,22 +32,44 @@ namespace ActionRpgKit.Tests.Skill
             coin.Name = "Coin";
             coin.Description = "A gold coin";
 
-            GameTime.Reset();
             passiveMagicSkill = new PassiveMagicSkill(id: 0,
-                                            name: "ShadowStrength",
-                                            description: "A +10 Buff to the user's strength.",
-                                            preUseTime: 10,
-                                            cooldownTime: 5,
-                                            itemSequence: new IItem[] { herb },
-                                            cost: 10,
-                                            duration: 10,
-                                            modifierValue: 10,
-                                            modifiedAttributeName: "Body");
+                                                      name: "ShadowStrength",
+                                                      description: "A +10 Buff to the user's strength.",
+                                                      preUseTime: 10,
+                                                      cooldownTime: 5,
+                                                      itemSequence: new IItem[] { herb },
+                                                      cost: 10,
+                                                      duration: 10,
+                                                      modifierValue: 10,
+                                                      modifiedAttributeName: "Body");
+            meleeSkill = new MeleeSkill(id: 1,
+                                        name: "SwordFighting",
+                                        description: "Wield a sword effectively.",
+                                        preUseTime: 1,
+                                        cooldownTime: 1,
+                                        damage: 1,
+                                        maximumTargets: 1,
+                                        itemSequence: new IItem[] { });
+            meleeMultiTargetsSkill = new MeleeSkill(id: 2,
+                                                    name: "MultiHit",
+                                                    description: "Wield a sword against multiple opponents.",
+                                                    preUseTime: 1,
+                                                    cooldownTime: 1,
+                                                    damage: 1,
+                                                    maximumTargets: 2,
+                                                    itemSequence: new IItem[] { });
         }
 
         [Test]
-        public void PassiveMagicSkillTest()
+        public void SkillDatabaseTest()
         {
+            SkillDatabase.MagicSkills = new IMagicSkill[] { passiveMagicSkill };
+            SkillDatabase.CombatSkills = new ICombatSkill[] { meleeSkill, meleeMultiTargetsSkill };
+
+            Assert.IsNull(SkillDatabase.GetMagicSkillByName("DoesNotExist"));
+            Assert.IsNull(SkillDatabase.GetCombatSkillByName("DoesNotExist"));
+            Assert.AreSame(passiveMagicSkill, SkillDatabase.GetMagicSkillByName("ShadowStrength"));
+            Assert.AreSame(meleeSkill, SkillDatabase.GetCombatSkillByName("SwordFighting"));
         }
     }
 }
