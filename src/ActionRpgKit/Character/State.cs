@@ -82,9 +82,16 @@ namespace ActionRpgKit.Character
                 return;
             }
 
-            if (character.EnemyInAttackRange(character.Enemies[0]))
+            if (character.EnemyInAlternessRange())
             {
-                character.ChangeState(character._attackState);
+                if (character.EnemyInAttackRange(character.Enemies[0]))
+                {
+                    character.ChangeState(character._attackState);
+                }
+            }
+            else
+            {
+                character.ChangeState(character._alertState);
             }
         }
     }

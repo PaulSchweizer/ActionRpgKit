@@ -146,6 +146,20 @@ namespace ActionRpgKit.Tests.Character
             player.Position.Set(2, 0, 0);
             player.CurrentState.UpdateState(player);
             Assert.IsTrue(player.CurrentState is AttackState);
+
+            // Enemy is out of AlertnessRange so we eventually return to Idle
+            //     0 1 2 3 4 5
+            //   + - - - - - - 
+            // 0 | E + + + P
+            player.Position.Set(4, 0, 0);
+            enemy.Position.Set(0, 0, 0);
+            player.Stats.AlertnessRange.Value = 1;
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is ChaseState);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is AlertState);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is IdleState);
         }
     }
 }
