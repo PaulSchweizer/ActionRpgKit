@@ -8,6 +8,8 @@ using ActionRpgKit.Story.Quest;
 namespace ActionRpgKit.Tests.Story
 {
 
+    #region Tests
+
     [TestFixture]
     [Category("Story")]
     public class QuestTests
@@ -19,7 +21,7 @@ namespace ActionRpgKit.Tests.Story
         public void SetUp()
         {
             storyline = new GameStoryline();
-            simpleQuest = new CleanseTheCellars();
+            simpleQuest = new CleanseTheCellarsQuest();
 
             // Simulate the existence of 10 rats
             GetRidOfRatsObjective.rats = 10;
@@ -70,6 +72,7 @@ namespace ActionRpgKit.Tests.Story
 
             // Solve the second quest, this will move to the next Chapter
             GetRidOfRatsObjective.rats = 0;
+            FindTreasureChestObjective.ChestFound = true;
             storyline.CheckProgress();
             Assert.AreEqual("Epilog", storyline.CurrentChapter.Name);
 
@@ -83,19 +86,70 @@ namespace ActionRpgKit.Tests.Story
         }
     }
 
-    // -----------------------------------------------------------------------
-    // Test Classes
-    // -----------------------------------------------------------------------
+    #endregion
 
-    class CleanseTheCellars : Quest
+    #region Test Classes
+
+    public class GameStoryline : Storyline
     {
-        public CleanseTheCellars()
+        public GameStoryline()
+        {
+            Chapters = new Chapter[] { new PrologChapter(),
+                                       new EpilogChapter() };
+        }
+    }
+
+    class PrologChapter : Chapter
+    {
+        public PrologChapter()
+        {
+            Name = "Prolog";
+            Description = "The beginnings ...";
+            Quests = new IQuest[] { new CleanseTheCellarsQuest(), new FindTreasureQuest() };
+        }
+    }
+
+    class EpilogChapter : Chapter
+    {
+        public EpilogChapter()
+        {
+            Name = "Epilog";
+            Description = "The end";
+            Quests = new IQuest[] { };
+        }
+    }
+
+    class CleanseTheCellarsQuest : Quest
+    {
+        public CleanseTheCellarsQuest()
         {
             Name = "Cleanse the cellars";
             Description = "Get rid of the rats to reach the magic herbs.";
             Experience = 100;
             Objectives = new IObjective[] {new GetRidOfRatsObjective(), 
                                            new Find10HerbsObjective()};
+        }
+
+        public override void OnObjectiveCompletion(IObjective objective)
+        {
+            objective.OnCompletion();
+        }
+
+        public override void OnCompletion()
+        {
+            IsCompleted = true;
+            Console.WriteLine("Quest \"{0}\" completed.", Name);
+        }
+    }
+
+    class FindTreasureQuest : Quest
+    {
+        public FindTreasureQuest()
+        {
+            Name = "Find a treasure";
+            Description = "Find the treasure by the big willow tree.";
+            Experience = 200;
+            Objectives = new IObjective[] {new FindTreasureChestObjective()};
         }
 
         public override void OnObjectiveCompletion(IObjective objective)
@@ -158,31 +212,28 @@ namespace ActionRpgKit.Tests.Story
         }
     }
 
-    public class GameStoryline : Storyline
+    class FindTreasureChestObjective : Objective
     {
-        public GameStoryline()
-        {
-            Chapters = new Chapter[] { new PrologChapter(), new EpilogChapter() };
-        }
-    }
+        public static bool ChestFound = false;
 
-    class PrologChapter : Chapter
-    {
-        public PrologChapter()
+        public FindTreasureChestObjective()
         {
-            Name = "Prolog";
-            Description = "The beginnings ...";
-            Quests = new IQuest[] { new CleanseTheCellars() };
+            Name = "Find the treasure chest";
+            Description = "The chest is burried at the old willow tree.";
         }
-    }
 
-    class EpilogChapter : Chapter
-    {
-        public EpilogChapter()
+        public override void CheckProgress()
         {
-            Name = "Epilog";
-            Description = "The end";
-            Quests = new IQuest[] {};
+            if (ChestFound)
+            {
+                IsCompleted = true;
+            }
+        }
+
+        public override void OnCompletion()
+        {
+            Console.WriteLine("Objective \"{0}\" completed.", Name);
         }
     }
+    #endregion
 }

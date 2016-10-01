@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace ActionRpgKit.Story.Quest
 {
-    // -----------------------------------------------------------------------
+
     #region Interfaces
-    // -----------------------------------------------------------------------
 
     /// <summary>
     /// Interface for Quests.</summary>
@@ -32,9 +31,7 @@ namespace ActionRpgKit.Story.Quest
     
     #endregion
     
-    // -----------------------------------------------------------------------
     #region Abstracts
-    // -----------------------------------------------------------------------
 
     public abstract class Quest : IQuest
     {
