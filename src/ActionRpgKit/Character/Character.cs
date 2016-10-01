@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using ActionRpgKit.Core;
+using ActionRpgKit.Item;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Character.Stats;
 using ActionRpgKit.Character.Attribute;
-using ActionRpgKit.Core;
 
 namespace ActionRpgKit.Character
 {
@@ -497,11 +498,19 @@ namespace ActionRpgKit.Character
 
         public Enemy() : base(new EnemyStats(), new SimpleInventory())
         {
+            Inventory.Items = new IItem[] { };
         }
 
         public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
         {
             Name = name;
+            Inventory.Items = new IItem[] { };
+        }
+
+        public Enemy(string name, IItem[] items) : base(new EnemyStats(), new SimpleInventory())
+        {
+            Name = name;
+            Inventory.Items = items;
         }
 
         public override IInventory Inventory
