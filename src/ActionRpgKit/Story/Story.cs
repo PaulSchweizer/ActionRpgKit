@@ -53,17 +53,11 @@ namespace ActionRpgKit.Story
 
         /// <summary>
         /// The Chapter of the Storyline, the list has to have at least one item.</summary>
-        public Chapter[] Chapters
-        {
-            get; set;
-        }
+        public Chapter[] Chapters { get; set; }
 
         /// <summary>
         /// The current Chapter in the Story.</summary>
-        public Chapter CurrentChapter
-        {
-            get; set;
-        }
+        public Chapter CurrentChapter { get; set; }
 
         public void CheckProgress ()
         {
@@ -79,25 +73,13 @@ namespace ActionRpgKit.Story
     /// A step in the progression of the story.</summary>
     public abstract class Chapter
     {
-        public string Name
-        {
-            get; set;
-        }
+        public string Name { get; set; }
 
-        public string Description
-        {
-            get; set;
-        }
+        public string Description { get; set; }
 
-        public IQuest[] Quests
-        {
-            get; set;
-        }
+        public IQuest[] Quests { get; set; }
 
-        public bool IsCompleted
-        {
-            get; set;
-        }
+        public bool IsCompleted { get; set; }
 
         public void CheckProgress()
         {
@@ -121,7 +103,7 @@ namespace ActionRpgKit.Story
             IsCompleted = completed;
         }
 
-        public void OnCompletion ()
+        public void OnCompletion()
         {
             Console.WriteLine("\u2611 Chapter {0} COMPLETED!", Name);
         }

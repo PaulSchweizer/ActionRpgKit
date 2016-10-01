@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Character.Stats;
 using ActionRpgKit.Character.Attribute;
 using ActionRpgKit.Core;
-using ActionRpgKit.Character;
 
 namespace ActionRpgKit.Character
 {
+    #region Interfaces
+
     /// <summary>
     /// Characters populate the game world. 
     /// They are defined by Stats.</summary>
@@ -122,7 +122,11 @@ namespace ActionRpgKit.Character
         /// The Fighter is being attacked.</summary>
         void OnAttacked(IFighter attacker, float damage);
     }
-    
+
+    #endregion
+
+    #region Abstracts
+
     /// <summary>
     /// Base implementation of a Character.</summary>
     public abstract class BaseCharacter : IGameObject, ICharacter, IMagicUser, IFighter
@@ -184,15 +188,13 @@ namespace ActionRpgKit.Character
             return repr;
         }
 
-        // --------------------------------------------------------------------
-        // IGameObject Implementations
-        // --------------------------------------------------------------------
+        #region IGameObject Implementations
 
         public Position Position { get; set; } = new Position();
-        
-        // --------------------------------------------------------------------
-        // ICharacter Implementations
-        // --------------------------------------------------------------------
+
+        #endregion
+
+        #region ICharacter Implementations
 
         public string Name { get; set; }
 
@@ -209,15 +211,15 @@ namespace ActionRpgKit.Character
         {
             if (state != CurrentState)
             {
-                CurrentState.ExitState();
+                CurrentState.ExitState(this);
                 CurrentState = state;
-                CurrentState.EnterState();
+                CurrentState.EnterState(this);
             }
         }
 
-        // --------------------------------------------------------------------
-        // IMagicUser Implementations
-        // --------------------------------------------------------------------
+        #endregion 
+        
+        #region IMagicUser Implementations
 
         public float Magic
         {
@@ -295,9 +297,9 @@ namespace ActionRpgKit.Character
             return GameTime.time >= _magicSkillEndTimes[MagicSkills.IndexOf(magicSkill)];
         }
 
-        // --------------------------------------------------------------------
-        // IFighter Implementations
-        // --------------------------------------------------------------------
+        #endregion 
+
+        #region IFighter Implementations
 
         public float Life
         {
@@ -327,7 +329,10 @@ namespace ActionRpgKit.Character
 
         public void AddEnemy(IFighter enemy, int index=0)
         {
-            Enemies.Insert(0, enemy);
+            if (!Enemies.Contains(enemy))
+            {
+                Enemies.Insert(index, enemy);
+            }
         }
 
         public void RemoveEnemy(IFighter enemy)
@@ -412,6 +417,7 @@ namespace ActionRpgKit.Character
         public void OnAttacked(IFighter attacker, float damage)
         {
             Life -= damage;
+            AddEnemy(attacker);
         }
 
         /// <summary>
@@ -442,9 +448,19 @@ namespace ActionRpgKit.Character
         {
             ChangeState(_dyingState);
             IsDead = true;
+            for (int i=0; i<Enemies.Count; i++)
+            {
+                Enemies[i].RemoveEnemy(this);
+            }
         }
+
+        #endregion
     }
-    
+
+    #endregion
+
+    #region Implementations
+
     /// <summary>
     /// Representation of a Player controllable character.</summary>
     public class Player : BaseCharacter
@@ -500,4 +516,6 @@ namespace ActionRpgKit.Character
             }
         }
     }
+
+    #endregion
 }

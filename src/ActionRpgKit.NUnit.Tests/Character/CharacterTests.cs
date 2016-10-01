@@ -35,11 +35,20 @@ namespace ActionRpgKit.Tests.Character
         }
 
         [Test]
+        public void BasicsTest()
+        {
+            // Call ToString() to make sure it does not throw an error
+            player.ToString();
+            enemy.ToString();
+        }
+
+        [Test]
         public void LifeCallbackTest()
         {
             // Set the life of the enemy to 0 and expect the enemy to die
             enemy.Stats.Life.Value = -10;
             Assert.IsTrue(enemy.CurrentState is DyingState);
+            Assert.IsTrue(enemy.IsDead);
         }
 
         [Test]
@@ -92,11 +101,51 @@ namespace ActionRpgKit.Tests.Character
             {
                 GameTime.time += 1;
                 player.CurrentState.UpdateState(player);
-                Assert.IsTrue(player.CurrentState is AttackState);
                 Assert.AreEqual(10 - i, enemy.Stats.Life.Value);
+                enemy.CurrentState.UpdateState(enemy);
+                Assert.AreEqual(1, enemy.Enemies.Count);
             }
 
-            // All of the enemies are gone, so the Character switches back to alert state 
+            // All of the enemies are gone, so the Character switches back to 
+            // AlertState and then to IdleState.
+            Assert.AreEqual(0, player.Enemies.Count);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is AlertState);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is IdleState);
+
+            // Reset the enemy and simulate a fleeing enemy after it has been attacked
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | + + E P +
+            GameTime.time += 1;
+            enemy.IsDead = false;
+            enemy.Life = 10;
+            enemy.Position.Set(2, 0, 0);
+            player.AddEnemy(enemy);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is AlertState);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is ChaseState);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is AttackState);
+            player.CurrentState.UpdateState(player);
+
+            // Enemy flees
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | + E + P +
+            enemy.Position.Set(1, 0, 0);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is ChaseState);
+
+            // Player chases after the enemy
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | + E P + +
+            player.Position.Set(2, 0, 0);
+            player.CurrentState.UpdateState(player);
+            Assert.IsTrue(player.CurrentState is AttackState);
         }
     }
 }

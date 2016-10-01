@@ -59,30 +59,15 @@ namespace ActionRpgKit.Story.Quest
         // IQuest implementations
         // -------------------------------------------------------------------
 
-        public string Name
-        {
-            get; set;
-        }
+        public string Name { get; set; }
 
-        public string Description
-        {
-            get; set;
-        }
+        public string Description { get; set; }
 
-        public int Experience
-        {
-            get; set;
-        }
+        public int Experience { get; set; }
 
-        public IObjective[] Objectives
-        {
-            get; set;
-        }
+        public IObjective[] Objectives { get; set; }
 
-        public bool IsCompleted
-        {
-            get; set;
-        }
+        public bool IsCompleted { get; set; }
 
         public void CheckProgress ()
         {
@@ -133,20 +118,11 @@ namespace ActionRpgKit.Story.Quest
         // IObjective implementations
         // -------------------------------------------------------------------
 
-        public string Name
-        {
-            get; set;
-        }
+        public string Name { get; set; }
 
-        public string Description
-        {
-            get; set;
-        }
+        public string Description { get; set; }
 
-        public bool IsCompleted
-        {
-            get; set;
-        }
+        public bool IsCompleted { get; set; }
 
         public abstract void CheckProgress();
 

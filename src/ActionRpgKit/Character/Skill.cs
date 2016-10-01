@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections;
-using ActionRpgKit.Character;
 using ActionRpgKit.Character.Attribute;
 using ActionRpgKit.Item;
 
 namespace ActionRpgKit.Character.Skill
 {
-    // ------------------------------------------------------------------------
-    // Interfaces
-    // ------------------------------------------------------------------------
+    #region Interfaces
 
     /// <summary>
     /// Interface for Skills.</summary>
@@ -74,9 +70,9 @@ namespace ActionRpgKit.Character.Skill
         void Use (IFighter user);
     }
 
-    // ------------------------------------------------------------------------
-    // Abstracts
-    // ------------------------------------------------------------------------
+    #endregion
+
+    #region Abstracts
 
     /// <summary>
     /// A basic Skill implementation.</summary>
@@ -113,9 +109,9 @@ namespace ActionRpgKit.Character.Skill
         public abstract bool Match(IItem[] items);
     }
 
-    // ------------------------------------------------------------------------
-    // Implementations
-    // ------------------------------------------------------------------------
+    #endregion
+
+    #region Implementations
 
     /// <summary>
     /// A passive MagicSkill adds buffs on the User itself.</summary>
@@ -153,9 +149,7 @@ namespace ActionRpgKit.Character.Skill
                 Name, Cost, _modifiedAttributeName, _modifierValue, _duration);
         }
 
-        // --------------------------------------------------------------------
-        // ISkill implementations
-        // --------------------------------------------------------------------
+        #region ISkill implementations
 
         public override bool Match(IItem [] items)
         {
@@ -175,14 +169,11 @@ namespace ActionRpgKit.Character.Skill
             return match;
         }
 
-        // --------------------------------------------------------------------
-        // IMagicSkill implementations
-        // --------------------------------------------------------------------
+        #endregion
 
-        public float Cost
-        {
-            get; set;
-        }
+        #region IMagicSkill implementations
+
+        public float Cost { get; set; }
 
         /// <summary>
         /// Add the modifier to the modified attribute.</summary>
@@ -197,6 +188,8 @@ namespace ActionRpgKit.Character.Skill
         {
             return new TimeBasedModifier(Name, _modifierValue, _duration);
         }
+
+        #endregion
     }
 
     /// <summary>
@@ -227,28 +220,20 @@ namespace ActionRpgKit.Character.Skill
             return String.Format("{0} (Damage: {1}, MaxTargets: {2})", Name, Damage, MaximumTargets);
         }
 
-        // --------------------------------------------------------------------
-        // ISkill implementations
-        // --------------------------------------------------------------------
+        #region ISkill implementations
 
         public override bool Match (IItem[] items)
         {
             throw new NotImplementedException();
         }
 
-        // --------------------------------------------------------------------
-        // ICombatSkill implementations
-        // --------------------------------------------------------------------
+        #endregion
 
-        public float Damage
-        {
-            get;
-        }
+        #region ICombatSkill implementations
 
-        public int MaximumTargets
-        {
-            get;
-        }
+        public float Damage { get; }
+
+        public int MaximumTargets { get; }
 
         /// <summary>
         /// Inform the attacked Characters that they are being attacked.</summary>
@@ -259,7 +244,11 @@ namespace ActionRpgKit.Character.Skill
                 user.Enemies[i].OnAttacked(user, Damage);
             }
         }
+
+        #endregion
     }
+
+    #endregion
 
     /// <summary>
     /// Holds all the Skills available in the Game.</summary>
@@ -267,17 +256,11 @@ namespace ActionRpgKit.Character.Skill
     {
         /// <summary>
         /// The index of the array corresponds to the id of the IMagicSkill.</summary>
-        public static IMagicSkill[] MagicSkills
-        {
-            get; set;
-        }
+        public static IMagicSkill[] MagicSkills { get; set;}
 
         /// <summary>
         /// The index of the array corresponds to the id of the ICombatSkill.</summary>
-        public static ICombatSkill[] CombatSkills
-        {
-            get; set;
-        }
+        public static ICombatSkill[] CombatSkills { get; set; }
 
         /// <summary>
         /// Retrieve the IMagicSkill by Name.</summary>

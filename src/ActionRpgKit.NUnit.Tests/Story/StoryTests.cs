@@ -70,6 +70,9 @@ namespace ActionRpgKit.Tests.Story
             Assert.IsFalse(storyline.CurrentChapter.Quests[0].IsCompleted);
             Assert.AreEqual("Prolog", storyline.CurrentChapter.Name);
 
+            // Call ToString to test it
+            storyline.ToString();
+
             // Solve the second quest, this will move to the next Chapter
             GetRidOfRatsObjective.rats = 0;
             FindTreasureChestObjective.ChestFound = true;

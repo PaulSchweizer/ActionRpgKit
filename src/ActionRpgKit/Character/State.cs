@@ -6,30 +6,37 @@ using System.Threading.Tasks;
 
 namespace ActionRpgKit.Character
 {
+
+    #region Interfaces
+
     /// <summary>
     /// Determine the state of a Character.</summary>
     public interface IState
     {
         /// <summary>
         /// Called when entering the State.</summary>
-        void EnterState();
+        void EnterState(BaseCharacter character);
 
         /// <summary>
         /// Called right before changing to the next State.</summary>
-        void ExitState();
+        void ExitState(BaseCharacter character);
 
         /// <summary>
         /// Called to perform the interal calculation of the IState.</summary>
         void UpdateState(BaseCharacter character);
     }
 
+    #endregion
+
+    #region Implementations
+
     /// <summary>
     /// The initial State of a Character.</summary>
     public class IdleState : IState
     {
-        public void EnterState() { }
+        public void EnterState(BaseCharacter character) { }
 
-        public void ExitState() { }
+        public void ExitState(BaseCharacter character) { }
 
         public void UpdateState(BaseCharacter character)
         {
@@ -42,9 +49,9 @@ namespace ActionRpgKit.Character
 
     public class AlertState : IState
     {
-        public void EnterState() { }
+        public void EnterState(BaseCharacter character) { }
 
-        public void ExitState() { }
+        public void ExitState(BaseCharacter character) { }
 
         public void UpdateState(BaseCharacter character)
         {
@@ -63,9 +70,9 @@ namespace ActionRpgKit.Character
 
     public class ChaseState : IState
     {
-        public void EnterState() { }
+        public void EnterState(BaseCharacter character) { }
 
-        public void ExitState() { }
+        public void ExitState(BaseCharacter character) { }
 
         public void UpdateState(BaseCharacter character)
         {
@@ -84,9 +91,9 @@ namespace ActionRpgKit.Character
 
     public class AttackState : IState
     {
-        public void EnterState() { }
+        public void EnterState(BaseCharacter character) { }
 
-        public void ExitState() { }
+        public void ExitState(BaseCharacter character) { }
 
         public void UpdateState(BaseCharacter character)
         {
@@ -114,14 +121,12 @@ namespace ActionRpgKit.Character
     
     public class DyingState : IState
     {
-        public void EnterState() { }
+        public void EnterState(BaseCharacter character) { }
 
-        public void ExitState() { }
+        public void ExitState(BaseCharacter character) { }
 
-        public void UpdateState(BaseCharacter character)
-        {
-
-        }
+        public void UpdateState(BaseCharacter character) { }
     }
-    
+
+    #endregion
 }
