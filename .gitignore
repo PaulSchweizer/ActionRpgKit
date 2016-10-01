@@ -2,6 +2,7 @@ OpenCover
 doc
 packages
 integrationtests
+ActionRpgKit.Unity.IntegrationTests
 
 #################
 ## Sublime

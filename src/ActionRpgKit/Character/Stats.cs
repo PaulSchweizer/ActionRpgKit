@@ -4,9 +4,10 @@ using ActionRpgKit.Character.Attribute;
 
 namespace ActionRpgKit.Character.Stats 
 {
-    ///
-    ///
-    ///
+    #region Abstracts
+
+    /// <summary>
+    /// Basic stats each Character has to have.</summary>
     public abstract class BaseStats : Dictionary<string, IAttribute>
     {
         public IAttribute Body;
@@ -34,7 +35,11 @@ namespace ActionRpgKit.Character.Stats
             Add("AttackRange", AttackRange);
         }
     }
-    
+
+    #endregion
+
+    #region Implementations
+
     public class PlayerStats : BaseStats
     {
         public PlayerStats () : base()
@@ -84,4 +89,6 @@ namespace ActionRpgKit.Character.Stats
             AssignAttributesToDict();
         }
     }
+
+    #endregion
 }
