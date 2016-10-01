@@ -63,7 +63,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y C:\PROJECTS\ActionRpgKit\src\ActionRpgKit\bin\Release\ActionRpgKit.dll C:\PROJECTS\ActionRpgKit\src\ActionRpgKit.Unity.IntegrationTests\Assets\dlls</PostBuildEvent>
+    <PostBuildEvent>xcopy /y /c C:\PROJECTS\ActionRpgKit\src\ActionRpgKit\bin\Release\ActionRpgKit.dll C:\PROJECTS\ActionRpgKit\src\ActionRpgKit.Unity.IntegrationTests\Assets\dlls</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
