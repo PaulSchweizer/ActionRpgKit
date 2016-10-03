@@ -57,9 +57,9 @@ namespace ActionRpgKit.Tests.Character
             //     0 1 2 3 4
             //   + - - - - - 
             // 0 | P + + + E
-            player.Stats.AlertnessRange.Value = 4;
-            player.Position.Set(0, 0, 0);
-            enemy.Position.Set(4, 0, 0);
+            player.Stats.AlertnessRange.Value = 4 * 4;
+            player.Position.Set(0, 0);
+            enemy.Position.Set(4, 0);
             player.CurrentAttackSkill = player.CombatSkills[0];
 
             // Initial State
@@ -85,14 +85,14 @@ namespace ActionRpgKit.Tests.Character
             //     0 1 2 3 4
             //   + - - - - - 
             // 0 | + + P + E
-            player.Position.Set(2, 0, 0);
+            player.Position.Set(2, 0);
             player.CurrentState.UpdateState(player);
             Assert.IsTrue(player.CurrentState is ChaseState);
 
             //     0 1 2 3 4
             //   + - - - - - 
             // 0 | + + + P E
-            player.Position.Set(3, 0, 0);
+            player.Position.Set(3, 0);
             player.CurrentState.UpdateState(player);
             Assert.IsTrue(player.CurrentState is AttackState);
 
@@ -121,7 +121,7 @@ namespace ActionRpgKit.Tests.Character
             GameTime.time += 1;
             enemy.IsDead = false;
             enemy.Life = 10;
-            enemy.Position.Set(2, 0, 0);
+            enemy.Position.Set(2, 0);
             player.AddEnemy(enemy);
             player.CurrentState.UpdateState(player);
             Assert.IsTrue(player.CurrentState is AlertState);
@@ -135,7 +135,7 @@ namespace ActionRpgKit.Tests.Character
             //     0 1 2 3 4
             //   + - - - - - 
             // 0 | + E + P +
-            enemy.Position.Set(1, 0, 0);
+            enemy.Position.Set(1, 0);
             player.CurrentState.UpdateState(player);
             Assert.IsTrue(player.CurrentState is ChaseState);
 
@@ -143,7 +143,7 @@ namespace ActionRpgKit.Tests.Character
             //     0 1 2 3 4
             //   + - - - - - 
             // 0 | + E P + +
-            player.Position.Set(2, 0, 0);
+            player.Position.Set(2, 0);
             player.CurrentState.UpdateState(player);
             Assert.IsTrue(player.CurrentState is AttackState);
 
@@ -151,8 +151,8 @@ namespace ActionRpgKit.Tests.Character
             //     0 1 2 3 4 5
             //   + - - - - - - 
             // 0 | E + + + P
-            player.Position.Set(4, 0, 0);
-            enemy.Position.Set(0, 0, 0);
+            player.Position.Set(4, 0);
+            enemy.Position.Set(0, 0);
             player.Stats.AlertnessRange.Value = 1;
             player.CurrentState.UpdateState(player);
             Assert.IsTrue(player.CurrentState is ChaseState);

@@ -349,7 +349,7 @@ namespace ActionRpgKit.Character
             for (int i = Enemies.Count - 1; i >= 0; i--)
             {
                 var enemy = Enemies[i];
-                if (Position.DistanceTo(Enemies[i].Position) > Stats.AlertnessRange.Value)
+                if (Position.SquaredDistanceTo(Enemies[i].Position) > Stats.AlertnessRange.Value)
                 {
                     RemoveEnemy(Enemies[i]);
                     continue;
@@ -363,7 +363,7 @@ namespace ActionRpgKit.Character
 
         public bool EnemyInAttackRange(IFighter enemy)
         {
-            return Position.DistanceTo(enemy.Position) <= Stats.AttackRange.Value;
+            return Position.SquaredDistanceTo(enemy.Position) <= Stats.AttackRange.Value;
         }
 
         public bool CanAttack()

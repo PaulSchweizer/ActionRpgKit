@@ -22,22 +22,21 @@ namespace ActionRpgKit.Tests.Core
         [Test]
         public void ManipulatePositionTest()
         {
-            position1.Set(1, 2, 3);
+            position1.Set(1, 2);
             Assert.AreEqual(position1.X, 1);
             Assert.AreEqual(position1.Y, 2);
-            Assert.AreEqual(position1.Z, 3);
         }
 
         [Test]
         public void DistanceTest()
         {
-            position1.Set(0, 0, 0);
-            position2.Set(1.23456789f, 0, 0);
-            Assert.AreEqual(1.23456789f, position1.DistanceTo(position2));
-            position2.Set(-1.23456789f, 0, 0);
-            Assert.AreEqual(1.23456789f, position2.DistanceTo(position1));
-            Assert.AreEqual(new int[]{0, 0, 0}, position1.Get());
-            Assert.AreEqual("0, 0, 0", position1.ToString());
+            position1.Set(0, 0);
+            position2.Set(1.23456789f, 0);
+            Assert.AreEqual((float)Math.Pow(1.23456789f, 2), position1.SquaredDistanceTo(position2));
+            position2.Set(-1.23456789f, 0);
+            Assert.AreEqual((float)Math.Pow(1.23456789f, 2), position2.SquaredDistanceTo(position1));
+            Assert.AreEqual(new int[]{0, 0}, position1.Get());
+            Assert.AreEqual("0, 0", position1.ToString());
         }
     }
  }
