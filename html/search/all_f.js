@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['release',['Release',['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml#aa47d2c59bebf088d948a5b0673f2f06d',1,'ActionRpgKit::Character::EnemyPool']]],
   ['remainingtime',['RemainingTime',['../d5/d34/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_time_based_modifier.xhtml#a93c51d4b3623d300d9c3aaf8bbcca58c',1,'ActionRpgKit::Character::Attribute::TimeBasedModifier']]],
   ['removeenemy',['RemoveEnemy',['../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#aeef35d1383ba0bd3b241b4afa38b340e',1,'ActionRpgKit.Character.IFighter.RemoveEnemy()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aeef35d1383ba0bd3b241b4afa38b340e',1,'ActionRpgKit.Character.BaseCharacter.RemoveEnemy()']]],
   ['removeitem',['RemoveItem',['../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#afd6d65b709d14f1f66987327c456c727',1,'ActionRpgKit.Character.IInventory.RemoveItem()'],['../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#afd6d65b709d14f1f66987327c456c727',1,'ActionRpgKit.Character.SimpleInventory.RemoveItem()'],['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#afd6d65b709d14f1f66987327c456c727',1,'ActionRpgKit.Character.PlayerInventory.RemoveItem()']]],

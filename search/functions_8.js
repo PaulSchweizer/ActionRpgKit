@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['magicskillcanbeused',['MagicSkillCanBeUsed',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6ca26c67610944d71599b84699b5a561',1,'ActionRpgKit::Character::BaseCharacter']]],
-  ['maincontroller',['MainController',['../da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml#a5621a3f113ef5de5dfbb4c5d96a79e98',1,'ActionRpgKit.MainController.MainController()'],['../da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml#a10eacc103be2c44bca148f13c79c1575',1,'ActionRpgKit.MainController.MainController()']]],
-  ['match',['Match',['../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a3c0e0c204d6572bbd90419b3ee943add',1,'ActionRpgKit.Character.Skill.ISkill.Match()'],['../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#ab545387a2a194edd1ff5bd65744a6316',1,'ActionRpgKit.Character.Skill.BaseSkill.Match()'],['../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e',1,'ActionRpgKit.Character.Skill.PassiveMagicSkill.Match()'],['../d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e',1,'ActionRpgKit.Character.Skill.MeleeSkill.Match()']]],
-  ['maxreached',['MaxReached',['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#af58266b7c1fc2e5658700b74d64c8693',1,'ActionRpgKit::Character::Attribute::PrimaryAttribute']]],
-  ['maxreachedhandler',['MaxReachedHandler',['../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a56a445f9cbed724ff5d39a697c0caa01',1,'ActionRpgKit::Character::Attribute']]],
-  ['meleeskill',['MeleeSkill',['../d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a130296187c49638defecd39bdb5c981d',1,'ActionRpgKit::Character::Skill::MeleeSkill']]],
-  ['minreached',['MinReached',['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a0d6095be91fc70f5f478a63bdcf1200a',1,'ActionRpgKit::Character::Attribute::PrimaryAttribute']]],
-  ['minreachedhandler',['MinReachedHandler',['../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad2e97a1e7589e4e780518f55ec2770f0',1,'ActionRpgKit::Character::Attribute']]]
+  ['nextchapter',['NextChapter',['../d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#a4e566c23d05752fc78b6b975b51a865b',1,'ActionRpgKit::Story::Storyline']]]
 ];
