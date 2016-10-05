@@ -7,7 +7,7 @@ namespace ActionRpgKit.Tests.Character
     
     [TestFixture]
     [Category("Character.Character")]
-    class CharacterTests
+    class EnemyPoolTests
     {
         EnemyPool enemyPool;
 
