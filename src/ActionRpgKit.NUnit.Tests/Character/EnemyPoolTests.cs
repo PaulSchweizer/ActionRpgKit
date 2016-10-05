@@ -10,12 +10,12 @@ namespace ActionRpgKit.Tests.Character
     [Category("Character.Character")]
     class EnemyPoolTests
     {
-        EnemyPool enemyPool;
+        EnemyPool enemyPool = new EnemyPool(size: 1);
 
         [SetUp]
         public void SetUp()
         {
-            enemyPool = new EnemyPool(size: 1);
+//             enemyPool = new EnemyPool(size: 1);
             GameTime.Reset();
         }
         
