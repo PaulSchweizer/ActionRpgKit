@@ -51,6 +51,7 @@
     <Compile Include="Character\EnemyPoolTests.cs" />
     <Compile Include="Character\SkillTests.cs" />
     <Compile Include="Core\GameTimeTests.cs" />
+    <Compile Include="Core\GameObjectTests.cs" />
     <Compile Include="Core\PositionTests.cs" />
     <Compile Include="Item\ItemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
