@@ -9,19 +9,20 @@ namespace ActionRpgKit.Character
     {
         /// <summary>
         /// The size of the EnemyPool.</summary>
-        public int size;
+        public int Size { get; set; }
 
         /// <summary>
         /// The internal List of Enemies.</summary>
-        List<Enemy> Enemies { get; }
+        private List<Enemy> Enemies { get; set; }
 
         /// <summary>
         /// Initialize the EnemyPool to the given size.</summary>
         /// <param name="size">The size of the pool.</param>
         public EnemyPool (int size=10)
         {
-            size = 10;
-            for(int i=0; i < size; i++)
+            Enemies = new List<Enemy>();
+            Size = size;
+            for(int i=0; i < Size; i++)
             {
                 Enemies.Add(new Enemy());
             }
@@ -41,7 +42,7 @@ namespace ActionRpgKit.Character
             }
             else
             {
-                size += 1;
+                Size += 1;
                 return new Enemy();
             }
         }
