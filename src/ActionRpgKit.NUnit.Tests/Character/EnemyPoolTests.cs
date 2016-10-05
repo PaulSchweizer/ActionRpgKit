@@ -27,7 +27,7 @@ namespace ActionRpgKit.Tests.Character
             {
                 enemyPool.Acquire();
             }
-            Assert.AreEqual(2, enemyPool.size);
+            Assert.AreEqual(2, enemyPool.Size);
         }
     }
 }
