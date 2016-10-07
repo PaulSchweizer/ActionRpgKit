@@ -25,7 +25,6 @@ namespace ActionRpgKit.Tests.Character
             // Retrieve an enemy and release it back to the pool
             var enemy = enemyPool.Acquire();
             enemyPool.Release(enemy);
-            enemyPool.Acquire();
             Assert.AreEqual(1, enemyPool.Size);
             
             // Retrieve more enemies than the pool has to offer, will increase the size.
