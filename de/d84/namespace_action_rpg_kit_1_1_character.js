@@ -9,6 +9,7 @@ var namespace_action_rpg_kit_1_1_character =
     [ "ChaseState", "d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml", "d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state" ],
     [ "DyingState", "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml", "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state" ],
     [ "Enemy", "d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml", "d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy" ],
+    [ "EnemyDatabase", "d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database.xhtml", "d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database" ],
     [ "EnemyPool", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool" ],
     [ "ICharacter", "d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml", "d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character" ],
     [ "IdleState", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state" ],

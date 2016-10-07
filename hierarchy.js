@@ -7,6 +7,7 @@ var hierarchy =
         [ "PlayerStats", "d7/dbc/class_action_rpg_kit_1_1_character_1_1_stats_1_1_player_stats.xhtml", null ]
       ] ]
     ] ],
+    [ "EnemyDatabase", "d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database.xhtml", null ],
     [ "EnemyPool", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml", null ],
     [ "GameTime", "d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml", null ],
     [ "IAttribute", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml", [
