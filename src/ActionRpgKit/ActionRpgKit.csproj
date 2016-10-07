@@ -46,6 +46,7 @@
     <Compile Include="Character\Character.cs" />
     <Compile Include="Character\Inventory.cs" />
     <Compile Include="Character\EnemyPool.cs" />
+    <Compile Include="Character\EnemyDatabase.cs" />
     <Compile Include="Character\Skill.cs" />
     <Compile Include="Character\State.cs" />
     <Compile Include="Character\Stats.cs" />
