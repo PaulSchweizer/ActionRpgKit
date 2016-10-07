@@ -37,7 +37,7 @@ namespace ActionRpgKit.Character
             if (Enemies.Count() > 0)
             {
                 var enemy = Enemies[0];
-                Enemies.Remove(enemy);
+                Enemies.RemoveAt(0);
                 return enemy;
             }
             else
