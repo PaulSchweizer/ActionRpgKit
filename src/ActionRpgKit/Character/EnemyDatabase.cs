@@ -10,8 +10,8 @@ namespace ActionRpgKit.Character
     {
     
         /// <summary>
-        /// The internal List of Enemie types.</summary>
-        private EnemyStats[] EnemyStats { get; set; }
+        /// The internal List of Enemy types.</summary>
+        private Enemy[] Enemies { get; set; }
 
     }
 }
