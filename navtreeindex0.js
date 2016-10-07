@@ -15,7 +15,10 @@ var NAVTREEINDEX0 =
 "d1/db9/namespace_action_rpg_kit_1_1_core.xhtml":[1,0,0,1],
 "d1/db9/namespace_action_rpg_kit_1_1_core.xhtml":[0,0,0,1],
 "d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database.xhtml":[1,0,0,0,9],
-"d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database.xhtml#a56a7806008a64f7673a3c848f2334239":[1,0,0,0,9,0],
+"d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database.xhtml#a29dd4235755fc70afb22558a688b8259":[1,0,0,0,9,1],
+"d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database.xhtml#a56a7806008a64f7673a3c848f2334239":[1,0,0,0,9,3],
+"d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database.xhtml#aba4d2ba3ad3c951ec4570ddd04a3d33b":[1,0,0,0,9,2],
+"d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database.xhtml#afd937e0104940d737c70967057f4ce49":[1,0,0,0,9,0],
 "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml":[1,0,0,0,7],
 "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#a43375ef23c333f5029d57863cf436257":[1,0,0,0,7,2],
 "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070":[1,0,0,0,7,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adb53d4e9142c7b170fe842cbbdb700b6":[1,0,0,0,5,10],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#add055791730d39eaf3b51542df592142":[1,0,0,0,5,12],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae40631bd2f94916ca54e6f0d5988e563":[1,0,0,0,5,14],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae478e44bcecb33a8d3a730be10fb878f":[1,0,0,0,5,24],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aeef35d1383ba0bd3b241b4afa38b340e":[1,0,0,0,5,9],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af015481142aa8d1b4c3f14db2c2fa466":[1,0,0,0,5,40],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af286256bac45cb4f84818931177c0feb":[1,0,0,0,5,13]
+"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae478e44bcecb33a8d3a730be10fb878f":[1,0,0,0,5,24]
 };

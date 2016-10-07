@@ -3,6 +3,7 @@ var searchData=
   ['gametime',['GameTime',['../d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml',1,'ActionRpgKit::Core']]],
   ['get',['Get',['../dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml#a5bf435476b24c1f2408fea9f3a9f855e',1,'ActionRpgKit::Core::Position']]],
   ['getcombatskillbyname',['GetCombatSkillByName',['../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a98a5130d84a236e0ac5c154abf7d8727',1,'ActionRpgKit::Character::Skill::SkillDatabase']]],
+  ['getenemybytype',['GetEnemyByType',['../d2/d44/class_action_rpg_kit_1_1_character_1_1_enemy_database.xhtml#afd937e0104940d737c70967057f4ce49',1,'ActionRpgKit::Character::EnemyDatabase']]],
   ['getitembyid',['GetItemById',['../dd/d83/class_action_rpg_kit_1_1_item_1_1_item_database.xhtml#af2ad9a07df33760dd27f2a44f3d1bf43',1,'ActionRpgKit::Item::ItemDatabase']]],
   ['getitembyname',['GetItemByName',['../dd/d83/class_action_rpg_kit_1_1_item_1_1_item_database.xhtml#ae500b4747c85689ee6004d5d9bc04a2d',1,'ActionRpgKit::Item::ItemDatabase']]],
   ['getmagicskillbyname',['GetMagicSkillByName',['../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#af3d709e93dda41e266a77d322b2b9d3d',1,'ActionRpgKit::Character::Skill::SkillDatabase']]],
