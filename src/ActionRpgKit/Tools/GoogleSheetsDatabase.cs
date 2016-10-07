@@ -2,7 +2,7 @@ using Google.GData.Client;
 using Google.GData.Extensions;
 using Google.GData.Spreadsheets;
 
-namespace
+namespace ActionRpgKit.Tools
 {
     public class GoogleSheetsDatabase
     {
