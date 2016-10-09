@@ -487,18 +487,10 @@ namespace ActionRpgKit.Character
             Inventory.Items = new IItem[] { };
         }
 
-        public Enemy(string name) : base(new EnemyStats(), 
-                                         new SimpleInventory())
+        public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
         {
             Name = name;
             Inventory.Items = new IItem[] { };
-        }
-
-        public Enemy(string name, IItem[] items) : base(new EnemyStats(), 
-                                                        new SimpleInventory())
-        {
-            Name = name;
-            Inventory.Items = items;
         }
     }
 
