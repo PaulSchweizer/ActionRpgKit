@@ -2,6 +2,9 @@
 
 namespace ActionRpgKit.Item
 {
+
+    #region Interfaces
+
     /// <summary>
     /// An Item is something that is usable by Characters.</summary>
     public interface IItem
@@ -20,25 +23,24 @@ namespace ActionRpgKit.Item
         string Description{ get; set; }
     }
 
+    #endregion
+
+    #region Abstracts
+
     /// <summary>
     /// Basic implementation of the IItem.</summary>
     public abstract class BaseItem : IItem
     {
-        public int Id
-        {
-            get; set;
-        }
+        public int Id { get; set; }
 
-        public string Name
-        {
-            get; set;
-        }
+        public string Name { get; set; }
 
-        public string Description
-        {
-            get; set;
-        }
+        public string Description { get; set; }
     }
+
+    #endregion
+
+    #region Implementations
 
     /// <summary>
     /// This item is usable for Skills.</summary>
@@ -46,4 +48,6 @@ namespace ActionRpgKit.Item
     {
 
     }
+
+    #endregion
 }

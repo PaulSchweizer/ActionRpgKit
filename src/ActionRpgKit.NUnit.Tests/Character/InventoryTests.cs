@@ -13,7 +13,7 @@ namespace ActionRpgKit.Tests.Character
     public class InventoryTests
     {
         
-        IInventory simpleInventory;
+        SimpleInventory simpleInventory;
         PlayerInventory playerInventory;
 
         [SetUp]
@@ -90,6 +90,25 @@ namespace ActionRpgKit.Tests.Character
             playerInventory.AddInventory(simpleInventory);
             Assert.AreEqual(1, playerInventory.ItemCount);
             Assert.AreEqual(10, playerInventory.GetQuantity(herb));
+        }
+
+        [Test]
+        public void ResetInventoryTest()
+        {
+            IItem herb = ItemDatabase.GetItemByName("Herb");
+            IItem coin = ItemDatabase.GetItemByName("Coin");
+            simpleInventory = new SimpleInventory(new IItem[] { herb },
+                                                  new int[] { 1 });
+            playerInventory = new PlayerInventory(new IItem[] { herb },
+                                                  new int[] { 1 });
+            Assert.AreEqual(1, playerInventory.ItemCount);
+            Assert.AreEqual(1, simpleInventory.ItemCount);
+            simpleInventory.Items = new IItem[] { };
+            simpleInventory.Quantities = new int[] { };
+            playerInventory.Items = new List<IItem>();
+            playerInventory.Quantities = new List<int>();
+            Assert.AreEqual(0, playerInventory.ItemCount);
+            Assert.AreEqual(0, simpleInventory.ItemCount);
         }
     }
 }

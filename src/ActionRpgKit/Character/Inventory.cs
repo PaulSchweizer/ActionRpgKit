@@ -5,6 +5,8 @@ using ActionRpgKit.Item;
 
 namespace ActionRpgKit.Character
 {
+
+    #region Interfaces
     /// <summary>
     /// An inventory holds Items.</summary>
     public interface IInventory
@@ -16,6 +18,10 @@ namespace ActionRpgKit.Character
         int ItemCount { get; }
         int GetQuantity (IItem item);
     }
+
+    #endregion
+
+    #region Implementations
 
     /// <summary>
     /// This inventory holds afixed size array of items.</summary>
@@ -102,6 +108,14 @@ namespace ActionRpgKit.Character
     {
         private List<IItem> _items = new List<IItem>();
         private List<int> _quantities = new List<int>();
+
+        public PlayerInventory() { }
+
+        public PlayerInventory(IItem[] items, int[] quantities)
+        {
+            Items = items;
+            Quantities = quantities;
+        }
 
         public IEnumerable<IItem> Items
         {
@@ -197,4 +211,6 @@ namespace ActionRpgKit.Character
             return repr;
         }
     }
+
+    #endregion
 }

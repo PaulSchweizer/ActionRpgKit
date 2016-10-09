@@ -201,7 +201,7 @@ namespace ActionRpgKit.Character
 
         public BaseStats Stats { get; set; }
 
-        public abstract IInventory Inventory { get; set; }
+        public IInventory Inventory { get; set; }
 
         public IState CurrentState { get; set; }
 
@@ -466,7 +466,6 @@ namespace ActionRpgKit.Character
     /// Representation of a Player controllable character.</summary>
     public class Player : BaseCharacter
     {
-        IInventory _inventory;
 
         public Player() : base(new PlayerStats(), new PlayerInventory())
         {
@@ -476,53 +475,30 @@ namespace ActionRpgKit.Character
         {
             Name = name;
         }
-
-        public override IInventory Inventory
-        {
-            get
-            {
-                return _inventory;
-            }
-            set
-            {
-                _inventory = value;
-            }
-        }
     }
     
     /// <summary>
     /// Representation of a Hostile, game controlled character.</summary>
     public class Enemy : BaseCharacter
     {
-        IInventory _inventory;
 
         public Enemy() : base(new EnemyStats(), new SimpleInventory())
         {
             Inventory.Items = new IItem[] { };
         }
 
-        public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
+        public Enemy(string name) : base(new EnemyStats(), 
+                                         new SimpleInventory())
         {
             Name = name;
             Inventory.Items = new IItem[] { };
         }
 
-        public Enemy(string name, IItem[] items) : base(new EnemyStats(), new SimpleInventory())
+        public Enemy(string name, IItem[] items) : base(new EnemyStats(), 
+                                                        new SimpleInventory())
         {
             Name = name;
             Inventory.Items = items;
-        }
-
-        public override IInventory Inventory
-        {
-            get
-            {
-                return _inventory;
-            }
-            set
-            {
-                _inventory = value;
-            }
         }
     }
 

@@ -34,6 +34,8 @@ namespace ActionRpgKit.Character.Stats
             Add("AlertnessRange", AlertnessRange);
             Add("AttackRange", AttackRange);
         }
+
+        public abstract void Set(BaseStats stats);
     }
 
     #endregion
@@ -70,6 +72,18 @@ namespace ActionRpgKit.Character.Stats
                     new IAttribute[] { Level, Soul }, 0, 999);
             AssignAttributesToDict();
         }
+
+        public override void Set(BaseStats stats)
+        {
+            Body.Value = stats.Body.Value;
+            Mind.Value = stats.Mind.Value;
+            Soul.Value = stats.Soul.Value;
+            Experience.Value = stats.Experience.Value;
+            Life.Value = stats.Life.Value;
+            Magic.Value = stats.Magic.Value;
+            AlertnessRange.Value = stats.AlertnessRange.Value;
+            AttackRange.Value = stats.AttackRange.Value;
+        }
     }
     
     public class EnemyStats : BaseStats
@@ -87,6 +101,20 @@ namespace ActionRpgKit.Character.Stats
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 0, 999, 1);
             AttackRange = new PrimaryAttribute("AttackRange", 0, 999, 1);
             AssignAttributesToDict();
+        }
+
+        public override void Set(BaseStats stats)
+        {
+            Body.Value = stats.Body.Value; 
+            Mind.Value = stats.Mind.Value; 
+            Soul.Value = stats.Soul.Value; 
+            Experience.Value = stats.Experience.Value; 
+            Level.Value = stats.Level.Value; 
+            Life.Value = stats.Life.Value; 
+            MagicRegenerationRate.Value = stats.MagicRegenerationRate.Value; 
+            Magic.Value = stats.Magic.Value; 
+            AlertnessRange.Value = stats.AlertnessRange.Value; 
+            AttackRange.Value = stats.AttackRange.Value; 
         }
     }
 

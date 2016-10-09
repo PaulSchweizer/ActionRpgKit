@@ -8,26 +8,38 @@ namespace ActionRpgKit.Character
     /// <summary>
     /// Holds all available enemy types.
     /// Allows to retrieve an enemy.</summary>
-    public class EnemyFactory
+    public static class EnemyFactory
     {
-        /// <summary>
-        /// The internal List of Enemy types.</summary>
-        private Enemy[] Enemies { get; set; }
         
         /// <summary>
         /// The Stats ordered by enemy type</summary>
-        private Dictionary<string, EnemyStats> EnemyStats = new Dictionary<string, EnemyStats>();
+        private static Dictionary<string, EnemyStats> Stats = new Dictionary<string, EnemyStats>();
         
         /// <summary>
         /// The Items based on the enemy type</summary>
-        private Dictionary<string, IItem[]> Items = new Dictionary<string, IItem[]>();
+        private static Dictionary<string, IInventory> Inventories = new Dictionary<string, IInventory>();
 
         /// <summary>
-        /// The Stats ordered by enemy type</summary>
-        public Enemy GetEnemyByType (string enemyType)
+        /// Add a new enemy type to the factory.</summary>
+        /// <param name="type">The Enemy type.</param>
+        /// <param name="stats">The Enemy Stats.</param>
+        /// <param name="items">The Items in the Enemies Inventory.</param>
+        public static void AddEnemyType(string type, 
+                                        EnemyStats stats, 
+                                        IInventory inventory)
+        {
+            Stats[type] = stats;
+            Inventories[type] = inventory;
+        }
+
+        /// <summary>
+        /// Get an enemy of a certain type</summary>
+        public static Enemy GetEnemyByType (string type)
         {
             var enemy = EnemyPool.Acquire();
-            enemy.Stats = EnemyStats[enemyType];
+            enemy.Stats.Set(Stats[type]);
+            enemy.Inventory.Items = Inventories[type].Items;
+            enemy.Inventory.Quantities = Inventories[type].Quantities;
             return enemy;
         }
     }
