@@ -467,9 +467,7 @@ namespace ActionRpgKit.Character
     public class Player : BaseCharacter
     {
 
-        public Player() : base(new PlayerStats(), new PlayerInventory())
-        {
-        }
+        public Player() : base(new PlayerStats(), new PlayerInventory()) { }
 
         public Player(string name) : base(new PlayerStats(), new PlayerInventory())
         {

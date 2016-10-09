@@ -34,12 +34,15 @@ namespace ActionRpgKit.Tests.Character
         [Test]
         public void EnemyFactoryTest()
         {
-            var enemy = EnemyFactory.GetEnemyByType("Zombie");
-            enemy.Stats.Life.Value = 20;
-            Assert.AreEqual(20, enemy.Stats.Life.Value);
-            EnemyPool.Release(enemy);
-            enemy = EnemyFactory.GetEnemyByType("Zombie");
-            Assert.AreEqual(0, enemy.Stats.Life.Value);
+            var enemyA = EnemyFactory.GetEnemyByType("Zombie");
+            enemyA.Stats.Life.Value = 20;
+            Assert.AreEqual(20, enemyA.Stats.Life.Value);
+            EnemyPool.Release(enemyA);
+            enemyA = EnemyFactory.GetEnemyByType("Zombie");
+            Assert.AreEqual(0, enemyA.Stats.Life.Value);
+            enemyA.Stats.Life.Value = 20;
+            var enemyB = EnemyFactory.GetEnemyByType("Zombie");
+            Assert.AreEqual(0, enemyB.Stats.Life.Value);
         }
 
         [Test]
