@@ -1,6 +1,7 @@
 var class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats =
 [
     [ "AssignAttributesToDict", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a9c0b18dd34a004e84deadc59b976727c", null ],
+    [ "Set", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#acfd117a8b3ec5712ee542b6049c2790e", null ],
     [ "Body", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a6850a7b1a378a14783e7ee22c60c3306", null ],
     [ "Mind", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a4cd8c979431e663ef2a3b0aac85be7cc", null ],
     [ "Soul", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a8594b77e689ca5c31791c27f14a4cc82", null ],

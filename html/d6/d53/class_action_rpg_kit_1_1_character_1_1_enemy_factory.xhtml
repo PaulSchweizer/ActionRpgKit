@@ -91,9 +91,8 @@ $(document).ready(function(){initNavTree('d6/d53/class_action_rpg_kit_1_1_charac
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#properties">Properties</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="../../da/d59/class_action_rpg_kit_1_1_character_1_1_enemy_factory-members.xhtml">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">EnemyFactory Class Reference</div>  </div>
@@ -103,31 +102,28 @@ $(document).ready(function(){initNavTree('d6/d53/class_action_rpg_kit_1_1_charac
 <p>Holds all available enemy types. Allows to retrieve an enemy. 
  <a href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:afd937e0104940d737c70967057f4ce49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml">Enemy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml#afd937e0104940d737c70967057f4ce49">GetEnemyByType</a> (string enemyType)</td></tr>
-<tr class="memdesc:afd937e0104940d737c70967057f4ce49"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml">Stats</a> ordered by enemy type <a href="#afd937e0104940d737c70967057f4ce49">More...</a><br /></td></tr>
-<tr class="separator:afd937e0104940d737c70967057f4ce49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7d9b90b7e698a16bc8654a094cedc2aa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml#a7d9b90b7e698a16bc8654a094cedc2aa">AddEnemyType</a> (string type, <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a> stats, <a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a> inventory)</td></tr>
+<tr class="memdesc:a7d9b90b7e698a16bc8654a094cedc2aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new enemy type to the factory. <a href="#a7d9b90b7e698a16bc8654a094cedc2aa">More...</a><br /></td></tr>
+<tr class="separator:a7d9b90b7e698a16bc8654a094cedc2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39601426db7c6b6f206c5bc3275ea4ce"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml">Enemy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml#a39601426db7c6b6f206c5bc3275ea4ce">GetEnemyByType</a> (string type)</td></tr>
+<tr class="memdesc:a39601426db7c6b6f206c5bc3275ea4ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an enemy of a certain type <a href="#a39601426db7c6b6f206c5bc3275ea4ce">More...</a><br /></td></tr>
+<tr class="separator:a39601426db7c6b6f206c5bc3275ea4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:a56a7806008a64f7673a3c848f2334239"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml">Enemy</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml#a56a7806008a64f7673a3c848f2334239">Enemies</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a56a7806008a64f7673a3c848f2334239"><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal List of <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character.">Enemy</a> types. <a href="#a56a7806008a64f7673a3c848f2334239">More...</a><br /></td></tr>
-<tr class="separator:a56a7806008a64f7673a3c848f2334239"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a29dd4235755fc70afb22558a688b8259"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml#a29dd4235755fc70afb22558a688b8259">EnemyStats</a> = new Dictionary&lt;string, <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a>&gt;()</td></tr>
-<tr class="memdesc:a29dd4235755fc70afb22558a688b8259"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml">Stats</a> ordered by enemy type <a href="#a29dd4235755fc70afb22558a688b8259">More...</a><br /></td></tr>
-<tr class="separator:a29dd4235755fc70afb22558a688b8259"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4338cbfa55c95e769577ad6cc66aa775"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, <a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml#a4338cbfa55c95e769577ad6cc66aa775">Items</a> = new Dictionary&lt;string, <a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&gt;()</td></tr>
-<tr class="memdesc:a4338cbfa55c95e769577ad6cc66aa775"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Items based on the enemy type <a href="#a4338cbfa55c95e769577ad6cc66aa775">More...</a><br /></td></tr>
-<tr class="separator:a4338cbfa55c95e769577ad6cc66aa775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:af51027a51e5eb0ae08679a18eac6f1fc"><td class="memItemLeft" align="right" valign="top">static Dictionary&lt; string, <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml#af51027a51e5eb0ae08679a18eac6f1fc">Stats</a> = new Dictionary&lt;string, <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a>&gt;()</td></tr>
+<tr class="memdesc:af51027a51e5eb0ae08679a18eac6f1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml">Stats</a> ordered by enemy type <a href="#af51027a51e5eb0ae08679a18eac6f1fc">More...</a><br /></td></tr>
+<tr class="separator:af51027a51e5eb0ae08679a18eac6f1fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02e08f9ce11c2fe0be52b11ce401eed0"><td class="memItemLeft" align="right" valign="top">static Dictionary&lt; string, <a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml#a02e08f9ce11c2fe0be52b11ce401eed0">Inventories</a> = new Dictionary&lt;string, <a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a>&gt;()</td></tr>
+<tr class="memdesc:a02e08f9ce11c2fe0be52b11ce401eed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Items based on the enemy type <a href="#a02e08f9ce11c2fe0be52b11ce401eed0">More...</a><br /></td></tr>
+<tr class="separator:a02e08f9ce11c2fe0be52b11ce401eed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds all available enemy types. Allows to retrieve an enemy.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="afd937e0104940d737c70967057f4ce49"></a>
+<a class="anchor" id="a7d9b90b7e698a16bc8654a094cedc2aa"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -135,26 +131,76 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml">Enemy</a> GetEnemyByType </td>
+          <td class="memname">static void AddEnemyType </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>enemyType</em></td><td>)</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a>&#160;</td>
+          <td class="paramname"><em>stats</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a>&#160;</td>
+          <td class="paramname"><em>inventory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a new enemy type to the factory.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character.">Enemy</a> type.</td></tr>
+    <tr><td class="paramname">stats</td><td>The <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character.">Enemy</a> <a class="el" href="../../da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml">Stats</a>.</td></tr>
+    <tr><td class="paramname">items</td><td>The Items in the Enemies Inventory.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a39601426db7c6b6f206c5bc3275ea4ce"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml">Enemy</a> GetEnemyByType </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The <a class="el" href="../../da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml">Stats</a> ordered by enemy type</p>
+<p>Get an enemy of a certain type</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a29dd4235755fc70afb22558a688b8259"></a>
+<a class="anchor" id="af51027a51e5eb0ae08679a18eac6f1fc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -162,12 +208,12 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Dictionary&lt;string, <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a>&gt; <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a> = new Dictionary&lt;string, <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a>&gt;()</td>
+          <td class="memname">Dictionary&lt;string, <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a>&gt; Stats = new Dictionary&lt;string, <a class="el" href="../../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml">EnemyStats</a>&gt;()</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -176,7 +222,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4338cbfa55c95e769577ad6cc66aa775"></a>
+<a class="anchor" id="a02e08f9ce11c2fe0be52b11ce401eed0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -184,40 +230,17 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Dictionary&lt;string, <a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&gt; Items = new Dictionary&lt;string, <a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&gt;()</td>
+          <td class="memname">Dictionary&lt;string, <a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a>&gt; Inventories = new Dictionary&lt;string, <a class="el" href="../../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a>&gt;()</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>The Items based on the enemy type</p>
-
-</div>
-</div>
-<h2 class="groupheader">Property Documentation</h2>
-<a class="anchor" id="a56a7806008a64f7673a3c848f2334239"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml">Enemy</a> [] Enemies</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The internal List of <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character.">Enemy</a> types.</p>
 
 </div>
 </div>
@@ -230,7 +253,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml">EnemyFactory</a></li>
-    <li class="footer">Generated on Sun Oct 9 2016 05:06:31 for Action RPG Kit by
+    <li class="footer">Generated on Sun Oct 9 2016 16:53:39 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
