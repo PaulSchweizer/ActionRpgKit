@@ -10,12 +10,11 @@ namespace ActionRpgKit.Tests.Character
     [Category("Character.Character")]
     class EnemyPoolTests
     {
-        EnemyPool enemyPool;
 
         [SetUp]
         public void SetUp()
         {
-            enemyPool = new EnemyPool(size: 1);
+            EnemyPool.Initialize(size: 1);
             GameTime.Reset();
         }
         
@@ -23,16 +22,17 @@ namespace ActionRpgKit.Tests.Character
         public void TestSize()
         {
             // Retrieve an enemy and release it back to the pool
-            var enemy = enemyPool.Acquire();
-            enemyPool.Release(enemy);
-            Assert.AreEqual(1, enemyPool.Size);
-            
-            // Retrieve more enemies than the pool has to offer, will increase the size.
+            var enemy = EnemyPool.Acquire();
+            EnemyPool.Release(enemy);
+            Assert.AreEqual(1, EnemyPool.Size);
+
+            // Retrieve more enemies than the pool has to offer will 
+            // increase the size.
             for(int i=0; i < 2; i++)
             {
-                enemyPool.Acquire();
+                EnemyPool.Acquire();
             }
-            Assert.AreEqual(2, enemyPool.Size);
+            Assert.AreEqual(2, EnemyPool.Size);
             
         }
     }

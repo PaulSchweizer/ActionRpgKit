@@ -45,8 +45,7 @@
     <Compile Include="Character\Attribute.cs" />
     <Compile Include="Character\Character.cs" />
     <Compile Include="Character\Inventory.cs" />
-    <Compile Include="Character\EnemyPool.cs" />
-    <Compile Include="Character\EnemyDatabase.cs" />
+    <Compile Include="Character\EnemyFactory.cs" />
     <Compile Include="Character\Skill.cs" />
     <Compile Include="Character\State.cs" />
     <Compile Include="Character\Stats.cs" />
@@ -58,7 +57,7 @@
     <Compile Include="Item\ItemDatabase.cs" />
     <Compile Include="Story\Quest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Story\Story.cs" />    
+    <Compile Include="Story\Story.cs" />
     <Compile Include="Tools\GoogleSheetsDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
