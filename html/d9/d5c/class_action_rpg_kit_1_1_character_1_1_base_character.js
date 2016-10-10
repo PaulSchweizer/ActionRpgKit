@@ -43,5 +43,7 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
     [ "Enemies", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af015481142aa8d1b4c3f14db2c2fa466", null ],
     [ "TimeUntilNextAttack", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7874a66111d3279e62e10777c6639ee1", null ],
     [ "CurrentAttackSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a4ac5dcebc755bc867ebbf3e363d7530c", null ],
+    [ "EquippedWeapon", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a830f357c64b5ffdade790876858597d2", null ],
+    [ "EnemiesInAttackRange", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6d97715f54665954da0cc2f2c939a205", null ],
     [ "CombatSkills", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a84b3739db383fde74adf040ce6e3038e", null ]
 ];

@@ -36,7 +36,8 @@ var hierarchy =
     ] ],
     [ "IItem", "d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml", [
       [ "BaseItem", "d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml", [
-        [ "UsableItem", "d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml", null ]
+        [ "UsableItem", "d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml", null ],
+        [ "WeaponItem", "d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml", null ]
       ] ]
     ] ],
     [ "IMagicUser", "dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml", [

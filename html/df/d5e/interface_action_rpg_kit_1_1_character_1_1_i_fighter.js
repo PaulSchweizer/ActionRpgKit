@@ -13,7 +13,9 @@ var interface_action_rpg_kit_1_1_character_1_1_i_fighter =
     [ "Life", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#aa4aea9bbf9e54f9950950e1ccb3cd18d", null ],
     [ "IsDead", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a979659ec464cee64a84df219494fc2ea", null ],
     [ "Enemies", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#af015481142aa8d1b4c3f14db2c2fa466", null ],
+    [ "EnemiesInAttackRange", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a6d97715f54665954da0cc2f2c939a205", null ],
     [ "TimeUntilNextAttack", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7874a66111d3279e62e10777c6639ee1", null ],
     [ "CurrentAttackSkill", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a4ac5dcebc755bc867ebbf3e363d7530c", null ],
+    [ "EquippedWeapon", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a830f357c64b5ffdade790876858597d2", null ],
     [ "CombatSkills", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a84b3739db383fde74adf040ce6e3038e", null ]
 ];
