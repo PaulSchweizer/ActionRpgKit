@@ -8,10 +8,7 @@ namespace ActionRpgKit.Item
     {
         /// <summary>
         /// The index of the array corresponds to the id of the IItem.</summary>
-        public static IItem[] Items
-        {
-            get; set;
-        }
+        public static IItem[] Items { get; set; }
 
         /// <summary>
         /// Retrieve the IItem by Id.</summary>

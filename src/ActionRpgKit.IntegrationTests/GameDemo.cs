@@ -84,6 +84,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
                                             cooldownTime: 1,
                                             damage: 1,
                                             maximumTargets: 1,
+                                            range: 1,
                                             itemSequence: new IItem[]{});
             SkillDatabase.CombatSkills = new ICombatSkill[] { meleeSkill };
             SkillDatabase.MagicSkills = new IMagicSkill[] { passiveMagicSkill };

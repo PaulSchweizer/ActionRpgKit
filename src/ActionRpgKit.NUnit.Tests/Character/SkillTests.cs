@@ -49,6 +49,7 @@ namespace ActionRpgKit.Tests.Skill
                                         cooldownTime: 1,
                                         damage: 1,
                                         maximumTargets: 1,
+                                        range: 1,
                                         itemSequence: new IItem[] { });
             meleeMultiTargetsSkill = new MeleeSkill(id: 2,
                                                     name: "MultiHit",
@@ -57,6 +58,7 @@ namespace ActionRpgKit.Tests.Skill
                                                     cooldownTime: 1,
                                                     damage: 1,
                                                     maximumTargets: 2,
+                                                    range: 1,
                                                     itemSequence: new IItem[] { });
         }
 

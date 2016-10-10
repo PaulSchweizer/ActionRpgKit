@@ -28,6 +28,7 @@ namespace ActionRpgKit.Tests.Character
                             cooldownTime: 1,
                             damage: 1,
                             maximumTargets: 1,
+                            range: 1,
                             itemSequence: new IItem[] {});
             player.LearnCombatSkill(meleeSkill);
             enemy.Stats.Life.Value = 10;

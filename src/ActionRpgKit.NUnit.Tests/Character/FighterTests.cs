@@ -19,6 +19,8 @@ namespace ActionRpgKit.Tests.Character
         ICombatSkill meleeSkill;
         ICombatSkill meleeMultiTargetsSkill;
 
+        WeaponItem sword;
+
         [SetUp]
         public void SetUp()
         {
@@ -39,6 +41,7 @@ namespace ActionRpgKit.Tests.Character
                                         cooldownTime: 1,
                                         damage: 1,
                                         maximumTargets: 1,
+                                        range: 1,
                                         itemSequence: new IItem[]{});
             meleeMultiTargetsSkill = new MeleeSkill(id: 1,
                                             name: "MultiHit",
@@ -47,7 +50,16 @@ namespace ActionRpgKit.Tests.Character
                                             cooldownTime: 1,
                                             damage: 1,
                                             maximumTargets: 2,
+                                            range: 1,
                                             itemSequence: new IItem[]{});
+
+            sword = new WeaponItem();
+            sword.Name = "Sword";
+            sword.Damage = 1;
+            sword.Speed = 1;
+            sword.Range = 1;
+            player.Inventory.AddItem(sword);
+            player.EquippedWeapon = sword;
         }
 
         [Test]
@@ -82,13 +94,13 @@ namespace ActionRpgKit.Tests.Character
             player.AddEnemy(enemy1);
 
             // Attack the Enemy until his health runs out
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 player.TriggerCombatSkill(meleeMultiTargetsSkill);
-                Assert.AreEqual(10 - (i + 1), enemy1.Life);
-                Assert.AreEqual(10 - (i + 1), enemy2.Life);
+                Assert.AreEqual(10 - (i*2 + 2), enemy1.Life);
+                Assert.AreEqual(10 - (i*2 + 2), enemy2.Life);
                 Assert.AreEqual(10, enemy3.Life);
-                GameTime.time += 1;
+                GameTime.time += 2;
             }
         }
     }

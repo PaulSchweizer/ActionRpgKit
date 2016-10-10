@@ -49,5 +49,22 @@ namespace ActionRpgKit.Item
 
     }
 
+    /// <summary>
+    /// Weapons add to the fight statistics.</summary>
+    public class WeaponItem : BaseItem
+    {
+        /// <summary>
+        /// The Damage dealt by the Weapon.</summary>
+        public float Damage;
+
+        /// <summary>
+        /// The range modifier for the total attack range.</summary>
+        public float Range;
+
+        /// <summary>
+        /// The speed modifier for the total speed.</summary>
+        public float Speed;
+    }
+
     #endregion
 }

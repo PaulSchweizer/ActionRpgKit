@@ -73,12 +73,18 @@ namespace ActionRpgKit.Character
         List<IFighter> Enemies { get; }
 
         /// <summary>
+        /// All enemies currently in Attack Range.</summary>
+        IFighter[] EnemiesInAttackRange { get; }
+
+        /// <summary>
         /// A timestamp representing the next possible moment for an attack.</summary>
         float TimeUntilNextAttack { get; set; }
 
         /// <summary>
         /// The current Skill that is to be used for an Attack.</summary>
         ICombatSkill CurrentAttackSkill { get; set; }
+
+        WeaponItem EquippedWeapon { get; set; }
 
         /// <summary>
         /// Add a new enemy.</summary>
@@ -328,6 +334,8 @@ namespace ActionRpgKit.Character
 
         public ICombatSkill CurrentAttackSkill { get; set; }
 
+        public WeaponItem EquippedWeapon { get; set; }
+
         public void AddEnemy(IFighter enemy, int index=0)
         {
             if (!Enemies.Contains(enemy))
@@ -363,7 +371,28 @@ namespace ActionRpgKit.Character
 
         public bool EnemyInAttackRange(IFighter enemy)
         {
-            return Position.SquaredDistanceTo(enemy.Position) <= Stats.AttackRange.Value;
+            float range = Stats.AttackRange.Value;
+            if (EquippedWeapon != null)
+            {
+                range += EquippedWeapon.Range;
+            }
+            return Position.SquaredDistanceTo(enemy.Position) <= range;
+        }
+
+        public IFighter[] EnemiesInAttackRange
+        {
+            get
+            {
+                var enemiesInAttackRange = new List<IFighter>();
+                for(int i = 0; i < Enemies.Count; i++)
+                {
+                    if(EnemyInAttackRange(Enemies[i]))
+                    {
+                        enemiesInAttackRange.Add(Enemies[i]);
+                    }
+                }
+                return enemiesInAttackRange.ToArray();
+            }
         }
 
         public bool CanAttack()
@@ -396,7 +425,12 @@ namespace ActionRpgKit.Character
             {
                 return false;
             }
-            _combatSkillEndTimes[CombatSkills.IndexOf(combatSkill)] = GameTime.time + combatSkill.CooldownTime;
+            float endTime = GameTime.time + combatSkill.CooldownTime;
+            if (EquippedWeapon != null)
+            {
+                endTime += 1 / EquippedWeapon.Speed;
+            }  
+            _combatSkillEndTimes[CombatSkills.IndexOf(combatSkill)] = endTime;
             PreUseCountdown(combatSkill);
             return true;
         }
@@ -431,12 +465,16 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Check if the character knows the combat skill, and is not
-        // in cooldown of the Skill.</summary>
+        /// in cooldown of the Skill.</summary>
         /// <param name=combatSkill>The Skill to test</param>
         /// <returns> Whether the Skill van be used.</returns>
         private bool CombatSkillCanBeUsed(ICombatSkill combatSkill)
         {
             if (!CombatSkills.Contains(combatSkill))
+            {
+                return false;
+            }
+            if (EnemiesInAttackRange.Length == 0)
             {
                 return false;
             }

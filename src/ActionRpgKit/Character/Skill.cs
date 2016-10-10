@@ -66,6 +66,10 @@ namespace ActionRpgKit.Character.Skill
         int MaximumTargets { get; }
 
         /// <summary>
+        /// The maximum range at which the skill works.</summary>
+        float Range { get; }
+
+        /// <summary>
         /// The Skill is used and takes effect.</summary>
         void Use (IFighter user);
     }
@@ -204,15 +208,17 @@ namespace ActionRpgKit.Character.Skill
                           float cooldownTime,
                           IItem[] itemSequence,
                           float damage,
-                          int maximumTargets) : base(id,
-                                                     name,
-                                                     description,
-                                                     preUseTime,
-                                                     cooldownTime,
-                                                     itemSequence)
+                          int maximumTargets,
+                          float range) : base(id,
+                                              name,
+                                              description,
+                                              preUseTime,
+                                              cooldownTime,
+                                              itemSequence)
         {
             Damage = damage;
             MaximumTargets = maximumTargets;
+            Range = range;
         }
 
         public override string ToString()
@@ -235,13 +241,20 @@ namespace ActionRpgKit.Character.Skill
 
         public int MaximumTargets { get; }
 
+        public float Range { get; }
+
         /// <summary>
         /// Inform the attacked Characters that they are being attacked.</summary>
         public void Use (IFighter user)
         {
-            for (int i = Math.Min(MaximumTargets, user.Enemies.Count) - 1; i >= 0; i--)
+            float damage = Damage;
+            if (user.EquippedWeapon != null)
             {
-                user.Enemies[i].OnAttacked(user, Damage);
+                damage += user.EquippedWeapon.Damage;
+            }
+            for (int i = Math.Min(MaximumTargets, user.EnemiesInAttackRange.Length) - 1; i >= 0; i--)
+            {
+                user.EnemiesInAttackRange[i].OnAttacked(user, damage);
             }
         }
 
