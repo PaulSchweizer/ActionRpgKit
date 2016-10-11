@@ -79,8 +79,6 @@
     <Compile Include="Assets\Scripts\EditorTools\ItemCreator.cs" />
     <Compile Include="Assets\Scripts\Item\UItem.cs" />
     <Compile Include="Assets\Scripts\Item\UItemDatabase.cs" />
-    <Compile Include="Assets\Scripts\Item\UUsableItem.cs" />
-    <Compile Include="Assets\Scripts\Item\UWeaponItem.cs" />
     <Compile Include="Assets\Scripts\UEnemy.cs" />
     <Compile Include="Assets\Scripts\UGameTime.cs" />
     <Compile Include="Assets\Scripts\UPlayer.cs" />
