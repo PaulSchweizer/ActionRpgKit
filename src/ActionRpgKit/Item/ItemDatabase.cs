@@ -37,5 +37,21 @@ namespace ActionRpgKit.Item
             }
             return null;
         }
+
+        /// <summary>
+        /// Pretty representation of the ItemDatabase.</summary>
+        public static new string ToString()
+        {
+            string repr = "*ItemDatabase:*\n";
+            repr += "=============================\n";
+            repr += string.Format("|{0, -4} | {1, -20}|\n", "*Id*", "*Name*");
+            repr += "=============================\n";
+            for (int i = 0; i < Items.Length; i++)
+            {
+                repr += string.Format("|{0, -4} | {1, -20}|\n", Items[i].Id, Items[i].Name);
+                repr += "-----------------------------\n";
+            }
+            return repr;
+        }
     }
 }

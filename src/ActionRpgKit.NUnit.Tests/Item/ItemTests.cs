@@ -9,6 +9,7 @@ namespace ActionRpgKit.Tests.Item
     public class ItemTests
     {
         IItem herb;
+        IItem sword;
 
         [SetUp]
         public void SetUp()
@@ -17,6 +18,11 @@ namespace ActionRpgKit.Tests.Item
             herb.Id = 0;
             herb.Name = "Herb";
             herb.Description = "A common herb";
+
+            sword = new WeaponItem();
+            sword.Id = 1;
+            sword.Name = "Sword";
+            sword.Description = "A sharp sword";
         }
 
         [Test]
@@ -32,6 +38,9 @@ namespace ActionRpgKit.Tests.Item
             Assert.AreSame(nullItem, null);
             var nullItem2 = ItemDatabase.GetItemById(-1);
             Assert.AreSame(nullItem2, null);
+
+            ItemDatabase.Items = new IItem[] { herb, sword };
+            Console.WriteLine(ItemDatabase.ToString());
         }
     }
 }

@@ -2,7 +2,15 @@ OpenCover
 doc
 packages
 integrationtests
-ActionRpgKit.Unity.IntegrationTests
+src/ActionRpgKit.Unity.IntegrationTests/.vs
+src/ActionRpgKit.Unity.IntegrationTests/Temp/
+src/ActionRpgKit.Unity.IntegrationTests/ProjectSettings/
+src/ActionRpgKit.Unity.IntegrationTests/obj/
+src/ActionRpgKit.Unity.IntegrationTests/Library/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/Data/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/dlls/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/UnityTestTools/Examples/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/UnityTestTools/UnitTesting/
 
 #################
 ## Sublime
