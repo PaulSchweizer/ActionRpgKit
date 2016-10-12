@@ -7,8 +7,8 @@ using ActionRpgKit.Item;
 using System;
 
 /// <summary>
-/// Editor Menu for Characters.
-/// Re-implement accordingly for each Item type.</summary>
+/// Editor Menu for Skills.
+/// Re-implement accordingly for each Skill type.</summary>
 public class SkillCreator : EditorWindow
 {
     /// <summary>
