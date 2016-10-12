@@ -6,7 +6,7 @@ using ActionRpgKit.Item;
 using System;
 
 /// <summary>
-/// Editor Menu for Characters.
+/// Editor Menu for Items.
 /// Re-implement accordingly for each Item type.</summary>
 public class ItemCreator : EditorWindow
 {
