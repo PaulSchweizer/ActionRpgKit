@@ -28,7 +28,8 @@ var hierarchy =
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
     ] ],
     [ "IGameObject", "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml", [
-      [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
+      [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ],
+      [ "Projectile", "d3/d2a/class_action_rpg_kit_1_1_character_1_1_projectile.xhtml", null ]
     ] ],
     [ "IInventory", "d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml", [
       [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", null ],
