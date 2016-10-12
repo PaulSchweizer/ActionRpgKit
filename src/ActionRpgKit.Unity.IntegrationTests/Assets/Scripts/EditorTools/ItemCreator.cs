@@ -25,7 +25,7 @@ public class ItemCreator : EditorWindow
     // Weapons
     float _damage;
     float _range;
-    float _speed;
+    float _attacksPerSecond;
 
     /// <summary>
     /// The itemType.</summary>
@@ -64,7 +64,7 @@ public class ItemCreator : EditorWindow
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Speed:");
-            _speed = EditorGUILayout.FloatField(_speed);
+            _attacksPerSecond = EditorGUILayout.FloatField(_attacksPerSecond);
             EditorGUILayout.EndHorizontal();
         }
 
@@ -125,7 +125,7 @@ public class ItemCreator : EditorWindow
         item.Description = _description;
         item.Damage = _damage;
         item.Range = _range;
-        item.Speed = _speed;
+        item.AttacksPerSecond = _attacksPerSecond;
         SetId(item);
         var scriptableItem = ScriptableObject.CreateInstance<UWeaponItem>();
         scriptableItem.Item = item;
