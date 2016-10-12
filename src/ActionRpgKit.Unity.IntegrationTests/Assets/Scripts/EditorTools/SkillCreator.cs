@@ -171,15 +171,15 @@ public class SkillCreator : EditorWindow
 
     /// <summary>
     /// Create a UPassiveMagicSkill.</summary>
-    /// <returns>A ScriptableItem</returns>
-    UUsableItem CreatePassiveMagicSkill()
+    /// <returns>A ScriptableObject</returns>
+    UPassiveMagicSkill CreatePassiveMagicSkill()
     {
         var skill = new PassiveMagicSkill();
         skill.Name = _name;
         skill.Description = _description;
         skill.Description = _description;
         skill.PreUseTime = _preUseTime;
-        skill.ColldownTime = _cooldownTime; 
+        skill.CooldownTime = _cooldownTime; 
         skill.Cost = _cost;
         skill.Duration = _duration;
         skill.ModifierValue = _modifierValue;
@@ -191,21 +191,43 @@ public class SkillCreator : EditorWindow
     }
     
     /// <summary>
-    /// Create a UPassiveMagicSkill.</summary>
-    /// <returns>A ScriptableItem</returns>
-    UUsableItem CreateMeleeCombatSkill()
+    /// Create a UMeleeCombatSkill.</summary>
+    /// <returns>A ScriptableObject</returns>
+    UMeleeCombatSkill CreateMeleeCombatSkill()
     {
         var skill = new MeleeCombatSkill();
         skill.Name = _name;
         skill.Description = _description;
         skill.Description = _description;
         skill.PreUseTime = _preUseTime;
-        skill.ColldownTime = _cooldownTime; 
-
-    private float _damage;
-    private int _maximumTargets;
-    private float _range;        SetId(skill);
+        skill.CooldownTime = _cooldownTime; 
+        skill.Damage = _damage;
+        skill.MaximumTargets = _maximumTargets;
+        skill.Range = _range;        
+        SetId(skill);
         var scriptableSkill = ScriptableObject.CreateInstance<UMeleeCombatSkill>();
+        scriptableSkill.Skill = skill;
+        return scriptableSkill;
+    }
+    
+        /// <summary>
+    /// Create a URangedCombatSkill.</summary>
+    /// <returns>A ScriptableObject</returns>
+    URangedCombatSkill CreateRangedCombatSkill()
+    {
+        var skill = new RangedCombatSkill();
+        skill.Name = _name;
+        skill.Description = _description;
+        skill.Description = _description;
+        skill.PreUseTime = _preUseTime;
+        skill.CooldownTime = _cooldownTime; 
+        skill.Damage = _damage;
+        skill.MaximumTargets = _maximumTargets;
+        skill.Range = _range;     
+        skill.ProjectileSpeed = _projectileSpeed;
+        skill.ProjectileLifetime = _projectileLifetime;
+        SetId(skill);
+        var scriptableSkill = ScriptableObject.CreateInstance<URangedCombatSkill>();
         scriptableSkill.Skill = skill;
         return scriptableSkill;
     }
