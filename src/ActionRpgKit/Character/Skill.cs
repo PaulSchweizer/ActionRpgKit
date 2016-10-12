@@ -258,6 +258,76 @@ namespace ActionRpgKit.Character.Skill
             }
         }
 
+    /// <summary>
+    /// Allows to attack with a ranged weapon.</summary>
+    public class RangedAttackSkill : BaseSkill, ICombatSkill
+    {
+
+        public MeleeSkill(int id,
+                          string name,
+                          string description,
+                          float preUseTime,
+                          float cooldownTime,
+                          IItem[] itemSequence,
+                          float damage,
+                          int maximumTargets,
+                          float range,
+                          float projectileSpeed,
+                          float projectileLifetime) : base(id,
+                                              name,
+                                              description,
+                                              preUseTime,
+                                              cooldownTime,
+                                              itemSequence)
+        {
+            Damage = damage;
+            MaximumTargets = maximumTargets;
+            Range = range;
+            ProjectileSpeed = projectileSpeed;
+            ProjectileLifetime = projectileLifetime;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} (Damage: {1}, MaxTargets: {2})", Name, Damage, MaximumTargets);
+        }
+
+        #region ISkill implementations
+
+        public override bool Match (IItem[] items)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region ICombatSkill implementations
+
+        public float Damage { get; }
+
+        public int MaximumTargets { get; }
+
+        public float Range { get; }
+
+        public float ProjectileSpeed { get; set; };
+        
+        public float ProjectileLifetime { get; set; };
+
+        /// <summary>
+        /// Inform the attacked Characters that they are being attacked.</summary>
+        public void Use (IFighter user)
+        {
+            float damage = Damage;
+            if (user.EquippedWeapon != null)
+            {
+                damage += user.EquippedWeapon.Damage;
+            }
+            for (int i = Math.Min(MaximumTargets, user.EnemiesInAttackRange.Length) - 1; i >= 0; i--)
+            {
+                user.EnemiesInAttackRange[i].OnAttacked(user, damage);
+            }
+        }
+
         #endregion
     }
 
