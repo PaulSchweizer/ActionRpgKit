@@ -45,6 +45,12 @@ var NAVTREEINDEX0 =
 "d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml#a7f4613bcef3ba38780730876a9bc353a":[1,0,0,3,0,2,2],
 "d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533":[1,0,0,3,0,2,0],
 "d3/d2a/class_action_rpg_kit_1_1_character_1_1_projectile.xhtml":[1,0,0,0,19],
+"d3/d2a/class_action_rpg_kit_1_1_character_1_1_projectile.xhtml#a51d5d92d61f0c8e344e8562a655d27de":[1,0,0,0,19,5],
+"d3/d2a/class_action_rpg_kit_1_1_character_1_1_projectile.xhtml#a61efabcca15cccefe7d85ea6da6af5e3":[1,0,0,0,19,2],
+"d3/d2a/class_action_rpg_kit_1_1_character_1_1_projectile.xhtml#a7b9b141d05fc73cb9406377d7fc55158":[1,0,0,0,19,3],
+"d3/d2a/class_action_rpg_kit_1_1_character_1_1_projectile.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2":[1,0,0,0,19,4],
+"d3/d2a/class_action_rpg_kit_1_1_character_1_1_projectile.xhtml#a96297ba93615dea7eea5b6bfb91df902":[1,0,0,0,19,1],
+"d3/d2a/class_action_rpg_kit_1_1_character_1_1_projectile.xhtml#afe1539c8af00f59c3ffab67e074090fe":[1,0,0,0,19,0],
 "d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml":[1,0,0,0,0],
 "d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml":[0,0,0,0,0],
 "d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml":[1,0,0,2,1],
@@ -243,11 +249,5 @@ var NAVTREEINDEX0 =
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa0cf4d1ca17c419766070e52d865d5dd":[1,0,0,0,5,19],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa379a0f600677823167c40c56f6aae81":[1,0,0,0,5,34],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa4aea9bbf9e54f9950950e1ccb3cd18d":[1,0,0,0,5,38],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533":[1,0,0,0,5,1],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aae675cc1ade48758b96f03e5488afce9":[1,0,0,0,5,33],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab2c5b576925c44ee311d1f43d70ba649":[1,0,0,0,5,3],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab574d6aca338e14468aab8cc9c6f6c04":[1,0,0,0,5,15],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab6b502ea703ff81b2b13d0524459c46f":[1,0,0,0,5,28],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab7bc8b19da2bb4a622ec6e0c0f11e46f":[1,0,0,0,5,27],
-"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aba630ccf58491d93a2fda46630551559":[1,0,0,0,5,22]
+"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533":[1,0,0,0,5,1]
 };

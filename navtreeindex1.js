@@ -1,5 +1,11 @@
 var NAVTREEINDEX1 =
 {
+"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aae675cc1ade48758b96f03e5488afce9":[1,0,0,0,5,33],
+"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab2c5b576925c44ee311d1f43d70ba649":[1,0,0,0,5,3],
+"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab574d6aca338e14468aab8cc9c6f6c04":[1,0,0,0,5,15],
+"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab6b502ea703ff81b2b13d0524459c46f":[1,0,0,0,5,28],
+"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab7bc8b19da2bb4a622ec6e0c0f11e46f":[1,0,0,0,5,27],
+"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aba630ccf58491d93a2fda46630551559":[1,0,0,0,5,22],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ac64bcce5b265061cbef9d7346ddad985":[1,0,0,0,5,25],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad3af8a0034cb6abc219f9d28a78615a0":[1,0,0,0,5,2],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad66c3013f2b05f752e59e201cc6c8eda":[1,0,0,0,5,26],
@@ -54,8 +60,8 @@ var NAVTREEINDEX1 =
 "dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml#ab3c4b737dfc5c78a6aba50dda616f7c3":[1,0,0,1,2,6],
 "dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml#ac915220fb659eb2c5958a1ccd81b80d4":[1,0,0,1,2,7],
 "dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml#af8649ca415c731ade4705f3ae635ca42":[1,0,0,1,2,0],
-"dc/d8d/namespace_action_rpg_kit_1_1_story_1_1_quest.xhtml":[1,0,0,3,0],
 "dc/d8d/namespace_action_rpg_kit_1_1_story_1_1_quest.xhtml":[0,0,0,3,0],
+"dc/d8d/namespace_action_rpg_kit_1_1_story_1_1_quest.xhtml":[1,0,0,3,0],
 "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml":[1,0,0,0,1,5],
 "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a2451fce1c97c1c8dcddb92ece3b16727":[1,0,0,0,1,5,6],
 "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a52d348226adcd02f61d87e05a489464a":[1,0,0,0,1,5,5],
