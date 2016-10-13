@@ -42,7 +42,7 @@ namespace ActionRpgKit.Tests.Skill
                                                       duration: 10,
                                                       modifierValue: 10,
                                                       modifiedAttributeName: "Body");
-            meleeSkill = new MeleeSkill(id: 1,
+            meleeSkill = new MeleeCombatSkill(id: 1,
                                         name: "SwordFighting",
                                         description: "Wield a sword effectively.",
                                         preUseTime: 1,
@@ -51,7 +51,7 @@ namespace ActionRpgKit.Tests.Skill
                                         maximumTargets: 1,
                                         range: 1,
                                         itemSequence: new IItem[] { });
-            meleeMultiTargetsSkill = new MeleeSkill(id: 2,
+            meleeMultiTargetsSkill = new MeleeCombatSkill(id: 2,
                                                     name: "MultiHit",
                                                     description: "Wield a sword against multiple opponents.",
                                                     preUseTime: 1,

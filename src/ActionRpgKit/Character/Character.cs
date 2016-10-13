@@ -199,6 +199,11 @@ namespace ActionRpgKit.Character
 
         public Position Position { get; set; } = new Position();
 
+        public void Update ()
+        {
+            CurrentState.UpdateState(this);
+        }
+
         #endregion
 
         #region ICharacter Implementations

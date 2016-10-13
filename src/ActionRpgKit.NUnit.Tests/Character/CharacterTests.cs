@@ -21,7 +21,7 @@ namespace ActionRpgKit.Tests.Character
         {
             player = new Player();
             enemy = new Enemy();
-            meleeSkill = new MeleeSkill(id: 1,
+            meleeSkill = new MeleeCombatSkill(id: 1,
                             name: "SwordFighting",
                             description: "Wield a sword effectively.",
                             preUseTime: 1,

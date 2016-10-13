@@ -12,7 +12,7 @@ public class UPlayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        var meleeSkill = new MeleeSkill(id: 1,
+        var meleeSkill = new MeleeCombatSkill(id: 1,
                                         name: "SwordFighting",
                                         description: "Wield a sword effectively.",
                                         preUseTime: 1,
@@ -29,7 +29,6 @@ public class UPlayer : MonoBehaviour
     void Update()
     {
         Character.Position.Set(transform.position.x, transform.position.y);
-        Character.CurrentState.UpdateState(Character);
-        
+        Character.Update();
     }
 }

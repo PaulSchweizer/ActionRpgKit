@@ -44,6 +44,7 @@ namespace ActionRpgKit.Item
 
     /// <summary>
     /// This item is usable for Skills.</summary>
+    [Serializable]
     public class UsableItem : BaseItem
     {
 
@@ -51,6 +52,7 @@ namespace ActionRpgKit.Item
 
     /// <summary>
     /// Weapons add to the fight statistics.</summary>
+    [Serializable]
     public class WeaponItem : BaseItem
     {
         /// <summary>

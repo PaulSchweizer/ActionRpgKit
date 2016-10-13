@@ -77,8 +77,12 @@
     <Compile Include="Assets\IntegrationTests\CombatTest.cs" />
     <Compile Include="Assets\IntegrationTests\ItemIntegrationTest.cs" />
     <Compile Include="Assets\Scripts\EditorTools\ItemCreator.cs" />
+    <Compile Include="Assets\Scripts\EditorTools\SkillCreator.cs" />
+    <Compile Include="Assets\Scripts\EditorTools\UItemEditors.cs" />
+    <Compile Include="Assets\Scripts\EditorTools\USkillEditors.cs" />
     <Compile Include="Assets\Scripts\Item\UItem.cs" />
     <Compile Include="Assets\Scripts\Item\UItemDatabase.cs" />
+    <Compile Include="Assets\Scripts\Skill\USkill.cs" />
     <Compile Include="Assets\Scripts\UEnemy.cs" />
     <Compile Include="Assets\Scripts\UGameTime.cs" />
     <Compile Include="Assets\Scripts\UPlayer.cs" />

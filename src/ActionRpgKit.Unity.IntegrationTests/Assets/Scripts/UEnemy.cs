@@ -17,6 +17,6 @@ public class UEnemy : MonoBehaviour
     void Update()
     {
         Character.Position.Set(transform.position.x, transform.position.y);
-        Character.CurrentState.UpdateState(Character);
+        Character.Update();
     }
 }

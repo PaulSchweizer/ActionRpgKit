@@ -25,7 +25,7 @@ public class ItemCreator : EditorWindow
     // Weapons
     float _damage;
     float _range;
-    float _attacksPerSecond;
+    float _speed;
 
     /// <summary>
     /// The itemType.</summary>
@@ -46,7 +46,7 @@ public class ItemCreator : EditorWindow
     void OnGUI()
     {
         _itemType = EditorGUILayout.Popup(_itemType, _itemTypes);
-        _name = EditorGUILayout.TextField("Name", _name);
+        _name = EditorGUILayout.TextField("Name:", _name);
         _description = EditorGUILayout.TextArea(_description, GUILayout.Height(60));
 
         // 1 = Weapon
@@ -64,7 +64,7 @@ public class ItemCreator : EditorWindow
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Speed:");
-            _attacksPerSecond = EditorGUILayout.FloatField(_attacksPerSecond);
+            _speed = EditorGUILayout.FloatField(_speed);
             EditorGUILayout.EndHorizontal();
         }
 
@@ -109,7 +109,7 @@ public class ItemCreator : EditorWindow
         var item = new UsableItem();
         item.Name = _name;
         item.Description = _description;
-        SetId(item);
+        item.Id = GetId();
         var scriptableItem = ScriptableObject.CreateInstance<UUsableItem>();
         scriptableItem.Item = item;
         return scriptableItem;
@@ -125,8 +125,8 @@ public class ItemCreator : EditorWindow
         item.Description = _description;
         item.Damage = _damage;
         item.Range = _range;
-        item.AttacksPerSecond = _attacksPerSecond;
-        SetId(item);
+        item.Speed = _speed;
+        item.Id = GetId();
         var scriptableItem = ScriptableObject.CreateInstance<UWeaponItem>();
         scriptableItem.Item = item;
         return scriptableItem;
@@ -134,8 +134,7 @@ public class ItemCreator : EditorWindow
 
     /// <summary>
     /// Set the Id to the nmber of already existing Items in the Data folder.</summary>
-    /// <param name="item">The IItem</param>
-    void SetId(IItem item)
+    int GetId()
     {
         if (!Directory.Exists(AbsolutePath))
         {
@@ -147,12 +146,12 @@ public class ItemCreator : EditorWindow
         for (int i = 0; i < files.Length; i++)
         {
             int fileId = Int32.Parse(files[i].Name.Split('_')[0]);
-            if(fileId > biggestId)
+            if (fileId > biggestId)
             {
                 biggestId = fileId;
             }
         }
-        item.Id = biggestId + 1;
+        return biggestId + 1;
     }
 }
 #endif

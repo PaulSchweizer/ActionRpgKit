@@ -34,7 +34,7 @@ namespace ActionRpgKit.Tests.Character
             enemy2.Stats.Life.Value = 10;
             enemy3.Stats.Life.Value = 10;
 
-            meleeSkill = new MeleeSkill(id: 1,
+            meleeSkill = new MeleeCombatSkill(id: 1,
                                         name: "SwordFighting",
                                         description: "Wield a sword effectively.",
                                         preUseTime: 1,
@@ -43,7 +43,7 @@ namespace ActionRpgKit.Tests.Character
                                         maximumTargets: 1,
                                         range: 1,
                                         itemSequence: new IItem[]{});
-            meleeMultiTargetsSkill = new MeleeSkill(id: 1,
+            meleeMultiTargetsSkill = new MeleeCombatSkill(id: 1,
                                             name: "MultiHit",
                                             description: "Wield a sword against multiple opponents.",
                                             preUseTime: 1,

@@ -61,7 +61,7 @@ public class SkillCreator : EditorWindow
 
     void OnGUI()
     {
-        _itemType = EditorGUILayout.Popup(_itemType, _itemTypes);
+        _skillType = EditorGUILayout.Popup(_skillType, _skillTypes);
         _name = EditorGUILayout.TextField("Name", _name);
         _description = EditorGUILayout.TextArea(_description, GUILayout.Height(60));
         
@@ -76,7 +76,7 @@ public class SkillCreator : EditorWindow
         EditorGUILayout.EndHorizontal();
 
         // 0 = PassiveMagicSkill
-        if (_itemType == 0)
+        if (_skillType == 0)
         { 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Cost:");
@@ -97,7 +97,7 @@ public class SkillCreator : EditorWindow
         }
         
         // 1 = MeleeCombatSkill
-        else if (_itemType == 1)
+        else if (_skillType == 1)
         { 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Damage:");
@@ -111,13 +111,28 @@ public class SkillCreator : EditorWindow
             
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Range:");
-            _range = EditorGUILayout.IntField(_range);
+            _range = EditorGUILayout.FloatField(_range);
             EditorGUILayout.EndHorizontal();
         }
         
         // 2 = RangedCombatSkill
-        else if (_itemType == 2)
-        { 
+        else if (_skillType == 2)
+        {
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Damage:");
+            _damage = EditorGUILayout.FloatField(_damage);
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("MaximumTargets:");
+            _maximumTargets = EditorGUILayout.IntField(_maximumTargets);
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Range:");
+            _range = EditorGUILayout.FloatField(_range);
+            EditorGUILayout.EndHorizontal();
+
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("ProjectileSpeed:");
             _projectileSpeed = EditorGUILayout.FloatField(_projectileSpeed);
@@ -130,7 +145,7 @@ public class SkillCreator : EditorWindow
         }
 
         // Create the Skill
-        if (GUILayout.Button(string.Format("Create {0}", _itemTypes[_itemType]), GUILayout.Height(30)))
+        if (GUILayout.Button(string.Format("Create {0}", _skillTypes[_skillType]), GUILayout.Height(30)))
         {
             if (_name != "")
             {
@@ -139,26 +154,26 @@ public class SkillCreator : EditorWindow
         }
     }
 
-    void CreateNewItem()
+    void CreateNewSkill()
     {
         // 0 = Passive Magic
-        if (_itemType == 0)
+        if (_skillType == 0)
         {
             var skill = CreatePassiveMagicSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
                                       string.Format("{0}_{1}.asset", skill.Skill.Id, _name)));
         }
         // 1 = MeleeCombatSkill
-        else if (_itemType == 1)
+        else if (_skillType == 1)
         {
-            var skill = CreatMeleeCombatSkill();
+            var skill = CreateMeleeCombatSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
                                       string.Format("{0}_{1}.asset", skill.Skill.Id, _name)));
         }
         // 2 = RangedCombatSkill
-        else if (_itemType == 2)
+        else if (_skillType == 2)
         {
-            var skill = CreatRangedCombatSkill();
+            var skill = CreateRangedCombatSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
                                       string.Format("{0}_{1}.asset", skill.Skill.Id, _name)));
         }
@@ -174,17 +189,18 @@ public class SkillCreator : EditorWindow
     /// <returns>A ScriptableObject</returns>
     UPassiveMagicSkill CreatePassiveMagicSkill()
     {
-        var skill = new PassiveMagicSkill();
-        skill.Name = _name;
-        skill.Description = _description;
-        skill.Description = _description;
-        skill.PreUseTime = _preUseTime;
-        skill.CooldownTime = _cooldownTime; 
-        skill.Cost = _cost;
-        skill.Duration = _duration;
-        skill.ModifierValue = _modifierValue;
-        skill.ModifiedAttributeName = _modifiedAttributeName;
-        SetId(skill);
+        var skill = new PassiveMagicSkill(
+                            id: GetId(),
+                            name: _name,
+                            description: _description,
+                            preUseTime: _preUseTime,
+                            cooldownTime: _cooldownTime,
+                            cost: _cost,
+                            itemSequence: new IItem[] { },
+                            duration: _duration,
+                            modifierValue: _modifierValue,
+                            modifiedAttributeName: _modifiedAttributeName
+            );
         var scriptableSkill = ScriptableObject.CreateInstance<UPassiveMagicSkill>();
         scriptableSkill.Skill = skill;
         return scriptableSkill;
@@ -195,16 +211,16 @@ public class SkillCreator : EditorWindow
     /// <returns>A ScriptableObject</returns>
     UMeleeCombatSkill CreateMeleeCombatSkill()
     {
-        var skill = new MeleeCombatSkill();
-        skill.Name = _name;
-        skill.Description = _description;
-        skill.Description = _description;
-        skill.PreUseTime = _preUseTime;
-        skill.CooldownTime = _cooldownTime; 
-        skill.Damage = _damage;
-        skill.MaximumTargets = _maximumTargets;
-        skill.Range = _range;        
-        SetId(skill);
+        var skill = new MeleeCombatSkill(
+                            id: GetId(),
+                            name: _name,
+                            description: _description,
+                            preUseTime: _preUseTime,
+                            cooldownTime: _cooldownTime, 
+                            damage: _damage,
+                            itemSequence: new IItem[] { },
+                            maximumTargets: _maximumTargets,
+                            range: _range);
         var scriptableSkill = ScriptableObject.CreateInstance<UMeleeCombatSkill>();
         scriptableSkill.Skill = skill;
         return scriptableSkill;
@@ -215,18 +231,18 @@ public class SkillCreator : EditorWindow
     /// <returns>A ScriptableObject</returns>
     URangedCombatSkill CreateRangedCombatSkill()
     {
-        var skill = new RangedCombatSkill();
-        skill.Name = _name;
-        skill.Description = _description;
-        skill.Description = _description;
-        skill.PreUseTime = _preUseTime;
-        skill.CooldownTime = _cooldownTime; 
-        skill.Damage = _damage;
-        skill.MaximumTargets = _maximumTargets;
-        skill.Range = _range;     
-        skill.ProjectileSpeed = _projectileSpeed;
-        skill.ProjectileLifetime = _projectileLifetime;
-        SetId(skill);
+        var skill = new RangedCombatSkill(
+                            id: GetId(),
+                            name: _name,
+                            description: _description,
+                            preUseTime: _preUseTime,
+                            cooldownTime: _cooldownTime, 
+                            damage: _damage,
+                            maximumTargets: _maximumTargets,
+                            range: _range,
+                            itemSequence: new IItem[] { },
+                            projectileSpeed: _projectileSpeed,
+                            projectileLifetime: _projectileLifetime);
         var scriptableSkill = ScriptableObject.CreateInstance<URangedCombatSkill>();
         scriptableSkill.Skill = skill;
         return scriptableSkill;
@@ -234,8 +250,7 @@ public class SkillCreator : EditorWindow
     
     /// <summary>
     /// Set the Id to the nmber of already existing Items in the Data folder.</summary>
-    /// <param name="item">The IItem</param>
-    void SetId(IItem item)
+    int GetId()
     {
         if (!Directory.Exists(AbsolutePath))
         {
@@ -252,7 +267,7 @@ public class SkillCreator : EditorWindow
                 biggestId = fileId;
             }
         }
-        item.Id = biggestId + 1;
+        return biggestId + 1;
     }
 }
 #endif
