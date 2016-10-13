@@ -1,5 +1,6 @@
 var class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill =
 [
+    [ "BaseSkill", "dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a2c1cdda5d1d6f3244123761a28ad98ef", null ],
     [ "BaseSkill", "dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#abbf6fb998644c39e14746d38a08427e2", null ],
     [ "Match", "dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#ab545387a2a194edd1ff5bd65744a6316", null ],
     [ "Id", "dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb", null ],

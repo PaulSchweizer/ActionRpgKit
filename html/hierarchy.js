@@ -55,11 +55,13 @@ var hierarchy =
     ] ],
     [ "ISkill", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml", [
       [ "BaseSkill", "dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml", [
-        [ "MeleeSkill", "d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml", null ],
-        [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
+        [ "MeleeCombatSkill", "db/d58/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_combat_skill.xhtml", null ],
+        [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ],
+        [ "RangedCombatSkill", "d8/d85/class_action_rpg_kit_1_1_character_1_1_skill_1_1_ranged_combat_skill.xhtml", null ]
       ] ],
       [ "ICombatSkill", "d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml", [
-        [ "MeleeSkill", "d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml", null ]
+        [ "MeleeCombatSkill", "db/d58/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_combat_skill.xhtml", null ],
+        [ "RangedCombatSkill", "d8/d85/class_action_rpg_kit_1_1_character_1_1_skill_1_1_ranged_combat_skill.xhtml", null ]
       ] ],
       [ "IMagicSkill", "d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml", [
         [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
@@ -76,5 +78,6 @@ var hierarchy =
     [ "MainController", "da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml", null ],
     [ "Position", "dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml", null ],
     [ "SkillDatabase", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml", null ],
-    [ "Storyline", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml", null ]
+    [ "Storyline", "d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml", null ],
+    [ "Vector2D", "d7/d00/class_action_rpg_kit_1_1_core_1_1_vector2_d.xhtml", null ]
 ];

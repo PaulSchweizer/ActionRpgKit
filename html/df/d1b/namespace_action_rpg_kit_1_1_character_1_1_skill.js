@@ -4,7 +4,8 @@ var namespace_action_rpg_kit_1_1_character_1_1_skill =
     [ "ICombatSkill", "d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml", "d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill" ],
     [ "IMagicSkill", "d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml", "d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill" ],
     [ "ISkill", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill" ],
-    [ "MeleeSkill", "d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml", "d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill" ],
+    [ "MeleeCombatSkill", "db/d58/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_combat_skill.xhtml", "db/d58/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_combat_skill" ],
     [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill" ],
+    [ "RangedCombatSkill", "d8/d85/class_action_rpg_kit_1_1_character_1_1_skill_1_1_ranged_combat_skill.xhtml", "d8/d85/class_action_rpg_kit_1_1_character_1_1_skill_1_1_ranged_combat_skill" ],
     [ "SkillDatabase", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database" ]
 ];

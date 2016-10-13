@@ -2,6 +2,7 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
 [
     [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a2b383fc8a8123f3883e44924816b162e", null ],
     [ "ToString", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
+    [ "Update", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aec0783b5a136e042adcc47bae4fe5291", null ],
     [ "ChangeState", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad3af8a0034cb6abc219f9d28a78615a0", null ],
     [ "LearnMagicSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab2c5b576925c44ee311d1f43d70ba649", null ],
     [ "TriggerMagicSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0e5eb777b972a974cdedad228429369e", null ],

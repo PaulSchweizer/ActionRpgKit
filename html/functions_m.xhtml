@@ -114,12 +114,14 @@ $(document).ready(function(){initNavTree('functions_m.xhtml','');});
 <li>Match()
 : <a class="el" href="dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#ab545387a2a194edd1ff5bd65744a6316">BaseSkill</a>
 , <a class="el" href="d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a3c0e0c204d6572bbd90419b3ee943add">ISkill</a>
-, <a class="el" href="d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e">MeleeSkill</a>
+, <a class="el" href="db/d58/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_combat_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e">MeleeCombatSkill</a>
 , <a class="el" href="dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e">PassiveMagicSkill</a>
+, <a class="el" href="d8/d85/class_action_rpg_kit_1_1_character_1_1_skill_1_1_ranged_combat_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e">RangedCombatSkill</a>
 </li>
 <li>MaximumTargets
 : <a class="el" href="d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml#afd798629c7b31d548b82c115e65f17bf">ICombatSkill</a>
-, <a class="el" href="d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#afd798629c7b31d548b82c115e65f17bf">MeleeSkill</a>
+, <a class="el" href="db/d58/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_combat_skill.xhtml#afd798629c7b31d548b82c115e65f17bf">MeleeCombatSkill</a>
+, <a class="el" href="d8/d85/class_action_rpg_kit_1_1_character_1_1_skill_1_1_ranged_combat_skill.xhtml#afd798629c7b31d548b82c115e65f17bf">RangedCombatSkill</a>
 </li>
 <li>MaxReached()
 : <a class="el" href="d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#af58266b7c1fc2e5658700b74d64c8693">PrimaryAttribute</a>
@@ -129,8 +131,8 @@ $(document).ready(function(){initNavTree('functions_m.xhtml','');});
 , <a class="el" href="d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a3ae20c57ad2176dfe07183c4f539c4b1">PrimaryAttribute</a>
 , <a class="el" href="d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#a41474cb00dbafc99c91aa41679c2505f">VolumeAttribute</a>
 </li>
-<li>MeleeSkill()
-: <a class="el" href="d4/d60/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_skill.xhtml#a3eac10dbc07a7a4b02ef31b497484adf">MeleeSkill</a>
+<li>MeleeCombatSkill()
+: <a class="el" href="db/d58/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_combat_skill.xhtml#aa58c49e84b254ad51a45f999a4eae34f">MeleeCombatSkill</a>
 </li>
 <li>Mind
 : <a class="el" href="db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a4cd8c979431e663ef2a3b0aac85be7cc">BaseStats</a>
@@ -142,9 +144,15 @@ $(document).ready(function(){initNavTree('functions_m.xhtml','');});
 : <a class="el" href="d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a1f8271e028fcfea0f7388b35342ae991">IAttribute</a>
 , <a class="el" href="d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a1758c6842bb284dd445ffd60404a04d5">PrimaryAttribute</a>
 </li>
+<li>ModifiedAttributeName
+: <a class="el" href="dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a8160a0b4687a329c1d7b2b19c1a88a25">PassiveMagicSkill</a>
+</li>
 <li>Modifiers
 : <a class="el" href="d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a8fb5eac914f9001852776703d6439ec7">IAttribute</a>
 , <a class="el" href="d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8fb5eac914f9001852776703d6439ec7">PrimaryAttribute</a>
+</li>
+<li>ModifierValue
+: <a class="el" href="dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a7bb0f10c1f2670e3729e50a219505098">PassiveMagicSkill</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -152,7 +160,7 @@ $(document).ready(function(){initNavTree('functions_m.xhtml','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Oct 12 2016 22:32:09 for Action RPG Kit by
+    <li class="footer">Generated on Thu Oct 13 2016 05:54:23 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
