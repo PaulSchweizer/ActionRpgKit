@@ -213,10 +213,11 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual(1, _combatSkillLearned);
 
             // Trigger a Combat Skill
+            GameTime.time += 1;
             Assert.AreEqual(0, _combatSkillTriggered);
-            enemy.TriggerCombatSkill(meleeSkill);
+            player.TriggerCombatSkill(meleeSkill);
             Assert.AreEqual(1, _combatSkillTriggered);
-            enemy.TriggerCombatSkill(meleeSkill);
+            player.TriggerCombatSkill(meleeSkill);
             Assert.AreEqual(1, _combatSkillTriggered);
         }
 
