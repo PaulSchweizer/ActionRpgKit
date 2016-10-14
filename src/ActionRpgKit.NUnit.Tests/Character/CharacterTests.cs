@@ -213,13 +213,20 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual(1, _combatSkillLearned);
 
             // Trigger a Combat Skill
+            
+            // No enemy in reach
+            player.TriggerCombatSkill(meleeSkill);
+            Assert.AreEqual(0, _combatSkillTriggered);
+            
+            // Set the enemy in reach
             player.Position.Set(0, 0);
             enemy.Position.Set(0, 0);
             player.AddEnemy(enemy);
             GameTime.time += 1;
-            Assert.AreEqual(0, _combatSkillTriggered);
             player.TriggerCombatSkill(meleeSkill);
             Assert.AreEqual(1, _combatSkillTriggered);
+            
+            // Not enough time has passed to trigger again
             player.TriggerCombatSkill(meleeSkill);
             Assert.AreEqual(1, _combatSkillTriggered);
         }
