@@ -169,7 +169,7 @@ namespace ActionRpgKit.Character
         
         /// <summary>
         /// Event is fired when an iCombatSkill is triggered.</summary>
-        event MagicSkillTriggeredHandler OnCombatSkillTriggered;
+        event CombatSkillTriggeredHandler OnCombatSkillTriggered;
     }
 
     /// <summary>
