@@ -92,17 +92,7 @@ namespace ActionRpgKit.Character.Attribute
             Value = value;
         }
 
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
-        }
+        public string Name { get; set; }
 
         public virtual float BaseValue
         {
@@ -209,31 +199,39 @@ namespace ActionRpgKit.Character.Attribute
 
         protected void ValueChanged (float value)
         {
-            if (OnValueChanged != null)
-            {
-                OnValueChanged(this, value);
-            }
+            EmitValueChanged();
             if (value >= MaxValue)
             {
-                MaxReached();
+                EmitMaxReached();
             }
             else if (value <= MinValue)
             {
-                MinReached();
+                EmitMinReached();
+            }
+        }
+        
+        protected void EmitValueChanged(float value)
+        {
+            var handler = OnValueChanged;
+            if (handler != null)
+            {
+                handler(this, value);
             }
         }
 
-        protected void MaxReached ()
+        protected void EmitMaxReached ()
         {
-            if (OnMaxReached != null)
+            var handler = OnMaxReached;
+            if (handler != null)
             {
                 OnMaxReached(this);
             }
         }
         
-        protected void MinReached ()
+        protected void EmitMinReached ()
         {
-            if (OnMinReached != null)
+            var handler = OnMinReached;
+            if (handler != null)
             {
                 OnMinReached(this);
             }
