@@ -273,21 +273,21 @@ namespace ActionRpgKit.Character.Skill
     {
 
         public RangedCombatSkill(int id,
-                            string name,
-                            string description,
-                            float preUseTime,
-                            float cooldownTime,
-                            IItem[] itemSequence,
-                            float damage,
-                            int maximumTargets,
-                            float range,
-                            float projectileSpeed,
-                            float projectileLifetime) : base(id,
-                                                name,
-                                                description,
-                                                preUseTime,
-                                                cooldownTime,
-                                                itemSequence)
+                                 string name,
+                                 string description,
+                                 float preUseTime,
+                                 float cooldownTime,
+                                 IItem[] itemSequence,
+                                 float damage,
+                                 int maximumTargets,
+                                 float range,
+                                 float projectileSpeed,
+                                 float projectileLifetime) : base(id,
+                                                                  name,
+                                                                  description,
+                                                                  preUseTime,
+                                                                  cooldownTime,
+                                                                  itemSequence)
         {
             Damage = damage;
             MaximumTargets = maximumTargets;
@@ -331,10 +331,9 @@ namespace ActionRpgKit.Character.Skill
             {
                 damage += user.EquippedWeapon.Damage;
             }
-            for (int i = Math.Min(MaximumTargets, user.EnemiesInAttackRange.Length) - 1; i >= 0; i--)
-            {
-                user.EnemiesInAttackRange[i].OnAttacked(user, damage);
-            }
+
+            // Shoot in the direction of the first enemy
+            // Emit a signal here !!!
         }
 
         #endregion

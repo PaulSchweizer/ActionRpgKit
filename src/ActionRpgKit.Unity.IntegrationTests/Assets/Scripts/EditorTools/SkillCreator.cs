@@ -23,8 +23,7 @@ public class SkillCreator : EditorWindow
     private string _name;
     private string _description;
     private float _preUseTime;
-    private float _cooldownTime; 
-    private IItem[] _itemSequence;
+    private float _cooldownTime;
 
     // General Magic
     private float _cost; 
