@@ -1,241 +1,248 @@
 ﻿using System;
 using NUnit.Framework;
 using ActionRpgKit.Core;
-using ActionRpgKit.Character.Attribute;
+using ActionRpgKit.Character;
+using ActionRpgKit.Character.Skill;
+using ActionRpgKit.Item;
 
 namespace ActionRpgKit.Tests.Character
 {
+    
     [TestFixture]
-    [Category("Character.Attribute")]
-    public class AttributeTests
+    [Category("Character.Character")]
+    class CharacterTests
     {
-        PrimaryAttribute Body;
-        PrimaryAttribute Experience;
-        PrimaryAttribute MagicRegenerationRate;
-        SecondaryAttribute Level;
-        VolumeAttribute Life;
-        VolumeAttribute Magic;
-        SimpleVolumeAttribute Energy;
-
-        int _valueChangedEventTriggered;
-        int _maxReachedEventTriggered;
-        int _minReachedEventTriggered;
+        Player player;
+        Enemy enemy;
+        ICombatSkill meleeSkill;
+        IMagicSkill passiveMagicSkill;
+        int _stateChanged;
+        int _magicSkillLearned;
+        int _magicSkillTriggered;
+        int _combatSkillLearned;
+        int _combatSkillTriggered;
 
         [SetUp]
-        public void SetUp()
+        public void RunBeforeAnyTests()
         {
+            player = new Player();
+            enemy = new Enemy();
+            meleeSkill = new MeleeCombatSkill(id: 1,
+                            name: "SwordFighting",
+                            description: "Wield a sword effectively.",
+                            preUseTime: 1,
+                            cooldownTime: 1,
+                            damage: 1,
+                            maximumTargets: 1,
+                            range: 1,
+                            itemSequence: new IItem[] {});
+            passiveMagicSkill = new PassiveMagicSkill(id: 0,
+                                        name: "ShadowStrength",
+                                        description: "A +10 Buff to the user's strength.",
+                                        preUseTime: 10,
+                                        cooldownTime: 5,
+                                        itemSequence: new IItem[] { },
+                                        cost: 10,
+                                        duration: 10,
+                                        modifierValue: 10,
+                                        modifiedAttributeName: "Body");
+                                        player.LearnCombatSkill(meleeSkill);
+            enemy.Stats.Life.Value = 10;
             GameTime.Reset();
-            Body = new PrimaryAttribute("Body", 0, 999, 10);
-            Experience = new PrimaryAttribute("Experience", 0);
-            MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate", 0, 99, 1);
-            Level = new SecondaryAttribute("Level",
-                        x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f,
-                        new IAttribute[] { Experience }, 0, 99);
-            Life = new VolumeAttribute("Life",
-                         x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
-                         new IAttribute[] { Level, Body }, 0, 999);
-            Magic = new VolumeAttribute("Magic",
-                    x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
-                    new IAttribute[] { Level, Body }, 0, 999);
-            Energy = new SimpleVolumeAttribute("Energy", 0, 999, 0);
         }
 
         [Test]
-        public void PrimaryAttributeTest()
+        public void BasicsTest()
         {
-            // Check the default values
-            Assert.AreEqual(0, Body.MinValue);
-            Assert.AreEqual(999, Body.MaxValue);
-            Assert.AreEqual(10, Body.Value);
+            // Call ToString() to make sure it does not throw an error
+            player.ToString();
+            enemy.ToString();
+        }
 
-            // Set some values
-            Body.Value = 12;
-            Assert.AreEqual(Body.Value, 12);
-            Body.Value = float.MaxValue;
-            Assert.AreEqual(Body.Value, 999);
-            Body.Value = float.MinValue;
-            Assert.AreEqual(Body.Value, 0);
+        [Test]
+        public void LifeCallbackTest()
+        {
+            // Set the life of the enemy to 0 and expect the enemy to die
+            enemy.Stats.Life.Value = -10;
+            Assert.IsTrue(enemy.CurrentState is DyingState);
+            Assert.IsTrue(enemy.IsDead);
+        }
 
-            // Add a modifier
-            Body.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
-            Assert.AreEqual(10, Body.Value);
+        [Test]
+        public void StatesTest()
+        {
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | P + + + E
+            player.Stats.AlertnessRange.Value = 4 * 4;
+            player.Position.Set(0, 0);
+            enemy.Position.Set(4, 0);
+            player.CurrentAttackSkill = player.CombatSkills[0];
 
-            // Advance in time
-            for (int i = 0; i < 10; i++)
+            // Initial State
+            Assert.IsTrue(player.CurrentState is IdleState);
+
+            // Add Enemy switches to alert state
+            player.AddEnemy(enemy);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is AlertState);
+
+            // No more Enemy switches to idle state
+            player.RemoveEnemy(enemy);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is IdleState);
+
+            // Add Enemy and go into Chase state
+            player.AddEnemy(enemy);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is AlertState);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is ChaseState);
+
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | + + P + E
+            player.Position.Set(2, 0);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is ChaseState);
+
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | + + + P E
+            player.Position.Set(3, 0);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is AttackState);
+
+            // Attack and get rid of the enemy
+            for (int i = 1; i < 11; i ++)
             {
-                GameTime.time = i;
-                Assert.AreEqual(10, Body.Value);
+                GameTime.time += 1;
+                player.Update();
+                Assert.AreEqual(10 - i, enemy.Stats.Life.Value);
+                enemy.Update();
+                Assert.AreEqual(1, enemy.Enemies.Count);
             }
-            // Until the modifier's life cycle is over
+
+            // All of the enemies are gone, so the Character switches back to 
+            // AlertState and then to IdleState.
+            Assert.AreEqual(0, player.Enemies.Count);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is AlertState);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is IdleState);
+
+            // Reset the enemy and simulate a fleeing enemy after it has been attacked
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | + + E P +
             GameTime.time += 1;
-            Assert.AreEqual(0, Body.Value);
+            enemy.IsDead = false;
+            enemy.Life = 10;
+            enemy.Position.Set(2, 0);
+            player.AddEnemy(enemy);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is AlertState);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is ChaseState);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is AttackState);
+            player.Update();
 
-            // Add some more modifiers and advance time
-            GameTime.time = 0;
-            Body.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
-            Body.AddModifier(new TimeBasedModifier("AnotherStrengthBuff", 20, 5));
-            Assert.AreEqual(30, Body.Value);
+            // Enemy flees
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | + E + P +
+            enemy.Position.Set(1, 0);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is ChaseState);
 
-            GameTime.time = 5;
-            Assert.AreEqual(10, Body.Value);
-            Assert.AreEqual(1, Body.Modifiers.Count);
-            Assert.IsTrue(Body.IsModified);
+            // Player chases after the enemy
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | + E P + +
+            player.Position.Set(2, 0);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is AttackState);
 
-            GameTime.time = 10;
-            Assert.AreEqual(0, Body.Value);
-            Assert.AreEqual(0, Body.Modifiers.Count);
-            Assert.IsFalse(Body.IsModified);
-
-            Body.Value = 10;
-            Body.Reset();
-            Assert.AreEqual(0, Body.Value);
+            // Enemy is out of AlertnessRange so we eventually return to Idle
+            //     0 1 2 3 4 5
+            //   + - - - - - - 
+            // 0 | E + + + P
+            player.Position.Set(4, 0);
+            enemy.Position.Set(0, 0);
+            player.Stats.AlertnessRange.Value = 1;
+            player.Update();
+            Assert.IsTrue(player.CurrentState is ChaseState);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is AlertState);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is IdleState);
         }
 
         [Test]
-        public void SecondaryAttributeTest()
+        public void BaseCharacterEventsTest()
         {
-            // Check the default values
-            Assert.AreEqual(0, Level.MinValue);
-            Assert.AreEqual(99, Level.MaxValue);
-            Assert.AreEqual(0, Level.Value);
+            player.OnStateChanged += new StateChangedHandler(StateChangedTest);
+            player.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearnedTest);
+            player.OnMagicSkillTriggered += new MagicSkillTriggeredHandler(MagicSkillTriggeredTest);
+            player.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearnedTest);
+            player.OnCombatSkillTriggered += new CombatSkillTriggeredHandler(CombatSkillTriggeredTest);
 
-            // Try directly setting it
-            Level.Value = float.MaxValue;
-            Assert.AreEqual(0, Level.Value);
-            Level.Value = float.MinValue;
-            Assert.AreEqual(0, Level.Value);
+            // Change the State
+            Assert.AreEqual(0, _stateChanged);
+            player.ChangeState(player._alertState);
+            Assert.AreEqual(1, _stateChanged);
+            player.ChangeState(player._idleState);
+            Assert.AreEqual(2, _stateChanged);
 
-            // Change the contributing attributes
-            for (int i = 0; i < 100; i++)
-            {
-                float xp = i * i * 100;
-                Experience.Value = xp;
-                Assert.AreEqual(i, Level.Value);
-            }
-            Experience.Reset();
-            Assert.AreEqual(0, Experience.Value);
-            Assert.AreEqual(0, Level.Value);
+            // Learn a new Magic Skill
+            Assert.AreEqual(0, _magicSkillLearned);
+            player.LearnMagicSkill(passiveMagicSkill);
+            Assert.AreEqual(1, _magicSkillLearned);
+
+            // Trigger a Magic Skill
+            Assert.AreEqual(0, _magicSkillTriggered);
+            player.TriggerMagicSkill(passiveMagicSkill);
+            Assert.AreEqual(1, _magicSkillTriggered);
+            player.TriggerMagicSkill(passiveMagicSkill);
+            Assert.AreEqual(1, _magicSkillTriggered);
+
+            // Learn a new Combat Skill
+            Assert.AreEqual(0, _combatSkillLearned);
+            player.LearnCombatSkill(meleeSkill);
+            Assert.AreEqual(1, _combatSkillLearned);
+
+            // Trigger a Combat Skill
+            Assert.AreEqual(0, _combatSkillTriggered);
+            player.TriggerCombatSkill(meleeSkill);
+            Assert.AreEqual(1, _combatSkillTriggered);
+            player.TriggerCombatSkill(meleeSkill);
+            Assert.AreEqual(1, _combatSkillTriggered);
         }
 
-        [Test]
-        public void LifeTest()
+        public void StateChangedTest(ICharacter sender, IState previousState, IState newState)
         {
-            // Check the default values
-            Assert.AreEqual(0, Life.MinValue);
-            Assert.AreEqual(23, Life.MaxValue);
-            Assert.AreEqual(23, Life.Value);
-
-            // Set the value
-            Life.Value = 10;
-            Assert.AreEqual(10, Life.Value);
-            Life.Value -= 10;
-            Assert.AreEqual(0, Life.Value);
-
-            // Dropping below the minimum
-            Life.Value = float.MinValue;
-            Assert.AreEqual(0, Life.Value);
-
-            // Exceeding the maximum
-            Life.Value = float.MaxValue;
-            Assert.AreEqual(23, Life.Value);
-
-            // Change corresponding attributes
-            Experience.Value = 100;
-            Assert.AreEqual(28, Life.MaxValue);
-       
-            // Apply modifier and advance in time
-            Body.AddModifier(new TimeBasedModifier("StrengthBuff", 11, 10));
-            Assert.AreEqual(32, Life.MaxValue);
-            GameTime.time = 11f;
-            Assert.AreEqual(28, Life.MaxValue);
-
-            // Reset
-            Life.Value = 0;
-            Life.Reset();
-            Assert.AreEqual(28, Life.Value);
+            _stateChanged += 1;
         }
 
-        [Test]
-        public void PrettyRepresentationTest()
+        public void MagicSkillLearnedTest(IMagicUser sender, IMagicSkill skill)
         {
-            Body.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
-            string repr = "Body      : 20  (0 - 999)\n" +
-                          "            + [StrengthBuff]:  10, 10/10 sec";
-            Assert.AreEqual(repr, Body.ToString());
+            _magicSkillLearned += 1;
         }
 
-        [Test]
-        public void SimpleVolumeTest()
+        public void MagicSkillTriggeredTest(IMagicUser sender, IMagicSkill skill)
         {
-            // Check the default values
-            Assert.AreEqual(0, Energy.MinValue);
-            Assert.AreEqual(999, Energy.MaxValue);
-            Assert.AreEqual(0, Energy.Value);
-
-            // Try directly setting it
-            Energy.Value = float.MaxValue;
-            Assert.AreEqual(999, Energy.Value);
-
-            // Reset
-            Energy.Value = float.MinValue;
-            Assert.AreEqual(0, Energy.Value);
-            Energy.Reset();
-            Assert.AreEqual(999, Energy.Value);
+            _magicSkillTriggered += 1;
         }
 
-        [Test]
-        public void SignalTest()
+        public void CombatSkillLearnedTest(IFighter sender, ICombatSkill skill)
         {
-            // Change the value and test the received signal
-            Body.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
-            Body.Value = 100;
-            Assert.AreEqual(1, _valueChangedEventTriggered);
-            
-            // Adding a modifier triggers the signal
-            var modifier = new TimeBasedModifier("StrengthBuff", 10, 10);
-            Body.AddModifier(modifier);
-            Assert.AreEqual(2, _valueChangedEventTriggered);
-            
-            // Removing a modifier triggers the signal
-            Body.RemoveModifier(modifier);
-            Assert.AreEqual(3, _valueChangedEventTriggered);
-            
-            // Secondary Attributes work the same
-            Level.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
-            Experience.Value = 100;
-            Assert.AreEqual(4, _valueChangedEventTriggered);    
-            
-            // Adding a modifier triggers the signal
-            Experience.AddModifier(modifier);
-            Assert.AreEqual(5, _valueChangedEventTriggered);
-            
-            // Removing a modifier triggers the signal
-            Experience.RemoveModifier(modifier);
-            Assert.AreEqual(6, _valueChangedEventTriggered);
-            
-            // Maximum and minimum signals are emitted too.
-            Body.OnMaxReached += new MaxReachedHandler(MaxReachedDemo);
-            Body.Value = 999;
-            Assert.AreEqual(1, _maxReachedEventTriggered);
-
-            Body.OnMinReached += new MinReachedHandler(MinReachedDemo);
-            Body.Value = -100;
-            Assert.AreEqual(1, _minReachedEventTriggered);
+            _combatSkillLearned += 1;
         }
 
-        public void ValueChangedDemo(IAttribute sender, float value)
+        public void CombatSkillTriggeredTest(IFighter sender, ICombatSkill skill)
         {
-            _valueChangedEventTriggered += 1;
-        }
-
-        public void MaxReachedDemo(IAttribute sender)
-        {
-            _maxReachedEventTriggered += 1;
-        }
-
-        public void MinReachedDemo(IAttribute sender)
-        {
-            _minReachedEventTriggered += 1;
+            _combatSkillTriggered += 1;
         }
     }
 }
