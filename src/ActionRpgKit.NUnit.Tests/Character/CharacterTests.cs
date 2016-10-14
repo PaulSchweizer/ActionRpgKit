@@ -169,9 +169,9 @@ namespace ActionRpgKit.Tests.Character
         {
             player.OnStateChanged += new StateChangedHandler(StateChangedTest);
             Assert.AreEqual(0, _stateChanged);
-            player.ChangeState(player.AlertState);
+            player.ChangeState(player._alertState);
             Assert.AreEqual(1, _stateChanged);
-            player.ChangeState(player.IdleState);
+            player.ChangeState(player._idleState);
             Assert.AreEqual(2, _stateChanged);
         }
 
