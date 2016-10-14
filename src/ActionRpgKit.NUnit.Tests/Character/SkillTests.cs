@@ -17,6 +17,7 @@ namespace ActionRpgKit.Tests.Skill
         IMagicSkill passiveMagicSkill;
         ICombatSkill meleeSkill;
         ICombatSkill meleeMultiTargetsSkill;
+        ICombatSkill rangedSkill;
 
         [SetUp]
         public void SetUp ()
@@ -60,13 +61,24 @@ namespace ActionRpgKit.Tests.Skill
                                                     maximumTargets: 2,
                                                     range: 1,
                                                     itemSequence: new IItem[] { });
+            rangedSkill = new RangedCombatSkill(id: 3,
+                            name: "Longbow",
+                            description: "Notch! Aim! Loose!",
+                            preUseTime: 1,
+                            cooldownTime: 1,
+                            damage: 1,
+                            maximumTargets: 1,
+                            range: 1,
+                            itemSequence: new IItem[] { },
+                            projectileSpeed: 1,
+                            projectileLifetime: 1);
         }
 
         [Test]
         public void SkillDatabaseTest()
         {
             SkillDatabase.MagicSkills = new IMagicSkill[] { passiveMagicSkill };
-            SkillDatabase.CombatSkills = new ICombatSkill[] { meleeSkill, meleeMultiTargetsSkill };
+            SkillDatabase.CombatSkills = new ICombatSkill[] { meleeSkill, meleeMultiTargetsSkill, rangedSkill };
 
             Assert.IsNull(SkillDatabase.GetMagicSkillByName("DoesNotExist"));
             Assert.IsNull(SkillDatabase.GetCombatSkillByName("DoesNotExist"));
