@@ -199,7 +199,7 @@ namespace ActionRpgKit.Character.Attribute
 
         protected void ValueChanged (float value)
         {
-            EmitValueChanged();
+            EmitValueChanged(value);
             if (value >= MaxValue)
             {
                 EmitMaxReached();
