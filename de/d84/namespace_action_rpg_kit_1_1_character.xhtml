@@ -92,7 +92,8 @@ $(document).ready(function(){initNavTree('de/d84/namespace_action_rpg_kit_1_1_ch
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Package ActionRpgKit.Character</div>  </div>
 </div><!--header-->
@@ -159,14 +160,215 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml">SimpleInventory</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inventory holds afixed size array of items. <a href="../../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ab26a7c08e58573d5b233e6f09f33cf6e"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#ab26a7c08e58573d5b233e6f09f33cf6e">StateChangedHandler</a> (<a class="el" href="../../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml">ICharacter</a> sender, <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a> previousState, <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a> newState)</td></tr>
+<tr class="memdesc:ab26a7c08e58573d5b233e6f09f33cf6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever an <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>'s state changes. <a href="#ab26a7c08e58573d5b233e6f09f33cf6e">More...</a><br /></td></tr>
+<tr class="separator:ab26a7c08e58573d5b233e6f09f33cf6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e71a8962c4495d804963357d5029123"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a6e71a8962c4495d804963357d5029123">MagicSkillLearnedHandler</a> (<a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml">IMagicUser</a> sender, <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> skill)</td></tr>
+<tr class="memdesc:a6e71a8962c4495d804963357d5029123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever an <a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic.">IMagicUser</a> learns a new IMagicSkill. <a href="#a6e71a8962c4495d804963357d5029123">More...</a><br /></td></tr>
+<tr class="separator:a6e71a8962c4495d804963357d5029123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa482b654bf7cdfa2b9378352c23dcb14"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#aa482b654bf7cdfa2b9378352c23dcb14">MagicSkillTriggeredHandler</a> (<a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml">IMagicUser</a> sender, <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a> skill)</td></tr>
+<tr class="memdesc:aa482b654bf7cdfa2b9378352c23dcb14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever an <a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic.">IMagicUser</a> triggers an IMagicSkill. <a href="#aa482b654bf7cdfa2b9378352c23dcb14">More...</a><br /></td></tr>
+<tr class="separator:aa482b654bf7cdfa2b9378352c23dcb14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca811561ce77ff58d0ab4182caf8b57c"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#aca811561ce77ff58d0ab4182caf8b57c">CombatSkillLearnedHandler</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> sender, <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a> skill)</td></tr>
+<tr class="memdesc:aca811561ce77ff58d0ab4182caf8b57c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever a <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a> learns a new ICombatSkill. <a href="#aca811561ce77ff58d0ab4182caf8b57c">More...</a><br /></td></tr>
+<tr class="separator:aca811561ce77ff58d0ab4182caf8b57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ecd153b4c58440360432604370b7231"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a9ecd153b4c58440360432604370b7231">CombatSkillTriggeredHandler</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> sender, <a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a> skill)</td></tr>
+<tr class="memdesc:a9ecd153b4c58440360432604370b7231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>'s state changes. <a href="#a9ecd153b4c58440360432604370b7231">More...</a><br /></td></tr>
+<tr class="separator:a9ecd153b4c58440360432604370b7231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ab26a7c08e58573d5b233e6f09f33cf6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.StateChangedHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml">ICharacter</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a>&#160;</td>
+          <td class="paramname"><em>previousState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a>&#160;</td>
+          <td class="paramname"><em>newState</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever an <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>'s state changes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The sending <a class="el" href="../../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml" title="Characters populate the game world. They are defined by Stats.">ICharacter</a></td></tr>
+    <tr><td class="paramname">previousState</td><td>The previos state</td></tr>
+    <tr><td class="paramname">newState</td><td>The new state</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6e71a8962c4495d804963357d5029123"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.MagicSkillLearnedHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml">IMagicUser</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a>&#160;</td>
+          <td class="paramname"><em>skill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever an <a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic.">IMagicUser</a> learns a new IMagicSkill.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The sending <a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic.">IMagicUser</a></td></tr>
+    <tr><td class="paramname">skill</td><td>The learned IMagicSkill</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa482b654bf7cdfa2b9378352c23dcb14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.MagicSkillTriggeredHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml">IMagicUser</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a>&#160;</td>
+          <td class="paramname"><em>skill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever an <a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic.">IMagicUser</a> triggers an IMagicSkill.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The sending <a class="el" href="../../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml" title="Character can use Magic.">IMagicUser</a></td></tr>
+    <tr><td class="paramname">skill</td><td>The triggered IMagicSkill</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aca811561ce77ff58d0ab4182caf8b57c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.CombatSkillLearnedHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a>&#160;</td>
+          <td class="paramname"><em>skill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever a <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a> learns a new ICombatSkill.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The sending <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a></td></tr>
+    <tr><td class="paramname">skill</td><td>The learned ICombatSkill</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9ecd153b4c58440360432604370b7231"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.CombatSkillTriggeredHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml">ICombatSkill</a>&#160;</td>
+          <td class="paramname"><em>skill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>'s state changes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The sending <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a></td></tr>
+    <tr><td class="paramname">skill</td><td>The triggered ICombatSkill</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li>
-    <li class="footer">Generated on Fri Oct 14 2016 17:30:35 for Action RPG Kit by
+    <li class="footer">Generated on Fri Oct 14 2016 19:34:56 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

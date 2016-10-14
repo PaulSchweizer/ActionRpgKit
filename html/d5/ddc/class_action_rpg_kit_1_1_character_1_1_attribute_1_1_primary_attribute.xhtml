@@ -139,10 +139,12 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aa24ace4343b8f74570014ac80b5150cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa24ace4343b8f74570014ac80b5150cf">ValueChanged</a> (float value)</td></tr>
 <tr class="separator:aa24ace4343b8f74570014ac80b5150cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af58266b7c1fc2e5658700b74d64c8693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#af58266b7c1fc2e5658700b74d64c8693">MaxReached</a> ()</td></tr>
-<tr class="separator:af58266b7c1fc2e5658700b74d64c8693"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d6095be91fc70f5f478a63bdcf1200a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a0d6095be91fc70f5f478a63bdcf1200a">MinReached</a> ()</td></tr>
-<tr class="separator:a0d6095be91fc70f5f478a63bdcf1200a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab60d87655bfa49408013d2d49d1a0681"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#ab60d87655bfa49408013d2d49d1a0681">EmitValueChanged</a> (float value)</td></tr>
+<tr class="separator:ab60d87655bfa49408013d2d49d1a0681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71f946d9d4bfa7e4d8a369e0745a93a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a71f946d9d4bfa7e4d8a369e0745a93a4">EmitMaxReached</a> ()</td></tr>
+<tr class="separator:a71f946d9d4bfa7e4d8a369e0745a93a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa64674aff0b295c73235db07565e64ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa64674aff0b295c73235db07565e64ce">EmitMinReached</a> ()</td></tr>
+<tr class="separator:aa64674aff0b295c73235db07565e64ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -366,7 +368,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af58266b7c1fc2e5658700b74d64c8693"></a>
+<a class="anchor" id="ab60d87655bfa49408013d2d49d1a0681"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -374,7 +376,31 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MaxReached </td>
+          <td class="memname">void EmitValueChanged </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a71f946d9d4bfa7e4d8a369e0745a93a4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EmitMaxReached </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -389,7 +415,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0d6095be91fc70f5f478a63bdcf1200a"></a>
+<a class="anchor" id="aa64674aff0b295c73235db07565e64ce"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -397,7 +423,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MinReached </td>
+          <td class="memname">void EmitMinReached </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -754,7 +780,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a></li><li class="navelem"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml">PrimaryAttribute</a></li>
-    <li class="footer">Generated on Fri Oct 14 2016 17:30:35 for Action RPG Kit by
+    <li class="footer">Generated on Fri Oct 14 2016 19:34:56 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
