@@ -34,8 +34,19 @@ namespace ActionRpgKit.Character
         /// Change the State to the given state if the given state differs
         /// from the current state.</summary>
         void ChangeState(IState state);
+        
+        /// <summary>
+        /// Event is fired when a character changes state.</summary>
+        event StateChangedHandler OnStateChanged;
     }
 
+    /// <summary>
+    /// Handler operates whenever an Character's state changes.</summary>
+    /// <param name="sender">The sending character</param>
+    /// <param name="previousState">The previos state</param>
+    /// <param name="newState">The new state</param>
+    public delegate void StateChangedHandler(ICharacter sender, IState previousState, IState newState);
+    
     /// <summary>
     /// Character can use Magic.</summary>  
     public interface IMagicUser
@@ -51,7 +62,17 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Trigger the given MagicSkill.</summary>
         bool TriggerMagicSkill (IMagicSkill magicSkill);
+        
+        /// <summary>
+        /// Event is fired when a character learns a new IMagicSkill.</summary>
+        event MagicSkillLearnedHandler OnMagicSkillLearned;
     }
+    
+    /// <summary>
+    /// Handler operates whenever an Character's state changes.</summary>
+    /// <param name="sender">The sending character</param>
+    /// <param name="value">The new state</param>
+    public delegate void StateChangedHandler(ICharacter sender, IState oldState, IState newState);
     
     /// <summary>
     /// Character can fight.</summary>  
