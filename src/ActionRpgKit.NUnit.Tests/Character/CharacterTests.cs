@@ -46,7 +46,7 @@ namespace ActionRpgKit.Tests.Character
                                         duration: 10,
                                         modifierValue: 10,
                                         modifiedAttributeName: "Body");
-                                        player.LearnCombatSkill(meleeSkill);
+            player.LearnCombatSkill(meleeSkill);
             enemy.Stats.Life.Value = 10;
             GameTime.Reset();
         }
@@ -185,7 +185,7 @@ namespace ActionRpgKit.Tests.Character
             player.OnStateChanged += new StateChangedHandler(StateChangedTest);
             player.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearnedTest);
             player.OnMagicSkillTriggered += new MagicSkillTriggeredHandler(MagicSkillTriggeredTest);
-            player.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearnedTest);
+            enemy.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearnedTest);
             player.OnCombatSkillTriggered += new CombatSkillTriggeredHandler(CombatSkillTriggeredTest);
 
             // Change the State
@@ -209,7 +209,7 @@ namespace ActionRpgKit.Tests.Character
 
             // Learn a new Combat Skill
             Assert.AreEqual(0, _combatSkillLearned);
-            player.LearnCombatSkill(meleeSkill);
+            enemy.LearnCombatSkill(meleeSkill);
             Assert.AreEqual(1, _combatSkillLearned);
 
             // Trigger a Combat Skill
