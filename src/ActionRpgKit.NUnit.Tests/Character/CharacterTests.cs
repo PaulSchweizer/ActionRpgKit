@@ -15,6 +15,7 @@ namespace ActionRpgKit.Tests.Character
         Player player;
         Enemy enemy;
         ICombatSkill meleeSkill;
+        int _stateChanged;
 
         [SetUp]
         public void RunBeforeAnyTests()
@@ -161,6 +162,22 @@ namespace ActionRpgKit.Tests.Character
             Assert.IsTrue(player.CurrentState is AlertState);
             player.Update();
             Assert.IsTrue(player.CurrentState is IdleState);
+        }
+
+        [Test]
+        public void ICharacterEventsTest()
+        {
+            player.OnStateChanged += new StateChangedHandler(StateChangedTest);
+            Assert.AreEqual(0, _stateChanged);
+            player.ChangeState(player.AlertState);
+            Assert.AreEqual(1, _stateChanged);
+            player.ChangeState(player.IdleState);
+            Assert.AreEqual(2, _stateChanged);
+        }
+
+        public void StateChangedTest(ICharacter sender, IState previousState, IState newState)
+        {
+            _stateChanged += 1;
         }
     }
 }
