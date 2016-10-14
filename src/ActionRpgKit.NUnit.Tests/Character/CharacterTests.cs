@@ -215,6 +215,7 @@ namespace ActionRpgKit.Tests.Character
             // Trigger a Combat Skill
             player.Position.Set(0, 0);
             enemy.Position.Set(0, 0);
+            player.AddEnemy(enemy);
             GameTime.time += 1;
             Assert.AreEqual(0, _combatSkillTriggered);
             player.TriggerCombatSkill(meleeSkill);
