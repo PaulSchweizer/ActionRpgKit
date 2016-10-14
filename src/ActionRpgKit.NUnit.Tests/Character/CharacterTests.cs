@@ -15,7 +15,12 @@ namespace ActionRpgKit.Tests.Character
         Player player;
         Enemy enemy;
         ICombatSkill meleeSkill;
+        IMagicSkill passiveMagicSkill;
         int _stateChanged;
+        int _magicSkillLearned;
+        int _magicSkillTriggered;
+        int _combatSkillLearned;
+        int _combatSkillTriggered;
 
         [SetUp]
         public void RunBeforeAnyTests()
@@ -31,7 +36,17 @@ namespace ActionRpgKit.Tests.Character
                             maximumTargets: 1,
                             range: 1,
                             itemSequence: new IItem[] {});
-            player.LearnCombatSkill(meleeSkill);
+            passiveMagicSkill = new PassiveMagicSkill(id: 0,
+                                        name: "ShadowStrength",
+                                        description: "A +10 Buff to the user's strength.",
+                                        preUseTime: 10,
+                                        cooldownTime: 5,
+                                        itemSequence: new IItem[] { },
+                                        cost: 10,
+                                        duration: 10,
+                                        modifierValue: 10,
+                                        modifiedAttributeName: "Body");
+                                        player.LearnCombatSkill(meleeSkill);
             enemy.Stats.Life.Value = 10;
             GameTime.Reset();
         }
@@ -165,19 +180,69 @@ namespace ActionRpgKit.Tests.Character
         }
 
         [Test]
-        public void ICharacterEventsTest()
+        public void BaseCharacterEventsTest()
         {
             player.OnStateChanged += new StateChangedHandler(StateChangedTest);
+            player.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearnedTest);
+            player.OnMagicSkillTriggered += new MagicSkillTriggeredHandler(MagicSkillTriggeredTest);
+            player.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearnedTest);
+            player.OnCombatSkillTriggered += new CombatSkillTriggeredHandler(CombatSkillTriggeredTest);
+
+            // Change the State
             Assert.AreEqual(0, _stateChanged);
             player.ChangeState(player._alertState);
             Assert.AreEqual(1, _stateChanged);
             player.ChangeState(player._idleState);
             Assert.AreEqual(2, _stateChanged);
+
+            // Learn a new Magic Skill
+            Assert.AreEqual(0, _magicSkillLearned);
+            player.LearnMagicSkill(passiveMagicSkill);
+            Assert.AreEqual(1, _magicSkillLearned);
+
+            // Trigger a Magic Skill
+            Assert.AreEqual(0, _magicSkillTriggered);
+            player.TriggerMagicSkill(passiveMagicSkill);
+            Assert.AreEqual(1, _magicSkillTriggered);
+            player.TriggerMagicSkill(passiveMagicSkill);
+            Assert.AreEqual(1, _magicSkillTriggered);
+
+            // Learn a new Combat Skill
+            Assert.AreEqual(0, _combatSkillLearned);
+            player.LearnCombatSkill(meleeSkill);
+            Assert.AreEqual(1, _combatSkillLearned);
+
+            // Trigger a Combat Skill
+            Assert.AreEqual(0, _combatSkillTriggered);
+            player.TriggerCombatSkill(meleeSkill);
+            Assert.AreEqual(1, _combatSkillTriggered);
+            player.TriggerCombatSkill(meleeSkill);
+            Assert.AreEqual(1, _combatSkillTriggered);
         }
 
         public void StateChangedTest(ICharacter sender, IState previousState, IState newState)
         {
             _stateChanged += 1;
+        }
+
+        public void MagicSkillLearnedTest(IMagicUser sender, IMagicSkill skill)
+        {
+            _magicSkillLearned += 1;
+        }
+
+        public void MagicSkillTriggeredTest(IMagicUser sender, IMagicSkill skill)
+        {
+            _magicSkillTriggered += 1;
+        }
+
+        public void CombatSkillLearnedTest(IFighter sender, ICombatSkill skill)
+        {
+            _combatSkillLearned += 1;
+        }
+
+        public void CombatSkillTriggeredTest(IFighter sender, ICombatSkill skill)
+        {
+            _combatSkillTriggered += 1;
         }
     }
 }
