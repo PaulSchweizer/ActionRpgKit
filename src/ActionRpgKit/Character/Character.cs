@@ -287,7 +287,52 @@ namespace ActionRpgKit.Character
                 CurrentState.ExitState(this);
                 CurrentState = state;
                 CurrentState.EnterState(this);
-                OnStateChanged(this, previousState, CurrentState);
+                EmitOnStateChanged(previousState, CurrentState);
+            }
+        }
+
+        protected void EmitOnStateChanged(IState previousState, IState newState)
+        {
+            var handler = OnStateChanged;
+            if (handler != null)
+            {
+                handler(this, previousState, newState);
+            }
+        }
+        
+        protected void EmitOnMagicSkillLearned(IMagic skill)
+        {
+            var handler = OnMagicSkillLearned;
+            if (handler != null)
+            {
+                handler(this, skill);
+            }
+        }
+        
+        protected void EmitOnMagicSkillTriggered(IMagic skill)
+        {
+            var handler = OnMagicSkillTriggered;
+            if (handler != null)
+            {
+                handler(this, skill);
+            }
+        }
+        
+        protected void EmitOnCombatSkillLearned(ICombatSkill skill)
+        {
+            var handler = OnCombatSkillLearned;
+            if (handler != null)
+            {
+                handler(this, skill);
+            }
+        }
+        
+        protected void EmitOnCombatSkillTriggered(ICombatSkill skill)
+        {
+            var handler = OnCombatSkillTriggered;
+            if (handler != null)
+            {
+                handler(this, skill);
             }
         }
 
@@ -321,7 +366,7 @@ namespace ActionRpgKit.Character
             {
                 _magicSkills.Add(magicSkill);
                 _magicSkillEndTimes.Add(-1);
-                OnMagicSkillLearned(this, magicSkill);
+                EmitOnMagicSkillLearned(magicSkill);
             }
         }
 
@@ -334,7 +379,7 @@ namespace ActionRpgKit.Character
             Magic -= magicSkill.Cost;
             _magicSkillEndTimes[MagicSkills.IndexOf(magicSkill)] = GameTime.time + magicSkill.CooldownTime;
             PreUseCountdown(magicSkill);
-            OnMagicSkillTriggered(this, magicSkill);
+            EmitOnMagicSkillTriggered(magicSkill);
             return true;
         }
 
@@ -491,7 +536,7 @@ namespace ActionRpgKit.Character
             {
                 _combatSkills.Add(combatSkill);
                 _combatSkillEndTimes.Add(-1);
-                OnCombatSkillLearned(this, combatSkill);
+                EmitOnCombatSkillLearned(combatSkill);
             }
         }
 
@@ -508,7 +553,7 @@ namespace ActionRpgKit.Character
             }  
             _combatSkillEndTimes[CombatSkills.IndexOf(combatSkill)] = endTime;
             PreUseCountdown(combatSkill);
-            OnCombatSkillTriggered(this, combatSkill);
+            EmitOnCombatSkillTriggered(combatSkill);
             return true;
         }
 
