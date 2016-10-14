@@ -47,6 +47,7 @@ namespace ActionRpgKit.Tests.Character
                                         modifierValue: 10,
                                         modifiedAttributeName: "Body");
             player.LearnCombatSkill(meleeSkill);
+            player.LearnMagicSkill(passiveMagicSkill);
             enemy.Stats.Life.Value = 10;
             GameTime.Reset();
         }
@@ -183,7 +184,7 @@ namespace ActionRpgKit.Tests.Character
         public void BaseCharacterEventsTest()
         {
             player.OnStateChanged += new StateChangedHandler(StateChangedTest);
-            player.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearnedTest);
+            enemy.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearnedTest);
             player.OnMagicSkillTriggered += new MagicSkillTriggeredHandler(MagicSkillTriggeredTest);
             enemy.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearnedTest);
             player.OnCombatSkillTriggered += new CombatSkillTriggeredHandler(CombatSkillTriggeredTest);
@@ -197,7 +198,7 @@ namespace ActionRpgKit.Tests.Character
 
             // Learn a new Magic Skill
             Assert.AreEqual(0, _magicSkillLearned);
-            player.LearnMagicSkill(passiveMagicSkill);
+            enemy.LearnMagicSkill(passiveMagicSkill);
             Assert.AreEqual(1, _magicSkillLearned);
 
             // Trigger a Magic Skill
