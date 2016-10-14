@@ -490,7 +490,7 @@ namespace ActionRpgKit.Character
             if (!CombatSkills.Contains(combatSkill))
             {
                 _combatSkills.Add(combatSkill);
-                _combatSkillsmbatSkillEndTimes.Add(-1);
+                _combatSkillEndTimes.Add(-1);
                 OnCombatSkillLearned(this, combatSkill);
             }
         }
