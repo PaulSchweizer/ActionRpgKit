@@ -300,7 +300,7 @@ namespace ActionRpgKit.Character
             }
         }
         
-        protected void EmitOnMagicSkillLearned(IMagic skill)
+        protected void EmitOnMagicSkillLearned(IMagicSkill skill)
         {
             var handler = OnMagicSkillLearned;
             if (handler != null)
@@ -309,7 +309,7 @@ namespace ActionRpgKit.Character
             }
         }
         
-        protected void EmitOnMagicSkillTriggered(IMagic skill)
+        protected void EmitOnMagicSkillTriggered(IMagicSkill skill)
         {
             var handler = OnMagicSkillTriggered;
             if (handler != null)
