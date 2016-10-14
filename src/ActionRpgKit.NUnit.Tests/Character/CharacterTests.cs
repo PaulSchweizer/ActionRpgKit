@@ -214,9 +214,9 @@ namespace ActionRpgKit.Tests.Character
 
             // Trigger a Combat Skill
             Assert.AreEqual(0, _combatSkillTriggered);
-            player.TriggerCombatSkill(meleeSkill);
+            enemy.TriggerCombatSkill(meleeSkill);
             Assert.AreEqual(1, _combatSkillTriggered);
-            player.TriggerCombatSkill(meleeSkill);
+            enemy.TriggerCombatSkill(meleeSkill);
             Assert.AreEqual(1, _combatSkillTriggered);
         }
 
