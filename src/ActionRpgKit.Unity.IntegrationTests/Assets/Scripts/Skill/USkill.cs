@@ -12,14 +12,8 @@ class UPassiveMagicSkill : USkill
     public UUsableItem[] ItemSequence;
 }
 
-class UMeleeCombatSkill : USkill
+class UGenericCombatSkill : USkill
 {
-    public MeleeCombatSkill Skill;
-    public UUsableItem[] ItemSequence;
-}
-
-class URangedCombatSkill : USkill
-{
-    public RangedCombatSkill Skill;
+    public GenericCombatSkill Skill;
     public UUsableItem[] ItemSequence;
 }
