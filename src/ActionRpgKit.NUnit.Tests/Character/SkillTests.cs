@@ -64,14 +64,12 @@ namespace ActionRpgKit.Tests.Skill
             rangedSkill = new GenericCombatSkill(id: 3,
                             name: "Longbow",
                             description: "Notch! Aim! Loose!",
-                            preUseTime: 1,
+                            preUseTime: 2,
                             cooldownTime: 1,
                             damage: 1,
                             maximumTargets: 1,
-                            range: 1,
-                            itemSequence: new IItem[] { },
-                            projectileSpeed: 1,
-                            projectileLifetime: 1);
+                            range: 10,
+                            itemSequence: new IItem[] { });
         }
 
         [Test]
