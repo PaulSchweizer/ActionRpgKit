@@ -94,8 +94,8 @@ namespace ActionRpgKit.Character
             repr += string.Format("_SimpleInventory______\n");
             for (int i = 0; i < ItemCount; i++)
             {
-                repr += string.Format("|{0, -15}|{1, 4}|\n",
-                                      _items[i].Name, _quantities[i]);
+                repr += string.Format("|{0, -15}x{1, 4}|\n",
+                                      _items[i].Name, string.Format("x{0:000}", _quantities[i]));
                 repr += string.Format("+---------------+----+\n");
             }
             return repr;
