@@ -99,7 +99,17 @@ namespace ActionRpgKit.Tests.Character
             Assert.IsTrue(player.CurrentState is AlertState);
             player.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
-
+            
+            // Remove the enemy again and drop out of the chase again
+            player.RemoveEnemy(enemy);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is AlertState);
+            
+            // Enemy is back and the chase continues 
+            player.AddEnemy(enemy);
+            player.Update();
+            Assert.IsTrue(player.CurrentState is ChaseState);
+            
             //     0 1 2 3 4
             //   + - - - - - 
             // 0 | + + P + E
