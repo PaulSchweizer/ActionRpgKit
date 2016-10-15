@@ -203,10 +203,10 @@ namespace ActionRpgKit.Character.Skill
     /// <summary>
     /// Allows to attack with a melee weapon.</summary>
     [Serializable]
-    public class MeleeCombatSkill : BaseSkill, ICombatSkill
+    public class GenericCombatSkill : BaseSkill, ICombatSkill
     {
 
-        public MeleeCombatSkill(int id,
+        public GenericCombatSkill(int id,
                           string name,
                           string description,
                           float preUseTime,
@@ -261,79 +261,6 @@ namespace ActionRpgKit.Character.Skill
             {
                 user.EnemiesInAttackRange[i].OnAttacked(user, damage);
             }
-        }
-
-        #endregion
-    }
-
-    /// <summary>
-    /// Allows to attack with a ranged weapon.</summary>
-    [Serializable]
-    public class RangedCombatSkill : BaseSkill, ICombatSkill
-    {
-
-        public RangedCombatSkill(int id,
-                                 string name,
-                                 string description,
-                                 float preUseTime,
-                                 float cooldownTime,
-                                 IItem[] itemSequence,
-                                 float damage,
-                                 int maximumTargets,
-                                 float range,
-                                 float projectileSpeed,
-                                 float projectileLifetime) : base(id,
-                                                                  name,
-                                                                  description,
-                                                                  preUseTime,
-                                                                  cooldownTime,
-                                                                  itemSequence)
-        {
-            Damage = damage;
-            MaximumTargets = maximumTargets;
-            Range = range;
-            ProjectileSpeed = projectileSpeed;
-            ProjectileLifetime = projectileLifetime;
-        }
-
-        public float ProjectileSpeed { get; set; }
-
-        public float ProjectileLifetime { get; set; }
-
-        public override string ToString()
-        {
-            return String.Format("{0} (Damage: {1}, MaxTargets: {2})", Name, Damage, MaximumTargets);
-        }
-
-        #region ISkill implementations
-
-        public override bool Match(IItem[] items)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-
-        #region ICombatSkill implementations
-
-        public float Damage { get; set; }
-
-        public int MaximumTargets { get; set; }
-
-        public float Range { get; set; }
-
-        /// <summary>
-        /// Inform the attacked Characters that they are being attacked.</summary>
-        public void Use(IFighter user)
-        {
-            float damage = Damage;
-            if (user.EquippedWeapon != null)
-            {
-                damage += user.EquippedWeapon.Damage;
-            }
-
-            // Shoot in the direction of the first enemy
-            // Emit a signal here !!!
         }
 
         #endregion
