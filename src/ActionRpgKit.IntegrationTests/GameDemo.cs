@@ -77,7 +77,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
                                                 modifierValue: 10,
                                                 modifiedAttributeName: "Body",
                                                 itemSequence: new IItem[]{});
-            ICombatSkill meleeSkill = new MeleeCombatSkill(id: 0,
+            ICombatSkill meleeSkill = new GenericCombatSkill(id: 0,
                                             name: "SwordFighting",
                                             description: "How to wield a sword.",
                                             preUseTime: 1,
