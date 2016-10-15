@@ -28,19 +28,15 @@ public class SkillCreator : EditorWindow
     // General Magic
     private float _cost; 
 
-    // General Combat and MeleeCombat
+    // Generic Combat
     private float _damage;
     private int _maximumTargets;
     private float _range;
 
-    // PassiveMagic
+    // Passive Magic
     private float _duration;
     private float _modifierValue;
     private string _modifiedAttributeName;
-
-    // RangedCombat
-    private float _projectileSpeed;
-    private float _projectileLifetime;
 
     /// <summary>
     /// The itemType.</summary>
@@ -48,7 +44,7 @@ public class SkillCreator : EditorWindow
 
     /// <summary>
     /// Possible types of items.</summary>
-    string[] _skillTypes = new string[] { "PassiveMagicSkill", "MeleeCombatSkill", "RangedCombatSkill" };
+    string[] _skillTypes = new string[] { "PassiveMagicSkill", "GenericCombatSkill" };
 
     [MenuItem("ActionRpgKit/Create New Skill")]
     static void Init()
@@ -95,7 +91,7 @@ public class SkillCreator : EditorWindow
             _modifiedAttributeName = EditorGUILayout.TextField("ModifiedAttributeName", _modifiedAttributeName);
         }
         
-        // 1 = MeleeCombatSkill
+        // 1 = GenericCombatSkill
         else if (_skillType == 1)
         { 
             EditorGUILayout.BeginHorizontal();
@@ -111,35 +107,6 @@ public class SkillCreator : EditorWindow
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Range:");
             _range = EditorGUILayout.FloatField(_range);
-            EditorGUILayout.EndHorizontal();
-        }
-        
-        // 2 = RangedCombatSkill
-        else if (_skillType == 2)
-        {
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Damage:");
-            _damage = EditorGUILayout.FloatField(_damage);
-            EditorGUILayout.EndHorizontal();
-
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("MaximumTargets:");
-            _maximumTargets = EditorGUILayout.IntField(_maximumTargets);
-            EditorGUILayout.EndHorizontal();
-
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Range:");
-            _range = EditorGUILayout.FloatField(_range);
-            EditorGUILayout.EndHorizontal();
-
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("ProjectileSpeed:");
-            _projectileSpeed = EditorGUILayout.FloatField(_projectileSpeed);
-            EditorGUILayout.EndHorizontal();
-      
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("ProjectileLifetime:");
-            _projectileLifetime = EditorGUILayout.FloatField(_projectileLifetime);
             EditorGUILayout.EndHorizontal();
         }
 
@@ -165,14 +132,7 @@ public class SkillCreator : EditorWindow
         // 1 = MeleeCombatSkill
         else if (_skillType == 1)
         {
-            var skill = CreateMeleeCombatSkill();
-            AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
-                                      string.Format("{0}_{1}.asset", skill.Skill.Id, _name)));
-        }
-        // 2 = RangedCombatSkill
-        else if (_skillType == 2)
-        {
-            var skill = CreateRangedCombatSkill();
+            var skill = CreateGenericCombatSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
                                       string.Format("{0}_{1}.asset", skill.Skill.Id, _name)));
         }
@@ -208,9 +168,9 @@ public class SkillCreator : EditorWindow
     /// <summary>
     /// Create a UMeleeCombatSkill.</summary>
     /// <returns>A ScriptableObject</returns>
-    UMeleeCombatSkill CreateMeleeCombatSkill()
+    UGenericCombatSkill CreateGenericCombatSkill()
     {
-        var skill = new MeleeCombatSkill(
+        var skill = new GenericCombatSkill(
                             id: GetId(),
                             name: _name,
                             description: _description,
@@ -220,33 +180,11 @@ public class SkillCreator : EditorWindow
                             itemSequence: new IItem[] { },
                             maximumTargets: _maximumTargets,
                             range: _range);
-        var scriptableSkill = ScriptableObject.CreateInstance<UMeleeCombatSkill>();
+        var scriptableSkill = ScriptableObject.CreateInstance<UGenericCombatSkill>();
         scriptableSkill.Skill = skill;
         return scriptableSkill;
     }
-    
-        /// <summary>
-    /// Create a URangedCombatSkill.</summary>
-    /// <returns>A ScriptableObject</returns>
-    URangedCombatSkill CreateRangedCombatSkill()
-    {
-        var skill = new RangedCombatSkill(
-                            id: GetId(),
-                            name: _name,
-                            description: _description,
-                            preUseTime: _preUseTime,
-                            cooldownTime: _cooldownTime, 
-                            damage: _damage,
-                            maximumTargets: _maximumTargets,
-                            range: _range,
-                            itemSequence: new IItem[] { },
-                            projectileSpeed: _projectileSpeed,
-                            projectileLifetime: _projectileLifetime);
-        var scriptableSkill = ScriptableObject.CreateInstance<URangedCombatSkill>();
-        scriptableSkill.Skill = skill;
-        return scriptableSkill;
-    }
-    
+
     /// <summary>
     /// Set the Id to the nmber of already existing Items in the Data folder.</summary>
     int GetId()
