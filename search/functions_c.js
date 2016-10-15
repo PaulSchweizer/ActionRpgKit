@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['rangedcombatskill',['RangedCombatSkill',['../d8/d85/class_action_rpg_kit_1_1_character_1_1_skill_1_1_ranged_combat_skill.xhtml#a6a05c33b937debac2af9a79c4a10caae',1,'ActionRpgKit::Character::Skill::RangedCombatSkill']]],
   ['release',['Release',['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml#a3ce6d5b04e396901272737bba985151e',1,'ActionRpgKit::Character::EnemyPool']]],
   ['removeenemy',['RemoveEnemy',['../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#aeef35d1383ba0bd3b241b4afa38b340e',1,'ActionRpgKit.Character.IFighter.RemoveEnemy()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aeef35d1383ba0bd3b241b4afa38b340e',1,'ActionRpgKit.Character.BaseCharacter.RemoveEnemy()']]],
   ['removeitem',['RemoveItem',['../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#afd6d65b709d14f1f66987327c456c727',1,'ActionRpgKit.Character.IInventory.RemoveItem()'],['../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#afd6d65b709d14f1f66987327c456c727',1,'ActionRpgKit.Character.SimpleInventory.RemoveItem()'],['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#afd6d65b709d14f1f66987327c456c727',1,'ActionRpgKit.Character.PlayerInventory.RemoveItem()']]],

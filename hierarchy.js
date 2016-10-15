@@ -28,8 +28,7 @@ var hierarchy =
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
     ] ],
     [ "IGameObject", "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml", [
-      [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ],
-      [ "Projectile", "d3/d2a/class_action_rpg_kit_1_1_character_1_1_projectile.xhtml", null ]
+      [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
     ] ],
     [ "IInventory", "d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml", [
       [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", null ],
@@ -55,13 +54,11 @@ var hierarchy =
     ] ],
     [ "ISkill", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml", [
       [ "BaseSkill", "dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml", [
-        [ "MeleeCombatSkill", "db/d58/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_combat_skill.xhtml", null ],
-        [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ],
-        [ "RangedCombatSkill", "d8/d85/class_action_rpg_kit_1_1_character_1_1_skill_1_1_ranged_combat_skill.xhtml", null ]
+        [ "GenericCombatSkill", "d6/dfe/class_action_rpg_kit_1_1_character_1_1_skill_1_1_generic_combat_skill.xhtml", null ],
+        [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
       ] ],
       [ "ICombatSkill", "d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml", [
-        [ "MeleeCombatSkill", "db/d58/class_action_rpg_kit_1_1_character_1_1_skill_1_1_melee_combat_skill.xhtml", null ],
-        [ "RangedCombatSkill", "d8/d85/class_action_rpg_kit_1_1_character_1_1_skill_1_1_ranged_combat_skill.xhtml", null ]
+        [ "GenericCombatSkill", "d6/dfe/class_action_rpg_kit_1_1_character_1_1_skill_1_1_generic_combat_skill.xhtml", null ]
       ] ],
       [ "IMagicSkill", "d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml", [
         [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
