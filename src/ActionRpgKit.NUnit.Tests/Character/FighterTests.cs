@@ -16,8 +16,8 @@ namespace ActionRpgKit.Tests.Character
         Enemy enemy2;
         Enemy enemy3;
 
-        ICombatSkill meleeSkill;
-        ICombatSkill meleeMultiTargetsSkill;
+        CombatSkill meleeSkill;
+        CombatSkill meleeMultiTargetsSkill;
 
         WeaponItem sword;
 
@@ -42,7 +42,7 @@ namespace ActionRpgKit.Tests.Character
                                         damage: 1,
                                         maximumTargets: 1,
                                         range: 1,
-                                        itemSequence: new IItem[]{});
+                                        itemSequence: new UsableItem[]{});
             meleeMultiTargetsSkill = new GenericCombatSkill(id: 1,
                                             name: "MultiHit",
                                             description: "Wield a sword against multiple opponents.",
@@ -51,7 +51,7 @@ namespace ActionRpgKit.Tests.Character
                                             damage: 1,
                                             maximumTargets: 2,
                                             range: 1,
-                                            itemSequence: new IItem[]{});
+                                            itemSequence: new UsableItem[]{});
 
             sword = new WeaponItem();
             sword.Name = "Sword";

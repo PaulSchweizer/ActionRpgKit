@@ -7,12 +7,12 @@ namespace ActionRpgKit.Item
     public static class ItemDatabase
     {
         /// <summary>
-        /// The index of the array corresponds to the id of the IItem.</summary>
-        public static IItem[] Items { get; set; }
+        /// The index of the array corresponds to the id of the BaseItem.</summary>
+        public static BaseItem[] Items { get; set; }
 
         /// <summary>
-        /// Retrieve the IItem by Id.</summary>
-        public static IItem GetItemById(int id)
+        /// Retrieve the BaseItem by Id.</summary>
+        public static BaseItem GetItemById(int id)
         {
             for (int i = 0; i < Items.Length; i++)
             {
@@ -25,8 +25,8 @@ namespace ActionRpgKit.Item
         }
 
         /// <summary>
-        /// Retrieve the IItem by Name.</summary>
-        public static IItem GetItemByName(string name)
+        /// Retrieve the BaseItem by Name.</summary>
+        public static BaseItem GetItemByName(string name)
         {
             for (int i = 0; i < Items.Length; i++)
             {
@@ -49,7 +49,7 @@ namespace ActionRpgKit.Item
             for (int i = 0; i < Items.Length; i++)
             {
                 repr += string.Format("|{0, -4} | {1, -20}|\n", Items[i].Id, Items[i].Name);
-                repr += "-----------------------------\n";
+                repr += "+-----+---------------------+\n";
             }
             return repr;
         }

@@ -12,12 +12,12 @@ namespace ActionRpgKit.Tests.Skill
     public class SkillTests
     {
 
-        IItem herb;
-        IItem coin;
-        IMagicSkill passiveMagicSkill;
-        ICombatSkill meleeSkill;
-        ICombatSkill meleeMultiTargetsSkill;
-        ICombatSkill rangedSkill;
+        UsableItem herb;
+        UsableItem coin;
+        MagicSkill passiveMagicSkill;
+        CombatSkill meleeSkill;
+        CombatSkill meleeMultiTargetsSkill;
+        CombatSkill rangedSkill;
 
         [SetUp]
         public void SetUp ()
@@ -38,7 +38,7 @@ namespace ActionRpgKit.Tests.Skill
                                                       description: "A +10 Buff to the user's strength.",
                                                       preUseTime: 10,
                                                       cooldownTime: 5,
-                                                      itemSequence: new IItem[] { herb },
+                                                      itemSequence: new UsableItem[] { herb },
                                                       cost: 10,
                                                       duration: 10,
                                                       modifierValue: 10,
@@ -51,7 +51,7 @@ namespace ActionRpgKit.Tests.Skill
                                         damage: 1,
                                         maximumTargets: 1,
                                         range: 1,
-                                        itemSequence: new IItem[] { });
+                                        itemSequence: new UsableItem[] { });
             meleeMultiTargetsSkill = new GenericCombatSkill(id: 2,
                                                     name: "MultiHit",
                                                     description: "Wield a sword against multiple opponents.",
@@ -60,7 +60,7 @@ namespace ActionRpgKit.Tests.Skill
                                                     damage: 1,
                                                     maximumTargets: 2,
                                                     range: 1,
-                                                    itemSequence: new IItem[] { });
+                                                    itemSequence: new UsableItem[] { });
             rangedSkill = new GenericCombatSkill(id: 3,
                             name: "Longbow",
                             description: "Notch! Aim! Loose!",
@@ -69,14 +69,14 @@ namespace ActionRpgKit.Tests.Skill
                             damage: 1,
                             maximumTargets: 1,
                             range: 10,
-                            itemSequence: new IItem[] { });
+                            itemSequence: new UsableItem[] { });
         }
 
         [Test]
         public void SkillDatabaseTest()
         {
-            SkillDatabase.MagicSkills = new IMagicSkill[] { passiveMagicSkill };
-            SkillDatabase.CombatSkills = new ICombatSkill[] { meleeSkill, meleeMultiTargetsSkill, rangedSkill };
+            SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill };
+            SkillDatabase.CombatSkills = new CombatSkill[] { meleeSkill, meleeMultiTargetsSkill, rangedSkill };
 
             Assert.IsNull(SkillDatabase.GetMagicSkillByName("DoesNotExist"));
             Assert.IsNull(SkillDatabase.GetCombatSkillByName("DoesNotExist"));

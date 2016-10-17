@@ -50,6 +50,7 @@
     <Compile Include="Character\MagicUserTests.cs" />
     <Compile Include="Character\EnemyFactoryTests.cs" />
     <Compile Include="Character\SkillTests.cs" />
+    <Compile Include="Character\StatsTests.cs" />
     <Compile Include="Core\GameTimeTests.cs" />
     <Compile Include="Core\PositionTests.cs" />
     <Compile Include="Item\ItemTests.cs" />

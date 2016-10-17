@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ActionRpgKit.Core;
 using ActionRpgKit.Item;
 using ActionRpgKit.Character.Skill;
@@ -14,17 +15,6 @@ namespace ActionRpgKit.Character
     /// They are defined by Stats.</summary>
     public interface ICharacter
     {
-        /// <summary>
-        /// Name of the character.</summary>
-        string Name { get; set; }
-        
-        /// <summary>
-        /// Stats describing the Character.</summary>
-        BaseStats Stats { get; set; }
-        
-        /// <summary>
-        /// Inventory of the Character.</summary>
-        IInventory Inventory { get; set; }
 
         /// <summary>
         /// The active state of this Character.</summary>
@@ -53,36 +43,36 @@ namespace ActionRpgKit.Character
     {
         /// <summary>
         /// MagicSkills available for this Character.</summary>
-        List<IMagicSkill> MagicSkills { get; }
+        List<MagicSkill> MagicSkills { get; }
 
         /// <summary>
         /// Add a new MagicSkill.</summary>
-        void LearnMagicSkill (IMagicSkill magicSkill);
+        void LearnMagicSkill (MagicSkill magicSkill);
 
         /// <summary>
         /// Trigger the given MagicSkill.</summary>
-        bool TriggerMagicSkill (IMagicSkill magicSkill);
+        bool TriggerMagicSkill (MagicSkill magicSkill);
         
         /// <summary>
-        /// Event is fired when a new IMagicSkill is learned.</summary>
+        /// Event is fired when a new MagicSkill is learned.</summary>
         event MagicSkillLearnedHandler OnMagicSkillLearned;
         
         /// <summary>
-        /// Event is fired when an IMagicSkill is triggered.</summary>
+        /// Event is fired when an MagicSkill is triggered.</summary>
         event MagicSkillTriggeredHandler OnMagicSkillTriggered;
     }
     
     /// <summary>
-    /// Handler operates whenever an IMagicUser learns a new IMagicSkill.</summary>
+    /// Handler operates whenever an IMagicUser learns a new MagicSkill.</summary>
     /// <param name="sender">The sending IMagicUser</param>
-    /// <param name="skill">The learned IMagicSkill</param>
-    public delegate void MagicSkillLearnedHandler(IMagicUser sender, IMagicSkill skill);
+    /// <param name="skill">The learned MagicSkill</param>
+    public delegate void MagicSkillLearnedHandler(IMagicUser sender, MagicSkill skill);
     
     /// <summary>
-    /// Handler operates whenever an IMagicUser triggers an IMagicSkill.</summary>
+    /// Handler operates whenever an IMagicUser triggers an MagicSkill.</summary>
     /// <param name="sender">The sending IMagicUser</param>
-    /// <param name="skill">The triggered IMagicSkill</param>
-    public delegate void MagicSkillTriggeredHandler(IMagicUser sender, IMagicSkill skill);
+    /// <param name="skill">The triggered MagicSkill</param>
+    public delegate void MagicSkillTriggeredHandler(IMagicUser sender, MagicSkill skill);
     
     /// <summary>
     /// Character can fight.</summary>  
@@ -114,7 +104,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// The current Skill that is to be used for an Attack.</summary>
-        ICombatSkill CurrentAttackSkill { get; set; }
+        CombatSkill CurrentAttackSkill { get; set; }
 
         /// <summary>
         /// The currently equipped Weapon.</summary>
@@ -149,22 +139,22 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// CombatSkills available for this Character.</summary>
-        List<ICombatSkill> CombatSkills { get; }
+        List<CombatSkill> CombatSkills { get; }
 
         /// <summary>
         /// Add a new CombatSkill.</summary>
-        void LearnCombatSkill(ICombatSkill combatSkill);
+        void LearnCombatSkill(CombatSkill combatSkill);
 
         /// <summary>
         /// Attack with the given CombatSkill.</summary>
-        bool TriggerCombatSkill(ICombatSkill combatSkill);
+        bool TriggerCombatSkill(CombatSkill combatSkill);
 
         /// <summary>
         /// The Fighter is being attacked.</summary>
         void OnAttacked(IFighter attacker, float damage);
 
         /// <summary>
-        /// Event is fired when a new ICombatSkill is learned.</summary>
+        /// Event is fired when a new CombatSkill is learned.</summary>
         event CombatSkillLearnedHandler OnCombatSkillLearned;
         
         /// <summary>
@@ -173,16 +163,16 @@ namespace ActionRpgKit.Character
     }
 
     /// <summary>
-    /// Handler operates whenever a IFighter learns a new ICombatSkill.</summary>
+    /// Handler operates whenever a IFighter learns a new CombatSkill.</summary>
     /// <param name="sender">The sending IFighter</param>
-    /// <param name="skill">The learned ICombatSkill</param>
-    public delegate void CombatSkillLearnedHandler(IFighter sender, ICombatSkill skill);
+    /// <param name="skill">The learned CombatSkill</param>
+    public delegate void CombatSkillLearnedHandler(IFighter sender, CombatSkill skill);
     
     /// <summary>
     /// Handler operates whenever a Character's state changes.</summary>
     /// <param name="sender">The sending IFighter</param>
-    /// <param name="skill">The triggered ICombatSkill</param>
-    public delegate void CombatSkillTriggeredHandler(IFighter sender, ICombatSkill skill);
+    /// <param name="skill">The triggered CombatSkill</param>
+    public delegate void CombatSkillTriggeredHandler(IFighter sender, CombatSkill skill);
 
     #endregion
 
@@ -192,6 +182,22 @@ namespace ActionRpgKit.Character
     /// Base implementation of a Character.</summary>
     public abstract class BaseCharacter : IGameObject, ICharacter, IMagicUser, IFighter
     {
+        /// <summary>
+        /// Id of the Charcter.</summary>
+        public int Id;
+
+        /// <summary>
+        /// Name of the character.</summary>
+        public string Name;
+
+        /// <summary>
+        /// Stats describing the Character.</summary>
+        public BaseStats Stats;
+
+        /// <summary>
+        /// Inventory of the Character.</summary>
+        public IInventory Inventory;
+
         public event StateChangedHandler OnStateChanged;
         public event MagicSkillLearnedHandler OnMagicSkillLearned;
         public event MagicSkillTriggeredHandler OnMagicSkillTriggered;
@@ -204,11 +210,11 @@ namespace ActionRpgKit.Character
         public AttackState _attackState;
         public DyingState _dyingState;
 
-        private List<IMagicSkill> _magicSkills = new List<IMagicSkill>();
+        private List<MagicSkill> _magicSkills = new List<MagicSkill>();
         private List<float> _magicSkillEndTimes = new List<float>();
 
         private List<IFighter> _enemies = new List<IFighter>();
-        private List<ICombatSkill> _combatSkills = new List<ICombatSkill>();
+        private List<CombatSkill> _combatSkills = new List<CombatSkill>();
         private List<float> _combatSkillEndTimes = new List<float>();
 
         public BaseCharacter(BaseStats stats, IInventory inventory)
@@ -268,12 +274,6 @@ namespace ActionRpgKit.Character
 
         #region ICharacter Implementations
 
-        public string Name { get; set; }
-
-        public BaseStats Stats { get; set; }
-
-        public IInventory Inventory { get; set; }
-
         public IState CurrentState { get; set; }
 
         /// <summary>
@@ -300,7 +300,7 @@ namespace ActionRpgKit.Character
             }
         }
         
-        protected void EmitOnMagicSkillLearned(IMagicSkill skill)
+        protected void EmitOnMagicSkillLearned(MagicSkill skill)
         {
             var handler = OnMagicSkillLearned;
             if (handler != null)
@@ -309,7 +309,7 @@ namespace ActionRpgKit.Character
             }
         }
         
-        protected void EmitOnMagicSkillTriggered(IMagicSkill skill)
+        protected void EmitOnMagicSkillTriggered(MagicSkill skill)
         {
             var handler = OnMagicSkillTriggered;
             if (handler != null)
@@ -318,7 +318,7 @@ namespace ActionRpgKit.Character
             }
         }
         
-        protected void EmitOnCombatSkillLearned(ICombatSkill skill)
+        protected void EmitOnCombatSkillLearned(CombatSkill skill)
         {
             var handler = OnCombatSkillLearned;
             if (handler != null)
@@ -327,7 +327,7 @@ namespace ActionRpgKit.Character
             }
         }
         
-        protected void EmitOnCombatSkillTriggered(ICombatSkill skill)
+        protected void EmitOnCombatSkillTriggered(CombatSkill skill)
         {
             var handler = OnCombatSkillTriggered;
             if (handler != null)
@@ -352,7 +352,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public List<IMagicSkill> MagicSkills
+        public List<MagicSkill> MagicSkills
         {
             get
             {
@@ -360,7 +360,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void LearnMagicSkill(IMagicSkill magicSkill)
+        public void LearnMagicSkill(MagicSkill magicSkill)
         {
             if (!MagicSkills.Contains(magicSkill))
             {
@@ -370,7 +370,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public bool TriggerMagicSkill(IMagicSkill magicSkill)
+        public bool TriggerMagicSkill(MagicSkill magicSkill)
         {
             if (!MagicSkillCanBeUsed(magicSkill))
             {
@@ -387,7 +387,7 @@ namespace ActionRpgKit.Character
         /// A countdown before the MagicSkill takes action.</summary>
         /// <remarks>This can be used for syncing animations or effects.</remarks>
         /// <param name=magicSkill>The Skill to use</param>
-        public virtual void PreUseCountdown(IMagicSkill magicSkill)
+        public virtual void PreUseCountdown(MagicSkill magicSkill)
         {
             //
             // Implement a Coroutine in Monobehaviour
@@ -398,7 +398,7 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Triggers the use of the Skill</summary>
         /// <param name=magicSkill>The Skill to use</param>
-        private void UseMagicSkill(IMagicSkill magicSkill)
+        private void UseMagicSkill(MagicSkill magicSkill)
         {
             magicSkill.Use(this);
         }
@@ -408,7 +408,7 @@ namespace ActionRpgKit.Character
         /// magic energy and is not in cooldown of the Skill.</summary>
         /// <param name=magicSkill>The Skill to test</param>
         /// <returns> Whether the Skill van be used.</returns>
-        private bool MagicSkillCanBeUsed(IMagicSkill magicSkill)
+        private bool MagicSkillCanBeUsed(MagicSkill magicSkill)
         {
             if (!MagicSkills.Contains(magicSkill))
             {
@@ -449,7 +449,7 @@ namespace ActionRpgKit.Character
 
         public float TimeUntilNextAttack { get; set; }
 
-        public ICombatSkill CurrentAttackSkill { get; set; }
+        public CombatSkill CurrentAttackSkill { get; set; }
 
         public WeaponItem EquippedWeapon { get; set; }
 
@@ -522,7 +522,7 @@ namespace ActionRpgKit.Character
             TriggerCombatSkill(CurrentAttackSkill);
         }
 
-        public List<ICombatSkill> CombatSkills
+        public List<CombatSkill> CombatSkills
         {
             get
             {
@@ -530,7 +530,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void LearnCombatSkill(ICombatSkill combatSkill)
+        public void LearnCombatSkill(CombatSkill combatSkill)
         {
             if (!CombatSkills.Contains(combatSkill))
             {
@@ -540,7 +540,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public bool TriggerCombatSkill(ICombatSkill combatSkill)
+        public bool TriggerCombatSkill(CombatSkill combatSkill)
         {
             if (!CombatSkillCanBeUsed(combatSkill))
             {
@@ -561,7 +561,7 @@ namespace ActionRpgKit.Character
         /// A countdown before the CombatSkill takes action.</summary>
         /// <remarks>This can be used for syncing animations or effects.</remarks>
         /// <param name=combatSkill>The Skill to use</param>
-        public virtual void PreUseCountdown(ICombatSkill combatSkill)
+        public virtual void PreUseCountdown(CombatSkill combatSkill)
         {
             //
             // Implement a Coroutine in Monobehaviour
@@ -580,7 +580,7 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Triggers the use of the Skill</summary>
         /// <param name=combatSkill>The Skill to use</param>
-        private void UseCombatSkill(ICombatSkill combatSkill)
+        private void UseCombatSkill(CombatSkill combatSkill)
         {
             combatSkill.Use(this);
         }
@@ -590,7 +590,7 @@ namespace ActionRpgKit.Character
         /// in cooldown of the Skill.</summary>
         /// <param name=combatSkill>The Skill to test</param>
         /// <returns> Whether the Skill van be used.</returns>
-        private bool CombatSkillCanBeUsed(ICombatSkill combatSkill)
+        private bool CombatSkillCanBeUsed(CombatSkill combatSkill)
         {
             if (!CombatSkills.Contains(combatSkill))
             {
@@ -624,6 +624,7 @@ namespace ActionRpgKit.Character
 
     /// <summary>
     /// Representation of a Player controllable character.</summary>
+    [Serializable]
     public class Player : BaseCharacter
     {
 
@@ -634,21 +635,22 @@ namespace ActionRpgKit.Character
             Name = name;
         }
     }
-    
+
     /// <summary>
     /// Representation of a Hostile, game controlled character.</summary>
+    [Serializable]
     public class Enemy : BaseCharacter
     {
 
         public Enemy() : base(new EnemyStats(), new SimpleInventory())
         {
-            Inventory.Items = new IItem[] { };
+            Inventory.Items = new BaseItem[] { };
         }
 
         public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
         {
             Name = name;
-            Inventory.Items = new IItem[] { };
+            Inventory.Items = new BaseItem[] { };
         }
     }
 

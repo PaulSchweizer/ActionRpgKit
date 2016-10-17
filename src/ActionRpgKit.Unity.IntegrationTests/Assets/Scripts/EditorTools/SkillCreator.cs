@@ -113,7 +113,7 @@ public class SkillCreator : EditorWindow
         // Create the Skill
         if (GUILayout.Button(string.Format("Create {0}", _skillTypes[_skillType]), GUILayout.Height(30)))
         {
-            if (_name != "")
+            if (_name.Length > 0)
             {
                 CreateNewSkill();
             }
@@ -127,14 +127,18 @@ public class SkillCreator : EditorWindow
         {
             var skill = CreatePassiveMagicSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
-                                      string.Format("{0}_{1}.asset", skill.Skill.Id, _name)));
+                                      string.Format("{0}_{1}.asset", 
+                                                    skill.PassiveMagicSkill.Id, 
+                                                    _name)));
         }
         // 1 = MeleeCombatSkill
         else if (_skillType == 1)
         {
             var skill = CreateGenericCombatSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
-                                      string.Format("{0}_{1}.asset", skill.Skill.Id, _name)));
+                                      string.Format("{0}_{1}.asset", 
+                                                    skill.GenericCombatSkill.Id, 
+                                                    _name)));
         }
         else
         {
@@ -155,13 +159,13 @@ public class SkillCreator : EditorWindow
                             preUseTime: _preUseTime,
                             cooldownTime: _cooldownTime,
                             cost: _cost,
-                            itemSequence: new IItem[] { },
+                            itemSequence: new UsableItem[] { },
                             duration: _duration,
                             modifierValue: _modifierValue,
                             modifiedAttributeName: _modifiedAttributeName
             );
         var scriptableSkill = ScriptableObject.CreateInstance<UPassiveMagicSkill>();
-        scriptableSkill.Skill = skill;
+        scriptableSkill.PassiveMagicSkill = skill;
         return scriptableSkill;
     }
     
@@ -177,11 +181,11 @@ public class SkillCreator : EditorWindow
                             preUseTime: _preUseTime,
                             cooldownTime: _cooldownTime, 
                             damage: _damage,
-                            itemSequence: new IItem[] { },
+                            itemSequence: new UsableItem[] { },
                             maximumTargets: _maximumTargets,
                             range: _range);
         var scriptableSkill = ScriptableObject.CreateInstance<UGenericCombatSkill>();
-        scriptableSkill.Skill = skill;
+        scriptableSkill.GenericCombatSkill = skill;
         return scriptableSkill;
     }
 

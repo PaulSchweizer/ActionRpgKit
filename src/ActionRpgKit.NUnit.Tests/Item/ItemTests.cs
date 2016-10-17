@@ -8,8 +8,8 @@ namespace ActionRpgKit.Tests.Item
     [Category("Item")]
     public class ItemTests
     {
-        IItem herb;
-        IItem sword;
+        BaseItem herb;
+        BaseItem sword;
 
         [SetUp]
         public void SetUp()
@@ -28,7 +28,7 @@ namespace ActionRpgKit.Tests.Item
         [Test]
         public void ItemDatabaseTest()
         {
-            ItemDatabase.Items = new IItem[] { herb };
+            ItemDatabase.Items = new BaseItem[] { herb };
             Assert.AreEqual(1, ItemDatabase.Items.Length);
             var itemByName = ItemDatabase.GetItemByName("Herb");
             Assert.AreSame(itemByName, herb);
@@ -39,7 +39,7 @@ namespace ActionRpgKit.Tests.Item
             var nullItem2 = ItemDatabase.GetItemById(-1);
             Assert.AreSame(nullItem2, null);
 
-            ItemDatabase.Items = new IItem[] { herb, sword };
+            ItemDatabase.Items = new BaseItem[] { herb, sword };
             Console.WriteLine(ItemDatabase.ToString());
         }
     }

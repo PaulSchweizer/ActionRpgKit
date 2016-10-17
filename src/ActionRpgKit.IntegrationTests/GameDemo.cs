@@ -58,16 +58,16 @@ namespace ActionRpgKit.Tests.IntegrationTests
 
         private void InitItemDatabase()
         {
-            IItem herb = new UsableItem();
+            BaseItem herb = new UsableItem();
             herb.Id = 0;
             herb.Name = "Herb";
             herb.Description = "A common herb";
-            ItemDatabase.Items = new IItem[] { herb };
+            ItemDatabase.Items = new BaseItem[] { herb };
         }
 
         private void InitSkillDatabase()
         {
-            IMagicSkill passiveMagicSkill = new PassiveMagicSkill(id: 0,
+            MagicSkill passiveMagicSkill = new PassiveMagicSkill(id: 0,
                                                 name: "ShadowStrength",
                                                 description: "A +10 Buff to the user's strength.",
                                                 cost: 10,
@@ -76,8 +76,8 @@ namespace ActionRpgKit.Tests.IntegrationTests
                                                 cooldownTime: 5,
                                                 modifierValue: 10,
                                                 modifiedAttributeName: "Body",
-                                                itemSequence: new IItem[]{});
-            ICombatSkill meleeSkill = new GenericCombatSkill(id: 0,
+                                                itemSequence: new UsableItem[]{});
+            CombatSkill meleeSkill = new GenericCombatSkill(id: 0,
                                             name: "SwordFighting",
                                             description: "How to wield a sword.",
                                             preUseTime: 1,
@@ -85,9 +85,9 @@ namespace ActionRpgKit.Tests.IntegrationTests
                                             damage: 1,
                                             maximumTargets: 1,
                                             range: 1,
-                                            itemSequence: new IItem[]{});
-            SkillDatabase.CombatSkills = new ICombatSkill[] { meleeSkill };
-            SkillDatabase.MagicSkills = new IMagicSkill[] { passiveMagicSkill };
+                                            itemSequence: new UsableItem[]{});
+            SkillDatabase.CombatSkills = new CombatSkill[] { meleeSkill };
+            SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill };
         }
 
         private void CreatePlayerCharacter()

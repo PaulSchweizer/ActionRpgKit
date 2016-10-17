@@ -14,8 +14,8 @@ namespace ActionRpgKit.Tests.Character
     {
         Player player;
         Enemy enemy;
-        ICombatSkill meleeSkill;
-        IMagicSkill passiveMagicSkill;
+        CombatSkill meleeSkill;
+        MagicSkill passiveMagicSkill;
         int _stateChanged;
         int _magicSkillLearned;
         int _magicSkillTriggered;
@@ -35,13 +35,13 @@ namespace ActionRpgKit.Tests.Character
                             damage: 1,
                             maximumTargets: 1,
                             range: 1,
-                            itemSequence: new IItem[] {});
+                            itemSequence: new UsableItem[] {});
             passiveMagicSkill = new PassiveMagicSkill(id: 0,
                                         name: "ShadowStrength",
                                         description: "A +10 Buff to the user's strength.",
                                         preUseTime: 10,
                                         cooldownTime: 5,
-                                        itemSequence: new IItem[] { },
+                                        itemSequence: new UsableItem[] { },
                                         cost: 10,
                                         duration: 10,
                                         modifierValue: 10,
@@ -247,22 +247,22 @@ namespace ActionRpgKit.Tests.Character
             _stateChanged += 1;
         }
 
-        public void MagicSkillLearnedTest(IMagicUser sender, IMagicSkill skill)
+        public void MagicSkillLearnedTest(IMagicUser sender, MagicSkill skill)
         {
             _magicSkillLearned += 1;
         }
 
-        public void MagicSkillTriggeredTest(IMagicUser sender, IMagicSkill skill)
+        public void MagicSkillTriggeredTest(IMagicUser sender, MagicSkill skill)
         {
             _magicSkillTriggered += 1;
         }
 
-        public void CombatSkillLearnedTest(IFighter sender, ICombatSkill skill)
+        public void CombatSkillLearnedTest(IFighter sender, CombatSkill skill)
         {
             _combatSkillLearned += 1;
         }
 
-        public void CombatSkillTriggeredTest(IFighter sender, ICombatSkill skill)
+        public void CombatSkillTriggeredTest(IFighter sender, CombatSkill skill)
         {
             _combatSkillTriggered += 1;
         }

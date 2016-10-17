@@ -76,12 +76,19 @@
   <ItemGroup>
     <Compile Include="Assets\IntegrationTests\CombatTest.cs" />
     <Compile Include="Assets\IntegrationTests\ItemIntegrationTest.cs" />
+    <Compile Include="Assets\Scripts\Character\UBaseCharacter.cs" />
+    <Compile Include="Assets\Scripts\Character\UEnemyCharacter.cs" />
+    <Compile Include="Assets\Scripts\Character\UPlayerCharacter.cs" />
+    <Compile Include="Assets\Scripts\EditorTools\CharacterCreator.cs" />
+    <Compile Include="Assets\Scripts\EditorTools\UCharacterEditor.cs" />
     <Compile Include="Assets\Scripts\EditorTools\ItemCreator.cs" />
     <Compile Include="Assets\Scripts\EditorTools\SkillCreator.cs" />
-    <Compile Include="Assets\Scripts\EditorTools\UItemEditors.cs" />
-    <Compile Include="Assets\Scripts\EditorTools\USkillEditors.cs" />
     <Compile Include="Assets\Scripts\Item\UItem.cs" />
     <Compile Include="Assets\Scripts\Item\UItemDatabase.cs" />
+    <Compile Include="Assets\Scripts\Item\UUsableItem.cs" />
+    <Compile Include="Assets\Scripts\Item\UWeaponItem.cs" />
+    <Compile Include="Assets\Scripts\Skill\UGenericCombatSkill.cs" />
+    <Compile Include="Assets\Scripts\Skill\UPassiveMagicSkill.cs" />
     <Compile Include="Assets\Scripts\Skill\USkill.cs" />
     <Compile Include="Assets\Scripts\UEnemy.cs" />
     <Compile Include="Assets\Scripts\UGameTime.cs" />
@@ -147,5 +154,6 @@
     <None Include="Assets\UnityTestTools\LICENSE.txt" />
     <None Include="Assets\UnityTestTools\changelog.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

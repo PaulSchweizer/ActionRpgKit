@@ -2,6 +2,9 @@
 using NUnit.Framework;
 using ActionRpgKit.Core;
 using ActionRpgKit.Character.Attribute;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.IO;
 
 namespace ActionRpgKit.Tests.Character
 {
@@ -118,13 +121,22 @@ namespace ActionRpgKit.Tests.Character
         }
 
         [Test]
-        public void LifeTest()
+        public void VolumeTest()
         {
             // Check the default values
+            Body.Value = 0;
             Assert.AreEqual(0, Life.MinValue);
+            Assert.AreEqual(20, Life.MaxValue);
+            Assert.AreEqual(20, Life.Value);
+            Body.Value = 10;
             Assert.AreEqual(23, Life.MaxValue);
-            Assert.AreEqual(23, Life.Value);
-
+            Assert.AreEqual(20, Life.Value);
+            Life.Value = 23;
+            Body.Value = 0;
+            Assert.AreEqual(0, Life.MinValue);
+            Assert.AreEqual(20, Life.MaxValue);
+            Assert.AreEqual(20, Life.Value);
+            Body.Value = 10;
             // Set the value
             Life.Value = 10;
             Assert.AreEqual(10, Life.Value);
@@ -221,6 +233,52 @@ namespace ActionRpgKit.Tests.Character
             Body.OnMinReached += new MinReachedHandler(MinReachedDemo);
             Body.Value = -100;
             Assert.AreEqual(1, _minReachedEventTriggered);
+        }
+
+        [Test]
+        public void SerializationTest()
+        {
+            Random random = new Random();
+            // Serialize a primary attribute
+            Body.Value = random.Next(10, 999);
+            Body.MinValue = random.Next(0, 9);
+            Body.MaxValue = random.Next(10, 999);
+            Serialize(Body);
+            IAttribute serializedBody = Deserialize(Body);
+            Assert.AreEqual(Body.Value, serializedBody.Value);
+            Assert.AreEqual(Body.MinValue, serializedBody.MinValue);
+            Assert.AreEqual(Body.MaxValue, serializedBody.MaxValue);
+
+            // Serialize a volume attribute
+            Life.Value = random.Next(0, 23);
+            Serialize(Life);
+            IAttribute serializedLife = Deserialize(Life);
+            Assert.AreEqual(Life.Value, serializedLife.Value);
+        }
+
+        private void Serialize(IAttribute attr)
+        {
+            var serializedFile = Path.GetTempPath() + string.Format("/__AttributeTests__{0}.bin", attr.Name);
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(serializedFile,
+                                           FileMode.Create,
+                                           FileAccess.Write,
+                                           FileShare.None);
+            formatter.Serialize(stream, attr);
+            stream.Close();
+        }
+
+        private IAttribute Deserialize(IAttribute attr)
+        {
+            var serializedFile = Path.GetTempPath() + string.Format("/__AttributeTests__{0}.bin", attr.Name);
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(serializedFile,
+                                    FileMode.Open,
+                                    FileAccess.Read,
+                                    FileShare.Read);
+            IAttribute serializedAttr = (IAttribute)formatter.Deserialize(stream);
+            stream.Close();
+            return serializedAttr;
         }
 
         public void ValueChangedDemo(IAttribute sender, float value)

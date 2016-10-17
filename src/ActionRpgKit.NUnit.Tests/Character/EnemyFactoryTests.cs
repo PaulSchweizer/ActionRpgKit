@@ -20,14 +20,14 @@ namespace ActionRpgKit.Tests.Character
             GameTime.Reset();
 
             // Items
-            IItem item = new UsableItem();
+            BaseItem item = new UsableItem();
             item.Id = 0;
             item.Name = "TestItem";
 
             // Initialize the EnemyFactory
             EnemyStats zombieStats = new EnemyStats();
             EnemyFactory.AddEnemyType("Zombie", zombieStats,
-                                      new SimpleInventory(new IItem[] { item }, 
+                                      new SimpleInventory(new BaseItem[] { item }, 
                                                           new int[] {1}));
         }
         

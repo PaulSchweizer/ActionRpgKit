@@ -71,7 +71,7 @@ public class ItemCreator : EditorWindow
         // Create the Item
         if (GUILayout.Button(string.Format("Create {0}", _itemTypes[_itemType]), GUILayout.Height(30)))
         {
-            if (_name != "")
+            if (_name.Length > 0)
             {
                 CreateNewItem();
             }
@@ -85,14 +85,14 @@ public class ItemCreator : EditorWindow
         {
             var item = CreateUsableItem();
             AssetDatabase.CreateAsset(item, Path.Combine(RelativePath,
-                                      string.Format("{0}_{1}.asset", item.Item.Id, _name)));
+                                      string.Format("{0}_{1}.asset", item.UsableItem.Id, _name)));
         }
         // 1 = WeaponItem
         else if (_itemType == 1)
         {
             var item = CreateWeaponItem();
             AssetDatabase.CreateAsset(item, Path.Combine(RelativePath,
-                                      string.Format("{0}_{1}.asset", item.Item.Id, _name)));
+                                      string.Format("{0}_{1}.asset", item.WeaponItem.Id, _name)));
         }
         else
         {
@@ -111,7 +111,7 @@ public class ItemCreator : EditorWindow
         item.Description = _description;
         item.Id = GetId();
         var scriptableItem = ScriptableObject.CreateInstance<UUsableItem>();
-        scriptableItem.Item = item;
+        scriptableItem.UsableItem = item;
         return scriptableItem;
     }
 
@@ -128,7 +128,7 @@ public class ItemCreator : EditorWindow
         item.Speed = _speed;
         item.Id = GetId();
         var scriptableItem = ScriptableObject.CreateInstance<UWeaponItem>();
-        scriptableItem.Item = item;
+        scriptableItem.WeaponItem = item;
         return scriptableItem;
     }
 

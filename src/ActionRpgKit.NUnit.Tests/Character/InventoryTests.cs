@@ -19,23 +19,23 @@ namespace ActionRpgKit.Tests.Character
         [SetUp]
         public void SetUp()
         {
-            IItem herb = new UsableItem();
+            BaseItem herb = new UsableItem();
             herb.Id = 0;
             herb.Name = "Herb";
             herb.Description = "A common herb";
-            IItem coin = new UsableItem();
+            BaseItem coin = new UsableItem();
             coin.Id = 1;
             coin.Name = "Coin";
             coin.Description = "A gold coin";
-            ItemDatabase.Items = new IItem[] { herb, coin };
+            ItemDatabase.Items = new BaseItem[] { herb, coin };
         }
 
         [Test]
         public void SimpleInventoryTest()
         {
-            IItem herb = ItemDatabase.GetItemByName("Herb");
-            IItem coin = ItemDatabase.GetItemByName("Coin");
-            simpleInventory = new SimpleInventory(new IItem[] { herb },
+            BaseItem herb = ItemDatabase.GetItemByName("Herb");
+            BaseItem coin = ItemDatabase.GetItemByName("Coin");
+            simpleInventory = new SimpleInventory(new BaseItem[] { herb },
                                                   new int[] { 1 });
             Assert.AreEqual(1, simpleInventory.ItemCount);
             Assert.AreEqual(1, simpleInventory.GetQuantity(herb));
@@ -56,8 +56,8 @@ namespace ActionRpgKit.Tests.Character
         {
             playerInventory = new PlayerInventory();
             Assert.AreEqual(0, playerInventory.ItemCount);
-            IItem herb = ItemDatabase.GetItemByName("Herb");
-            IItem coin = ItemDatabase.GetItemByName("Coin");
+            BaseItem herb = ItemDatabase.GetItemByName("Herb");
+            BaseItem coin = ItemDatabase.GetItemByName("Coin");
             playerInventory.AddItem(herb);
             Assert.AreEqual(1, playerInventory.ItemCount);
             playerInventory.AddItem(herb, 9);
@@ -70,10 +70,10 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual(0, playerInventory.GetQuantity(herb));
 
             // Set and check Items and Quantities
-            playerInventory.Items = new List<IItem>() { herb, coin };
+            playerInventory.Items = new List<BaseItem>() { herb, coin };
             playerInventory.Quantities = new List<int>() { 1, 2 };
             Assert.AreEqual(2, playerInventory.Quantities.ToList<int>().Count);
-            Assert.AreEqual(2, playerInventory.Items.ToList<IItem>().Count);
+            Assert.AreEqual(2, playerInventory.Items.ToList<BaseItem>().Count);
 
             // Test the pretty representation
             playerInventory.ToString();
@@ -84,8 +84,8 @@ namespace ActionRpgKit.Tests.Character
         {
             playerInventory = new PlayerInventory();
             Assert.AreEqual(0, playerInventory.ItemCount);
-            IItem herb = ItemDatabase.GetItemByName("Herb");
-            simpleInventory = new SimpleInventory(new IItem[] { herb },
+            BaseItem herb = ItemDatabase.GetItemByName("Herb");
+            simpleInventory = new SimpleInventory(new BaseItem[] { herb },
                                                   new int[] { 10 });
             playerInventory.AddInventory(simpleInventory);
             Assert.AreEqual(1, playerInventory.ItemCount);
@@ -95,17 +95,17 @@ namespace ActionRpgKit.Tests.Character
         [Test]
         public void ResetInventoryTest()
         {
-            IItem herb = ItemDatabase.GetItemByName("Herb");
-            IItem coin = ItemDatabase.GetItemByName("Coin");
-            simpleInventory = new SimpleInventory(new IItem[] { herb },
+            BaseItem herb = ItemDatabase.GetItemByName("Herb");
+            BaseItem coin = ItemDatabase.GetItemByName("Coin");
+            simpleInventory = new SimpleInventory(new BaseItem[] { herb },
                                                   new int[] { 1 });
-            playerInventory = new PlayerInventory(new IItem[] { herb },
+            playerInventory = new PlayerInventory(new BaseItem[] { herb },
                                                   new int[] { 1 });
             Assert.AreEqual(1, playerInventory.ItemCount);
             Assert.AreEqual(1, simpleInventory.ItemCount);
-            simpleInventory.Items = new IItem[] { };
+            simpleInventory.Items = new BaseItem[] { };
             simpleInventory.Quantities = new int[] { };
-            playerInventory.Items = new List<IItem>();
+            playerInventory.Items = new List<BaseItem>();
             playerInventory.Quantities = new List<int>();
             Assert.AreEqual(0, playerInventory.ItemCount);
             Assert.AreEqual(0, simpleInventory.ItemCount);

@@ -11,12 +11,12 @@ namespace ActionRpgKit.Character
     /// An inventory holds Items.</summary>
     public interface IInventory
     {
-        IEnumerable<IItem> Items { get; set; }
+        IEnumerable<BaseItem> Items { get; set; }
         IEnumerable<int> Quantities { get; set; }
-        void AddItem (IItem item, int quantity = 1);
-        void RemoveItem (IItem item, int quantity = 1);
+        void AddItem (BaseItem item, int quantity = 1);
+        void RemoveItem (BaseItem item, int quantity = 1);
         int ItemCount { get; }
-        int GetQuantity (IItem item);
+        int GetQuantity (BaseItem item);
     }
 
     #endregion
@@ -27,18 +27,18 @@ namespace ActionRpgKit.Character
     /// This inventory holds afixed size array of items.</summary>
     public class SimpleInventory : IInventory
     {
-        private IItem[] _items;
+        private BaseItem[] _items;
         private int[] _quantities;
 
         public SimpleInventory() { }
 
-        public SimpleInventory(IItem[] items, int[] quantities)
+        public SimpleInventory(BaseItem[] items, int[] quantities)
         {
             Items = items;
             Quantities = quantities;
         }
 
-        public IEnumerable<IItem> Items
+        public IEnumerable<BaseItem> Items
         {
             get
             {
@@ -71,7 +71,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public int GetQuantity(IItem item)
+        public int GetQuantity(BaseItem item)
         {
             int index = Array.IndexOf(_items, item);
             if (index > -1)
@@ -84,9 +84,9 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void AddItem(IItem item, int quantity = 1) { }
+        public void AddItem(BaseItem item, int quantity = 1) { }
 
-        public void RemoveItem(IItem item, int quantity = 1) { }
+        public void RemoveItem(BaseItem item, int quantity = 1) { }
 
         public override string ToString()
         {
@@ -94,7 +94,7 @@ namespace ActionRpgKit.Character
             repr += string.Format("_SimpleInventory______\n");
             for (int i = 0; i < ItemCount; i++)
             {
-                repr += string.Format("|{0, -15}|{1:000, 4}|\n",
+                repr += string.Format("|{0, -15}|{1, 4:D4}|\n",
                                       _items[i].Name, _quantities[i]);
                 repr += string.Format("+---------------+----+\n");
             }
@@ -106,18 +106,18 @@ namespace ActionRpgKit.Character
     /// Inventory allows to add and remove items.</summary>
     public class PlayerInventory : IInventory
     {
-        private List<IItem> _items = new List<IItem>();
+        private List<BaseItem> _items = new List<BaseItem>();
         private List<int> _quantities = new List<int>();
 
         public PlayerInventory() { }
 
-        public PlayerInventory(IItem[] items, int[] quantities)
+        public PlayerInventory(BaseItem[] items, int[] quantities)
         {
             Items = items;
             Quantities = quantities;
         }
 
-        public IEnumerable<IItem> Items
+        public IEnumerable<BaseItem> Items
         {
             get
             {
@@ -125,7 +125,7 @@ namespace ActionRpgKit.Character
             }
             set
             {
-                _items = value.ToList<IItem>();
+                _items = value.ToList<BaseItem>();
             }
         }
 
@@ -150,7 +150,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public int GetQuantity(IItem item)
+        public int GetQuantity(BaseItem item)
         {
             if (_items.Contains(item))
             {
@@ -162,7 +162,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void AddItem(IItem item, int quantity = 1)
+        public void AddItem(BaseItem item, int quantity = 1)
         {
             if (_items.Contains(item))
             {
@@ -175,7 +175,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void RemoveItem(IItem item, int quantity = 1)
+        public void RemoveItem(BaseItem item, int quantity = 1)
         {
             if (_items.Contains(item))
             {
@@ -204,7 +204,7 @@ namespace ActionRpgKit.Character
             repr += string.Format("_PlayerInventory______\n");
             for (int i=0; i < ItemCount; i++)
             {
-                repr += string.Format("|{0, -15}|{1, 4}|\n", 
+                repr += string.Format("|{0, -15}|{1, 4:D4}|\n", 
                                       _items[i].Name, _quantities[i]);
                 repr += string.Format("+---------------+----+\n");
             }

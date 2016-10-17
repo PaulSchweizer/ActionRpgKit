@@ -3,5 +3,7 @@ using UnityEditor;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Item;
 
-public class USkill : ScriptableObject { }
-
+class UGenericCombatSkill : USkill
+{
+    public GenericCombatSkill GenericCombatSkill;
+}

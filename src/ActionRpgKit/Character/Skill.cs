@@ -4,84 +4,25 @@ using ActionRpgKit.Item;
 
 namespace ActionRpgKit.Character.Skill
 {
-    #region Interfaces
-
-    /// <summary>
-    /// Interface for Skills.</summary>
-    public interface ISkill
-    {
-        /// <summary>
-        /// Unique identifier for the Skill. </summary>
-        /// <remarks>This can be used to create a database of Skills.</remarks>
-        int Id { get; set; }
-
-        /// <summary>
-        /// Name of the Skill.</summary>
-        string Name { get; set; }
-
-        /// <summary>
-        /// A description.</summary>
-        string Description { get; set; }
-
-        /// <summary>
-        /// The time prior to the usage.</summary>
-        float PreUseTime { get; set; }
-
-        /// <summary>
-        /// The time it takes until the Skill can be used again.</summary>
-        float CooldownTime { get; set; }
-
-        /// <summary>
-        /// A sequence of Items that triggers the Skill.</summary>
-        IItem[] ItemSequence { get; set; }
-
-        /// <summary>
-        /// Whether the skill matches the given series of items.</summary>
-        bool Match(IItem[] items);
-    }
-
-    /// <summary>
-    /// A magic Skill costs magic energy on each use.</summary>
-    public interface IMagicSkill : ISkill
-    {
-        /// <summary>
-        /// The energy costs of the Skill.</summary>
-        float Cost { get; set; }
-
-        /// <summary>
-        /// The Skill is used and takes effect.</summary>
-        void Use(ICharacter user);
-    }
-
-    /// <summary>
-    /// A Skill to be used as an Attack in Combat.</summary>
-    public interface ICombatSkill : ISkill
-    {
-        /// <summary>
-        /// The amount of damage.</summary>
-        float Damage { get; set; }
-
-        /// <summary>
-        /// The maximum amount of enemies that can be targeted at once.</summary>
-        int MaximumTargets { get; set; }
-
-        /// <summary>
-        /// The maximum range at which the skill works.</summary>
-        float Range { get; set; }
-
-        /// <summary>
-        /// The Skill is used and takes effect.</summary>
-        void Use(IFighter user);
-    }
-
-    #endregion
 
     #region Abstracts
 
     /// <summary>
     /// A basic Skill implementation.</summary>
-    public abstract class BaseSkill : ISkill
+    public abstract class BaseSkill
     {
+
+        public int Id;
+
+        public string Name;
+
+        public string Description;
+
+        public float CooldownTime;
+
+        public float PreUseTime;
+
+        public UsableItem[] ItemSequence;
 
         public BaseSkill() { }
 
@@ -90,7 +31,7 @@ namespace ActionRpgKit.Character.Skill
                          string description,
                          float preUseTime,
                          float cooldownTime,
-                         IItem[] itemSequence)
+                         UsableItem[] itemSequence)
         {
             Id = id;
             Name = name;
@@ -100,19 +41,81 @@ namespace ActionRpgKit.Character.Skill
             ItemSequence = itemSequence;
         }
 
-        public int Id { get; set; }
+        public abstract bool Match(BaseItem[] items);
+    }
 
-        public string Name { get; set; }
+    /// <summary>
+    /// A magic Skill costs magic energy on each use.</summary>
+    public abstract class MagicSkill : BaseSkill
+    {
+        /// <summary>
+        /// The energy costs of the Skill.</summary>
+        public float Cost;
 
-        public string Description { get; set; }
+        /// <summary>
+        /// The Skill is used and takes effect.</summary>
+        public abstract void Use(BaseCharacter user);
 
-        public float CooldownTime { get; set; }
+        public MagicSkill() { }
 
-        public float PreUseTime { get; set; }
+        public MagicSkill(int id,
+                          string name,
+                          string description,
+                          float preUseTime,
+                          float cooldownTime,
+                          UsableItem[] itemSequence,
+                          float cost): base(id,
+                                            name,
+                                            description,
+                                            preUseTime,
+                                            cooldownTime,
+                                            itemSequence)
+        {
+            Cost = cost;
+        }
+    }
 
-        public IItem[] ItemSequence { get; set; }
+    /// <summary>
+    /// A Skill to be used as an Attack in Combat.</summary>
+    public abstract class CombatSkill : BaseSkill
+    {
+        /// <summary>
+        /// The amount of damage.</summary>
+        public float Damage;
 
-        public abstract bool Match(IItem[] items);
+        /// <summary>
+        /// The maximum amount of enemies that can be targeted at once.</summary>
+        public int MaximumTargets;
+
+        /// <summary>
+        /// The maximum range at which the skill works.</summary>
+        public float Range;
+
+        /// <summary>
+        /// The Skill is used and takes effect.</summary>
+        public abstract void Use(IFighter user);
+
+        public CombatSkill() { }
+
+        public CombatSkill(int id,
+                          string name,
+                          string description,
+                          float preUseTime,
+                          float cooldownTime,
+                          UsableItem[] itemSequence,
+                          float damage,
+                          int maximumTargets,
+                          float range) : base(id,
+                                              name,
+                                              description,
+                                              preUseTime,
+                                              cooldownTime,
+                                              itemSequence)
+        {
+            Damage = damage;
+            MaximumTargets = maximumTargets;
+            Range = range;
+        }
     }
 
     #endregion
@@ -122,15 +125,19 @@ namespace ActionRpgKit.Character.Skill
     /// <summary>
     /// A passive MagicSkill adds buffs on the User itself.</summary>
     [Serializable]
-    public class PassiveMagicSkill : BaseSkill, IMagicSkill
+    public class PassiveMagicSkill : MagicSkill
     {
+
+        public float Duration;
+        public float ModifierValue;
+        public string ModifiedAttributeName;
 
         public PassiveMagicSkill(int id,
                                  string name,
                                  string description,
                                  float preUseTime,
                                  float cooldownTime,
-                                 IItem[] itemSequence,
+                                 UsableItem[] itemSequence,
                                  float cost,
                                  float duration,
                                  float modifierValue,
@@ -139,17 +146,14 @@ namespace ActionRpgKit.Character.Skill
                                                                       description,
                                                                       preUseTime,
                                                                       cooldownTime,
-                                                                      itemSequence)
+                                                                      itemSequence, 
+                                                                      cost)
         {
-            Cost = cost;
+            
             Duration = duration;
             ModifierValue = modifierValue;
             ModifiedAttributeName = modifiedAttributeName;
         }
-
-        public float Duration { get; set; }
-        public float ModifierValue { get; set; }
-        public string ModifiedAttributeName { get; set; }
 
         public override string ToString()
         {
@@ -159,7 +163,7 @@ namespace ActionRpgKit.Character.Skill
 
         #region ISkill implementations
 
-        public override bool Match(IItem[] items)
+        public override bool Match(BaseItem[] items)
         {
             if (ItemSequence.Length != items.Length)
             {
@@ -181,11 +185,9 @@ namespace ActionRpgKit.Character.Skill
 
         #region IMagicSkill implementations
 
-        public float Cost { get; set; }
-
         /// <summary>
         /// Add the modifier to the modified attribute.</summary>
-        public void Use(ICharacter user)
+        public override void Use(BaseCharacter user)
         {
             user.Stats[ModifiedAttributeName].AddModifier(GetModifier());
         }
@@ -203,7 +205,7 @@ namespace ActionRpgKit.Character.Skill
     /// <summary>
     /// Allows to attack with a melee weapon.</summary>
     [Serializable]
-    public class GenericCombatSkill : BaseSkill, ICombatSkill
+    public class GenericCombatSkill : CombatSkill
     {
 
         public GenericCombatSkill(int id,
@@ -211,7 +213,7 @@ namespace ActionRpgKit.Character.Skill
                           string description,
                           float preUseTime,
                           float cooldownTime,
-                          IItem[] itemSequence,
+                          UsableItem[] itemSequence,
                           float damage,
                           int maximumTargets,
                           float range) : base(id,
@@ -219,11 +221,11 @@ namespace ActionRpgKit.Character.Skill
                                               description,
                                               preUseTime,
                                               cooldownTime,
-                                              itemSequence)
+                                              itemSequence,
+                                              damage,
+                                              maximumTargets,
+                                              range)
         {
-            Damage = damage;
-            MaximumTargets = maximumTargets;
-            Range = range;
         }
 
         public override string ToString()
@@ -233,24 +235,18 @@ namespace ActionRpgKit.Character.Skill
 
         #region ISkill implementations
 
-        public override bool Match(IItem[] items)
+        public override bool Match(BaseItem[] items)
         {
             throw new NotImplementedException();
         }
 
         #endregion
 
-        #region ICombatSkill implementations
-
-        public float Damage { get; set; }
-
-        public int MaximumTargets { get; set; }
-
-        public float Range { get; set; }
+        #region CombatSkill implementations
 
         /// <summary>
         /// Inform the attacked Characters that they are being attacked.</summary>
-        public void Use(IFighter user)
+        public override void Use(IFighter user)
         {
             float damage = Damage;
             if (user.EquippedWeapon != null)
@@ -273,16 +269,16 @@ namespace ActionRpgKit.Character.Skill
     public static class SkillDatabase
     {
         /// <summary>
-        /// The index of the array corresponds to the id of the IMagicSkill.</summary>
-        public static IMagicSkill[] MagicSkills { get; set; }
+        /// The index of the array corresponds to the id of the MagicSkill.</summary>
+        public static MagicSkill[] MagicSkills { get; set; }
 
         /// <summary>
-        /// The index of the array corresponds to the id of the ICombatSkill.</summary>
-        public static ICombatSkill[] CombatSkills { get; set; }
+        /// The index of the array corresponds to the id of the CombatSkill.</summary>
+        public static CombatSkill[] CombatSkills { get; set; }
 
         /// <summary>
-        /// Retrieve the IMagicSkill by Name.</summary>
-        public static IMagicSkill GetMagicSkillByName(string name)
+        /// Retrieve the MagicSkill by Name.</summary>
+        public static MagicSkill GetMagicSkillByName(string name)
         {
             for (int i = 0; i < MagicSkills.Length; i++)
             {
@@ -295,8 +291,8 @@ namespace ActionRpgKit.Character.Skill
         }
 
         /// <summary>
-        /// Retrieve the ICombatSkill by Name.</summary>
-        public static ICombatSkill GetCombatSkillByName(string name)
+        /// Retrieve the CombatSkill by Name.</summary>
+        public static CombatSkill GetCombatSkillByName(string name)
         {
             for (int i = 0; i < CombatSkills.Length; i++)
             {

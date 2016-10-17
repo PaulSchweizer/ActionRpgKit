@@ -12,7 +12,7 @@ public class UPlayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        var meleeSkill = new MeleeCombatSkill(id: 1,
+        var meleeSkill = new GenericCombatSkill(id: 1,
                                         name: "SwordFighting",
                                         description: "Wield a sword effectively.",
                                         preUseTime: 1,
@@ -20,7 +20,7 @@ public class UPlayer : MonoBehaviour
                                         damage: 1,
                                         maximumTargets: 1,
                                         range: 1,
-                                        itemSequence: new IItem[] { });
+                                        itemSequence: new UsableItem[] { });
         Character.LearnCombatSkill(meleeSkill);
         Character.CurrentAttackSkill = meleeSkill;
     }

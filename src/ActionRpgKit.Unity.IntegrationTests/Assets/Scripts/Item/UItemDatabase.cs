@@ -31,19 +31,19 @@ public class UItemDatabase : MonoBehaviour
     /// Get all Items and set them to the ActionRpgKit ItemDatabase.</summary>
     private void InitDatabase()
     {
-        List<IItem> items = new List<IItem>();
+        List<BaseItem> items = new List<BaseItem>();
         foreach (UItem uitem in Items)
         {
             if (uitem is UUsableItem)
             {
                 var uUsableItem = uitem as UUsableItem;
-                var iItem = uUsableItem.Item as IItem;
+                var iItem = uUsableItem.UsableItem as BaseItem;
                 items.Add(iItem);
             }
             else if (uitem is UWeaponItem)
             {
                 var uWeaponItem = uitem as UWeaponItem;
-                var iItem = uWeaponItem.Item as IItem;
+                var iItem = uWeaponItem.WeaponItem as BaseItem;
                 items.Add(iItem);
             }
         }

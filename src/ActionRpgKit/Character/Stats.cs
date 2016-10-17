@@ -42,15 +42,17 @@ namespace ActionRpgKit.Character.Stats
 
     #region Implementations
 
+    [Serializable]
     public class PlayerStats : BaseStats
     {
+
         public PlayerStats () : base()
         {
             // Primary Attributes
             Body = new PrimaryAttribute("Body", 0, 999, 0);
             Mind = new PrimaryAttribute("Mind", 0, 999, 0);
             Soul = new PrimaryAttribute("Soul", 0, 999, 0);
-            Experience = new PrimaryAttribute("Experience");
+            Experience = new PrimaryAttribute("Experience", 0, 980100, 0);
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 0, 999, 1);
             AttackRange = new PrimaryAttribute("AttackRange", 0, 999, 1);
 
@@ -85,7 +87,8 @@ namespace ActionRpgKit.Character.Stats
             AttackRange.Value = stats.AttackRange.Value;
         }
     }
-    
+
+    [Serializable]
     public class EnemyStats : BaseStats
     {
         public EnemyStats () : base()

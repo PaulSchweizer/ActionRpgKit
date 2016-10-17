@@ -14,10 +14,10 @@ namespace ActionRpgKit.Tests.Character
 
         Player player;
         Enemy enemy;
-        IItem herb;
-        IItem coin;
+        UsableItem herb;
+        UsableItem coin;
 
-        IMagicSkill passiveMagicSkill;
+        MagicSkill passiveMagicSkill;
 
         [SetUp]
         public void SetUp ()
@@ -44,7 +44,7 @@ namespace ActionRpgKit.Tests.Character
                                             cooldownTime: 5,
                                             modifierValue: 10,
                                             modifiedAttributeName: "Body",
-                                            itemSequence: new IItem[] { herb });
+                                            itemSequence: new UsableItem[] { herb });
         }
 
         [Test]
@@ -57,11 +57,11 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual("ShadowStrength (Cost: 10, Body +10 for 10 sec)", passiveMagicSkill.ToString());
 
             // Check if the combination matches
-            Assert.IsFalse(passiveMagicSkill.Match(new IItem[] { }));
-            Assert.IsFalse(passiveMagicSkill.Match(new IItem[] { coin }));
-            Assert.IsFalse(passiveMagicSkill.Match(new IItem[] { herb, coin }));
-            Assert.IsFalse(passiveMagicSkill.Match(new IItem[] { coin, herb }));
-            Assert.IsTrue(passiveMagicSkill.Match(new IItem[] { herb }));
+            Assert.IsFalse(passiveMagicSkill.Match(new BaseItem[] { }));
+            Assert.IsFalse(passiveMagicSkill.Match(new BaseItem[] { coin }));
+            Assert.IsFalse(passiveMagicSkill.Match(new BaseItem[] { herb, coin }));
+            Assert.IsFalse(passiveMagicSkill.Match(new BaseItem[] { coin, herb }));
+            Assert.IsTrue(passiveMagicSkill.Match(new BaseItem[] { herb }));
 
             // Player triggers a Skill that is not learned yet
             bool triggered = player.TriggerMagicSkill(passiveMagicSkill);

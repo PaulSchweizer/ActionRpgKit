@@ -4,6 +4,7 @@ using ActionRpgKit.Core;
 
 namespace ActionRpgKit.Character.Attribute
 {
+
     /// <summary>
     /// Interface for Attributes.</summary>
     public interface IAttribute
@@ -63,9 +64,10 @@ namespace ActionRpgKit.Character.Attribute
     public delegate void MaxReachedHandler(IAttribute sender);
     
     public delegate void MinReachedHandler(IAttribute sender);
-
+    
     /// <summary>
     /// Represents a simple float value.</summary>
+    [Serializable]
     public class PrimaryAttribute : IAttribute
     {
         
@@ -73,18 +75,18 @@ namespace ActionRpgKit.Character.Attribute
         public event MaxReachedHandler OnMaxReached;
         public event MinReachedHandler OnMinReached;
 
-        private string _name;
-        private float _value;
-        private float _minValue;
-        private float _maxValue;
+        public string _name;
+        public float _value;
+        public float _minValue;
+        public float _maxValue;
         private List<IModifier> _modifiers = new List<IModifier>();
 
         public PrimaryAttribute () {}
 
         public PrimaryAttribute (string name,
-                                  float minValue = float.MinValue,
-                                  float maxValue = float.MaxValue,
-                                  float value = 0)
+                                 float minValue = float.MinValue,
+                                 float maxValue = float.MaxValue,
+                                 float value = 0)
         {
             Name = name;
             MinValue = minValue;
@@ -92,7 +94,7 @@ namespace ActionRpgKit.Character.Attribute
             Value = value;
         }
 
-        public string Name { get; set; }
+        public string Name { get { return _name; } set { _name = value; } }
 
         public virtual float BaseValue
         {
@@ -108,8 +110,7 @@ namespace ActionRpgKit.Character.Attribute
 
         /// <summary>
         /// The final value with all modifiers applied to it.
-        /// Setting it sets the BaseValue.
-        /// </summary>
+        /// Setting it sets the BaseValue.</summary>
         public virtual float Value
         {
             get
@@ -254,34 +255,32 @@ namespace ActionRpgKit.Character.Attribute
     }
 
     /// <summary>
-    /// The Value is calculated through a given formula.
-    /// </summary> 
+    /// The Value is calculated through a given formula.</summary> 
+    [Serializable]
     public class SecondaryAttribute : PrimaryAttribute
     {
         /// <summary>
-        /// Formula delegate to calculate the base value of the attribute.
-        /// </summary> 
+        /// Formula delegate to calculate the base value of the attribute.</summary> 
         /// <param name="attributes"> A list of attributes</param>
         public delegate float Formula(IAttribute[] attributes);
         
         /// <summary>
-        /// Formula to calculate the base value of the attribute. 
-        /// </summary> 
+        /// Formula to calculate the base value of the attribute. </summary> 
         protected Formula _formula;
         
         /// <summary>
-        /// Input attributes for the formula.
-        /// </summary> 
+        /// Input attributes for the formula.</summary> 
         protected IAttribute[] _attributes;
 
-        public SecondaryAttribute() {}
+        public SecondaryAttribute() { }
 
         public SecondaryAttribute (string name,
                                    Formula formula,
                                    IAttribute[] attributes,
                                    float minValue = float.MinValue,
-                                   float maxValue = float.MaxValue) :
-                                   base(name, minValue, maxValue)
+                                   float maxValue = float.MaxValue) : base(name, 
+                                                                           minValue, 
+                                                                           maxValue)
         {
             _formula = formula;
             _attributes = attributes;
@@ -308,22 +307,20 @@ namespace ActionRpgKit.Character.Attribute
             ValueChanged(value);
         }
     }
-    
+
     /// <summary>
     /// Represents a volume of something, e.g. magic, life.
     /// The base value is derived through a formula and serves as 
-    /// the maximum value.
-    /// </summary> 
+    /// the maximum value.</summary> 
+    [Serializable]
     public class VolumeAttribute : SecondaryAttribute
     {
         /// <summary>
-        /// The current value of the attribute.
-        /// </summary> 
+        /// The current value of the attribute.</summary> 
         private float _currentValue;
         
         /// <summary>
-        /// The absolute maximum of the attribute.
-        /// </summary> 
+        /// The absolute maximum of the attribute.</summary> 
         private float _absoluteMaxValue;
 
         public VolumeAttribute (string name,
@@ -335,16 +332,25 @@ namespace ActionRpgKit.Character.Attribute
             Name = name;
             _formula = formula;
             _attributes = attributes;
+            for (int i = 0; i < _attributes.Length; i++)
+            {
+                _attributes[i].OnValueChanged += new ValueChangedHandler(ValueOfFormulatAttributeChanged);
+            }
             MinValue = minValue;
             MaxValue = maxValue;
-
             _currentValue = BaseValue;
             _absoluteMaxValue = maxValue;
         }
 
+        public new void ValueOfFormulatAttributeChanged(IAttribute sender, float value)
+        {
+            ValueChanged(value);
+            Value = Value;
+            MaxValue = BaseValue;
+        }
+
         /// <summary>
-        /// Represents the current value.
-        /// </summary> 
+        /// Represents the current value.</summary> 
         public override float Value
         {
             get
@@ -359,8 +365,7 @@ namespace ActionRpgKit.Character.Attribute
         
         /// <summary>
         /// The maximum value is congruent with the current base value, but never 
-        /// bigger than a absolute maximum. 
-        /// </summary> 
+        /// bigger than a absolute maximum.</summary> 
         public override float MaxValue
         {
              get
@@ -380,13 +385,12 @@ namespace ActionRpgKit.Character.Attribute
     }
 
     /// <summary>
-    /// The base value is a simple float as opposed to a formula based.
-    /// </summary> 
+    /// The base value is a simple float as opposed to a formula based.</summary> 
+    [Serializable]
     public class SimpleVolumeAttribute : PrimaryAttribute
     {
         /// <summary>
-        /// The current value of the attribute.
-        /// </summary> 
+        /// The current value of the attribute.</summary> 
         private float _currentValue;
         
         public SimpleVolumeAttribute(string name,
@@ -404,34 +408,28 @@ namespace ActionRpgKit.Character.Attribute
     }
     
     /// <summary>
-    /// Interface for modifiers that alter an attribute.
-    /// </summary> 
+    /// Interface for modifiers that alter an attribute.</summary> 
     public interface IModifier
     {
         /// <summary>
-        /// The name of the modifier.
-        /// </summary> 
+        /// The name of the modifier.</summary> 
         string Name { get; }
         
         /// <summary>
-        /// The value of the modifier.
-        /// </summary> 
+        /// The value of the modifier.</summary> 
         float Value { get; }
         
         /// <summary>
-        /// Activating the modifier.
-        /// </summary> 
+        /// Activating the modifier.</summary> 
         void Activate();
         
         /// <summary>
-        /// Determine whether the modifier is active.
-        /// </summary> 
+        /// Determine whether the modifier is active.</summary> 
         bool IsActive { get; }
     }
 
     /// <summary>
-    /// Modifier that affects an attribute over a certain period of time.
-    /// </summary> 
+    /// Modifier that affects an attribute over a certain period of time.</summary> 
     public class TimeBasedModifier : IModifier
     {
         private string _name;
@@ -469,16 +467,14 @@ namespace ActionRpgKit.Character.Attribute
         }
         
         /// <summary>
-        /// Set the end time.
-        /// </summary> 
+        /// Set the end time.</summary> 
         public void Activate()
         {
             _endTime = GameTime.time + _duration;
         }
         
         /// <summary>
-        /// The remaining time based on the current game time.
-        /// </summary> 
+        /// The remaining time based on the current game time.</summary> 
         public float RemainingTime
         {
             get
@@ -488,8 +484,7 @@ namespace ActionRpgKit.Character.Attribute
         }
         
         /// <summary>
-        /// Whether there is any remaining time.
-        /// </summary> 
+        /// Whether there is any remaining time.</summary> 
         public bool IsActive
         {
             get
