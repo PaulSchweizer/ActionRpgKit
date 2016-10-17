@@ -1,6 +1,7 @@
 var class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute =
 [
     [ "VolumeAttribute", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#acd87725c249b37e6891e8f894bc6c0c3", null ],
+    [ "ValueOfFormulatAttributeChanged", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#a3b0cd3fc94bf3ff78d59d4225b15c2db", null ],
     [ "Reset", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#a298cb68f7f3fb7f40595f4302af4ae25", null ],
     [ "_currentValue", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#ae0bd4ca782cf1dbd76bad3fee16f3994", null ],
     [ "_absoluteMaxValue", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#a36ed4427bf127f10c03a236a7ed5f383", null ],

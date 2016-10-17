@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('dc/db7/class_action_rpg_kit_1_1_charac
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#properties">Properties</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../dd/d12/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill-members.xhtml">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">BaseSkill Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -107,7 +107,8 @@ Inheritance diagram for BaseSkill:</div>
  <div class="center">
   <img src="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.png" usemap="#BaseSkill_map" alt=""/>
   <map id="BaseSkill_map" name="BaseSkill_map">
-<area href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml" title="Interface for Skills." alt="ISkill" shape="rect" coords="66,0,188,24"/>
+<area href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat." alt="CombatSkill" shape="rect" coords="0,56,122,80"/>
+<area href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml" title="A magic Skill costs magic energy on each use." alt="MagicSkill" shape="rect" coords="132,56,254,80"/>
 <area href="../../d6/dfe/class_action_rpg_kit_1_1_character_1_1_skill_1_1_generic_combat_skill.xhtml" title="Allows to attack with a melee weapon." alt="GenericCombatSkill" shape="rect" coords="0,112,122,136"/>
 <area href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml" title="A passive MagicSkill adds buffs on the User itself." alt="PassiveMagicSkill" shape="rect" coords="132,112,254,136"/>
 </map>
@@ -117,45 +118,25 @@ Inheritance diagram for BaseSkill:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2c1cdda5d1d6f3244123761a28ad98ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a2c1cdda5d1d6f3244123761a28ad98ef">BaseSkill</a> ()</td></tr>
 <tr class="separator:a2c1cdda5d1d6f3244123761a28ad98ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbf6fb998644c39e14746d38a08427e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#abbf6fb998644c39e14746d38a08427e2">BaseSkill</a> (int id, string name, string description, float preUseTime, float cooldownTime, <a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[] itemSequence)</td></tr>
-<tr class="separator:abbf6fb998644c39e14746d38a08427e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab545387a2a194edd1ff5bd65744a6316"><td class="memItemLeft" align="right" valign="top">abstract bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#ab545387a2a194edd1ff5bd65744a6316">Match</a> (<a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[] items)</td></tr>
-<tr class="memdesc:ab545387a2a194edd1ff5bd65744a6316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the skill matches the given series of items. <a href="#ab545387a2a194edd1ff5bd65744a6316">More...</a><br /></td></tr>
-<tr class="separator:ab545387a2a194edd1ff5bd65744a6316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e53ce016716260ebcf5a41de5319d09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a5e53ce016716260ebcf5a41de5319d09">BaseSkill</a> (int id, string name, string description, float preUseTime, float cooldownTime, <a class="el" href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml">UsableItem</a>[] itemSequence)</td></tr>
+<tr class="separator:a5e53ce016716260ebcf5a41de5319d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af84e4c0bfba7c22c115d9deb30188f82"><td class="memItemLeft" align="right" valign="top">abstract bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#af84e4c0bfba7c22c115d9deb30188f82">Match</a> (<a class="el" href="../../d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml">BaseItem</a>[] items)</td></tr>
+<tr class="separator:af84e4c0bfba7c22c115d9deb30188f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:afe0b47b3c92f2f69ea3da50cb72553eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb">Id</a><code> [get, set]</code></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:afe0b47b3c92f2f69ea3da50cb72553eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb">Id</a></td></tr>
 <tr class="separator:afe0b47b3c92f2f69ea3da50cb72553eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a></td></tr>
 <tr class="separator:a7ee9065718e6628dc7791b756fa6c0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34409fed9d39281ada2d7ec172a52f9b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a34409fed9d39281ada2d7ec172a52f9b">Description</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a34409fed9d39281ada2d7ec172a52f9b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a34409fed9d39281ada2d7ec172a52f9b">Description</a></td></tr>
 <tr class="separator:a34409fed9d39281ada2d7ec172a52f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afadaac89062961419f18735626aaa3d7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afadaac89062961419f18735626aaa3d7">CooldownTime</a><code> [get, set]</code></td></tr>
+<tr class="memitem:afadaac89062961419f18735626aaa3d7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afadaac89062961419f18735626aaa3d7">CooldownTime</a></td></tr>
 <tr class="separator:afadaac89062961419f18735626aaa3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74f25408a64b134b193a28d7acf14dcc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a74f25408a64b134b193a28d7acf14dcc">PreUseTime</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a74f25408a64b134b193a28d7acf14dcc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a74f25408a64b134b193a28d7acf14dcc">PreUseTime</a></td></tr>
 <tr class="separator:a74f25408a64b134b193a28d7acf14dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d92a295e19d261d76c679fcfdf21740"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a8d92a295e19d261d76c679fcfdf21740">ItemSequence</a><code> [get, set]</code></td></tr>
-<tr class="separator:a8d92a295e19d261d76c679fcfdf21740"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml">ISkill</a></td></tr>
-<tr class="memitem:afe0b47b3c92f2f69ea3da50cb72553eb inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb">Id</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:afe0b47b3c92f2f69ea3da50cb72553eb inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>.  <a href="#afe0b47b3c92f2f69ea3da50cb72553eb">More...</a><br /></td></tr>
-<tr class="separator:afe0b47b3c92f2f69ea3da50cb72553eb inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>. <a href="#a7ee9065718e6628dc7791b756fa6c0f9">More...</a><br /></td></tr>
-<tr class="separator:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34409fed9d39281ada2d7ec172a52f9b inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a34409fed9d39281ada2d7ec172a52f9b">Description</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a34409fed9d39281ada2d7ec172a52f9b inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">A description. <a href="#a34409fed9d39281ada2d7ec172a52f9b">More...</a><br /></td></tr>
-<tr class="separator:a34409fed9d39281ada2d7ec172a52f9b inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74f25408a64b134b193a28d7acf14dcc inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a74f25408a64b134b193a28d7acf14dcc">PreUseTime</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a74f25408a64b134b193a28d7acf14dcc inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time prior to the usage. <a href="#a74f25408a64b134b193a28d7acf14dcc">More...</a><br /></td></tr>
-<tr class="separator:a74f25408a64b134b193a28d7acf14dcc inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afadaac89062961419f18735626aaa3d7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#afadaac89062961419f18735626aaa3d7">CooldownTime</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:afadaac89062961419f18735626aaa3d7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time it takes until the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> can be used again. <a href="#afadaac89062961419f18735626aaa3d7">More...</a><br /></td></tr>
-<tr class="separator:afadaac89062961419f18735626aaa3d7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d92a295e19d261d76c679fcfdf21740 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a8d92a295e19d261d76c679fcfdf21740">ItemSequence</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a8d92a295e19d261d76c679fcfdf21740 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">A sequence of Items that triggers the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>. <a href="#a8d92a295e19d261d76c679fcfdf21740">More...</a><br /></td></tr>
-<tr class="separator:a8d92a295e19d261d76c679fcfdf21740 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdb2c8debca9e1bc89d40d85b9b0e73d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml">UsableItem</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#acdb2c8debca9e1bc89d40d85b9b0e73d">ItemSequence</a></td></tr>
+<tr class="separator:acdb2c8debca9e1bc89d40d85b9b0e73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A basic <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> implementation.</p>
@@ -183,7 +164,7 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="abbf6fb998644c39e14746d38a08427e2"></a>
+<a class="anchor" id="a5e53ce016716260ebcf5a41de5319d09"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -223,7 +204,7 @@ Properties</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml">UsableItem</a>[]&#160;</td>
           <td class="paramname"><em>itemSequence</em>&#160;</td>
         </tr>
         <tr>
@@ -242,7 +223,7 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ab545387a2a194edd1ff5bd65744a6316"></a>
+<a class="anchor" id="af84e4c0bfba7c22c115d9deb30188f82"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -252,7 +233,7 @@ Properties</h2></td></tr>
         <tr>
           <td class="memname">abstract bool Match </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml">BaseItem</a>[]&#160;</td>
           <td class="paramname"><em>items</em></td><td>)</td>
           <td></td>
         </tr>
@@ -264,31 +245,19 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether the skill matches the given series of items.</p>
-
-<p>Implements <a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a3c0e0c204d6572bbd90419b3ee943add">ISkill</a>.</p>
-
-<p>Implemented in <a class="el" href="../../d6/dfe/class_action_rpg_kit_1_1_character_1_1_skill_1_1_generic_combat_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e">GenericCombatSkill</a>, and <a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e">PassiveMagicSkill</a>.</p>
+<p>Implemented in <a class="el" href="../../d6/dfe/class_action_rpg_kit_1_1_character_1_1_skill_1_1_generic_combat_skill.xhtml#a18a6ed0335f11560cf2a7c79015380fd">GenericCombatSkill</a>, and <a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a18a6ed0335f11560cf2a7c79015380fd">PassiveMagicSkill</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Property Documentation</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="afe0b47b3c92f2f69ea3da50cb72553eb"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int Id</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -296,19 +265,11 @@ Properties</h2></td></tr>
 <a class="anchor" id="a7ee9065718e6628dc7791b756fa6c0f9"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">string Name</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -316,19 +277,11 @@ Properties</h2></td></tr>
 <a class="anchor" id="a34409fed9d39281ada2d7ec172a52f9b"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">string Description</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -336,19 +289,11 @@ Properties</h2></td></tr>
 <a class="anchor" id="afadaac89062961419f18735626aaa3d7"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float CooldownTime</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -356,39 +301,23 @@ Properties</h2></td></tr>
 <a class="anchor" id="a74f25408a64b134b193a28d7acf14dcc"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float PreUseTime</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a8d92a295e19d261d76c679fcfdf21740"></a>
+<a class="anchor" id="acdb2c8debca9e1bc89d40d85b9b0e73d"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a> [] ItemSequence</td>
+          <td class="memname"><a class="el" href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml">UsableItem</a> [] ItemSequence</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -402,7 +331,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a></li><li class="navelem"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml">BaseSkill</a></li>
-    <li class="footer">Generated on Sat Oct 15 2016 00:37:13 for Action RPG Kit by
+    <li class="footer">Generated on Mon Oct 17 2016 06:10:48 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('dc/dac/class_action_rpg_kit_1_1_charac
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#properties">Properties</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="../../d9/dfa/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill-members.xhtml">List of all members</a>  </div>
   <div class="headertitle">
@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('dc/dac/class_action_rpg_kit_1_1_charac
 </div><!--header-->
 <div class="contents">
 
-<p>A passive MagicSkill adds buffs on the User itself. 
+<p>A passive <a class="el" href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml" title="A magic Skill costs magic energy on each use.">MagicSkill</a> adds buffs on the User itself. 
  <a href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for PassiveMagicSkill:</div>
@@ -108,77 +108,58 @@ Inheritance diagram for PassiveMagicSkill:</div>
  <div class="center">
   <img src="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.png" usemap="#PassiveMagicSkill_map" alt=""/>
   <map id="PassiveMagicSkill_map" name="PassiveMagicSkill_map">
-<area href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml" title="A basic Skill implementation." alt="BaseSkill" shape="rect" coords="0,56,114,80"/>
-<area href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml" title="A magic Skill costs magic energy on each use." alt="IMagicSkill" shape="rect" coords="124,56,238,80"/>
-<area href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml" title="Interface for Skills." alt="ISkill" shape="rect" coords="0,0,114,24"/>
-<area href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml" title="Interface for Skills." alt="ISkill" shape="rect" coords="124,0,238,24"/>
+<area href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml" title="A magic Skill costs magic energy on each use." alt="MagicSkill" shape="rect" coords="0,56,114,80"/>
+<area href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml" title="A basic Skill implementation." alt="BaseSkill" shape="rect" coords="0,0,114,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af1bfb39e8943fd712f3593235edff0e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#af1bfb39e8943fd712f3593235edff0e2">PassiveMagicSkill</a> (int id, string name, string description, float preUseTime, float cooldownTime, <a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[] itemSequence, float cost, float duration, float modifierValue, string modifiedAttributeName)</td></tr>
-<tr class="separator:af1bfb39e8943fd712f3593235edff0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63785d9d3db28e1ad39716d6cf9ae6e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a63785d9d3db28e1ad39716d6cf9ae6e2">PassiveMagicSkill</a> (int id, string name, string description, float preUseTime, float cooldownTime, <a class="el" href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml">UsableItem</a>[] itemSequence, float cost, float duration, float modifierValue, string modifiedAttributeName)</td></tr>
+<tr class="separator:a63785d9d3db28e1ad39716d6cf9ae6e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa73e7c4dd1df5fd5fbf81c7764ee1533"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> ()</td></tr>
 <tr class="separator:aa73e7c4dd1df5fd5fbf81c7764ee1533"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77d9a7380cb039954acb6e60d9d5994e"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a77d9a7380cb039954acb6e60d9d5994e">Match</a> (<a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[] items)</td></tr>
-<tr class="memdesc:a77d9a7380cb039954acb6e60d9d5994e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the skill matches the given series of items. <a href="#a77d9a7380cb039954acb6e60d9d5994e">More...</a><br /></td></tr>
-<tr class="separator:a77d9a7380cb039954acb6e60d9d5994e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a08b6338032d47a2bd9b46a79ee9d32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a7a08b6338032d47a2bd9b46a79ee9d32">Use</a> (<a class="el" href="../../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml">ICharacter</a> user)</td></tr>
-<tr class="memdesc:a7a08b6338032d47a2bd9b46a79ee9d32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the modifier to the modified attribute. <a href="#a7a08b6338032d47a2bd9b46a79ee9d32">More...</a><br /></td></tr>
-<tr class="separator:a7a08b6338032d47a2bd9b46a79ee9d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a6ed0335f11560cf2a7c79015380fd"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a18a6ed0335f11560cf2a7c79015380fd">Match</a> (<a class="el" href="../../d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml">BaseItem</a>[] items)</td></tr>
+<tr class="separator:a18a6ed0335f11560cf2a7c79015380fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2462355563c584ccfd74c8f1811c08ea"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a2462355563c584ccfd74c8f1811c08ea">Use</a> (<a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a> user)</td></tr>
+<tr class="memdesc:a2462355563c584ccfd74c8f1811c08ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the modifier to the modified attribute. <a href="#a2462355563c584ccfd74c8f1811c08ea">More...</a><br /></td></tr>
+<tr class="separator:a2462355563c584ccfd74c8f1811c08ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml">MagicSkill</a></td></tr>
+<tr class="memitem:ae4e125c3817e450117cc2fe7ca11f755 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml#ae4e125c3817e450117cc2fe7ca11f755">MagicSkill</a> ()</td></tr>
+<tr class="separator:ae4e125c3817e450117cc2fe7ca11f755 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab2bc6baf8099f12812fe6e5ffd347dc inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml#aab2bc6baf8099f12812fe6e5ffd347dc">MagicSkill</a> (int id, string name, string description, float preUseTime, float cooldownTime, <a class="el" href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml">UsableItem</a>[] itemSequence, float cost)</td></tr>
+<tr class="separator:aab2bc6baf8099f12812fe6e5ffd347dc inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml">BaseSkill</a></td></tr>
 <tr class="memitem:a2c1cdda5d1d6f3244123761a28ad98ef inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a2c1cdda5d1d6f3244123761a28ad98ef">BaseSkill</a> ()</td></tr>
 <tr class="separator:a2c1cdda5d1d6f3244123761a28ad98ef inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbf6fb998644c39e14746d38a08427e2 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#abbf6fb998644c39e14746d38a08427e2">BaseSkill</a> (int id, string name, string description, float preUseTime, float cooldownTime, <a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[] itemSequence)</td></tr>
-<tr class="separator:abbf6fb998644c39e14746d38a08427e2 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e53ce016716260ebcf5a41de5319d09 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a5e53ce016716260ebcf5a41de5319d09">BaseSkill</a> (int id, string name, string description, float preUseTime, float cooldownTime, <a class="el" href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml">UsableItem</a>[] itemSequence)</td></tr>
+<tr class="separator:a5e53ce016716260ebcf5a41de5319d09 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:a1ccb2a57fde23aa66b03062ae2ad567f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a1ccb2a57fde23aa66b03062ae2ad567f">Duration</a><code> [get, set]</code></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a1ccb2a57fde23aa66b03062ae2ad567f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a1ccb2a57fde23aa66b03062ae2ad567f">Duration</a></td></tr>
 <tr class="separator:a1ccb2a57fde23aa66b03062ae2ad567f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bb0f10c1f2670e3729e50a219505098"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a7bb0f10c1f2670e3729e50a219505098">ModifierValue</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a7bb0f10c1f2670e3729e50a219505098"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a7bb0f10c1f2670e3729e50a219505098">ModifierValue</a></td></tr>
 <tr class="separator:a7bb0f10c1f2670e3729e50a219505098"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8160a0b4687a329c1d7b2b19c1a88a25"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a8160a0b4687a329c1d7b2b19c1a88a25">ModifiedAttributeName</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a8160a0b4687a329c1d7b2b19c1a88a25"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a8160a0b4687a329c1d7b2b19c1a88a25">ModifiedAttributeName</a></td></tr>
 <tr class="separator:a8160a0b4687a329c1d7b2b19c1a88a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba1eae5e94340341ef975c2e57085a1a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#aba1eae5e94340341ef975c2e57085a1a">Cost</a><code> [get, set]</code></td></tr>
-<tr class="separator:aba1eae5e94340341ef975c2e57085a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td colspan="2" onclick="javascript:toggleInherit('properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml">BaseSkill</a></td></tr>
-<tr class="memitem:afe0b47b3c92f2f69ea3da50cb72553eb inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb">Id</a><code> [get, set]</code></td></tr>
-<tr class="separator:afe0b47b3c92f2f69ea3da50cb72553eb inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td></tr>
-<tr class="separator:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34409fed9d39281ada2d7ec172a52f9b inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a34409fed9d39281ada2d7ec172a52f9b">Description</a><code> [get, set]</code></td></tr>
-<tr class="separator:a34409fed9d39281ada2d7ec172a52f9b inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afadaac89062961419f18735626aaa3d7 inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afadaac89062961419f18735626aaa3d7">CooldownTime</a><code> [get, set]</code></td></tr>
-<tr class="separator:afadaac89062961419f18735626aaa3d7 inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74f25408a64b134b193a28d7acf14dcc inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a74f25408a64b134b193a28d7acf14dcc">PreUseTime</a><code> [get, set]</code></td></tr>
-<tr class="separator:a74f25408a64b134b193a28d7acf14dcc inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d92a295e19d261d76c679fcfdf21740 inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a8d92a295e19d261d76c679fcfdf21740">ItemSequence</a><code> [get, set]</code></td></tr>
-<tr class="separator:a8d92a295e19d261d76c679fcfdf21740 inherit properties_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml">ISkill</a></td></tr>
-<tr class="memitem:afe0b47b3c92f2f69ea3da50cb72553eb inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb">Id</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:afe0b47b3c92f2f69ea3da50cb72553eb inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>.  <a href="#afe0b47b3c92f2f69ea3da50cb72553eb">More...</a><br /></td></tr>
-<tr class="separator:afe0b47b3c92f2f69ea3da50cb72553eb inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>. <a href="#a7ee9065718e6628dc7791b756fa6c0f9">More...</a><br /></td></tr>
-<tr class="separator:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34409fed9d39281ada2d7ec172a52f9b inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a34409fed9d39281ada2d7ec172a52f9b">Description</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a34409fed9d39281ada2d7ec172a52f9b inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">A description. <a href="#a34409fed9d39281ada2d7ec172a52f9b">More...</a><br /></td></tr>
-<tr class="separator:a34409fed9d39281ada2d7ec172a52f9b inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74f25408a64b134b193a28d7acf14dcc inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a74f25408a64b134b193a28d7acf14dcc">PreUseTime</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a74f25408a64b134b193a28d7acf14dcc inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time prior to the usage. <a href="#a74f25408a64b134b193a28d7acf14dcc">More...</a><br /></td></tr>
-<tr class="separator:a74f25408a64b134b193a28d7acf14dcc inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afadaac89062961419f18735626aaa3d7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#afadaac89062961419f18735626aaa3d7">CooldownTime</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:afadaac89062961419f18735626aaa3d7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time it takes until the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> can be used again. <a href="#afadaac89062961419f18735626aaa3d7">More...</a><br /></td></tr>
-<tr class="separator:afadaac89062961419f18735626aaa3d7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d92a295e19d261d76c679fcfdf21740 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml#a8d92a295e19d261d76c679fcfdf21740">ItemSequence</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a8d92a295e19d261d76c679fcfdf21740 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">A sequence of Items that triggers the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>. <a href="#a8d92a295e19d261d76c679fcfdf21740">More...</a><br /></td></tr>
-<tr class="separator:a8d92a295e19d261d76c679fcfdf21740 inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml">IMagicSkill</a></td></tr>
-<tr class="memitem:aba1eae5e94340341ef975c2e57085a1a inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml#aba1eae5e94340341ef975c2e57085a1a">Cost</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:aba1eae5e94340341ef975c2e57085a1a inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">The energy costs of the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>. <a href="#aba1eae5e94340341ef975c2e57085a1a">More...</a><br /></td></tr>
-<tr class="separator:aba1eae5e94340341ef975c2e57085a1a inherit properties_interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill')"><img src="../../closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml">MagicSkill</a></td></tr>
+<tr class="memitem:aba1eae5e94340341ef975c2e57085a1a inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml#aba1eae5e94340341ef975c2e57085a1a">Cost</a></td></tr>
+<tr class="memdesc:aba1eae5e94340341ef975c2e57085a1a inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill"><td class="mdescLeft">&#160;</td><td class="mdescRight">The energy costs of the <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a>. <a href="#aba1eae5e94340341ef975c2e57085a1a">More...</a><br /></td></tr>
+<tr class="separator:aba1eae5e94340341ef975c2e57085a1a inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill')"><img src="../../closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml">BaseSkill</a></td></tr>
+<tr class="memitem:afe0b47b3c92f2f69ea3da50cb72553eb inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb">Id</a></td></tr>
+<tr class="separator:afe0b47b3c92f2f69ea3da50cb72553eb inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9 inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a></td></tr>
+<tr class="separator:a7ee9065718e6628dc7791b756fa6c0f9 inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34409fed9d39281ada2d7ec172a52f9b inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a34409fed9d39281ada2d7ec172a52f9b">Description</a></td></tr>
+<tr class="separator:a34409fed9d39281ada2d7ec172a52f9b inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afadaac89062961419f18735626aaa3d7 inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afadaac89062961419f18735626aaa3d7">CooldownTime</a></td></tr>
+<tr class="separator:afadaac89062961419f18735626aaa3d7 inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74f25408a64b134b193a28d7acf14dcc inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a74f25408a64b134b193a28d7acf14dcc">PreUseTime</a></td></tr>
+<tr class="separator:a74f25408a64b134b193a28d7acf14dcc inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdb2c8debca9e1bc89d40d85b9b0e73d inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml">UsableItem</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#acdb2c8debca9e1bc89d40d85b9b0e73d">ItemSequence</a></td></tr>
+<tr class="separator:acdb2c8debca9e1bc89d40d85b9b0e73d inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -187,9 +168,9 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ab0bd75dac348340f9ff018b08a407c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A passive MagicSkill adds buffs on the User itself.</p>
+<div class="textblock"><p>A passive <a class="el" href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml" title="A magic Skill costs magic energy on each use.">MagicSkill</a> adds buffs on the User itself.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af1bfb39e8943fd712f3593235edff0e2"></a>
+<a class="anchor" id="a63785d9d3db28e1ad39716d6cf9ae6e2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -229,7 +210,7 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml">UsableItem</a>[]&#160;</td>
           <td class="paramname"><em>itemSequence</em>, </td>
         </tr>
         <tr>
@@ -295,7 +276,7 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a77d9a7380cb039954acb6e60d9d5994e"></a>
+<a class="anchor" id="a18a6ed0335f11560cf2a7c79015380fd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -305,7 +286,7 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">override bool Match </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml">IItem</a>[]&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml">BaseItem</a>[]&#160;</td>
           <td class="paramname"><em>items</em></td><td>)</td>
           <td></td>
         </tr>
@@ -317,13 +298,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether the skill matches the given series of items.</p>
-
-<p>Implements <a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#ab545387a2a194edd1ff5bd65744a6316">BaseSkill</a>.</p>
+<p>Implements <a class="el" href="../../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#af84e4c0bfba7c22c115d9deb30188f82">BaseSkill</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7a08b6338032d47a2bd9b46a79ee9d32"></a>
+<a class="anchor" id="a2462355563c584ccfd74c8f1811c08ea"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -331,23 +310,23 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Use </td>
+          <td class="memname">override void Use </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml">ICharacter</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a>&#160;</td>
           <td class="paramname"><em>user</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Add the modifier to the modified attribute.</p>
 
-<p>Implements <a class="el" href="../../d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml#a7a08b6338032d47a2bd9b46a79ee9d32">IMagicSkill</a>.</p>
+<p>Implements <a class="el" href="../../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml#a1b1a154419543470d7eb3a07e40ad63c">MagicSkill</a>.</p>
 
 </div>
 </div>
@@ -376,23 +355,15 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Property Documentation</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a1ccb2a57fde23aa66b03062ae2ad567f"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float Duration</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -400,19 +371,11 @@ Private Member Functions</h2></td></tr>
 <a class="anchor" id="a7bb0f10c1f2670e3729e50a219505098"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float ModifierValue</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -420,39 +383,11 @@ Private Member Functions</h2></td></tr>
 <a class="anchor" id="a8160a0b4687a329c1d7b2b19c1a88a25"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">string ModifiedAttributeName</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aba1eae5e94340341ef975c2e57085a1a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Cost</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -466,7 +401,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a></li><li class="navelem"><a class="el" href="../../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml">PassiveMagicSkill</a></li>
-    <li class="footer">Generated on Sat Oct 15 2016 00:37:13 for Action RPG Kit by
+    <li class="footer">Generated on Mon Oct 17 2016 06:10:48 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

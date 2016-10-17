@@ -1,5 +1,17 @@
 var hierarchy =
 [
+    [ "BaseItem", "d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml", [
+      [ "UsableItem", "d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml", null ],
+      [ "WeaponItem", "d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml", null ]
+    ] ],
+    [ "BaseSkill", "dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml", [
+      [ "CombatSkill", "dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml", [
+        [ "GenericCombatSkill", "d6/dfe/class_action_rpg_kit_1_1_character_1_1_skill_1_1_generic_combat_skill.xhtml", null ]
+      ] ],
+      [ "MagicSkill", "d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml", [
+        [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
+      ] ]
+    ] ],
     [ "Chapter", "d0/d8d/class_action_rpg_kit_1_1_story_1_1_chapter.xhtml", null ],
     [ "Dictionary", null, [
       [ "BaseStats", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml", [
@@ -34,12 +46,6 @@ var hierarchy =
       [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", null ],
       [ "SimpleInventory", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml", null ]
     ] ],
-    [ "IItem", "d3/d77/interface_action_rpg_kit_1_1_item_1_1_i_item.xhtml", [
-      [ "BaseItem", "d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml", [
-        [ "UsableItem", "d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml", null ],
-        [ "WeaponItem", "d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml", null ]
-      ] ]
-    ] ],
     [ "IMagicUser", "dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml", [
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
     ] ],
@@ -51,18 +57,6 @@ var hierarchy =
     ] ],
     [ "IQuest", "dd/dd3/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_quest.xhtml", [
       [ "Quest", "d3/dd9/class_action_rpg_kit_1_1_story_1_1_quest_1_1_quest.xhtml", null ]
-    ] ],
-    [ "ISkill", "d5/dc7/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_skill.xhtml", [
-      [ "BaseSkill", "dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml", [
-        [ "GenericCombatSkill", "d6/dfe/class_action_rpg_kit_1_1_character_1_1_skill_1_1_generic_combat_skill.xhtml", null ],
-        [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
-      ] ],
-      [ "ICombatSkill", "d4/dbe/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_combat_skill.xhtml", [
-        [ "GenericCombatSkill", "d6/dfe/class_action_rpg_kit_1_1_character_1_1_skill_1_1_generic_combat_skill.xhtml", null ]
-      ] ],
-      [ "IMagicSkill", "d7/dd4/interface_action_rpg_kit_1_1_character_1_1_skill_1_1_i_magic_skill.xhtml", [
-        [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
-      ] ]
     ] ],
     [ "IState", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml", [
       [ "AlertState", "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml", null ],

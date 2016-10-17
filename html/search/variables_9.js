@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['range',['Range',['../d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml#a7f1903b1b27ad6bab3f1f2b51ebf8b0f',1,'ActionRpgKit::Item::WeaponItem']]]
+  ['name',['Name',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9',1,'ActionRpgKit.Character.BaseCharacter.Name()'],['../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a7ee9065718e6628dc7791b756fa6c0f9',1,'ActionRpgKit.Character.Skill.BaseSkill.Name()'],['../d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml#a7ee9065718e6628dc7791b756fa6c0f9',1,'ActionRpgKit.Item.BaseItem.Name()']]]
 ];

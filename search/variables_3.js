@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['damage',['Damage',['../d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2',1,'ActionRpgKit::Item::WeaponItem']]]
+  ['cooldowntime',['CooldownTime',['../dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#afadaac89062961419f18735626aaa3d7',1,'ActionRpgKit::Character::Skill::BaseSkill']]],
+  ['cost',['Cost',['../d6/d2e/class_action_rpg_kit_1_1_character_1_1_skill_1_1_magic_skill.xhtml#aba1eae5e94340341ef975c2e57085a1a',1,'ActionRpgKit::Character::Skill::MagicSkill']]]
 ];

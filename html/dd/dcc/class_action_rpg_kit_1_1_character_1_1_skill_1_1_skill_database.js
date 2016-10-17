@@ -1,7 +1,7 @@
 var class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database =
 [
-    [ "GetMagicSkillByName", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#af3d709e93dda41e266a77d322b2b9d3d", null ],
-    [ "GetCombatSkillByName", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a98a5130d84a236e0ac5c154abf7d8727", null ],
-    [ "MagicSkills", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#adf413916f8f7114302312e56039b3e1e", null ],
-    [ "CombatSkills", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a477a2afc1815f36fc89dfeece16ac81d", null ]
+    [ "GetMagicSkillByName", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a466b11ee9ad9fcdfd228cca0758a461c", null ],
+    [ "GetCombatSkillByName", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#ac2d60cc14492aca1ca57905419f0cd6f", null ],
+    [ "MagicSkills", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#abe61ec79be33c24894792b1cf834495f", null ],
+    [ "CombatSkills", "dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a87e96f137643ee7d50cf874619fe9953", null ]
 ];
