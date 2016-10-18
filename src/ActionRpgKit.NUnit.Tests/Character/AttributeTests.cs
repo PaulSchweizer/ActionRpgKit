@@ -5,6 +5,8 @@ using ActionRpgKit.Character.Attribute;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.IO;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace ActionRpgKit.Tests.Character
 {
@@ -33,138 +35,150 @@ namespace ActionRpgKit.Tests.Character
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate", 0, 99, 1);
             Level = new SecondaryAttribute("Level",
                         x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f,
-                        new IAttribute[] { Experience }, 0, 99);
+                        new BaseAttribute[] { Experience }, 0, 99);
             Life = new VolumeAttribute("Life",
                          x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
-                         new IAttribute[] { Level, Body }, 0, 999);
+                         new BaseAttribute[] { Level, Body }, 0, 999);
             Magic = new VolumeAttribute("Magic",
                     x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f,
-                    new IAttribute[] { Level, Body }, 0, 999);
+                    new BaseAttribute[] { Level, Body }, 0, 999);
             Energy = new SimpleVolumeAttribute("Energy", 0, 999, 0);
         }
 
         [Test]
         public void PrimaryAttributeTest()
         {
-            // Check the default values
-            Assert.AreEqual(0, Body.MinValue);
-            Assert.AreEqual(999, Body.MaxValue);
-            Assert.AreEqual(10, Body.Value);
+            PrimaryAttributeTest(Body);
+        }
 
+        private void PrimaryAttributeTest(PrimaryAttribute attr)
+        {
+            GameTime.time = 0;
             // Set some values
-            Body.Value = 12;
-            Assert.AreEqual(Body.Value, 12);
-            Body.Value = float.MaxValue;
-            Assert.AreEqual(Body.Value, 999);
-            Body.Value = float.MinValue;
-            Assert.AreEqual(Body.Value, 0);
+            attr.Value = attr.MinValue;
+            Assert.AreEqual(attr.Value, attr.MinValue);
+            attr.Value = float.MaxValue;
+            Assert.AreEqual(attr.Value, attr.MaxValue);
+            attr.Value = float.MinValue;
+            Assert.AreEqual(attr.Value, attr.MinValue);
 
             // Add a modifier
-            Body.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
-            Assert.AreEqual(10, Body.Value);
+            attr.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
+            Assert.AreEqual(attr.MinValue + 10, attr.Value);
 
             // Advance in time
             for (int i = 0; i < 10; i++)
             {
                 GameTime.time = i;
-                Assert.AreEqual(10, Body.Value);
+                Assert.AreEqual(attr.MinValue + 10, attr.Value);
             }
             // Until the modifier's life cycle is over
             GameTime.time += 1;
-            Assert.AreEqual(0, Body.Value);
+            Assert.AreEqual(attr.MinValue, attr.Value);
 
             // Add some more modifiers and advance time
             GameTime.time = 0;
-            Body.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
-            Body.AddModifier(new TimeBasedModifier("AnotherStrengthBuff", 20, 5));
-            Assert.AreEqual(30, Body.Value);
+            attr.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
+            attr.AddModifier(new TimeBasedModifier("AnotherStrengthBuff", 20, 5));
+            Assert.AreEqual(attr.MinValue + 30, attr.Value);
 
             GameTime.time = 5;
-            Assert.AreEqual(10, Body.Value);
-            Assert.AreEqual(1, Body.Modifiers.Count);
-            Assert.IsTrue(Body.IsModified);
+            Assert.AreEqual(attr.MinValue + 10, attr.Value);
+            Assert.AreEqual(1, attr.Modifiers.Count);
+            Assert.IsTrue(attr.IsModified);
 
             GameTime.time = 10;
-            Assert.AreEqual(0, Body.Value);
-            Assert.AreEqual(0, Body.Modifiers.Count);
-            Assert.IsFalse(Body.IsModified);
+            Assert.AreEqual(attr.MinValue, attr.Value);
+            Assert.AreEqual(0, attr.Modifiers.Count);
+            Assert.IsFalse(attr.IsModified);
 
-            Body.Value = 10;
-            Body.Reset();
-            Assert.AreEqual(0, Body.Value);
+            attr.Value = attr.MaxValue;
+            attr.Reset();
+            Assert.AreEqual(attr.MinValue, attr.Value);
         }
 
         [Test]
         public void SecondaryAttributeTest()
         {
+            SecondaryAttributeTest(Level);
+        }
+        
+        private void SecondaryAttributeTest(SecondaryAttribute attr)
+        {
             // Check the default values
-            Assert.AreEqual(0, Level.MinValue);
-            Assert.AreEqual(99, Level.MaxValue);
-            Assert.AreEqual(0, Level.Value);
+            Assert.AreEqual(0, attr.MinValue);
+            Assert.AreEqual(99, attr.MaxValue);
+            Assert.AreEqual(0, attr.Value);
 
             // Try directly setting it
-            Level.Value = float.MaxValue;
-            Assert.AreEqual(0, Level.Value);
-            Level.Value = float.MinValue;
-            Assert.AreEqual(0, Level.Value);
+            attr.Value = float.MaxValue;
+            Assert.AreEqual(0, attr.Value);
+            attr.Value = float.MinValue;
+            Assert.AreEqual(0, attr.Value);
 
             // Change the contributing attributes
             for (int i = 0; i < 100; i++)
             {
                 float xp = i * i * 100;
                 Experience.Value = xp;
-                Assert.AreEqual(i, Level.Value);
+                Assert.AreEqual(i, attr.Value);
             }
             Experience.Reset();
             Assert.AreEqual(0, Experience.Value);
-            Assert.AreEqual(0, Level.Value);
+            Assert.AreEqual(0, attr.Value);
         }
 
         [Test]
         public void VolumeTest()
         {
+            VolumeTest(Life);
+        }
+
+        private void VolumeTest(VolumeAttribute volumeAttr)
+        {
+            GameTime.time = 0;
             // Check the default values
             Body.Value = 0;
-            Assert.AreEqual(0, Life.MinValue);
-            Assert.AreEqual(20, Life.MaxValue);
-            Assert.AreEqual(20, Life.Value);
+            Assert.AreEqual(0, volumeAttr.MinValue);
+            Assert.AreEqual(20, volumeAttr.MaxValue);
+            Assert.AreEqual(20, volumeAttr.Value);
             Body.Value = 10;
-            Assert.AreEqual(23, Life.MaxValue);
-            Assert.AreEqual(20, Life.Value);
-            Life.Value = 23;
+            Assert.AreEqual(23, volumeAttr.MaxValue);
+            Assert.AreEqual(20, volumeAttr.Value);
+            volumeAttr.Value = 23;
             Body.Value = 0;
-            Assert.AreEqual(0, Life.MinValue);
-            Assert.AreEqual(20, Life.MaxValue);
-            Assert.AreEqual(20, Life.Value);
+            Assert.AreEqual(0, volumeAttr.MinValue);
+            Assert.AreEqual(20, volumeAttr.MaxValue);
+            Assert.AreEqual(20, volumeAttr.Value);
             Body.Value = 10;
             // Set the value
-            Life.Value = 10;
-            Assert.AreEqual(10, Life.Value);
-            Life.Value -= 10;
-            Assert.AreEqual(0, Life.Value);
+            volumeAttr.Value = 10;
+            Assert.AreEqual(10, volumeAttr.Value);
+            volumeAttr.Value -= 10;
+            Assert.AreEqual(0, volumeAttr.Value);
 
             // Dropping below the minimum
-            Life.Value = float.MinValue;
-            Assert.AreEqual(0, Life.Value);
+            volumeAttr.Value = float.MinValue;
+            Assert.AreEqual(0, volumeAttr.Value);
 
             // Exceeding the maximum
-            Life.Value = float.MaxValue;
-            Assert.AreEqual(23, Life.Value);
+            volumeAttr.Value = float.MaxValue;
+            Assert.AreEqual(23, volumeAttr.Value);
 
             // Change corresponding attributes
             Experience.Value = 100;
-            Assert.AreEqual(28, Life.MaxValue);
+            Assert.AreEqual(28, volumeAttr.MaxValue);
        
             // Apply modifier and advance in time
             Body.AddModifier(new TimeBasedModifier("StrengthBuff", 11, 10));
-            Assert.AreEqual(32, Life.MaxValue);
+            Assert.AreEqual(32, volumeAttr.MaxValue);
             GameTime.time = 11f;
-            Assert.AreEqual(28, Life.MaxValue);
+            Assert.AreEqual(28, volumeAttr.MaxValue);
 
             // Reset
-            Life.Value = 0;
-            Life.Reset();
-            Assert.AreEqual(28, Life.Value);
+            volumeAttr.Value = 0;
+            volumeAttr.Reset();
+            Assert.AreEqual(28, volumeAttr.Value);
         }
 
         [Test]
@@ -238,27 +252,55 @@ namespace ActionRpgKit.Tests.Character
         [Test]
         public void SerializationTest()
         {
-            Random random = new Random();
-            // Serialize a primary attribute
-            Body.Value = random.Next(10, 999);
-            Body.MinValue = random.Next(0, 9);
-            Body.MaxValue = random.Next(10, 999);
-            Serialize(Body);
-            IAttribute serializedBody = Deserialize(Body);
-            Assert.AreEqual(Body.Value, serializedBody.Value);
-            Assert.AreEqual(Body.MinValue, serializedBody.MinValue);
-            Assert.AreEqual(Body.MaxValue, serializedBody.MaxValue);
+            var random = new Random();
 
-            // Serialize a volume attribute
+            // Serialize a PrimaryAttribute
+            Body.Value = random.Next(10, 500);
+            Body.MinValue = random.Next(0, 9);
+            Body.MaxValue = random.Next(501, 999);
+            BinarySerialize(Body);
+
+            // Binary deserialization of PrimaryAttribute
+            PrimaryAttribute binarySerializedBody = (PrimaryAttribute)BinaryDeserialize(Body);
+            Assert.AreEqual(Body.Value, binarySerializedBody.Value);
+            Assert.AreEqual(Body.MinValue, binarySerializedBody.MinValue);
+            Assert.AreEqual(Body.MaxValue, binarySerializedBody.MaxValue);
+            PrimaryAttributeTest(binarySerializedBody);
+
+            // Serialize a SecondaryAttribute
+            Experience.Value = 100;
+            BinarySerialize(Level);
+
+            // Binary deserialization of SecondaryAttribute
+            SecondaryAttribute binarySerializedLevel = (SecondaryAttribute)BinaryDeserialize(Level);
+            Assert.AreEqual(Level.Value, binarySerializedLevel.Value);
+            Assert.AreEqual(1, binarySerializedLevel.Attributes.Length);
+            Experience.Value = 0;
+            binarySerializedLevel.Attributes = new BaseAttribute[] { Experience };
+            binarySerializedLevel.Value = binarySerializedLevel.MaxValue;
+            SecondaryAttributeTest(binarySerializedLevel);
+
+            // Serialize a VolumeAttribute
+            Body.MinValue = 0;
+            Body.MaxValue = 999;
+            Body.Value = 0;
             Life.Value = random.Next(0, 23);
-            Serialize(Life);
-            IAttribute serializedLife = Deserialize(Life);
-            Assert.AreEqual(Life.Value, serializedLife.Value);
+            BinarySerialize(Life);
+
+            // Binary deserialization of VolumeAttribute
+            VolumeAttribute binarySerializedLife = (VolumeAttribute)BinaryDeserialize(Life);
+            Assert.AreEqual(Life.Value, binarySerializedLife.Value);
+            Assert.AreEqual(2, binarySerializedLife.Attributes.Length);
+            Body.Value = 0;
+            binarySerializedLife.Attributes = new BaseAttribute[] { Level, Body };
+            binarySerializedLife.Value = binarySerializedLife.MaxValue;
+            VolumeTest(binarySerializedLife);
         }
 
-        private void Serialize(IAttribute attr)
+        private void BinarySerialize(BaseAttribute attr)
         {
             var serializedFile = Path.GetTempPath() + string.Format("/__AttributeTests__{0}.bin", attr.Name);
+            Console.WriteLine(serializedFile);
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(serializedFile,
                                            FileMode.Create,
@@ -268,7 +310,7 @@ namespace ActionRpgKit.Tests.Character
             stream.Close();
         }
 
-        private IAttribute Deserialize(IAttribute attr)
+        private BaseAttribute BinaryDeserialize(BaseAttribute attr)
         {
             var serializedFile = Path.GetTempPath() + string.Format("/__AttributeTests__{0}.bin", attr.Name);
             IFormatter formatter = new BinaryFormatter();
@@ -276,22 +318,23 @@ namespace ActionRpgKit.Tests.Character
                                     FileMode.Open,
                                     FileAccess.Read,
                                     FileShare.Read);
-            IAttribute serializedAttr = (IAttribute)formatter.Deserialize(stream);
+            BaseAttribute serializedAttr = (BaseAttribute)formatter.Deserialize(stream);
             stream.Close();
+            File.Delete(serializedFile);
             return serializedAttr;
         }
 
-        public void ValueChangedDemo(IAttribute sender, float value)
+        public void ValueChangedDemo(BaseAttribute sender, float value)
         {
             _valueChangedEventTriggered += 1;
         }
 
-        public void MaxReachedDemo(IAttribute sender)
+        public void MaxReachedDemo(BaseAttribute sender)
         {
             _maxReachedEventTriggered += 1;
         }
 
-        public void MinReachedDemo(IAttribute sender)
+        public void MinReachedDemo(BaseAttribute sender)
         {
             _minReachedEventTriggered += 1;
         }

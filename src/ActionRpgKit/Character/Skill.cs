@@ -189,12 +189,12 @@ namespace ActionRpgKit.Character.Skill
         /// Add the modifier to the modified attribute.</summary>
         public override void Use(BaseCharacter user)
         {
-            user.Stats[ModifiedAttributeName].AddModifier(GetModifier());
+            user.Stats.Dict[ModifiedAttributeName].AddModifier(GetModifier());
         }
 
         /// <summary>
         /// A new TimeBasedModifier is returned everytime it is requested.</summary>
-        private IModifier GetModifier()
+        private AttributeModifier GetModifier()
         {
             return new TimeBasedModifier(Name, ModifierValue, Duration);
         }

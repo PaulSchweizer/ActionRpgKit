@@ -7,79 +7,79 @@ namespace ActionRpgKit.Character.Attribute
 
     /// <summary>
     /// Interface for Attributes.</summary>
-    public interface IAttribute
+    [Serializable]
+    public abstract class BaseAttribute
     {
         /// <summary>
         /// The name of the attribute.</summary>
-        string Name { get; set; }
+        public string Name;
 
         /// <summary>
         /// The unmodified base value.</summary>
-        float BaseValue { get; set; }
+        public abstract float BaseValue { get; set; }
 
         /// <summary>
         /// The actual, modified value, still within the min, max range.</summary>
-        float Value { get; set; }
+        public abstract float Value { get; set; }
 
         /// <summary>
         /// The maximum value.</summary>
-        float MaxValue { get; set; }
+        public abstract float MaxValue { get; set; }
 
         /// <summary>
         /// The minimum value.</summary>
-        float MinValue { get; set; }
+        public abstract float MinValue { get; set; }
 
         /// <summary>
         /// All modifiers on the attribute. 
         /// There is no check to determine whether they are active or not.</summary>
-        List<IModifier> Modifiers { get; }
+        public abstract List<AttributeModifier> Modifiers { get; }
 
         /// <summary>
         /// Add a new modifier to the attribute and activate it.</summary>
-        void AddModifier(IModifier modifier);
+        public abstract void AddModifier(AttributeModifier modifier);
 
         /// <summary>
         /// Remove a modifier from the attribute.</summary>
-        void RemoveModifier(IModifier modifier);
+        public abstract void RemoveModifier(AttributeModifier modifier);
 
         /// <summary>
         /// Whether the attribute is modified by a modifier.</summary>
-        bool IsModified { get; }
+        public abstract bool IsModified { get; }
 
         /// <summary>
         /// Reset the Attribute to it's maximum value.</summary>
-        void Reset();
+        public abstract void Reset();
 
-        event ValueChangedHandler OnValueChanged;
-        event MaxReachedHandler OnMaxReached;
-        event MinReachedHandler OnMinReached;
+        public abstract event ValueChangedHandler OnValueChanged;
+        public abstract event MaxReachedHandler OnMaxReached;
+        public abstract event MinReachedHandler OnMinReached;
     }
 
     /// <summary>
     /// Handler operates whenever an IAttribute value changes.</summary>
     /// <param name="sender">The sender</param>
     /// <param name="value">The new value</param>
-    public delegate void ValueChangedHandler(IAttribute sender, float value);
+    public delegate void ValueChangedHandler(BaseAttribute sender, float value);
     
-    public delegate void MaxReachedHandler(IAttribute sender);
+    public delegate void MaxReachedHandler(BaseAttribute sender);
     
-    public delegate void MinReachedHandler(IAttribute sender);
+    public delegate void MinReachedHandler(BaseAttribute sender);
     
     /// <summary>
     /// Represents a simple float value.</summary>
     [Serializable]
-    public class PrimaryAttribute : IAttribute
+    public class PrimaryAttribute : BaseAttribute
     {
-        
-        public event ValueChangedHandler OnValueChanged;
-        public event MaxReachedHandler OnMaxReached;
-        public event MinReachedHandler OnMinReached;
+        public override event ValueChangedHandler OnValueChanged;
+        public override event MaxReachedHandler OnMaxReached;
+        public override event MinReachedHandler OnMinReached;
 
-        public string _name;
         public float _value;
         public float _minValue;
         public float _maxValue;
-        private List<IModifier> _modifiers = new List<IModifier>();
+
+        private List<AttributeModifier> _modifiers = new List<AttributeModifier>();
 
         public PrimaryAttribute () {}
 
@@ -94,9 +94,7 @@ namespace ActionRpgKit.Character.Attribute
             Value = value;
         }
 
-        public string Name { get { return _name; } set { _name = value; } }
-
-        public virtual float BaseValue
+        public override float BaseValue
         {
             get
             {
@@ -111,7 +109,7 @@ namespace ActionRpgKit.Character.Attribute
         /// <summary>
         /// The final value with all modifiers applied to it.
         /// Setting it sets the BaseValue.</summary>
-        public virtual float Value
+        public override float Value
         {
             get
             {
@@ -136,7 +134,7 @@ namespace ActionRpgKit.Character.Attribute
             }
         }
 
-        public virtual float MaxValue
+        public override float MaxValue
         {
             get
             {
@@ -149,7 +147,7 @@ namespace ActionRpgKit.Character.Attribute
             }
         }
 
-        public virtual float MinValue
+        public override float MinValue
         {
             get
             {
@@ -161,8 +159,8 @@ namespace ActionRpgKit.Character.Attribute
                 _minValue = value;
             }
         }
-
-        public List<IModifier> Modifiers
+        
+        public override List<AttributeModifier> Modifiers
         {
             get
             {
@@ -170,20 +168,20 @@ namespace ActionRpgKit.Character.Attribute
             }
         }
         
-        public void AddModifier (IModifier modifier)
+        public override void AddModifier (AttributeModifier modifier)
         {
             modifier.Activate();
             _modifiers.Add(modifier);
             ValueChanged(Value);
         }
 
-        public void RemoveModifier (IModifier modifier)
+        public override void RemoveModifier (AttributeModifier modifier)
         {
             Modifiers.Remove(modifier);
             ValueChanged(Value);
         }
 
-        public bool IsModified
+        public override bool IsModified
         {
             get
             {
@@ -238,7 +236,7 @@ namespace ActionRpgKit.Character.Attribute
             }
         }
 
-        public virtual void Reset ()
+        public override void Reset ()
         {
             Value = MinValue;
         }
@@ -262,21 +260,25 @@ namespace ActionRpgKit.Character.Attribute
         /// <summary>
         /// Formula delegate to calculate the base value of the attribute.</summary> 
         /// <param name="attributes"> A list of attributes</param>
-        public delegate float Formula(IAttribute[] attributes);
+        public delegate float Formula(BaseAttribute[] attributes);
         
         /// <summary>
         /// Formula to calculate the base value of the attribute. </summary> 
-        protected Formula _formula;
-        
+        public Formula _formula;
+
         /// <summary>
-        /// Input attributes for the formula.</summary> 
-        protected IAttribute[] _attributes;
+        /// Storing the used attributes.</summary>
+        protected BaseAttribute[] _attributes;
+
+        /// <summary>
+        /// Storing the used handlers.</summary>
+        protected ValueChangedHandler[] _handlers;
 
         public SecondaryAttribute() { }
 
         public SecondaryAttribute (string name,
                                    Formula formula,
-                                   IAttribute[] attributes,
+                                   BaseAttribute[] attributes,
                                    float minValue = float.MinValue,
                                    float maxValue = float.MaxValue) : base(name, 
                                                                            minValue, 
@@ -284,9 +286,11 @@ namespace ActionRpgKit.Character.Attribute
         {
             _formula = formula;
             _attributes = attributes;
-            for (int i = 0; i < _attributes.Length; i++)
+            _handlers = new ValueChangedHandler[attributes.Length];
+            for (int i = 0; i < Attributes.Length; i++)
             {
-                _attributes[i].OnValueChanged += new ValueChangedHandler(ValueOfFormulatAttributeChanged);
+                _handlers[i] = new ValueChangedHandler(ValueOfFormulatAttributeChanged);
+                Attributes[i].OnValueChanged += _handlers[i];
             }
         }
 
@@ -294,15 +298,39 @@ namespace ActionRpgKit.Character.Attribute
         {
             get
             {
-                return _formula(_attributes);
+                return _formula(Attributes);
             }
             set
             {
                 base.BaseValue = value;
             }
         }
-        
-        public void ValueOfFormulatAttributeChanged (IAttribute sender, float value)
+
+        /// <summary>
+        /// The input Attributes for the Formula have to be updated when they
+        /// are being changed. 
+        /// This is important for deserialization.</summary> 
+        public BaseAttribute[] Attributes
+        {
+            get
+            {
+                return _attributes;
+            }
+            set
+            {
+                for (int i = 0; i < _attributes.Length; i++)
+                {
+                    _attributes[i].OnValueChanged -= _handlers[i];
+                }
+                _attributes = value;
+                for (int i = 0; i < _attributes.Length; i++)
+                {
+                    _attributes[i].OnValueChanged += _handlers[i];
+                }
+            }
+        }
+
+        public void ValueOfFormulatAttributeChanged (BaseAttribute sender, float value)
         {
             ValueChanged(value);
         }
@@ -323,18 +351,22 @@ namespace ActionRpgKit.Character.Attribute
         /// The absolute maximum of the attribute.</summary> 
         private float _absoluteMaxValue;
 
+        public VolumeAttribute () { }
+
         public VolumeAttribute (string name,
                                 Formula formula,
-                                IAttribute[] attributes,
+                                BaseAttribute[] attributes,
                                 float minValue = float.MinValue,
                                 float maxValue = float.MaxValue) : base ()
         {
             Name = name;
             _formula = formula;
             _attributes = attributes;
-            for (int i = 0; i < _attributes.Length; i++)
+            _handlers = new ValueChangedHandler[attributes.Length];
+            for (int i = 0; i < Attributes.Length; i++)
             {
-                _attributes[i].OnValueChanged += new ValueChangedHandler(ValueOfFormulatAttributeChanged);
+                _handlers[i] = new ValueChangedHandler(ValueOfFormulatAttributeChanged);
+                Attributes[i].OnValueChanged += _handlers[i];
             }
             MinValue = minValue;
             MaxValue = maxValue;
@@ -342,7 +374,7 @@ namespace ActionRpgKit.Character.Attribute
             _absoluteMaxValue = maxValue;
         }
 
-        public new void ValueOfFormulatAttributeChanged(IAttribute sender, float value)
+        public new void ValueOfFormulatAttributeChanged(BaseAttribute sender, float value)
         {
             ValueChanged(value);
             Value = Value;
@@ -406,69 +438,49 @@ namespace ActionRpgKit.Character.Attribute
             Value = MaxValue;
         }
     }
-    
+
     /// <summary>
     /// Interface for modifiers that alter an attribute.</summary> 
-    public interface IModifier
+    [Serializable]
+    public abstract class AttributeModifier
     {
         /// <summary>
         /// The name of the modifier.</summary> 
-        string Name { get; }
+        public string Name { get; set; }
         
         /// <summary>
         /// The value of the modifier.</summary> 
-        float Value { get; }
+        public float Value { get; set; }
         
         /// <summary>
         /// Activating the modifier.</summary> 
-        void Activate();
+        public abstract void Activate();
         
         /// <summary>
         /// Determine whether the modifier is active.</summary> 
-        bool IsActive { get; }
+        public abstract bool IsActive { get; }
     }
 
     /// <summary>
     /// Modifier that affects an attribute over a certain period of time.</summary> 
-    public class TimeBasedModifier : IModifier
+    [Serializable]
+    public class TimeBasedModifier : AttributeModifier
     {
-        private string _name;
-        private float _value;
         private float _duration;
         private float _endTime;
 
         public TimeBasedModifier(string name,
-                         float value,
-                         float duration)
+                                 float value,
+                                 float duration)
         {
-            _name = name;
+            Name = name;
             Value = value;
             _duration = duration;
-        }
-
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-        }
-
-        public float Value
-        {
-            get
-            {
-                return _value;
-            }
-            set
-            {
-                _value = value;
-            }
         }
         
         /// <summary>
         /// Set the end time.</summary> 
-        public void Activate()
+        public override void Activate()
         {
             _endTime = GameTime.time + _duration;
         }
@@ -485,7 +497,7 @@ namespace ActionRpgKit.Character.Attribute
         
         /// <summary>
         /// Whether there is any remaining time.</summary> 
-        public bool IsActive
+        public override bool IsActive
         {
             get
             {

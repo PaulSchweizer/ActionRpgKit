@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ActionRpgKit.Character.Attribute;
+using System.Runtime.Serialization;
 
 namespace ActionRpgKit.Character.Stats 
 {
@@ -8,31 +9,35 @@ namespace ActionRpgKit.Character.Stats
 
     /// <summary>
     /// Basic stats each Character has to have.</summary>
-    public abstract class BaseStats : Dictionary<string, IAttribute>
+    [Serializable]
+    public abstract class BaseStats
     {
-        public IAttribute Body;
-        public IAttribute Mind;
-        public IAttribute Soul;
-        public IAttribute Experience;
-        public IAttribute Level;
-        public IAttribute Life;
-        public IAttribute Magic;
-        public IAttribute MagicRegenerationRate;
-        public IAttribute AlertnessRange;
-        public IAttribute AttackRange;
+        
+        public BaseAttribute Body;
+        public BaseAttribute Mind;
+        public BaseAttribute Soul;
+        public BaseAttribute Experience;
+        public BaseAttribute Level;
+        public BaseAttribute Life;
+        public BaseAttribute Magic;
+        public BaseAttribute MagicRegenerationRate;
+        public BaseAttribute AlertnessRange;
+        public BaseAttribute AttackRange;
 
-        protected void AssignAttributesToDict ()
+        public Dictionary<string, BaseAttribute> Dict = new Dictionary<string, BaseAttribute>();
+
+        protected void AssignAttributesToDict()
         {
-            Add("Body", Body);
-            Add("Mind", Mind);
-            Add("Soul", Soul);
-            Add("Experience", Experience);
-            Add("Level", Level);
-            Add("Life", Life);
-            Add("MagicRegenerationRate", MagicRegenerationRate);
-            Add("Magic", Magic);
-            Add("AlertnessRange", AlertnessRange);
-            Add("AttackRange", AttackRange);
+            Dict.Add("Body", Body);
+            Dict.Add("Mind", Mind);
+            Dict.Add("Soul", Soul);
+            Dict.Add("Experience", Experience);
+            Dict.Add("Level", Level);
+            Dict.Add("Life", Life);
+            Dict.Add("MagicRegenerationRate", MagicRegenerationRate);
+            Dict.Add("Magic", Magic);
+            Dict.Add("AlertnessRange", AlertnessRange);
+            Dict.Add("AttackRange", AttackRange);
         }
 
         public abstract void Set(BaseStats stats);
@@ -46,7 +51,7 @@ namespace ActionRpgKit.Character.Stats
     public class PlayerStats : BaseStats
     {
 
-        public PlayerStats () : base()
+        public PlayerStats()
         {
             // Primary Attributes
             Body = new PrimaryAttribute("Body", 0, 999, 0);
@@ -59,19 +64,19 @@ namespace ActionRpgKit.Character.Stats
             // Secondary Attributes
             Level = new SecondaryAttribute("Level",
                     x => (int)(Math.Sqrt(x[0].Value / 100)) * 1f, 
-                    new IAttribute[] { Experience }, 0, 99);
+                    new BaseAttribute[] { Experience }, 0, 99);
             MagicRegenerationRate = new SecondaryAttribute(
                                     "MagicRegenerationRate",
                                     x => 1 + (x[0].Value / 1000),
-                                    new IAttribute[] { Mind }, 0, 99);
+                                    new BaseAttribute[] { Mind }, 0, 99);
 
             // Volume Attributes
             Life = new VolumeAttribute("Life", 
                    x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
-                   new IAttribute[] { Level, Body }, 0, 999);
+                   new BaseAttribute[] { Level, Body }, 0, 999);
             Magic =new VolumeAttribute("Magic", 
                     x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
-                    new IAttribute[] { Level, Soul }, 0, 999);
+                    new BaseAttribute[] { Level, Soul }, 0, 999);
             AssignAttributesToDict();
         }
 
@@ -91,7 +96,7 @@ namespace ActionRpgKit.Character.Stats
     [Serializable]
     public class EnemyStats : BaseStats
     {
-        public EnemyStats () : base()
+        public EnemyStats()
         {
             Body = new PrimaryAttribute("Body", 0, 999, 0);
             Mind = new PrimaryAttribute("Mind", 0, 999, 0);

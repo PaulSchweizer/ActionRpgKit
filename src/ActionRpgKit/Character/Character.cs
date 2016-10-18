@@ -605,7 +605,7 @@ namespace ActionRpgKit.Character
         
         /// <summary>
         /// The Character has just been killed.</summary>
-        private void OnDeath(IAttribute sender)
+        private void OnDeath(BaseAttribute sender)
         {
             ChangeState(_dyingState);
             IsDead = true;
