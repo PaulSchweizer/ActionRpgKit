@@ -1,5 +1,16 @@
 var hierarchy =
 [
+    [ "AttributeModifier", "dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml", [
+      [ "TimeBasedModifier", "d5/d34/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_time_based_modifier.xhtml", null ]
+    ] ],
+    [ "BaseAttribute", "dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml", [
+      [ "PrimaryAttribute", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml", [
+        [ "SecondaryAttribute", "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml", [
+          [ "VolumeAttribute", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml", null ]
+        ] ],
+        [ "SimpleVolumeAttribute", "db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml", null ]
+      ] ]
+    ] ],
     [ "BaseItem", "d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml", [
       [ "UsableItem", "d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml", null ],
       [ "WeaponItem", "d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml", null ]
@@ -12,24 +23,14 @@ var hierarchy =
         [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml", null ]
       ] ]
     ] ],
-    [ "Chapter", "d0/d8d/class_action_rpg_kit_1_1_story_1_1_chapter.xhtml", null ],
-    [ "Dictionary", null, [
-      [ "BaseStats", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml", [
-        [ "EnemyStats", "df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml", null ],
-        [ "PlayerStats", "d7/dbc/class_action_rpg_kit_1_1_character_1_1_stats_1_1_player_stats.xhtml", null ]
-      ] ]
+    [ "BaseStats", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml", [
+      [ "EnemyStats", "df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml", null ],
+      [ "PlayerStats", "d7/dbc/class_action_rpg_kit_1_1_character_1_1_stats_1_1_player_stats.xhtml", null ]
     ] ],
+    [ "Chapter", "d0/d8d/class_action_rpg_kit_1_1_story_1_1_chapter.xhtml", null ],
     [ "EnemyFactory", "d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml", null ],
     [ "EnemyPool", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml", null ],
     [ "GameTime", "d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml", null ],
-    [ "IAttribute", "d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml", [
-      [ "PrimaryAttribute", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml", [
-        [ "SecondaryAttribute", "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml", [
-          [ "VolumeAttribute", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml", null ]
-        ] ],
-        [ "SimpleVolumeAttribute", "db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml", null ]
-      ] ]
-    ] ],
     [ "ICharacter", "d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml", [
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", [
         [ "Enemy", "d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml", null ],
@@ -48,9 +49,6 @@ var hierarchy =
     ] ],
     [ "IMagicUser", "dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml", [
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
-    ] ],
-    [ "IModifier", "d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml", [
-      [ "TimeBasedModifier", "d5/d34/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_time_based_modifier.xhtml", null ]
     ] ],
     [ "IObjective", "d2/d98/interface_action_rpg_kit_1_1_story_1_1_quest_1_1_i_objective.xhtml", [
       [ "Objective", "d3/d20/class_action_rpg_kit_1_1_story_1_1_quest_1_1_objective.xhtml", null ]

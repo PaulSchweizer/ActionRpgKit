@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['level',['Level',['../db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#ae8f31e5285b2238f7b1dc13e673f7e09',1,'ActionRpgKit::Character::Stats::BaseStats']]],
-  ['life',['Life',['../db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a21f7b5535b96ed83f2b9ef5d48184441',1,'ActionRpgKit::Character::Stats::BaseStats']]]
+  ['level',['Level',['../db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a27bcf5ff703cf794220b3e05838c181f',1,'ActionRpgKit::Character::Stats::BaseStats']]],
+  ['life',['Life',['../db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a29b241cfd0819374917ae7cf16d93bd9',1,'ActionRpgKit::Character::Stats::BaseStats']]]
 ];

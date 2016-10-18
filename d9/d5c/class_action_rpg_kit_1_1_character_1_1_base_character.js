@@ -26,7 +26,7 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
     [ "OnAttacked", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afe0130a66c72c58cb2bc272a46298d71", null ],
     [ "UseCombatSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a2e0bf0a23cb51c890c5832a6c3adda59", null ],
     [ "CombatSkillCanBeUsed", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a12e207cf85aafc09ca81b2fd680df188", null ],
-    [ "OnDeath", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a12aad90f472f592464de66f40a8b5b67", null ],
+    [ "OnDeath", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad87c6818ee55a5d6f8fa672c423daed9", null ],
     [ "Id", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb", null ],
     [ "Name", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9", null ],
     [ "Stats", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aae675cc1ade48758b96f03e5488afce9", null ],

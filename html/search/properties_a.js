@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['quantities',['Quantities',['../d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a03af7a7a5bbb2d89e4c513cae6266ce7',1,'ActionRpgKit.Character.IInventory.Quantities()'],['../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a03af7a7a5bbb2d89e4c513cae6266ce7',1,'ActionRpgKit.Character.SimpleInventory.Quantities()'],['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a03af7a7a5bbb2d89e4c513cae6266ce7',1,'ActionRpgKit.Character.PlayerInventory.Quantities()']]],
-  ['quests',['Quests',['../d0/d8d/class_action_rpg_kit_1_1_story_1_1_chapter.xhtml#a0ae1197c5b1bd9f2c4629d74af21c8fc',1,'ActionRpgKit::Story::Chapter']]]
+  ['position',['Position',['../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a51d5d92d61f0c8e344e8562a655d27de',1,'ActionRpgKit.Character.IFighter.Position()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a51d5d92d61f0c8e344e8562a655d27de',1,'ActionRpgKit.Character.BaseCharacter.Position()'],['../de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml#a51d5d92d61f0c8e344e8562a655d27de',1,'ActionRpgKit.Core.IGameObject.Position()']]]
 ];

@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('df/d43/class_action_rpg_kit_1_1_charac
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="../../d9/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute-members.xhtml">List of all members</a>  </div>
@@ -109,102 +110,108 @@ Inheritance diagram for SecondaryAttribute:</div>
   <img src="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.png" usemap="#SecondaryAttribute_map" alt=""/>
   <map id="SecondaryAttribute_map" name="SecondaryAttribute_map">
 <area href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml" title="Represents a simple float value." alt="PrimaryAttribute" shape="rect" coords="0,56,121,80"/>
-<area href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml" title="Interface for Attributes." alt="IAttribute" shape="rect" coords="0,0,121,24"/>
+<area href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml" title="Interface for Attributes." alt="BaseAttribute" shape="rect" coords="0,0,121,24"/>
 <area href="../../d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml" title="Represents a volume of something, e.g. magic, life. The base value is derived through a formula and s..." alt="VolumeAttribute" shape="rect" coords="0,168,121,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7503622181cc411c525346278bb9048b"><td class="memItemLeft" align="right" valign="top">delegate float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a7503622181cc411c525346278bb9048b">Formula</a> (<a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a>[] attributes)</td></tr>
-<tr class="memdesc:a7503622181cc411c525346278bb9048b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formula delegate to calculate the base value of the attribute. <a href="#a7503622181cc411c525346278bb9048b">More...</a><br /></td></tr>
-<tr class="separator:a7503622181cc411c525346278bb9048b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba7b9b4207ed4358963986b56bec43da"><td class="memItemLeft" align="right" valign="top">delegate float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#aba7b9b4207ed4358963986b56bec43da">Formula</a> (<a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a>[] attributes)</td></tr>
+<tr class="memdesc:aba7b9b4207ed4358963986b56bec43da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formula delegate to calculate the base value of the attribute. <a href="#aba7b9b4207ed4358963986b56bec43da">More...</a><br /></td></tr>
+<tr class="separator:aba7b9b4207ed4358963986b56bec43da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9603c6430002aafaaaab5616716235cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a9603c6430002aafaaaab5616716235cc">SecondaryAttribute</a> ()</td></tr>
 <tr class="separator:a9603c6430002aafaaaab5616716235cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a141fb5516976a03471db55927e196b18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a141fb5516976a03471db55927e196b18">SecondaryAttribute</a> (string name, <a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a7503622181cc411c525346278bb9048b">Formula</a> formula, <a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a>[] attributes, float minValue=float.MinValue, float maxValue=float.MaxValue)</td></tr>
-<tr class="separator:a141fb5516976a03471db55927e196b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a205dcf5fb5fed72fe9abde2cbcac0bdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a205dcf5fb5fed72fe9abde2cbcac0bdb">ValueOfFormulatAttributeChanged</a> (<a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a> sender, float value)</td></tr>
-<tr class="separator:a205dcf5fb5fed72fe9abde2cbcac0bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae33a26eee69912fdca177cdea3d44518"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#ae33a26eee69912fdca177cdea3d44518">SecondaryAttribute</a> (string name, <a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#aba7b9b4207ed4358963986b56bec43da">Formula</a> formula, <a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a>[] attributes, float minValue=float.MinValue, float maxValue=float.MaxValue)</td></tr>
+<tr class="separator:ae33a26eee69912fdca177cdea3d44518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d5aea3bf1ad7fea66740bd903c7148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#ac3d5aea3bf1ad7fea66740bd903c7148">ValueOfFormulatAttributeChanged</a> (<a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a> sender, float value)</td></tr>
+<tr class="separator:ac3d5aea3bf1ad7fea66740bd903c7148"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml">PrimaryAttribute</a></td></tr>
 <tr class="memitem:ad6657a5fca832ac2e595052efc7e5cf7 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#ad6657a5fca832ac2e595052efc7e5cf7">PrimaryAttribute</a> ()</td></tr>
 <tr class="separator:ad6657a5fca832ac2e595052efc7e5cf7 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8321e0c36d917741b2587fe9ca60227f inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8321e0c36d917741b2587fe9ca60227f">PrimaryAttribute</a> (string name, float minValue=float.MinValue, float maxValue=float.MaxValue, float value=0)</td></tr>
 <tr class="separator:a8321e0c36d917741b2587fe9ca60227f inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a914e35740f037fcc4d0eb2a3f33632e6 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a914e35740f037fcc4d0eb2a3f33632e6">AddModifier</a> (<a class="el" href="../../d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml">IModifier</a> modifier)</td></tr>
-<tr class="memdesc:a914e35740f037fcc4d0eb2a3f33632e6 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new modifier to the attribute and activate it. <a href="#a914e35740f037fcc4d0eb2a3f33632e6">More...</a><br /></td></tr>
-<tr class="separator:a914e35740f037fcc4d0eb2a3f33632e6 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3701f0f96dcc74744b2c6f5d452c4902 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a3701f0f96dcc74744b2c6f5d452c4902">RemoveModifier</a> (<a class="el" href="../../d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml">IModifier</a> modifier)</td></tr>
-<tr class="memdesc:a3701f0f96dcc74744b2c6f5d452c4902 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a modifier from the attribute. <a href="#a3701f0f96dcc74744b2c6f5d452c4902">More...</a><br /></td></tr>
-<tr class="separator:a3701f0f96dcc74744b2c6f5d452c4902 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c4ba0ffe635d14b93794268bd8e5995 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a4c4ba0ffe635d14b93794268bd8e5995">Reset</a> ()</td></tr>
-<tr class="memdesc:a4c4ba0ffe635d14b93794268bd8e5995 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a> to it's maximum value. <a href="#a4c4ba0ffe635d14b93794268bd8e5995">More...</a><br /></td></tr>
-<tr class="separator:a4c4ba0ffe635d14b93794268bd8e5995 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a30ad9b75a1e4a7a898afa383154195 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8a30ad9b75a1e4a7a898afa383154195">AddModifier</a> (<a class="el" href="../../dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml">AttributeModifier</a> modifier)</td></tr>
+<tr class="memdesc:a8a30ad9b75a1e4a7a898afa383154195 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new modifier to the attribute and activate it. <a href="#a8a30ad9b75a1e4a7a898afa383154195">More...</a><br /></td></tr>
+<tr class="separator:a8a30ad9b75a1e4a7a898afa383154195 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdcad3585659782a3b0f73cab061c09b inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#abdcad3585659782a3b0f73cab061c09b">RemoveModifier</a> (<a class="el" href="../../dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml">AttributeModifier</a> modifier)</td></tr>
+<tr class="memdesc:abdcad3585659782a3b0f73cab061c09b inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a modifier from the attribute. <a href="#abdcad3585659782a3b0f73cab061c09b">More...</a><br /></td></tr>
+<tr class="separator:abdcad3585659782a3b0f73cab061c09b inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a298cb68f7f3fb7f40595f4302af4ae25 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a298cb68f7f3fb7f40595f4302af4ae25">Reset</a> ()</td></tr>
+<tr class="memdesc:a298cb68f7f3fb7f40595f4302af4ae25 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a> to it's maximum value. <a href="#a298cb68f7f3fb7f40595f4302af4ae25">More...</a><br /></td></tr>
+<tr class="separator:a298cb68f7f3fb7f40595f4302af4ae25 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa73e7c4dd1df5fd5fbf81c7764ee1533 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> ()</td></tr>
 <tr class="separator:aa73e7c4dd1df5fd5fbf81c7764ee1533 inherit pub_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ad74940b11425547df6832c4ddf643b3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a7503622181cc411c525346278bb9048b">Formula</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#ad74940b11425547df6832c4ddf643b3c">_formula</a></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ad74940b11425547df6832c4ddf643b3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#aba7b9b4207ed4358963986b56bec43da">Formula</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#ad74940b11425547df6832c4ddf643b3c">_formula</a></td></tr>
 <tr class="memdesc:ad74940b11425547df6832c4ddf643b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formula to calculate the base value of the attribute.  <a href="#ad74940b11425547df6832c4ddf643b3c">More...</a><br /></td></tr>
 <tr class="separator:ad74940b11425547df6832c4ddf643b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a565ae847b10c49b0fee6a1aa63dbf32c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a565ae847b10c49b0fee6a1aa63dbf32c">_attributes</a></td></tr>
-<tr class="memdesc:a565ae847b10c49b0fee6a1aa63dbf32c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input attributes for the formula. <a href="#a565ae847b10c49b0fee6a1aa63dbf32c">More...</a><br /></td></tr>
-<tr class="separator:a565ae847b10c49b0fee6a1aa63dbf32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:af9a125d3516c8766a9eec7f919a3df75"><td class="memItemLeft" align="right" valign="top">override float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#af9a125d3516c8766a9eec7f919a3df75">BaseValue</a><code> [get, set]</code></td></tr>
-<tr class="separator:af9a125d3516c8766a9eec7f919a3df75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td colspan="2" onclick="javascript:toggleInherit('properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml">PrimaryAttribute</a></td></tr>
-<tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td></tr>
-<tr class="separator:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6575acc878aa5795fa47769e676d9e85 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a6575acc878aa5795fa47769e676d9e85">BaseValue</a><code> [get, set]</code></td></tr>
-<tr class="separator:a6575acc878aa5795fa47769e676d9e85 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af615cb9d7348afc71d19635e62155e41 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#af615cb9d7348afc71d19635e62155e41">Value</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:af615cb9d7348afc71d19635e62155e41 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The final value with all modifiers applied to it. Setting it sets the BaseValue. <a href="#af615cb9d7348afc71d19635e62155e41">More...</a><br /></td></tr>
-<tr class="separator:af615cb9d7348afc71d19635e62155e41 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ae20c57ad2176dfe07183c4f539c4b1 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a3ae20c57ad2176dfe07183c4f539c4b1">MaxValue</a><code> [get, set]</code></td></tr>
-<tr class="separator:a3ae20c57ad2176dfe07183c4f539c4b1 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1758c6842bb284dd445ffd60404a04d5 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a1758c6842bb284dd445ffd60404a04d5">MinValue</a><code> [get, set]</code></td></tr>
-<tr class="separator:a1758c6842bb284dd445ffd60404a04d5 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fb5eac914f9001852776703d6439ec7 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml">IModifier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8fb5eac914f9001852776703d6439ec7">Modifiers</a><code> [get]</code></td></tr>
-<tr class="separator:a8fb5eac914f9001852776703d6439ec7 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50027866157dd66f522037fc1f811d92 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a50027866157dd66f522037fc1f811d92">IsModified</a><code> [get]</code></td></tr>
-<tr class="separator:a50027866157dd66f522037fc1f811d92 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a></td></tr>
-<tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the attribute. <a href="#a7ee9065718e6628dc7791b756fa6c0f9">More...</a><br /></td></tr>
-<tr class="separator:a7ee9065718e6628dc7791b756fa6c0f9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadc03e9628c12c726392cb067b9207c9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#aadc03e9628c12c726392cb067b9207c9">BaseValue</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:aadc03e9628c12c726392cb067b9207c9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The unmodified base value. <a href="#aadc03e9628c12c726392cb067b9207c9">More...</a><br /></td></tr>
-<tr class="separator:aadc03e9628c12c726392cb067b9207c9 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4233143a2af04acfac45e32b7b36eef7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a4233143a2af04acfac45e32b7b36eef7">Value</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a4233143a2af04acfac45e32b7b36eef7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual, modified value, still within the min, max range. <a href="#a4233143a2af04acfac45e32b7b36eef7">More...</a><br /></td></tr>
-<tr class="separator:a4233143a2af04acfac45e32b7b36eef7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96fa68bf7e3d09e923394f9288e6b733 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a96fa68bf7e3d09e923394f9288e6b733">MaxValue</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a96fa68bf7e3d09e923394f9288e6b733 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum value. <a href="#a96fa68bf7e3d09e923394f9288e6b733">More...</a><br /></td></tr>
-<tr class="separator:a96fa68bf7e3d09e923394f9288e6b733 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f8271e028fcfea0f7388b35342ae991 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a1f8271e028fcfea0f7388b35342ae991">MinValue</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a1f8271e028fcfea0f7388b35342ae991 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum value. <a href="#a1f8271e028fcfea0f7388b35342ae991">More...</a><br /></td></tr>
-<tr class="separator:a1f8271e028fcfea0f7388b35342ae991 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fb5eac914f9001852776703d6439ec7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../d5/dc3/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_modifier.xhtml">IModifier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a8fb5eac914f9001852776703d6439ec7">Modifiers</a><code> [get]</code></td></tr>
-<tr class="memdesc:a8fb5eac914f9001852776703d6439ec7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">All modifiers on the attribute. There is no check to determine whether they are active or not. <a href="#a8fb5eac914f9001852776703d6439ec7">More...</a><br /></td></tr>
-<tr class="separator:a8fb5eac914f9001852776703d6439ec7 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50027866157dd66f522037fc1f811d92 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a50027866157dd66f522037fc1f811d92">IsModified</a><code> [get]</code></td></tr>
-<tr class="memdesc:a50027866157dd66f522037fc1f811d92 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the attribute is modified by a modifier. <a href="#a50027866157dd66f522037fc1f811d92">More...</a><br /></td></tr>
-<tr class="separator:a50027866157dd66f522037fc1f811d92 inherit properties_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute')"><img src="../../closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml">PrimaryAttribute</a></td></tr>
-<tr class="memitem:a92749b8d4b3ef0c4b1d2a4532db9032e inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a92749b8d4b3ef0c4b1d2a4532db9032e">_name</a></td></tr>
-<tr class="separator:a92749b8d4b3ef0c4b1d2a4532db9032e inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4454c221c6df62dd76ce909ef746e1f1 inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a4454c221c6df62dd76ce909ef746e1f1">_value</a></td></tr>
 <tr class="separator:a4454c221c6df62dd76ce909ef746e1f1 inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7d24610b8c69e4c15835b4d44b88eda inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#ac7d24610b8c69e4c15835b4d44b88eda">_minValue</a></td></tr>
 <tr class="separator:ac7d24610b8c69e4c15835b4d44b88eda inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a816838a8ab65b53d3210a13ecc51619a inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a816838a8ab65b53d3210a13ecc51619a">_maxValue</a></td></tr>
 <tr class="separator:a816838a8ab65b53d3210a13ecc51619a inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute')"><img src="../../closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a></td></tr>
+<tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9 inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a></td></tr>
+<tr class="memdesc:a7ee9065718e6628dc7791b756fa6c0f9 inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the attribute. <a href="#a7ee9065718e6628dc7791b756fa6c0f9">More...</a><br /></td></tr>
+<tr class="separator:a7ee9065718e6628dc7791b756fa6c0f9 inherit pub_attribs_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a697d4eeb85af05a765aaa2dc35e0c623"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a697d4eeb85af05a765aaa2dc35e0c623">_attributes</a></td></tr>
+<tr class="memdesc:a697d4eeb85af05a765aaa2dc35e0c623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storing the used attributes. <a href="#a697d4eeb85af05a765aaa2dc35e0c623">More...</a><br /></td></tr>
+<tr class="separator:a697d4eeb85af05a765aaa2dc35e0c623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e11d37247a9441553fdbef958313c4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad89ebc2011a07f17680a7ee745287122">ValueChangedHandler</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a9e11d37247a9441553fdbef958313c4d">_handlers</a></td></tr>
+<tr class="memdesc:a9e11d37247a9441553fdbef958313c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storing the used handlers. <a href="#a9e11d37247a9441553fdbef958313c4d">More...</a><br /></td></tr>
+<tr class="separator:a9e11d37247a9441553fdbef958313c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:af9a125d3516c8766a9eec7f919a3df75"><td class="memItemLeft" align="right" valign="top">override float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#af9a125d3516c8766a9eec7f919a3df75">BaseValue</a><code> [get, set]</code></td></tr>
+<tr class="separator:af9a125d3516c8766a9eec7f919a3df75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86b01c1fe886db3cca7507d034a9ae4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a86b01c1fe886db3cca7507d034a9ae4d">Attributes</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a86b01c1fe886db3cca7507d034a9ae4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The input Attributes for the Formula have to be updated when they are being changed. This is important for deserialization. <a href="#a86b01c1fe886db3cca7507d034a9ae4d">More...</a><br /></td></tr>
+<tr class="separator:a86b01c1fe886db3cca7507d034a9ae4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td colspan="2" onclick="javascript:toggleInherit('properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml">PrimaryAttribute</a></td></tr>
+<tr class="memitem:af9a125d3516c8766a9eec7f919a3df75 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#af9a125d3516c8766a9eec7f919a3df75">BaseValue</a><code> [get, set]</code></td></tr>
+<tr class="separator:af9a125d3516c8766a9eec7f919a3df75 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a348aa00559525a528ad858cefba804bb inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a348aa00559525a528ad858cefba804bb">Value</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a348aa00559525a528ad858cefba804bb inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The final value with all modifiers applied to it. Setting it sets the BaseValue. <a href="#a348aa00559525a528ad858cefba804bb">More...</a><br /></td></tr>
+<tr class="separator:a348aa00559525a528ad858cefba804bb inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41474cb00dbafc99c91aa41679c2505f inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a41474cb00dbafc99c91aa41679c2505f">MaxValue</a><code> [get, set]</code></td></tr>
+<tr class="separator:a41474cb00dbafc99c91aa41679c2505f inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab02602b732cc13202f5db018d3737782 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#ab02602b732cc13202f5db018d3737782">MinValue</a><code> [get, set]</code></td></tr>
+<tr class="separator:ab02602b732cc13202f5db018d3737782 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fea73c40840cf642b3f8e0d5c1c528a inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override List&lt; <a class="el" href="../../dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml">AttributeModifier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a5fea73c40840cf642b3f8e0d5c1c528a">Modifiers</a><code> [get]</code></td></tr>
+<tr class="separator:a5fea73c40840cf642b3f8e0d5c1c528a inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afebdacb7bb74e1f943b112559c81fc88 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#afebdacb7bb74e1f943b112559c81fc88">IsModified</a><code> [get]</code></td></tr>
+<tr class="separator:afebdacb7bb74e1f943b112559c81fc88 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td colspan="2" onclick="javascript:toggleInherit('properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a></td></tr>
+<tr class="memitem:a4125ea7e3e328f1c5cb9ed01c37b4795 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">abstract float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a4125ea7e3e328f1c5cb9ed01c37b4795">BaseValue</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a4125ea7e3e328f1c5cb9ed01c37b4795 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The unmodified base value. <a href="#a4125ea7e3e328f1c5cb9ed01c37b4795">More...</a><br /></td></tr>
+<tr class="separator:a4125ea7e3e328f1c5cb9ed01c37b4795 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52fe8b185042b5d4a7ff1f7f89c8b2a6 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">abstract float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a52fe8b185042b5d4a7ff1f7f89c8b2a6">Value</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a52fe8b185042b5d4a7ff1f7f89c8b2a6 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual, modified value, still within the min, max range. <a href="#a52fe8b185042b5d4a7ff1f7f89c8b2a6">More...</a><br /></td></tr>
+<tr class="separator:a52fe8b185042b5d4a7ff1f7f89c8b2a6 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6924dac2620d5e917bb4db4e91802f58 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">abstract float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a6924dac2620d5e917bb4db4e91802f58">MaxValue</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a6924dac2620d5e917bb4db4e91802f58 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum value. <a href="#a6924dac2620d5e917bb4db4e91802f58">More...</a><br /></td></tr>
+<tr class="separator:a6924dac2620d5e917bb4db4e91802f58 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d698bf88009fd8c2b5179e9239688f2 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">abstract float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a1d698bf88009fd8c2b5179e9239688f2">MinValue</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a1d698bf88009fd8c2b5179e9239688f2 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum value. <a href="#a1d698bf88009fd8c2b5179e9239688f2">More...</a><br /></td></tr>
+<tr class="separator:a1d698bf88009fd8c2b5179e9239688f2 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b0eb7b9efb85f0bcbdc508aa148168e inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">abstract List&lt; <a class="el" href="../../dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml">AttributeModifier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a8b0eb7b9efb85f0bcbdc508aa148168e">Modifiers</a><code> [get]</code></td></tr>
+<tr class="memdesc:a8b0eb7b9efb85f0bcbdc508aa148168e inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">All modifiers on the attribute. There is no check to determine whether they are active or not. <a href="#a8b0eb7b9efb85f0bcbdc508aa148168e">More...</a><br /></td></tr>
+<tr class="separator:a8b0eb7b9efb85f0bcbdc508aa148168e inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35e791f1c3cf91c7e8e6e49e8631cf87 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">abstract bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a35e791f1c3cf91c7e8e6e49e8631cf87">IsModified</a><code> [get]</code></td></tr>
+<tr class="memdesc:a35e791f1c3cf91c7e8e6e49e8631cf87 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the attribute is modified by a modifier. <a href="#a35e791f1c3cf91c7e8e6e49e8631cf87">More...</a><br /></td></tr>
+<tr class="separator:a35e791f1c3cf91c7e8e6e49e8631cf87 inherit properties_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml">PrimaryAttribute</a></td></tr>
 <tr class="memitem:aa24ace4343b8f74570014ac80b5150cf inherit pro_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa24ace4343b8f74570014ac80b5150cf">ValueChanged</a> (float value)</td></tr>
 <tr class="separator:aa24ace4343b8f74570014ac80b5150cf inherit pro_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,19 +222,19 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:aa64674aff0b295c73235db07565e64ce inherit pro_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa64674aff0b295c73235db07565e64ce">EmitMinReached</a> ()</td></tr>
 <tr class="separator:aa64674aff0b295c73235db07565e64ce inherit pro_methods_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td colspan="2" onclick="javascript:toggleInherit('events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute')"><img src="../../closed.png" alt="-"/>&#160;Events inherited from <a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml">PrimaryAttribute</a></td></tr>
-<tr class="memitem:a570f03fd16322973dad16e219ed0f6ce inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#aef378f23f0766ed281eb7ad8d551b634">ValueChangedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a570f03fd16322973dad16e219ed0f6ce">OnValueChanged</a></td></tr>
-<tr class="separator:a570f03fd16322973dad16e219ed0f6ce inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ea4e0793838b73c13c077de8015283a inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a56a445f9cbed724ff5d39a697c0caa01">MaxReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a5ea4e0793838b73c13c077de8015283a">OnMaxReached</a></td></tr>
-<tr class="separator:a5ea4e0793838b73c13c077de8015283a inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1613d22d444ae8dd4ab764a0b69a83cc inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad2e97a1e7589e4e780518f55ec2770f0">MinReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a1613d22d444ae8dd4ab764a0b69a83cc">OnMinReached</a></td></tr>
-<tr class="separator:a1613d22d444ae8dd4ab764a0b69a83cc inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header events_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td colspan="2" onclick="javascript:toggleInherit('events_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute')"><img src="../../closed.png" alt="-"/>&#160;Events inherited from <a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a></td></tr>
-<tr class="memitem:a570f03fd16322973dad16e219ed0f6ce inherit events_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#aef378f23f0766ed281eb7ad8d551b634">ValueChangedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a570f03fd16322973dad16e219ed0f6ce">OnValueChanged</a></td></tr>
-<tr class="separator:a570f03fd16322973dad16e219ed0f6ce inherit events_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ea4e0793838b73c13c077de8015283a inherit events_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a56a445f9cbed724ff5d39a697c0caa01">MaxReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a5ea4e0793838b73c13c077de8015283a">OnMaxReached</a></td></tr>
-<tr class="separator:a5ea4e0793838b73c13c077de8015283a inherit events_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1613d22d444ae8dd4ab764a0b69a83cc inherit events_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad2e97a1e7589e4e780518f55ec2770f0">MinReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml#a1613d22d444ae8dd4ab764a0b69a83cc">OnMinReached</a></td></tr>
-<tr class="separator:a1613d22d444ae8dd4ab764a0b69a83cc inherit events_interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a237a8fe7ba902d282c243e612e56713e inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad89ebc2011a07f17680a7ee745287122">ValueChangedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a237a8fe7ba902d282c243e612e56713e">OnValueChanged</a></td></tr>
+<tr class="separator:a237a8fe7ba902d282c243e612e56713e inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658ab021f457b1521f8e53c4d0628784 inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a3ed27ada7a8606055c0f232fad9ab94d">MaxReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a658ab021f457b1521f8e53c4d0628784">OnMaxReached</a></td></tr>
+<tr class="separator:a658ab021f457b1521f8e53c4d0628784 inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe3b29e448f27d8c5dafec3437e8866 inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memItemLeft" align="right" valign="top">override <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a1071c3f4ac41863b05308645332ef519">MinReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a9fe3b29e448f27d8c5dafec3437e8866">OnMinReached</a></td></tr>
+<tr class="separator:a9fe3b29e448f27d8c5dafec3437e8866 inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td colspan="2" onclick="javascript:toggleInherit('events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute')"><img src="../../closed.png" alt="-"/>&#160;Events inherited from <a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a></td></tr>
+<tr class="memitem:a17aa860b0477b98a0656495c3d4db0b9 inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad89ebc2011a07f17680a7ee745287122">ValueChangedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a17aa860b0477b98a0656495c3d4db0b9">OnValueChanged</a></td></tr>
+<tr class="separator:a17aa860b0477b98a0656495c3d4db0b9 inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0bc251827a2139be011c96c1d3b4e10 inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a3ed27ada7a8606055c0f232fad9ab94d">MaxReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#af0bc251827a2139be011c96c1d3b4e10">OnMaxReached</a></td></tr>
+<tr class="separator:af0bc251827a2139be011c96c1d3b4e10 inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00000122a76f40a4389958fec621f36c inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a1071c3f4ac41863b05308645332ef519">MinReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a00000122a76f40a4389958fec621f36c">OnMinReached</a></td></tr>
+<tr class="separator:a00000122a76f40a4389958fec621f36c inherit events_class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The Value is calculated through a given formula.</p>
@@ -255,7 +262,7 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a141fb5516976a03471db55927e196b18"></a>
+<a class="anchor" id="ae33a26eee69912fdca177cdea3d44518"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -271,13 +278,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a7503622181cc411c525346278bb9048b">Formula</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#aba7b9b4207ed4358963986b56bec43da">Formula</a>&#160;</td>
           <td class="paramname"><em>formula</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a>[]&#160;</td>
+          <td class="paramtype"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a>[]&#160;</td>
           <td class="paramname"><em>attributes</em>, </td>
         </tr>
         <tr>
@@ -308,14 +315,14 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7503622181cc411c525346278bb9048b"></a>
+<a class="anchor" id="aba7b9b4207ed4358963986b56bec43da"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">delegate float Formula </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a>[]&#160;</td>
+          <td class="paramtype"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a>[]&#160;</td>
           <td class="paramname"><em>attributes</em></td><td>)</td>
           <td></td>
         </tr>
@@ -332,7 +339,7 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a205dcf5fb5fed72fe9abde2cbcac0bdb"></a>
+<a class="anchor" id="ac3d5aea3bf1ad7fea66740bd903c7148"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -342,7 +349,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void ValueOfFormulatAttributeChanged </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a>&#160;</td>
           <td class="paramname"><em>sender</em>, </td>
         </tr>
         <tr>
@@ -370,26 +377,18 @@ Additional Inherited Members</h2></td></tr>
 <a class="anchor" id="ad74940b11425547df6832c4ddf643b3c"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a7503622181cc411c525346278bb9048b">Formula</a> _formula</td>
+          <td class="memname"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#aba7b9b4207ed4358963986b56bec43da">Formula</a> _formula</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Formula to calculate the base value of the attribute. </p>
 
 </div>
 </div>
-<a class="anchor" id="a565ae847b10c49b0fee6a1aa63dbf32c"></a>
+<a class="anchor" id="a697d4eeb85af05a765aaa2dc35e0c623"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -397,7 +396,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d7e/interface_action_rpg_kit_1_1_character_1_1_attribute_1_1_i_attribute.xhtml">IAttribute</a> [] _attributes</td>
+          <td class="memname"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a> [] _attributes</td>
         </tr>
       </table>
   </td>
@@ -407,7 +406,29 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Input attributes for the formula.</p>
+<p>Storing the used attributes.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e11d37247a9441553fdbef958313c4d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad89ebc2011a07f17680a7ee745287122">ValueChangedHandler</a> [] _handlers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Storing the used handlers.</p>
 
 </div>
 </div>
@@ -432,6 +453,28 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a86b01c1fe886db3cca7507d034a9ae4d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a> [] Attributes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The input Attributes for the Formula have to be updated when they are being changed. This is important for deserialization.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Attribute.cs</li>
 </ul>
@@ -441,7 +484,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a></li><li class="navelem"><a class="el" href="../../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml">SecondaryAttribute</a></li>
-    <li class="footer">Generated on Mon Oct 17 2016 06:10:48 for Action RPG Kit by
+    <li class="footer">Generated on Tue Oct 18 2016 06:09:11 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
