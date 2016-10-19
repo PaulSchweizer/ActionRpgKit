@@ -26,6 +26,12 @@ namespace ActionRpgKit.Tests.Item
         }
 
         [Test]
+        public void SerializationTest()
+        {
+
+        }
+
+        [Test]
         public void ItemDatabaseTest()
         {
             ItemDatabase.Items = new BaseItem[] { herb };

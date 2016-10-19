@@ -252,6 +252,10 @@ namespace ActionRpgKit.Tests.Character
         [Test]
         public void SerializationTest()
         {
+            Assert.IsTrue(typeof(PrimaryAttribute).IsSerializable);
+            Assert.IsTrue(typeof(SecondaryAttribute).IsSerializable);
+            Assert.IsTrue(typeof(VolumeAttribute).IsSerializable);
+
             var random = new Random();
 
             // Serialize a PrimaryAttribute

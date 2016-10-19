@@ -41,6 +41,25 @@ namespace ActionRpgKit.Character.Stats
         }
 
         public abstract void Set(BaseStats stats);
+
+        public override string ToString()
+        {
+            string repr = string.Format("--- Primary Attributes ------------\n" +
+                                         "{0}\n{1}\n{2}\n{3}\n" +
+                                         "--- Secondary Attributes ------------\n" +
+                                         "{4}\n{5}\n{6}\n{7}\n{8}\n{9}\n",
+                                         Body.ToString(),
+                                         Mind.ToString(),
+                                         Soul.ToString(),
+                                         Experience.ToString(),
+                                         Level.ToString(),
+                                         Life.ToString(),
+                                         Magic.ToString(),
+                                         MagicRegenerationRate.ToString(),
+                                         AlertnessRange.ToString(),
+                                         AttackRange.ToString());
+            return repr;
+        }
     }
 
     #endregion

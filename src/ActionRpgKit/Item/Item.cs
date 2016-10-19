@@ -7,6 +7,7 @@ namespace ActionRpgKit.Item
 
     /// <summary>
     /// Basic implementation of the IItem.</summary>
+    [Serializable]
     public abstract class BaseItem
     {
         public int Id;

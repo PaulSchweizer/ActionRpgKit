@@ -9,6 +9,7 @@ namespace ActionRpgKit.Character.Skill
 
     /// <summary>
     /// A basic Skill implementation.</summary>
+    [Serializable]
     public abstract class BaseSkill
     {
 
@@ -46,6 +47,7 @@ namespace ActionRpgKit.Character.Skill
 
     /// <summary>
     /// A magic Skill costs magic energy on each use.</summary>
+    [Serializable]
     public abstract class MagicSkill : BaseSkill
     {
         /// <summary>
@@ -77,6 +79,7 @@ namespace ActionRpgKit.Character.Skill
 
     /// <summary>
     /// A Skill to be used as an Attack in Combat.</summary>
+    [Serializable]
     public abstract class CombatSkill : BaseSkill
     {
         /// <summary>

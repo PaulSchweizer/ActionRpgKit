@@ -32,7 +32,7 @@ public class UPlayerCharacterEditor : Editor
         EditorGUILayout.LabelField("Max", EditorStyles.boldLabel, GUILayout.Width(75));
         EditorGUILayout.EndHorizontal();
 
-        foreach (KeyValuePair<string, IAttribute> attr in character.Stats)
+        foreach (KeyValuePair<string, BaseAttribute> attr in character.Stats.Dict)
         {
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField(attr.Key, GUILayout.Width(75));
