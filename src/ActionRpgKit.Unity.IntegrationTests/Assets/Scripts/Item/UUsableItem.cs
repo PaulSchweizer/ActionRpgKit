@@ -4,5 +4,5 @@ using ActionRpgKit.Item;
 
 public class UUsableItem : UItem
 {
-    public UsableItem UsableItem;
+    public new UsableItem Item;
 }

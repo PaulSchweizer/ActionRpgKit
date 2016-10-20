@@ -10,6 +10,11 @@ namespace ActionRpgKit.Character.Attribute
     [Serializable]
     public abstract class BaseAttribute
     {
+
+        public float _value;
+        public float _minValue;
+        public float _maxValue;
+
         /// <summary>
         /// The name of the attribute.</summary>
         public string Name;
@@ -74,10 +79,6 @@ namespace ActionRpgKit.Character.Attribute
         public override event ValueChangedHandler OnValueChanged;
         public override event MaxReachedHandler OnMaxReached;
         public override event MinReachedHandler OnMinReached;
-
-        public float _value;
-        public float _minValue;
-        public float _maxValue;
 
         private List<AttributeModifier> _modifiers = new List<AttributeModifier>();
 

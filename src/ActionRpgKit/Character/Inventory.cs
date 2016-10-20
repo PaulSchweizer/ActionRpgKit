@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using ActionRpgKit.Item;
+using System.Runtime.Serialization;
 
 namespace ActionRpgKit.Character
 {
 
     #region Interfaces
+
     /// <summary>
     /// An inventory holds Items.</summary>
-    public interface IInventory
+    [Serializable]
+    public abstract class IInventory
     {
-        IEnumerable<BaseItem> Items { get; set; }
-        IEnumerable<int> Quantities { get; set; }
-        void AddItem (BaseItem item, int quantity = 1);
-        void RemoveItem (BaseItem item, int quantity = 1);
-        int ItemCount { get; }
-        int GetQuantity (BaseItem item);
+        public abstract IEnumerable<BaseItem> Items { get; set; }
+        public abstract IEnumerable<int> Quantities { get; set; }
+        public abstract void AddItem (BaseItem item, int quantity = 1);
+        public abstract void RemoveItem (BaseItem item, int quantity = 1);
+        public abstract int ItemCount { get; }
+        public abstract int GetQuantity (BaseItem item);
     }
 
     #endregion
@@ -25,6 +28,7 @@ namespace ActionRpgKit.Character
 
     /// <summary>
     /// This inventory holds afixed size array of items.</summary>
+    [Serializable]
     public class SimpleInventory : IInventory
     {
         private BaseItem[] _items;
@@ -38,7 +42,7 @@ namespace ActionRpgKit.Character
             Quantities = quantities;
         }
 
-        public IEnumerable<BaseItem> Items
+        public override IEnumerable<BaseItem> Items
         {
             get
             {
@@ -50,7 +54,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public IEnumerable<int> Quantities
+        public override IEnumerable<int> Quantities
         {
             get
             {
@@ -63,7 +67,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public int ItemCount
+        public override int ItemCount
         {
             get
             {
@@ -71,7 +75,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public int GetQuantity(BaseItem item)
+        public override int GetQuantity(BaseItem item)
         {
             int index = Array.IndexOf(_items, item);
             if (index > -1)
@@ -84,9 +88,9 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void AddItem(BaseItem item, int quantity = 1) { }
+        public override void AddItem(BaseItem item, int quantity = 1) { }
 
-        public void RemoveItem(BaseItem item, int quantity = 1) { }
+        public override void RemoveItem(BaseItem item, int quantity = 1) { }
 
         public override string ToString()
         {
@@ -100,14 +104,26 @@ namespace ActionRpgKit.Character
             }
             return repr;
         }
+
+        [OnDeserialized]
+        public void OnDeserialized(StreamingContext context)
+        {
+            int i = 0;
+            foreach(var item in _items)
+            {
+                _items[i] = ItemDatabase.GetItemById(item.Id);
+                i++;
+            }
+        }
     }
 
     /// <summary>
     /// Inventory allows to add and remove items.</summary>
+    [Serializable]
     public class PlayerInventory : IInventory
     {
-        private List<BaseItem> _items = new List<BaseItem>();
-        private List<int> _quantities = new List<int>();
+        public List<BaseItem> _items = new List<BaseItem>();
+        public List<int> _quantities = new List<int>();
 
         public PlayerInventory() { }
 
@@ -117,7 +133,7 @@ namespace ActionRpgKit.Character
             Quantities = quantities;
         }
 
-        public IEnumerable<BaseItem> Items
+        public override IEnumerable<BaseItem> Items
         {
             get
             {
@@ -129,7 +145,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public IEnumerable<int> Quantities
+        public override IEnumerable<int> Quantities
         {
             get
             {
@@ -142,7 +158,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public int ItemCount
+        public override int ItemCount
         {
             get
             {
@@ -150,7 +166,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public int GetQuantity(BaseItem item)
+        public override int GetQuantity(BaseItem item)
         {
             if (_items.Contains(item))
             {
@@ -162,7 +178,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void AddItem(BaseItem item, int quantity = 1)
+        public override void AddItem(BaseItem item, int quantity = 1)
         {
             if (_items.Contains(item))
             {
@@ -175,7 +191,7 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public void RemoveItem(BaseItem item, int quantity = 1)
+        public override void RemoveItem(BaseItem item, int quantity = 1)
         {
             if (_items.Contains(item))
             {
@@ -209,6 +225,17 @@ namespace ActionRpgKit.Character
                 repr += string.Format("+---------------+----+\n");
             }
             return repr;
+        }
+
+        [OnDeserialized]
+        public void OnDeserialized(StreamingContext context)
+        {
+            int i = 0;
+            foreach (var item in _items.ToList())
+            {
+                _items[i] = ItemDatabase.GetItemById(item.Id);
+                i++;
+            }
         }
     }
 

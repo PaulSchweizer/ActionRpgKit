@@ -37,13 +37,13 @@ public class UItemDatabase : MonoBehaviour
             if (uitem is UUsableItem)
             {
                 var uUsableItem = uitem as UUsableItem;
-                var iItem = uUsableItem.UsableItem as BaseItem;
+                var iItem = uUsableItem.Item as BaseItem;
                 items.Add(iItem);
             }
             else if (uitem is UWeaponItem)
             {
                 var uWeaponItem = uitem as UWeaponItem;
-                var iItem = uWeaponItem.WeaponItem as BaseItem;
+                var iItem = uWeaponItem.Item as BaseItem;
                 items.Add(iItem);
             }
         }

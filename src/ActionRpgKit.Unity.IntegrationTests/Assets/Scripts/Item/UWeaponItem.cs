@@ -4,5 +4,5 @@ using ActionRpgKit.Item;
 
 public class UWeaponItem : UItem
 {
-    public WeaponItem WeaponItem;
+    public new WeaponItem Item;
 }

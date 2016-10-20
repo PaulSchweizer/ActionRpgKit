@@ -12,7 +12,6 @@ namespace ActionRpgKit.Character.Stats
     [Serializable]
     public abstract class BaseStats
     {
-        
         public BaseAttribute Body;
         public BaseAttribute Mind;
         public BaseAttribute Soul;

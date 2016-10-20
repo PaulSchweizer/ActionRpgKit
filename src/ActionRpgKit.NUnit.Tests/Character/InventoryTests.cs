@@ -1,10 +1,12 @@
-﻿using System;
-using NUnit.Framework;
-using ActionRpgKit.Core;
+﻿using NUnit.Framework;
 using ActionRpgKit.Character;
 using ActionRpgKit.Item;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.IO;
+
 
 namespace ActionRpgKit.Tests.Character
 {
@@ -109,6 +111,65 @@ namespace ActionRpgKit.Tests.Character
             playerInventory.Quantities = new List<int>();
             Assert.AreEqual(0, playerInventory.ItemCount);
             Assert.AreEqual(0, simpleInventory.ItemCount);
+        }
+
+        [Test]
+        public void SerializeInventoryTest()
+        {
+            BaseItem herb = ItemDatabase.GetItemByName("Herb");
+            BaseItem coin = ItemDatabase.GetItemByName("Coin");
+            simpleInventory = new SimpleInventory(new BaseItem[] { herb, coin },
+                                                  new int[] { 1, 2 });
+            playerInventory = new PlayerInventory(new BaseItem[] { herb, coin },
+                                                  new int[] { 1, 2});
+
+            // Deserialize
+            BinarySerialize(simpleInventory);
+            var deserializedSimpleInventory = (SimpleInventory)BinaryDeserialize(simpleInventory);
+            TestInventory(simpleInventory, deserializedSimpleInventory);
+            BinarySerialize(playerInventory);
+            var deserializedPlayerInventory = (PlayerInventory)BinaryDeserialize(playerInventory);
+            TestInventory(playerInventory, deserializedPlayerInventory);
+        }
+
+        private void TestInventory(IInventory original, IInventory serialized)
+        { 
+            var items = original.Items.GetEnumerator();
+            var quantities = original.Quantities.GetEnumerator();
+            var serializedItems = serialized.Items.GetEnumerator();
+            var serializedQuantities = serialized.Quantities.GetEnumerator();
+            while (items.MoveNext() && quantities.MoveNext() && 
+                   serializedItems.MoveNext() && serializedQuantities.MoveNext())
+            {
+                Assert.AreSame(items.Current, serializedItems.Current);
+                Assert.AreEqual(quantities.Current, serializedQuantities.Current);
+            }
+        }
+
+        private void BinarySerialize(IInventory inventory)
+        {
+            var serializedFile = Path.GetTempPath() + string.Format("/__InventoryTest__.bin");
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(serializedFile,
+                                           FileMode.Create,
+                                           FileAccess.Write,
+                                           FileShare.None);
+            formatter.Serialize(stream, inventory);
+            stream.Close();
+        }
+
+        private IInventory BinaryDeserialize(IInventory stats)
+        {
+            var serializedFile = Path.GetTempPath() + string.Format("/__InventoryTest__.bin");
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(serializedFile,
+                                    FileMode.Open,
+                                    FileAccess.Read,
+                                    FileShare.Read);
+            IInventory serializedStats = (IInventory)formatter.Deserialize(stream);
+            stream.Close();
+            File.Delete(serializedFile);
+            return serializedStats;
         }
     }
 }
