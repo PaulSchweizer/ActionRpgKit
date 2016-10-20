@@ -14,7 +14,7 @@ var namespace_action_rpg_kit_1_1_character =
     [ "ICharacter", "d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character.xhtml", "d2/df8/interface_action_rpg_kit_1_1_character_1_1_i_character" ],
     [ "IdleState", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state" ],
     [ "IFighter", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter" ],
-    [ "IInventory", "d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml", "d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory" ],
+    [ "IInventory", "d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml", "d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory" ],
     [ "IMagicUser", "dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml", "dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user" ],
     [ "IState", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state" ],
     [ "Player", "d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml", "d7/dd8/class_action_rpg_kit_1_1_character_1_1_player" ],

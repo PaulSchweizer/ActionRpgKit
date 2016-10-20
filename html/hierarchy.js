@@ -43,7 +43,7 @@ var hierarchy =
     [ "IGameObject", "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml", [
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
     ] ],
-    [ "IInventory", "d4/d07/interface_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml", [
+    [ "IInventory", "d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml", [
       [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", null ],
       [ "SimpleInventory", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml", null ]
     ] ],
