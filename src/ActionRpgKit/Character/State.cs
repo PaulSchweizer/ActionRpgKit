@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace ActionRpgKit.Character
 {
 
@@ -27,6 +28,7 @@ namespace ActionRpgKit.Character
 
     /// <summary>
     /// The initial State of a Character.</summary>
+    [Serializable]
     public class IdleState : IState
     {
         public void EnterState(BaseCharacter character) { }
@@ -42,6 +44,7 @@ namespace ActionRpgKit.Character
         }
     }
 
+    [Serializable]
     public class AlertState : IState
     {
         public void EnterState(BaseCharacter character) { }
@@ -63,6 +66,7 @@ namespace ActionRpgKit.Character
         }
     }
 
+    [Serializable]
     public class ChaseState : IState
     {
         public void EnterState(BaseCharacter character) { }
@@ -91,6 +95,7 @@ namespace ActionRpgKit.Character
         }
     }
 
+    [Serializable]
     public class AttackState : IState
     {
         public void EnterState(BaseCharacter character) { }
@@ -120,7 +125,8 @@ namespace ActionRpgKit.Character
             }
         }
     }
-    
+
+    [Serializable]
     public class DyingState : IState
     {
         public void EnterState(BaseCharacter character) { }

@@ -180,6 +180,7 @@ namespace ActionRpgKit.Character
 
     /// <summary>
     /// Base implementation of a Character.</summary>
+    [Serializable]
     public abstract class BaseCharacter : IGameObject, ICharacter, IMagicUser, IFighter
     {
         /// <summary>
@@ -204,10 +205,15 @@ namespace ActionRpgKit.Character
         public event CombatSkillLearnedHandler OnCombatSkillLearned;
         public event CombatSkillTriggeredHandler OnCombatSkillTriggered;
 
+        [NonSerialized]
         public IdleState _idleState;
+        [NonSerialized]
         public AlertState _alertState;
+        [NonSerialized]
         public ChaseState _chaseState;
+        [NonSerialized]
         public AttackState _attackState;
+        [NonSerialized]
         public DyingState _dyingState;
 
         private List<MagicSkill> _magicSkills = new List<MagicSkill>();
@@ -216,6 +222,8 @@ namespace ActionRpgKit.Character
         private List<IFighter> _enemies = new List<IFighter>();
         private List<CombatSkill> _combatSkills = new List<CombatSkill>();
         private List<float> _combatSkillEndTimes = new List<float>();
+
+        public BaseCharacter() { }
 
         public BaseCharacter(BaseStats stats, IInventory inventory)
         {
@@ -628,11 +636,15 @@ namespace ActionRpgKit.Character
     public class Player : BaseCharacter
     {
 
-        public Player() : base(new PlayerStats(), new PlayerInventory()) { }
+        public Player() : base(new PlayerStats(), new PlayerInventory())
+        {
+            Inventory.Items = new List<BaseItem>();
+        }
 
         public Player(string name) : base(new PlayerStats(), new PlayerInventory())
         {
             Name = name;
+            Inventory.Items = new List<BaseItem>();
         }
     }
 

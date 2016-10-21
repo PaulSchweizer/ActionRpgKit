@@ -4,6 +4,9 @@ using ActionRpgKit.Core;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Item;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.IO;
 
 namespace ActionRpgKit.Tests.Character
 {
@@ -25,8 +28,8 @@ namespace ActionRpgKit.Tests.Character
         [SetUp]
         public void RunBeforeAnyTests()
         {
-            player = new Player();
-            enemy = new Enemy();
+            player = new Player("Player");
+            enemy = new Enemy("Enemy");
             meleeSkill = new GenericCombatSkill(id: 1,
                             name: "SwordFighting",
                             description: "Wield a sword effectively.",
@@ -188,6 +191,59 @@ namespace ActionRpgKit.Tests.Character
             Assert.IsTrue(player.CurrentState is AlertState);
             player.Update();
             Assert.IsTrue(player.CurrentState is IdleState);
+        }
+
+        [Test]
+        public void SerializeCharacterTest()
+        {
+            player.Position.Set(6, 6);
+            BinarySerialize(player);
+            var serializedPlayer = BinaryDeserialize(player);
+
+            // Check the deserialized values
+            Assert.AreEqual(player.Name, serializedPlayer.Name);
+            Assert.AreEqual(player.Position.ToString(), serializedPlayer.Position.ToString());
+            Assert.AreEqual(player.Stats.ToString(), serializedPlayer.Stats.ToString());
+            Assert.AreEqual(player.Inventory.ToString(), serializedPlayer.Inventory.ToString());
+            Assert.AreEqual(player.ToString(), serializedPlayer.ToString());
+
+            enemy.Position.Set(6, 6);
+            BinarySerialize(enemy);
+            var serializedEnemy = BinaryDeserialize(enemy);
+
+            // Check the deserialized values
+            Assert.AreEqual(enemy.Name, serializedEnemy.Name);
+            Assert.AreEqual(enemy.Position.ToString(), serializedEnemy.Position.ToString());
+            Assert.AreEqual(enemy.Stats.ToString(), serializedEnemy.Stats.ToString());
+            Assert.AreEqual(enemy.Inventory.ToString(), serializedEnemy.Inventory.ToString());
+            Assert.AreEqual(enemy.ToString(), serializedEnemy.ToString());
+        }
+
+        private void BinarySerialize(BaseCharacter character)
+        {
+            var serializedFile = Path.GetTempPath() + string.Format("/__CharacterTests__{0}.bin", character.Name);
+            Console.WriteLine(serializedFile);
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(serializedFile,
+                                           FileMode.Create,
+                                           FileAccess.Write,
+                                           FileShare.None);
+            formatter.Serialize(stream, character);
+            stream.Close();
+        }
+
+        private BaseCharacter BinaryDeserialize(BaseCharacter character)
+        {
+            var serializedFile = Path.GetTempPath() + string.Format("/__CharacterTests__{0}.bin", character.Name);
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(serializedFile,
+                                           FileMode.Open,
+                                           FileAccess.Read,
+                                           FileShare.Read);
+            BaseCharacter serializedCharacter = (BaseCharacter)formatter.Deserialize(stream);
+            stream.Close();
+            File.Delete(serializedFile);
+            return serializedCharacter;
         }
 
         [Test]

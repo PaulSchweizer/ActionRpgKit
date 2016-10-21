@@ -41,11 +41,14 @@ public class UPlayerCharacter : UBaseCharacter, ISerializationCallbackReceiver
         i = 0;
         while (items.MoveNext() && quantities.MoveNext())
         {
-            Debug.Log(items.Current);
-            _serializedInventoryItems[i] = items.Current.Id;
-            _serializedInventoryQuantities[i] = quantities.Current;
+            //_serializedInventoryItems[i] = items.Current.Id;
+            //_serializedInventoryQuantities[i] = quantities.Current;
+            Debug.Log(i);
             i++;
         }
+
+        Debug.Log(Character.Stats.ToString());
+        Debug.Log(Character.Inventory.ToString());
     }
 
     /// <summary>
@@ -59,7 +62,14 @@ public class UPlayerCharacter : UBaseCharacter, ISerializationCallbackReceiver
             i++;
         }
 
-        for(i = 0; i < _serializedInventoryItems.Length; i++)
+        Character.Inventory = new PlayerInventory();
+
+        var db = (UItemDatabase)AssetDatabase.LoadMainAssetAtPath("Assets/Data/ItemDatabase.asset");
+        db.InitDatabase();
+
+        Character.Inventory.AddItem(ItemDatabase.GetItemById(0));
+
+        for (i = 0; i < _serializedInventoryItems.Length; i++)
         {
             Character.Inventory.AddItem(ItemDatabase.GetItemById(_serializedInventoryItems[i]),
                                         _serializedInventoryQuantities[i]);

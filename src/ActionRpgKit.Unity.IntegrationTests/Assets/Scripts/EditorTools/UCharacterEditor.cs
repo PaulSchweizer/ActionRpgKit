@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using ActionRpgKit.Character.Attribute;
 using ActionRpgKit.Character.Stats;
 using ActionRpgKit.Character;
+using ActionRpgKit.Item;
 
 /// <summary>
 /// Editor for UsableItems.</summary>
@@ -36,7 +37,9 @@ public class UPlayerCharacterEditor : Editor
         var uPlayerCharacter = (UPlayerCharacter)target;
         var character = uPlayerCharacter.Character;
 
-        // Draw the fields of the Skill 
+        #region Stats
+
+        // Basic fields of the Character
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField(string.Format("{0} {1}", character.Id, character.Name), EditorStyles.boldLabel);
         EditorGUILayout.EndHorizontal();
@@ -59,7 +62,12 @@ public class UPlayerCharacterEditor : Editor
             EditorGUILayout.EndHorizontal();
         }
 
+        #endregion
+
         #region Inventory
+
+        var db = (UItemDatabase)AssetDatabase.LoadMainAssetAtPath("Assets/Data/ItemDatabase.asset");
+        db.InitDatabase();
 
         // Inventory
         EditorGUILayout.LabelField("Inventory", EditorStyles.boldLabel);
@@ -69,23 +77,22 @@ public class UPlayerCharacterEditor : Editor
 
         // Get all Items from the Directory
         EditorGUILayout.BeginHorizontal("box");
-        var levelDirectoryPath = new DirectoryInfo(Application.dataPath + "/Data/Items");
-        FileInfo[] assets = levelDirectoryPath.GetFiles("*.asset", SearchOption.AllDirectories);
-        foreach (FileInfo asset in assets)
+
+        foreach (var item in ItemDatabase.Items)
         {
-            var item = (UItem)AssetDatabase.LoadMainAssetAtPath("Assets/Data/Items/" + asset.Name);
-            items.Add(item);
-            names.Add(item.ToString());
+            names.Add(item.Name.ToString());
         }
+
         row = EditorGUILayout.Popup(row, names.ToArray());
         _quantity = EditorGUILayout.IntField(_quantity);
 
         if (GUILayout.Button("+"))
         {
-            character.Inventory.AddItem(items[row].Item, _quantity);
-            //EditorUtility.SetDirty(character.Inventory);
+            character.Inventory.AddItem(db.Items[row].Item, _quantity);
         }
         EditorGUILayout.EndHorizontal();
+
+        return;
 
         // Show all the items
         _showItems = EditorGUILayout.Foldout(_showItems, character.Inventory.ItemCount + " Items");

@@ -1,8 +1,10 @@
-﻿
+﻿using System;
+
 namespace ActionRpgKit.Core
 {
     /// <summary>
     /// A 2D position in world space.</summary>
+    [Serializable]
     public class Position
     {
         /// <summary>

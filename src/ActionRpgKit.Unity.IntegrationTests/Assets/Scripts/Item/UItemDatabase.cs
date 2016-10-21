@@ -5,31 +5,15 @@ using System.Collections.Generic;
 using ActionRpgKit.Item;
 using System.IO;
 
-public class UItemDatabase : MonoBehaviour
+[CreateAssetMenu(fileName = "ItemDatabase", menuName = "ActionRpgKit/Create Item Database")]
+public class UItemDatabase : ScriptableObject
 {
-    public static UItemDatabase Instance;
+    [SerializeField]
     public UItem[] Items;
 
     /// <summary>
-    /// Singleton pattern and initializing the ActionRpgKit.ItemDatabase.</summary>
-    protected void Awake()
-    {
-        if (Instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            Instance = this;
-        }
-        else if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
-
-        InitDatabase();
-    }
-
-    /// <summary>
     /// Get all Items and set them to the ActionRpgKit ItemDatabase.</summary>
-    private void InitDatabase()
+    public void InitDatabase()
     {
         List<BaseItem> items = new List<BaseItem>();
         foreach (UItem uitem in Items)
