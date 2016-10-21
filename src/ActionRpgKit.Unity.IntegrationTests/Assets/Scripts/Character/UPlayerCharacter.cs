@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Attribute;
@@ -63,9 +64,6 @@ public class UPlayerCharacter : UBaseCharacter, ISerializationCallbackReceiver
         }
 
         Character.Inventory = new PlayerInventory();
-
-        var db = (UItemDatabase)AssetDatabase.LoadMainAssetAtPath("Assets/Data/ItemDatabase.asset");
-        db.InitDatabase();
 
         Character.Inventory.AddItem(ItemDatabase.GetItemById(0));
 
