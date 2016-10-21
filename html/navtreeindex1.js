@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a43375ef23c333f5029d57863cf436257":[1,0,0,0,16,2],
 "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070":[1,0,0,0,16,0],
 "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#aa4ef50600d70685a523d3e86c054ad02":[1,0,0,0,16,1],
 "db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml":[1,0,0,0,0,4],
@@ -110,8 +111,8 @@ var NAVTREEINDEX1 =
 "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml#aec0783b5a136e042adcc47bae4fe5291":[1,0,0,1,1,0],
 "de/d84/namespace_action_rpg_kit_1_1_character.xhtml":[1,0,0,0],
 "de/d84/namespace_action_rpg_kit_1_1_character.xhtml":[0,0,0,0],
-"de/de6/namespace_action_rpg_kit_1_1_story.xhtml":[0,0,0,3],
 "de/de6/namespace_action_rpg_kit_1_1_story.xhtml":[1,0,0,3],
+"de/de6/namespace_action_rpg_kit_1_1_story.xhtml":[0,0,0,3],
 "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml":[1,0,0,0,19],
 "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a4e33a2191372b2eb10d3c771c5b6f8a0":[1,0,0,0,19,2],
 "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a7d871402f02799e39bc5f1b2aeb14da9":[1,0,0,0,19,9],
@@ -129,8 +130,8 @@ var NAVTREEINDEX1 =
 "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a43375ef23c333f5029d57863cf436257":[1,0,0,0,3,2],
 "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070":[1,0,0,0,3,0],
 "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#aa4ef50600d70685a523d3e86c054ad02":[1,0,0,0,3,1],
-"df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml":[0,0,0,0,1],
 "df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml":[1,0,0,0,1],
+"df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml":[0,0,0,0,1],
 "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml":[1,0,0,0,0,3],
 "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a697d4eeb85af05a765aaa2dc35e0c623":[1,0,0,0,0,3,5],
 "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a86b01c1fe886db3cca7507d034a9ae4d":[1,0,0,0,0,3,8],
