@@ -72,32 +72,30 @@ public class UPlayerCharacterEditor : Editor
         // Inventory
         EditorGUILayout.LabelField("Inventory", EditorStyles.boldLabel);
 
-        var items = new List<UItem>();
-        var names = new List<string>();
-
-        // Get all Items from the Directory
-        EditorGUILayout.BeginHorizontal("box");
-
-        foreach (var item in ItemDatabase.Items)
-        {
-            names.Add(item.Name.ToString());
-        }
-
-        row = EditorGUILayout.Popup(row, names.ToArray());
-        _quantity = EditorGUILayout.IntField(_quantity);
-
-        if (GUILayout.Button("+"))
-        {
-            character.Inventory.AddItem(db.Items[row].Item, _quantity);
-        }
-        EditorGUILayout.EndHorizontal();
-
-        return;
-
         // Show all the items
         _showItems = EditorGUILayout.Foldout(_showItems, character.Inventory.ItemCount + " Items");
         if (_showItems)
         {
+            var items = new List<UItem>();
+            var names = new List<string>();
+
+            // Get all Items from the Directory
+            EditorGUILayout.BeginHorizontal("box");
+
+            foreach (var item in ItemDatabase.Items)
+            {
+                names.Add(item.Name.ToString());
+            }
+
+            row = EditorGUILayout.Popup(row, names.ToArray());
+            _quantity = EditorGUILayout.IntField(_quantity);
+
+            if (GUILayout.Button("+"))
+            {
+                character.Inventory.AddItem(row, _quantity);
+            }
+            EditorGUILayout.EndHorizontal();
+
             DrawInventory(character.Inventory);
         }
 
@@ -114,7 +112,7 @@ public class UPlayerCharacterEditor : Editor
         while (items.MoveNext() && quantities.MoveNext())
         {
             EditorGUILayout.BeginHorizontal("box");
-            string displayRow = items.Current.Name + "\tx " + quantities.Current;
+            string displayRow = items.Current + "\tx " + quantities.Current;
             EditorGUILayout.LabelField(displayRow);
 
             if (GUILayout.Button("+"))
@@ -134,6 +132,7 @@ public class UPlayerCharacterEditor : Editor
                 inventory.RemoveItem(items.Current, quantities.Current);
                 //EditorUtility.SetDirty(inventory);
                 EditorGUILayout.EndHorizontal();
+                break;
             }
             else
             {

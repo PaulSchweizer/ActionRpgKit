@@ -58,7 +58,7 @@ namespace ActionRpgKit.Tests.Character
             sword.Damage = 1;
             sword.Speed = 1;
             sword.Range = 1;
-            player.Inventory.AddItem(sword);
+            player.Inventory.AddItem(sword.Id);
             player.EquippedWeapon = sword;
         }
 

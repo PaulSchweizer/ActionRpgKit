@@ -27,7 +27,7 @@ namespace ActionRpgKit.Tests.Character
             // Initialize the EnemyFactory
             EnemyStats zombieStats = new EnemyStats();
             EnemyFactory.AddEnemyType("Zombie", zombieStats,
-                                      new SimpleInventory(new BaseItem[] { item }, 
+                                      new SimpleInventory(new int[] { item.Id }, 
                                                           new int[] {1}));
         }
         

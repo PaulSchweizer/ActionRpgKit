@@ -14,12 +14,12 @@ namespace ActionRpgKit.Character
     [Serializable]
     public abstract class IInventory
     {
-        public abstract IEnumerable<BaseItem> Items { get; set; }
+        public abstract IEnumerable<int> Items { get; set; }
         public abstract IEnumerable<int> Quantities { get; set; }
-        public abstract void AddItem (BaseItem item, int quantity = 1);
-        public abstract void RemoveItem (BaseItem item, int quantity = 1);
+        public abstract void AddItem (int itemId, int quantity = 1);
+        public abstract void RemoveItem (int itemId, int quantity = 1);
         public abstract int ItemCount { get; }
-        public abstract int GetQuantity (BaseItem item);
+        public abstract int GetQuantity (int itemId);
     }
 
     #endregion
@@ -31,18 +31,18 @@ namespace ActionRpgKit.Character
     [Serializable]
     public class SimpleInventory : IInventory
     {
-        private BaseItem[] _items;
+        private int[] _items;
         private int[] _quantities;
 
         public SimpleInventory() { }
 
-        public SimpleInventory(BaseItem[] items, int[] quantities)
+        public SimpleInventory(int[] items, int[] quantities)
         {
             Items = items;
             Quantities = quantities;
         }
 
-        public override IEnumerable<BaseItem> Items
+        public override IEnumerable<int> Items
         {
             get
             {
@@ -75,9 +75,9 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public override int GetQuantity(BaseItem item)
+        public override int GetQuantity(int itemId)
         {
-            int index = Array.IndexOf(_items, item);
+            int index = Array.IndexOf(_items, itemId);
             if (index > -1)
             {
                 return _quantities[index];
@@ -88,9 +88,9 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public override void AddItem(BaseItem item, int quantity = 1) { }
+        public override void AddItem(int itemId, int quantity = 1) { }
 
-        public override void RemoveItem(BaseItem item, int quantity = 1) { }
+        public override void RemoveItem(int itemId, int quantity = 1) { }
 
         public override string ToString()
         {
@@ -99,21 +99,10 @@ namespace ActionRpgKit.Character
             for (int i = 0; i < ItemCount; i++)
             {
                 repr += string.Format("|{0, -15}|{1, 4:D4}|\n",
-                                      _items[i].Name, _quantities[i]);
+                                      _items[i], _quantities[i]);
                 repr += string.Format("+---------------+----+\n");
             }
             return repr;
-        }
-
-        [OnDeserialized]
-        public void OnDeserialized(StreamingContext context)
-        {
-            int i = 0;
-            foreach(var item in _items)
-            {
-                _items[i] = ItemDatabase.GetItemById(item.Id);
-                i++;
-            }
         }
     }
 
@@ -122,18 +111,18 @@ namespace ActionRpgKit.Character
     [Serializable]
     public class PlayerInventory : IInventory
     {
-        public List<BaseItem> _items = new List<BaseItem>();
+        public List<int> _items = new List<int>();
         public List<int> _quantities = new List<int>();
 
         public PlayerInventory() { }
 
-        public PlayerInventory(BaseItem[] items, int[] quantities)
+        public PlayerInventory(int[] items, int[] quantities)
         {
             Items = items;
             Quantities = quantities;
         }
 
-        public override IEnumerable<BaseItem> Items
+        public override IEnumerable<int> Items
         {
             get
             {
@@ -141,7 +130,7 @@ namespace ActionRpgKit.Character
             }
             set
             {
-                _items = value.ToList<BaseItem>();
+                _items = value.ToList<int>();
             }
         }
 
@@ -166,11 +155,11 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public override int GetQuantity(BaseItem item)
+        public override int GetQuantity(int itemId)
         {
-            if (_items.Contains(item))
+            if (_items.Contains(itemId))
             {
-                return _quantities[_items.IndexOf(item)];
+                return _quantities[_items.IndexOf(itemId)];
             }
             else
             {
@@ -178,28 +167,28 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public override void AddItem(BaseItem item, int quantity = 1)
+        public override void AddItem(int itemId, int quantity = 1)
         {
-            if (_items.Contains(item))
+            if (_items.Contains(itemId))
             {
-                _quantities[_items.IndexOf(item)] += quantity;
+                _quantities[_items.IndexOf(itemId)] += quantity;
             }
             else
             {
-                _items.Add(item);
+                _items.Add(itemId);
                 _quantities.Add(quantity);
             }
         }
 
-        public override void RemoveItem(BaseItem item, int quantity = 1)
+        public override void RemoveItem(int itemId, int quantity = 1)
         {
-            if (_items.Contains(item))
+            if (_items.Contains(itemId))
             {
-                _quantities[_items.IndexOf(item)] -= quantity;
-                if (_quantities[_items.IndexOf(item)] < 1)
+                _quantities[_items.IndexOf(itemId)] -= quantity;
+                if (_quantities[_items.IndexOf(itemId)] < 1)
                 {
-                    _quantities.RemoveAt(_items.IndexOf(item));
-                    _items.Remove(item);
+                    _quantities.RemoveAt(_items.IndexOf(itemId));
+                    _items.Remove(itemId);
                 }
             }
         }
@@ -221,21 +210,10 @@ namespace ActionRpgKit.Character
             for (int i=0; i < ItemCount; i++)
             {
                 repr += string.Format("|{0, -15}|{1, 4:D4}|\n", 
-                                      _items[i].Name, _quantities[i]);
+                                      _items[i], _quantities[i]);
                 repr += string.Format("+---------------+----+\n");
             }
             return repr;
-        }
-
-        [OnDeserialized]
-        public void OnDeserialized(StreamingContext context)
-        {
-            int i = 0;
-            foreach (var item in _items.ToList())
-            {
-                _items[i] = ItemDatabase.GetItemById(item.Id);
-                i++;
-            }
         }
     }
 

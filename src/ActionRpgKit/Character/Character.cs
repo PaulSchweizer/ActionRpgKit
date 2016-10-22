@@ -638,13 +638,13 @@ namespace ActionRpgKit.Character
 
         public Player() : base(new PlayerStats(), new PlayerInventory())
         {
-            Inventory.Items = new List<BaseItem>();
+            Inventory.Items = new List<int>();
         }
 
         public Player(string name) : base(new PlayerStats(), new PlayerInventory())
         {
             Name = name;
-            Inventory.Items = new List<BaseItem>();
+            Inventory.Items = new List<int>();
         }
     }
 
@@ -656,13 +656,13 @@ namespace ActionRpgKit.Character
 
         public Enemy() : base(new EnemyStats(), new SimpleInventory())
         {
-            Inventory.Items = new BaseItem[] { };
+            Inventory.Items = new int[] { };
         }
 
         public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
         {
             Name = name;
-            Inventory.Items = new BaseItem[] { };
+            Inventory.Items = new int[] { };
         }
     }
 

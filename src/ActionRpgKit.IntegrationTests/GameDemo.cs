@@ -119,7 +119,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
         private void GatherHerbs()
         {
             LogToFile("*Player runs around and gathers the 10 herbs*");
-            MainController.Player.Inventory.AddItem(ItemDatabase.GetItemByName("Herb"), 10);
+            MainController.Player.Inventory.AddItem(ItemDatabase.GetItemByName("Herb").Id, 10);
             LogToFile(MainController.Player.ToString());
         }
 
