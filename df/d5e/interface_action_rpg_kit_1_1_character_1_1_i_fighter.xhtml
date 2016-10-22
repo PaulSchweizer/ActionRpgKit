@@ -134,12 +134,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af286256bac45cb4f84818931177c0feb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#af286256bac45cb4f84818931177c0feb">Attack</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
 <tr class="memdesc:af286256bac45cb4f84818931177c0feb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attack the given <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a>. <a href="#af286256bac45cb4f84818931177c0feb">More...</a><br /></td></tr>
 <tr class="separator:af286256bac45cb4f84818931177c0feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac35e1ee867566d5634795c164d267d1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ac35e1ee867566d5634795c164d267d1e">LearnCombatSkill</a> (<a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a> combatSkill)</td></tr>
-<tr class="memdesc:ac35e1ee867566d5634795c164d267d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new CombatSkill. <a href="#ac35e1ee867566d5634795c164d267d1e">More...</a><br /></td></tr>
-<tr class="separator:ac35e1ee867566d5634795c164d267d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b2d5483037f9c09f28214a01346e6e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a0b2d5483037f9c09f28214a01346e6e1">TriggerCombatSkill</a> (<a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a> combatSkill)</td></tr>
-<tr class="memdesc:a0b2d5483037f9c09f28214a01346e6e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attack with the given CombatSkill. <a href="#a0b2d5483037f9c09f28214a01346e6e1">More...</a><br /></td></tr>
-<tr class="separator:a0b2d5483037f9c09f28214a01346e6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06dbce2d7075f15c02271269f2a1eafb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a06dbce2d7075f15c02271269f2a1eafb">LearnCombatSkill</a> (int skillId)</td></tr>
+<tr class="memdesc:a06dbce2d7075f15c02271269f2a1eafb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new CombatSkill. <a href="#a06dbce2d7075f15c02271269f2a1eafb">More...</a><br /></td></tr>
+<tr class="separator:a06dbce2d7075f15c02271269f2a1eafb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f3356934a6552c48ecb589b77e6f4be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a0f3356934a6552c48ecb589b77e6f4be">TriggerCombatSkill</a> (int skillId)</td></tr>
+<tr class="memdesc:a0f3356934a6552c48ecb589b77e6f4be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attack with the given CombatSkill. <a href="#a0f3356934a6552c48ecb589b77e6f4be">More...</a><br /></td></tr>
+<tr class="separator:a0f3356934a6552c48ecb589b77e6f4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe0130a66c72c58cb2bc272a46298d71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#afe0130a66c72c58cb2bc272a46298d71">OnAttacked</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> attacker, float damage)</td></tr>
 <tr class="memdesc:afe0130a66c72c58cb2bc272a46298d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fighter is being attacked. <a href="#afe0130a66c72c58cb2bc272a46298d71">More...</a><br /></td></tr>
 <tr class="separator:afe0130a66c72c58cb2bc272a46298d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,22 +164,22 @@ Properties</h2></td></tr>
 <tr class="memitem:a7874a66111d3279e62e10777c6639ee1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7874a66111d3279e62e10777c6639ee1">TimeUntilNextAttack</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a7874a66111d3279e62e10777c6639ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A timestamp representing the next possible moment for an attack. <a href="#a7874a66111d3279e62e10777c6639ee1">More...</a><br /></td></tr>
 <tr class="separator:a7874a66111d3279e62e10777c6639ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99950392ddc37b9062a92cf5cb8b62ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a99950392ddc37b9062a92cf5cb8b62ea">CurrentAttackSkill</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a99950392ddc37b9062a92cf5cb8b62ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> that is to be used for an Attack. <a href="#a99950392ddc37b9062a92cf5cb8b62ea">More...</a><br /></td></tr>
-<tr class="separator:a99950392ddc37b9062a92cf5cb8b62ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a830f357c64b5ffdade790876858597d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml">WeaponItem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a830f357c64b5ffdade790876858597d2">EquippedWeapon</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a830f357c64b5ffdade790876858597d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The currently equipped Weapon. <a href="#a830f357c64b5ffdade790876858597d2">More...</a><br /></td></tr>
-<tr class="separator:a830f357c64b5ffdade790876858597d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4386134cef288b1cc1b2f8d9740a78bb"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a4386134cef288b1cc1b2f8d9740a78bb">CombatSkills</a><code> [get]</code></td></tr>
-<tr class="memdesc:a4386134cef288b1cc1b2f8d9740a78bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">CombatSkills available for this <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>. <a href="#a4386134cef288b1cc1b2f8d9740a78bb">More...</a><br /></td></tr>
-<tr class="separator:a4386134cef288b1cc1b2f8d9740a78bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67cd368b5059f35e9c2dcc7410de7181"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a67cd368b5059f35e9c2dcc7410de7181">CurrentAttackSkill</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a67cd368b5059f35e9c2dcc7410de7181"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> that is to be used for an Attack. <a href="#a67cd368b5059f35e9c2dcc7410de7181">More...</a><br /></td></tr>
+<tr class="separator:a67cd368b5059f35e9c2dcc7410de7181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c6296d3ea4af57473f102c58917bdb4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7c6296d3ea4af57473f102c58917bdb4">EquippedWeapon</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a7c6296d3ea4af57473f102c58917bdb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The currently equipped Weapon. <a href="#a7c6296d3ea4af57473f102c58917bdb4">More...</a><br /></td></tr>
+<tr class="separator:a7c6296d3ea4af57473f102c58917bdb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0625bd243a067628a327258e85221c28"><td class="memItemLeft" align="right" valign="top">List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a0625bd243a067628a327258e85221c28">CombatSkills</a><code> [get]</code></td></tr>
+<tr class="memdesc:a0625bd243a067628a327258e85221c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">CombatSkills available for this <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>. <a href="#a0625bd243a067628a327258e85221c28">More...</a><br /></td></tr>
+<tr class="separator:a0625bd243a067628a327258e85221c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
 Events</h2></td></tr>
-<tr class="memitem:ab14281ebd03b9554c72a19c118bf6cf1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a85a42cc79b5d5b77a51c56b56ace919e">CombatSkillLearnedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ab14281ebd03b9554c72a19c118bf6cf1">OnCombatSkillLearned</a></td></tr>
+<tr class="memitem:ab14281ebd03b9554c72a19c118bf6cf1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a286c1e10fb7ad2076b8d5c832fbb2244">CombatSkillLearnedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ab14281ebd03b9554c72a19c118bf6cf1">OnCombatSkillLearned</a></td></tr>
 <tr class="memdesc:ab14281ebd03b9554c72a19c118bf6cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event is fired when a new CombatSkill is learned. <a href="#ab14281ebd03b9554c72a19c118bf6cf1">More...</a><br /></td></tr>
 <tr class="separator:ab14281ebd03b9554c72a19c118bf6cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a5b5d1ca4780725c36e250331f5b81f19">CombatSkillTriggeredHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ac3d928e18c4c7f70f38ad9fb15f18319">OnCombatSkillTriggered</a></td></tr>
+<tr class="memitem:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af6ac5746b186f54ce87b4a7a02e3b45e">CombatSkillTriggeredHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ac3d928e18c4c7f70f38ad9fb15f18319">OnCombatSkillTriggered</a></td></tr>
 <tr class="memdesc:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event is fired when an iCombatSkill is triggered. <a href="#ac3d928e18c4c7f70f38ad9fb15f18319">More...</a><br /></td></tr>
 <tr class="separator:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -314,15 +314,15 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac35e1ee867566d5634795c164d267d1e"></a>
+<a class="anchor" id="a06dbce2d7075f15c02271269f2a1eafb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void LearnCombatSkill </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a>&#160;</td>
-          <td class="paramname"><em>combatSkill</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>skillId</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -330,19 +330,19 @@ Events</h2></td></tr>
 
 <p>Add a new CombatSkill.</p>
 
-<p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ac35e1ee867566d5634795c164d267d1e">BaseCharacter</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a06dbce2d7075f15c02271269f2a1eafb">BaseCharacter</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a0b2d5483037f9c09f28214a01346e6e1"></a>
+<a class="anchor" id="a0f3356934a6552c48ecb589b77e6f4be"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool TriggerCombatSkill </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a>&#160;</td>
-          <td class="paramname"><em>combatSkill</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>skillId</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -350,7 +350,7 @@ Events</h2></td></tr>
 
 <p>Attack with the given CombatSkill.</p>
 
-<p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0b2d5483037f9c09f28214a01346e6e1">BaseCharacter</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0f3356934a6552c48ecb589b77e6f4be">BaseCharacter</a>.</p>
 
 </div>
 </div>
@@ -517,7 +517,7 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a99950392ddc37b9062a92cf5cb8b62ea"></a>
+<a class="anchor" id="a67cd368b5059f35e9c2dcc7410de7181"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -525,7 +525,7 @@ Events</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a> CurrentAttackSkill</td>
+          <td class="memname">int CurrentAttackSkill</td>
         </tr>
       </table>
   </td>
@@ -539,7 +539,7 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a830f357c64b5ffdade790876858597d2"></a>
+<a class="anchor" id="a7c6296d3ea4af57473f102c58917bdb4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -547,7 +547,7 @@ Events</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml">WeaponItem</a> EquippedWeapon</td>
+          <td class="memname">int EquippedWeapon</td>
         </tr>
       </table>
   </td>
@@ -561,7 +561,7 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4386134cef288b1cc1b2f8d9740a78bb"></a>
+<a class="anchor" id="a0625bd243a067628a327258e85221c28"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -569,7 +569,7 @@ Events</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt;<a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a>&gt; CombatSkills</td>
+          <td class="memname">List&lt;int&gt; CombatSkills</td>
         </tr>
       </table>
   </td>
@@ -589,7 +589,7 @@ Events</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a85a42cc79b5d5b77a51c56b56ace919e">CombatSkillLearnedHandler</a> OnCombatSkillLearned</td>
+          <td class="memname"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a286c1e10fb7ad2076b8d5c832fbb2244">CombatSkillLearnedHandler</a> OnCombatSkillLearned</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -603,7 +603,7 @@ Events</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a5b5d1ca4780725c36e250331f5b81f19">CombatSkillTriggeredHandler</a> OnCombatSkillTriggered</td>
+          <td class="memname"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af6ac5746b186f54ce87b4a7a02e3b45e">CombatSkillTriggeredHandler</a> OnCombatSkillTriggered</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -621,7 +621,7 @@ Events</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a></li>
-    <li class="footer">Generated on Sat Oct 22 2016 16:39:22 for Action RPG Kit by
+    <li class="footer">Generated on Sat Oct 22 2016 19:16:46 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

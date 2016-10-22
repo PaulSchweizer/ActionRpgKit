@@ -1,8 +1,8 @@
 var class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill =
 [
-    [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a63785d9d3db28e1ad39716d6cf9ae6e2", null ],
+    [ "PassiveMagicSkill", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a68bbb185cfd940ab6c506803d71cd76a", null ],
     [ "ToString", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
-    [ "Match", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a18a6ed0335f11560cf2a7c79015380fd", null ],
+    [ "Match", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a665a3ec5e2dcfc81b4bd408b96a70a95", null ],
     [ "Use", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a2462355563c584ccfd74c8f1811c08ea", null ],
     [ "GetModifier", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a8a3485507678137f7ce78c18fabaa85b", null ],
     [ "Duration", "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a1ccb2a57fde23aa66b03062ae2ad567f", null ],
