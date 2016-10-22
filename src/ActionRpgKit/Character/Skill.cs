@@ -23,7 +23,7 @@ namespace ActionRpgKit.Character.Skill
 
         public float PreUseTime;
 
-        public UsableItem[] ItemSequence;
+        public int[] ItemSequence;
 
         public BaseSkill() { }
 
@@ -32,7 +32,7 @@ namespace ActionRpgKit.Character.Skill
                          string description,
                          float preUseTime,
                          float cooldownTime,
-                         UsableItem[] itemSequence)
+                         int[] itemSequence)
         {
             Id = id;
             Name = name;
@@ -42,7 +42,7 @@ namespace ActionRpgKit.Character.Skill
             ItemSequence = itemSequence;
         }
 
-        public abstract bool Match(BaseItem[] items);
+        public abstract bool Match(int[] items);
     }
 
     /// <summary>
@@ -65,7 +65,7 @@ namespace ActionRpgKit.Character.Skill
                           string description,
                           float preUseTime,
                           float cooldownTime,
-                          UsableItem[] itemSequence,
+                          int[] itemSequence,
                           float cost): base(id,
                                             name,
                                             description,
@@ -105,7 +105,7 @@ namespace ActionRpgKit.Character.Skill
                           string description,
                           float preUseTime,
                           float cooldownTime,
-                          UsableItem[] itemSequence,
+                          int[] itemSequence,
                           float damage,
                           int maximumTargets,
                           float range) : base(id,
@@ -140,7 +140,7 @@ namespace ActionRpgKit.Character.Skill
                                  string description,
                                  float preUseTime,
                                  float cooldownTime,
-                                 UsableItem[] itemSequence,
+                                 int[] itemSequence,
                                  float cost,
                                  float duration,
                                  float modifierValue,
@@ -166,7 +166,7 @@ namespace ActionRpgKit.Character.Skill
 
         #region ISkill implementations
 
-        public override bool Match(BaseItem[] items)
+        public override bool Match(int[] items)
         {
             if (ItemSequence.Length != items.Length)
             {
@@ -212,22 +212,22 @@ namespace ActionRpgKit.Character.Skill
     {
 
         public GenericCombatSkill(int id,
-                          string name,
-                          string description,
-                          float preUseTime,
-                          float cooldownTime,
-                          UsableItem[] itemSequence,
-                          float damage,
-                          int maximumTargets,
-                          float range) : base(id,
-                                              name,
-                                              description,
-                                              preUseTime,
-                                              cooldownTime,
-                                              itemSequence,
-                                              damage,
-                                              maximumTargets,
-                                              range)
+                                  string name,
+                                  string description,
+                                  float preUseTime,
+                                  float cooldownTime,
+                                  int[] itemSequence,
+                                  float damage,
+                                  int maximumTargets,
+                                  float range) : base(id,
+                                                      name,
+                                                      description,
+                                                      preUseTime,
+                                                      cooldownTime,
+                                                      itemSequence,
+                                                      damage,
+                                                      maximumTargets,
+                                                      range)
         {
         }
 
@@ -238,7 +238,7 @@ namespace ActionRpgKit.Character.Skill
 
         #region ISkill implementations
 
-        public override bool Match(BaseItem[] items)
+        public override bool Match(int[] items)
         {
             throw new NotImplementedException();
         }
@@ -252,9 +252,9 @@ namespace ActionRpgKit.Character.Skill
         public override void Use(IFighter user)
         {
             float damage = Damage;
-            if (user.EquippedWeapon != null)
+            if (user.EquippedWeapon > -1)
             {
-                damage += user.EquippedWeapon.Damage;
+                damage += ItemDatabase.GetWeaponItemById(user.EquippedWeapon).Damage;
             }
             for (int i = Math.Min(MaximumTargets, user.EnemiesInAttackRange.Length) - 1; i >= 0; i--)
             {
@@ -278,6 +278,20 @@ namespace ActionRpgKit.Character.Skill
         /// <summary>
         /// The index of the array corresponds to the id of the CombatSkill.</summary>
         public static CombatSkill[] CombatSkills { get; set; }
+
+        /// <summary>
+        /// Retrieve the MagicSkill by it's Id.</summary>
+        public static MagicSkill GetMagicSkillById(int id)
+        {
+            return MagicSkills[id];
+        }
+
+        /// <summary>
+        /// Retrieve the CombatSkill by it's Id.</summary>
+        public static CombatSkill GetCombatSkillById(int id)
+        {
+            return CombatSkills[id];
+        }
 
         /// <summary>
         /// Retrieve the MagicSkill by Name.</summary>

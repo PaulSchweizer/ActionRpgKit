@@ -38,7 +38,7 @@ namespace ActionRpgKit.Tests.Skill
                                                       description: "A +10 Buff to the user's strength.",
                                                       preUseTime: 10,
                                                       cooldownTime: 5,
-                                                      itemSequence: new UsableItem[] { herb },
+                                                      itemSequence: new int[] { herb.Id },
                                                       cost: 10,
                                                       duration: 10,
                                                       modifierValue: 10,
@@ -51,7 +51,7 @@ namespace ActionRpgKit.Tests.Skill
                                         damage: 1,
                                         maximumTargets: 1,
                                         range: 1,
-                                        itemSequence: new UsableItem[] { });
+                                        itemSequence: new int[] { });
             meleeMultiTargetsSkill = new GenericCombatSkill(id: 2,
                                                     name: "MultiHit",
                                                     description: "Wield a sword against multiple opponents.",
@@ -60,7 +60,7 @@ namespace ActionRpgKit.Tests.Skill
                                                     damage: 1,
                                                     maximumTargets: 2,
                                                     range: 1,
-                                                    itemSequence: new UsableItem[] { });
+                                                    itemSequence: new int[] { });
             rangedSkill = new GenericCombatSkill(id: 3,
                             name: "Longbow",
                             description: "Notch! Aim! Loose!",
@@ -69,7 +69,7 @@ namespace ActionRpgKit.Tests.Skill
                             damage: 1,
                             maximumTargets: 1,
                             range: 10,
-                            itemSequence: new UsableItem[] { });
+                            itemSequence: new int[] { });
         }
 
         [Test]

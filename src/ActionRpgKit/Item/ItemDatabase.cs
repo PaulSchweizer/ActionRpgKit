@@ -11,6 +11,20 @@ namespace ActionRpgKit.Item
         public static BaseItem[] Items { get; set; }
 
         /// <summary>
+        /// Retrieve the WeaponItem by Id.</summary>
+        public static WeaponItem GetWeaponItemById(int id)
+        {
+            for (int i = 0; i < Items.Length; i++)
+            {
+                if (Items[i].Id == id)
+                {
+                    return (WeaponItem)Items[i];
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Retrieve the BaseItem by Id.</summary>
         public static BaseItem GetItemById(int id)
         {

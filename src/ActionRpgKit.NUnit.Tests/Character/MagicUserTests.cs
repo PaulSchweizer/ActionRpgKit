@@ -27,7 +27,7 @@ namespace ActionRpgKit.Tests.Character
             herb.Name = "Herb";
             herb.Description = "A common herb";
             coin = new UsableItem();
-            coin.Id = 0;
+            coin.Id = 1;
             coin.Name = "Coin";
             coin.Description = "A gold coin";
 
@@ -44,7 +44,8 @@ namespace ActionRpgKit.Tests.Character
                                             cooldownTime: 5,
                                             modifierValue: 10,
                                             modifiedAttributeName: "Body",
-                                            itemSequence: new UsableItem[] { herb });
+                                            itemSequence: new int[] { herb.Id });
+            SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill };
         }
 
         [Test]
@@ -57,41 +58,41 @@ namespace ActionRpgKit.Tests.Character
             Assert.AreEqual("ShadowStrength (Cost: 10, Body +10 for 10 sec)", passiveMagicSkill.ToString());
 
             // Check if the combination matches
-            Assert.IsFalse(passiveMagicSkill.Match(new BaseItem[] { }));
-            Assert.IsFalse(passiveMagicSkill.Match(new BaseItem[] { coin }));
-            Assert.IsFalse(passiveMagicSkill.Match(new BaseItem[] { herb, coin }));
-            Assert.IsFalse(passiveMagicSkill.Match(new BaseItem[] { coin, herb }));
-            Assert.IsTrue(passiveMagicSkill.Match(new BaseItem[] { herb }));
+            Assert.IsFalse(passiveMagicSkill.Match(new int[] { }));
+            Assert.IsFalse(passiveMagicSkill.Match(new int[] { coin.Id }));
+            Assert.IsFalse(passiveMagicSkill.Match(new int[] { herb.Id, coin.Id }));
+            Assert.IsFalse(passiveMagicSkill.Match(new int[] { coin.Id, herb.Id }));
+            Assert.IsTrue(passiveMagicSkill.Match(new int[] { herb.Id }));
 
             // Player triggers a Skill that is not learned yet
-            bool triggered = player.TriggerMagicSkill(passiveMagicSkill);
+            bool triggered = player.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.IsFalse(triggered);
 
             // Player learns the Skill and triggers it
-            player.LearnMagicSkill(passiveMagicSkill);
-            triggered = player.TriggerMagicSkill(passiveMagicSkill);
+            player.LearnMagicSkill(passiveMagicSkill.Id);
+            triggered = player.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.IsTrue(triggered);
 
             // Check the effect on the modified attribute
             Assert.AreEqual(10, player.Stats.Body.Value);
 
             // Player triggers it again right away, which is not possible due to cooldown time
-            triggered = player.TriggerMagicSkill(passiveMagicSkill);
+            triggered = player.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.IsFalse(triggered);
 
             // Enemy uses the same passive skill
-            enemy.LearnMagicSkill(passiveMagicSkill);
-            triggered = enemy.TriggerMagicSkill(passiveMagicSkill);
+            enemy.LearnMagicSkill(passiveMagicSkill.Id);
+            triggered = enemy.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.IsTrue(triggered);
 
             // Advance in Time and trigger again
             GameTime.time = 5;
-            triggered = player.TriggerMagicSkill(passiveMagicSkill);
+            triggered = player.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.IsTrue(triggered);
 
             // Take the use costs into account
             GameTime.time = 10;
-            triggered = player.TriggerMagicSkill(passiveMagicSkill);
+            triggered = player.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.IsFalse(triggered);
         }
     }

@@ -12,17 +12,6 @@ public class UPlayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        var meleeSkill = new GenericCombatSkill(id: 1,
-                                        name: "SwordFighting",
-                                        description: "Wield a sword effectively.",
-                                        preUseTime: 1,
-                                        cooldownTime: 1,
-                                        damage: 1,
-                                        maximumTargets: 1,
-                                        range: 1,
-                                        itemSequence: new UsableItem[] { });
-        Character.LearnCombatSkill(meleeSkill);
-        Character.CurrentAttackSkill = meleeSkill;
     }
 
     // Update is called once per frame

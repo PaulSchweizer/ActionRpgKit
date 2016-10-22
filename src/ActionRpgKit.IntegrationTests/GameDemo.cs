@@ -76,7 +76,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
                                                 cooldownTime: 5,
                                                 modifierValue: 10,
                                                 modifiedAttributeName: "Body",
-                                                itemSequence: new UsableItem[]{});
+                                                itemSequence: new int[]{});
             CombatSkill meleeSkill = new GenericCombatSkill(id: 0,
                                             name: "SwordFighting",
                                             description: "How to wield a sword.",
@@ -85,7 +85,7 @@ namespace ActionRpgKit.Tests.IntegrationTests
                                             damage: 1,
                                             maximumTargets: 1,
                                             range: 1,
-                                            itemSequence: new UsableItem[]{});
+                                            itemSequence: new int[]{});
             SkillDatabase.CombatSkills = new CombatSkill[] { meleeSkill };
             SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill };
         }
@@ -99,8 +99,8 @@ namespace ActionRpgKit.Tests.IntegrationTests
             MainController.Player.Stats.Soul.Value = 5;
             MainController.Player.Stats.Life.Reset();
             MainController.Player.Stats.Magic.Reset();
-            MainController.Player.LearnCombatSkill(SkillDatabase.GetCombatSkillByName("SwordFighting"));
-            MainController.Player.LearnMagicSkill(SkillDatabase.GetMagicSkillByName("ShadowStrength"));
+            MainController.Player.LearnCombatSkill(SkillDatabase.GetCombatSkillByName("SwordFighting").Id);
+            MainController.Player.LearnMagicSkill(SkillDatabase.GetMagicSkillByName("ShadowStrength").Id);
             LogToFile(MainController.Player.ToString());
         }
 

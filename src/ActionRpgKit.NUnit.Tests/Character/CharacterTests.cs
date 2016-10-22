@@ -30,7 +30,7 @@ namespace ActionRpgKit.Tests.Character
         {
             player = new Player("Player");
             enemy = new Enemy("Enemy");
-            meleeSkill = new GenericCombatSkill(id: 1,
+            meleeSkill = new GenericCombatSkill(id: 0,
                             name: "SwordFighting",
                             description: "Wield a sword effectively.",
                             preUseTime: 1,
@@ -38,19 +38,21 @@ namespace ActionRpgKit.Tests.Character
                             damage: 1,
                             maximumTargets: 1,
                             range: 1,
-                            itemSequence: new UsableItem[] {});
+                            itemSequence: new int[] {});
             passiveMagicSkill = new PassiveMagicSkill(id: 0,
                                         name: "ShadowStrength",
                                         description: "A +10 Buff to the user's strength.",
                                         preUseTime: 10,
                                         cooldownTime: 5,
-                                        itemSequence: new UsableItem[] { },
+                                        itemSequence: new int[] { },
                                         cost: 10,
                                         duration: 10,
                                         modifierValue: 10,
                                         modifiedAttributeName: "Body");
-            player.LearnCombatSkill(meleeSkill);
-            player.LearnMagicSkill(passiveMagicSkill);
+            SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill };
+            SkillDatabase.CombatSkills = new CombatSkill[] { meleeSkill };
+            player.LearnCombatSkill(meleeSkill.Id);
+            player.LearnMagicSkill(passiveMagicSkill.Id);
             enemy.Stats.Life.Value = 10;
             GameTime.Reset();
         }
@@ -264,25 +266,25 @@ namespace ActionRpgKit.Tests.Character
 
             // Learn a new Magic Skill
             Assert.AreEqual(0, _magicSkillLearned);
-            enemy.LearnMagicSkill(passiveMagicSkill);
+            enemy.LearnMagicSkill(passiveMagicSkill.Id);
             Assert.AreEqual(1, _magicSkillLearned);
 
             // Trigger a Magic Skill
             Assert.AreEqual(0, _magicSkillTriggered);
-            player.TriggerMagicSkill(passiveMagicSkill);
+            player.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.AreEqual(1, _magicSkillTriggered);
-            player.TriggerMagicSkill(passiveMagicSkill);
+            player.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.AreEqual(1, _magicSkillTriggered);
 
             // Learn a new Combat Skill
             Assert.AreEqual(0, _combatSkillLearned);
-            enemy.LearnCombatSkill(meleeSkill);
+            enemy.LearnCombatSkill(meleeSkill.Id);
             Assert.AreEqual(1, _combatSkillLearned);
 
             // Trigger a Combat Skill
             
             // No enemy in reach
-            player.TriggerCombatSkill(meleeSkill);
+            player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(0, _combatSkillTriggered);
             
             // Set the enemy in reach
@@ -290,11 +292,11 @@ namespace ActionRpgKit.Tests.Character
             enemy.Position.Set(0, 0);
             player.AddEnemy(enemy);
             GameTime.time += 1;
-            player.TriggerCombatSkill(meleeSkill);
+            player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(1, _combatSkillTriggered);
             
             // Not enough time has passed to trigger again
-            player.TriggerCombatSkill(meleeSkill);
+            player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(1, _combatSkillTriggered);
         }
 
@@ -303,22 +305,22 @@ namespace ActionRpgKit.Tests.Character
             _stateChanged += 1;
         }
 
-        public void MagicSkillLearnedTest(IMagicUser sender, MagicSkill skill)
+        public void MagicSkillLearnedTest(IMagicUser sender, int skillId)
         {
             _magicSkillLearned += 1;
         }
 
-        public void MagicSkillTriggeredTest(IMagicUser sender, MagicSkill skill)
+        public void MagicSkillTriggeredTest(IMagicUser sender, int skillId)
         {
             _magicSkillTriggered += 1;
         }
 
-        public void CombatSkillLearnedTest(IFighter sender, CombatSkill skill)
+        public void CombatSkillLearnedTest(IFighter sender, int skillId)
         {
             _combatSkillLearned += 1;
         }
 
-        public void CombatSkillTriggeredTest(IFighter sender, CombatSkill skill)
+        public void CombatSkillTriggeredTest(IFighter sender, int skillId)
         {
             _combatSkillTriggered += 1;
         }

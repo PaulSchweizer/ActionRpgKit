@@ -127,16 +127,16 @@ public class SkillCreator : EditorWindow
         {
             var skill = CreatePassiveMagicSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
-                                      string.Format("{0}_{1}.asset", 
+                                      string.Format("MagicSkill/{0}_{1}.asset", 
                                                     skill.PassiveMagicSkill.Id, 
                                                     _name)));
         }
-        // 1 = MeleeCombatSkill
+        // 1 = GenericCombatSkill
         else if (_skillType == 1)
         {
             var skill = CreateGenericCombatSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
-                                      string.Format("{0}_{1}.asset", 
+                                      string.Format("GenericCombatSkill/{0}_{1}.asset",
                                                     skill.GenericCombatSkill.Id, 
                                                     _name)));
         }
@@ -153,13 +153,13 @@ public class SkillCreator : EditorWindow
     UPassiveMagicSkill CreatePassiveMagicSkill()
     {
         var skill = new PassiveMagicSkill(
-                            id: GetId(),
+                            id: GetId("MagicSkill"),
                             name: _name,
                             description: _description,
                             preUseTime: _preUseTime,
                             cooldownTime: _cooldownTime,
                             cost: _cost,
-                            itemSequence: new UsableItem[] { },
+                            itemSequence: new int[] { },
                             duration: _duration,
                             modifierValue: _modifierValue,
                             modifiedAttributeName: _modifiedAttributeName
@@ -175,13 +175,13 @@ public class SkillCreator : EditorWindow
     UGenericCombatSkill CreateGenericCombatSkill()
     {
         var skill = new GenericCombatSkill(
-                            id: GetId(),
+                            id: GetId("GenericCombatSkill"),
                             name: _name,
                             description: _description,
                             preUseTime: _preUseTime,
                             cooldownTime: _cooldownTime, 
                             damage: _damage,
-                            itemSequence: new UsableItem[] { },
+                            itemSequence: new int[] { },
                             maximumTargets: _maximumTargets,
                             range: _range);
         var scriptableSkill = ScriptableObject.CreateInstance<UGenericCombatSkill>();
@@ -191,13 +191,14 @@ public class SkillCreator : EditorWindow
 
     /// <summary>
     /// Set the Id to the nmber of already existing Items in the Data folder.</summary>
-    int GetId()
+    int GetId(string skillType)
     {
-        if (!Directory.Exists(AbsolutePath))
+        var dir = string.Format("{0}{1}", AbsolutePath, skillType);
+        if (!Directory.Exists(dir))
         {
-            Directory.CreateDirectory(AbsolutePath);
+            Directory.CreateDirectory(dir);
         }
-        var path = new DirectoryInfo(AbsolutePath);
+        var path = new DirectoryInfo(dir);
         var files = path.GetFiles("*.asset", SearchOption.AllDirectories);
         int biggestId = -1;
         for (int i = 0; i < files.Length; i++)

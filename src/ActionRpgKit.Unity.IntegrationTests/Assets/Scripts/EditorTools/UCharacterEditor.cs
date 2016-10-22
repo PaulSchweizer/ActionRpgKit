@@ -15,6 +15,14 @@ public class UPlayerCharacterEditor : Editor
 {
 
     /// <summary>
+    /// Whether to show or hide the Stats</summary>
+    private bool _showStats = true;
+
+    /// <summary>
+    /// Whether to show or hide the Skill List</summary>
+    private bool _showSkills = true;
+
+    /// <summary>
     /// Whether to show or hide the Item List</summary>
     private bool _showItems = true;
 
@@ -39,29 +47,47 @@ public class UPlayerCharacterEditor : Editor
 
         #region Stats
 
-        // Basic fields of the Character
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField(string.Format("{0} {1}", character.Id, character.Name), EditorStyles.boldLabel);
-        EditorGUILayout.EndHorizontal();
-
-        // Stats
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Stats", EditorStyles.boldLabel, GUILayout.Width(75));
-        EditorGUILayout.LabelField("Value", EditorStyles.boldLabel, GUILayout.Width(75));
-        EditorGUILayout.LabelField("Min", EditorStyles.boldLabel, GUILayout.Width(75));
-        EditorGUILayout.LabelField("Max", EditorStyles.boldLabel, GUILayout.Width(75));
-        EditorGUILayout.EndHorizontal();
-
-        foreach (KeyValuePair<string, BaseAttribute> attr in character.Stats.Dict)
+        // Show the stats
+        _showStats = EditorGUILayout.Foldout(_showStats, "Stats");
+        if (_showStats)
         {
+
+            // Basic fields of the Character
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(attr.Key, GUILayout.Width(75));
-            attr.Value.Value = EditorGUILayout.FloatField(attr.Value.Value, GUILayout.Width(75));
-            attr.Value.MinValue = EditorGUILayout.FloatField(attr.Value.MinValue, GUILayout.Width(75));
-            attr.Value.MaxValue = EditorGUILayout.FloatField(attr.Value.MaxValue, GUILayout.Width(75));
+            EditorGUILayout.LabelField(string.Format("{0} {1}", character.Id, character.Name), EditorStyles.boldLabel);
             EditorGUILayout.EndHorizontal();
+
+            // Stats
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Stats", EditorStyles.boldLabel, GUILayout.Width(75));
+            EditorGUILayout.LabelField("Value", EditorStyles.boldLabel, GUILayout.Width(75));
+            EditorGUILayout.LabelField("Min", EditorStyles.boldLabel, GUILayout.Width(75));
+            EditorGUILayout.LabelField("Max", EditorStyles.boldLabel, GUILayout.Width(75));
+            EditorGUILayout.EndHorizontal();
+
+            foreach (KeyValuePair<string, BaseAttribute> attr in character.Stats.Dict)
+            {
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField(attr.Key, GUILayout.Width(75));
+                attr.Value.Value = EditorGUILayout.FloatField(attr.Value.Value, GUILayout.Width(75));
+                attr.Value.MinValue = EditorGUILayout.FloatField(attr.Value.MinValue, GUILayout.Width(75));
+                attr.Value.MaxValue = EditorGUILayout.FloatField(attr.Value.MaxValue, GUILayout.Width(75));
+                EditorGUILayout.EndHorizontal();
+            }
+
         }
 
+        #endregion
+
+        #region Skills
+
+        // Show all the skills
+        _showSkills = EditorGUILayout.Foldout(_showSkills, "Skills");
+        if (_showSkills)
+        {
+
+        }
+        
         #endregion
 
         #region Inventory
@@ -69,11 +95,9 @@ public class UPlayerCharacterEditor : Editor
         var db = (UItemDatabase)AssetDatabase.LoadMainAssetAtPath("Assets/Data/ItemDatabase.asset");
         db.InitDatabase();
 
-        // Inventory
-        EditorGUILayout.LabelField("Inventory", EditorStyles.boldLabel);
-
-        // Show all the items
-        _showItems = EditorGUILayout.Foldout(_showItems, character.Inventory.ItemCount + " Items");
+        // Show Inventory
+        _showItems = EditorGUILayout.Foldout(_showItems, 
+            string.Format("Inventory {0} Items", character.Inventory.ItemCount));
         if (_showItems)
         {
             var items = new List<UItem>();
@@ -112,7 +136,7 @@ public class UPlayerCharacterEditor : Editor
         while (items.MoveNext() && quantities.MoveNext())
         {
             EditorGUILayout.BeginHorizontal("box");
-            string displayRow = items.Current + "\tx " + quantities.Current;
+            string displayRow = ItemDatabase.GetItemById(items.Current).Name + "\tx " + quantities.Current;
             EditorGUILayout.LabelField(displayRow);
 
             if (GUILayout.Button("+"))
