@@ -128,7 +128,7 @@ public class SkillCreator : EditorWindow
             var skill = CreatePassiveMagicSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
                                       string.Format("MagicSkill/{0}_{1}.asset", 
-                                                    skill.PassiveMagicSkill.Id, 
+                                                    skill.Skill.Id, 
                                                     _name)));
         }
         // 1 = GenericCombatSkill
@@ -137,7 +137,7 @@ public class SkillCreator : EditorWindow
             var skill = CreateGenericCombatSkill();
             AssetDatabase.CreateAsset(skill, Path.Combine(RelativePath,
                                       string.Format("GenericCombatSkill/{0}_{1}.asset",
-                                                    skill.GenericCombatSkill.Id, 
+                                                    skill.Skill.Id, 
                                                     _name)));
         }
         else
@@ -148,9 +148,9 @@ public class SkillCreator : EditorWindow
     }
 
     /// <summary>
-    /// Create a UPassiveMagicSkill.</summary>
+    /// Create a PassiveMagicSkillData.</summary>
     /// <returns>A ScriptableObject</returns>
-    UPassiveMagicSkill CreatePassiveMagicSkill()
+    PassiveMagicSkillData CreatePassiveMagicSkill()
     {
         var skill = new PassiveMagicSkill(
                             id: GetId("MagicSkill"),
@@ -164,15 +164,15 @@ public class SkillCreator : EditorWindow
                             modifierValue: _modifierValue,
                             modifiedAttributeName: _modifiedAttributeName
             );
-        var scriptableSkill = ScriptableObject.CreateInstance<UPassiveMagicSkill>();
-        scriptableSkill.PassiveMagicSkill = skill;
+        var scriptableSkill = ScriptableObject.CreateInstance<PassiveMagicSkillData>();
+        scriptableSkill.Skill = skill;
         return scriptableSkill;
     }
     
     /// <summary>
     /// Create a UMeleeCombatSkill.</summary>
     /// <returns>A ScriptableObject</returns>
-    UGenericCombatSkill CreateGenericCombatSkill()
+    GenericCombatSkillData CreateGenericCombatSkill()
     {
         var skill = new GenericCombatSkill(
                             id: GetId("GenericCombatSkill"),
@@ -184,8 +184,8 @@ public class SkillCreator : EditorWindow
                             itemSequence: new int[] { },
                             maximumTargets: _maximumTargets,
                             range: _range);
-        var scriptableSkill = ScriptableObject.CreateInstance<UGenericCombatSkill>();
-        scriptableSkill.GenericCombatSkill = skill;
+        var scriptableSkill = ScriptableObject.CreateInstance<GenericCombatSkillData>();
+        scriptableSkill.Skill = skill;
         return scriptableSkill;
     }
 

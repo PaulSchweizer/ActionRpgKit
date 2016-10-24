@@ -8,13 +8,13 @@ using System.Collections.Generic;
 using ActionRpgKit.Character.Stats;
 using ActionRpgKit.Item;
 
-public class UPlayerCharacter : UBaseCharacter, ISerializationCallbackReceiver
+public class EnemyCharacterData : BaseCharacterData, ISerializationCallbackReceiver
 {
-    public Player Character;
+    public new Enemy Character;
 
     #region Serialization
 
-    [SerializeField] [HideInInspector]
+    [SerializeField]
     private float[] _serializedStats;
 
     [SerializeField]
@@ -34,7 +34,6 @@ public class UPlayerCharacter : UBaseCharacter, ISerializationCallbackReceiver
             _serializedStats[i] = attr.Value.Value;
             i++;
         }
-
         _serializedInventoryItems = new int[Character.Inventory.ItemCount];
         _serializedInventoryQuantities = new int[Character.Inventory.ItemCount];
         var items = Character.Inventory.Items.GetEnumerator();
@@ -58,14 +57,8 @@ public class UPlayerCharacter : UBaseCharacter, ISerializationCallbackReceiver
             attr.Value.Value = _serializedStats[i];
             i++;
         }
-
-        //Character.Inventory = new PlayerInventory();
-
-        for (i = 0; i < _serializedInventoryItems.Length; i++)
-        {
-            Character.Inventory.AddItem(_serializedInventoryItems[i],
-                                        _serializedInventoryQuantities[i]);
-        }
+        Character.Inventory.Items = _serializedInventoryItems;
+        Character.Inventory.Quantities = _serializedInventoryQuantities;
     }
 
     #endregion

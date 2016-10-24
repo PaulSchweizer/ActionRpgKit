@@ -102,23 +102,23 @@ public class ItemCreator : EditorWindow
     }
 
     /// <summary>
-    /// Create a UUsableItem.</summary>
+    /// Create a UsableItemData.</summary>
     /// <returns>A ScriptableItem</returns>
-    UUsableItem CreateUsableItem()
+    UsableItemData CreateUsableItem()
     {
         var item = new UsableItem();
         item.Name = _name;
         item.Description = _description;
         item.Id = GetId();
-        var scriptableItem = ScriptableObject.CreateInstance<UUsableItem>();
+        var scriptableItem = ScriptableObject.CreateInstance<UsableItemData>();
         scriptableItem.Item = item;
         return scriptableItem;
     }
 
     /// <summary>
-    /// Create a UWeaponItem.</summary>
+    /// Create a WeaponItemData.</summary>
     /// <returns>A ScriptableItem</returns>
-    UWeaponItem CreateWeaponItem()
+    WeaponItemData CreateWeaponItem()
     {
         var item = new WeaponItem();
         item.Name = _name;
@@ -127,7 +127,7 @@ public class ItemCreator : EditorWindow
         item.Range = _range;
         item.Speed = _speed;
         item.Id = GetId();
-        var scriptableItem = ScriptableObject.CreateInstance<UWeaponItem>();
+        var scriptableItem = ScriptableObject.CreateInstance<WeaponItemData>();
         scriptableItem.Item = item;
         return scriptableItem;
     }

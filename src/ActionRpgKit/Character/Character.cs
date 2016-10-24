@@ -36,7 +36,7 @@ namespace ActionRpgKit.Character
     /// <param name="previousState">The previos state</param>
     /// <param name="newState">The new state</param>
     public delegate void StateChangedHandler(ICharacter sender, IState previousState, IState newState);
-    
+
     /// <summary>
     /// Character can use Magic.</summary>  
     public interface IMagicUser
@@ -641,13 +641,11 @@ namespace ActionRpgKit.Character
 
         public Player() : base(new PlayerStats(), new PlayerInventory())
         {
-            Inventory.Items = new List<int>();
         }
 
         public Player(string name) : base(new PlayerStats(), new PlayerInventory())
         {
             Name = name;
-            Inventory.Items = new List<int>();
         }
     }
 
@@ -659,13 +657,11 @@ namespace ActionRpgKit.Character
 
         public Enemy() : base(new EnemyStats(), new SimpleInventory())
         {
-            Inventory.Items = new int[] { };
         }
 
         public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
         {
             Name = name;
-            Inventory.Items = new int[] { };
         }
     }
 

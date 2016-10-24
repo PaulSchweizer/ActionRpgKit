@@ -31,8 +31,8 @@ namespace ActionRpgKit.Character
     [Serializable]
     public class SimpleInventory : IInventory
     {
-        private int[] _items;
-        private int[] _quantities;
+        private int[] _items = new int[] { };
+        private int[] _quantities = new int[] { };
 
         public SimpleInventory() { }
 
@@ -88,9 +88,48 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public override void AddItem(int itemId, int quantity = 1) { }
+        public override void AddItem(int itemId, int quantity = 1)
+        {
+            if (_items.Contains(itemId))
+            {
+                _quantities[Array.IndexOf(_items, itemId)] += quantity;
+            }
+            else
+            {
+                Array.Resize(ref _items, _items.Length + 1);
+                Array.Resize(ref _quantities, _quantities.Length + 1);
+                _items[_items.Length - 1] = itemId;
+                _quantities[_quantities.Length - 1] = quantity;
+            }
 
-        public override void RemoveItem(int itemId, int quantity = 1) { }
+        }
+
+        public override void RemoveItem(int itemId, int quantity = 1)
+        {
+            if (_items.Contains(itemId))
+            {
+                var index = Array.IndexOf(_items, itemId);
+                _quantities[index] -= quantity;
+                if (_quantities[index] < 1)
+                {
+                    var newItems = new int[_items.Length - 1];
+                    var newQuantities = new int[_quantities.Length - 1];
+                    int newIndex = 0;
+                    for(int i = 0; i < _items.Length; i++)
+                    {
+                        if (index != i)
+                        {
+                            newItems[newIndex] = _items[i];
+                            newQuantities[newIndex] = _quantities[i];
+                            newIndex++;
+                        }
+                    }
+                    _items = newItems;
+                    _quantities = newQuantities;
+                }
+            }
+
+        }
 
         public override string ToString()
         {

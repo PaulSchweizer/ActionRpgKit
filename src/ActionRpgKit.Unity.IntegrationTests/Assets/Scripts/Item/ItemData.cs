@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using ActionRpgKit.Item;
 
-public class UItem : ScriptableObject
+public class ItemData : ScriptableObject
 {
     public BaseItem Item;
 }

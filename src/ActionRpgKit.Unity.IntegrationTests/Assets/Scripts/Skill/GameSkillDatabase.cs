@@ -6,13 +6,11 @@ using ActionRpgKit.Character.Skill;
 using System.IO;
 
 [CreateAssetMenu(fileName = "SkillDatabase", menuName = "ActionRpgKit/Create Skill Database")]
-public class USkillDatabase : ScriptableObject
+public class GameSkillDatabase : ScriptableObject
 {
-    [SerializeField]
-    private UPassiveMagicSkill[] UMagicSkills;
+    public PassiveMagicSkillData[] PassiveMagicSkillsData;
 
-    [SerializeField]
-    private UGenericCombatSkill[] UCombatSkills;
+    public GenericCombatSkillData[] GenericCombatSkillsData;
 
     /// <summary>
     /// Get all Items and set them to the ActionRpgKit ItemDatabase.</summary>
@@ -22,14 +20,14 @@ public class USkillDatabase : ScriptableObject
 
         List<GenericCombatSkill> combatSkills = new List<GenericCombatSkill>();
 
-        foreach (var uSkill in UMagicSkills)
+        foreach (var skillData in PassiveMagicSkillsData)
         {
-            magicSkills.Add(uSkill.PassiveMagicSkill);
+            magicSkills.Add(skillData.Skill);
         }
 
-        foreach (var uSkill in UCombatSkills)
+        foreach (var skillData in GenericCombatSkillsData)
         {
-            combatSkills.Add(uSkill.GenericCombatSkill);
+            combatSkills.Add(skillData.Skill);
         }
 
         SkillDatabase.CombatSkills = combatSkills.ToArray();

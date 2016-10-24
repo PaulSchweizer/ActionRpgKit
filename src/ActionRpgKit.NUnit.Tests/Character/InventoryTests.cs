@@ -45,9 +45,9 @@ namespace ActionRpgKit.Tests.Character
 
             // Adding and removing to and from a simple Inventory have no effect.
             simpleInventory.AddItem(coin.Id);
-            Assert.AreEqual(0, simpleInventory.GetQuantity(coin.Id));
+            Assert.AreEqual(1, simpleInventory.GetQuantity(coin.Id));
             simpleInventory.RemoveItem(herb.Id);
-            Assert.AreEqual(1, simpleInventory.GetQuantity(herb.Id));
+            Assert.AreEqual(0, simpleInventory.GetQuantity(herb.Id));
 
             // Test the pretty representation
             simpleInventory.ToString();

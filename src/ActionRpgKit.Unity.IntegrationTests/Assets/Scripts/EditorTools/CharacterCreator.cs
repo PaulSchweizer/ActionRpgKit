@@ -41,22 +41,7 @@ public class CaracterCreator : EditorWindow
         _characterType = EditorGUILayout.Popup(_characterType, _characterTypes);
         _name = EditorGUILayout.TextField("Name:", _name);
 
-        //EditorGUILayout.BeginHorizontal();
-        //EditorGUILayout.LabelField("Damage:");
-        //_damage = EditorGUILayout.FloatField(_damage);
-        //EditorGUILayout.EndHorizontal();
-
-        //EditorGUILayout.BeginHorizontal();
-        //EditorGUILayout.LabelField("Range:");
-        //_range = EditorGUILayout.FloatField(_range);
-        //EditorGUILayout.EndHorizontal();
-
-        //EditorGUILayout.BeginHorizontal();
-        //EditorGUILayout.LabelField("Speed:");
-        //_speed = EditorGUILayout.FloatField(_speed);
-        //EditorGUILayout.EndHorizontal();
-
-        // Create the Item
+        // Create the Character
         if (GUILayout.Button(string.Format("Create {0}", _characterTypes[_characterType]), GUILayout.Height(30)))
         {
             if (_name.Length > 0)
@@ -77,15 +62,34 @@ public class CaracterCreator : EditorWindow
                                         character.Character.Id, _name)));
         }
 
+        // Enemy Character
+        else if (_characterType == 1)
+        {
+            var character = CreateEnemyCharacter();
+            AssetDatabase.CreateAsset(character, Path.Combine(RelativePath,
+                                      string.Format("{0}_{1}.asset",
+                                      character.Character.Id, _name)));
+        }
+
         AssetDatabase.SaveAssets();
     }
 
-    UPlayerCharacter CreatePlayerCharacter()
+    PlayerCharacterData CreatePlayerCharacter()
     {
         var character = new Player();
         character.Name = _name;
         character.Id = GetId();
-        var scriptableCharacter = ScriptableObject.CreateInstance<UPlayerCharacter>();
+        var scriptableCharacter = ScriptableObject.CreateInstance<PlayerCharacterData>();
+        scriptableCharacter.Character = character;
+        return scriptableCharacter;
+    }
+
+    EnemyCharacterData CreateEnemyCharacter()
+    {
+        var character = new Enemy();
+        character.Name = _name;
+        character.Id = GetId();
+        var scriptableCharacter = ScriptableObject.CreateInstance<EnemyCharacterData>();
         scriptableCharacter.Character = character;
         return scriptableCharacter;
     }

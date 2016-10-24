@@ -119,10 +119,10 @@ namespace ActionRpgKit.Character.Stats
             Body = new PrimaryAttribute("Body", 0, 999, 0);
             Mind = new PrimaryAttribute("Mind", 0, 999, 0);
             Soul = new PrimaryAttribute("Soul", 0, 999, 0);
-            Experience = new PrimaryAttribute("Experience");
-            Level = new PrimaryAttribute("Level");
+            Experience = new PrimaryAttribute("Experience", 0, 980100, 0);
+            Level = new PrimaryAttribute("Level", 0, 99, 0);
             Life = new PrimaryAttribute("Life", 0, 999, 0);
-            MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate");
+            MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate", 0, 2, 0);
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 0, 999, 1);
             AttackRange = new PrimaryAttribute("AttackRange", 0, 999, 1);
