@@ -73,4 +73,42 @@ public class GameBaseCharacter : MonoBehaviour
     }
 
     #endregion
+
+
+    #if UNITY_EDITOR
+    /// <summary>
+    /// Draw some Debug helper shapes.</summary>
+    void OnDrawGizmos()
+    {
+        Color color;
+        if (Character.CurrentState is IdleState)
+        {
+            color = Color.green;
+        }
+        else if (Character.CurrentState is AlertState)
+        {
+            color = Color.yellow;
+        }
+        else if (Character.CurrentState is ChaseState)
+        {
+            color = Color.magenta;
+        }
+        else if (Character.CurrentState is AttackState)
+        {
+            color = Color.red;
+        }
+        else if (Character.CurrentState is DyingState)
+        {
+            color = Color.black;
+        }
+        else
+        {
+            color = Color.grey;
+        }
+        // Draw a circle for sight range
+        DebugExtension.DebugCircle(transform.position, color, Character.Stats.AlertnessRange.Value, 0);
+        DebugExtension.DebugCircle(transform.position, color, Character.Stats.AttackRange.Value, 0);
+    }
+    #endif
+
 }

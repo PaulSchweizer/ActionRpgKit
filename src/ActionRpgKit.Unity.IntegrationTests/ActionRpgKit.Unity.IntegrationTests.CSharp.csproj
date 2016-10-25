@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -79,22 +77,23 @@
     <Compile Include="Assets\Scripts\Character\BaseCharacterData.cs" />
     <Compile Include="Assets\Scripts\Character\EnemyCharacterData.cs" />
     <Compile Include="Assets\Scripts\Character\PlayerCharacterData.cs" />
-    <Compile Include="Assets\Scripts\EditorTools\CharacterCreator.cs" />
     <Compile Include="Assets\Scripts\EditorTools\BaseCharacterDataEditor.cs" />
+    <Compile Include="Assets\Scripts\EditorTools\CharacterCreator.cs" />
     <Compile Include="Assets\Scripts\EditorTools\ItemCreator.cs" />
     <Compile Include="Assets\Scripts\EditorTools\SkillCreator.cs" />
+    <Compile Include="Assets\Scripts\External\DebugDrawingExtension\DebugExtension.cs" />
     <Compile Include="Assets\Scripts\GameBaseCharacter.cs" />
     <Compile Include="Assets\Scripts\GameEnemy.cs" />
-    <Compile Include="Assets\Scripts\Item\ItemData.cs" />
+    <Compile Include="Assets\Scripts\GamePlayer.cs" />
+    <Compile Include="Assets\Scripts\GameTime.cs" />
     <Compile Include="Assets\Scripts\Item\GameItemDatabase.cs" />
+    <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Item\UsableItemData.cs" />
     <Compile Include="Assets\Scripts\Item\WeaponItemData.cs" />
+    <Compile Include="Assets\Scripts\Skill\GameSkillDatabase.cs" />
     <Compile Include="Assets\Scripts\Skill\GenericCombatSkillData.cs" />
     <Compile Include="Assets\Scripts\Skill\PassiveMagicSkillData.cs" />
     <Compile Include="Assets\Scripts\Skill\SkillData.cs" />
-    <Compile Include="Assets\Scripts\Skill\GameSkillDatabase.cs" />
-    <Compile Include="Assets\Scripts\GameTime.cs" />
-    <Compile Include="Assets\Scripts\GamePlayer.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />
@@ -156,6 +155,5 @@
     <None Include="Assets\UnityTestTools\LICENSE.txt" />
     <None Include="Assets\UnityTestTools\changelog.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
