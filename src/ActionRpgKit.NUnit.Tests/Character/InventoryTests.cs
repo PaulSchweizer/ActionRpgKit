@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 using System.IO;
 
 
-namespace ActionRpgKit.Tests.Character
+namespace ActionRpgKit.NUnit.Tests.Character
 {
     [TestFixture]
     [Category("Character.Inventory")]

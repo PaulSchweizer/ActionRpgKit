@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Character\Attribute.cs" />
     <Compile Include="Character\Character.cs" />
+    <Compile Include="Character\Controller.cs" />
     <Compile Include="Character\Inventory.cs" />
     <Compile Include="Character\EnemyFactory.cs" />
     <Compile Include="Character\Skill.cs" />

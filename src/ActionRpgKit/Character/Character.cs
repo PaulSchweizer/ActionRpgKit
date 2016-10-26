@@ -119,12 +119,6 @@ namespace ActionRpgKit.Character
         void RemoveEnemy(IFighter enemy);
 
         /// <summary>
-        /// Whether any enemy is in sight range.
-        /// Also checks whether the assigned enemies are still in alertness
-        /// range and de-registers them if not.</summary>
-        bool EnemyInAlternessRange();
-
-        /// <summary>
         /// Whether the Character is in range for an attack.</summary>
         bool EnemyInAttackRange(IFighter enemy);
 
@@ -160,6 +154,10 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Event is fired when an iCombatSkill is triggered.</summary>
         event CombatSkillTriggeredHandler OnCombatSkillTriggered;
+
+        event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;
+
+        event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
     }
 
     /// <summary>
@@ -173,6 +171,16 @@ namespace ActionRpgKit.Character
     /// <param name="sender">The sending IFighter</param>
     /// <param name="skill">The triggered CombatSkill</param>
     public delegate void CombatSkillTriggeredHandler(IFighter sender, int skillId);
+
+    /// <summary>
+    /// An enemy has entered the alterness range.</summary>
+    /// <param name="enemy">The Enemy</param>
+    public delegate void EnemyEnteredAltertnessRangeHandler(IFighter enemy);
+
+    /// <summary>
+    /// An enemy has left the alterness range.</summary>
+    /// <param name="enemy">The Enemy</param>
+    public delegate void EnemyLeftAltertnessRangeHandler(IFighter enemy);
 
     #endregion
 
@@ -204,6 +212,8 @@ namespace ActionRpgKit.Character
         public event MagicSkillTriggeredHandler OnMagicSkillTriggered;
         public event CombatSkillLearnedHandler OnCombatSkillLearned;
         public event CombatSkillTriggeredHandler OnCombatSkillTriggered;
+        public event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;
+        public event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
 
         [NonSerialized]
         public IdleState _idleState;
@@ -344,8 +354,26 @@ namespace ActionRpgKit.Character
             }
         }
 
-        #endregion 
-        
+        protected void EmitOnEnemyEnteredAltertnessRange()
+        {
+            var handler = OnEnemyEnteredAltertnessRange;
+            if (handler != null)
+            {
+                handler(this);
+            }
+        }
+
+        protected void EmitOnEnemyLeftAltertnessRange()
+        {
+            var handler = OnEnemyLeftAltertnessRange;
+            if (handler != null)
+            {
+                handler(this);
+            }
+        }
+
+        #endregion
+
         #region IMagicUser Implementations
 
         public float Magic
@@ -468,6 +496,7 @@ namespace ActionRpgKit.Character
             if (!Enemies.Contains(enemy))
             {
                 Enemies.Insert(index, enemy);
+                EmitOnEnemyEnteredAltertnessRange();
             }
         }
 
@@ -476,24 +505,8 @@ namespace ActionRpgKit.Character
             if (Enemies.Contains(enemy))
             {
                 Enemies.Remove(enemy);
+                EmitOnEnemyLeftAltertnessRange();
             }
-        }
-
-        public bool EnemyInAlternessRange()
-        {
-            for (int i = Enemies.Count - 1; i >= 0; i--)
-            {
-                var enemy = Enemies[i];
-                if (Position.SquaredDistanceTo(Enemies[i].Position) > Stats.AlertnessRange.Value)
-                {
-                    RemoveEnemy(Enemies[i]);
-                    continue;
-                }
-                Enemies.Remove(enemy);
-                Enemies.Insert(0, enemy);
-                return true;
-            }
-            return false;
         }
 
         public bool EnemyInAttackRange(IFighter enemy)
@@ -620,10 +633,10 @@ namespace ActionRpgKit.Character
         {
             ChangeState(_dyingState);
             IsDead = true;
-            for (int i=0; i<Enemies.Count; i++)
-            {
-                Enemies[i].RemoveEnemy(this);
-            }
+            //for (int i=0; i<Enemies.Count; i++)
+            //{
+            //    Enemies[i].RemoveEnemy(this);
+            //}
         }
 
         #endregion
@@ -641,11 +654,13 @@ namespace ActionRpgKit.Character
 
         public Player() : base(new PlayerStats(), new PlayerInventory())
         {
+            Controller.Register(this);
         }
 
         public Player(string name) : base(new PlayerStats(), new PlayerInventory())
         {
             Name = name;
+            Controller.Register(this);
         }
     }
 
@@ -657,11 +672,13 @@ namespace ActionRpgKit.Character
 
         public Enemy() : base(new EnemyStats(), new SimpleInventory())
         {
+            Controller.Register(this);
         }
 
         public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
         {
             Name = name;
+            Controller.Register(this);
         }
     }
 

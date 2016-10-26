@@ -7,8 +7,9 @@ using ActionRpgKit.Item;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.IO;
+using System.Collections.Generic;
 
-namespace ActionRpgKit.Tests.Character
+namespace ActionRpgKit.NUnit.Tests.Character
 {
     
     [TestFixture]
@@ -26,8 +27,9 @@ namespace ActionRpgKit.Tests.Character
         int _combatSkillTriggered;
 
         [SetUp]
-        public void RunBeforeAnyTests()
+        public void SetUp()
         {
+            Controller.Enemies = new List<Enemy>();
             player = new Player("Player");
             enemy = new Enemy("Enemy");
             meleeSkill = new GenericCombatSkill(id: 0,
@@ -89,62 +91,58 @@ namespace ActionRpgKit.Tests.Character
             Assert.IsTrue(player.CurrentState is IdleState);
 
             // Add Enemy switches to alert state
-            player.AddEnemy(enemy);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
 
             // No more Enemy switches to idle state
-            player.RemoveEnemy(enemy);
-            player.Update();
+            enemy.Position.Set(5, 0);
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is IdleState);
 
             // Add Enemy and go into Chase state
-            player.AddEnemy(enemy);
-            player.Update();
+            enemy.Position.Set(4, 0);
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
-            
+
             // Remove the enemy again and drop out of the chase again
-            player.RemoveEnemy(enemy);
-            player.Update();
+            enemy.Position.Set(5, 0);
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
-            
+
             // Enemy is back and the chase continues 
-            player.AddEnemy(enemy);
-            player.Update();
+            enemy.Position.Set(4, 0);
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
             
             //     0 1 2 3 4
             //   + - - - - - 
             // 0 | + + P + E
             player.Position.Set(2, 0);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
 
             //     0 1 2 3 4
             //   + - - - - - 
             // 0 | + + + P E
             player.Position.Set(3, 0);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is AttackState);
 
             // Attack and get rid of the enemy
             for (int i = 1; i < 11; i ++)
             {
                 GameTime.time += 1;
-                player.Update();
+                Controller.Update();
                 Assert.AreEqual(10 - i, enemy.Stats.Life.Value);
-                enemy.Update();
-                Assert.AreEqual(1, enemy.Enemies.Count);
+                Controller.Update();
             }
 
             // All of the enemies are gone, so the Character switches back to 
             // AlertState and then to IdleState.
             Assert.AreEqual(0, player.Enemies.Count);
-            player.Update();
-            Assert.IsTrue(player.CurrentState is AlertState);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is IdleState);
 
             // Reset the enemy and simulate a fleeing enemy after it has been attacked
@@ -156,20 +154,20 @@ namespace ActionRpgKit.Tests.Character
             enemy.Life = 10;
             enemy.Position.Set(2, 0);
             player.AddEnemy(enemy);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is AttackState);
-            player.Update();
+            Controller.Update();
 
             // Enemy flees
             //     0 1 2 3 4
             //   + - - - - - 
             // 0 | + E + P +
             enemy.Position.Set(1, 0);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
 
             // Player chases after the enemy
@@ -177,7 +175,7 @@ namespace ActionRpgKit.Tests.Character
             //   + - - - - - 
             // 0 | + E P + +
             player.Position.Set(2, 0);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is AttackState);
 
             // Enemy is out of AlertnessRange so we eventually return to Idle
@@ -187,11 +185,9 @@ namespace ActionRpgKit.Tests.Character
             player.Position.Set(4, 0);
             enemy.Position.Set(0, 0);
             player.Stats.AlertnessRange.Value = 1;
-            player.Update();
-            Assert.IsTrue(player.CurrentState is ChaseState);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
-            player.Update();
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is IdleState);
         }
 

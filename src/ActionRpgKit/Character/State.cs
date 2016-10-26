@@ -59,10 +59,7 @@ namespace ActionRpgKit.Character
                 return;
             }
 
-            if (character.EnemyInAlternessRange())
-            {
-                character.ChangeState(character._chaseState);
-            }
+            character.ChangeState(character._chaseState);
         }
     }
 
@@ -81,16 +78,9 @@ namespace ActionRpgKit.Character
                 return;
             }
 
-            if (character.EnemyInAlternessRange())
+            if (character.EnemyInAttackRange(character.Enemies[0]))
             {
-                if (character.EnemyInAttackRange(character.Enemies[0]))
-                {
-                    character.ChangeState(character._attackState);
-                }
-            }
-            else
-            {
-                character.ChangeState(character._alertState);
+                character.ChangeState(character._attackState);
             }
         }
     }

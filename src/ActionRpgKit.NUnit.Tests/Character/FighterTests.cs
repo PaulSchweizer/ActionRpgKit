@@ -5,7 +5,7 @@ using ActionRpgKit.Character;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Item;
 
-namespace ActionRpgKit.Tests.Character
+namespace ActionRpgKit.NUnit.Tests.Character
 {
     [TestFixture]
     [Category("Character.Fighter")]

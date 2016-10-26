@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.IO;
 
-namespace ActionRpgKit.Tests.Skill
+namespace ActionRpgKit.NUnit.Tests.Skill
 {
     [TestFixture]
     [Category("Character.Skill")]

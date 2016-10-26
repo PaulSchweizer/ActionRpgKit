@@ -5,7 +5,7 @@ using ActionRpgKit.Character.Stats;
 using ActionRpgKit.Item;
 using ActionRpgKit.Core;
 
-namespace ActionRpgKit.Tests.Character
+namespace ActionRpgKit.NUnit.Tests.Character
 {
     
     [TestFixture]

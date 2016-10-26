@@ -8,7 +8,7 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
 
-namespace ActionRpgKit.Tests.Character
+namespace ActionRpgKit.NUnit.Tests.Character
 {
     [TestFixture]
     [Category("Character.Attribute")]
