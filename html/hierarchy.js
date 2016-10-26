@@ -28,6 +28,7 @@ var hierarchy =
       [ "PlayerStats", "d7/dbc/class_action_rpg_kit_1_1_character_1_1_stats_1_1_player_stats.xhtml", null ]
     ] ],
     [ "Chapter", "d0/d8d/class_action_rpg_kit_1_1_story_1_1_chapter.xhtml", null ],
+    [ "Controller", "dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml", null ],
     [ "EnemyFactory", "d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml", null ],
     [ "EnemyPool", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml", null ],
     [ "GameTime", "d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml", null ],

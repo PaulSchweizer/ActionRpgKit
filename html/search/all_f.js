@@ -1,6 +1,7 @@
 var searchData=
 [
   ['range',['Range',['../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml#a7f1903b1b27ad6bab3f1f2b51ebf8b0f',1,'ActionRpgKit.Character.Skill.CombatSkill.Range()'],['../d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml#a7f1903b1b27ad6bab3f1f2b51ebf8b0f',1,'ActionRpgKit.Item.WeaponItem.Range()']]],
+  ['register',['Register',['../dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml#afc77e6ca050758bba921b6dcdc45aae0',1,'ActionRpgKit.Character.Controller.Register(Player player)'],['../dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml#a225d7d9f91a076400788c070d46c9abf',1,'ActionRpgKit.Character.Controller.Register(Enemy enemy)']]],
   ['release',['Release',['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml#a3ce6d5b04e396901272737bba985151e',1,'ActionRpgKit::Character::EnemyPool']]],
   ['remainingtime',['RemainingTime',['../d5/d34/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_time_based_modifier.xhtml#a93c51d4b3623d300d9c3aaf8bbcca58c',1,'ActionRpgKit::Character::Attribute::TimeBasedModifier']]],
   ['removeenemy',['RemoveEnemy',['../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#aeef35d1383ba0bd3b241b4afa38b340e',1,'ActionRpgKit.Character.IFighter.RemoveEnemy()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aeef35d1383ba0bd3b241b4afa38b340e',1,'ActionRpgKit.Character.BaseCharacter.RemoveEnemy()']]],

@@ -7,6 +7,7 @@ var namespace_action_rpg_kit_1_1_character =
     [ "AttackState", "d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml", "d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state" ],
     [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character" ],
     [ "ChaseState", "d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml", "d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state" ],
+    [ "Controller", "dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml", "dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller" ],
     [ "DyingState", "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml", "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state" ],
     [ "Enemy", "d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml", "d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy" ],
     [ "EnemyFactory", "d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml", "d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory" ],

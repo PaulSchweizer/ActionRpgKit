@@ -122,9 +122,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeef35d1383ba0bd3b241b4afa38b340e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#aeef35d1383ba0bd3b241b4afa38b340e">RemoveEnemy</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
 <tr class="memdesc:aeef35d1383ba0bd3b241b4afa38b340e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove an enemy. <a href="#aeef35d1383ba0bd3b241b4afa38b340e">More...</a><br /></td></tr>
 <tr class="separator:aeef35d1383ba0bd3b241b4afa38b340e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb53d4e9142c7b170fe842cbbdb700b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#adb53d4e9142c7b170fe842cbbdb700b6">EnemyInAlternessRange</a> ()</td></tr>
-<tr class="memdesc:adb53d4e9142c7b170fe842cbbdb700b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether any enemy is in sight range. Also checks whether the assigned enemies are still in alertness range and de-registers them if not. <a href="#adb53d4e9142c7b170fe842cbbdb700b6">More...</a><br /></td></tr>
-<tr class="separator:adb53d4e9142c7b170fe842cbbdb700b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ba4962cda376e693e597139fe558525"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a6ba4962cda376e693e597139fe558525">EnemyInAttackRange</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
 <tr class="memdesc:a6ba4962cda376e693e597139fe558525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> is in range for an attack. <a href="#a6ba4962cda376e693e597139fe558525">More...</a><br /></td></tr>
 <tr class="separator:a6ba4962cda376e693e597139fe558525"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,6 +179,10 @@ Events</h2></td></tr>
 <tr class="memitem:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af6ac5746b186f54ce87b4a7a02e3b45e">CombatSkillTriggeredHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ac3d928e18c4c7f70f38ad9fb15f18319">OnCombatSkillTriggered</a></td></tr>
 <tr class="memdesc:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event is fired when an iCombatSkill is triggered. <a href="#ac3d928e18c4c7f70f38ad9fb15f18319">More...</a><br /></td></tr>
 <tr class="separator:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4a5b9bbbd27fdf3c8ef80a7732df34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#ac294107fa4e81936d7cb30b7a2e97149">EnemyEnteredAltertnessRangeHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a3b4a5b9bbbd27fdf3c8ef80a7732df34">OnEnemyEnteredAltertnessRange</a></td></tr>
+<tr class="separator:a3b4a5b9bbbd27fdf3c8ef80a7732df34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada4350b2fd96cb5235bef0f7561e19ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a87d7755e13e38e64637c7c2ce7f29cec">EnemyLeftAltertnessRangeHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ada4350b2fd96cb5235bef0f7561e19ff">OnEnemyLeftAltertnessRange</a></td></tr>
+<tr class="separator:ada4350b2fd96cb5235bef0f7561e19ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> can fight.</p>
@@ -233,25 +234,6 @@ Events</h2></td></tr>
 <p>Remove an enemy.</p>
 
 <p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aeef35d1383ba0bd3b241b4afa38b340e">BaseCharacter</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adb53d4e9142c7b170fe842cbbdb700b6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool EnemyInAlternessRange </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Whether any enemy is in sight range. Also checks whether the assigned enemies are still in alertness range and de-registers them if not.</p>
-
-<p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adb53d4e9142c7b170fe842cbbdb700b6">BaseCharacter</a>.</p>
 
 </div>
 </div>
@@ -612,6 +594,30 @@ Events</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a3b4a5b9bbbd27fdf3c8ef80a7732df34"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#ac294107fa4e81936d7cb30b7a2e97149">EnemyEnteredAltertnessRangeHandler</a> OnEnemyEnteredAltertnessRange</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ada4350b2fd96cb5235bef0f7561e19ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a87d7755e13e38e64637c7c2ce7f29cec">EnemyLeftAltertnessRangeHandler</a> OnEnemyLeftAltertnessRange</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>Character.cs</li>
 </ul>
@@ -621,7 +627,7 @@ Events</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a></li>
-    <li class="footer">Generated on Tue Oct 25 2016 05:57:00 for Action RPG Kit by
+    <li class="footer">Generated on Wed Oct 26 2016 06:04:02 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

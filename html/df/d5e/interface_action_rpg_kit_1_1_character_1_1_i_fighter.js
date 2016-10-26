@@ -2,7 +2,6 @@ var interface_action_rpg_kit_1_1_character_1_1_i_fighter =
 [
     [ "AddEnemy", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a25b02457c5cf7c988f529b9097d96df9", null ],
     [ "RemoveEnemy", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#aeef35d1383ba0bd3b241b4afa38b340e", null ],
-    [ "EnemyInAlternessRange", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#adb53d4e9142c7b170fe842cbbdb700b6", null ],
     [ "EnemyInAttackRange", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a6ba4962cda376e693e597139fe558525", null ],
     [ "CanAttack", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#add055791730d39eaf3b51542df592142", null ],
     [ "Attack", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#af286256bac45cb4f84818931177c0feb", null ],
@@ -19,5 +18,7 @@ var interface_action_rpg_kit_1_1_character_1_1_i_fighter =
     [ "EquippedWeapon", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7c6296d3ea4af57473f102c58917bdb4", null ],
     [ "CombatSkills", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a0625bd243a067628a327258e85221c28", null ],
     [ "OnCombatSkillLearned", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ab14281ebd03b9554c72a19c118bf6cf1", null ],
-    [ "OnCombatSkillTriggered", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ac3d928e18c4c7f70f38ad9fb15f18319", null ]
+    [ "OnCombatSkillTriggered", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ac3d928e18c4c7f70f38ad9fb15f18319", null ],
+    [ "OnEnemyEnteredAltertnessRange", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a3b4a5b9bbbd27fdf3c8ef80a7732df34", null ],
+    [ "OnEnemyLeftAltertnessRange", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ada4350b2fd96cb5235bef0f7561e19ff", null ]
 ];

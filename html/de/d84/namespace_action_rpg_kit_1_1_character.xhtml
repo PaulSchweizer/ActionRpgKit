@@ -119,6 +119,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml">ChaseState</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml">Controller</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml" title="Controller for the interaction between the Player and the Enemies.">Controller</a> for the interaction between the <a class="el" href="../../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a Player controllable character.">Player</a> and the Enemies. <a href="../../dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml">DyingState</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml">Enemy</a></td></tr>
@@ -175,6 +178,12 @@ Functions</h2></td></tr>
 <tr class="memitem:af6ac5746b186f54ce87b4a7a02e3b45e"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af6ac5746b186f54ce87b4a7a02e3b45e">CombatSkillTriggeredHandler</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> sender, int skillId)</td></tr>
 <tr class="memdesc:af6ac5746b186f54ce87b4a7a02e3b45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>'s state changes. <a href="#af6ac5746b186f54ce87b4a7a02e3b45e">More...</a><br /></td></tr>
 <tr class="separator:af6ac5746b186f54ce87b4a7a02e3b45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac294107fa4e81936d7cb30b7a2e97149"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#ac294107fa4e81936d7cb30b7a2e97149">EnemyEnteredAltertnessRangeHandler</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
+<tr class="memdesc:ac294107fa4e81936d7cb30b7a2e97149"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enemy has entered the alterness range. <a href="#ac294107fa4e81936d7cb30b7a2e97149">More...</a><br /></td></tr>
+<tr class="separator:ac294107fa4e81936d7cb30b7a2e97149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87d7755e13e38e64637c7c2ce7f29cec"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a87d7755e13e38e64637c7c2ce7f29cec">EnemyLeftAltertnessRangeHandler</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
+<tr class="memdesc:a87d7755e13e38e64637c7c2ce7f29cec"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enemy has left the alterness range. <a href="#a87d7755e13e38e64637c7c2ce7f29cec">More...</a><br /></td></tr>
+<tr class="separator:a87d7755e13e38e64637c7c2ce7f29cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ab26a7c08e58573d5b233e6f09f33cf6e"></a>
@@ -359,13 +368,61 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac294107fa4e81936d7cb30b7a2e97149"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.EnemyEnteredAltertnessRangeHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
+          <td class="paramname"><em>enemy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An enemy has entered the alterness range.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enemy</td><td>The <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character.">Enemy</a></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a87d7755e13e38e64637c7c2ce7f29cec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.EnemyLeftAltertnessRangeHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
+          <td class="paramname"><em>enemy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An enemy has left the alterness range.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enemy</td><td>The <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character.">Enemy</a></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li>
-    <li class="footer">Generated on Tue Oct 25 2016 05:57:00 for Action RPG Kit by
+    <li class="footer">Generated on Wed Oct 26 2016 06:04:02 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
