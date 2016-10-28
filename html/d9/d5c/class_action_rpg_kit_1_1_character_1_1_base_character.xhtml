@@ -129,6 +129,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2b383fc8a8123f3883e44924816b162e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa73e7c4dd1df5fd5fbf81c7764ee1533"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> ()</td></tr>
 <tr class="separator:aa73e7c4dd1df5fd5fbf81c7764ee1533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afec2de7e986fc1cbecd00ca7c88136e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afec2de7e986fc1cbecd00ca7c88136e9">OnDeserialized</a> (StreamingContext context)</td></tr>
+<tr class="separator:afec2de7e986fc1cbecd00ca7c88136e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec0783b5a136e042adcc47bae4fe5291"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aec0783b5a136e042adcc47bae4fe5291">Update</a> ()</td></tr>
 <tr class="separator:aec0783b5a136e042adcc47bae4fe5291"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3af8a0034cb6abc219f9d28a78615a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ad3af8a0034cb6abc219f9d28a78615a0">ChangeState</a> (<a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a> state)</td></tr>
@@ -195,6 +197,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ae478e44bcecb33a8d3a730be10fb878f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac64bcce5b265061cbef9d7346ddad985"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml">DyingState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ac64bcce5b265061cbef9d7346ddad985">_dyingState</a></td></tr>
 <tr class="separator:ac64bcce5b265061cbef9d7346ddad985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2438fe3a9c71162d765db97402bf75a0"><td class="memItemLeft" align="right" valign="top">List&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a2438fe3a9c71162d765db97402bf75a0">MagicSkillEndTimes</a> = new List&lt;float&gt;()</td></tr>
+<tr class="separator:a2438fe3a9c71162d765db97402bf75a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4318d64a22361ef0d01d2fea1020a3a1"><td class="memItemLeft" align="right" valign="top">List&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a4318d64a22361ef0d01d2fea1020a3a1">CombatSkillEndTimes</a> = new List&lt;float&gt;() {}</td></tr>
+<tr class="separator:a4318d64a22361ef0d01d2fea1020a3a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -227,9 +233,9 @@ Properties</h2></td></tr>
 <tr class="separator:aa4aea9bbf9e54f9950950e1ccb3cd18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a979659ec464cee64a84df219494fc2ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a979659ec464cee64a84df219494fc2ea">IsDead</a><code> [get, set]</code></td></tr>
 <tr class="separator:a979659ec464cee64a84df219494fc2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af015481142aa8d1b4c3f14db2c2fa466"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af015481142aa8d1b4c3f14db2c2fa466">Enemies</a><code> [get]</code></td></tr>
+<tr class="memitem:af015481142aa8d1b4c3f14db2c2fa466"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af015481142aa8d1b4c3f14db2c2fa466">Enemies</a><code> [get, set]</code></td></tr>
 <tr class="separator:af015481142aa8d1b4c3f14db2c2fa466"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7874a66111d3279e62e10777c6639ee1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7874a66111d3279e62e10777c6639ee1">TimeUntilNextAttack</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a7874a66111d3279e62e10777c6639ee1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7874a66111d3279e62e10777c6639ee1">TimeUntilNextAttack</a> = new List&lt;<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&gt;()<code> [get, set]</code></td></tr>
 <tr class="separator:a7874a66111d3279e62e10777c6639ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67cd368b5059f35e9c2dcc7410de7181"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a67cd368b5059f35e9c2dcc7410de7181">CurrentAttackSkill</a><code> [get, set]</code></td></tr>
 <tr class="separator:a67cd368b5059f35e9c2dcc7410de7181"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -237,7 +243,7 @@ Properties</h2></td></tr>
 <tr class="separator:a7c6296d3ea4af57473f102c58917bdb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d97715f54665954da0cc2f2c939a205"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6d97715f54665954da0cc2f2c939a205">EnemiesInAttackRange</a><code> [get]</code></td></tr>
 <tr class="separator:a6d97715f54665954da0cc2f2c939a205"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0625bd243a067628a327258e85221c28"><td class="memItemLeft" align="right" valign="top">List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0625bd243a067628a327258e85221c28">CombatSkills</a><code> [get]</code></td></tr>
+<tr class="memitem:a0625bd243a067628a327258e85221c28"><td class="memItemLeft" align="right" valign="top">List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0625bd243a067628a327258e85221c28">CombatSkills</a><code> [get, set]</code></td></tr>
 <tr class="separator:a0625bd243a067628a327258e85221c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_interface_action_rpg_kit_1_1_core_1_1_i_game_object"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_action_rpg_kit_1_1_core_1_1_i_game_object')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml">IGameObject</a></td></tr>
 <tr class="memitem:a51d5d92d61f0c8e344e8562a655d27de inherit properties_interface_action_rpg_kit_1_1_core_1_1_i_game_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml#a51d5d92d61f0c8e344e8562a655d27de">Position</a><code> [get, set]</code></td></tr>
@@ -275,7 +281,7 @@ Properties</h2></td></tr>
 <tr class="memitem:a7c6296d3ea4af57473f102c58917bdb4 inherit properties_interface_action_rpg_kit_1_1_character_1_1_i_fighter"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7c6296d3ea4af57473f102c58917bdb4">EquippedWeapon</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a7c6296d3ea4af57473f102c58917bdb4 inherit properties_interface_action_rpg_kit_1_1_character_1_1_i_fighter"><td class="mdescLeft">&#160;</td><td class="mdescRight">The currently equipped Weapon. <a href="#a7c6296d3ea4af57473f102c58917bdb4">More...</a><br /></td></tr>
 <tr class="separator:a7c6296d3ea4af57473f102c58917bdb4 inherit properties_interface_action_rpg_kit_1_1_character_1_1_i_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0625bd243a067628a327258e85221c28 inherit properties_interface_action_rpg_kit_1_1_character_1_1_i_fighter"><td class="memItemLeft" align="right" valign="top">List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a0625bd243a067628a327258e85221c28">CombatSkills</a><code> [get]</code></td></tr>
+<tr class="memitem:a0625bd243a067628a327258e85221c28 inherit properties_interface_action_rpg_kit_1_1_character_1_1_i_fighter"><td class="memItemLeft" align="right" valign="top">List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a0625bd243a067628a327258e85221c28">CombatSkills</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a0625bd243a067628a327258e85221c28 inherit properties_interface_action_rpg_kit_1_1_character_1_1_i_fighter"><td class="mdescLeft">&#160;</td><td class="mdescRight">CombatSkills available for this <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>. <a href="#a0625bd243a067628a327258e85221c28">More...</a><br /></td></tr>
 <tr class="separator:a0625bd243a067628a327258e85221c28 inherit properties_interface_action_rpg_kit_1_1_character_1_1_i_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -338,16 +344,12 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a7fe3282a3c82f974b1f6b2fee2c9fc7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7fe3282a3c82f974b1f6b2fee2c9fc7f">_isDead</a> = false</td></tr>
+<tr class="separator:a7fe3282a3c82f974b1f6b2fee2c9fc7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0551832de103582b780e0c9434f1993a"><td class="memItemLeft" align="right" valign="top">List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0551832de103582b780e0c9434f1993a">_magicSkills</a> = new List&lt;int&gt;()</td></tr>
 <tr class="separator:a0551832de103582b780e0c9434f1993a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7bc8b19da2bb4a622ec6e0c0f11e46f"><td class="memItemLeft" align="right" valign="top">List&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab7bc8b19da2bb4a622ec6e0c0f11e46f">_magicSkillEndTimes</a> = new List&lt;float&gt;()</td></tr>
-<tr class="separator:ab7bc8b19da2bb4a622ec6e0c0f11e46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6b502ea703ff81b2b13d0524459c46f"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab6b502ea703ff81b2b13d0524459c46f">_enemies</a> = new List&lt;<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&gt;()</td></tr>
-<tr class="separator:ab6b502ea703ff81b2b13d0524459c46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67b243005a8272c138b71cc5aecbfe34"><td class="memItemLeft" align="right" valign="top">List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a67b243005a8272c138b71cc5aecbfe34">_combatSkills</a> = new List&lt;int&gt;()</td></tr>
 <tr class="separator:a67b243005a8272c138b71cc5aecbfe34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b8f0e756cf927f8d4a18f22268f4d44"><td class="memItemLeft" align="right" valign="top">List&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a4b8f0e756cf927f8d4a18f22268f4d44">_combatSkillEndTimes</a> = new List&lt;float&gt;()</td></tr>
-<tr class="separator:a4b8f0e756cf927f8d4a18f22268f4d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base implementation of a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>.</p>
@@ -421,6 +423,30 @@ Private Attributes</h2></td></tr>
           <td class="memname">override string ToString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afec2de7e986fc1cbecd00ca7c88136e9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OnDeserialized </td>
+          <td>(</td>
+          <td class="paramtype">StreamingContext&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1300,6 +1326,26 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7fe3282a3c82f974b1f6b2fee2c9fc7f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool _isDead = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0551832de103582b780e0c9434f1993a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1320,42 +1366,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab7bc8b19da2bb4a622ec6e0c0f11e46f"></a>
+<a class="anchor" id="a2438fe3a9c71162d765db97402bf75a0"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt;float&gt; _magicSkillEndTimes = new List&lt;float&gt;()</td>
+          <td class="memname">List&lt;float&gt; MagicSkillEndTimes = new List&lt;float&gt;()</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab6b502ea703ff81b2b13d0524459c46f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt;<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&gt; _enemies = new List&lt;<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&gt;()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -1380,22 +1398,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4b8f0e756cf927f8d4a18f22268f4d44"></a>
+<a class="anchor" id="a4318d64a22361ef0d01d2fea1020a3a1"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt;float&gt; _combatSkillEndTimes = new List&lt;float&gt;()</td>
+          <td class="memname">List&lt;float&gt; CombatSkillEndTimes = new List&lt;float&gt;() {}</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -1534,7 +1544,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1549,7 +1559,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float TimeUntilNextAttack</td>
+          <td class="memname">float TimeUntilNextAttack = new List&lt;<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&gt;()</td>
         </tr>
       </table>
   </td>
@@ -1634,7 +1644,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1735,7 +1745,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a></li>
-    <li class="footer">Generated on Wed Oct 26 2016 06:04:02 for Action RPG Kit by
+    <li class="footer">Generated on Fri Oct 28 2016 07:06:25 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

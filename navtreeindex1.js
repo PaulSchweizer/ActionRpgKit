@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml":[0,0,0,0,2],
 "da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml":[1,0,0,0,2],
 "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml":[1,0,0,0,17],
 "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a43375ef23c333f5029d57863cf436257":[1,0,0,0,17,2],
@@ -56,8 +57,8 @@ var NAVTREEINDEX1 =
 "dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml#a79f423a168fce71dc1a8668e592df36f":[1,0,0,0,7,3],
 "dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml#abe410208d91e44461e0f2e79bc661243":[1,0,0,0,7,4],
 "dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml#afc77e6ca050758bba921b6dcdc45aae0":[1,0,0,0,7,0],
-"dc/d8d/namespace_action_rpg_kit_1_1_story_1_1_quest.xhtml":[0,0,0,3,0],
 "dc/d8d/namespace_action_rpg_kit_1_1_story_1_1_quest.xhtml":[1,0,0,3,0],
+"dc/d8d/namespace_action_rpg_kit_1_1_story_1_1_quest.xhtml":[0,0,0,3,0],
 "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml":[1,0,0,0,1,4],
 "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a1ccb2a57fde23aa66b03062ae2ad567f":[1,0,0,0,1,4,5],
 "dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a2462355563c584ccfd74c8f1811c08ea":[1,0,0,0,1,4,3],
@@ -122,8 +123,8 @@ var NAVTREEINDEX1 =
 "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml#aec0783b5a136e042adcc47bae4fe5291":[1,0,0,1,1,0],
 "de/d84/namespace_action_rpg_kit_1_1_character.xhtml":[1,0,0,0],
 "de/d84/namespace_action_rpg_kit_1_1_character.xhtml":[0,0,0,0],
-"de/de6/namespace_action_rpg_kit_1_1_story.xhtml":[1,0,0,3],
 "de/de6/namespace_action_rpg_kit_1_1_story.xhtml":[0,0,0,3],
+"de/de6/namespace_action_rpg_kit_1_1_story.xhtml":[1,0,0,3],
 "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml":[1,0,0,0,20],
 "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a0256145e5384f6b339e6042effdbff9f":[1,0,0,0,20,8],
 "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a0ea82a4aad04a30777a550ba227c959f":[1,0,0,0,20,6],
