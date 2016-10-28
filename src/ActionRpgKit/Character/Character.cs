@@ -5,6 +5,7 @@ using ActionRpgKit.Item;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Character.Stats;
 using ActionRpgKit.Character.Attribute;
+using System.Runtime.Serialization;
 
 namespace ActionRpgKit.Character
 {
@@ -96,7 +97,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// All enemies currently in Attack Range.</summary>
-        IFighter[] EnemiesInAttackRange { get; }
+        IFighter[] EnemiesInAttackRange { get; } 
 
         /// <summary>
         /// A timestamp representing the next possible moment for an attack.</summary>
@@ -133,7 +134,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// CombatSkills available for this Character.</summary>
-        List<int> CombatSkills { get; }
+        List<int> CombatSkills { get; set;}
 
         /// <summary>
         /// Add a new CombatSkill.</summary>
@@ -226,12 +227,16 @@ namespace ActionRpgKit.Character
         [NonSerialized]
         public DyingState _dyingState;
 
-        private List<int> _magicSkills = new List<int>();
-        private List<float> _magicSkillEndTimes = new List<float>();
+        [NonSerialized]
+        private bool _isDead = false;
 
-        private List<IFighter> _enemies = new List<IFighter>();
+        private List<int> _magicSkills = new List<int>();
+
+        public List<float> MagicSkillEndTimes = new List<float>();
+
         private List<int> _combatSkills = new List<int>();
-        private List<float> _combatSkillEndTimes = new List<float>();
+
+        public List<float> CombatSkillEndTimes = new List<float>() {};
 
         public BaseCharacter() { }
 
@@ -277,6 +282,16 @@ namespace ActionRpgKit.Character
             repr += "\n";
             repr += Inventory.ToString();
             return repr;
+        }
+
+        [OnDeserialized]
+        public void OnDeserialized(StreamingContext context)
+        {
+            CombatSkillEndTimes.Clear();
+            for (int i = 0; i < CombatSkills.Count; i++)
+            {
+                CombatSkillEndTimes.Add(-1);
+            }
         }
 
         #region IGameObject Implementations
@@ -401,7 +416,7 @@ namespace ActionRpgKit.Character
             if (!MagicSkills.Contains(skillId))
             {
                 _magicSkills.Add(skillId);
-                _magicSkillEndTimes.Add(-1);
+                MagicSkillEndTimes.Add(-1);
                 EmitOnMagicSkillLearned(skillId);
             }
         }
@@ -414,7 +429,7 @@ namespace ActionRpgKit.Character
             }
             var magicSkill = SkillDatabase.GetMagicSkillById(skillId);
             Magic -= magicSkill.Cost;
-            _magicSkillEndTimes[MagicSkills.IndexOf(skillId)] = GameTime.time + magicSkill.CooldownTime;
+            MagicSkillEndTimes[MagicSkills.IndexOf(skillId)] = GameTime.time + magicSkill.CooldownTime;
             PreUseCountdown(magicSkill);
             EmitOnMagicSkillTriggered(skillId);
             return true;
@@ -456,7 +471,7 @@ namespace ActionRpgKit.Character
             {
                 return false;
             }
-            return GameTime.time >= _magicSkillEndTimes[MagicSkills.IndexOf(skillId)];
+            return GameTime.time >= MagicSkillEndTimes[MagicSkills.IndexOf(skillId)];
         }
 
         #endregion 
@@ -475,15 +490,9 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public bool IsDead { get; set; }
+        public bool IsDead { get { return _isDead; } set { _isDead = value; } }
 
-        public List<IFighter> Enemies
-        {
-            get
-            {
-                return _enemies;
-            }
-        }
+        public List<IFighter> Enemies { get; set; } = new List<IFighter>();
 
         public float TimeUntilNextAttack { get; set; }
 
@@ -551,14 +560,18 @@ namespace ActionRpgKit.Character
             {
                 return _combatSkills;
             }
+            set
+            {
+                _combatSkills = value;
+            }
         }
 
         public void LearnCombatSkill(int skillId)
         {
             if (!CombatSkills.Contains(skillId))
             {
-                _combatSkills.Add(skillId);
-                _combatSkillEndTimes.Add(-1);
+                CombatSkills.Add(skillId);
+                CombatSkillEndTimes.Add(-1);
                 EmitOnCombatSkillLearned(skillId);
             }
         }
@@ -574,8 +587,8 @@ namespace ActionRpgKit.Character
             if (EquippedWeapon > -1)
             {
                 endTime += 1 / ItemDatabase.GetWeaponItemById(EquippedWeapon).Speed;
-            }  
-            _combatSkillEndTimes[CombatSkills.IndexOf(skillId)] = endTime;
+            }
+            CombatSkillEndTimes[CombatSkills.IndexOf(skillId)] = endTime; 
             PreUseCountdown(combatSkill);
             EmitOnCombatSkillTriggered(skillId);
             return true;
@@ -597,7 +610,7 @@ namespace ActionRpgKit.Character
         /// Subtract the damage from the current life</summary>
         public void OnAttacked(IFighter attacker, float damage)
         {
-            Life -= damage;
+            Stats.Life.Value -= damage;
             AddEnemy(attacker);
         }
 
@@ -624,7 +637,7 @@ namespace ActionRpgKit.Character
             {
                 return false;
             }
-            return GameTime.time >= _combatSkillEndTimes[CombatSkills.IndexOf(skillId)];
+            return GameTime.time >= CombatSkillEndTimes[CombatSkills.IndexOf(skillId)];
         }
         
         /// <summary>

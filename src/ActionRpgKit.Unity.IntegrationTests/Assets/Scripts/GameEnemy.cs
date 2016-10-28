@@ -41,17 +41,14 @@ public class GameEnemy : GameBaseCharacter
 
     public override void StateChangedTest(ICharacter sender, IState previousState, IState newState)
     {
-        throw new NotImplementedException();
     }
 
     public override void MagicSkillTriggeredTest(IMagicUser sender, int skillId)
     {
-        throw new NotImplementedException();
     }
 
     public override void CombatSkillTriggeredTest(IFighter sender, int skillId)
     {
-        throw new NotImplementedException();
     }
 
     #endregion

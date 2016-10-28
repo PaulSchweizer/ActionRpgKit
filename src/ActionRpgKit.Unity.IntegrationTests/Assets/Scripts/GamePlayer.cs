@@ -24,9 +24,15 @@ public class GamePlayer : GameBaseCharacter
         playerData = (PlayerCharacterData)CharacterData;
 
         base.Awake();
+
         // Connect the signals fromt the ActionRpgKit Character
         Character.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearnedTest);
         Character.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearnedTest);
+    }
+
+    public void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -45,27 +51,23 @@ public class GamePlayer : GameBaseCharacter
 
     public override void StateChangedTest(ICharacter sender, IState previousState, IState newState)
     {
-        throw new NotImplementedException();
     }
 
     public override void MagicSkillLearnedTest(IMagicUser sender, int skillId)
     {
-        throw new NotImplementedException();
     }
 
     public override void MagicSkillTriggeredTest(IMagicUser sender, int skillId)
     {
-        throw new NotImplementedException();
     }
 
     public override void CombatSkillLearnedTest(IFighter sender, int skillId)
     {
-        throw new NotImplementedException();
     }
 
     public override void CombatSkillTriggeredTest(IFighter sender, int skillId)
     {
-        throw new NotImplementedException();
+        Debug.Log(skillId);
     }
 
     #endregion

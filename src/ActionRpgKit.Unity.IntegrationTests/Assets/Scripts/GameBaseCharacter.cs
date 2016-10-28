@@ -30,13 +30,20 @@ public class GameBaseCharacter : MonoBehaviour
         {
             attr.Value.OnValueChanged += new ValueChangedHandler(StatsChanged);
         }
+
+        Character.LearnCombatSkill(0);
+        Character.CurrentAttackSkill = 0;
+        Character.CombatSkillEndTimes.Clear();
+        for(int i = 0; i < Character.CombatSkills.Count; i++)
+        {
+            Character.CombatSkillEndTimes.Add(-1);
+        }
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
         Character.Position.Set(transform.position.x, transform.position.y);
-        Character.Update();
     }
 
     #endregion

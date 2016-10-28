@@ -195,6 +195,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
         public void SerializeCharacterTest()
         {
             player.Position.Set(6, 6);
+            player.CombatSkillEndTimes = new List<float>() { 100 };
             BinarySerialize(player);
             var serializedPlayer = BinaryDeserialize(player);
 
@@ -204,8 +205,11 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.AreEqual(player.Stats.ToString(), serializedPlayer.Stats.ToString());
             Assert.AreEqual(player.Inventory.ToString(), serializedPlayer.Inventory.ToString());
             Assert.AreEqual(player.ToString(), serializedPlayer.ToString());
+            Assert.AreNotEqual(player.CombatSkillEndTimes[0], serializedPlayer.CombatSkillEndTimes[0]);
+            Assert.AreEqual(-1, serializedPlayer.CombatSkillEndTimes[0]);
 
             enemy.Position.Set(6, 6);
+            enemy.IsDead = true;
             BinarySerialize(enemy);
             var serializedEnemy = BinaryDeserialize(enemy);
 
@@ -215,6 +219,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.AreEqual(enemy.Stats.ToString(), serializedEnemy.Stats.ToString());
             Assert.AreEqual(enemy.Inventory.ToString(), serializedEnemy.Inventory.ToString());
             Assert.AreEqual(enemy.ToString(), serializedEnemy.ToString());
+            Assert.AreNotEqual(enemy.IsDead, serializedEnemy.IsDead);
+            Assert.IsFalse(serializedEnemy.IsDead);
         }
 
         private void BinarySerialize(BaseCharacter character)

@@ -56,6 +56,14 @@ namespace ActionRpgKit.Character
                     {
                         Player.RemoveEnemy(Enemies[i]);
                     }
+                    if (distance <= Enemies[i].Stats.AlertnessRange.Value)
+                    {
+                        Enemies[i].AddEnemy(Player);
+                    }
+                    else
+                    {
+                        Enemies[i].RemoveEnemy(Player);
+                    }
                     Enemies[i].Update();
                 }
                 Player.Update();
