@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ActionRpgKit.Item;
 
 namespace ActionRpgKit.Character
 {
@@ -48,26 +49,89 @@ namespace ActionRpgKit.Character
                         continue;
                     }
                     var distance = Player.Position.SquaredDistanceTo(Enemies[i].Position);
-                    if (distance <= Player.Stats.AlertnessRange.Value)
-                    {
-                        Player.AddEnemy(Enemies[i]);
-                    }
-                    else
-                    {
-                        Player.RemoveEnemy(Enemies[i]);
-                    }
-                    if (distance <= Enemies[i].Stats.AlertnessRange.Value)
-                    {
-                        Enemies[i].AddEnemy(Player);
-                    }
-                    else
-                    {
-                        Enemies[i].RemoveEnemy(Player);
-                    }
+
+                    CharacterInAlertnessRange(Player, Enemies[i], distance);
+                    CharacterInAlertnessRange(Enemies[i], Player, distance);
+
                     Enemies[i].Update();
                 }
                 Player.Update();
             }
         }
+
+        private static void CharacterInAlertnessRange(BaseCharacter origin, 
+                                                      BaseCharacter other, 
+                                                      float distance)
+        {
+            if (distance <= origin.Stats.AlertnessRange.Value)
+            {
+                origin.AddEnemy(other);
+                CharacterInAttackRange(origin, other, distance);
+            }
+            else
+            {
+                origin.RemoveEnemy(other);
+                CharacterInAttackRange(origin, other, distance);
+                //if (origin.EnemiesInAttackRange.Contains(other))
+                //{
+                //    origin.EnemiesInAttackRange.Remove(other);
+                //}
+            }
+        }
+
+        private static void CharacterInAttackRange(BaseCharacter origin,
+                                                   BaseCharacter other,
+                                                   float distance)
+        {
+            float range = origin.Stats.AttackRange.Value;
+            if (origin.EquippedWeapon > -1)
+                range += ItemDatabase.GetWeaponItemById(origin.EquippedWeapon).Range;
+            {
+            }
+            if(distance <= range)
+            {
+                if (!origin.EnemiesInAttackRange.Contains(other))
+                {
+                    origin.EnemiesInAttackRange.Add(other);
+                }
+            }
+            else
+            {
+                if (origin.EnemiesInAttackRange.Contains(other))
+                {
+                    origin.EnemiesInAttackRange.Remove(other);
+                }
+            }
+        }
     }
 }
+
+
+
+
+
+//public bool EnemyInAttackRange(IFighter enemy)
+//{
+//    float range = Stats.AttackRange.Value;
+//    if (EquippedWeapon > -1)
+//    {
+//        range += ItemDatabase.GetWeaponItemById(EquippedWeapon).Range;
+//    }
+//    return Position.SquaredDistanceTo(enemy.Position) <= range;
+//}
+
+//public IFighter[] EnemiesInAttackRange
+//{
+//    get
+//    {
+//        var enemiesInAttackRange = new List<IFighter>();
+//        for (int i = 0; i < Enemies.Count; i++)
+//        {
+//            if (EnemyInAttackRange(Enemies[i]))
+//            {
+//                enemiesInAttackRange.Add(Enemies[i]);
+//            }
+//        }
+//        return enemiesInAttackRange.ToArray();
+//    }
+//}

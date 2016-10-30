@@ -256,7 +256,7 @@ namespace ActionRpgKit.Character.Skill
             {
                 damage += ItemDatabase.GetWeaponItemById(user.EquippedWeapon).Damage;
             }
-            for (int i = Math.Min(MaximumTargets, user.EnemiesInAttackRange.Length) - 1; i >= 0; i--)
+            for (int i = Math.Min(MaximumTargets, user.EnemiesInAttackRange.Count) - 1; i >= 0; i--)
             {
                 user.EnemiesInAttackRange[i].OnAttacked(user, damage);
             }

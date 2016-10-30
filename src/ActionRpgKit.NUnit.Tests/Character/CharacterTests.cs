@@ -294,6 +294,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             enemy.Position.Set(0, 0);
             player.AddEnemy(enemy);
             GameTime.time += 1;
+            Controller.Update();
             player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(1, _combatSkillTriggered);
             

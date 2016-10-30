@@ -78,7 +78,7 @@ namespace ActionRpgKit.Character
                 return;
             }
 
-            if (character.EnemyInAttackRange(character.Enemies[0]))
+            if (character.EnemiesInAttackRange.Contains(character.Enemies[0]))
             {
                 character.ChangeState(character._attackState);
             }
@@ -102,7 +102,7 @@ namespace ActionRpgKit.Character
             }
 
             // If not in Attack Range any more, chase the enemy
-            if (!character.EnemyInAttackRange(character.Enemies[0]))
+            if (!character.EnemiesInAttackRange.Contains(character.Enemies[0]))
             {
                 character.ChangeState(character._chaseState);
                 return;

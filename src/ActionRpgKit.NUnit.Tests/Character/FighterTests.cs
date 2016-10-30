@@ -4,6 +4,7 @@ using ActionRpgKit.Core;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Skill;
 using ActionRpgKit.Item;
+using System.Collections.Generic;
 
 namespace ActionRpgKit.NUnit.Tests.Character
 {
@@ -25,6 +26,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
         public void SetUp()
         {
             GameTime.Reset();
+            Controller.Enemies.Clear();
             player = new Player("John");
             enemy1 = new Enemy("Zombie");
             enemy2 = new Enemy("AxeZombie");
@@ -79,6 +81,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // Attack the Player until his health runs out
             for (int i = 0; i < 20; i++)
             {
+                Controller.Update();
                 enemy1.TriggerCombatSkill(meleeSkill.Id);
                 Assert.AreEqual(20 - (i + 1), player.Life);
                 GameTime.time += 1;
@@ -88,17 +91,23 @@ namespace ActionRpgKit.NUnit.Tests.Character
         [Test]
         public void MultiTargetsSkillTest()
         {
+            GameTime.Reset();
             // Prepare the player by learning the multiMeleeSkill
             player.LearnCombatSkill(meleeMultiTargetsSkill.Id);
+            player.CombatSkillEndTimes[0] = -1;
 
-            // Add the enemies
-            player.AddEnemy(enemy3);
-            player.AddEnemy(enemy2);
-            player.AddEnemy(enemy1);
+            player.Position.Set(0, 0);
+            enemy1.Position.Set(0, 0);
+            enemy2.Position.Set(0, 0);
+            enemy3.Position.Set(1, 0);
+            enemy1.Life = 10;
+            enemy2.Life = 10;
+            enemy3.Life = 10;
 
             // Attack the Enemy until his health runs out
             for (int i = 0; i < 5; i++)
             {
+                Controller.Update();
                 player.TriggerCombatSkill(meleeMultiTargetsSkill.Id);
                 Assert.AreEqual(10 - (i*2 + 2), enemy1.Life);
                 Assert.AreEqual(10 - (i*2 + 2), enemy2.Life);
