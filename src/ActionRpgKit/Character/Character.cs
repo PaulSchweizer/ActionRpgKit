@@ -53,7 +53,11 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Trigger the given MagicSkill.</summary>
         bool TriggerMagicSkill (int skillId);
-        
+
+        /// <summary>
+        /// Use the MagicSkill.</summary>
+        void UseMagicSkill(int skillId);
+
         /// <summary>
         /// Event is fired when a new MagicSkill is learned.</summary>
         event MagicSkillLearnedHandler OnMagicSkillLearned;
@@ -97,7 +101,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// All enemies currently in Attack Range.</summary>
-        IFighter[] EnemiesInAttackRange { get; } 
+        List<IFighter> EnemiesInAttackRange { get; set; } 
 
         /// <summary>
         /// A timestamp representing the next possible moment for an attack.</summary>
@@ -120,10 +124,6 @@ namespace ActionRpgKit.Character
         void RemoveEnemy(IFighter enemy);
 
         /// <summary>
-        /// Whether the Character is in range for an attack.</summary>
-        bool EnemyInAttackRange(IFighter enemy);
-
-        /// <summary>
         /// Whether the Character can attack depends on the time since the
         /// last attack.</summary>
         bool CanAttack();
@@ -143,6 +143,10 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Attack with the given CombatSkill.</summary>
         bool TriggerCombatSkill(int skillId);
+
+        /// <summary>
+        /// Use the CombatSkill.</summary>
+        void UseCombatSkill(int skillId);
 
         /// <summary>
         /// The Fighter is being attacked.</summary>
@@ -209,23 +213,24 @@ namespace ActionRpgKit.Character
         public IInventory Inventory;
 
         public event StateChangedHandler OnStateChanged;
-        public event MagicSkillLearnedHandler OnMagicSkillLearned;
-        public event MagicSkillTriggeredHandler OnMagicSkillTriggered;
+        [field: NonSerialized]
+        public event MagicSkillLearnedHandler OnMagicSkillLearned;   
+        [field: NonSerialized]
+        public event MagicSkillTriggeredHandler OnMagicSkillTriggered; 
+        [field: NonSerialized]
         public event CombatSkillLearnedHandler OnCombatSkillLearned;
+        [field: NonSerialized]
         public event CombatSkillTriggeredHandler OnCombatSkillTriggered;
-        public event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;
+        [field: NonSerialized]
+        public event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;    
+        [field: NonSerialized]
         public event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
 
-        [NonSerialized]
-        public IdleState _idleState;
-        [NonSerialized]
-        public AlertState _alertState;
-        [NonSerialized]
-        public ChaseState _chaseState;
-        [NonSerialized]
-        public AttackState _attackState;
-        [NonSerialized]
-        public DyingState _dyingState;
+        public IdleState IdleState = IdleState.Instance;
+        public AlertState AlertState = AlertState.Instance;
+        public ChaseState ChaseState = ChaseState.Instance;
+        public AttackState AttackState = AttackState.Instance;
+        public DyingState DyingState = DyingState.Instance;
 
         [NonSerialized]
         private bool _isDead = false;
@@ -244,12 +249,7 @@ namespace ActionRpgKit.Character
         {
             Stats = stats;
             Inventory = inventory;
-            _idleState = new IdleState();
-            _alertState = new AlertState();
-            _chaseState = new ChaseState();
-            _attackState = new AttackState();
-            _dyingState = new DyingState();
-            CurrentState = _idleState;
+            CurrentState = IdleState;
             
             // Connect internal signals
             Stats.Life.OnMinReached += new MinReachedHandler(OnDeath);
@@ -430,28 +430,16 @@ namespace ActionRpgKit.Character
             var magicSkill = SkillDatabase.GetMagicSkillById(skillId);
             Magic -= magicSkill.Cost;
             MagicSkillEndTimes[MagicSkills.IndexOf(skillId)] = GameTime.time + magicSkill.CooldownTime;
-            PreUseCountdown(magicSkill);
             EmitOnMagicSkillTriggered(skillId);
             return true;
         }
 
         /// <summary>
-        /// A countdown before the MagicSkill takes action.</summary>
-        /// <remarks>This can be used for syncing animations or effects.</remarks>
-        /// <param name=magicSkill>The Skill to use</param>
-        public virtual void PreUseCountdown(MagicSkill magicSkill)
-        {
-            //
-            // Implement a Coroutine in Monobehaviour
-            //
-            UseMagicSkill(magicSkill);
-        }
-
-        /// <summary>
         /// Triggers the use of the Skill</summary>
-        /// <param name=magicSkill>The Skill to use</param>
-        private void UseMagicSkill(MagicSkill magicSkill)
+        /// <param name=skillId>The Skill to use</param>
+        public void UseMagicSkill(int skillId)
         {
+            var magicSkill = SkillDatabase.GetMagicSkillById(skillId);
             magicSkill.Use(this);
         }
 
@@ -496,9 +484,11 @@ namespace ActionRpgKit.Character
 
         public float TimeUntilNextAttack { get; set; }
 
-        public int CurrentAttackSkill { get; set; }
+        public int CurrentAttackSkill { get; set; } = -1;
 
         public int EquippedWeapon { get; set; } = -1;
+
+        public List<IFighter> EnemiesInAttackRange { get; set; } = new List<IFighter>();
 
         public void AddEnemy(IFighter enemy, int index=0)
         {
@@ -515,32 +505,6 @@ namespace ActionRpgKit.Character
             {
                 Enemies.Remove(enemy);
                 EmitOnEnemyLeftAltertnessRange();
-            }
-        }
-
-        public bool EnemyInAttackRange(IFighter enemy)
-        {
-            float range = Stats.AttackRange.Value;
-            if (EquippedWeapon > -1)
-            {
-                range += ItemDatabase.GetWeaponItemById(EquippedWeapon).Range;
-            }
-            return Position.SquaredDistanceTo(enemy.Position) <= range;
-        }
-
-        public IFighter[] EnemiesInAttackRange
-        {
-            get
-            {
-                var enemiesInAttackRange = new List<IFighter>();
-                for(int i = 0; i < Enemies.Count; i++)
-                {
-                    if(EnemyInAttackRange(Enemies[i]))
-                    {
-                        enemiesInAttackRange.Add(Enemies[i]);
-                    }
-                }
-                return enemiesInAttackRange.ToArray();
             }
         }
 
@@ -589,21 +553,10 @@ namespace ActionRpgKit.Character
                 endTime += 1 / ItemDatabase.GetWeaponItemById(EquippedWeapon).Speed;
             }
             CombatSkillEndTimes[CombatSkills.IndexOf(skillId)] = endTime; 
-            PreUseCountdown(combatSkill);
+            // 1. Emit signal here, 
+            // 2. Unity catches the signal and delays the execution
             EmitOnCombatSkillTriggered(skillId);
             return true;
-        }
-
-        /// <summary>
-        /// A countdown before the CombatSkill takes action.</summary>
-        /// <remarks>This can be used for syncing animations or effects.</remarks>
-        /// <param name=combatSkill>The Skill to use</param>
-        public virtual void PreUseCountdown(CombatSkill combatSkill)
-        {
-            //
-            // Implement a Coroutine in Monobehaviour
-            //
-            UseCombatSkill(combatSkill);
         }
 
         /// <summary>
@@ -616,9 +569,10 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Triggers the use of the Skill</summary>
-        /// <param name=combatSkill>The Skill to use</param>
-        private void UseCombatSkill(CombatSkill combatSkill)
+        /// <param name=skillId>The Skill to use</param>
+        public void UseCombatSkill(int skillId)
         {
+            var combatSkill = SkillDatabase.GetCombatSkillById(skillId);
             combatSkill.Use(this);
         }
 
@@ -633,7 +587,7 @@ namespace ActionRpgKit.Character
             {
                 return false;
             }
-            if (EnemiesInAttackRange.Length == 0)
+            if (EnemiesInAttackRange.Count == 0)
             {
                 return false;
             }
@@ -644,12 +598,8 @@ namespace ActionRpgKit.Character
         /// The Character has just been killed.</summary>
         private void OnDeath(BaseAttribute sender)
         {
-            ChangeState(_dyingState);
+            ChangeState(DyingState);
             IsDead = true;
-            //for (int i=0; i<Enemies.Count; i++)
-            //{
-            //    Enemies[i].RemoveEnemy(this);
-            //}
         }
 
         #endregion

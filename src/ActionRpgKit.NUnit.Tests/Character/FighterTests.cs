@@ -65,6 +65,11 @@ namespace ActionRpgKit.NUnit.Tests.Character
 
             ItemDatabase.Items = new BaseItem[] { sword };
             SkillDatabase.CombatSkills = new CombatSkill[] { meleeSkill, meleeMultiTargetsSkill };
+
+            player.OnCombatSkillTriggered += CombatSkillTriggered;
+            enemy1.OnCombatSkillTriggered += CombatSkillTriggered;
+            enemy2.OnCombatSkillTriggered += CombatSkillTriggered;
+            enemy3.OnCombatSkillTriggered += CombatSkillTriggered;
         }
 
         [Test]
@@ -114,6 +119,11 @@ namespace ActionRpgKit.NUnit.Tests.Character
                 Assert.AreEqual(10, enemy3.Life);
                 GameTime.time += 2;
             }
+        }
+
+        private void CombatSkillTriggered(IFighter sender, int skillId)
+        {
+            sender.UseCombatSkill(skillId); ;
         }
     }
 }

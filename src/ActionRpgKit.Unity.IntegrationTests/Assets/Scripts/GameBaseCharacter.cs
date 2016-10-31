@@ -3,6 +3,8 @@ using ActionRpgKit.Character;
 using System;
 using System.Collections.Generic;
 using ActionRpgKit.Character.Attribute;
+using System.Collections;
+using ActionRpgKit.Character.Skill;
 
 public class GameBaseCharacter : MonoBehaviour
 {
@@ -21,11 +23,11 @@ public class GameBaseCharacter : MonoBehaviour
     public virtual void Awake()
     {
         // Connect the signals fromt the ActionRpgKit Character
-        Character.OnStateChanged += new StateChangedHandler(StateChangedTest);
-        Character.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearnedTest);
-        Character.OnMagicSkillTriggered += new MagicSkillTriggeredHandler(MagicSkillTriggeredTest);
-        Character.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearnedTest);
-        Character.OnCombatSkillTriggered += new CombatSkillTriggeredHandler(CombatSkillTriggeredTest);
+        Character.OnStateChanged += new StateChangedHandler(StateChanged);
+        Character.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearned);
+        Character.OnMagicSkillTriggered += new MagicSkillTriggeredHandler(MagicSkillTriggered);
+        Character.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearned);
+        Character.OnCombatSkillTriggered += new CombatSkillTriggeredHandler(CombatSkillTriggered);
         foreach (KeyValuePair<string, BaseAttribute> attr in Character.Stats.Dict)
         {
             attr.Value.OnValueChanged += new ValueChangedHandler(StatsChanged);
@@ -54,35 +56,47 @@ public class GameBaseCharacter : MonoBehaviour
     {
     }
 
-    public virtual void StateChangedTest(ICharacter sender, IState previousState, IState newState)
+    public virtual void StateChanged(ICharacter sender, IState previousState, IState newState)
     {
         throw new NotImplementedException();
     }
 
-    public virtual void MagicSkillLearnedTest(IMagicUser sender, int skillId)
+    public virtual void MagicSkillLearned(IMagicUser sender, int skillId)
     {
         throw new NotImplementedException();
     }
 
-    public virtual void MagicSkillTriggeredTest(IMagicUser sender, int skillId)
+    public virtual void MagicSkillTriggered(IMagicUser sender, int skillId)
     {
         throw new NotImplementedException();
     }
 
-    public virtual void CombatSkillLearnedTest(IFighter sender, int skillId)
+    public virtual void CombatSkillLearned(IFighter sender, int skillId)
     {
         throw new NotImplementedException();
     }
 
-    public virtual void CombatSkillTriggeredTest(IFighter sender, int skillId)
+    public virtual void CombatSkillTriggered(IFighter sender, int skillId)
     {
-        throw new NotImplementedException();
+        StartCoroutine(CombatSkillCountdown(sender, skillId));
+    }
+
+    /// <summary>
+    /// Run a countdown after a skill has been used.</summary>
+    private IEnumerator CombatSkillCountdown(IFighter sender, int skillId)
+    {
+        float endTime = Character.CombatSkillEndTimes[Character.CombatSkills.IndexOf(skillId)];
+        while (Time.time < endTime)
+        {
+            yield return null;
+        }
+        Character.UseCombatSkill(skillId);
     }
 
     #endregion
 
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     /// <summary>
     /// Draw some Debug helper shapes.</summary>
     void OnDrawGizmos()
@@ -113,9 +127,11 @@ public class GameBaseCharacter : MonoBehaviour
             color = Color.grey;
         }
         // Draw a circle for sight range
-        DebugExtension.DebugCircle(transform.position, color, Character.Stats.AlertnessRange.Value, 0);
-        DebugExtension.DebugCircle(transform.position, color, Character.Stats.AttackRange.Value, 0);
+        DebugExtension.DebugCircle(transform.position, color, 
+                (float)Math.Sqrt(Character.Stats.AlertnessRange.Value), 0);
+        DebugExtension.DebugCircle(transform.position, color, 
+                (float)Math.Sqrt(Character.Stats.AttackRange.Value), 0);
     }
-    #endif
+#endif
 
 }

@@ -74,8 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\IntegrationTests\CombatTest.cs" />
-    <Compile Include="Assets\IntegrationTests\ItemIntegrationTest.cs" />
+    <Compile Include="Assets\IntegrationTests\CharacterStatesTest.cs" />
     <Compile Include="Assets\Scripts\Character\BaseCharacterData.cs" />
     <Compile Include="Assets\Scripts\Character\EnemyCharacterData.cs" />
     <Compile Include="Assets\Scripts\Character\PlayerCharacterData.cs" />

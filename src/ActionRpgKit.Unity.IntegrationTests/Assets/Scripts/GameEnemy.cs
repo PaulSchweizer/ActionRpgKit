@@ -13,6 +13,9 @@ public class GameEnemy : GameBaseCharacter
     {
         get
         {
+#if UNITY_EDITOR
+            enemyData = (EnemyCharacterData)CharacterData;
+#endif
             return enemyData.Character;
         }
     }
@@ -39,15 +42,11 @@ public class GameEnemy : GameBaseCharacter
     {
     }
 
-    public override void StateChangedTest(ICharacter sender, IState previousState, IState newState)
+    public override void StateChanged(ICharacter sender, IState previousState, IState newState)
     {
     }
 
-    public override void MagicSkillTriggeredTest(IMagicUser sender, int skillId)
-    {
-    }
-
-    public override void CombatSkillTriggeredTest(IFighter sender, int skillId)
+    public override void MagicSkillTriggered(IMagicUser sender, int skillId)
     {
     }
 

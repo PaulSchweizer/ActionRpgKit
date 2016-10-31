@@ -13,6 +13,9 @@ public class GamePlayer : GameBaseCharacter
     {
         get
         {
+#if UNITY_EDITOR
+            playerData = (PlayerCharacterData)CharacterData;
+#endif
             return playerData.Character;
         }
     }
@@ -25,9 +28,9 @@ public class GamePlayer : GameBaseCharacter
 
         base.Awake();
 
-        // Connect the signals fromt the ActionRpgKit Character
-        Character.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearnedTest);
-        Character.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearnedTest);
+        // Connect the signals from the ActionRpgKit Character
+        Character.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearned);
+        Character.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearned);
     }
 
     public void Start()
@@ -49,25 +52,20 @@ public class GamePlayer : GameBaseCharacter
     {
     }
 
-    public override void StateChangedTest(ICharacter sender, IState previousState, IState newState)
+    public override void StateChanged(ICharacter sender, IState previousState, IState newState)
     {
     }
 
-    public override void MagicSkillLearnedTest(IMagicUser sender, int skillId)
+    public override void MagicSkillLearned(IMagicUser sender, int skillId)
     {
     }
 
-    public override void MagicSkillTriggeredTest(IMagicUser sender, int skillId)
+    public override void MagicSkillTriggered(IMagicUser sender, int skillId)
     {
     }
 
-    public override void CombatSkillLearnedTest(IFighter sender, int skillId)
+    public override void CombatSkillLearned(IFighter sender, int skillId)
     {
-    }
-
-    public override void CombatSkillTriggeredTest(IFighter sender, int skillId)
-    {
-        Debug.Log(skillId);
     }
 
     #endregion

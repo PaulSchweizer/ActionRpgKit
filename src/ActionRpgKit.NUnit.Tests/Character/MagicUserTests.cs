@@ -46,6 +46,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
                                             modifiedAttributeName: "Body",
                                             itemSequence: new int[] { herb.Id });
             SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill };
+
+            player.OnMagicSkillTriggered += MagicSkillTriggered;
         }
 
         [Test]
@@ -94,6 +96,11 @@ namespace ActionRpgKit.NUnit.Tests.Character
             GameTime.time = 10;
             triggered = player.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.IsFalse(triggered);
+        }
+
+        private void MagicSkillTriggered(IMagicUser sender, int skillId)
+        {
+            sender.UseMagicSkill(skillId); ;
         }
     }
 }

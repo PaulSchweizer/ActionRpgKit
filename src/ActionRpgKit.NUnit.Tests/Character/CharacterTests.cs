@@ -57,6 +57,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.LearnMagicSkill(passiveMagicSkill.Id);
             enemy.Stats.Life.Value = 10;
             GameTime.Reset();
+            player.OnCombatSkillTriggered += CombatSkillTriggered;
+            enemy.OnCombatSkillTriggered += CombatSkillTriggered;
         }
 
         [Test]
@@ -261,9 +263,9 @@ namespace ActionRpgKit.NUnit.Tests.Character
 
             // Change the State
             Assert.AreEqual(0, _stateChanged);
-            player.ChangeState(player._alertState);
+            player.ChangeState(player.AlertState);
             Assert.AreEqual(1, _stateChanged);
-            player.ChangeState(player._idleState);
+            player.ChangeState(player.IdleState);
             Assert.AreEqual(2, _stateChanged);
 
             // Learn a new Magic Skill
@@ -326,6 +328,11 @@ namespace ActionRpgKit.NUnit.Tests.Character
         public void CombatSkillTriggeredTest(IFighter sender, int skillId)
         {
             _combatSkillTriggered += 1;
+        }
+
+        private void CombatSkillTriggered(IFighter sender, int skillId)
+        {
+            sender.UseCombatSkill(skillId); ;
         }
     }
 }

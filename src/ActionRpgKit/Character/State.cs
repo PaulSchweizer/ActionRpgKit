@@ -29,8 +29,10 @@ namespace ActionRpgKit.Character
     /// <summary>
     /// The initial State of a Character.</summary>
     [Serializable]
-    public class IdleState : IState
+    public sealed class IdleState : IState
     {
+        public static readonly IdleState Instance = new IdleState();
+
         public void EnterState(BaseCharacter character) { }
 
         public void ExitState(BaseCharacter character) { }
@@ -39,14 +41,16 @@ namespace ActionRpgKit.Character
         {
             if (character.Enemies.Count > 0)
             {
-                character.ChangeState(character._alertState);
+                character.ChangeState(character.AlertState);
             }
         }
     }
 
     [Serializable]
-    public class AlertState : IState
+    public sealed class AlertState : IState
     {
+        public static readonly AlertState Instance = new AlertState();
+
         public void EnterState(BaseCharacter character) { }
 
         public void ExitState(BaseCharacter character) { }
@@ -55,17 +59,19 @@ namespace ActionRpgKit.Character
         {
             if (character.Enemies.Count == 0)
             {
-                character.ChangeState(character._idleState);
+                character.ChangeState(character.IdleState);
                 return;
             }
 
-            character.ChangeState(character._chaseState);
+            character.ChangeState(character.ChaseState);
         }
     }
 
     [Serializable]
-    public class ChaseState : IState
+    public sealed class ChaseState : IState
     {
+        public static readonly ChaseState Instance = new ChaseState();
+
         public void EnterState(BaseCharacter character) { }
 
         public void ExitState(BaseCharacter character) { }
@@ -74,20 +80,23 @@ namespace ActionRpgKit.Character
         {
             if (character.Enemies.Count == 0)
             {
-                character.ChangeState(character._alertState);
+                character.ChangeState(character.AlertState);
                 return;
             }
 
             if (character.EnemiesInAttackRange.Contains(character.Enemies[0]))
             {
-                character.ChangeState(character._attackState);
+                character.ChangeState(character.AttackState);
             }
         }
     }
 
     [Serializable]
-    public class AttackState : IState
+    public sealed class AttackState : IState
     {
+
+        public static readonly AttackState Instance = new AttackState();
+
         public void EnterState(BaseCharacter character) { }
 
         public void ExitState(BaseCharacter character) { }
@@ -97,14 +106,14 @@ namespace ActionRpgKit.Character
 
             if (character.Enemies.Count == 0)
             {
-                character.ChangeState(character._alertState);
+                character.ChangeState(character.AlertState);
                 return;
             }
 
             // If not in Attack Range any more, chase the enemy
             if (!character.EnemiesInAttackRange.Contains(character.Enemies[0]))
             {
-                character.ChangeState(character._chaseState);
+                character.ChangeState(character.ChaseState);
                 return;
             }
 
@@ -117,8 +126,10 @@ namespace ActionRpgKit.Character
     }
 
     [Serializable]
-    public class DyingState : IState
+    public sealed class DyingState : IState
     {
+        public static readonly DyingState Instance = new DyingState();
+
         public void EnterState(BaseCharacter character) { }
 
         public void ExitState(BaseCharacter character) { }
