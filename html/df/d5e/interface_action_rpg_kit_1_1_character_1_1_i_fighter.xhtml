@@ -122,9 +122,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeef35d1383ba0bd3b241b4afa38b340e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#aeef35d1383ba0bd3b241b4afa38b340e">RemoveEnemy</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
 <tr class="memdesc:aeef35d1383ba0bd3b241b4afa38b340e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove an enemy. <a href="#aeef35d1383ba0bd3b241b4afa38b340e">More...</a><br /></td></tr>
 <tr class="separator:aeef35d1383ba0bd3b241b4afa38b340e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ba4962cda376e693e597139fe558525"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a6ba4962cda376e693e597139fe558525">EnemyInAttackRange</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
-<tr class="memdesc:a6ba4962cda376e693e597139fe558525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> is in range for an attack. <a href="#a6ba4962cda376e693e597139fe558525">More...</a><br /></td></tr>
-<tr class="separator:a6ba4962cda376e693e597139fe558525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add055791730d39eaf3b51542df592142"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#add055791730d39eaf3b51542df592142">CanAttack</a> ()</td></tr>
 <tr class="memdesc:add055791730d39eaf3b51542df592142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> can attack depends on the time since the last attack. <a href="#add055791730d39eaf3b51542df592142">More...</a><br /></td></tr>
 <tr class="separator:add055791730d39eaf3b51542df592142"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +134,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f3356934a6552c48ecb589b77e6f4be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a0f3356934a6552c48ecb589b77e6f4be">TriggerCombatSkill</a> (int skillId)</td></tr>
 <tr class="memdesc:a0f3356934a6552c48ecb589b77e6f4be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attack with the given CombatSkill. <a href="#a0f3356934a6552c48ecb589b77e6f4be">More...</a><br /></td></tr>
 <tr class="separator:a0f3356934a6552c48ecb589b77e6f4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6785af5fa1b0862c3801ddd26a2945d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a6785af5fa1b0862c3801ddd26a2945d3">UseCombatSkill</a> (int skillId)</td></tr>
+<tr class="memdesc:a6785af5fa1b0862c3801ddd26a2945d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the CombatSkill. <a href="#a6785af5fa1b0862c3801ddd26a2945d3">More...</a><br /></td></tr>
+<tr class="separator:a6785af5fa1b0862c3801ddd26a2945d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe0130a66c72c58cb2bc272a46298d71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#afe0130a66c72c58cb2bc272a46298d71">OnAttacked</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> attacker, float damage)</td></tr>
 <tr class="memdesc:afe0130a66c72c58cb2bc272a46298d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fighter is being attacked. <a href="#afe0130a66c72c58cb2bc272a46298d71">More...</a><br /></td></tr>
 <tr class="separator:afe0130a66c72c58cb2bc272a46298d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,9 +155,9 @@ Properties</h2></td></tr>
 <tr class="memitem:af015481142aa8d1b4c3f14db2c2fa466"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#af015481142aa8d1b4c3f14db2c2fa466">Enemies</a><code> [get]</code></td></tr>
 <tr class="memdesc:af015481142aa8d1b4c3f14db2c2fa466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Targeted enemies of the fighter. <a href="#af015481142aa8d1b4c3f14db2c2fa466">More...</a><br /></td></tr>
 <tr class="separator:af015481142aa8d1b4c3f14db2c2fa466"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d97715f54665954da0cc2f2c939a205"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a6d97715f54665954da0cc2f2c939a205">EnemiesInAttackRange</a><code> [get]</code></td></tr>
-<tr class="memdesc:a6d97715f54665954da0cc2f2c939a205"><td class="mdescLeft">&#160;</td><td class="mdescRight">All enemies currently in Attack Range. <a href="#a6d97715f54665954da0cc2f2c939a205">More...</a><br /></td></tr>
-<tr class="separator:a6d97715f54665954da0cc2f2c939a205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72054f1e66441d44cef85c2301f68e60"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a72054f1e66441d44cef85c2301f68e60">EnemiesInAttackRange</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a72054f1e66441d44cef85c2301f68e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">All enemies currently in Attack Range. <a href="#a72054f1e66441d44cef85c2301f68e60">More...</a><br /></td></tr>
+<tr class="separator:a72054f1e66441d44cef85c2301f68e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7874a66111d3279e62e10777c6639ee1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7874a66111d3279e62e10777c6639ee1">TimeUntilNextAttack</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a7874a66111d3279e62e10777c6639ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A timestamp representing the next possible moment for an attack. <a href="#a7874a66111d3279e62e10777c6639ee1">More...</a><br /></td></tr>
 <tr class="separator:a7874a66111d3279e62e10777c6639ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -237,26 +237,6 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6ba4962cda376e693e597139fe558525"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool EnemyInAttackRange </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
-          <td class="paramname"><em>enemy</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Whether the <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> is in range for an attack.</p>
-
-<p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6ba4962cda376e693e597139fe558525">BaseCharacter</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="add055791730d39eaf3b51542df592142"></a>
 <div class="memitem">
 <div class="memproto">
@@ -333,6 +313,26 @@ Events</h2></td></tr>
 <p>Attack with the given CombatSkill.</p>
 
 <p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0f3356934a6552c48ecb589b77e6f4be">BaseCharacter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6785af5fa1b0862c3801ddd26a2945d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UseCombatSkill </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>skillId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use the CombatSkill.</p>
+
+<p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a6785af5fa1b0862c3801ddd26a2945d3">BaseCharacter</a>.</p>
 
 </div>
 </div>
@@ -455,7 +455,7 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6d97715f54665954da0cc2f2c939a205"></a>
+<a class="anchor" id="a72054f1e66441d44cef85c2301f68e60"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -463,12 +463,12 @@ Events</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> [] EnemiesInAttackRange</td>
+          <td class="memname">List&lt;<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&gt; EnemiesInAttackRange</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -627,7 +627,7 @@ Events</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a></li>
-    <li class="footer">Generated on Fri Oct 28 2016 07:06:25 for Action RPG Kit by
+    <li class="footer">Generated on Mon Oct 31 2016 04:02:30 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
