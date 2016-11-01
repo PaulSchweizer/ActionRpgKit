@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('dc/d02/class_action_rpg_kit_1_1_charac
 </div><!--header-->
 <div class="contents">
 
-<p>Interface for Attributes. 
+<p>Base class for Attributes. 
  <a href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for BaseAttribute:</div>
@@ -131,10 +131,13 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4454c221c6df62dd76ce909ef746e1f1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a4454c221c6df62dd76ce909ef746e1f1">_value</a></td></tr>
+<tr class="memdesc:a4454c221c6df62dd76ce909ef746e1f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base value, needed for proper serialization. <a href="#a4454c221c6df62dd76ce909ef746e1f1">More...</a><br /></td></tr>
 <tr class="separator:a4454c221c6df62dd76ce909ef746e1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7d24610b8c69e4c15835b4d44b88eda"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#ac7d24610b8c69e4c15835b4d44b88eda">_minValue</a></td></tr>
+<tr class="memdesc:ac7d24610b8c69e4c15835b4d44b88eda"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum value, needed for proper serialization. <a href="#ac7d24610b8c69e4c15835b4d44b88eda">More...</a><br /></td></tr>
 <tr class="separator:ac7d24610b8c69e4c15835b4d44b88eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a816838a8ab65b53d3210a13ecc51619a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a816838a8ab65b53d3210a13ecc51619a">_maxValue</a></td></tr>
+<tr class="memdesc:a816838a8ab65b53d3210a13ecc51619a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum value, needed for proper serialization. <a href="#a816838a8ab65b53d3210a13ecc51619a">More...</a><br /></td></tr>
 <tr class="separator:a816838a8ab65b53d3210a13ecc51619a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee9065718e6628dc7791b756fa6c0f9"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">Name</a></td></tr>
 <tr class="memdesc:a7ee9065718e6628dc7791b756fa6c0f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the attribute. <a href="#a7ee9065718e6628dc7791b756fa6c0f9">More...</a><br /></td></tr>
@@ -164,14 +167,17 @@ Properties</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
 Events</h2></td></tr>
 <tr class="memitem:a17aa860b0477b98a0656495c3d4db0b9"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad89ebc2011a07f17680a7ee745287122">ValueChangedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a17aa860b0477b98a0656495c3d4db0b9">OnValueChanged</a></td></tr>
+<tr class="memdesc:a17aa860b0477b98a0656495c3d4db0b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emit on any change to the Value. <a href="#a17aa860b0477b98a0656495c3d4db0b9">More...</a><br /></td></tr>
 <tr class="separator:a17aa860b0477b98a0656495c3d4db0b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0bc251827a2139be011c96c1d3b4e10"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a3ed27ada7a8606055c0f232fad9ab94d">MaxReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#af0bc251827a2139be011c96c1d3b4e10">OnMaxReached</a></td></tr>
+<tr class="memdesc:af0bc251827a2139be011c96c1d3b4e10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emit when the maximum value has been reached. <a href="#af0bc251827a2139be011c96c1d3b4e10">More...</a><br /></td></tr>
 <tr class="separator:af0bc251827a2139be011c96c1d3b4e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00000122a76f40a4389958fec621f36c"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a1071c3f4ac41863b05308645332ef519">MinReachedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a00000122a76f40a4389958fec621f36c">OnMinReached</a></td></tr>
+<tr class="memdesc:a00000122a76f40a4389958fec621f36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emit when the minimum value has been reached. <a href="#a00000122a76f40a4389958fec621f36c">More...</a><br /></td></tr>
 <tr class="separator:a00000122a76f40a4389958fec621f36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface for Attributes.</p>
+<div class="textblock"><p>Base class for Attributes.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9a274c9371e60511509a779793979371"></a>
 <div class="memitem">
@@ -267,6 +273,8 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The base value, needed for proper serialization.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac7d24610b8c69e4c15835b4d44b88eda"></a>
@@ -279,6 +287,8 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The minimum value, needed for proper serialization.</p>
+
 </div>
 </div>
 <a class="anchor" id="a816838a8ab65b53d3210a13ecc51619a"></a>
@@ -290,6 +300,8 @@ Events</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The maximum value, needed for proper serialization.</p>
 
 </div>
 </div>
@@ -451,6 +463,8 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Emit on any change to the Value.</p>
+
 </div>
 </div>
 <a class="anchor" id="af0bc251827a2139be011c96c1d3b4e10"></a>
@@ -462,6 +476,8 @@ Events</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Emit when the maximum value has been reached.</p>
 
 </div>
 </div>
@@ -475,6 +491,8 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Emit when the minimum value has been reached.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -486,7 +504,7 @@ Events</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a></li><li class="navelem"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a></li>
-    <li class="footer">Generated on Mon Oct 31 2016 04:02:30 for Action RPG Kit by
+    <li class="footer">Generated on Tue Nov 1 2016 06:37:27 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

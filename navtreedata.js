@@ -26,7 +26,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.xhtml",
-"da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#aa4ef50600d70685a523d3e86c054ad02"
+"da/dbd/namespace_action_rpg_kit_1_1_character_1_1_stats.xhtml"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

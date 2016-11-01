@@ -2,7 +2,6 @@ var searchData=
 [
   ['_5fabsolutemaxvalue',['_absoluteMaxValue',['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#a36ed4427bf127f10c03a236a7ed5f383',1,'ActionRpgKit::Character::Attribute::VolumeAttribute']]],
   ['_5fattributes',['_attributes',['../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a697d4eeb85af05a765aaa2dc35e0c623',1,'ActionRpgKit::Character::Attribute::SecondaryAttribute']]],
-  ['_5fcombatskills',['_combatSkills',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a67b243005a8272c138b71cc5aecbfe34',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['_5fcomponents',['_components',['../d7/d00/class_action_rpg_kit_1_1_core_1_1_vector2_d.xhtml#acd540a9ea6e4914d586b7d6a5c0d757c',1,'ActionRpgKit::Core::Vector2D']]],
   ['_5fcurrentchapterindex',['_currentChapterIndex',['../d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#aab5adf55122378567f730a040ff14e73',1,'ActionRpgKit::Story::Storyline']]],
   ['_5fcurrentvalue',['_currentValue',['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#ae0bd4ca782cf1dbd76bad3fee16f3994',1,'ActionRpgKit.Character.Attribute.VolumeAttribute._currentValue()'],['../db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml#ae0bd4ca782cf1dbd76bad3fee16f3994',1,'ActionRpgKit.Character.Attribute.SimpleVolumeAttribute._currentValue()']]],
@@ -14,7 +13,6 @@ var searchData=
   ['_5fhandlers',['_handlers',['../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a9e11d37247a9441553fdbef958313c4d',1,'ActionRpgKit::Character::Attribute::SecondaryAttribute']]],
   ['_5fisdead',['_isDead',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7fe3282a3c82f974b1f6b2fee2c9fc7f',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['_5fitems',['_items',['../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a0ea82a4aad04a30777a550ba227c959f',1,'ActionRpgKit.Character.SimpleInventory._items()'],['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#ae260783430cf22369a0cb90f222d572d',1,'ActionRpgKit.Character.PlayerInventory._items()']]],
-  ['_5fmagicskills',['_magicSkills',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a0551832de103582b780e0c9434f1993a',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['_5fmaxvalue',['_maxValue',['../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a816838a8ab65b53d3210a13ecc51619a',1,'ActionRpgKit::Character::Attribute::BaseAttribute']]],
   ['_5fminvalue',['_minValue',['../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#ac7d24610b8c69e4c15835b4d44b88eda',1,'ActionRpgKit::Character::Attribute::BaseAttribute']]],
   ['_5fmodifiers',['_modifiers',['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#adc9c1a76c2d33cc5da98a7bd85eb7d3e',1,'ActionRpgKit::Character::Attribute::PrimaryAttribute']]],

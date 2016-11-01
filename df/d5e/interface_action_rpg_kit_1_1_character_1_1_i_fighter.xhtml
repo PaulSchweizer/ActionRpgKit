@@ -109,8 +109,8 @@ Inheritance diagram for IFighter:</div>
   <img src="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.png" usemap="#IFighter_map" alt=""/>
   <map id="IFighter_map" name="IFighter_map">
 <area href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml" title="Base implementation of a Character." alt="BaseCharacter" shape="rect" coords="53,56,150,80"/>
-<area href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a Hostile, game controlled character." alt="Enemy" shape="rect" coords="0,112,97,136"/>
-<area href="../../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a Player controllable character." alt="Player" shape="rect" coords="107,112,204,136"/>
+<area href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character." alt="Enemy" shape="rect" coords="0,112,97,136"/>
+<area href="../../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a player controllable character." alt="Player" shape="rect" coords="107,112,204,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -177,11 +177,13 @@ Events</h2></td></tr>
 <tr class="memdesc:ab14281ebd03b9554c72a19c118bf6cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event is fired when a new CombatSkill is learned. <a href="#ab14281ebd03b9554c72a19c118bf6cf1">More...</a><br /></td></tr>
 <tr class="separator:ab14281ebd03b9554c72a19c118bf6cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af6ac5746b186f54ce87b4a7a02e3b45e">CombatSkillTriggeredHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ac3d928e18c4c7f70f38ad9fb15f18319">OnCombatSkillTriggered</a></td></tr>
-<tr class="memdesc:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event is fired when an iCombatSkill is triggered. <a href="#ac3d928e18c4c7f70f38ad9fb15f18319">More...</a><br /></td></tr>
+<tr class="memdesc:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event is fired when an ICombatSkill is triggered. <a href="#ac3d928e18c4c7f70f38ad9fb15f18319">More...</a><br /></td></tr>
 <tr class="separator:ac3d928e18c4c7f70f38ad9fb15f18319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b4a5b9bbbd27fdf3c8ef80a7732df34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#ac294107fa4e81936d7cb30b7a2e97149">EnemyEnteredAltertnessRangeHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a3b4a5b9bbbd27fdf3c8ef80a7732df34">OnEnemyEnteredAltertnessRange</a></td></tr>
+<tr class="memdesc:a3b4a5b9bbbd27fdf3c8ef80a7732df34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event is fired when an <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a> enters the alertness range. <a href="#a3b4a5b9bbbd27fdf3c8ef80a7732df34">More...</a><br /></td></tr>
 <tr class="separator:a3b4a5b9bbbd27fdf3c8ef80a7732df34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada4350b2fd96cb5235bef0f7561e19ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a87d7755e13e38e64637c7c2ce7f29cec">EnemyLeftAltertnessRangeHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ada4350b2fd96cb5235bef0f7561e19ff">OnEnemyLeftAltertnessRange</a></td></tr>
+<tr class="memdesc:ada4350b2fd96cb5235bef0f7561e19ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event is fired when an <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a> leaves the alterness range. <a href="#ada4350b2fd96cb5235bef0f7561e19ff">More...</a><br /></td></tr>
 <tr class="separator:ada4350b2fd96cb5235bef0f7561e19ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -590,7 +592,7 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Event is fired when an iCombatSkill is triggered.</p>
+<p>Event is fired when an ICombatSkill is triggered.</p>
 
 </div>
 </div>
@@ -604,6 +606,8 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Event is fired when an <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a> enters the alertness range.</p>
+
 </div>
 </div>
 <a class="anchor" id="ada4350b2fd96cb5235bef0f7561e19ff"></a>
@@ -616,6 +620,8 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Event is fired when an <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a> leaves the alterness range.</p>
+
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
@@ -627,7 +633,7 @@ Events</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a></li>
-    <li class="footer">Generated on Mon Oct 31 2016 04:02:30 for Action RPG Kit by
+    <li class="footer">Generated on Tue Nov 1 2016 06:37:27 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
