@@ -83,10 +83,12 @@
     <Compile Include="Assets\Scripts\EditorTools\ItemCreator.cs" />
     <Compile Include="Assets\Scripts\EditorTools\SkillCreator.cs" />
     <Compile Include="Assets\Scripts\External\DebugDrawingExtension\DebugExtension.cs" />
-    <Compile Include="Assets\Scripts\GameBaseCharacter.cs" />
-    <Compile Include="Assets\Scripts\GameEnemy.cs" />
-    <Compile Include="Assets\Scripts\GamePlayer.cs" />
-    <Compile Include="Assets\Scripts\ActionRpgKitController.cs" />
+    <Compile Include="Assets\Scripts\Character\GameBaseCharacter.cs" />
+    <Compile Include="Assets\Scripts\Character\GameEnemy.cs" />
+    <Compile Include="Assets\Scripts\Character\GamePlayer.cs" />
+    <Compile Include="Assets\Scripts\GameManager\ActionRpgKitController.cs" />
+    <Compile Include="Assets\Scripts\GameManager\InputManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager\Test.cs" />
     <Compile Include="Assets\Scripts\Item\GameItemDatabase.cs" />
     <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Item\UsableItemData.cs" />

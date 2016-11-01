@@ -8,6 +8,10 @@ using ActionRpgKit.Character.Skill;
 
 public class GameBaseCharacter : MonoBehaviour
 {
+    // Unity related fields
+    public NavMeshAgent NavMeshAgent;
+
+    // ActionRpgKit related fields
     public BaseCharacterData CharacterData;
 
     public virtual BaseCharacter Character

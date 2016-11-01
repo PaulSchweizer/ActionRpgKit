@@ -6,13 +6,21 @@ namespace ActionRpgKit.Character.Attribute
 {
 
     /// <summary>
-    /// Interface for Attributes.</summary>
+    /// Base class for Attributes.</summary>
     [Serializable]
     public abstract class BaseAttribute
     {
 
+        /// <summary>
+        /// The base value, needed for proper serialization.</summary>
         public float _value;
+
+        /// <summary>
+        /// The minimum value, needed for proper serialization.</summary>
         public float _minValue;
+
+        /// <summary>
+        /// The maximum value, needed for proper serialization.</summary>
         public float _maxValue;
 
         /// <summary>
@@ -56,8 +64,16 @@ namespace ActionRpgKit.Character.Attribute
         /// Reset the Attribute to it's maximum value.</summary>
         public abstract void Reset();
 
+        /// <summary>
+        /// Emit on any change to the Value.</summary>
         public abstract event ValueChangedHandler OnValueChanged;
+
+        /// <summary>
+        /// Emit when the maximum value has been reached.</summary>
         public abstract event MaxReachedHandler OnMaxReached;
+
+        /// <summary>
+        /// Emit when the minimum value has been reached.</summary>
         public abstract event MinReachedHandler OnMinReached;
     }
 
@@ -66,9 +82,15 @@ namespace ActionRpgKit.Character.Attribute
     /// <param name="sender">The sender</param>
     /// <param name="value">The new value</param>
     public delegate void ValueChangedHandler(BaseAttribute sender, float value);
-    
+
+    /// <summary>
+    /// Handler operates whenever an IAttribute reaches it's maximum value.</summary>
+    /// <param name="sender">The sender</param>
     public delegate void MaxReachedHandler(BaseAttribute sender);
-    
+
+    /// <summary>
+    /// Handler operates whenever an IAttribute reaches it's minimum value.</summary>
+    /// <param name="sender">The sender</param>
     public delegate void MinReachedHandler(BaseAttribute sender);
     
     /// <summary>
@@ -331,7 +353,7 @@ namespace ActionRpgKit.Character.Attribute
             }
         }
 
-        public void ValueOfFormulatAttributeChanged (BaseAttribute sender, float value)
+        public void ValueOfFormulatAttributeChanged(BaseAttribute sender, float value)
         {
             ValueChanged(value);
         }
@@ -352,9 +374,9 @@ namespace ActionRpgKit.Character.Attribute
         /// The absolute maximum of the attribute.</summary> 
         private float _absoluteMaxValue;
 
-        public VolumeAttribute () { }
+        public VolumeAttribute() { }
 
-        public VolumeAttribute (string name,
+        public VolumeAttribute(string name,
                                 Formula formula,
                                 BaseAttribute[] attributes,
                                 float minValue = float.MinValue,
@@ -434,6 +456,8 @@ namespace ActionRpgKit.Character.Attribute
             _currentValue = BaseValue;
         }
 
+        /// <summary>
+        /// Set the value to the max.</summary> 
         public override void Reset()
         {
             Value = MaxValue;
@@ -467,7 +491,12 @@ namespace ActionRpgKit.Character.Attribute
     [Serializable]
     public class TimeBasedModifier : AttributeModifier
     {
+        /// <summary>
+        /// Determining the lifetime of the modifier.</summary> 
         private float _duration;
+
+        /// <summary>
+        /// The absolute end time for the modifier.</summary> 
         private float _endTime;
 
         public TimeBasedModifier(string name,

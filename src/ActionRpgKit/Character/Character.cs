@@ -44,7 +44,7 @@ namespace ActionRpgKit.Character
     {
         /// <summary>
         /// MagicSkills available for this Character.</summary>
-        List<int> MagicSkills { get; }
+        List<int> MagicSkills { get; set; }
 
         /// <summary>
         /// Add a new MagicSkill.</summary>
@@ -134,7 +134,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// CombatSkills available for this Character.</summary>
-        List<int> CombatSkills { get; set;}
+        List<int> CombatSkills { get; set; }
 
         /// <summary>
         /// Add a new CombatSkill.</summary>
@@ -157,11 +157,15 @@ namespace ActionRpgKit.Character
         event CombatSkillLearnedHandler OnCombatSkillLearned;
         
         /// <summary>
-        /// Event is fired when an iCombatSkill is triggered.</summary>
+        /// Event is fired when an ICombatSkill is triggered.</summary>
         event CombatSkillTriggeredHandler OnCombatSkillTriggered;
 
+        /// <summary>
+        /// Event is fired when an Enemy enters the alertness range.</summary>
         event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;
 
+        /// <summary>
+        /// Event is fired when an Enemy leaves the alterness range.</summary>
         event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
     }
 
@@ -212,35 +216,44 @@ namespace ActionRpgKit.Character
         /// Inventory of the Character.</summary>
         public IInventory Inventory;
 
-        public event StateChangedHandler OnStateChanged;
-        [field: NonSerialized]
-        public event MagicSkillLearnedHandler OnMagicSkillLearned;   
-        [field: NonSerialized]
-        public event MagicSkillTriggeredHandler OnMagicSkillTriggered; 
-        [field: NonSerialized]
-        public event CombatSkillLearnedHandler OnCombatSkillLearned;
-        [field: NonSerialized]
-        public event CombatSkillTriggeredHandler OnCombatSkillTriggered;
-        [field: NonSerialized]
-        public event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;    
-        [field: NonSerialized]
-        public event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
+        [field: NonSerialized] public event StateChangedHandler OnStateChanged;
+        [field: NonSerialized] public event MagicSkillLearnedHandler OnMagicSkillLearned;   
+        [field: NonSerialized] public event MagicSkillTriggeredHandler OnMagicSkillTriggered; 
+        [field: NonSerialized] public event CombatSkillLearnedHandler OnCombatSkillLearned;
+        [field: NonSerialized] public event CombatSkillTriggeredHandler OnCombatSkillTriggered;
+        [field: NonSerialized] public event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;    
+        [field: NonSerialized] public event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
 
+        /// <summary>
+        /// The Character is idling.</summary>
         public IdleState IdleState = IdleState.Instance;
+
+        /// <summary>
+        /// The Character is aware of enemies somewhere around him.</summary>
         public AlertState AlertState = AlertState.Instance;
+
+        /// <summary>
+        /// The Character is running after an enemy.</summary>
         public ChaseState ChaseState = ChaseState.Instance;
+
+        /// <summary>
+        /// The Character is close enough to attack an enemy.</summary>
         public AttackState AttackState = AttackState.Instance;
+
+        /// <summary>
+        /// The Character has been defeated and is about to be removed.</summary>
         public DyingState DyingState = DyingState.Instance;
 
-        [NonSerialized]
-        private bool _isDead = false;
+        /// <summary>
+        /// Determines whether the Charaxter is active or not.</summary>
+        [NonSerialized] private bool _isDead = false;
 
-        private List<int> _magicSkills = new List<int>();
-
+        /// <summary>
+        /// A list of absolute end times for the cooldown of magic skills.</summary>
         public List<float> MagicSkillEndTimes = new List<float>();
 
-        private List<int> _combatSkills = new List<int>();
-
+        /// <summary>
+        /// A list of absolute end times for the cooldown of combat skills.</summary>
         public List<float> CombatSkillEndTimes = new List<float>() {};
 
         public BaseCharacter() { }
@@ -324,6 +337,8 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Emit the state changes signal if any handlers are attached.</summary>
         protected void EmitOnStateChanged(IState previousState, IState newState)
         {
             var handler = OnStateChanged;
@@ -332,7 +347,9 @@ namespace ActionRpgKit.Character
                 handler(this, previousState, newState);
             }
         }
-        
+
+        /// <summary>
+        /// Emit the magic learned signal if any handlers are attached.</summary>
         protected void EmitOnMagicSkillLearned(int skillId)
         {
             var handler = OnMagicSkillLearned;
@@ -341,7 +358,9 @@ namespace ActionRpgKit.Character
                 handler(this, skillId);
             }
         }
-        
+
+        /// <summary>
+        /// Emit the magic skill triggered signal if any handlers are attached.</summary>
         protected void EmitOnMagicSkillTriggered(int skillId)
         {
             var handler = OnMagicSkillTriggered;
@@ -350,7 +369,9 @@ namespace ActionRpgKit.Character
                 handler(this, skillId);
             }
         }
-        
+
+        /// <summary>
+        /// Emit the combat learned signal if any handlers are attached.</summary>
         protected void EmitOnCombatSkillLearned(int skillId)
         {
             var handler = OnCombatSkillLearned;
@@ -359,7 +380,9 @@ namespace ActionRpgKit.Character
                 handler(this, skillId);
             }
         }
-        
+
+        /// <summary>
+        /// Emit the combat skill triggered signal if any handlers are attached.</summary>
         protected void EmitOnCombatSkillTriggered(int skillId)
         {
             var handler = OnCombatSkillTriggered;
@@ -369,6 +392,8 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Emit the enemy entered alertness range signal if any handlers are attached.</summary>
         protected void EmitOnEnemyEnteredAltertnessRange()
         {
             var handler = OnEnemyEnteredAltertnessRange;
@@ -378,6 +403,8 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Emit the enemy left alertness range signal if any handlers are attached.</summary>
         protected void EmitOnEnemyLeftAltertnessRange()
         {
             var handler = OnEnemyLeftAltertnessRange;
@@ -403,19 +430,14 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public List<int> MagicSkills
-        {
-            get
-            {
-                return _magicSkills;
-            }
-        }
+        public List<int> MagicSkills { get; set; } = new List<int>();
+
 
         public void LearnMagicSkill(int skillId)
         {
             if (!MagicSkills.Contains(skillId))
             {
-                _magicSkills.Add(skillId);
+                MagicSkills.Add(skillId);
                 MagicSkillEndTimes.Add(-1);
                 EmitOnMagicSkillLearned(skillId);
             }
@@ -518,17 +540,7 @@ namespace ActionRpgKit.Character
             TriggerCombatSkill(CurrentAttackSkill);
         }
 
-        public List<int> CombatSkills
-        {
-            get
-            {
-                return _combatSkills;
-            }
-            set
-            {
-                _combatSkills = value;
-            }
-        }
+        public List<int> CombatSkills { get; set; } = new List<int>();
 
         public void LearnCombatSkill(int skillId)
         {
@@ -610,7 +622,7 @@ namespace ActionRpgKit.Character
     #region Implementations
 
     /// <summary>
-    /// Representation of a Player controllable character.</summary>
+    /// Representation of a player controllable character.</summary>
     [Serializable]
     public class Player : BaseCharacter
     {
@@ -628,7 +640,7 @@ namespace ActionRpgKit.Character
     }
 
     /// <summary>
-    /// Representation of a Hostile, game controlled character.</summary>
+    /// Representation of a hostile, game controlled character.</summary>
     [Serializable]
     public class Enemy : BaseCharacter
     {

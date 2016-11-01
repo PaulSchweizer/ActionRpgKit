@@ -6,7 +6,10 @@ using ActionRpgKit.Character.Attribute;
 
 public class GamePlayer : GameBaseCharacter
 {
+    // Unity Scripts related fields
+    public static GamePlayer Instance;
 
+    // ActionRpgKit related fields
     private PlayerCharacterData playerData;
 
     public override BaseCharacter Character
@@ -24,6 +27,15 @@ public class GamePlayer : GameBaseCharacter
 
     new void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+
         playerData = (PlayerCharacterData)CharacterData;
 
         base.Awake();
