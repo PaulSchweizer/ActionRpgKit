@@ -49,7 +49,7 @@ public class GameBaseCharacter : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        Character.Position.Set(transform.position.x, transform.position.y);
+        Character.Position.Set(transform.position.x, transform.position.z);
     }
 
     #endregion

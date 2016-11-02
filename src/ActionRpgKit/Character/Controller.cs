@@ -53,6 +53,9 @@ namespace ActionRpgKit.Character
                     CharacterInAlertnessRange(Player, Enemies[i], distance);
                     CharacterInAlertnessRange(Enemies[i], Player, distance);
 
+                    CharacterInAttackRange(Player, Enemies[i], distance);
+                    CharacterInAttackRange(Enemies[i], Player, distance);
+
                     Enemies[i].Update();
                 }
                 Player.Update();
@@ -66,16 +69,10 @@ namespace ActionRpgKit.Character
             if (distance <= origin.Stats.AlertnessRange.Value)
             {
                 origin.AddEnemy(other);
-                CharacterInAttackRange(origin, other, distance);
             }
             else
             {
                 origin.RemoveEnemy(other);
-                CharacterInAttackRange(origin, other, distance);
-                //if (origin.EnemiesInAttackRange.Contains(other))
-                //{
-                //    origin.EnemiesInAttackRange.Remove(other);
-                //}
             }
         }
 

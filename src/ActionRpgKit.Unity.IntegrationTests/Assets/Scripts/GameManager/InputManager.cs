@@ -8,19 +8,16 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerDown(PointerEventData data)
     {
-        Debug.Log("DOWN");
         _pointerIsDown = true;
     }
 
     public void OnPointerUp(PointerEventData data)
     {
-        Debug.Log("UPP");
         _pointerIsDown = false;
     }
 
     void Update()
     {
-        Debug.Log(_pointerIsDown);
         if (_pointerIsDown)
         {
             HandleInput();
@@ -63,7 +60,6 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Characters",
                                                              "Terrain"));
-        Debug.Log(hit);
         return hit;
     }
 
