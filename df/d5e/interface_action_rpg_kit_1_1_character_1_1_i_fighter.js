@@ -15,6 +15,7 @@ var interface_action_rpg_kit_1_1_character_1_1_i_fighter =
     [ "EnemiesInAttackRange", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a72054f1e66441d44cef85c2301f68e60", null ],
     [ "TimeUntilNextAttack", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7874a66111d3279e62e10777c6639ee1", null ],
     [ "CurrentAttackSkill", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a67cd368b5059f35e9c2dcc7410de7181", null ],
+    [ "AttackRange", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a008ec3ffacafafde52b43650a993df7d", null ],
     [ "EquippedWeapon", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7c6296d3ea4af57473f102c58917bdb4", null ],
     [ "CombatSkills", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a0625bd243a067628a327258e85221c28", null ],
     [ "OnCombatSkillLearned", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ab14281ebd03b9554c72a19c118bf6cf1", null ],
