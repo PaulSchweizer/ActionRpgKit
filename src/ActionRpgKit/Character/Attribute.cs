@@ -399,7 +399,7 @@ namespace ActionRpgKit.Character.Attribute
 
         public new void ValueOfFormulatAttributeChanged(BaseAttribute sender, float value)
         {
-            ValueChanged(value);
+            ValueChanged(Value);
             Value = Value;
             MaxValue = BaseValue;
         }

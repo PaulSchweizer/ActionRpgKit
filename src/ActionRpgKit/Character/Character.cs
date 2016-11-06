@@ -112,6 +112,10 @@ namespace ActionRpgKit.Character
         int CurrentAttackSkill { get; set; }
 
         /// <summary>
+        /// The Attack Range.</summary>
+        float AttackRange { get; }
+        
+        /// <summary>
         /// The currently equipped Weapon.</summary>
         int EquippedWeapon { get; set; }
 
@@ -226,27 +230,33 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// The Character is idling.</summary>
+        [NonSerialized]
         public IdleState IdleState = IdleState.Instance;
 
         /// <summary>
         /// The Character is aware of enemies somewhere around him.</summary>
+        [NonSerialized]
         public AlertState AlertState = AlertState.Instance;
 
         /// <summary>
         /// The Character is running after an enemy.</summary>
+        [NonSerialized]
         public ChaseState ChaseState = ChaseState.Instance;
 
         /// <summary>
         /// The Character is close enough to attack an enemy.</summary>
+        [NonSerialized]
         public AttackState AttackState = AttackState.Instance;
 
         /// <summary>
         /// The Character has been defeated and is about to be removed.</summary>
+        [NonSerialized]
         public DyingState DyingState = DyingState.Instance;
 
         /// <summary>
         /// Determines whether the Charaxter is active or not.</summary>
-        [NonSerialized] private bool _isDead = false;
+        [NonSerialized]
+        private bool _isDead = false;
 
         /// <summary>
         /// A list of absolute end times for the cooldown of magic skills.</summary>
@@ -256,7 +266,9 @@ namespace ActionRpgKit.Character
         /// A list of absolute end times for the cooldown of combat skills.</summary>
         public List<float> CombatSkillEndTimes = new List<float>() {};
 
-        public BaseCharacter() { }
+        public BaseCharacter()
+        {
+        }
 
         public BaseCharacter(BaseStats stats, IInventory inventory)
         {
@@ -507,6 +519,21 @@ namespace ActionRpgKit.Character
         public float TimeUntilNextAttack { get; set; }
 
         public int CurrentAttackSkill { get; set; } = -1;
+
+        public float AttackRange {
+            get
+            {
+                if (EquippedWeapon > -1)
+                {
+                    return Stats.AttackRange.Value + ItemDatabase.GetWeaponItemById(EquippedWeapon).Range;
+                }
+                else
+                {
+                    return Stats.AttackRange.Value;
+                }
+                
+            }
+        }
 
         public int EquippedWeapon { get; set; } = -1;
 

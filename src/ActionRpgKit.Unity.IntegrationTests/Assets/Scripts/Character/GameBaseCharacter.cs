@@ -28,25 +28,27 @@ public class GameBaseCharacter : MonoBehaviour
     {
         // Connect the signals fromt the ActionRpgKit Character
         Character.OnStateChanged += new StateChangedHandler(StateChanged);
-        Character.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearned);
         Character.OnMagicSkillTriggered += new MagicSkillTriggeredHandler(MagicSkillTriggered);
-        Character.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearned);
         Character.OnCombatSkillTriggered += new CombatSkillTriggeredHandler(CombatSkillTriggered);
         foreach (KeyValuePair<string, BaseAttribute> attr in Character.Stats.Dict)
         {
             attr.Value.OnValueChanged += new ValueChangedHandler(StatsChanged);
         }
 
-        Character.LearnCombatSkill(0);
-        Character.CurrentAttackSkill = 0;
+        // Fix Deserialization Problems
         Character.CombatSkillEndTimes.Clear();
         for(int i = 0; i < Character.CombatSkills.Count; i++)
         {
             Character.CombatSkillEndTimes.Add(-1);
         }
+
+        // NavMeshAgent
+        Character.Stats.MovementSpeed.OnValueChanged += new ValueChangedHandler(SpeedChanged);
+        SpeedChanged(Character.Stats.MovementSpeed, Character.Stats.MovementSpeed.Value);
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Set the position of the ARPG Character to the position of the transform.</summary>
     public virtual void Update()
     {
         Character.Position.Set(transform.position.x, transform.position.z);
@@ -56,6 +58,20 @@ public class GameBaseCharacter : MonoBehaviour
 
     #region Character Events
 
+    /// <summary>
+    /// Update the Speed and dependent values on the navMeshAgent.</summary>
+    /// <param name="sender">The MovementSpeed Attribute</param>
+    /// <param name="value">The value</param>
+    public void SpeedChanged(BaseAttribute sender, float value)
+    {
+        NavMeshAgent.speed = value;
+        NavMeshAgent.angularSpeed = value * 100;
+    }
+
+    /// <summary>
+    /// Update the visual display of the Stats and trigger other dependent processes.</summary>
+    /// <param name="sender">The Attribute</param>
+    /// <param name="value">The value of gthe Attribute</param>
     public virtual void StatsChanged(BaseAttribute sender, float value)
     {
     }
@@ -65,23 +81,16 @@ public class GameBaseCharacter : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    public virtual void MagicSkillLearned(IMagicUser sender, int skillId)
-    {
-        throw new NotImplementedException();
-    }
-
     public virtual void MagicSkillTriggered(IMagicUser sender, int skillId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public virtual void CombatSkillLearned(IFighter sender, int skillId)
     {
         throw new NotImplementedException();
     }
 
     public virtual void CombatSkillTriggered(IFighter sender, int skillId)
     {
+        var target = new Vector3(Character.Enemies[0].Position.X, 0, 
+                                 Character.Enemies[0].Position.Y);
+        transform.LookAt(target);
         StartCoroutine(CombatSkillCountdown(sender, skillId));
     }
 
@@ -133,8 +142,11 @@ public class GameBaseCharacter : MonoBehaviour
         // Draw a circle for sight range
         DebugExtension.DebugCircle(transform.position, color, 
                 (float)Math.Sqrt(Character.Stats.AlertnessRange.Value), 0);
-        DebugExtension.DebugCircle(transform.position, color, 
-                (float)Math.Sqrt(Character.Stats.AttackRange.Value), 0);
+        if (UnityEditor.EditorApplication.isPlaying)
+        {
+            DebugExtension.DebugCircle(transform.position, color, 
+                    (float)Math.Sqrt(Character.AttackRange), 0);
+        }
     }
 #endif
 

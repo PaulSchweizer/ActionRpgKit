@@ -68,7 +68,7 @@ public class GamePlayer : GameBaseCharacter
     {
     }
 
-    public override void MagicSkillLearned(IMagicUser sender, int skillId)
+    public void MagicSkillLearned(IMagicUser sender, int skillId)
     {
     }
 
@@ -76,7 +76,7 @@ public class GamePlayer : GameBaseCharacter
     {
     }
 
-    public override void CombatSkillLearned(IFighter sender, int skillId)
+    public void CombatSkillLearned(IFighter sender, int skillId)
     {
     }
 

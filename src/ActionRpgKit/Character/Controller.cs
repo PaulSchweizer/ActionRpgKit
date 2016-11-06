@@ -80,12 +80,7 @@ namespace ActionRpgKit.Character
                                                    BaseCharacter other,
                                                    float distance)
         {
-            float range = origin.Stats.AttackRange.Value;
-            if (origin.EquippedWeapon > -1)
-                range += ItemDatabase.GetWeaponItemById(origin.EquippedWeapon).Range;
-            {
-            }
-            if(distance <= range)
+            if(distance <= origin.AttackRange)
             {
                 if (!origin.EnemiesInAttackRange.Contains(other))
                 {

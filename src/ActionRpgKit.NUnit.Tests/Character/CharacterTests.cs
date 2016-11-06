@@ -209,6 +209,11 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.AreEqual(player.ToString(), serializedPlayer.ToString());
             Assert.AreNotEqual(player.CombatSkillEndTimes[0], serializedPlayer.CombatSkillEndTimes[0]);
             Assert.AreEqual(-1, serializedPlayer.CombatSkillEndTimes[0]);
+            Assert.AreSame(player.IdleState, IdleState.Instance);
+            Assert.AreSame(player.AlertState, AlertState.Instance);
+            Assert.AreSame(player.ChaseState, ChaseState.Instance);
+            Assert.AreSame(player.AttackState, AttackState.Instance);
+            Assert.AreSame(player.DyingState, DyingState.Instance);
 
             enemy.Position.Set(6, 6);
             enemy.IsDead = true;

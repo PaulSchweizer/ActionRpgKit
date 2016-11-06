@@ -44,14 +44,14 @@ public class BaseCharacterDataEditor : Editor
     private int magicSkillsRow;
     private int combatSkillsRow;
     private int equippedWeaponRow;
-    private int currentAttackSkill;
+    private int currentAttackSkillRow;
 
     /// <summary>
     /// Draw all the UI elements.</summary>
     public override void OnInspectorGUI()
     {
         // Draw the default fields of the ScriptableObject
-        //DrawDefaultInspector();
+        //DrawDefaultInspector(); 
 
         // Initialize the databases
         var db = (GameItemDatabase)AssetDatabase.LoadMainAssetAtPath("Assets/Data/ItemDatabase.asset");
@@ -189,8 +189,8 @@ public class BaseCharacterDataEditor : Editor
             // Current Weapon
             EditorGUILayout.BeginHorizontal("box");
             EditorGUILayout.LabelField("Weapon:", GUILayout.Width(80));
-            var weaponNames = new List<string>();
-            var weaponIds = new List<int>();
+            var weaponNames = new List<string>() { "None" };
+            var weaponIds = new List<int>() { -1 };
             var items = character.Inventory.Items.GetEnumerator();
 
             int i = 0;
@@ -205,28 +205,26 @@ public class BaseCharacterDataEditor : Editor
                 }
 
             }
-            equippedWeaponRow = EditorGUILayout.Popup(equippedWeaponRow,
-                                                      weaponNames.ToArray(),
-                                                      GUILayout.Width(150));
-            if (weaponNames.Count > 0)
-            {
-                character.EquippedWeapon = weaponIds[equippedWeaponRow];
-            }
+            equippedWeaponRow = EditorGUILayout.Popup(weaponIds.IndexOf(character.EquippedWeapon),
+                                                      weaponNames.ToArray(), GUILayout.Width(150));
+            character.EquippedWeapon = weaponIds[equippedWeaponRow];
             EditorGUILayout.EndHorizontal();
 
             // Attack Skill
             EditorGUILayout.BeginHorizontal("box");
             EditorGUILayout.LabelField("Attack Skill:", GUILayout.Width(80));
-            var learnedCombatSkills = new string[character.CombatSkills.Count];
-            for (i = 0; i < learnedCombatSkills.Length; i++)
+            var learnedCombatSkillsNames = new List<string>() { "None" };
+            var learnedCombatSkillsIds = new List<int>() { -1 };
+            for (i = 0; i < character.CombatSkills.Count; i++)
             {
-                learnedCombatSkills[i] = SkillDatabase.GetCombatSkillById(character.CombatSkills[i]).Name;
+                learnedCombatSkillsNames.Add(SkillDatabase.GetCombatSkillById(character.CombatSkills[i]).Name);
+                learnedCombatSkillsIds.Add(character.CombatSkills[i]);
 
             }
-            currentAttackSkill = EditorGUILayout.Popup(currentAttackSkill,
-                                                      learnedCombatSkills,
-                                                      GUILayout.Width(150));
-            character.CurrentAttackSkill = currentAttackSkill;
+            currentAttackSkillRow = EditorGUILayout.Popup(learnedCombatSkillsIds.IndexOf(character.CurrentAttackSkill),
+                                                          learnedCombatSkillsNames.ToArray(),
+                                                          GUILayout.Width(150));
+            character.CurrentAttackSkill = learnedCombatSkillsIds[currentAttackSkillRow];
             EditorGUILayout.EndHorizontal();
         }
 
@@ -235,6 +233,8 @@ public class BaseCharacterDataEditor : Editor
         #region Debug
 
         #endregion
+
+        EditorUtility.SetDirty(target);
     }
 
     /// <summary>

@@ -22,6 +22,7 @@ namespace ActionRpgKit.Character.Stats
         public BaseAttribute MagicRegenerationRate;
         public BaseAttribute AlertnessRange;
         public BaseAttribute AttackRange;
+        public BaseAttribute MovementSpeed;
 
         public Dictionary<string, BaseAttribute> Dict = new Dictionary<string, BaseAttribute>();
 
@@ -37,16 +38,28 @@ namespace ActionRpgKit.Character.Stats
             Dict.Add("Magic", Magic);
             Dict.Add("AlertnessRange", AlertnessRange);
             Dict.Add("AttackRange", AttackRange);
+            Dict.Add("MovementSpeed", MovementSpeed);
         }
 
-        public abstract void Set(BaseStats stats);
+        public void Set(BaseStats stats)
+        {
+            Body.Value = stats.Body.Value;
+            Mind.Value = stats.Mind.Value;
+            Soul.Value = stats.Soul.Value;
+            Experience.Value = stats.Experience.Value;
+            Life.Value = stats.Life.Value;
+            Magic.Value = stats.Magic.Value;
+            AlertnessRange.Value = stats.AlertnessRange.Value;
+            AttackRange.Value = stats.AttackRange.Value;
+            MovementSpeed.Value = stats.MovementSpeed.Value;
+        }
 
         public override string ToString()
         {
             string repr = string.Format("--- Primary Attributes ------------\n" +
                                          "{0}\n{1}\n{2}\n{3}\n" +
                                          "--- Secondary Attributes ------------\n" +
-                                         "{4}\n{5}\n{6}\n{7}\n{8}\n{9}\n",
+                                         "{4}\n{5}\n{6}\n{7}\n{8}\n{9}\n{10}\n",
                                          Body.ToString(),
                                          Mind.ToString(),
                                          Soul.ToString(),
@@ -56,7 +69,8 @@ namespace ActionRpgKit.Character.Stats
                                          Magic.ToString(),
                                          MagicRegenerationRate.ToString(),
                                          AlertnessRange.ToString(),
-                                         AttackRange.ToString());
+                                         AttackRange.ToString(),
+                                         MovementSpeed.ToString());
             return repr;
         }
     }
@@ -76,8 +90,9 @@ namespace ActionRpgKit.Character.Stats
             Mind = new PrimaryAttribute("Mind", 0, 999, 0);
             Soul = new PrimaryAttribute("Soul", 0, 999, 0);
             Experience = new PrimaryAttribute("Experience", 0, 980100, 0);
-            AlertnessRange = new PrimaryAttribute("AlertnessRange", 0, 999, 1);
-            AttackRange = new PrimaryAttribute("AttackRange", 0, 999, 1);
+            AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 1);
+            AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
+            MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 100, 0);
 
             // Secondary Attributes
             Level = new SecondaryAttribute("Level",
@@ -95,20 +110,10 @@ namespace ActionRpgKit.Character.Stats
             Magic =new VolumeAttribute("Magic", 
                     x => (int)(20 + 5 * x[0].Value + x[1].Value / 3) * 1f, 
                     new BaseAttribute[] { Level, Soul }, 0, 999);
+
             AssignAttributesToDict();
         }
 
-        public override void Set(BaseStats stats)
-        {
-            Body.Value = stats.Body.Value;
-            Mind.Value = stats.Mind.Value;
-            Soul.Value = stats.Soul.Value;
-            Experience.Value = stats.Experience.Value;
-            Life.Value = stats.Life.Value;
-            Magic.Value = stats.Magic.Value;
-            AlertnessRange.Value = stats.AlertnessRange.Value;
-            AttackRange.Value = stats.AttackRange.Value;
-        }
     }
 
     [Serializable]
@@ -124,23 +129,10 @@ namespace ActionRpgKit.Character.Stats
             Life = new PrimaryAttribute("Life", 0, 999, 0);
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate", 0, 2, 0);
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
-            AlertnessRange = new PrimaryAttribute("AlertnessRange", 0, 999, 1);
-            AttackRange = new PrimaryAttribute("AttackRange", 0, 999, 1);
+            AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 1);
+            AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
+            MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 100, 0);
             AssignAttributesToDict();
-        }
-
-        public override void Set(BaseStats stats)
-        {
-            Body.Value = stats.Body.Value; 
-            Mind.Value = stats.Mind.Value; 
-            Soul.Value = stats.Soul.Value; 
-            Experience.Value = stats.Experience.Value; 
-            Level.Value = stats.Level.Value; 
-            Life.Value = stats.Life.Value; 
-            MagicRegenerationRate.Value = stats.MagicRegenerationRate.Value; 
-            Magic.Value = stats.Magic.Value; 
-            AlertnessRange.Value = stats.AlertnessRange.Value; 
-            AttackRange.Value = stats.AttackRange.Value; 
         }
     }
 
