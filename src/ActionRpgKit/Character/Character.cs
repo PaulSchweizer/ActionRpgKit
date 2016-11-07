@@ -704,8 +704,15 @@ namespace ActionRpgKit.Character
     public class Player : BaseCharacter
     {
         /// <summary>
+        /// Constructor is needed for seamless serialization.</summary>
+        public Player() : base(new PlayerStats(), new PlayerInventory())
+        {
+            Controller.Register(this);
+        }
+
+        /// <summary>
         /// Register the Player Character at the Controller.</summary>
-        public Player(string name = "") : base(new PlayerStats(), new PlayerInventory())
+        public Player(string name) : base(new PlayerStats(), new PlayerInventory())
         {
             Name = name;
             Controller.Register(this);
@@ -718,8 +725,15 @@ namespace ActionRpgKit.Character
     public class Enemy : BaseCharacter
     {
         /// <summary>
+        /// Constructor is needed for seamless serialization.</summary>
+        public Enemy() : base(new EnemyStats(), new SimpleInventory())
+        {
+            Controller.Register(this);
+        }
+
+        /// <summary>
         /// Register the Enemy Character at the Controller.</summary>
-        public Enemy(string name="") : base(new EnemyStats(), new SimpleInventory())
+        public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
         {
             Name = name;
             Controller.Register(this);

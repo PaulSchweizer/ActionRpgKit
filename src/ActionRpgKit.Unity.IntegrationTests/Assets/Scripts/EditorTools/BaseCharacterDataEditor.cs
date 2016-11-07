@@ -237,7 +237,7 @@ public class BaseCharacterDataEditor : Editor
 
     /// <summary>
     /// Display the Model in the Editor.</summary>
-    void DrawInventory(IInventory inventory)
+    void DrawInventory(BaseInventory inventory)
     {
         var items = inventory.Items.GetEnumerator();
         var quantities = inventory.Quantities.GetEnumerator();
