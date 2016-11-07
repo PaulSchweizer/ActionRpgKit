@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using ActionRpgKit.Character.Attribute;
 using System.Collections;
-using ActionRpgKit.Character.Skill;
 
 public class GameBaseCharacter : MonoBehaviour
 {
@@ -35,9 +34,9 @@ public class GameBaseCharacter : MonoBehaviour
             attr.Value.OnValueChanged += new ValueChangedHandler(StatsChanged);
         }
 
-        // Fix Deserialization Problems
+        //Fix Deserialization Problems
         Character.CombatSkillEndTimes.Clear();
-        for(int i = 0; i < Character.CombatSkills.Count; i++)
+        for (int i = 0; i < Character.CombatSkills.Count; i++)
         {
             Character.CombatSkillEndTimes.Add(-1);
         }

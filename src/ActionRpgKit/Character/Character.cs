@@ -92,7 +92,7 @@ namespace ActionRpgKit.Character
         float Life { get; set; }
 
         /// <summary>
-        /// Whether the Fighter has been killed.</summary>
+        /// Whether the Fighter is active or defeated.</summary>
         bool IsDead{ get; set; }
 
         /// <summary>
@@ -218,7 +218,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Inventory of the Character.</summary>
-        public IInventory Inventory;
+        public BaseInventory Inventory;
 
         [field: NonSerialized] public event StateChangedHandler OnStateChanged;
         [field: NonSerialized] public event MagicSkillLearnedHandler OnMagicSkillLearned;   
@@ -266,11 +266,11 @@ namespace ActionRpgKit.Character
         /// A list of absolute end times for the cooldown of combat skills.</summary>
         public List<float> CombatSkillEndTimes = new List<float>() {};
 
-        public BaseCharacter()
-        {
-        }
-
-        public BaseCharacter(BaseStats stats, IInventory inventory)
+        /// <summary>
+        /// Initialize the Stats, Inventory, State and connect basic signals.</summary>
+        /// <param name="stats">The Stats</param>
+        /// <param name="inventory">The Inventory</param>
+        public BaseCharacter(BaseStats stats, BaseInventory inventory)
         {
             Stats = stats;
             Inventory = inventory;
@@ -280,20 +280,13 @@ namespace ActionRpgKit.Character
             Stats.Life.OnMinReached += new MinReachedHandler(OnDeath);
         }
 
+        /// <summary>
+        /// Format the Character into a nice string reperesentation.</summary>
+        /// <returns>Nice text representation</returns>
         public override string ToString()
         {
-            string repr = string.Format("### CHARACTER: {0} ########################\n" +
-                                        "--- Primary Attributes ------------\n" +
-                                         "{1}\n{2}\n{3}\n{4}\n" +
-                                         "--- Secondary Attributes ------------\n" +
-                                         "{5}\n{6}\n",
-                                         Name,
-                                         Stats.Body.ToString(),
-                                         Stats.Mind.ToString(),
-                                         Stats.Soul.ToString(),
-                                         Stats.Level.ToString(),
-                                         Stats.Life.ToString(),
-                                         Stats.Magic.ToString());
+            string repr = string.Format("### CHARACTER: {0} ###\n" +
+                                         "{1}\n", Name, Stats.ToString());
             repr += "--- Combat Skills ------------\n";
             for (int i = 0; i < CombatSkills.Count; i++)
             {
@@ -309,6 +302,9 @@ namespace ActionRpgKit.Character
             return repr;
         }
 
+        /// <summary>
+        /// Reset the combat skill end times values.</summary>
+        /// <param name="context">The context</param>
         [OnDeserialized]
         public void OnDeserialized(StreamingContext context)
         {
@@ -321,8 +317,12 @@ namespace ActionRpgKit.Character
 
         #region IGameObject Implementations
 
+        /// <summary>
+        /// 2D world space position.</summary>
         public Position Position { get; set; } = new Position();
 
+        /// <summary>
+        /// Update the current state of the Character.</summary>
         public void Update ()
         {
             CurrentState.UpdateState(this);
@@ -332,6 +332,8 @@ namespace ActionRpgKit.Character
 
         #region ICharacter Implementations
 
+        /// <summary>
+        /// The current state of the Character.</summary>
         public IState CurrentState { get; set; }
 
         /// <summary>
@@ -430,6 +432,8 @@ namespace ActionRpgKit.Character
 
         #region IMagicUser Implementations
 
+        /// <summary>
+        /// The magic value.</summary>
         public float Magic
         {
             get
@@ -442,9 +446,13 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// All available magic skills.</summary>
         public List<int> MagicSkills { get; set; } = new List<int>();
 
-
+        /// <summary>
+        /// Add a new magic skill.</summary>
+        /// <param name="skillId">The id of the magic skill to learn.</param>
         public void LearnMagicSkill(int skillId)
         {
             if (!MagicSkills.Contains(skillId))
@@ -455,6 +463,10 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Trigger the given magic skill.</summary>
+        /// <param name="skillId">The id of the magic skill.</param>
+        /// <returns>Whether the magic skill was triggered.</returns>
         public bool TriggerMagicSkill(int skillId)
         {
             if (!MagicSkillCanBeUsed(skillId))
@@ -500,6 +512,8 @@ namespace ActionRpgKit.Character
 
         #region IFighter Implementations
 
+        /// <summary>
+        /// The life value.</summary>
         public float Life
         {
             get
@@ -512,14 +526,24 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Whether the Character is active or not.</summary>
         public bool IsDead { get { return _isDead; } set { _isDead = value; } }
 
+        /// <summary>
+        /// A list of current Enemies in reach of this Character.</summary>
         public List<IFighter> Enemies { get; set; } = new List<IFighter>();
 
+        /// <summary>
+        /// The relative time until the next attack is possible.</summary>
         public float TimeUntilNextAttack { get; set; }
 
+        /// <summary>
+        /// The attack skill used by this Character.</summary>
         public int CurrentAttackSkill { get; set; } = -1;
 
+        /// <summary>
+        /// The Attack Range takes the Weapon into account too.</summary>
         public float AttackRange {
             get
             {
@@ -535,10 +559,18 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Currently equipped Weapon, if any. Defaults to -1.</summary>
         public int EquippedWeapon { get; set; } = -1;
 
+        /// <summary>
+        /// A list of enemies in AttackRange.</summary>
         public List<IFighter> EnemiesInAttackRange { get; set; } = new List<IFighter>();
 
+        /// <summary>
+        /// Add a new enemy to the active enemies.</summary>
+        /// <param name="enemy">The Enemy</param>
+        /// <param name="index">The targeted index in the list.</param>
         public void AddEnemy(IFighter enemy, int index=0)
         {
             if (!Enemies.Contains(enemy))
@@ -548,6 +580,9 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Remove the Enemy from the active enemies of this Character.</summary>
+        /// <param name="enemy"></param>
         public void RemoveEnemy(IFighter enemy)
         {
             if (Enemies.Contains(enemy))
@@ -557,18 +592,29 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// It is based on the time until the next attack may be triggered.</summary>
+        /// <returns>Whether the Character is allowed to attack.</returns>
         public bool CanAttack()
         {
             return GameTime.time > TimeUntilNextAttack;
         }
 
+        /// <summary>
+        /// Trigger the current attack skill.</summary>
+        /// <param name="enemy"></param>
         public void Attack(IFighter enemy)
         {
             TriggerCombatSkill(CurrentAttackSkill);
         }
 
+        /// <summary>
+        /// All available combat skills for this Character.</summary>
         public List<int> CombatSkills { get; set; } = new List<int>();
 
+        /// <summary>
+        /// Add a new skill to the available skills.</summary>
+        /// <param name="skillId">The combat skill id.</param>
         public void LearnCombatSkill(int skillId)
         {
             if (!CombatSkills.Contains(skillId))
@@ -579,6 +625,12 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// The combat skill signal is emitted. 
+        /// The actual use of the Skill has to be implmented and connected 
+        /// via a delegate.</summary>
+        /// <param name="skillId">The CombatSkill to trigger.</param>
+        /// <returns>Whether the skill was triggered.</returns>
         public bool TriggerCombatSkill(int skillId)
         {
             if (!CombatSkillCanBeUsed(skillId))
@@ -592,8 +644,6 @@ namespace ActionRpgKit.Character
                 endTime += 1 / ItemDatabase.GetWeaponItemById(EquippedWeapon).Speed;
             }
             CombatSkillEndTimes[CombatSkills.IndexOf(skillId)] = endTime; 
-            // 1. Emit signal here, 
-            // 2. Unity catches the signal and delays the execution
             EmitOnCombatSkillTriggered(skillId);
             return true;
         }
@@ -653,13 +703,9 @@ namespace ActionRpgKit.Character
     [Serializable]
     public class Player : BaseCharacter
     {
-
-        public Player() : base(new PlayerStats(), new PlayerInventory())
-        {
-            Controller.Register(this);
-        }
-
-        public Player(string name) : base(new PlayerStats(), new PlayerInventory())
+        /// <summary>
+        /// Register the Player Character at the Controller.</summary>
+        public Player(string name = "") : base(new PlayerStats(), new PlayerInventory())
         {
             Name = name;
             Controller.Register(this);
@@ -671,13 +717,9 @@ namespace ActionRpgKit.Character
     [Serializable]
     public class Enemy : BaseCharacter
     {
-
-        public Enemy() : base(new EnemyStats(), new SimpleInventory())
-        {
-            Controller.Register(this);
-        }
-
-        public Enemy(string name) : base(new EnemyStats(), new SimpleInventory())
+        /// <summary>
+        /// Register the Enemy Character at the Controller.</summary>
+        public Enemy(string name="") : base(new EnemyStats(), new SimpleInventory())
         {
             Name = name;
             Controller.Register(this);

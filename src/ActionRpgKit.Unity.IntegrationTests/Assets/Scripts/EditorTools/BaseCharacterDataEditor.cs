@@ -1,10 +1,8 @@
 ﻿#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
-using System.IO;
 using System.Collections.Generic;
 using ActionRpgKit.Character.Attribute;
-using ActionRpgKit.Character.Stats;
 using ActionRpgKit.Character;
 using ActionRpgKit.Item;
 using ActionRpgKit.Character.Skill;

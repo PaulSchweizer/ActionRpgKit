@@ -132,7 +132,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             TestInventory(playerInventory, deserializedPlayerInventory);
         }
 
-        private void TestInventory(IInventory original, IInventory serialized)
+        private void TestInventory(BaseInventory original, BaseInventory serialized)
         { 
             var items = original.Items.GetEnumerator();
             var quantities = original.Quantities.GetEnumerator();
@@ -146,7 +146,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             }
         }
 
-        private void BinarySerialize(IInventory inventory)
+        private void BinarySerialize(BaseInventory inventory)
         {
             var serializedFile = Path.GetTempPath() + string.Format("/__InventoryTest__.bin");
             IFormatter formatter = new BinaryFormatter();
@@ -158,7 +158,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             stream.Close();
         }
 
-        private IInventory BinaryDeserialize(IInventory stats)
+        private BaseInventory BinaryDeserialize(BaseInventory stats)
         {
             var serializedFile = Path.GetTempPath() + string.Format("/__InventoryTest__.bin");
             IFormatter formatter = new BinaryFormatter();
@@ -166,7 +166,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
                                     FileMode.Open,
                                     FileAccess.Read,
                                     FileShare.Read);
-            IInventory serializedStats = (IInventory)formatter.Deserialize(stream);
+            BaseInventory serializedStats = (BaseInventory)formatter.Deserialize(stream);
             stream.Close();
             File.Delete(serializedFile);
             return serializedStats;

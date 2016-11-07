@@ -17,7 +17,7 @@ namespace ActionRpgKit.Character
         
         /// <summary>
         /// The Items based on the enemy type</summary>
-        private static Dictionary<string, IInventory> Inventories = new Dictionary<string, IInventory>();
+        private static Dictionary<string, BaseInventory> Inventories = new Dictionary<string, BaseInventory>();
 
         /// <summary>
         /// Add a new enemy type to the factory.</summary>
@@ -26,7 +26,7 @@ namespace ActionRpgKit.Character
         /// <param name="items">The Items in the Enemies Inventory.</param>
         public static void AddEnemyType(string type, 
                                         EnemyStats stats, 
-                                        IInventory inventory)
+                                        BaseInventory inventory)
         {
             Stats[type] = stats;
             Inventories[type] = inventory;

@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using ActionRpgKit.Character;
-using System;
-using System.Collections.Generic;
+﻿using ActionRpgKit.Character;
 using ActionRpgKit.Character.Attribute;
 
 public class GamePlayer : GameBaseCharacter

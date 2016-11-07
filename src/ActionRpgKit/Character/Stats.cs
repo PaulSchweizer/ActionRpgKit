@@ -12,20 +12,56 @@ namespace ActionRpgKit.Character.Stats
     [Serializable]
     public abstract class BaseStats
     {
+        /// <summary>
+        /// The physical constitution of the Character.</summary>
         public BaseAttribute Body;
+
+        /// <summary>
+        /// The mental capabilities of the Character.</summary>
         public BaseAttribute Mind;
+
+        /// <summary>
+        /// The soul holds the key to magic powers.</summary>
         public BaseAttribute Soul;
+
+        /// <summary>
+        /// Gathered experience points.</summary>
         public BaseAttribute Experience;
+
+        /// <summary>
+        /// Depends on the gathered experience.</summary>
         public BaseAttribute Level;
+
+        /// <summary>
+        /// The life energy.</summary>
         public BaseAttribute Life;
+
+        /// <summary>
+        /// The magic energy.</summary>
         public BaseAttribute Magic;
+
+        /// <summary>
+        /// Regeneration rate in points per second.</summary>
         public BaseAttribute MagicRegenerationRate;
+
+        /// <summary>
+        /// Range of the alterness in squared distance.</summary>
         public BaseAttribute AlertnessRange;
+
+        /// <summary>
+        /// Basic range of the attack in squared distance.</summary>
         public BaseAttribute AttackRange;
+
+        /// <summary>
+        /// Speed corresponding to the Unity nav mesh agent's speed.</summary>
         public BaseAttribute MovementSpeed;
 
+        /// <summary>
+        /// A dictionary for ease of access to the attributes by name.</summary>
         public Dictionary<string, BaseAttribute> Dict = new Dictionary<string, BaseAttribute>();
 
+        /// <summary>
+        /// Assign all Attributes to the dictionary.</summary>
         protected void AssignAttributesToDict()
         {
             Dict.Add("Body", Body);
@@ -41,6 +77,9 @@ namespace ActionRpgKit.Character.Stats
             Dict.Add("MovementSpeed", MovementSpeed);
         }
 
+        /// <summary>
+        /// Set the values to the given stats values.</summary>
+        /// <param name="stats">The stats to copy the values from.</param>
         public void Set(BaseStats stats)
         {
             Body.Value = stats.Body.Value;
@@ -54,6 +93,9 @@ namespace ActionRpgKit.Character.Stats
             MovementSpeed.Value = stats.MovementSpeed.Value;
         }
 
+        /// <summary>
+        /// Pretty representation of the Attribute.</summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string repr = string.Format("--- Primary Attributes ------------\n" +
@@ -79,10 +121,11 @@ namespace ActionRpgKit.Character.Stats
 
     #region Implementations
 
+    /// <summary>
+    /// Interconnected, more dynamic Attributes.</summary>
     [Serializable]
     public class PlayerStats : BaseStats
     {
-
         public PlayerStats()
         {
             // Primary Attributes
@@ -116,6 +159,8 @@ namespace ActionRpgKit.Character.Stats
 
     }
 
+    /// <summary>
+    /// Holds just simple PrimaryAttributes.</summary>
     [Serializable]
     public class EnemyStats : BaseStats
     {

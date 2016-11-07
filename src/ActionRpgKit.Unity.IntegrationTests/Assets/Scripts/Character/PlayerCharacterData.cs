@@ -1,12 +1,7 @@
-﻿using System;
-using UnityEngine;
-using UnityEditor;
-using System.Collections;
+﻿using UnityEngine;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Attribute;
 using System.Collections.Generic;
-using ActionRpgKit.Character.Stats;
-using ActionRpgKit.Item;
 
 public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackReceiver
 {

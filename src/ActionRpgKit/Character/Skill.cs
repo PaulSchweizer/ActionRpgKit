@@ -12,17 +12,28 @@ namespace ActionRpgKit.Character.Skill
     [Serializable]
     public abstract class BaseSkill
     {
-
+        /// <summary>
+        /// Used to register in the Skill Database.</summary>
         public int Id;
 
+        /// <summary>
+        /// The name of the Skill.</summary>
         public string Name;
 
+        /// <summary>
+        /// A description of the Skill.</summary>
         public string Description;
 
+        /// <summary>
+        /// The time until the skill can be used the next time.</summary>
         public float CooldownTime;
 
+        /// <summary>
+        /// Time until the Skill takes effect after it has been triggered.</summary>
         public float PreUseTime;
 
+        /// <summary>
+        /// The sequene of Items needed to trigger the Skill.</summary>
         public int[] ItemSequence;
 
         public BaseSkill() { }
@@ -42,7 +53,27 @@ namespace ActionRpgKit.Character.Skill
             ItemSequence = itemSequence;
         }
 
-        public abstract bool Match(int[] items);
+        /// <summary>
+        /// Check the given item sequence if it matches.</summary>
+        /// <param name="items">The sequence of Items</param>
+        /// <returns>Whether it matches or not.</returns>
+        public virtual bool Match(int[] items)
+        {
+            if (ItemSequence.Length != items.Length)
+            {
+                return false;
+            }
+            bool match = true;
+            for (int i = 0; i < ItemSequence.Length; i++)
+            {
+                if (ItemSequence[i] != items[i])
+                {
+                    match = false;
+                    break;
+                }
+            }
+            return match;
+        }
     }
 
     /// <summary>
@@ -130,9 +161,16 @@ namespace ActionRpgKit.Character.Skill
     [Serializable]
     public class PassiveMagicSkill : MagicSkill
     {
-
+        /// <summary>
+        /// The curation of the Skill.</summary>
         public float Duration;
+
+        /// <summary>
+        /// The modifer value applied to the Attribute.</summary>
         public float ModifierValue;
+
+        /// <summary>
+        /// The name of the modified attribute.</summary>
         public string ModifiedAttributeName;
 
         public PassiveMagicSkill(int id,
@@ -152,39 +190,19 @@ namespace ActionRpgKit.Character.Skill
                                                                       itemSequence, 
                                                                       cost)
         {
-            
             Duration = duration;
             ModifierValue = modifierValue;
             ModifiedAttributeName = modifiedAttributeName;
         }
 
+        /// <summary>
+        /// Pretty representation of the Skill.</summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return String.Format("{0} (Cost: {1}, {2} +{3} for {4} sec)",
                 Name, Cost, ModifiedAttributeName, ModifierValue, Duration);
         }
-
-        #region ISkill implementations
-
-        public override bool Match(int[] items)
-        {
-            if (ItemSequence.Length != items.Length)
-            {
-                return false;
-            }
-            bool match = true;
-            for (int i = 0; i < ItemSequence.Length; i++)
-            {
-                if (ItemSequence[i] != items[i])
-                {
-                    match = false;
-                    break;
-                }
-            }
-            return match;
-        }
-
-        #endregion
 
         #region IMagicSkill implementations
 
@@ -227,23 +245,15 @@ namespace ActionRpgKit.Character.Skill
                                                       itemSequence,
                                                       damage,
                                                       maximumTargets,
-                                                      range)
-        {
-        }
+                                                      range) {}
 
+        /// <summary>
+        /// Pretty representation of the Skill.</summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return String.Format("{0} (Damage: {1}, MaxTargets: {2})", Name, Damage, MaximumTargets);
         }
-
-        #region ISkill implementations
-
-        public override bool Match(int[] items)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
 
         #region CombatSkill implementations
 

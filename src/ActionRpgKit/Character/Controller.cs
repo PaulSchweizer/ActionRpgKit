@@ -36,7 +36,9 @@ namespace ActionRpgKit.Character
         }
 
         /// <summary>
-        /// Calculate the distance between the Enemies and the Player.</summary>
+        /// Calculate the distance between the Enemies and the Player.
+        /// Compare the altertness ranges and attack ranges.
+        /// Update all the Characters</summary>
         public static void Update()
         {
             if (Player != null)
@@ -62,68 +64,48 @@ namespace ActionRpgKit.Character
             }
         }
 
-        private static void CharacterInAlertnessRange(BaseCharacter origin, 
-                                                      BaseCharacter other, 
+        /// <summary>
+        /// Compare the distance of the two Characters to the alterness range. </summary>
+        /// <param name="source">The source Character for the testing.</param>
+        /// <param name="target">The targeted Character.</param>
+        /// <param name="distance">The squared distance between them.</param>
+        private static void CharacterInAlertnessRange(BaseCharacter source, 
+                                                      BaseCharacter target, 
                                                       float distance)
         {
-            if (distance <= origin.Stats.AlertnessRange.Value)
+            if (distance <= source.Stats.AlertnessRange.Value)
             {
-                origin.AddEnemy(other);
+                source.AddEnemy(target);
             }
             else
             {
-                origin.RemoveEnemy(other);
+                source.RemoveEnemy(target);
             }
         }
 
-        private static void CharacterInAttackRange(BaseCharacter origin,
-                                                   BaseCharacter other,
+        /// <summary>
+        /// Compare the distance of the two Characters to the attack range. </summary>
+        /// <param name="source">The source Character for the testing.</param>
+        /// <param name="target">The targeted Character.</param>
+        /// <param name="distance">The squared distance between them.</param>
+        private static void CharacterInAttackRange(BaseCharacter source,
+                                                   BaseCharacter target,
                                                    float distance)
         {
-            if(distance <= origin.AttackRange)
+            if(distance <= source.AttackRange)
             {
-                if (!origin.EnemiesInAttackRange.Contains(other))
+                if (!source.EnemiesInAttackRange.Contains(target))
                 {
-                    origin.EnemiesInAttackRange.Add(other);
+                    source.EnemiesInAttackRange.Add(target);
                 }
             }
             else
             {
-                if (origin.EnemiesInAttackRange.Contains(other))
+                if (source.EnemiesInAttackRange.Contains(target))
                 {
-                    origin.EnemiesInAttackRange.Remove(other);
+                    source.EnemiesInAttackRange.Remove(target);
                 }
             }
         }
     }
 }
-
-
-
-
-
-//public bool EnemyInAttackRange(IFighter enemy)
-//{
-//    float range = Stats.AttackRange.Value;
-//    if (EquippedWeapon > -1)
-//    {
-//        range += ItemDatabase.GetWeaponItemById(EquippedWeapon).Range;
-//    }
-//    return Position.SquaredDistanceTo(enemy.Position) <= range;
-//}
-
-//public IFighter[] EnemiesInAttackRange
-//{
-//    get
-//    {
-//        var enemiesInAttackRange = new List<IFighter>();
-//        for (int i = 0; i < Enemies.Count; i++)
-//        {
-//            if (EnemyInAttackRange(Enemies[i]))
-//            {
-//                enemiesInAttackRange.Add(Enemies[i]);
-//            }
-//        }
-//        return enemiesInAttackRange.ToArray();
-//    }
-//}

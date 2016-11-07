@@ -10,15 +10,47 @@ namespace ActionRpgKit.Character
     #region Interfaces
 
     /// <summary>
-    /// An inventory holds Items.</summary>
+    /// An Inventory holds Items and their quantity.
+    /// It can be thought of as a table with two columns, like this:
+    /// +=======+============+
+    /// | Items | Quantities |
+    /// +=======+============+
+    /// | Sword | 1          |
+    /// +-------+------------+
+    /// | Gold  | 12         |
+    /// +-------+------------+
+    /// </summary>
     [Serializable]
-    public abstract class IInventory
+    public abstract class BaseInventory
     {
+        /// <summary>
+        /// The ids of the Items in the Inventory</summary>
         public abstract IEnumerable<int> Items { get; set; }
+
+        /// <summary>
+        /// The quantities of the Items in the Inventory</summary>
         public abstract IEnumerable<int> Quantities { get; set; }
+
+        /// <summary>
+        /// Add a new Item</summary>
+        /// <param name="itemId">The id of the item</param>
+        /// <param name="quantity">The amount of this item</param>
         public abstract void AddItem (int itemId, int quantity = 1);
+
+        /// <summary>
+        /// Remove a new Item</summary>
+        /// <param name="itemId">The id of the item</param>
+        /// <param name="quantity">The amount of this item</param>
         public abstract void RemoveItem (int itemId, int quantity = 1);
+
+        /// <summary>
+        /// The count of the different Items. Not the total count of items.</summary>
         public abstract int ItemCount { get; }
+
+        /// <summary>
+        /// The quantity of the given Item.</summary>
+        /// <param name="itemId">The id of the Item</param>
+        /// <returns>The quantity of this Item.</returns>
         public abstract int GetQuantity (int itemId);
     }
 
@@ -27,11 +59,16 @@ namespace ActionRpgKit.Character
     #region Implementations
 
     /// <summary>
-    /// This inventory holds afixed size array of items.</summary>
+    /// This inventory holds a fixed size array of items.</summary>
     [Serializable]
-    public class SimpleInventory : IInventory
+    public class SimpleInventory : BaseInventory
     {
+        /// <summary>
+        /// Items are stored in an array.</summary>
         private int[] _items = new int[] { };
+
+        /// <summary>
+        /// Quantities are stored in an array.</summary>
         private int[] _quantities = new int[] { };
 
         public SimpleInventory() { }
@@ -42,6 +79,8 @@ namespace ActionRpgKit.Character
             Quantities = quantities;
         }
 
+        /// <summary>
+        /// Set the Items.</summary>
         public override IEnumerable<int> Items
         {
             get
@@ -54,6 +93,8 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Set the quantities.</summary>
         public override IEnumerable<int> Quantities
         {
             get
@@ -67,6 +108,8 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// The length of the item array.</summary>
         public override int ItemCount
         {
             get
@@ -75,6 +118,10 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Quantity of the given Item.</summary>
+        /// <param name="itemId">The id of the Item.</param>
+        /// <returns>The count of the Item.</returns>
         public override int GetQuantity(int itemId)
         {
             int index = Array.IndexOf(_items, itemId);
@@ -88,6 +135,11 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Add the item to the array by creating a new array of the 
+        /// respective length if necessary.</summary>
+        /// <param name="itemId">The id of the Item to add</param>
+        /// <param name="quantity">The count of this item.</param>
         public override void AddItem(int itemId, int quantity = 1)
         {
             if (_items.Contains(itemId))
@@ -104,6 +156,11 @@ namespace ActionRpgKit.Character
 
         }
 
+        /// <summary>
+        /// Remove the item from the array. Recreating the new array with the 
+        /// respective length if necessary.</summary>
+        /// <param name="itemId">The id of the Item to remove</param>
+        /// <param name="quantity">The count of this item.</param>
         public override void RemoveItem(int itemId, int quantity = 1)
         {
             if (_items.Contains(itemId))
@@ -131,6 +188,9 @@ namespace ActionRpgKit.Character
 
         }
 
+        /// <summary>
+        /// Sort the items and quantities into a text based table.</summary>
+        /// <returns>The pretty representation of the inventory.</returns>
         public override string ToString()
         {
             string repr = "";
@@ -148,9 +208,14 @@ namespace ActionRpgKit.Character
     /// <summary>
     /// Inventory allows to add and remove items.</summary>
     [Serializable]
-    public class PlayerInventory : IInventory
+    public class PlayerInventory : BaseInventory
     {
+        /// <summary>
+        /// Items are stored in a list.</summary>
         public List<int> _items = new List<int>();
+
+        /// <summary>
+        /// Quantities are stored in a list.</summary>
         public List<int> _quantities = new List<int>();
 
         public PlayerInventory() { }
@@ -161,6 +226,8 @@ namespace ActionRpgKit.Character
             Quantities = quantities;
         }
 
+        /// <summary>
+        /// Items are stored in a list.</summary>
         public override IEnumerable<int> Items
         {
             get
@@ -173,6 +240,8 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Quantities are stored in a list.</summary>
         public override IEnumerable<int> Quantities
         {
             get
@@ -186,6 +255,8 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Count of the item list.</summary>
         public override int ItemCount
         {
             get
@@ -194,6 +265,10 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Amount of the given Item in the Inventory.</summary>
+        /// <param name="itemId">The Item id</param>
+        /// <returns>The amount of the Item in the Inventory.</returns>
         public override int GetQuantity(int itemId)
         {
             if (_items.Contains(itemId))
@@ -206,6 +281,10 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Add the item to the list.</summary>
+        /// <param name="itemId">The id of the Item to add</param>
+        /// <param name="quantity">The count of this item.</param>
         public override void AddItem(int itemId, int quantity = 1)
         {
             if (_items.Contains(itemId))
@@ -219,6 +298,10 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Remove the item from the list.</summary>
+        /// <param name="itemId">The id of the Item to remove</param>
+        /// <param name="quantity">The count of this item.</param>
         public override void RemoveItem(int itemId, int quantity = 1)
         {
             if (_items.Contains(itemId))
@@ -234,7 +317,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Transfer all the Items from the given Inventory.</summary>
-        public void AddInventory(IInventory inventory)
+        public void AddInventory(BaseInventory inventory)
         {
             for (int i = 0; i < inventory.ItemCount; i++)
             {
@@ -242,6 +325,9 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Sort the items and quantities into a text based table.</summary>
+        /// <returns>The pretty representation of the inventory.</returns>
         public override string ToString()
         {
             string repr = "";
