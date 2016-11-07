@@ -11,6 +11,10 @@ var hierarchy =
         [ "SimpleVolumeAttribute", "db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml", null ]
       ] ]
     ] ],
+    [ "BaseInventory", "d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml", [
+      [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", null ],
+      [ "SimpleInventory", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml", null ]
+    ] ],
     [ "BaseItem", "d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml", [
       [ "UsableItem", "d3/dc8/class_action_rpg_kit_1_1_item_1_1_usable_item.xhtml", null ],
       [ "WeaponItem", "d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml", null ]
@@ -43,10 +47,6 @@ var hierarchy =
     ] ],
     [ "IGameObject", "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml", [
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]
-    ] ],
-    [ "IInventory", "d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml", [
-      [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", null ],
-      [ "SimpleInventory", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml", null ]
     ] ],
     [ "IMagicUser", "dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml", [
       [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml", null ]

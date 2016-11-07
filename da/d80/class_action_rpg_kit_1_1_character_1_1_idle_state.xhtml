@@ -120,12 +120,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa4ef50600d70685a523d3e86c054ad02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called right before changing to the next State. <a href="#aa4ef50600d70685a523d3e86c054ad02">More...</a><br /></td></tr>
 <tr class="separator:aa4ef50600d70685a523d3e86c054ad02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43375ef23c333f5029d57863cf436257"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a43375ef23c333f5029d57863cf436257">UpdateState</a> (<a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a> character)</td></tr>
-<tr class="memdesc:a43375ef23c333f5029d57863cf436257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to perform the interal calculation of the <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="Determine the state of a Character.">IState</a>. <a href="#a43375ef23c333f5029d57863cf436257">More...</a><br /></td></tr>
+<tr class="memdesc:a43375ef23c333f5029d57863cf436257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if Enemies are in AlertnessRange. <a href="#a43375ef23c333f5029d57863cf436257">More...</a><br /></td></tr>
 <tr class="separator:a43375ef23c333f5029d57863cf436257"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a1ed86498aeda4a82ac9bd4daf34ebe48"><td class="memItemLeft" align="right" valign="top">static readonly <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml">IdleState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a1ed86498aeda4a82ac9bd4daf34ebe48">Instance</a> = new <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml">IdleState</a>()</td></tr>
+<tr class="memdesc:a1ed86498aeda4a82ac9bd4daf34ebe48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeping the class a singleton. <a href="#a1ed86498aeda4a82ac9bd4daf34ebe48">More...</a><br /></td></tr>
 <tr class="separator:a1ed86498aeda4a82ac9bd4daf34ebe48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -209,7 +210,13 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Called to perform the interal calculation of the <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="Determine the state of a Character.">IState</a>.</p>
+<p>Check if Enemies are in AlertnessRange.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>The <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a43375ef23c333f5029d57863cf436257">IState</a>.</p>
 
@@ -234,6 +241,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Keeping the class a singleton.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -245,7 +254,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml">IdleState</a></li>
-    <li class="footer">Generated on Sun Nov 6 2016 06:35:03 for Action RPG Kit by
+    <li class="footer">Generated on Mon Nov 7 2016 05:28:06 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

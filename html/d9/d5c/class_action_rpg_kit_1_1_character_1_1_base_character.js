@@ -1,7 +1,6 @@
 var class_action_rpg_kit_1_1_character_1_1_base_character =
 [
-    [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#adcf475c9fca76142770e52ce2d11c246", null ],
-    [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a2b383fc8a8123f3883e44924816b162e", null ],
+    [ "BaseCharacter", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#add689f2c0b5f3c3467f5d671fb7959ce", null ],
     [ "ToString", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
     [ "OnDeserialized", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afec2de7e986fc1cbecd00ca7c88136e9", null ],
     [ "Update", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aec0783b5a136e042adcc47bae4fe5291", null ],
@@ -30,7 +29,7 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
     [ "Id", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb", null ],
     [ "Name", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9", null ],
     [ "Stats", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aae675cc1ade48758b96f03e5488afce9", null ],
-    [ "Inventory", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aa379a0f600677823167c40c56f6aae81", null ],
+    [ "Inventory", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae72af6686d9205927f776f9e87dd08f4", null ],
     [ "IdleState", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a65c4bc6f303d50f15517cc6247befbe8", null ],
     [ "AlertState", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a09d4b5395eec2a3ffde2a642f746d167", null ],
     [ "ChaseState", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab6bbef0def5034c9ca948f60f45226ca", null ],

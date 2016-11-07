@@ -108,7 +108,7 @@ Inheritance diagram for PlayerInventory:</div>
  <div class="center">
   <img src="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.png" usemap="#PlayerInventory_map" alt=""/>
   <map id="PlayerInventory_map" name="PlayerInventory_map">
-<area href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml" title="An inventory holds Items." alt="IInventory" shape="rect" coords="0,0,102,24"/>
+<area href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml" title="An Inventory holds Items and their quantity. It can be thought of as a table with two columns..." alt="BaseInventory" shape="rect" coords="0,0,102,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -119,39 +119,51 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4276a3aafe3ef5d97d9db3d20db357aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a4276a3aafe3ef5d97d9db3d20db357aa">PlayerInventory</a> (int[] items, int[] quantities)</td></tr>
 <tr class="separator:a4276a3aafe3ef5d97d9db3d20db357aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac45555d8dd61497c26146b8f731f0153"><td class="memItemLeft" align="right" valign="top">override int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#ac45555d8dd61497c26146b8f731f0153">GetQuantity</a> (int itemId)</td></tr>
+<tr class="memdesc:ac45555d8dd61497c26146b8f731f0153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of the given <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> in the Inventory. <a href="#ac45555d8dd61497c26146b8f731f0153">More...</a><br /></td></tr>
 <tr class="separator:ac45555d8dd61497c26146b8f731f0153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28a1daa712544637583b4ae9e3e76136"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a28a1daa712544637583b4ae9e3e76136">AddItem</a> (int itemId, int quantity=1)</td></tr>
+<tr class="memdesc:a28a1daa712544637583b4ae9e3e76136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the item to the list. <a href="#a28a1daa712544637583b4ae9e3e76136">More...</a><br /></td></tr>
 <tr class="separator:a28a1daa712544637583b4ae9e3e76136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f1a3b55666c6a819b5a3bc25841485c"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a9f1a3b55666c6a819b5a3bc25841485c">RemoveItem</a> (int itemId, int quantity=1)</td></tr>
+<tr class="memdesc:a9f1a3b55666c6a819b5a3bc25841485c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the item from the list. <a href="#a9f1a3b55666c6a819b5a3bc25841485c">More...</a><br /></td></tr>
 <tr class="separator:a9f1a3b55666c6a819b5a3bc25841485c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90c1a7e2cc4ac7be1211a13a89fd905f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a90c1a7e2cc4ac7be1211a13a89fd905f">AddInventory</a> (<a class="el" href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a> inventory)</td></tr>
-<tr class="memdesc:a90c1a7e2cc4ac7be1211a13a89fd905f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer all the Items from the given Inventory. <a href="#a90c1a7e2cc4ac7be1211a13a89fd905f">More...</a><br /></td></tr>
-<tr class="separator:a90c1a7e2cc4ac7be1211a13a89fd905f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae85d89aded3b39daacf697ce7a1a7586"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#ae85d89aded3b39daacf697ce7a1a7586">AddInventory</a> (<a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml">BaseInventory</a> inventory)</td></tr>
+<tr class="memdesc:ae85d89aded3b39daacf697ce7a1a7586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer all the Items from the given Inventory. <a href="#ae85d89aded3b39daacf697ce7a1a7586">More...</a><br /></td></tr>
+<tr class="separator:ae85d89aded3b39daacf697ce7a1a7586"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa73e7c4dd1df5fd5fbf81c7764ee1533"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> ()</td></tr>
+<tr class="memdesc:aa73e7c4dd1df5fd5fbf81c7764ee1533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the items and quantities into a text based table. <a href="#aa73e7c4dd1df5fd5fbf81c7764ee1533">More...</a><br /></td></tr>
 <tr class="separator:aa73e7c4dd1df5fd5fbf81c7764ee1533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ae260783430cf22369a0cb90f222d572d"><td class="memItemLeft" align="right" valign="top">List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#ae260783430cf22369a0cb90f222d572d">_items</a> = new List&lt;int&gt;()</td></tr>
+<tr class="memdesc:ae260783430cf22369a0cb90f222d572d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Items are stored in a list. <a href="#ae260783430cf22369a0cb90f222d572d">More...</a><br /></td></tr>
 <tr class="separator:ae260783430cf22369a0cb90f222d572d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c2ac22b371719a0ca6cddd3d53846af"><td class="memItemLeft" align="right" valign="top">List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a3c2ac22b371719a0ca6cddd3d53846af">_quantities</a> = new List&lt;int&gt;()</td></tr>
+<tr class="memdesc:a3c2ac22b371719a0ca6cddd3d53846af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantities are stored in a list. <a href="#a3c2ac22b371719a0ca6cddd3d53846af">More...</a><br /></td></tr>
 <tr class="separator:a3c2ac22b371719a0ca6cddd3d53846af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a0256145e5384f6b339e6042effdbff9f"><td class="memItemLeft" align="right" valign="top">override IEnumerable&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a0256145e5384f6b339e6042effdbff9f">Items</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a0256145e5384f6b339e6042effdbff9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Items are stored in a list. <a href="#a0256145e5384f6b339e6042effdbff9f">More...</a><br /></td></tr>
 <tr class="separator:a0256145e5384f6b339e6042effdbff9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ee64ce8eb1fc09ff0d06f94c6424b8"><td class="memItemLeft" align="right" valign="top">override IEnumerable&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a91ee64ce8eb1fc09ff0d06f94c6424b8">Quantities</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a91ee64ce8eb1fc09ff0d06f94c6424b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantities are stored in a list. <a href="#a91ee64ce8eb1fc09ff0d06f94c6424b8">More...</a><br /></td></tr>
 <tr class="separator:a91ee64ce8eb1fc09ff0d06f94c6424b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bbb14dc8374022d1f5f0e1a2c1ce0c4"><td class="memItemLeft" align="right" valign="top">override int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a9bbb14dc8374022d1f5f0e1a2c1ce0c4">ItemCount</a><code> [get]</code></td></tr>
+<tr class="memdesc:a9bbb14dc8374022d1f5f0e1a2c1ce0c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count of the item list. <a href="#a9bbb14dc8374022d1f5f0e1a2c1ce0c4">More...</a><br /></td></tr>
 <tr class="separator:a9bbb14dc8374022d1f5f0e1a2c1ce0c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_class_action_rpg_kit_1_1_character_1_1_i_inventory"><td colspan="2" onclick="javascript:toggleInherit('properties_class_action_rpg_kit_1_1_character_1_1_i_inventory')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a></td></tr>
-<tr class="memitem:a784422982815c79a84ee4d31c6132d91 inherit properties_class_action_rpg_kit_1_1_character_1_1_i_inventory"><td class="memItemLeft" align="right" valign="top">abstract IEnumerable&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a784422982815c79a84ee4d31c6132d91">Items</a><code> [get, set]</code></td></tr>
-<tr class="separator:a784422982815c79a84ee4d31c6132d91 inherit properties_class_action_rpg_kit_1_1_character_1_1_i_inventory"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92970394658371d61a512d96bf33a8f7 inherit properties_class_action_rpg_kit_1_1_character_1_1_i_inventory"><td class="memItemLeft" align="right" valign="top">abstract IEnumerable&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a92970394658371d61a512d96bf33a8f7">Quantities</a><code> [get, set]</code></td></tr>
-<tr class="separator:a92970394658371d61a512d96bf33a8f7 inherit properties_class_action_rpg_kit_1_1_character_1_1_i_inventory"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1ec7f6c1ef8b307d6d327f7dac755b2 inherit properties_class_action_rpg_kit_1_1_character_1_1_i_inventory"><td class="memItemLeft" align="right" valign="top">abstract int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#af1ec7f6c1ef8b307d6d327f7dac755b2">ItemCount</a><code> [get]</code></td></tr>
-<tr class="separator:af1ec7f6c1ef8b307d6d327f7dac755b2 inherit properties_class_action_rpg_kit_1_1_character_1_1_i_inventory"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td colspan="2" onclick="javascript:toggleInherit('properties_class_action_rpg_kit_1_1_character_1_1_base_inventory')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml">BaseInventory</a></td></tr>
+<tr class="memitem:a784422982815c79a84ee4d31c6132d91 inherit properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td class="memItemLeft" align="right" valign="top">abstract IEnumerable&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#a784422982815c79a84ee4d31c6132d91">Items</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a784422982815c79a84ee4d31c6132d91 inherit properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ids of the Items in the Inventory <a href="#a784422982815c79a84ee4d31c6132d91">More...</a><br /></td></tr>
+<tr class="separator:a784422982815c79a84ee4d31c6132d91 inherit properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92970394658371d61a512d96bf33a8f7 inherit properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td class="memItemLeft" align="right" valign="top">abstract IEnumerable&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#a92970394658371d61a512d96bf33a8f7">Quantities</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a92970394658371d61a512d96bf33a8f7 inherit properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td class="mdescLeft">&#160;</td><td class="mdescRight">The quantities of the Items in the Inventory <a href="#a92970394658371d61a512d96bf33a8f7">More...</a><br /></td></tr>
+<tr class="separator:a92970394658371d61a512d96bf33a8f7 inherit properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1ec7f6c1ef8b307d6d327f7dac755b2 inherit properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td class="memItemLeft" align="right" valign="top">abstract int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#af1ec7f6c1ef8b307d6d327f7dac755b2">ItemCount</a><code> [get]</code></td></tr>
+<tr class="memdesc:af1ec7f6c1ef8b307d6d327f7dac755b2 inherit properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td class="mdescLeft">&#160;</td><td class="mdescRight">The count of the different Items. Not the total count of items. <a href="#af1ec7f6c1ef8b307d6d327f7dac755b2">More...</a><br /></td></tr>
+<tr class="separator:af1ec7f6c1ef8b307d6d327f7dac755b2 inherit properties_class_action_rpg_kit_1_1_character_1_1_base_inventory"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Inventory allows to add and remove items.</p>
@@ -236,7 +248,16 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#ab0ccc302c6a48fc18cadf1933efc4ea4">IInventory</a>.</p>
+<p>Amount of the given <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> in the Inventory.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">itemId</td><td>The <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> id</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The amount of the <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> in the Inventory.</dd></dl>
+
+<p>Implements <a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#ab0ccc302c6a48fc18cadf1933efc4ea4">BaseInventory</a>.</p>
 
 </div>
 </div>
@@ -272,7 +293,16 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a762d7c9ee1a3202ba9951587f16ac9ff">IInventory</a>.</p>
+<p>Add the item to the list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">itemId</td><td>The id of the <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> to add</td></tr>
+    <tr><td class="paramname">quantity</td><td>The count of this item.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#a762d7c9ee1a3202ba9951587f16ac9ff">BaseInventory</a>.</p>
 
 </div>
 </div>
@@ -308,11 +338,20 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml#a2d6189a2f3fa9856a9ae6f443ff5b579">IInventory</a>.</p>
+<p>Remove the item from the list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">itemId</td><td>The id of the <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> to remove</td></tr>
+    <tr><td class="paramname">quantity</td><td>The count of this item.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#a2d6189a2f3fa9856a9ae6f443ff5b579">BaseInventory</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a90c1a7e2cc4ac7be1211a13a89fd905f"></a>
+<a class="anchor" id="ae85d89aded3b39daacf697ce7a1a7586"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -322,7 +361,7 @@ Properties</h2></td></tr>
         <tr>
           <td class="memname">void AddInventory </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/d87/class_action_rpg_kit_1_1_character_1_1_i_inventory.xhtml">IInventory</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml">BaseInventory</a>&#160;</td>
           <td class="paramname"><em>inventory</em></td><td>)</td>
           <td></td>
         </tr>
@@ -359,6 +398,9 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Sort the items and quantities into a text based table.</p>
+<dl class="section return"><dt>Returns</dt><dd>The pretty representation of the inventory.</dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -372,6 +414,8 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Items are stored in a list.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3c2ac22b371719a0ca6cddd3d53846af"></a>
@@ -383,6 +427,8 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Quantities are stored in a list.</p>
 
 </div>
 </div>
@@ -405,6 +451,8 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Items are stored in a list.</p>
+
 </div>
 </div>
 <a class="anchor" id="a91ee64ce8eb1fc09ff0d06f94c6424b8"></a>
@@ -424,6 +472,8 @@ Properties</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Quantities are stored in a list.</p>
 
 </div>
 </div>
@@ -445,6 +495,8 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Count of the item list.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -456,7 +508,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml">PlayerInventory</a></li>
-    <li class="footer">Generated on Sun Nov 6 2016 06:35:03 for Action RPG Kit by
+    <li class="footer">Generated on Mon Nov 7 2016 05:28:06 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

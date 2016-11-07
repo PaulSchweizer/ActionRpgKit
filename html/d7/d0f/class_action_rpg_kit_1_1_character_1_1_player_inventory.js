@@ -5,7 +5,7 @@ var class_action_rpg_kit_1_1_character_1_1_player_inventory =
     [ "GetQuantity", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#ac45555d8dd61497c26146b8f731f0153", null ],
     [ "AddItem", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a28a1daa712544637583b4ae9e3e76136", null ],
     [ "RemoveItem", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a9f1a3b55666c6a819b5a3bc25841485c", null ],
-    [ "AddInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a90c1a7e2cc4ac7be1211a13a89fd905f", null ],
+    [ "AddInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#ae85d89aded3b39daacf697ce7a1a7586", null ],
     [ "ToString", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
     [ "_items", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#ae260783430cf22369a0cb90f222d572d", null ],
     [ "_quantities", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a3c2ac22b371719a0ca6cddd3d53846af", null ],

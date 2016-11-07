@@ -98,6 +98,9 @@ $(document).ready(function(){initNavTree('d4/d2e/class_action_rpg_kit_1_1_charac
 <div class="title">AttackState Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a> is in attack range. 
+ <a href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for AttackState:</div>
 <div class="dyncontent">
@@ -117,15 +120,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa4ef50600d70685a523d3e86c054ad02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called right before changing to the next State. <a href="#aa4ef50600d70685a523d3e86c054ad02">More...</a><br /></td></tr>
 <tr class="separator:aa4ef50600d70685a523d3e86c054ad02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43375ef23c333f5029d57863cf436257"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a43375ef23c333f5029d57863cf436257">UpdateState</a> (<a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml">BaseCharacter</a> character)</td></tr>
-<tr class="memdesc:a43375ef23c333f5029d57863cf436257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to perform the interal calculation of the <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="Determine the state of a Character.">IState</a>. <a href="#a43375ef23c333f5029d57863cf436257">More...</a><br /></td></tr>
+<tr class="memdesc:a43375ef23c333f5029d57863cf436257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attack the first <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a> in range. <a href="#a43375ef23c333f5029d57863cf436257">More...</a><br /></td></tr>
 <tr class="separator:a43375ef23c333f5029d57863cf436257"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a200c1149c5900199d9b12cf688fba808"><td class="memItemLeft" align="right" valign="top">static readonly <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml">AttackState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a200c1149c5900199d9b12cf688fba808">Instance</a> = new <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml">AttackState</a>()</td></tr>
+<tr class="memdesc:a200c1149c5900199d9b12cf688fba808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeping the class a singleton. <a href="#a200c1149c5900199d9b12cf688fba808">More...</a><br /></td></tr>
 <tr class="separator:a200c1149c5900199d9b12cf688fba808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a> is in attack range.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a7e0cb1d26a2e1acf99e909755d5ba070"></a>
 <div class="memitem">
 <div class="memproto">
@@ -204,7 +210,13 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Called to perform the interal calculation of the <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="Determine the state of a Character.">IState</a>.</p>
+<p>Attack the first <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a> in range.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a43375ef23c333f5029d57863cf436257">IState</a>.</p>
 
@@ -229,6 +241,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Keeping the class a singleton.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -240,7 +254,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml">AttackState</a></li>
-    <li class="footer">Generated on Sun Nov 6 2016 06:35:03 for Action RPG Kit by
+    <li class="footer">Generated on Mon Nov 7 2016 05:28:06 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

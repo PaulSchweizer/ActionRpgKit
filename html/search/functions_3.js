@@ -11,7 +11,7 @@ var searchData=
   ['emitonstatechanged',['EmitOnStateChanged',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a57d569e37cbd87516a5e97503aa01e72',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['emitvaluechanged',['EmitValueChanged',['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#ab60d87655bfa49408013d2d49d1a0681',1,'ActionRpgKit::Character::Attribute::PrimaryAttribute']]],
   ['end',['End',['../d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#afc12d18e19e10b35d361fbb09c7c1d54',1,'ActionRpgKit::Story::Storyline']]],
-  ['enemy',['Enemy',['../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml#a9945ec40eb134d6fb2c97602344b67cf',1,'ActionRpgKit.Character.Enemy.Enemy()'],['../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml#a823060b8aa2912d0c8b33907b4017f1f',1,'ActionRpgKit.Character.Enemy.Enemy(string name)']]],
+  ['enemy',['Enemy',['../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml#af19a7c4d16ad4606fc2fa135cf1e9dce',1,'ActionRpgKit::Character::Enemy']]],
   ['enemyenteredaltertnessrangehandler',['EnemyEnteredAltertnessRangeHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#ac294107fa4e81936d7cb30b7a2e97149',1,'ActionRpgKit::Character']]],
   ['enemyleftaltertnessrangehandler',['EnemyLeftAltertnessRangeHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a87d7755e13e38e64637c7c2ce7f29cec',1,'ActionRpgKit::Character']]],
   ['enemystats',['EnemyStats',['../df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml#a07d90acdc1cbd8860631b41f6bdda6a8',1,'ActionRpgKit::Character::Stats::EnemyStats']]],
