@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a43375ef23c333f5029d57863cf436257":[1,0,0,0,17,2],
+"db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070":[1,0,0,0,17,0],
 "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml#aa4ef50600d70685a523d3e86c054ad02":[1,0,0,0,17,1],
 "db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml":[1,0,0,0,0,4],
 "db/d9c/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_simple_volume_attribute.xhtml#a298cb68f7f3fb7f40595f4302af4ae25":[1,0,0,0,0,4,1],
@@ -140,8 +142,8 @@ var NAVTREEINDEX1 =
 "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070":[1,0,0,0,3,0],
 "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#aa4ef50600d70685a523d3e86c054ad02":[1,0,0,0,3,1],
 "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#ac13eb79ea71577ad010cec21ba6f2753":[1,0,0,0,3,3],
-"df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml":[1,0,0,0,1],
 "df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml":[0,0,0,0,1],
+"df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml":[1,0,0,0,1],
 "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml":[1,0,0,0,0,3],
 "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a697d4eeb85af05a765aaa2dc35e0c623":[1,0,0,0,0,3,5],
 "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a86b01c1fe886db3cca7507d034a9ae4d":[1,0,0,0,0,3,8],
@@ -177,8 +179,8 @@ var NAVTREEINDEX1 =
 "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#afe0130a66c72c58cb2bc272a46298d71":[1,0,0,0,15,7],
 "df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml":[1,0,0,0,2,1],
 "df/d7d/class_action_rpg_kit_1_1_character_1_1_stats_1_1_enemy_stats.xhtml#a07d90acdc1cbd8860631b41f6bdda6a8":[1,0,0,0,2,1,0],
-"functions.xhtml":[1,3,0,0],
 "functions.xhtml":[1,3,0],
+"functions.xhtml":[1,3,0,0],
 "functions_a.xhtml":[1,3,0,1],
 "functions_b.xhtml":[1,3,0,2],
 "functions_c.xhtml":[1,3,0,3],

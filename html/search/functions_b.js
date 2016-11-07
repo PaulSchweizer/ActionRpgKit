@@ -1,7 +1,7 @@
 var searchData=
 [
   ['passivemagicskill',['PassiveMagicSkill',['../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a68bbb185cfd940ab6c506803d71cd76a',1,'ActionRpgKit::Character::Skill::PassiveMagicSkill']]],
-  ['player',['Player',['../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml#ae9a97f0589dfbe7acbc4391f1960b0d8',1,'ActionRpgKit::Character::Player']]],
+  ['player',['Player',['../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml#a244719265958cdd3814a61c97a6e3e98',1,'ActionRpgKit.Character.Player.Player()'],['../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml#a71f8a11bd20073028a455a23d6b7a9cf',1,'ActionRpgKit.Character.Player.Player(string name)']]],
   ['playerinventory',['PlayerInventory',['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a99b4a80cefc54892503165fec278ac57',1,'ActionRpgKit.Character.PlayerInventory.PlayerInventory()'],['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a4276a3aafe3ef5d97d9db3d20db357aa',1,'ActionRpgKit.Character.PlayerInventory.PlayerInventory(int[] items, int[] quantities)']]],
   ['playerstats',['PlayerStats',['../d7/dbc/class_action_rpg_kit_1_1_character_1_1_stats_1_1_player_stats.xhtml#a31929bad7ea139a07b9355233b03bd2d',1,'ActionRpgKit::Character::Stats::PlayerStats']]],
   ['position',['Position',['../dc/d37/class_action_rpg_kit_1_1_core_1_1_position.xhtml#af8649ca415c731ade4705f3ae635ca42',1,'ActionRpgKit.Core.Position.Position()'],['../d7/d00/class_action_rpg_kit_1_1_core_1_1_vector2_d.xhtml#af8649ca415c731ade4705f3ae635ca42',1,'ActionRpgKit.Core.Vector2D.Position()']]],
