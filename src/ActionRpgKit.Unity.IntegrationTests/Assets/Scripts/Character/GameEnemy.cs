@@ -42,10 +42,6 @@ public class GameEnemy : GameBaseCharacter
     {
     }
 
-    public override void StateChanged(ICharacter sender, IState previousState, IState newState)
-    {
-    }
-
     public override void MagicSkillTriggered(IMagicUser sender, int skillId)
     {
     }

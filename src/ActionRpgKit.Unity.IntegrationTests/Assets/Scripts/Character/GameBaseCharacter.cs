@@ -9,6 +9,9 @@ public class GameBaseCharacter : MonoBehaviour
 {
     // Unity related fields
     public NavMeshAgent NavMeshAgent;
+    public Animator Animator;
+    private GameCharacterState CurrentState;
+    private GameIdleState IdleState = GameIdleState.Instance;
 
     // ActionRpgKit related fields
     public BaseCharacterData CharacterData;
@@ -44,13 +47,20 @@ public class GameBaseCharacter : MonoBehaviour
         // NavMeshAgent
         Character.Stats.MovementSpeed.OnValueChanged += new ValueChangedHandler(SpeedChanged);
         SpeedChanged(Character.Stats.MovementSpeed, Character.Stats.MovementSpeed.Value);
+
+        // State
+        CurrentState = IdleState;
     }
 
     /// <summary>
     /// Set the position of the ARPG Character to the position of the transform.</summary>
     public virtual void Update()
     {
+        // Set the position of the Arpg Character
         Character.Position.Set(transform.position.x, transform.position.z);
+
+        // Update the current state
+        CurrentState.Update(this);
     }
 
     #endregion
@@ -77,7 +87,16 @@ public class GameBaseCharacter : MonoBehaviour
 
     public virtual void StateChanged(ICharacter sender, IState previousState, IState newState)
     {
-        throw new NotImplementedException();
+        CurrentState.Exit(this);
+        if (newState is ActionRpgKit.Character.IdleState)
+        {
+            CurrentState = IdleState;
+        }
+        else
+        {
+            CurrentState = IdleState;
+        }
+        CurrentState.Enter(this);
     }
 
     public virtual void MagicSkillTriggered(IMagicUser sender, int skillId)
@@ -149,4 +168,43 @@ public class GameBaseCharacter : MonoBehaviour
     }
 #endif
 
+}
+
+
+public abstract class GameCharacterState
+{
+    /// <summary>
+    /// Called when entering the State.</summary>
+    public virtual void Enter(GameBaseCharacter character) { }
+
+    /// <summary>
+    /// Called every frame when the State is active.</summary>
+    public abstract void Update(GameBaseCharacter character);
+
+    /// <summary>
+    /// Called before changing to the next State.</summary>
+    public virtual void Exit(GameBaseCharacter character) { }
+}
+
+
+public class GameIdleState : GameCharacterState
+{
+    public static GameIdleState Instance = new GameIdleState();
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Enter(GameBaseCharacter character)
+    {
+        character.NavMeshAgent.Stop();
+    }
+
+    /// <summary>
+    /// Bring the movement speed down to a still stand.</summary>
+    public override void Update(GameBaseCharacter character)
+    {
+        if (character.Animator.GetFloat("MovementSpeed") > 0)
+        {
+            character.Animator.SetFloat("MovementSpeed", Math.Max(0, character.Animator.GetFloat("MovementSpeed") - Time.deltaTime * 6));
+        }
+    }
 }

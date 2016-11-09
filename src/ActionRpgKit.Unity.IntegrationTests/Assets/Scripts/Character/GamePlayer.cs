@@ -61,10 +61,6 @@ public class GamePlayer : GameBaseCharacter
     {
     }
 
-    public override void StateChanged(ICharacter sender, IState previousState, IState newState)
-    {
-    }
-
     public void MagicSkillLearned(IMagicUser sender, int skillId)
     {
     }
