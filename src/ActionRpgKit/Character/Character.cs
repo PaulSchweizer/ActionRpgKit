@@ -220,6 +220,8 @@ namespace ActionRpgKit.Character
         /// Inventory of the Character.</summary>
         public BaseInventory Inventory;
 
+        /// <summary>
+        /// Event handler.</summary>
         [field: NonSerialized] public event StateChangedHandler OnStateChanged;
         [field: NonSerialized] public event MagicSkillLearnedHandler OnMagicSkillLearned;   
         [field: NonSerialized] public event MagicSkillTriggeredHandler OnMagicSkillTriggered; 
@@ -228,10 +230,38 @@ namespace ActionRpgKit.Character
         [field: NonSerialized] public event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;    
         [field: NonSerialized] public event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
 
+        #region States
+
+        /// <summary>
+        /// The level of alertness of the Character.</summary>
+        public float AlertnessLevel
+        {
+            get
+            {
+                return Stats.BaseAlertnessLevel.Value;
+            }
+        }
+
+        /// <summary>
+        /// The time in seconds until the Character detects the Enemy in his 
+        /// AlternessRange.</summary>
+        [NonSerialized]
+        public float AlertnessEndTime;
+
+        /// <summary>
+        /// Whether the Character is currently moving.</summary>
+        [NonSerialized]
+        public bool IsMoving;
+
         /// <summary>
         /// The Character is idling.</summary>
         [NonSerialized]
         public IdleState IdleState = IdleState.Instance;
+
+        /// <summary>
+        /// The Character is moving from one point to another.</summary>
+        [NonSerialized]
+        public MoveState MoveState = MoveState.Instance;
 
         /// <summary>
         /// The Character is aware of enemies somewhere around him.</summary>
@@ -252,6 +282,8 @@ namespace ActionRpgKit.Character
         /// The Character has been defeated and is about to be removed.</summary>
         [NonSerialized]
         public DyingState DyingState = DyingState.Instance;
+
+        #endregion
 
         /// <summary>
         /// Determines whether the Charaxter is active or not.</summary>

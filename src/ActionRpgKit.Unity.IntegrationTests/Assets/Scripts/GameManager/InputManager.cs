@@ -71,6 +71,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         GameBaseCharacter enemy = hit.collider.gameObject.GetComponent<GameBaseCharacter>();
         GamePlayer.Instance.Character.AddEnemy(enemy.Character, 0);
+        GamePlayer.Instance.Character.IsMoving = true;
     }
 
     /// <summary>
@@ -78,5 +79,6 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     private void HitTerrain(RaycastHit hit)
     {
         GamePlayer.Instance.NavMeshAgent.SetDestination(hit.point);
+        GamePlayer.Instance.Character.IsMoving = true;
     }
 }

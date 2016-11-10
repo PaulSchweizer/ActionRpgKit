@@ -12,6 +12,8 @@ public class GameBaseCharacter : MonoBehaviour
     public Animator Animator;
     private GameCharacterState CurrentState;
     private GameIdleState IdleState = GameIdleState.Instance;
+    private GameMoveState MoveState = GameMoveState.Instance;
+    private GameAlertState AlertState = GameAlertState.Instance;
 
     // ActionRpgKit related fields
     public BaseCharacterData CharacterData;
@@ -88,13 +90,21 @@ public class GameBaseCharacter : MonoBehaviour
     public virtual void StateChanged(ICharacter sender, IState previousState, IState newState)
     {
         CurrentState.Exit(this);
-        if (newState is ActionRpgKit.Character.IdleState)
+        if (newState is IdleState)
         {
             CurrentState = IdleState;
         }
+        else if (newState is MoveState)
+        {
+            CurrentState = MoveState;
+        }
+        else if (newState is AlertState)
+        {
+            CurrentState = AlertState;
+        }
         else
         {
-            CurrentState = IdleState;
+            CurrentState = AlertState;
         }
         CurrentState.Enter(this);
     }
@@ -136,6 +146,10 @@ public class GameBaseCharacter : MonoBehaviour
         if (Character.CurrentState is IdleState)
         {
             color = Color.green;
+        }
+        else if (Character.CurrentState is MoveState)
+        {
+            color = Color.blue;
         }
         else if (Character.CurrentState is AlertState)
         {
@@ -196,6 +210,7 @@ public class GameIdleState : GameCharacterState
     public override void Enter(GameBaseCharacter character)
     {
         character.NavMeshAgent.Stop();
+        character.Animator.SetBool("Idle", true);
     }
 
     /// <summary>
@@ -204,7 +219,96 @@ public class GameIdleState : GameCharacterState
     {
         if (character.Animator.GetFloat("MovementSpeed") > 0)
         {
-            character.Animator.SetFloat("MovementSpeed", Math.Max(0, character.Animator.GetFloat("MovementSpeed") - Time.deltaTime * 6));
+            character.Animator.SetFloat("MovementSpeed", 
+                Math.Max(0, character.Animator.GetFloat("MovementSpeed") - Time.deltaTime * 6));
         }
+    }
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Exit(GameBaseCharacter character)
+    {
+        character.NavMeshAgent.Resume();
+        character.Animator.SetBool("Idle", false);
+    }
+}
+
+
+public class GameMoveState : GameCharacterState
+{
+    public static GameMoveState Instance = new GameMoveState();
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Enter(GameBaseCharacter character)
+    {
+        character.NavMeshAgent.Resume();
+        character.Animator.SetBool("Move", true);
+        character.Character.IsMoving = true;
+    }
+
+    /// <summary>
+    /// Bring the movement speed down to a still stand.</summary>
+    public override void Update(GameBaseCharacter character)
+    {
+        if (character.NavMeshAgent.pathPending)
+        {
+            return;
+        }
+        if (character.Animator.GetFloat("MovementSpeed") < 1)
+        {
+            character.Animator.SetFloat("MovementSpeed", 
+                Math.Min(1, character.Animator.GetFloat("MovementSpeed") + Time.deltaTime * 6));
+        }
+
+        if (character.NavMeshAgent.remainingDistance <= character.NavMeshAgent.stoppingDistance)
+        {
+            if (!character.NavMeshAgent.hasPath || Mathf.Abs(character.NavMeshAgent.velocity.sqrMagnitude) < float.Epsilon)
+            {
+                character.Character.IsMoving = false;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Exit(GameBaseCharacter character)
+    {
+        character.NavMeshAgent.Resume();
+        character.Animator.SetBool("Move", false);
+        character.Character.IsMoving = false;
+    }
+}
+
+
+public class GameAlertState : GameCharacterState
+{
+    public static GameAlertState Instance = new GameAlertState();
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Enter(GameBaseCharacter character)
+    {
+        character.NavMeshAgent.Stop();
+        character.Animator.SetBool("Alert", true);
+    }
+
+    /// <summary>
+    /// Bring the movement speed down to a still stand.</summary>
+    public override void Update(GameBaseCharacter character)
+    {
+        if (character.Animator.GetFloat("MovementSpeed") > 0)
+        {
+            character.Animator.SetFloat("MovementSpeed", 
+                Math.Max(0, character.Animator.GetFloat("MovementSpeed") - Time.deltaTime * 6));
+        }
+    }
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Exit(GameBaseCharacter character)
+    {
+        character.NavMeshAgent.Resume();
+        character.Animator.SetBool("Alert", false);
     }
 }

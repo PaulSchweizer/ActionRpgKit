@@ -106,6 +106,9 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
             Controller.Update();
+            Assert.IsTrue(player.CurrentState is AlertState);
+            GameTime.time += 10 - player.AlertnessLevel;
+            Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
 
             // Remove the enemy again and drop out of the chase again
@@ -115,6 +118,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
 
             // Enemy is back and the chase continues 
             enemy.Position.Set(4, 0);
+            GameTime.time += 10 - player.AlertnessLevel;
             Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
             
@@ -122,6 +126,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             //   + - - - - - 
             // 0 | + + P + E
             player.Position.Set(2, 0);
+            player.IsMoving = true;
             Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
 
@@ -130,6 +135,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // 0 | + + + P E
             player.Position.Set(3, 0);
             Controller.Update();
+            player.IsMoving = false;
             Assert.IsTrue(player.CurrentState is AttackState);
 
             // Attack and get rid of the enemy
@@ -158,6 +164,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.AddEnemy(enemy);
             Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
+            GameTime.time += 10 - player.AlertnessLevel;
             Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
             Controller.Update();
@@ -191,6 +198,17 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.IsTrue(player.CurrentState is AlertState);
             Controller.Update();
             Assert.IsTrue(player.CurrentState is IdleState);
+
+            // Player starts walking from point A to point B 
+            player.Position.Set(10, 0);
+            player.IsMoving = true;
+            Controller.Update();
+            Assert.IsTrue(player.CurrentState is MoveState);
+
+            // And eventually encounters an Enemy
+            enemy.Position.Set(10, 0);
+            Controller.Update();
+            Assert.IsTrue(player.CurrentState is AlertState);
         }
 
         [Test]

@@ -1,4 +1,5 @@
 ﻿using System;
+using ActionRpgKit.Core;
 
 namespace ActionRpgKit.Character
 {
@@ -48,11 +49,58 @@ namespace ActionRpgKit.Character
             {
                 character.ChangeState(character.AlertState);
             }
+            else
+            {
+                if (character.IsMoving)
+                {
+                    character.ChangeState(character.MoveState);
+                }
+            }
         }
     }
 
     /// <summary>
-    /// The Character is aware of Enemies in his close vicinity.</summary>
+    /// The Character is moving just from point A to point B.</summary>
+    [Serializable]
+    public sealed class MoveState : IState
+    {
+        /// <summary>
+        /// Keeping the class a singleton.</summary>
+        public static readonly MoveState Instance = new MoveState();
+
+        /// <summary>
+        /// No actions need to be taken on enter.</summary>
+        /// <param name="character"></param>
+        public void EnterState(BaseCharacter character) { }
+
+        /// <summary>
+        /// Start moving to the desired location.</summary>
+        /// <param name="character"></param>
+        public void UpdateState(BaseCharacter character)
+        {
+            if (character.Enemies.Count > 0)
+            {
+                character.ChangeState(character.AlertState);
+            }
+            else
+            {
+                if (!character.IsMoving)
+                {
+                    character.ChangeState(character.IdleState);
+                }
+            }
+        }
+
+        /// <summary>
+        /// No actions need to be taken on exit.</summary>
+        /// <param name="character"></param>
+        public void ExitState(BaseCharacter character) { }
+    }
+
+    /// <summary>
+    /// The Character is aware of Enemies in his close vicinity.
+    /// A timer controls when the Character will detect and then start to
+    /// chase the Enemy.</summary>
     [Serializable]
     public sealed class AlertState : IState
     {
@@ -60,14 +108,17 @@ namespace ActionRpgKit.Character
         /// Keeping the class a singleton.</summary>
         public static readonly AlertState Instance = new AlertState();
 
-        public void EnterState(BaseCharacter character) { }
-
-        public void ExitState(BaseCharacter character) { }
+        /// <summary>
+        /// Determine the end time of the alertness period.</summary>
+        /// <param name="character"></param>
+        public void EnterState(BaseCharacter character)
+        {
+            character.AlertnessEndTime = GameTime.time + 10 - character.AlertnessLevel;
+        }
 
         /// <summary>
         /// Start chasing the Enemies in range.</summary>
         /// <param name="character"></param>
-        /// <todo>Insert a waiting period in which the Character searches for the Enemies in range.</todo>
         public void UpdateState(BaseCharacter character)
         {
             if (character.Enemies.Count == 0)
@@ -75,8 +126,16 @@ namespace ActionRpgKit.Character
                 character.ChangeState(character.IdleState);
                 return;
             }
-            character.ChangeState(character.ChaseState);
+            if (GameTime.time >= character.AlertnessEndTime)
+            {
+                character.ChangeState(character.ChaseState);
+            }
         }
+
+        /// <summary>
+        /// No actions need to be taken on exit.</summary>
+        /// <param name="character"></param>
+        public void ExitState(BaseCharacter character) { }
     }
 
     /// <summary>
@@ -129,6 +188,12 @@ namespace ActionRpgKit.Character
         /// <param name="character"></param>
         public void UpdateState(BaseCharacter character)
         {
+            if (character.IsMoving)
+            {
+                character.ChangeState(character.MoveState);
+                return;
+            }
+
             if (character.Enemies.Count == 0)
             {
                 character.ChangeState(character.AlertState);
