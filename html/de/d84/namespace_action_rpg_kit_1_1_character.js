@@ -18,6 +18,7 @@ var namespace_action_rpg_kit_1_1_character =
     [ "IFighter", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter" ],
     [ "IMagicUser", "dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml", "dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user" ],
     [ "IState", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state" ],
+    [ "MoveState", "d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml", "d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state" ],
     [ "Player", "d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml", "d7/dd8/class_action_rpg_kit_1_1_character_1_1_player" ],
     [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory" ],
     [ "SimpleInventory", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory" ]

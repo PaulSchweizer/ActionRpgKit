@@ -106,11 +106,12 @@ Inheritance diagram for IState:</div>
  <div class="center">
   <img src="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.png" usemap="#IState_map" alt=""/>
   <map id="IState_map" name="IState_map">
-<area href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml" title="The Character is aware of Enemies in his close vicinity." alt="AlertState" shape="rect" coords="0,56,76,80"/>
+<area href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml" title="The Character is aware of Enemies in his close vicinity. A timer controls when the Character will det..." alt="AlertState" shape="rect" coords="0,56,76,80"/>
 <area href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml" title="An Enemy is in attack range." alt="AttackState" shape="rect" coords="86,56,162,80"/>
 <area href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml" title="The Character chases after an Enemy." alt="ChaseState" shape="rect" coords="172,56,248,80"/>
 <area href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml" title="The Character has been defeated." alt="DyingState" shape="rect" coords="258,56,334,80"/>
 <area href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml" title="The initial State of a Character." alt="IdleState" shape="rect" coords="344,56,420,80"/>
+<area href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml" title="The Character is moving just from point A to point B." alt="MoveState" shape="rect" coords="430,56,506,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -145,7 +146,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Called when entering the State.</p>
 
-<p>Implemented in <a class="el" href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">DyingState</a>, <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">AttackState</a>, <a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">ChaseState</a>, <a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">AlertState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">IdleState</a>.</p>
+<p>Implemented in <a class="el" href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">DyingState</a>, <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">AttackState</a>, <a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">ChaseState</a>, <a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">AlertState</a>, <a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">MoveState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070">IdleState</a>.</p>
 
 </div>
 </div>
@@ -165,7 +166,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Called right before changing to the next State.</p>
 
-<p>Implemented in <a class="el" href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">DyingState</a>, <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">AttackState</a>, <a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">ChaseState</a>, <a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">AlertState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">IdleState</a>.</p>
+<p>Implemented in <a class="el" href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">DyingState</a>, <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">AttackState</a>, <a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">ChaseState</a>, <a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">AlertState</a>, <a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">MoveState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#aa4ef50600d70685a523d3e86c054ad02">IdleState</a>.</p>
 
 </div>
 </div>
@@ -185,7 +186,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Called to perform the interal calculation of the <a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml" title="Determine the state of a Character.">IState</a>.</p>
 
-<p>Implemented in <a class="el" href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#a43375ef23c333f5029d57863cf436257">DyingState</a>, <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a43375ef23c333f5029d57863cf436257">AttackState</a>, <a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#a43375ef23c333f5029d57863cf436257">ChaseState</a>, <a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a43375ef23c333f5029d57863cf436257">AlertState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a43375ef23c333f5029d57863cf436257">IdleState</a>.</p>
+<p>Implemented in <a class="el" href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#a43375ef23c333f5029d57863cf436257">DyingState</a>, <a class="el" href="../../d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a43375ef23c333f5029d57863cf436257">AttackState</a>, <a class="el" href="../../d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#a43375ef23c333f5029d57863cf436257">ChaseState</a>, <a class="el" href="../../df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a43375ef23c333f5029d57863cf436257">AlertState</a>, <a class="el" href="../../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml#a43375ef23c333f5029d57863cf436257">MoveState</a>, and <a class="el" href="../../da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a43375ef23c333f5029d57863cf436257">IdleState</a>.</p>
 
 </div>
 </div>
@@ -198,7 +199,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml">IState</a></li>
-    <li class="footer">Generated on Mon Nov 7 2016 05:39:43 for Action RPG Kit by
+    <li class="footer">Generated on Thu Nov 10 2016 07:15:12 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

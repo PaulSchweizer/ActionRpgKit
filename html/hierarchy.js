@@ -62,7 +62,8 @@ var hierarchy =
       [ "AttackState", "d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml", null ],
       [ "ChaseState", "d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml", null ],
       [ "DyingState", "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml", null ],
-      [ "IdleState", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml", null ]
+      [ "IdleState", "da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml", null ],
+      [ "MoveState", "d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml", null ]
     ] ],
     [ "ItemDatabase", "dd/d83/class_action_rpg_kit_1_1_item_1_1_item_database.xhtml", null ],
     [ "MainController", "da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml", null ],
