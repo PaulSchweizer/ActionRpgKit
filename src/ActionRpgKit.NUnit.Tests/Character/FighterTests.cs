@@ -39,7 +39,6 @@ namespace ActionRpgKit.NUnit.Tests.Character
             meleeSkill = new GenericCombatSkill(id: 0,
                                         name: "SwordFighting",
                                         description: "Wield a sword effectively.",
-                                        preUseTime: 1,
                                         cooldownTime: 1,
                                         damage: 1,
                                         maximumTargets: 1,
@@ -48,7 +47,6 @@ namespace ActionRpgKit.NUnit.Tests.Character
             meleeMultiTargetsSkill = new GenericCombatSkill(id: 1,
                                             name: "MultiHit",
                                             description: "Wield a sword against multiple opponents.",
-                                            preUseTime: 1,
                                             cooldownTime: 1,
                                             damage: 1,
                                             maximumTargets: 2,
@@ -75,13 +73,16 @@ namespace ActionRpgKit.NUnit.Tests.Character
         [Test]
         public void SimpleMeeSkillTest()
         {
-            // Prepare the enemy by learning the meleeSkill
+            // Prepare the enemy by learning the meleeSkill and going into the 
+            // attack state
+            enemy1.ChangeState(enemy1.AttackState);
             enemy1.LearnCombatSkill(meleeSkill.Id);
             Assert.IsTrue(enemy1.CombatSkills.Contains(meleeSkill.Id));
 
             // Add the Player as an enemy
             enemy1.AddEnemy(player);
             Assert.IsTrue(enemy1.Enemies.Contains(player));
+            enemy1.TargetedEnemy = player;
 
             // Attack the Player until his health runs out
             for (int i = 0; i < 20; i++)
@@ -98,6 +99,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
         {
             GameTime.Reset();
             // Prepare the player by learning the multiMeleeSkill
+            player.ChangeState(player.AttackState);
             player.LearnCombatSkill(meleeMultiTargetsSkill.Id);
             player.CombatSkillEndTimes[0] = -1;
 
@@ -108,6 +110,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             enemy1.Life = 10;
             enemy2.Life = 10;
             enemy3.Life = 10;
+            player.TargetedEnemy = enemy1;
 
             // Attack the Enemy until his health runs out
             for (int i = 0; i < 5; i++)
@@ -123,7 +126,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
 
         private void CombatSkillTriggered(IFighter sender, int skillId)
         {
-            sender.UseCombatSkill(skillId); ;
+            sender.UseCombatSkill(skillId);
         }
     }
 }

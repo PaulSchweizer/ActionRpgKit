@@ -113,7 +113,9 @@ namespace ActionRpgKit.Character
         /// <param name="character"></param>
         public void EnterState(BaseCharacter character)
         {
-            character.AlertnessEndTime = GameTime.time + 10 - character.AlertnessLevel;
+            character.TargetedEnemy = null;
+            character.AlertnessEndTime = (GameTime.time + 
+                character.Stats.Alertness.MaxValue - character.Stats.Alertness.Value);
         }
 
         /// <summary>
@@ -128,6 +130,7 @@ namespace ActionRpgKit.Character
             }
             if (GameTime.time >= character.AlertnessEndTime)
             {
+                character.TargetedEnemy = character.Enemies[0];
                 character.ChangeState(character.ChaseState);
             }
         }
@@ -147,23 +150,31 @@ namespace ActionRpgKit.Character
         /// Keeping the class a singleton.</summary>
         public static readonly ChaseState Instance = new ChaseState();
 
-        public void EnterState(BaseCharacter character) { }
+        public void EnterState(BaseCharacter character)
+        {
+            character.ChaseEndTime = GameTime.time + character.Stats.ChasePersistency.Value;
+        }
 
         public void ExitState(BaseCharacter character) { }
 
         /// <summary>
         /// Chase the Enemy until he is in attack range.</summary>
         /// <param name="character">The Character</param>
-        /// <todo>Include a maximum chase time.</todo>
         public void UpdateState(BaseCharacter character)
         {
-            if (character.Enemies.Count == 0)
+            if (character.TargetedEnemy == null)
             {
                 character.ChangeState(character.AlertState);
                 return;
             }
 
-            if (character.EnemiesInAttackRange.Contains(character.Enemies[0]))
+            if (GameTime.time >= character.ChaseEndTime && !character.Enemies.Contains(character.TargetedEnemy))
+            {
+                character.ChangeState(character.AlertState);
+                return;
+            }
+
+            if (character.EnemiesInAttackRange.Contains(character.TargetedEnemy))
             {
                 character.ChangeState(character.AttackState);
             }
@@ -201,7 +212,7 @@ namespace ActionRpgKit.Character
             }
 
             // If not in Attack Range any more, chase the enemy
-            if (!character.EnemiesInAttackRange.Contains(character.Enemies[0]))
+            if (!character.EnemiesInAttackRange.Contains(character.TargetedEnemy))
             {
                 character.ChangeState(character.ChaseState);
                 return;
@@ -210,7 +221,7 @@ namespace ActionRpgKit.Character
             // Attack
             if (character.CanAttack())
             {
-                character.Attack(character.Enemies[0]);
+                character.Attack(character.TargetedEnemy);
             }
         }
     }

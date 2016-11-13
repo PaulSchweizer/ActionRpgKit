@@ -22,7 +22,6 @@ public class SkillCreator : EditorWindow
     // General Skill
     private string _name;
     private string _description;
-    private float _preUseTime;
     private float _cooldownTime;
 
     // General Magic
@@ -59,11 +58,6 @@ public class SkillCreator : EditorWindow
         _skillType = EditorGUILayout.Popup(_skillType, _skillTypes);
         _name = EditorGUILayout.TextField("Name", _name);
         _description = EditorGUILayout.TextArea(_description, GUILayout.Height(60));
-        
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("PreUseTime:");
-        _preUseTime = EditorGUILayout.FloatField(_preUseTime);
-        EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("CooldownTime:");
@@ -156,7 +150,6 @@ public class SkillCreator : EditorWindow
                             id: GetId("MagicSkill"),
                             name: _name,
                             description: _description,
-                            preUseTime: _preUseTime,
                             cooldownTime: _cooldownTime,
                             cost: _cost,
                             itemSequence: new int[] { },
@@ -178,7 +171,6 @@ public class SkillCreator : EditorWindow
                             id: GetId("GenericCombatSkill"),
                             name: _name,
                             description: _description,
-                            preUseTime: _preUseTime,
                             cooldownTime: _cooldownTime, 
                             damage: _damage,
                             itemSequence: new int[] { },

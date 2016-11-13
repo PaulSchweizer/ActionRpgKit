@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ActionRpgKit.Core;
+using System.Runtime.Serialization;
 
 namespace ActionRpgKit.Character.Attribute
 {
@@ -115,6 +116,16 @@ namespace ActionRpgKit.Character.Attribute
             MinValue = minValue;
             MaxValue = maxValue;
             Value = value;
+        }
+
+        [OnSerializing]
+        public void OnSerializing(StreamingContext context)
+        {
+            //foreach (AttributeModifier modifier in Modifiers)
+            //{
+            //    Modifiers.Remove(modifier);
+            //} 
+            _modifiers = new List<AttributeModifier>();
         }
 
         public override float BaseValue

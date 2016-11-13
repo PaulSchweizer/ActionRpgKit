@@ -114,7 +114,7 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// The Attack Range.</summary>
         float AttackRange { get; }
-        
+
         /// <summary>
         /// The currently equipped Weapon.</summary>
         int EquippedWeapon { get; set; }
@@ -126,6 +126,10 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Remove an enemy.</summary>
         void RemoveEnemy(IFighter enemy);
+
+        /// <summary>
+        /// The currently targeted Enemy.</summary>
+        IFighter TargetedEnemy { get; set; }
 
         /// <summary>
         /// Whether the Character can attack depends on the time since the
@@ -234,11 +238,11 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// The level of alertness of the Character.</summary>
-        public float AlertnessLevel
+        public float Alertness
         {
             get
             {
-                return Stats.BaseAlertnessLevel.Value;
+                return Stats.Alertness.Value;
             }
         }
 
@@ -252,6 +256,11 @@ namespace ActionRpgKit.Character
         /// Whether the Character is currently moving.</summary>
         [NonSerialized]
         public bool IsMoving;
+
+        /// <summary>
+        /// The time in seconds until the Character ends his Chase.</summary>
+        [NonSerialized]
+        public float ChaseEndTime;
 
         /// <summary>
         /// The Character is idling.</summary>
@@ -566,6 +575,8 @@ namespace ActionRpgKit.Character
         /// A list of current Enemies in reach of this Character.</summary>
         public List<IFighter> Enemies { get; set; } = new List<IFighter>();
 
+        public IFighter TargetedEnemy { get; set; }
+
         /// <summary>
         /// The relative time until the next attack is possible.</summary>
         public float TimeUntilNextAttack { get; set; }
@@ -681,11 +692,17 @@ namespace ActionRpgKit.Character
         }
 
         /// <summary>
-        /// Subtract the damage from the current life</summary>
+        /// Subtract the damage from the current life and switch into the 
+        /// ChaseState if necessary.</summary>
         public void OnAttacked(IFighter attacker, float damage)
         {
-            Stats.Life.Value -= damage;
+            if (!(CurrentState is AttackState))
+            {
+                TargetedEnemy = attacker;
+                ChangeState(ChaseState);
+            }
             AddEnemy(attacker);
+            Stats.Life.Value -= damage;
         }
 
         /// <summary>

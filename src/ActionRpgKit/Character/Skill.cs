@@ -29,10 +29,6 @@ namespace ActionRpgKit.Character.Skill
         public float CooldownTime;
 
         /// <summary>
-        /// Time until the Skill takes effect after it has been triggered.</summary>
-        public float PreUseTime;
-
-        /// <summary>
         /// The sequene of Items needed to trigger the Skill.</summary>
         public int[] ItemSequence;
 
@@ -41,14 +37,12 @@ namespace ActionRpgKit.Character.Skill
         public BaseSkill(int id,
                          string name,
                          string description,
-                         float preUseTime,
                          float cooldownTime,
                          int[] itemSequence)
         {
             Id = id;
             Name = name;
             Description = description;
-            PreUseTime = preUseTime;
             CooldownTime = cooldownTime;
             ItemSequence = itemSequence;
         }
@@ -94,13 +88,11 @@ namespace ActionRpgKit.Character.Skill
         public MagicSkill(int id,
                           string name,
                           string description,
-                          float preUseTime,
                           float cooldownTime,
                           int[] itemSequence,
                           float cost): base(id,
                                             name,
                                             description,
-                                            preUseTime,
                                             cooldownTime,
                                             itemSequence)
         {
@@ -134,7 +126,6 @@ namespace ActionRpgKit.Character.Skill
         public CombatSkill(int id,
                           string name,
                           string description,
-                          float preUseTime,
                           float cooldownTime,
                           int[] itemSequence,
                           float damage,
@@ -142,7 +133,6 @@ namespace ActionRpgKit.Character.Skill
                           float range) : base(id,
                                               name,
                                               description,
-                                              preUseTime,
                                               cooldownTime,
                                               itemSequence)
         {
@@ -176,7 +166,6 @@ namespace ActionRpgKit.Character.Skill
         public PassiveMagicSkill(int id,
                                  string name,
                                  string description,
-                                 float preUseTime,
                                  float cooldownTime,
                                  int[] itemSequence,
                                  float cost,
@@ -185,7 +174,6 @@ namespace ActionRpgKit.Character.Skill
                                  string modifiedAttributeName) : base(id,
                                                                       name,
                                                                       description,
-                                                                      preUseTime,
                                                                       cooldownTime,
                                                                       itemSequence, 
                                                                       cost)
@@ -232,7 +220,6 @@ namespace ActionRpgKit.Character.Skill
         public GenericCombatSkill(int id,
                                   string name,
                                   string description,
-                                  float preUseTime,
                                   float cooldownTime,
                                   int[] itemSequence,
                                   float damage,
@@ -240,7 +227,6 @@ namespace ActionRpgKit.Character.Skill
                                   float range) : base(id,
                                                       name,
                                                       description,
-                                                      preUseTime,
                                                       cooldownTime,
                                                       itemSequence,
                                                       damage,
@@ -266,9 +252,16 @@ namespace ActionRpgKit.Character.Skill
             {
                 damage += ItemDatabase.GetWeaponItemById(user.EquippedWeapon).Damage;
             }
-            for (int i = Math.Min(MaximumTargets, user.EnemiesInAttackRange.Count) - 1; i >= 0; i--)
+            for (int i = 0; i < Math.Min(MaximumTargets, user.EnemiesInAttackRange.Count); i++)
             {
-                user.EnemiesInAttackRange[i].OnAttacked(user, damage);
+                if (i == 0)
+                {
+                    user.TargetedEnemy.OnAttacked(user, damage);
+                }
+                else
+                {
+                    user.EnemiesInAttackRange[i].OnAttacked(user, damage);
+                }
             }
         }
 

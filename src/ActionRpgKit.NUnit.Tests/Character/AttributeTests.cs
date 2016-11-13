@@ -262,6 +262,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Body.Value = random.Next(10, 500);
             Body.MinValue = random.Next(0, 9);
             Body.MaxValue = random.Next(501, 999);
+            Body.AddModifier(new TimeBasedModifier("Test", 10, 10));
             BinarySerialize(Body);
 
             // Binary deserialization of PrimaryAttribute

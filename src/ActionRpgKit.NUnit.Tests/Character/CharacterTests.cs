@@ -35,7 +35,6 @@ namespace ActionRpgKit.NUnit.Tests.Character
             meleeSkill = new GenericCombatSkill(id: 0,
                             name: "SwordFighting",
                             description: "Wield a sword effectively.",
-                            preUseTime: 1,
                             cooldownTime: 1,
                             damage: 1,
                             maximumTargets: 1,
@@ -44,7 +43,6 @@ namespace ActionRpgKit.NUnit.Tests.Character
             passiveMagicSkill = new PassiveMagicSkill(id: 0,
                                         name: "ShadowStrength",
                                         description: "A +10 Buff to the user's strength.",
-                                        preUseTime: 10,
                                         cooldownTime: 5,
                                         itemSequence: new int[] { },
                                         cost: 10,
@@ -107,18 +105,19 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.IsTrue(player.CurrentState is AlertState);
             Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
-            GameTime.time += 10 - player.AlertnessLevel;
+            GameTime.time += 10 - player.Alertness;
             Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
 
             // Remove the enemy again and drop out of the chase again
             enemy.Position.Set(5, 0);
+            GameTime.time += 10;
             Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
 
             // Enemy is back and the chase continues 
             enemy.Position.Set(4, 0);
-            GameTime.time += 10 - player.AlertnessLevel;
+            GameTime.time += 10 - player.Alertness;
             Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
             
@@ -164,7 +163,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.AddEnemy(enemy);
             Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
-            GameTime.time += 10 - player.AlertnessLevel;
+            GameTime.time += 10 - player.Alertness;
             Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
             Controller.Update();
@@ -251,7 +250,6 @@ namespace ActionRpgKit.NUnit.Tests.Character
         private void BinarySerialize(BaseCharacter character)
         {
             var serializedFile = Path.GetTempPath() + string.Format("/__CharacterTests__{0}.bin", character.Name);
-            Console.WriteLine(serializedFile);
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(serializedFile,
                                            FileMode.Create,
@@ -318,6 +316,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.Position.Set(0, 0);
             enemy.Position.Set(0, 0);
             player.AddEnemy(enemy);
+            player.TargetedEnemy = enemy;
+            player.ChangeState(player.AttackState);
             GameTime.time += 1;
             Controller.Update();
             player.TriggerCombatSkill(meleeSkill.Id);

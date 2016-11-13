@@ -3,11 +3,21 @@
 public class ActionRpgKitController : MonoBehaviour
 {
 
+    public static ActionRpgKitController Instance;
+
     public GameItemDatabase ItemDatabase;
     public GameSkillDatabase SkillDatabase;
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
         ItemDatabase.InitDatabase();
         SkillDatabase.InitDatabase();
     }

@@ -57,8 +57,12 @@ namespace ActionRpgKit.Character.Stats
         public BaseAttribute MovementSpeed;
 
         /// <summary>
-        /// Speed corresponding to the Unity nav mesh agent's speed.</summary>
-        public BaseAttribute BaseAlertnessLevel;
+        /// The level of alertness.</summary>
+        public BaseAttribute Alertness;
+
+        /// <summary>
+        /// The level of alertness.</summary>
+        public BaseAttribute ChasePersistency;
 
         /// <summary>
         /// A dictionary for ease of access to the attributes by name.</summary>
@@ -79,7 +83,8 @@ namespace ActionRpgKit.Character.Stats
             Dict.Add("AlertnessRange", AlertnessRange);
             Dict.Add("AttackRange", AttackRange);
             Dict.Add("MovementSpeed", MovementSpeed);
-            Dict.Add("BaseAlertnessLevel", BaseAlertnessLevel);
+            Dict.Add("Alertness", Alertness);
+            Dict.Add("ChasePersistency", ChasePersistency);
         }
 
         /// <summary>
@@ -96,7 +101,8 @@ namespace ActionRpgKit.Character.Stats
             AlertnessRange.Value = stats.AlertnessRange.Value;
             AttackRange.Value = stats.AttackRange.Value;
             MovementSpeed.Value = stats.MovementSpeed.Value;
-            BaseAlertnessLevel.Value = stats.BaseAlertnessLevel.Value;
+            Alertness.Value = stats.Alertness.Value;
+            ChasePersistency.Value = stats.ChasePersistency.Value;
         }
 
         /// <summary>
@@ -107,7 +113,7 @@ namespace ActionRpgKit.Character.Stats
             string repr = string.Format("--- Primary Attributes ------------\n" +
                                          "{0}\n{1}\n{2}\n{3}\n" +
                                          "--- Secondary Attributes ------------\n" +
-                                         "{4}\n{5}\n{6}\n{7}\n{8}\n{9}\n{10}\n{11}\n",
+                                         "{4}\n{5}\n{6}\n{7}\n{8}\n{9}\n{10}\n{11}\n{12}\n",
                                          Body.ToString(),
                                          Mind.ToString(),
                                          Soul.ToString(),
@@ -119,7 +125,8 @@ namespace ActionRpgKit.Character.Stats
                                          AlertnessRange.ToString(),
                                          AttackRange.ToString(),
                                          MovementSpeed.ToString(),
-                                         BaseAlertnessLevel.ToString());
+                                         Alertness.ToString(),
+                                         ChasePersistency.ToString());
             return repr;
         }
     }
@@ -143,7 +150,8 @@ namespace ActionRpgKit.Character.Stats
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 1);
             AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
             MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 100, 0);
-            BaseAlertnessLevel = new PrimaryAttribute("BaseAlertnessLevel", 0, 10, 0);
+            Alertness = new PrimaryAttribute("Alertness", 0, 10, 0);
+            ChasePersistency = new PrimaryAttribute("ChasePersistency", 0, 100, 0);
 
             // Secondary Attributes
             Level = new SecondaryAttribute("Level",
@@ -185,7 +193,8 @@ namespace ActionRpgKit.Character.Stats
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 1);
             AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
             MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 100, 1);
-            BaseAlertnessLevel = new PrimaryAttribute("BaseAlertnessLevel", 0, 10, 0);
+            Alertness = new PrimaryAttribute("Alertness", 0, 10, 0);
+            ChasePersistency = new PrimaryAttribute("ChasePersistency", 0, 100, 0);
             AssignAttributesToDict();
         }
     }

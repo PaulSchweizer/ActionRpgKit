@@ -40,7 +40,6 @@ namespace ActionRpgKit.NUnit.Tests.Character
                                             description: "A +10 Buff to the user's strength.",
                                             cost: 10,
                                             duration: 10,
-                                            preUseTime: 10,
                                             cooldownTime: 5,
                                             modifierValue: 10,
                                             modifiedAttributeName: "Body",
@@ -56,7 +55,6 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // Check the basics
             Assert.AreEqual(0, passiveMagicSkill.Id);
             Assert.AreEqual("A +10 Buff to the user's strength.", passiveMagicSkill.Description);
-            Assert.AreEqual(10, passiveMagicSkill.PreUseTime);
             Assert.AreEqual("ShadowStrength (Cost: 10, Body +10 for 10 sec)", passiveMagicSkill.ToString());
 
             // Check if the combination matches

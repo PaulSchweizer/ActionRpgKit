@@ -4,16 +4,21 @@ using System;
 using System.Collections.Generic;
 using ActionRpgKit.Character.Attribute;
 using System.Collections;
+using ActionRpgKit.Character.Skill;
+using ActionRpgKit.Core;
 
 public class GameBaseCharacter : MonoBehaviour
 {
     // Unity related fields
     public NavMeshAgent NavMeshAgent;
     public Animator Animator;
-    private GameCharacterState CurrentState;
-    private GameIdleState IdleState = GameIdleState.Instance;
-    private GameMoveState MoveState = GameMoveState.Instance;
-    private GameAlertState AlertState = GameAlertState.Instance;
+    protected GameCharacterState CurrentState;
+    protected GameIdleState IdleState = GameIdleState.Instance;
+    protected GameMoveState MoveState = GameMoveState.Instance;
+    protected GameAlertState AlertState = GameAlertState.Instance;
+    protected GameChaseState ChaseState = GameChaseState.Instance;
+    protected GameAttackState AttackState = GameAttackState.Instance;
+    protected GameDyingState DyingState = GameDyingState.Instance;
 
     // ActionRpgKit related fields
     public BaseCharacterData CharacterData;
@@ -102,9 +107,21 @@ public class GameBaseCharacter : MonoBehaviour
         {
             CurrentState = AlertState;
         }
+        else if (newState is ChaseState)
+        {
+            CurrentState = ChaseState;
+        }
+        else if (newState is AttackState)
+        {
+            CurrentState = AttackState;
+        }
+        else if (newState is DyingState)
+        {
+            CurrentState = DyingState;
+        }
         else
         {
-            CurrentState = AlertState;
+            CurrentState = IdleState;
         }
         CurrentState.Enter(this);
     }
@@ -127,6 +144,25 @@ public class GameBaseCharacter : MonoBehaviour
     private IEnumerator CombatSkillCountdown(IFighter sender, int skillId)
     {
         float endTime = Character.CombatSkillEndTimes[Character.CombatSkills.IndexOf(skillId)];
+
+        // Change the Animator clip values
+        var skillData = ActionRpgKitController.Instance.SkillDatabase.GetCombatSkillById(skillId);
+        AnimationClip clip = skillData.AnimationClip;
+
+        float duration = endTime - GameTime.time;
+        if (duration > clip.length)
+        {
+            Animator.SetFloat("AttackSpeed", clip.length / duration);
+        }
+        else
+        {
+            Animator.SetFloat("AttackSpeed", duration / clip.length);
+        }
+        Animator.SetFloat("AttackAnimation", skillData.AnimationIndex);
+        Animator.SetTrigger("Attack");
+
+        endTime = Time.time + skillData.HitTime;
+
         while (Time.time < endTime)
         {
             yield return null;
@@ -210,7 +246,7 @@ public class GameIdleState : GameCharacterState
     public override void Enter(GameBaseCharacter character)
     {
         character.NavMeshAgent.Stop();
-        character.Animator.SetBool("Idle", true);
+        character.Animator.SetBool("IdleState", true);
     }
 
     /// <summary>
@@ -222,6 +258,11 @@ public class GameIdleState : GameCharacterState
             character.Animator.SetFloat("MovementSpeed", 
                 Math.Max(0, character.Animator.GetFloat("MovementSpeed") - Time.deltaTime * 6));
         }
+        if (character.Character.Enemies.Count > 0)
+        {
+            character.NavMeshAgent.SetDestination(new Vector3(character.Character.Enemies[0].Position.X, 0,
+                                                              character.Character.Enemies[0].Position.Y));
+        }
     }
 
     /// <summary>
@@ -229,7 +270,7 @@ public class GameIdleState : GameCharacterState
     public override void Exit(GameBaseCharacter character)
     {
         character.NavMeshAgent.Resume();
-        character.Animator.SetBool("Idle", false);
+        character.Animator.SetBool("IdleState", false);
     }
 }
 
@@ -243,7 +284,7 @@ public class GameMoveState : GameCharacterState
     public override void Enter(GameBaseCharacter character)
     {
         character.NavMeshAgent.Resume();
-        character.Animator.SetBool("Move", true);
+        character.Animator.SetBool("MoveState", true);
         character.Character.IsMoving = true;
     }
 
@@ -275,7 +316,7 @@ public class GameMoveState : GameCharacterState
     public override void Exit(GameBaseCharacter character)
     {
         character.NavMeshAgent.Resume();
-        character.Animator.SetBool("Move", false);
+        character.Animator.SetBool("MoveState", false);
         character.Character.IsMoving = false;
     }
 }
@@ -290,7 +331,7 @@ public class GameAlertState : GameCharacterState
     public override void Enter(GameBaseCharacter character)
     {
         character.NavMeshAgent.Stop();
-        character.Animator.SetBool("Alert", true);
+        character.Animator.SetBool("AlertState", true);
     }
 
     /// <summary>
@@ -309,6 +350,115 @@ public class GameAlertState : GameCharacterState
     public override void Exit(GameBaseCharacter character)
     {
         character.NavMeshAgent.Resume();
-        character.Animator.SetBool("Alert", false);
+        character.Animator.SetBool("AlertState", false);
+    }
+}
+
+
+public class GameChaseState : GameCharacterState
+{
+    public static GameChaseState Instance = new GameChaseState();
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Enter(GameBaseCharacter character)
+    {
+        character.NavMeshAgent.Resume();
+        character.Animator.SetBool("ChaseState", true);
+        character.Character.IsMoving = true;
+    }
+
+    /// <summary>
+    /// Bring the movement speed down to a still stand.</summary>
+    public override void Update(GameBaseCharacter character)
+    {
+        if (character.NavMeshAgent.pathPending)
+        {
+            return;
+        }
+        if (character.Animator.GetFloat("MovementSpeed") < 1)
+        {
+            character.Animator.SetFloat("MovementSpeed",
+                Math.Min(1, character.Animator.GetFloat("MovementSpeed") + Time.deltaTime * 6));
+        }
+        character.NavMeshAgent.destination = new Vector3(character.Character.TargetedEnemy.Position.X, 0,
+                                                         character.Character.TargetedEnemy.Position.Y);
+    }
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Exit(GameBaseCharacter character)
+    {
+        character.Animator.SetBool("ChaseState", false);
+        character.Character.IsMoving = false;
+    }
+}
+
+
+public class GameAttackState : GameCharacterState
+{
+    public static GameAttackState Instance = new GameAttackState();
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Enter(GameBaseCharacter character)
+    {
+        character.NavMeshAgent.Stop();
+        character.Animator.SetBool("AttackState", true);
+    }
+
+    /// <summary>
+    /// Bring the movement speed down to a still stand.</summary>
+    public override void Update(GameBaseCharacter character)
+    {
+
+    }
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Exit(GameBaseCharacter character)
+    {
+        character.Animator.SetBool("AttackState", false);
+    }
+}
+
+
+public class GameDyingState : GameCharacterState
+{
+    public static GameDyingState Instance = new GameDyingState();
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Enter(GameBaseCharacter character)
+    {
+        character.NavMeshAgent.Stop();
+        character.Animator.SetBool("DyingState", true);
+        character.StartCoroutine(DyingAnimation(character));
+    }
+
+    /// <summary>
+    /// Disable the Character.</summary>
+    public override void Update(GameBaseCharacter character)
+    {
+    }
+
+    /// <summary>
+    /// Stop the NavMeshAgent.</summary>
+    public override void Exit(GameBaseCharacter character)
+    {
+        character.Animator.SetBool("DyingState", false);
+    }
+
+    /// <summary>
+    /// Play the dying animation.</summary>
+    public IEnumerator DyingAnimation(GameBaseCharacter character)
+    {
+        float endTime = Time.time + 2;
+        while (Time.time < endTime)
+        {
+            yield return null;
+        }
+        character.Animator.SetBool("DyingState", false);
+        character.gameObject.SetActive(false);
     }
 }
