@@ -14,6 +14,7 @@ var class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats =
     [ "AlertnessRange", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a9ff069e19e65a4c5a3183453a2c64a0f", null ],
     [ "AttackRange", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a2247f75cea2fc59005822e1565c5a412", null ],
     [ "MovementSpeed", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#af85115ca3d600f51f6a4cb494c7c0d5b", null ],
-    [ "BaseAlertnessLevel", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#acc97f95c92ff10d1e34e407a698ee3ca", null ],
+    [ "Alertness", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#ac6c7c96fc7a38142b4ff2fd9be4bbad8", null ],
+    [ "ChasePersistency", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a996ee04af02cab4c681acafc4dec62d1", null ],
     [ "Dict", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#ab48a6f7a119e741c2e93f5cb36ab3e3f", null ]
 ];

@@ -2,6 +2,7 @@ var class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute =
 [
     [ "PrimaryAttribute", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#ad6657a5fca832ac2e595052efc7e5cf7", null ],
     [ "PrimaryAttribute", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8321e0c36d917741b2587fe9ca60227f", null ],
+    [ "OnSerializing", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a2c72098738efe24b6951d829ba282ee1", null ],
     [ "AddModifier", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8a30ad9b75a1e4a7a898afa383154195", null ],
     [ "RemoveModifier", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#abdcad3585659782a3b0f73cab061c09b", null ],
     [ "ValueChanged", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa24ace4343b8f74570014ac80b5150cf", null ],
