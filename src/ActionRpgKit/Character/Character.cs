@@ -83,17 +83,19 @@ namespace ActionRpgKit.Character
     /// Character can fight.</summary>  
     public interface IFighter
     {
+        string Name { get; set; }
+
         /// <summary>
         /// World space position of the IFighter.</summary>
         Position Position { get; set; }
 
         /// <summary>
         /// The remaining life.</summary>
-        float Life { get; set; }
+        BaseAttribute Life { get; }
 
         /// <summary>
         /// Whether the Fighter is active or defeated.</summary>
-        bool IsDead{ get; set; }
+        bool IsDefeated{ get; set; }
 
         /// <summary>
         /// Targeted enemies of the fighter.</summary>
@@ -169,6 +171,10 @@ namespace ActionRpgKit.Character
         event CombatSkillTriggeredHandler OnCombatSkillTriggered;
 
         /// <summary>
+        /// Event is fired when an ICombatSkill is used.</summary>
+        event CombatSkillUsedHandler OnCombatSkillUsed;
+
+        /// <summary>
         /// Event is fired when an Enemy enters the alertness range.</summary>
         event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;
 
@@ -182,12 +188,18 @@ namespace ActionRpgKit.Character
     /// <param name="sender">The sending IFighter</param>
     /// <param name="skill">The learned CombatSkill</param>
     public delegate void CombatSkillLearnedHandler(IFighter sender, int skillId);
-    
+
     /// <summary>
-    /// Handler operates whenever a Character's state changes.</summary>
+    /// Handler operates whenever a Character triggered a CombatSkill.</summary>
     /// <param name="sender">The sending IFighter</param>
     /// <param name="skill">The triggered CombatSkill</param>
     public delegate void CombatSkillTriggeredHandler(IFighter sender, int skillId);
+
+    /// <summary>
+    /// Handler operates whenever a Character used a CombatSkill.</summary>
+    /// <param name="sender">The sending IFighter</param>
+    /// <param name="skill">The used CombatSkill</param>
+    public delegate void CombatSkillUsedHandler(IFighter sender, int skillId);
 
     /// <summary>
     /// An enemy has entered the alterness range.</summary>
@@ -214,7 +226,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Name of the character.</summary>
-        public string Name;
+        public string Name { get; set; }
 
         /// <summary>
         /// Stats describing the Character.</summary>
@@ -231,6 +243,7 @@ namespace ActionRpgKit.Character
         [field: NonSerialized] public event MagicSkillTriggeredHandler OnMagicSkillTriggered; 
         [field: NonSerialized] public event CombatSkillLearnedHandler OnCombatSkillLearned;
         [field: NonSerialized] public event CombatSkillTriggeredHandler OnCombatSkillTriggered;
+        [field: NonSerialized] public event CombatSkillUsedHandler OnCombatSkillUsed;
         [field: NonSerialized] public event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;    
         [field: NonSerialized] public event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
 
@@ -290,14 +303,14 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// The Character has been defeated and is about to be removed.</summary>
         [NonSerialized]
-        public DyingState DyingState = DyingState.Instance;
+        public DefeatedState DefeatedState = DefeatedState.Instance;
 
         #endregion
 
         /// <summary>
         /// Determines whether the Charaxter is active or not.</summary>
         [NonSerialized]
-        private bool _isDead = false;
+        private bool _isDefeated = false;
 
         /// <summary>
         /// A list of absolute end times for the cooldown of magic skills.</summary>
@@ -318,7 +331,7 @@ namespace ActionRpgKit.Character
             CurrentState = IdleState;
             
             // Connect internal signals
-            Stats.Life.OnMinReached += new MinReachedHandler(OnDeath);
+            Stats.Life.OnMinReached += new MinReachedHandler(OnDefeated);
         }
 
         /// <summary>
@@ -448,6 +461,17 @@ namespace ActionRpgKit.Character
         }
 
         /// <summary>
+        /// Emit the combat skill used signal if any handlers are attached.</summary>
+        protected void EmitOnCombatSkillUsed(int skillId)
+        {
+            var handler = OnCombatSkillUsed;
+            if (handler != null)
+            {
+                handler(this, skillId);
+            }
+        }
+
+        /// <summary>
         /// Emit the enemy entered alertness range signal if any handlers are attached.</summary>
         protected void EmitOnEnemyEnteredAltertnessRange()
         {
@@ -555,21 +579,17 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// The life value.</summary>
-        public float Life
+        public BaseAttribute Life
         {
             get
             {
-                return Stats.Life.Value;
-            }
-            set
-            {
-                Stats.Life.Value = value;
+                return Stats.Life;
             }
         }
 
         /// <summary>
         /// Whether the Character is active or not.</summary>
-        public bool IsDead { get { return _isDead; } set { _isDead = value; } }
+        public bool IsDefeated { get { return _isDefeated; } set { _isDefeated = value; } }
 
         /// <summary>
         /// A list of current Enemies in reach of this Character.</summary>
@@ -712,6 +732,7 @@ namespace ActionRpgKit.Character
         {
             var combatSkill = SkillDatabase.GetCombatSkillById(skillId);
             combatSkill.Use(this);
+            EmitOnCombatSkillUsed(skillId);
         }
 
         /// <summary>
@@ -734,10 +755,10 @@ namespace ActionRpgKit.Character
         
         /// <summary>
         /// The Character has just been killed.</summary>
-        private void OnDeath(BaseAttribute sender)
+        private void OnDefeated(BaseAttribute sender)
         {
-            ChangeState(DyingState);
-            IsDead = true;
+            ChangeState(DefeatedState);
+            IsDefeated = true;
         }
 
         #endregion

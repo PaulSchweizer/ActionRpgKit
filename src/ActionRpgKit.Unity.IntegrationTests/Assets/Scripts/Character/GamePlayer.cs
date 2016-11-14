@@ -14,7 +14,10 @@ public class GamePlayer : GameBaseCharacter
         get
         {
 #if UNITY_EDITOR
-            playerData = (PlayerCharacterData)CharacterData;
+            if (!UnityEditor.EditorApplication.isPlaying)
+            {
+                playerData = (PlayerCharacterData)CharacterData;
+            }  
 #endif
             return playerData.Character;
         }
@@ -33,8 +36,7 @@ public class GamePlayer : GameBaseCharacter
             Destroy(gameObject);
         }
 
-        playerData = (PlayerCharacterData)CharacterData;
-
+        playerData = (PlayerCharacterData)Instantiate(CharacterData);
         base.Awake();
 
         // Connect the signals from the ActionRpgKit Character

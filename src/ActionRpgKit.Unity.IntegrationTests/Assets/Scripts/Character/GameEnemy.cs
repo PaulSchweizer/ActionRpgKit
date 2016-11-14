@@ -14,7 +14,10 @@ public class GameEnemy : GameBaseCharacter
         get
         {
 #if UNITY_EDITOR
-            enemyData = (EnemyCharacterData)CharacterData;
+            if (!UnityEditor.EditorApplication.isPlaying)
+            {
+                enemyData = (EnemyCharacterData)CharacterData;
+            }
 #endif
             return enemyData.Character;
         }
@@ -24,7 +27,7 @@ public class GameEnemy : GameBaseCharacter
 
     new void Awake()
     {
-        enemyData = (EnemyCharacterData)CharacterData;
+        enemyData = (EnemyCharacterData)Instantiate(CharacterData);
         base.Awake();
     }
 

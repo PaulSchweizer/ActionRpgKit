@@ -76,6 +76,14 @@ namespace ActionRpgKit.Character.Attribute
         /// <summary>
         /// Emit when the minimum value has been reached.</summary>
         public abstract event MinReachedHandler OnMinReached;
+
+        /// <summary>
+        /// Emit when a modifier is added.</summary>
+        public abstract event ModifierAddedHandler OnModifierAdded;
+
+        /// <summary>
+        /// Emit when a modifier is removed.</summary>
+        public abstract event ModifierRemovedHandler OnModifierRemoved;
     }
 
     /// <summary>
@@ -93,7 +101,19 @@ namespace ActionRpgKit.Character.Attribute
     /// Handler operates whenever an IAttribute reaches it's minimum value.</summary>
     /// <param name="sender">The sender</param>
     public delegate void MinReachedHandler(BaseAttribute sender);
-    
+
+    /// <summary>
+    /// Handler operates whenever a Modifier is added to the Attribute.</summary>
+    /// <param name="sender">The sender</param>
+    /// <param name="modifier">The modifier</param>
+    public delegate void ModifierAddedHandler(BaseAttribute sender, AttributeModifier modifier);
+
+    /// <summary>
+    /// Handler operates whenever a Modifier is removed from the Attribute.</summary>
+    /// <param name="sender">The sender</param>
+    /// <param name="modifier">The modifier</param>
+    public delegate void ModifierRemovedHandler(BaseAttribute sender, AttributeModifier modifier);
+
     /// <summary>
     /// Represents a simple float value.</summary>
     [Serializable]
@@ -102,6 +122,8 @@ namespace ActionRpgKit.Character.Attribute
         public override event ValueChangedHandler OnValueChanged;
         public override event MaxReachedHandler OnMaxReached;
         public override event MinReachedHandler OnMinReached;
+        public override event ModifierAddedHandler OnModifierAdded;
+        public override event ModifierRemovedHandler OnModifierRemoved;
 
         private List<AttributeModifier> _modifiers = new List<AttributeModifier>();
 
@@ -207,12 +229,14 @@ namespace ActionRpgKit.Character.Attribute
             modifier.Activate();
             _modifiers.Add(modifier);
             ValueChanged(Value);
+            EmitModifierAdded(modifier);
         }
 
         public override void RemoveModifier (AttributeModifier modifier)
         {
             Modifiers.Remove(modifier);
             ValueChanged(Value);
+            EmitModifierRemoved(modifier);
         }
 
         public override bool IsModified
@@ -257,7 +281,7 @@ namespace ActionRpgKit.Character.Attribute
             var handler = OnMaxReached;
             if (handler != null)
             {
-                OnMaxReached(this);
+                handler(this);
             }
         }
         
@@ -266,7 +290,25 @@ namespace ActionRpgKit.Character.Attribute
             var handler = OnMinReached;
             if (handler != null)
             {
-                OnMinReached(this);
+                handler(this);
+            }
+        }
+
+        protected void EmitModifierAdded(AttributeModifier modifier)
+        {
+            var handler = OnModifierAdded;
+            if (handler != null)
+            {
+                handler(this, modifier);
+            }
+        }
+
+        protected void EmitModifierRemoved(AttributeModifier modifier)
+        {
+            var handler = OnModifierAdded;
+            if (handler != null)
+            {
+                handler(this, modifier);
             }
         }
 
@@ -426,6 +468,7 @@ namespace ActionRpgKit.Character.Attribute
             set
             {
                 _currentValue = Math.Max(MinValue, Math.Min(MaxValue, value));
+                ValueChanged(_currentValue);
             }
         }
         

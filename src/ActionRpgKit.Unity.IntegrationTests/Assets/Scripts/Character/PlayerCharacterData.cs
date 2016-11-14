@@ -10,6 +10,9 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
     #region Serialization
 
     [SerializeField]
+    private string _serializedName;
+
+    [SerializeField]
     private float[] _serializedStats;
 
     [SerializeField]
@@ -34,6 +37,8 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
     /// Reset the saved Attribute values.</summary>
     public void OnBeforeSerialize()
     {
+        _serializedName = Character.Name;
+
         // Stats
         _serializedStats = new float[Character.Stats.Dict.Count];
         int i = 0;
@@ -85,6 +90,8 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
     /// Save the Values from the Attributes to an internal, serializable list.</summary>
     public void OnAfterDeserialize()
     {
+        Character.Name = _serializedName;
+
         // Stats
         int i = 0;
         foreach (KeyValuePair<string, BaseAttribute> attr in Character.Stats.Dict)
@@ -116,7 +123,15 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
         // Current Attack Skill
         Character.CurrentAttackSkill = _currentAttackSkill;
 
-        Character.IsDead = false;
+        // Reset the defeated indicator
+        Character.IsDefeated = false;
+
+        // Reset the CombatSkill end times
+        Character.CombatSkillEndTimes.Clear();
+        for (i = 0; i < Character.CombatSkills.Count; i++)
+        {
+            Character.CombatSkillEndTimes.Add(-1);
+        }
     }
 
     #endregion

@@ -18,10 +18,11 @@ public class GameBaseCharacter : MonoBehaviour
     protected GameAlertState AlertState = GameAlertState.Instance;
     protected GameChaseState ChaseState = GameChaseState.Instance;
     protected GameAttackState AttackState = GameAttackState.Instance;
-    protected GameDyingState DyingState = GameDyingState.Instance;
+    protected GameDefeatedState DefeatedState = GameDefeatedState.Instance;
 
     // ActionRpgKit related fields
     public BaseCharacterData CharacterData;
+    private BaseCharacterData _characterData;
 
     public virtual BaseCharacter Character
     {
@@ -42,13 +43,6 @@ public class GameBaseCharacter : MonoBehaviour
         foreach (KeyValuePair<string, BaseAttribute> attr in Character.Stats.Dict)
         {
             attr.Value.OnValueChanged += new ValueChangedHandler(StatsChanged);
-        }
-
-        //Fix Deserialization Problems
-        Character.CombatSkillEndTimes.Clear();
-        for (int i = 0; i < Character.CombatSkills.Count; i++)
-        {
-            Character.CombatSkillEndTimes.Add(-1);
         }
 
         // NavMeshAgent
@@ -87,9 +81,10 @@ public class GameBaseCharacter : MonoBehaviour
     /// <summary>
     /// Update the visual display of the Stats and trigger other dependent processes.</summary>
     /// <param name="sender">The Attribute</param>
-    /// <param name="value">The value of gthe Attribute</param>
+    /// <param name="value">The value of the Attribute</param>
     public virtual void StatsChanged(BaseAttribute sender, float value)
     {
+        Debug.Log(string.Format("{0}: {1} Changed", sender.Name, value));
     }
 
     public virtual void StateChanged(ICharacter sender, IState previousState, IState newState)
@@ -115,9 +110,9 @@ public class GameBaseCharacter : MonoBehaviour
         {
             CurrentState = AttackState;
         }
-        else if (newState is DyingState)
+        else if (newState is DefeatedState)
         {
-            CurrentState = DyingState;
+            CurrentState = DefeatedState;
         }
         else
         {
@@ -133,9 +128,6 @@ public class GameBaseCharacter : MonoBehaviour
 
     public virtual void CombatSkillTriggered(IFighter sender, int skillId)
     {
-        var target = new Vector3(Character.Enemies[0].Position.X, 0, 
-                                 Character.Enemies[0].Position.Y);
-        transform.LookAt(target);
         StartCoroutine(CombatSkillCountdown(sender, skillId));
     }
 
@@ -199,7 +191,7 @@ public class GameBaseCharacter : MonoBehaviour
         {
             color = Color.red;
         }
-        else if (Character.CurrentState is DyingState)
+        else if (Character.CurrentState is DefeatedState)
         {
             color = Color.black;
         }
@@ -408,10 +400,12 @@ public class GameAttackState : GameCharacterState
     }
 
     /// <summary>
-    /// Bring the movement speed down to a still stand.</summary>
+    /// Look at the TargetedEnemy.</summary>
     public override void Update(GameBaseCharacter character)
     {
-
+        var target = new Vector3(character.Character.TargetedEnemy.Position.X, 0,
+                                 character.Character.TargetedEnemy.Position.Y);
+        character.transform.LookAt(target);
     }
 
     /// <summary>
@@ -423,42 +417,41 @@ public class GameAttackState : GameCharacterState
 }
 
 
-public class GameDyingState : GameCharacterState
+public class GameDefeatedState : GameCharacterState
 {
-    public static GameDyingState Instance = new GameDyingState();
+    public static GameDefeatedState Instance = new GameDefeatedState();
 
     /// <summary>
     /// Stop the NavMeshAgent.</summary>
     public override void Enter(GameBaseCharacter character)
     {
         character.NavMeshAgent.Stop();
-        character.Animator.SetBool("DyingState", true);
-        character.StartCoroutine(DyingAnimation(character));
+        character.Animator.SetBool("DefeatedState", true);
+        character.StartCoroutine(DefeatAnimation(character));
     }
 
     /// <summary>
-    /// Disable the Character.</summary>
-    public override void Update(GameBaseCharacter character)
-    {
-    }
+    /// Nothing to do here.</summary>
+    public override void Update(GameBaseCharacter character) { }
 
     /// <summary>
-    /// Stop the NavMeshAgent.</summary>
+    /// Reset the dying state.</summary>
     public override void Exit(GameBaseCharacter character)
     {
-        character.Animator.SetBool("DyingState", false);
+        character.Animator.SetBool("DefeatedState", false);
     }
 
     /// <summary>
-    /// Play the dying animation.</summary>
-    public IEnumerator DyingAnimation(GameBaseCharacter character)
+    /// Play the dying animation and remove the Character after a time.</summary>
+    public IEnumerator DefeatAnimation(GameBaseCharacter character)
     {
-        float endTime = Time.time + 2;
+        float endTime = Time.time + 20;
+        character.Animator.SetFloat("DefeatAnimation", UnityEngine.Random.Range(0, 2));
         while (Time.time < endTime)
         {
             yield return null;
         }
-        character.Animator.SetBool("DyingState", false);
+        character.Animator.SetBool("DefeatedState", false);
         character.gameObject.SetActive(false);
     }
 }

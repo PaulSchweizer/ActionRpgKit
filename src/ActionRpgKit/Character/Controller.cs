@@ -45,7 +45,7 @@ namespace ActionRpgKit.Character
             {
                 for(int i=0; i < Enemies.Count; i++)
                 {
-                    if (Enemies[i].IsDead)
+                    if (Enemies[i].IsDefeated)
                     {
                         Player.RemoveEnemy(Enemies[i]);
                         continue;

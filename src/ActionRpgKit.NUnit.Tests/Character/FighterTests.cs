@@ -89,7 +89,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             {
                 Controller.Update();
                 enemy1.TriggerCombatSkill(meleeSkill.Id);
-                Assert.AreEqual(20 - (i + 1), player.Life);
+                Assert.AreEqual(20 - (i + 1), player.Life.Value);
                 GameTime.time += 1;
             }
         }
@@ -107,9 +107,9 @@ namespace ActionRpgKit.NUnit.Tests.Character
             enemy1.Position.Set(0, 0);
             enemy2.Position.Set(0, 0);
             enemy3.Position.Set(1, 0);
-            enemy1.Life = 10;
-            enemy2.Life = 10;
-            enemy3.Life = 10;
+            enemy1.Life.Value = 10;
+            enemy2.Life.Value = 10;
+            enemy3.Life.Value = 10;
             player.TargetedEnemy = enemy1;
 
             // Attack the Enemy until his health runs out
@@ -117,9 +117,9 @@ namespace ActionRpgKit.NUnit.Tests.Character
             {
                 Controller.Update();
                 player.TriggerCombatSkill(meleeMultiTargetsSkill.Id);
-                Assert.AreEqual(10 - (i*2 + 2), enemy1.Life);
-                Assert.AreEqual(10 - (i*2 + 2), enemy2.Life);
-                Assert.AreEqual(10, enemy3.Life);
+                Assert.AreEqual(10 - (i*2 + 2), enemy1.Life.Value);
+                Assert.AreEqual(10 - (i*2 + 2), enemy2.Life.Value);
+                Assert.AreEqual(10, enemy3.Life.Value);
                 GameTime.time += 2;
             }
         }

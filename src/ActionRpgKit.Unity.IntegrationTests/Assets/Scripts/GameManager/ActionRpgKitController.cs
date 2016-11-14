@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using ActionRpgKit.Character;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class ActionRpgKitController : MonoBehaviour
 {
@@ -20,6 +22,17 @@ public class ActionRpgKitController : MonoBehaviour
         }
         ItemDatabase.InitDatabase();
         SkillDatabase.InitDatabase();
+    }
+
+    void Start()
+    {
+        // Reset the Controller
+        ActionRpgKit.Character.Controller.Player = (Player)GamePlayer.Instance.Character;
+        ActionRpgKit.Character.Controller.Enemies = new List<Enemy>();
+        foreach (GameEnemy enemy in FindObjectsOfType<GameEnemy>())
+        {
+            ActionRpgKit.Character.Controller.Enemies.Add((Enemy)enemy.Character);
+        }
     }
 
     // Update the ActionRpgKit GameTime

@@ -95,6 +95,7 @@ public class BaseCharacterDataEditor : Editor
                 attr.Value.MinValue = EditorGUILayout.FloatField(attr.Value.MinValue, GUILayout.Width(50));
                 attr.Value.MaxValue = EditorGUILayout.FloatField(attr.Value.MaxValue, GUILayout.Width(50));
                 EditorGUILayout.EndHorizontal();
+                EditorUtility.SetDirty(target);
             }
         }
 
@@ -171,6 +172,7 @@ public class BaseCharacterDataEditor : Editor
             if (GUILayout.Button("+", GUILayout.Width(25)))
             {
                 character.Inventory.AddItem(itemsRow, _quantity);
+                EditorUtility.SetDirty(target);
             }
             EditorGUILayout.EndHorizontal();
 
@@ -206,6 +208,7 @@ public class BaseCharacterDataEditor : Editor
             equippedWeaponRow = EditorGUILayout.Popup(weaponIds.IndexOf(character.EquippedWeapon),
                                                       weaponNames.ToArray(), GUILayout.Width(150));
             character.EquippedWeapon = weaponIds[equippedWeaponRow];
+            EditorUtility.SetDirty(target);
             EditorGUILayout.EndHorizontal();
 
             // Attack Skill
@@ -223,16 +226,12 @@ public class BaseCharacterDataEditor : Editor
                                                           learnedCombatSkillsNames.ToArray(),
                                                           GUILayout.Width(150));
             character.CurrentAttackSkill = learnedCombatSkillsIds[currentAttackSkillRow];
+            EditorUtility.SetDirty(target);
             EditorGUILayout.EndHorizontal();
         }
 
         #endregion
 
-        #region Debug
-
-        #endregion
-
-        EditorUtility.SetDirty(target);
     }
 
     /// <summary>
@@ -250,16 +249,19 @@ public class BaseCharacterDataEditor : Editor
             if (GUILayout.Button("+", GUILayout.Width(18)))
             {
                 inventory.AddItem(items.Current, 1);
+                EditorUtility.SetDirty(target);
                 EditorGUILayout.EndHorizontal();
             }
             else if (GUILayout.Button("-", GUILayout.Width(18)))
             {
                 inventory.RemoveItem(items.Current, 1);
+                EditorUtility.SetDirty(target);
                 EditorGUILayout.EndHorizontal();
             }
             else if (GUILayout.Button("X", GUILayout.Width(18)))
             {
                 inventory.RemoveItem(items.Current, quantities.Current);
+                EditorUtility.SetDirty(target);
                 EditorGUILayout.EndHorizontal();
                 break;
             }
@@ -276,6 +278,9 @@ public class BaseCharacterDataEditor : Editor
         //}
     }
 
+    /// <summary>
+    /// Display the magic and combat skills.</summary>
+    /// <param name="character"></param>
     void DrawSkills(BaseCharacter character)
     {
         EditorGUILayout.LabelField("Magic Skills", GUILayout.Width(200));
@@ -286,6 +291,7 @@ public class BaseCharacterDataEditor : Editor
             if (GUILayout.Button("X", GUILayout.Width(25)))
             {
                 character.MagicSkills.Remove(skill);
+                EditorUtility.SetDirty(target);
                 EditorGUILayout.EndHorizontal();
                 break;
             }
@@ -299,6 +305,7 @@ public class BaseCharacterDataEditor : Editor
             if (GUILayout.Button("X", GUILayout.Width(25)))
             {
                 character.CombatSkills.Remove(skill);
+                EditorUtility.SetDirty(target);
                 EditorGUILayout.EndHorizontal();
                 break;
             }

@@ -25,6 +25,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
         int _magicSkillTriggered;
         int _combatSkillLearned;
         int _combatSkillTriggered;
+        int _combatSkillUsed;
 
         [SetUp]
         public void SetUp()
@@ -72,8 +73,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
         {
             // Set the life of the enemy to 0 and expect the enemy to die
             enemy.Stats.Life.Value = -10;
-            Assert.IsTrue(enemy.CurrentState is DyingState);
-            Assert.IsTrue(enemy.IsDead);
+            Assert.IsTrue(enemy.CurrentState is DefeatedState);
+            Assert.IsTrue(enemy.IsDefeated);
         }
 
         [Test]
@@ -157,8 +158,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
             //   + - - - - - 
             // 0 | + + E P +
             GameTime.time += 1;
-            enemy.IsDead = false;
-            enemy.Life = 10;
+            enemy.IsDefeated = false;
+            enemy.Life.Value = 10;
             enemy.Position.Set(2, 0);
             player.AddEnemy(enemy);
             Controller.Update();
@@ -230,10 +231,10 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.AreSame(player.AlertState, AlertState.Instance);
             Assert.AreSame(player.ChaseState, ChaseState.Instance);
             Assert.AreSame(player.AttackState, AttackState.Instance);
-            Assert.AreSame(player.DyingState, DyingState.Instance);
+            Assert.AreSame(player.DefeatedState, DefeatedState.Instance);
 
             enemy.Position.Set(6, 6);
-            enemy.IsDead = true;
+            enemy.IsDefeated = true;
             BinarySerialize(enemy);
             var serializedEnemy = BinaryDeserialize(enemy);
 
@@ -243,8 +244,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.AreEqual(enemy.Stats.ToString(), serializedEnemy.Stats.ToString());
             Assert.AreEqual(enemy.Inventory.ToString(), serializedEnemy.Inventory.ToString());
             Assert.AreEqual(enemy.ToString(), serializedEnemy.ToString());
-            Assert.AreNotEqual(enemy.IsDead, serializedEnemy.IsDead);
-            Assert.IsFalse(serializedEnemy.IsDead);
+            Assert.AreNotEqual(enemy.IsDefeated, serializedEnemy.IsDefeated);
+            Assert.IsFalse(serializedEnemy.IsDefeated);
         }
 
         private void BinarySerialize(BaseCharacter character)
@@ -281,6 +282,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.OnMagicSkillTriggered += new MagicSkillTriggeredHandler(MagicSkillTriggeredTest);
             enemy.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearnedTest);
             player.OnCombatSkillTriggered += new CombatSkillTriggeredHandler(CombatSkillTriggeredTest);
+            player.OnCombatSkillUsed += new CombatSkillUsedHandler(CombatSkillUsedTest);
 
             // Change the State
             Assert.AreEqual(0, _stateChanged);
@@ -311,7 +313,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // No enemy in reach
             player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(0, _combatSkillTriggered);
-            
+            Assert.AreEqual(0, _combatSkillUsed);
+
             // Set the enemy in reach
             player.Position.Set(0, 0);
             enemy.Position.Set(0, 0);
@@ -322,10 +325,12 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Controller.Update();
             player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(1, _combatSkillTriggered);
+            Assert.AreEqual(1, _combatSkillUsed);
             
             // Not enough time has passed to trigger again
             player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(1, _combatSkillTriggered);
+            Assert.AreEqual(1, _combatSkillUsed);
         }
 
         public void StateChangedTest(ICharacter sender, IState previousState, IState newState)
@@ -351,6 +356,11 @@ namespace ActionRpgKit.NUnit.Tests.Character
         public void CombatSkillTriggeredTest(IFighter sender, int skillId)
         {
             _combatSkillTriggered += 1;
+        }
+
+        public void CombatSkillUsedTest(IFighter sender, int skillId)
+        {
+            _combatSkillUsed += 1;
         }
 
         private void CombatSkillTriggered(IFighter sender, int skillId)

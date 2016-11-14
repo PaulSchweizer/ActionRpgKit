@@ -229,11 +229,11 @@ namespace ActionRpgKit.Character
     /// <summary>
     /// The Character has been defeated.</summary>
     [Serializable]
-    public sealed class DyingState : IState
+    public sealed class DefeatedState : IState
     {
         /// <summary>
         /// Keeping the class a singleton.</summary>
-        public static readonly DyingState Instance = new DyingState();
+        public static readonly DefeatedState Instance = new DefeatedState();
 
         public void EnterState(BaseCharacter character) { }
 

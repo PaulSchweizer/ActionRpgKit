@@ -25,6 +25,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
         int _valueChangedEventTriggered;
         int _maxReachedEventTriggered;
         int _minReachedEventTriggered;
+        int _modifierAdded;
+        int _modifierRemoved;
 
         [SetUp]
         public void SetUp()
@@ -210,8 +212,11 @@ namespace ActionRpgKit.NUnit.Tests.Character
         }
 
         [Test]
-        public void SignalTest()
+        public void AttributeSignalTest()
         {
+            _modifierAdded = 0;
+            _modifierRemoved = 0;
+
             // Change the value and test the received signal
             Body.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
             Body.Value = 100;
@@ -220,12 +225,14 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // Adding a modifier triggers the signal
             var modifier = new TimeBasedModifier("StrengthBuff", 10, 10);
             Body.AddModifier(modifier);
+            Assert.AreEqual(1, _modifierAdded);
             Assert.AreEqual(2, _valueChangedEventTriggered);
             
             // Removing a modifier triggers the signal
             Body.RemoveModifier(modifier);
             Assert.AreEqual(3, _valueChangedEventTriggered);
-            
+            Assert.AreEqual(1, _modifierRemoved);
+
             // Secondary Attributes work the same
             Level.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
             Experience.Value = 100;
@@ -234,11 +241,13 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // Adding a modifier triggers the signal
             Experience.AddModifier(modifier);
             Assert.AreEqual(5, _valueChangedEventTriggered);
-            
+            Assert.AreEqual(1, _modifierAdded);
+
             // Removing a modifier triggers the signal
             Experience.RemoveModifier(modifier);
             Assert.AreEqual(6, _valueChangedEventTriggered);
-            
+            Assert.AreEqual(2, _modifierRemoved);
+
             // Maximum and minimum signals are emitted too.
             Body.OnMaxReached += new MaxReachedHandler(MaxReachedDemo);
             Body.Value = 999;
@@ -247,6 +256,19 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Body.OnMinReached += new MinReachedHandler(MinReachedDemo);
             Body.Value = -100;
             Assert.AreEqual(1, _minReachedEventTriggered);
+
+            // VolumeAttribute Test
+            Life.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
+            Life.Value = 10;
+            Assert.AreEqual(9, _valueChangedEventTriggered);
+
+            Life.OnMaxReached += new MaxReachedHandler(MaxReachedDemo);
+            Life.Value = 999;
+            Assert.AreEqual(2, _maxReachedEventTriggered);
+
+            Life.OnMinReached += new MinReachedHandler(MinReachedDemo);
+            Life.Value = -100;
+            Assert.AreEqual(2, _minReachedEventTriggered);
         }
 
         [Test]
@@ -342,6 +364,16 @@ namespace ActionRpgKit.NUnit.Tests.Character
         public void MinReachedDemo(BaseAttribute sender)
         {
             _minReachedEventTriggered += 1;
+        }
+
+        public void ModifierAdded(BaseAttribute sender, AttributeModifier modifier)
+        {
+            _modifierAdded += 1;
+        }
+
+        public void ModifierRemoved(BaseAttribute sender, AttributeModifier modifier)
+        {
+            _modifierRemoved += 1;
         }
     }
 }
