@@ -33,6 +33,19 @@ public class GameMenu : MonoBehaviour
     /// Text displaying the Enemy.</summary>
     public GameObject EnemyPanel;
 
+    public GameObject HUDPanel;
+    public GameObject MainMenuPanel;
+    public Text BodyValueText;
+    public Text MindValueText;
+    public Text SoulValueText;
+
+    public Text ExperienceValueText;
+    public Text LevelValueText;
+    public Text AttackRangeValueText;
+    public Text AttackSpeedValueText;
+    public Text DamageValueText;
+    public Text MagicRegenerationRateValueText;
+
     /// <summary>
     /// Keep the GameMenu a Singleton.</summary>
     void Awake()
@@ -54,10 +67,28 @@ public class GameMenu : MonoBehaviour
         GamePlayer.Instance.Character.Stats.Magic.OnValueChanged += new ValueChangedHandler(UpdateMagicSlider);
         GamePlayer.Instance.Character.OnCombatSkillUsed += new CombatSkillUsedHandler(UpdateEnemyLifeSlider);
         GamePlayer.Instance.Character.OnStateChanged += new StateChangedHandler(ToggleEnemyPanel);
+        GamePlayer.Instance.Character.Stats.Body.OnValueChanged += new ValueChangedHandler(UpdateStats);
+        GamePlayer.Instance.Character.Stats.Mind.OnValueChanged += new ValueChangedHandler(UpdateStats);
+        GamePlayer.Instance.Character.Stats.Soul.OnValueChanged += new ValueChangedHandler(UpdateStats);
 
         // Set the initial values
         UpdateLifeSlider(GamePlayer.Instance.Character.Stats.Life, GamePlayer.Instance.Character.Stats.Life.Value);
         UpdateMagicSlider(GamePlayer.Instance.Character.Stats.Magic, GamePlayer.Instance.Character.Stats.Magic.Value);
+        UpdateStats(GamePlayer.Instance.Character.Stats.Body, GamePlayer.Instance.Character.Stats.Body.Value);
+    }
+
+    public void SwitchToGame()
+    {
+        HUDPanel.SetActive(true);
+        MainMenuPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void SwitchToMainMenu()
+    {
+        HUDPanel.SetActive(false);
+        MainMenuPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     void UpdateLifeSlider(BaseAttribute sender, float value)
@@ -95,5 +126,18 @@ public class GameMenu : MonoBehaviour
         }
     }
 
+    void UpdateStats(BaseAttribute sender, float value)
+    {
+        BodyValueText.text = GamePlayer.Instance.Character.Stats.Body.Value.ToString();
+        MindValueText.text = GamePlayer.Instance.Character.Stats.Mind.Value.ToString();
+        SoulValueText.text = GamePlayer.Instance.Character.Stats.Soul.Value.ToString();
+
+        ExperienceValueText.text = GamePlayer.Instance.Character.Stats.Experience.Value.ToString();
+        LevelValueText.text = GamePlayer.Instance.Character.Stats.Level.Value.ToString();
+        AttackRangeValueText.text = GamePlayer.Instance.Character.Stats.AttackRange.Value.ToString();
+        AttackSpeedValueText.text = GamePlayer.Instance.Character.AttackSpeed.ToString();
+        DamageValueText.text = GamePlayer.Instance.Character.Damage.ToString();
+        MagicRegenerationRateValueText.text = GamePlayer.Instance.Character.Stats.MagicRegenerationRate.Value.ToString();
+    }
 }
 

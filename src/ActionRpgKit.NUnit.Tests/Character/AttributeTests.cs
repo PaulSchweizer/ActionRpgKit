@@ -217,6 +217,9 @@ namespace ActionRpgKit.NUnit.Tests.Character
             _modifierAdded = 0;
             _modifierRemoved = 0;
 
+            Body.OnModifierAdded += new ModifierAddedHandler(ModifierAdded);
+            Body.OnModifierRemoved += new ModifierRemovedHandler(ModifierRemoved);
+
             // Change the value and test the received signal
             Body.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
             Body.Value = 100;
@@ -241,12 +244,10 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // Adding a modifier triggers the signal
             Experience.AddModifier(modifier);
             Assert.AreEqual(5, _valueChangedEventTriggered);
-            Assert.AreEqual(1, _modifierAdded);
 
             // Removing a modifier triggers the signal
             Experience.RemoveModifier(modifier);
             Assert.AreEqual(6, _valueChangedEventTriggered);
-            Assert.AreEqual(2, _modifierRemoved);
 
             // Maximum and minimum signals are emitted too.
             Body.OnMaxReached += new MaxReachedHandler(MaxReachedDemo);

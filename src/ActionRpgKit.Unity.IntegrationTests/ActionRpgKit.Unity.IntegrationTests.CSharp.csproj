@@ -98,6 +98,9 @@
     <Compile Include="Assets\Scripts\Skill\PassiveMagicSkillData.cs" />
     <Compile Include="Assets\Scripts\Skill\SkillData.cs" />
     <Compile Include="Assets\Scripts\UI\GameMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SlotSystem\Slot.cs" />
+    <Compile Include="Assets\Scripts\UI\SlotSystem\SlottableItem.cs" />
+    <Compile Include="Assets\Scripts\UI\SlotSystem\SlotView.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />

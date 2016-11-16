@@ -143,10 +143,6 @@ namespace ActionRpgKit.Character.Attribute
         [OnSerializing]
         public void OnSerializing(StreamingContext context)
         {
-            //foreach (AttributeModifier modifier in Modifiers)
-            //{
-            //    Modifiers.Remove(modifier);
-            //} 
             _modifiers = new List<AttributeModifier>();
         }
 
@@ -305,7 +301,7 @@ namespace ActionRpgKit.Character.Attribute
 
         protected void EmitModifierRemoved(AttributeModifier modifier)
         {
-            var handler = OnModifierAdded;
+            var handler = OnModifierRemoved;
             if (handler != null)
             {
                 handler(this, modifier);

@@ -117,6 +117,10 @@ namespace ActionRpgKit.Character
         /// The Attack Range.</summary>
         float AttackRange { get; }
 
+        float AttackSpeed { get; }
+
+        float Damage { get; }
+
         /// <summary>
         /// The currently equipped Weapon.</summary>
         int EquippedWeapon { get; set; }
@@ -619,6 +623,32 @@ namespace ActionRpgKit.Character
                     return Stats.AttackRange.Value;
                 }
                 
+            }
+        }
+
+        public float AttackSpeed
+        {
+            get
+            {
+                float speed = SkillDatabase.GetCombatSkillById(CurrentAttackSkill).CooldownTime;
+                if (EquippedWeapon > -1)
+                {
+                    speed += ItemDatabase.GetWeaponItemById(EquippedWeapon).Speed;
+                }
+                return 1 / speed;
+            }
+        }
+
+        public float Damage
+        {
+            get
+            {
+                float damage = 0;
+                if (EquippedWeapon > -1)
+                {
+                    damage += ItemDatabase.GetWeaponItemById(EquippedWeapon).Damage;
+                }
+                return damage;
             }
         }
 
