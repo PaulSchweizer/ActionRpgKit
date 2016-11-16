@@ -127,8 +127,8 @@ $(document).ready(function(){initNavTree('functions_vars.xhtml','');});
 <li>_handlers
 : <a class="el" href="df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a9e11d37247a9441553fdbef958313c4d">SecondaryAttribute</a>
 </li>
-<li>_isDead
-: <a class="el" href="d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7fe3282a3c82f974b1f6b2fee2c9fc7f">BaseCharacter</a>
+<li>_isDefeated
+: <a class="el" href="d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a388b66c311ae929b506a8299f80b1770">BaseCharacter</a>
 </li>
 <li>_items
 : <a class="el" href="d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#ae260783430cf22369a0cb90f222d572d">PlayerInventory</a>
@@ -212,6 +212,9 @@ $(document).ready(function(){initNavTree('functions_vars.xhtml','');});
 : <a class="el" href="dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2">CombatSkill</a>
 , <a class="el" href="d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2">WeaponItem</a>
 </li>
+<li>DefeatedState
+: <a class="el" href="d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af13f2c4a9311644c5dbb501c098b0868">BaseCharacter</a>
+</li>
 <li>Description
 : <a class="el" href="dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a34409fed9d39281ada2d7ec172a52f9b">BaseSkill</a>
 , <a class="el" href="d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml#a34409fed9d39281ada2d7ec172a52f9b">BaseItem</a>
@@ -221,9 +224,6 @@ $(document).ready(function(){initNavTree('functions_vars.xhtml','');});
 </li>
 <li>Duration
 : <a class="el" href="dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a1ccb2a57fde23aa66b03062ae2ad567f">PassiveMagicSkill</a>
-</li>
-<li>DyingState
-: <a class="el" href="d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a1ee26202a6b2f3581929c2be6d7269e6">BaseCharacter</a>
 </li>
 </ul>
 
@@ -251,7 +251,7 @@ $(document).ready(function(){initNavTree('functions_vars.xhtml','');});
 : <a class="el" href="df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#ac13eb79ea71577ad010cec21ba6f2753">AlertState</a>
 , <a class="el" href="d4/d2e/class_action_rpg_kit_1_1_character_1_1_attack_state.xhtml#a200c1149c5900199d9b12cf688fba808">AttackState</a>
 , <a class="el" href="d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml#a9faafc02449fceef471ed0d6c656277e">ChaseState</a>
-, <a class="el" href="d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#a24764e1273d72ac047ae0580338aaa95">DyingState</a>
+, <a class="el" href="d6/d11/class_action_rpg_kit_1_1_character_1_1_defeated_state.xhtml#a626d181fc9a1ccf417e5250d13821682">DefeatedState</a>
 , <a class="el" href="da/d80/class_action_rpg_kit_1_1_character_1_1_idle_state.xhtml#a1ed86498aeda4a82ac9bd4daf34ebe48">IdleState</a>
 , <a class="el" href="d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml#a995df562380cdb868613f1151d36d89f">MoveState</a>
 , <a class="el" href="da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml#ae3dd01d32ed2701c31927e4a30cc36a5">MainController</a>
@@ -315,7 +315,6 @@ $(document).ready(function(){initNavTree('functions_vars.xhtml','');});
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>Name
 : <a class="el" href="dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">BaseAttribute</a>
-, <a class="el" href="d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">BaseCharacter</a>
 , <a class="el" href="dc/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_base_skill.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">BaseSkill</a>
 , <a class="el" href="d3/dfb/class_action_rpg_kit_1_1_item_1_1_base_item.xhtml#a7ee9065718e6628dc7791b756fa6c0f9">BaseItem</a>
 </li>
@@ -355,7 +354,7 @@ $(document).ready(function(){initNavTree('functions_vars.xhtml','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Nov 13 2016 06:30:47 for Action RPG Kit by
+    <li class="footer">Generated on Wed Nov 16 2016 06:04:00 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

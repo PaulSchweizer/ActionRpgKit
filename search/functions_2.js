@@ -9,5 +9,6 @@ var searchData=
   ['combatskillcanbeused',['CombatSkillCanBeUsed',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a82cc645c3bff530d812a6215f2f5efdc',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['combatskilllearnedhandler',['CombatSkillLearnedHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a286c1e10fb7ad2076b8d5c832fbb2244',1,'ActionRpgKit::Character']]],
   ['combatskilltriggeredhandler',['CombatSkillTriggeredHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af6ac5746b186f54ce87b4a7a02e3b45e',1,'ActionRpgKit::Character']]],
+  ['combatskillusedhandler',['CombatSkillUsedHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a8db05e37b9fde1d1cf0d1e7ce4cde378',1,'ActionRpgKit::Character']]],
   ['createplayer',['CreatePlayer',['../da/d5b/class_action_rpg_kit_1_1_main_controller.xhtml#ae3e786cb9d3da75034d235364ba24e39',1,'ActionRpgKit::MainController']]]
 ];

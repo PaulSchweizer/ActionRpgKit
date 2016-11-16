@@ -9,7 +9,7 @@ var namespace_action_rpg_kit_1_1_character =
     [ "BaseInventory", "d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml", "d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory" ],
     [ "ChaseState", "d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state.xhtml", "d7/d11/class_action_rpg_kit_1_1_character_1_1_chase_state" ],
     [ "Controller", "dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml", "dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller" ],
-    [ "DyingState", "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml", "d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state" ],
+    [ "DefeatedState", "d6/d11/class_action_rpg_kit_1_1_character_1_1_defeated_state.xhtml", "d6/d11/class_action_rpg_kit_1_1_character_1_1_defeated_state" ],
     [ "Enemy", "d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml", "d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy" ],
     [ "EnemyFactory", "d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory.xhtml", "d6/d53/class_action_rpg_kit_1_1_character_1_1_enemy_factory" ],
     [ "EnemyPool", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml", "d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool" ],

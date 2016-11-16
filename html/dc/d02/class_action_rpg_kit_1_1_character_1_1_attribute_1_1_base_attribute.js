@@ -15,5 +15,7 @@ var class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute =
     [ "IsModified", "dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a35e791f1c3cf91c7e8e6e49e8631cf87", null ],
     [ "OnValueChanged", "dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a17aa860b0477b98a0656495c3d4db0b9", null ],
     [ "OnMaxReached", "dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#af0bc251827a2139be011c96c1d3b4e10", null ],
-    [ "OnMinReached", "dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a00000122a76f40a4389958fec621f36c", null ]
+    [ "OnMinReached", "dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a00000122a76f40a4389958fec621f36c", null ],
+    [ "OnModifierAdded", "dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#aa5d093ae21089f10d401663d9e0fa7a9", null ],
+    [ "OnModifierRemoved", "dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#aedbe402843f6de292364383582796069", null ]
 ];

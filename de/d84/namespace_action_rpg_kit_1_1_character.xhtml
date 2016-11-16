@@ -128,8 +128,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml">Controller</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml" title="Controller for the interaction between the Player and the Enemies.">Controller</a> for the interaction between the <a class="el" href="../../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml" title="Representation of a player controllable character.">Player</a> and the Enemies. <a href="../../dc/d3e/class_action_rpg_kit_1_1_character_1_1_controller.xhtml#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml">DyingState</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> has been defeated. <a href="../../d2/d95/class_action_rpg_kit_1_1_character_1_1_dying_state.xhtml#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d11/class_action_rpg_kit_1_1_character_1_1_defeated_state.xhtml">DefeatedState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> has been defeated. <a href="../../d6/d11/class_action_rpg_kit_1_1_character_1_1_defeated_state.xhtml#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml">Enemy</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of a hostile, game controlled character. <a href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml#details">More...</a><br /></td></tr>
@@ -183,8 +183,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:a286c1e10fb7ad2076b8d5c832fbb2244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever a <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a> learns a new CombatSkill. <a href="#a286c1e10fb7ad2076b8d5c832fbb2244">More...</a><br /></td></tr>
 <tr class="separator:a286c1e10fb7ad2076b8d5c832fbb2244"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6ac5746b186f54ce87b4a7a02e3b45e"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af6ac5746b186f54ce87b4a7a02e3b45e">CombatSkillTriggeredHandler</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> sender, int skillId)</td></tr>
-<tr class="memdesc:af6ac5746b186f54ce87b4a7a02e3b45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>'s state changes. <a href="#af6ac5746b186f54ce87b4a7a02e3b45e">More...</a><br /></td></tr>
+<tr class="memdesc:af6ac5746b186f54ce87b4a7a02e3b45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> triggered a CombatSkill. <a href="#af6ac5746b186f54ce87b4a7a02e3b45e">More...</a><br /></td></tr>
 <tr class="separator:af6ac5746b186f54ce87b4a7a02e3b45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8db05e37b9fde1d1cf0d1e7ce4cde378"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a8db05e37b9fde1d1cf0d1e7ce4cde378">CombatSkillUsedHandler</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> sender, int skillId)</td></tr>
+<tr class="memdesc:a8db05e37b9fde1d1cf0d1e7ce4cde378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> used a CombatSkill. <a href="#a8db05e37b9fde1d1cf0d1e7ce4cde378">More...</a><br /></td></tr>
+<tr class="separator:a8db05e37b9fde1d1cf0d1e7ce4cde378"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac294107fa4e81936d7cb30b7a2e97149"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#ac294107fa4e81936d7cb30b7a2e97149">EnemyEnteredAltertnessRangeHandler</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> enemy)</td></tr>
 <tr class="memdesc:ac294107fa4e81936d7cb30b7a2e97149"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enemy has entered the alterness range. <a href="#ac294107fa4e81936d7cb30b7a2e97149">More...</a><br /></td></tr>
 <tr class="separator:ac294107fa4e81936d7cb30b7a2e97149"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -364,11 +367,46 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handler operates whenever a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a>'s state changes.</p>
+<p>Handler operates whenever a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> triggered a CombatSkill.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender</td><td>The sending <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a></td></tr>
     <tr><td class="paramname">skill</td><td>The triggered CombatSkill</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8db05e37b9fde1d1cf0d1e7ce4cde378"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.CombatSkillUsedHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>skillId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever a <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a> used a CombatSkill.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The sending <a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml" title="Character can fight.">IFighter</a></td></tr>
+    <tr><td class="paramname">skill</td><td>The used CombatSkill</td></tr>
   </table>
   </dd>
 </dl>
@@ -429,7 +467,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li>
-    <li class="footer">Generated on Sun Nov 13 2016 06:30:47 for Action RPG Kit by
+    <li class="footer">Generated on Wed Nov 16 2016 06:04:00 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

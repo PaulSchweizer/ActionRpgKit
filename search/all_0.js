@@ -11,7 +11,7 @@ var searchData=
   ['_5ffixedtime',['_fixedTime',['../d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml#a8c186a72e972c98d6441f5273e98e7e4',1,'ActionRpgKit::Core::GameTime']]],
   ['_5fformula',['_formula',['../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#ad74940b11425547df6832c4ddf643b3c',1,'ActionRpgKit::Character::Attribute::SecondaryAttribute']]],
   ['_5fhandlers',['_handlers',['../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a9e11d37247a9441553fdbef958313c4d',1,'ActionRpgKit::Character::Attribute::SecondaryAttribute']]],
-  ['_5fisdead',['_isDead',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7fe3282a3c82f974b1f6b2fee2c9fc7f',1,'ActionRpgKit::Character::BaseCharacter']]],
+  ['_5fisdefeated',['_isDefeated',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a388b66c311ae929b506a8299f80b1770',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['_5fitems',['_items',['../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a0ea82a4aad04a30777a550ba227c959f',1,'ActionRpgKit.Character.SimpleInventory._items()'],['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#ae260783430cf22369a0cb90f222d572d',1,'ActionRpgKit.Character.PlayerInventory._items()']]],
   ['_5fmaxvalue',['_maxValue',['../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a816838a8ab65b53d3210a13ecc51619a',1,'ActionRpgKit::Character::Attribute::BaseAttribute']]],
   ['_5fminvalue',['_minValue',['../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#ac7d24610b8c69e4c15835b4d44b88eda',1,'ActionRpgKit::Character::Attribute::BaseAttribute']]],

@@ -133,6 +133,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a1071c3f4ac41863b05308645332ef519"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a1071c3f4ac41863b05308645332ef519">MinReachedHandler</a> (<a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a> sender)</td></tr>
 <tr class="memdesc:a1071c3f4ac41863b05308645332ef519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever an IAttribute reaches it's minimum value. <a href="#a1071c3f4ac41863b05308645332ef519">More...</a><br /></td></tr>
 <tr class="separator:a1071c3f4ac41863b05308645332ef519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a271adbf612b4c9623d589dce7ae4fb6a"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a271adbf612b4c9623d589dce7ae4fb6a">ModifierAddedHandler</a> (<a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a> sender, <a class="el" href="../../dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml">AttributeModifier</a> modifier)</td></tr>
+<tr class="memdesc:a271adbf612b4c9623d589dce7ae4fb6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever a Modifier is added to the <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a>. <a href="#a271adbf612b4c9623d589dce7ae4fb6a">More...</a><br /></td></tr>
+<tr class="separator:a271adbf612b4c9623d589dce7ae4fb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d80b61fbaae022ca454769e8102c97"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a65d80b61fbaae022ca454769e8102c97">ModifierRemovedHandler</a> (<a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a> sender, <a class="el" href="../../dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml">AttributeModifier</a> modifier)</td></tr>
+<tr class="memdesc:a65d80b61fbaae022ca454769e8102c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever a Modifier is removed from the <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a>. <a href="#a65d80b61fbaae022ca454769e8102c97">More...</a><br /></td></tr>
+<tr class="separator:a65d80b61fbaae022ca454769e8102c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ad89ebc2011a07f17680a7ee745287122"></a>
@@ -218,13 +224,83 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a271adbf612b4c9623d589dce7ae4fb6a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.Attribute.ModifierAddedHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml">AttributeModifier</a>&#160;</td>
+          <td class="paramname"><em>modifier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever a Modifier is added to the <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The sender</td></tr>
+    <tr><td class="paramname">modifier</td><td>The modifier</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a65d80b61fbaae022ca454769e8102c97"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.Attribute.ModifierRemovedHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml">BaseAttribute</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml">AttributeModifier</a>&#160;</td>
+          <td class="paramname"><em>modifier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever a Modifier is removed from the <a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The sender</td></tr>
+    <tr><td class="paramname">modifier</td><td>The modifier</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml">Attribute</a></li>
-    <li class="footer">Generated on Sun Nov 13 2016 06:30:47 for Action RPG Kit by
+    <li class="footer">Generated on Wed Nov 16 2016 06:04:00 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

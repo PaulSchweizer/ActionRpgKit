@@ -19,9 +19,11 @@ var searchData=
   ['minreachedhandler',['MinReachedHandler',['../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a1071c3f4ac41863b05308645332ef519',1,'ActionRpgKit::Character::Attribute']]],
   ['minvalue',['MinValue',['../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a1d698bf88009fd8c2b5179e9239688f2',1,'ActionRpgKit.Character.Attribute.BaseAttribute.MinValue()'],['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#ab02602b732cc13202f5db018d3737782',1,'ActionRpgKit.Character.Attribute.PrimaryAttribute.MinValue()']]],
   ['modifiedattributename',['ModifiedAttributeName',['../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a8160a0b4687a329c1d7b2b19c1a88a25',1,'ActionRpgKit::Character::Skill::PassiveMagicSkill']]],
+  ['modifieraddedhandler',['ModifierAddedHandler',['../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a271adbf612b4c9623d589dce7ae4fb6a',1,'ActionRpgKit::Character::Attribute']]],
+  ['modifierremovedhandler',['ModifierRemovedHandler',['../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#a65d80b61fbaae022ca454769e8102c97',1,'ActionRpgKit::Character::Attribute']]],
   ['modifiers',['Modifiers',['../dc/d02/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_base_attribute.xhtml#a8b0eb7b9efb85f0bcbdc508aa148168e',1,'ActionRpgKit.Character.Attribute.BaseAttribute.Modifiers()'],['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a5fea73c40840cf642b3f8e0d5c1c528a',1,'ActionRpgKit.Character.Attribute.PrimaryAttribute.Modifiers()']]],
   ['modifiervalue',['ModifierValue',['../dc/dac/class_action_rpg_kit_1_1_character_1_1_skill_1_1_passive_magic_skill.xhtml#a7bb0f10c1f2670e3729e50a219505098',1,'ActionRpgKit::Character::Skill::PassiveMagicSkill']]],
   ['movementspeed',['MovementSpeed',['../db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#af85115ca3d600f51f6a4cb494c7c0d5b',1,'ActionRpgKit::Character::Stats::BaseStats']]],
-  ['movestate',['MoveState',['../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml',1,'ActionRpgKit::Character']]],
-  ['movestate',['MoveState',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afd71fd50b5086343b60a137a3c919b31',1,'ActionRpgKit::Character::BaseCharacter']]]
+  ['movestate',['MoveState',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afd71fd50b5086343b60a137a3c919b31',1,'ActionRpgKit::Character::BaseCharacter']]],
+  ['movestate',['MoveState',['../d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml',1,'ActionRpgKit::Character']]]
 ];

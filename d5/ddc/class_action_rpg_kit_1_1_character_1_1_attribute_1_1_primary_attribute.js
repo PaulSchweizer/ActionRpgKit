@@ -9,6 +9,8 @@ var class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute =
     [ "EmitValueChanged", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#ab60d87655bfa49408013d2d49d1a0681", null ],
     [ "EmitMaxReached", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a71f946d9d4bfa7e4d8a369e0745a93a4", null ],
     [ "EmitMinReached", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa64674aff0b295c73235db07565e64ce", null ],
+    [ "EmitModifierAdded", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8fa3a2eae51637df274ae3c2d91d146e", null ],
+    [ "EmitModifierRemoved", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a32a7f89604bf33fa48d86bf1361a19c6", null ],
     [ "Reset", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a298cb68f7f3fb7f40595f4302af4ae25", null ],
     [ "ToString", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
     [ "_modifiers", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#adc9c1a76c2d33cc5da98a7bd85eb7d3e", null ],
@@ -20,5 +22,7 @@ var class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute =
     [ "IsModified", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#afebdacb7bb74e1f943b112559c81fc88", null ],
     [ "OnValueChanged", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a237a8fe7ba902d282c243e612e56713e", null ],
     [ "OnMaxReached", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a658ab021f457b1521f8e53c4d0628784", null ],
-    [ "OnMinReached", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a9fe3b29e448f27d8c5dafec3437e8866", null ]
+    [ "OnMinReached", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a9fe3b29e448f27d8c5dafec3437e8866", null ],
+    [ "OnModifierAdded", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#abcc03b6f8e254041dc2bf1b5f7da96ba", null ],
+    [ "OnModifierRemoved", "d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a13b1c581faa29dfb25b070ba6ac9bb04", null ]
 ];
