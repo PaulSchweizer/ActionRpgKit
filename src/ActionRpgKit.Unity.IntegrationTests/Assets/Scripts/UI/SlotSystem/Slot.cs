@@ -25,7 +25,7 @@ namespace SlotSystem
         /// </summary>
         public void OnDrop(PointerEventData eventData)
         {
-            Swap(SlottableItem._draggedItem);
+            Swap(SlottableItem.DraggedItem);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace SlotSystem
         /// Weather the Slot accepts the given Item.</summary>
         public bool AcceptsItem(SlottableItem item)
         {
-            if (AcceptedItemType == "" || AcceptedItemType == item.Data.GetType().Name)
+            if (AcceptedItemType == "" || AcceptedItemType == item.Item.GetType().Name)
             {
                 return true;
             }
@@ -73,7 +73,7 @@ namespace SlotSystem
             {
                 return;
             }
-            var oldSlot = draggedItem._slot;
+            var oldSlot = draggedItem.Slot;
 
             if (IsFree && AcceptsItem(draggedItem) && draggedItem.AcceptsSlot(this))
             {
@@ -101,7 +101,7 @@ namespace SlotSystem
             item.FitIntoSlot();
             ExecuteEvents.ExecuteHierarchy<ISlotChanged>(gameObject, null, (x, y) => x.SlotChanged(this, newItem, oldItem));
             Item = item;
-            Item._slot = this;
+            Item.Slot = this;
         }
 
         /// <summary>

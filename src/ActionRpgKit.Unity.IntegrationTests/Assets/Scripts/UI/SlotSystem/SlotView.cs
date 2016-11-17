@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using ActionRpgKit.Item;
+using ActionRpgKit.Character;
 
 namespace SlotSystem
 {
@@ -10,45 +11,100 @@ namespace SlotSystem
     {
         /// <summary>
         /// Number of available Slots</summary>
-        public int _numberOfSlots;
+        public int NumberOfSlots;
 
         /// <summary>
         /// Slot Prefab</summary>
-        public bool _infiniteSlots;
+        public bool InfiniteSlots;
 
         /// <summary>
         /// Slot Prefab</summary>
-        public Slot _slot;
+        public Slot Slot;
 
         /// <summary>
         /// Instantiated Slots</summary>
-        protected readonly List<Slot> _slots = new List<Slot>();
+        private readonly List<Slot> _slots = new List<Slot>();
 
         /// <summary>
-        /// TParent for the Slots.</summary>
-        public Transform _slotParent;
+        /// The Parent for the Slots.</summary>
+        public Transform SlotParent;
 
         /// <summary>
         /// Prefab for the Item.</summary>
-        public SlottableItem _viewItem;
+        public SlottableItem ViewItem;
 
         /// <summary>
         /// A slot for the equipped weapon.</summary>
-        public Slot _weaponSlot;
+        public Slot WeaponSlot;
 
         /// <summary>
         /// To keep track of the available Items in the View.</summary>
-        public Dictionary<ItemData, SlottableItem> _items = new Dictionary<ItemData, SlottableItem>() { };
+        public Dictionary<int, SlottableItem> _items = new Dictionary<int, SlottableItem>() { };
 
         /// <summary>
         /// Instantiate the Slots</summary>
-        void Awake()
+        void Start()
         {
-            for (int i = 0; i < _numberOfSlots; i++)
+            for (int i = 0; i < NumberOfSlots; i++)
             {
                 AddSlot();
             }
+
+            InitFromInventory(GamePlayer.Instance.Character.Inventory);
         }
+        
+        /// <summary>
+        /// Reset and initialize the entire view based on the given Inventory.</summary>
+        private void InitFromInventory(BaseInventory inventory)
+        {
+            // Reset the inventory
+            foreach (KeyValuePair<int, SlottableItem> entry in _items)
+            {
+                Destroy(entry.Value.gameObject);
+            }
+            _items.Clear();
+            NumberOfSlots = inventory.ItemCount;
+            ResetSlots();
+
+            // Add the Items from the Inventory
+            var items = inventory.Items.GetEnumerator();
+            var quantities = inventory.Quantities.GetEnumerator();
+            while (items.MoveNext() && quantities.MoveNext())
+            {
+                var invItem = AddItem(items.Current, quantities.Current);
+            }
+
+
+
+            //int currentActionSlot = 0;
+            //for (int i = 0; i < inventory._items.Count; i++)
+            //{
+                //// Update the weapon Slot
+                //if (inventory._items[i] == Player._player.Stats.EquippedWeapon)
+                //{
+                //    _weaponSlot.Swap(invItem);
+                //}
+                //if (Player._player.Stats._equippedItems.Contains(inventory._items[i]))
+                //{
+                //    PlayerMenu._playerMenu._actionSlots[currentActionSlot]._allowsDrag = true;
+                //    PlayerMenu._playerMenu._actionSlots[currentActionSlot].Swap(invItem);
+                //    PlayerMenu._playerMenu._actionSlots[currentActionSlot]._allowsDrag = false;
+                //    currentActionSlot += 1;
+                //}
+            //}
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
         /// <summary>
         /// Reset all the slots.</summary>
@@ -60,7 +116,7 @@ namespace SlotSystem
                 Destroy(slot.gameObject);
             }
             _slots.Clear();
-            for (int i = 0; i < _numberOfSlots; i++)
+            for (int i = 0; i < NumberOfSlots; i++)
             {
                 AddSlot();
             }
@@ -70,9 +126,9 @@ namespace SlotSystem
         /// Add a Slot to the View.</summary>
         protected Slot AddSlot()
         {
-            Slot slot = Instantiate(_slot);
+            Slot slot = Instantiate(Slot);
             _slots.Add(slot);
-            slot.transform.SetParent(_slotParent);
+            slot.transform.SetParent(SlotParent);
             slot.transform.localScale = new Vector3(1, 1, 1);
             slot.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
             return slot;
@@ -84,9 +140,9 @@ namespace SlotSystem
         /// bigger than the number of Slots in the view.</summary>
         public Slot NextAvailableSlot()
         {
-            if (_items.Count > _numberOfSlots)
+            if (_items.Count > NumberOfSlots)
             {
-                return _infiniteSlots ? AddSlot() : null;
+                return InfiniteSlots ? AddSlot() : null;
             }
             foreach (Slot slot in _slots)
             {
@@ -95,18 +151,41 @@ namespace SlotSystem
                     return slot;
                 }
             }
-            return _infiniteSlots ? AddSlot() : null;
+            return InfiniteSlots ? AddSlot() : null;
         }
 
         /// <summary>
         /// Add an Item to the next available Slot.</summary>
-        public virtual void AddItem(SlottableItem item)
+        public void AddItem(SlottableItem item)
         {
             Slot slot = NextAvailableSlot();
             if (slot != null)
             {
                 slot.Drop(item);
             }
+        }
+
+
+        /// <summary>
+        /// Add an Item to the View.
+        /// If it already exists, update the quantity.</summary>
+        public SlottableItem AddItem(int itemId, int quantity)
+        {
+            SlottableItem viewItem;
+            if (_items.TryGetValue(itemId, out viewItem))
+            {
+                viewItem.Quantity = quantity;
+                viewItem.UpdateDisplay();
+            }
+            else
+            {
+                var item = ActionRpgKitController.Instance.ItemDatabase.Items[itemId];
+                viewItem = Instantiate(ViewItem);
+                viewItem.Init(item, quantity);
+                _items[itemId] = viewItem;
+                AddItem(viewItem);
+            }
+            return viewItem;
         }
 
         /// <summary>
@@ -128,10 +207,14 @@ namespace SlotSystem
         /// Slot, like the Weapon Slot.</summary>
         public void SlotChanged(Slot slot, SlottableItem currentItem, SlottableItem previousItem)
         {
-            if (slot == _weaponSlot)
+            if (slot == WeaponSlot)
             {
-                var item = (WeaponItem)currentItem.Data;
-                GamePlayer.Instance.Character.EquippedWeapon = item.Id;
+                if (currentItem.Item == null) { return; }
+                if (currentItem.Item.Item is WeaponItem)
+                {
+                    var item = (WeaponItem)currentItem.Item.Item;
+                    GamePlayer.Instance.Character.EquippedWeapon = item.Id;
+                }
             }
         }
     }
@@ -150,26 +233,7 @@ namespace SlotSystem
 
 
 
-    ///// <summary>
-    ///// Add an Item to the View.
-    ///// If it already exists, update the quantity.</summary>
-    //public InventoryViewItem AddItem(InventoryItem item, int quantity)
-    //{
-    //    InventoryViewItem viewItem;
-    //    if (_items.TryGetValue(item, out viewItem))
-    //    {
-    //        viewItem._quantity = quantity;
-    //        viewItem.UpdateDisplay();
-    //    }
-    //    else
-    //    {
-    //        viewItem = Instantiate(_viewItem);
-    //        viewItem.Init(item, quantity);
-    //        _items[item] = viewItem;
-    //        AddItem(viewItem);
-    //    }
-    //    return viewItem;
-    //}
+
 
     ///// <summary>
     ///// Delete the given Item.</summary>
@@ -189,32 +253,4 @@ namespace SlotSystem
     //    invItem.UpdateDisplay();
     //}
 
-    ///// <summary>
-    ///// Reset and initialize the entire view based on the given Inventory.</summary>
-    //public void InitFromInventory(Inventory inventory)
-    //{
-    //    foreach (KeyValuePair<InventoryItem, InventoryViewItem> entry in _items)
-    //    {
-    //        Destroy(entry.Value.gameObject);
-    //    }
-    //    _items.Clear();
-    //    _numberOfSlots = inventory._items.Count;
-    //    ResetSlots();
-    //    int currentActionSlot = 0;
-    //    for (int i = 0; i < inventory._items.Count; i++)
-    //    {
-    //        var invItem = AddItem(inventory._items[i], inventory._quantities[i]);
-    //        // Update the weapon Slot
-    //        if (inventory._items[i] == Player._player.Stats.EquippedWeapon)
-    //        {
-    //            _weaponSlot.Swap(invItem);
-    //        }
-    //        if (Player._player.Stats._equippedItems.Contains(inventory._items[i]))
-    //        {
-    //            PlayerMenu._playerMenu._actionSlots[currentActionSlot]._allowsDrag = true;
-    //            PlayerMenu._playerMenu._actionSlots[currentActionSlot].Swap(invItem);
-    //            PlayerMenu._playerMenu._actionSlots[currentActionSlot]._allowsDrag = false;
-    //            currentActionSlot += 1;
-    //        }
-    //    }
-    //}
+

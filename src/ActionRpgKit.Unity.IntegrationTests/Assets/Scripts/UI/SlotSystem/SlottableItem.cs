@@ -10,16 +10,36 @@ namespace SlotSystem
     public class SlottableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         /// <summary>
+        /// Reference to the Item.</summary>
+        public ItemData Item;
+
+        /// <summary>
+        /// The ModelItem holding the quantity.</summary>
+        public int Quantity;
+
+        /// <summary>
+        /// Text Field to display the name.</summary>
+        public Text Name;
+
+        /// <summary>
+        /// Text Field to display the quantity of the Item.</summary>
+        public Text QuantityText;
+
+        /// <summary>
+        /// The sprite image.</summary>
+        public Image Image;
+
+        /// <summary>
         /// The currently dragged Item.</summary>
-        public static SlottableItem _draggedItem;
+        public static SlottableItem DraggedItem;
 
         /// <summary>
         /// The Slot this Item resides in.</summary>
-        public Slot _slot;
+        public Slot Slot;
 
         /// <summary>
         /// Slot at the beginning of a drag.</summary>
-        private Slot startSlot;
+        private Slot _startSlot;
 
         /// <summary>
         /// The UI RectTransform of the Item.</summary>
@@ -61,13 +81,13 @@ namespace SlotSystem
         /// front of everything while dragging.</summary>
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (!_slot.AllowsDrag)
+            if (!Slot.AllowsDrag)
             {
                 return;
             }
             _canvas = GetComponentInParent<Canvas>();
-            _draggedItem = this;
-            startSlot = _slot;
+            DraggedItem = this;
+            _startSlot = Slot;
             _canvasGroup.blocksRaycasts = false;
             transform.SetParent(GetComponentInParent<Canvas>().transform);
         }
@@ -76,7 +96,7 @@ namespace SlotSystem
         /// Update the current position to the MousePosition.</summary>
         public void OnDrag(PointerEventData eventData)
         {
-            if (!_slot.AllowsDrag)
+            if (!Slot.AllowsDrag)
             {
                 return;
             }
@@ -91,30 +111,52 @@ namespace SlotSystem
         /// If no new Slot was found, drop the Item back into the current Slot.</summary>
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (!_slot.AllowsDrag)
+            if (!Slot.AllowsDrag)
             {
                 return;
             }
-            _draggedItem = null;
+            DraggedItem = null;
             _canvasGroup.blocksRaycasts = true;
-            if (_slot == startSlot)
+            if (Slot == _startSlot)
             {
-                _slot.Drop(this);
+                Slot.Drop(this);
             }
         }
 
         /// <summary>
         /// Weather the Item accepts the given Slot.</summary>
-        public virtual bool AcceptsSlot(Slot slot)
+        public bool AcceptsSlot(Slot slot)
         {
             return true;
         }
 
         /// <summary>
-        /// Data on the Item.</summary>
-        public virtual object Data
+        /// Initialize the visual UI elements with the information from the
+        /// Item</summary>
+        public void Init(ItemData item, int quantity)
         {
-            get { return null; } set { }
+            Item = item;
+            Quantity = quantity;
+            UpdateDisplay();
+        }
+
+        /// <summary>
+        /// Refresh the display of the Item. Called when the quantity of
+        /// the Item has changed.</summary>
+        public void UpdateDisplay()
+        {
+            if (Item is UsableItemData)
+            {
+                var item = (UsableItemData)Item;
+                Name.text = item.Item.Name;
+            }
+            else if (Item is WeaponItemData)
+            {
+                var item = (WeaponItemData)Item;
+                Name.text = item.Item.Name;
+            }
+            QuantityText.text = Quantity.ToString();
+            Image.sprite = Item.Sprite;
         }
     }
 }
