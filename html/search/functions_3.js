@@ -12,6 +12,7 @@ var searchData=
   ['emitonmagicskilllearned',['EmitOnMagicSkillLearned',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a733887800a582c8ba14e86a22786219f',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['emitonmagicskilltriggered',['EmitOnMagicSkillTriggered',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af8825119b32df6022d284849e621bca9',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['emitonstatechanged',['EmitOnStateChanged',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a57d569e37cbd87516a5e97503aa01e72',1,'ActionRpgKit::Character::BaseCharacter']]],
+  ['emitonweaponequipped',['EmitOnWeaponEquipped',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a51ae7439c397430a11861f834eeba546',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['emitvaluechanged',['EmitValueChanged',['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#ab60d87655bfa49408013d2d49d1a0681',1,'ActionRpgKit::Character::Attribute::PrimaryAttribute']]],
   ['end',['End',['../d4/d9c/class_action_rpg_kit_1_1_story_1_1_storyline.xhtml#afc12d18e19e10b35d361fbb09c7c1d54',1,'ActionRpgKit::Story::Storyline']]],
   ['enemy',['Enemy',['../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml#a9945ec40eb134d6fb2c97602344b67cf',1,'ActionRpgKit.Character.Enemy.Enemy()'],['../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml#a823060b8aa2912d0c8b33907b4017f1f',1,'ActionRpgKit.Character.Enemy.Enemy(string name)']]],

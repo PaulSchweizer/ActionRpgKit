@@ -13,6 +13,7 @@ var class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats =
     [ "MagicRegenerationRate", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a23bf39aed17a5f1e334b182adad151e8", null ],
     [ "AlertnessRange", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a9ff069e19e65a4c5a3183453a2c64a0f", null ],
     [ "AttackRange", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a2247f75cea2fc59005822e1565c5a412", null ],
+    [ "Damage", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a119235862c7f9dd2f1f993d316841f8b", null ],
     [ "MovementSpeed", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#af85115ca3d600f51f6a4cb494c7c0d5b", null ],
     [ "Alertness", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#ac6c7c96fc7a38142b4ff2fd9be4bbad8", null ],
     [ "ChasePersistency", "db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a996ee04af02cab4c681acafc4dec62d1", null ],

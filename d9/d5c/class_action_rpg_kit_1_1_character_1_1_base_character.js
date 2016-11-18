@@ -13,6 +13,7 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
     [ "EmitOnCombatSkillUsed", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a02c2e812fb4d974d72b5e46c961b7598", null ],
     [ "EmitOnEnemyEnteredAltertnessRange", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a290b77ac297a523a7299f0af0a98472c", null ],
     [ "EmitOnEnemyLeftAltertnessRange", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a153da86ad4b0048d007b0333577ae904", null ],
+    [ "EmitOnWeaponEquipped", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a51ae7439c397430a11861f834eeba546", null ],
     [ "LearnMagicSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a81241b736f6ec5a4d7ddfc901fcdded9", null ],
     [ "TriggerMagicSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a120b45278f10b89b31f466ba2f4dfc3a", null ],
     [ "UseMagicSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#acbfdefb46d316f2ead558cb38dcd9670", null ],
@@ -30,6 +31,7 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
     [ "Id", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afe0b47b3c92f2f69ea3da50cb72553eb", null ],
     [ "Stats", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aae675cc1ade48758b96f03e5488afce9", null ],
     [ "Inventory", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ae72af6686d9205927f776f9e87dd08f4", null ],
+    [ "_equippedWeapon", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ac0f4e13d4d5d022c7fb5e2af1f30c7b6", null ],
     [ "AlertnessEndTime", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a20d12be3a8b740b454a0047afed3f079", null ],
     [ "IsMoving", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a17cc82981a0c9a556728849fb45a1ffa", null ],
     [ "ChaseEndTime", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a9e735b2f203f1d8d36f531b5834648cb", null ],
@@ -55,7 +57,7 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
     [ "TimeUntilNextAttack", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7874a66111d3279e62e10777c6639ee1", null ],
     [ "CurrentAttackSkill", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a67cd368b5059f35e9c2dcc7410de7181", null ],
     [ "AttackRange", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a008ec3ffacafafde52b43650a993df7d", null ],
-    [ "AttackSpeed", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab2d0a5e0c26df15ad785e3dacd32c861", null ],
+    [ "AttacksPerSecond", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a5af6ca454af3f100d7670e027fea9f25", null ],
     [ "Damage", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2", null ],
     [ "EquippedWeapon", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7c6296d3ea4af57473f102c58917bdb4", null ],
     [ "EnemiesInAttackRange", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a72054f1e66441d44cef85c2301f68e60", null ],
@@ -67,5 +69,6 @@ var class_action_rpg_kit_1_1_character_1_1_base_character =
     [ "OnCombatSkillTriggered", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ac3d928e18c4c7f70f38ad9fb15f18319", null ],
     [ "OnCombatSkillUsed", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aac3a17a5e987f7da64c3098878161404", null ],
     [ "OnEnemyEnteredAltertnessRange", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a3b4a5b9bbbd27fdf3c8ef80a7732df34", null ],
-    [ "OnEnemyLeftAltertnessRange", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ada4350b2fd96cb5235bef0f7561e19ff", null ]
+    [ "OnEnemyLeftAltertnessRange", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ada4350b2fd96cb5235bef0f7561e19ff", null ],
+    [ "OnWeaponEquipped", "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aac4cc42a818a28bb74355ec9a529ef1c", null ]
 ];

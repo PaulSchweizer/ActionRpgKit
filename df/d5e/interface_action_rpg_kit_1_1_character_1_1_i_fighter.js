@@ -17,7 +17,7 @@ var interface_action_rpg_kit_1_1_character_1_1_i_fighter =
     [ "TimeUntilNextAttack", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7874a66111d3279e62e10777c6639ee1", null ],
     [ "CurrentAttackSkill", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a67cd368b5059f35e9c2dcc7410de7181", null ],
     [ "AttackRange", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a008ec3ffacafafde52b43650a993df7d", null ],
-    [ "AttackSpeed", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ab2d0a5e0c26df15ad785e3dacd32c861", null ],
+    [ "AttacksPerSecond", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a5af6ca454af3f100d7670e027fea9f25", null ],
     [ "Damage", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2", null ],
     [ "EquippedWeapon", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7c6296d3ea4af57473f102c58917bdb4", null ],
     [ "TargetedEnemy", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a0000fac19f7183f5aada5e437b535a24", null ],
