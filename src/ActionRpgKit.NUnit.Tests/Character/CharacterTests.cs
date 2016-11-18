@@ -20,6 +20,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
         Enemy enemy;
         CombatSkill meleeSkill;
         MagicSkill passiveMagicSkill;
+        WeaponItem sword;
+        WeaponItem beretta;
         int _stateChanged;
         int _magicSkillLearned;
         int _magicSkillTriggered;
@@ -40,7 +42,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
                             damage: 1,
                             maximumTargets: 1,
                             range: 1,
-                            itemSequence: new int[] {});
+                            itemSequence: new int[] { });
             passiveMagicSkill = new PassiveMagicSkill(id: 0,
                                         name: "ShadowStrength",
                                         description: "A +10 Buff to the user's strength.",
@@ -52,6 +54,23 @@ namespace ActionRpgKit.NUnit.Tests.Character
                                         modifiedAttributeName: "Body");
             SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill };
             SkillDatabase.CombatSkills = new CombatSkill[] { meleeSkill };
+
+            sword = new WeaponItem();
+            sword.Id = 0;
+            sword.Name = "Sword";
+            sword.Range = 1;
+            sword.Damage = 1;
+            sword.Speed = 0.5f;
+
+            beretta = new WeaponItem();
+            sword.Id = 1;
+            beretta.Name = "Beretta";
+            beretta.Range = 10;
+            beretta.Damage = 10;
+            beretta.Speed = 2;
+
+            ItemDatabase.Items = new BaseItem[] { sword, beretta};
+
             player.LearnCombatSkill(meleeSkill.Id);
             player.LearnMagicSkill(passiveMagicSkill.Id);
             enemy.Stats.Life.Value = 10;
@@ -331,6 +350,28 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(1, _combatSkillTriggered);
             Assert.AreEqual(1, _combatSkillUsed);
+        }
+
+        [Test]
+        public void AdditionalAttributesTest()
+        {
+            // No Weapon equipped
+            Console.WriteLine(player.ToString());
+            Assert.AreEqual(1, player.Damage);
+            Assert.AreEqual(1, player.AttackRange);
+            Assert.AreEqual(1, player.AttacksPerSecond);
+
+            // Equip the sword
+            player.EquippedWeapon = sword.Id;
+            Assert.AreEqual(2, player.Damage);
+            Assert.AreEqual(2, player.AttackRange);
+            Assert.AreEqual(2, player.AttacksPerSecond);
+
+            // Equip the beretta
+            player.EquippedWeapon = beretta.Id;
+            Assert.AreEqual(11, player.Damage);
+            Assert.AreEqual(11, player.AttackRange);
+            Assert.AreEqual(0.5, player.AttacksPerSecond);
         }
 
         public void StateChangedTest(ICharacter sender, IState previousState, IState newState)

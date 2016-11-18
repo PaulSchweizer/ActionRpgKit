@@ -117,7 +117,7 @@ namespace ActionRpgKit.Character
         /// The Attack Range.</summary>
         float AttackRange { get; }
 
-        float AttackSpeed { get; }
+        float AttacksPerSecond { get; }
 
         float Damage { get; }
 
@@ -215,6 +215,11 @@ namespace ActionRpgKit.Character
     /// <param name="enemy">The Enemy</param>
     public delegate void EnemyLeftAltertnessRangeHandler(IFighter enemy);
 
+    /// <summary>
+    /// Emitted when the weapon has been changed.</summary>
+    /// <param name="itemId">The id of the weapon item</param>
+    public delegate void WeaponEquippedHandler(int itemId);
+
     #endregion
 
     #region Abstracts
@@ -242,16 +247,37 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Event handler.</summary>
-        [field: NonSerialized] public event StateChangedHandler OnStateChanged;
-        [field: NonSerialized] public event MagicSkillLearnedHandler OnMagicSkillLearned;   
-        [field: NonSerialized] public event MagicSkillTriggeredHandler OnMagicSkillTriggered; 
-        [field: NonSerialized] public event CombatSkillLearnedHandler OnCombatSkillLearned;
-        [field: NonSerialized] public event CombatSkillTriggeredHandler OnCombatSkillTriggered;
-        [field: NonSerialized] public event CombatSkillUsedHandler OnCombatSkillUsed;
-        [field: NonSerialized] public event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;    
-        [field: NonSerialized] public event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
+        [field: NonSerialized]
+        public event StateChangedHandler OnStateChanged;
+
+        [field: NonSerialized]
+        public event MagicSkillLearnedHandler OnMagicSkillLearned;
+
+        [field: NonSerialized]
+        public event MagicSkillTriggeredHandler OnMagicSkillTriggered;
+
+        [field: NonSerialized]
+        public event CombatSkillLearnedHandler OnCombatSkillLearned;
+
+        [field: NonSerialized]
+        public event CombatSkillTriggeredHandler OnCombatSkillTriggered;
+
+        [field: NonSerialized]
+        public event CombatSkillUsedHandler OnCombatSkillUsed;
+
+        [field: NonSerialized]
+        public event EnemyEnteredAltertnessRangeHandler OnEnemyEnteredAltertnessRange;
+
+        [field: NonSerialized]
+        public event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
+
+        [field: NonSerialized]
+        public event WeaponEquippedHandler OnWeaponEquipped;
 
         #region States
+
+        [NonSerialized]
+        private int _equippedWeapon = -1;
 
         /// <summary>
         /// The level of alertness of the Character.</summary>
@@ -497,6 +523,17 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Emit when the Weapon has Changed.</summary>
+        protected void EmitOnWeaponEquipped(int weaponId)
+        {
+            var handler = OnWeaponEquipped;
+            if (handler != null)
+            {
+                handler(weaponId);
+            }
+        }
+
         #endregion
 
         #region IMagicUser Implementations
@@ -626,24 +663,40 @@ namespace ActionRpgKit.Character
             }
         }
 
-        public float AttackSpeed
+        // Attacks per second
+        public float AttacksPerSecond
         {
             get
             {
-                float speed = SkillDatabase.GetCombatSkillById(CurrentAttackSkill).CooldownTime;
+                float cooldown = 0;
+                if (CurrentAttackSkill > -1)
+                {
+                    cooldown = SkillDatabase.GetCombatSkillById(CurrentAttackSkill).CooldownTime;
+                }
                 if (EquippedWeapon > -1)
                 {
-                    speed += ItemDatabase.GetWeaponItemById(EquippedWeapon).Speed;
+                    if (ItemDatabase.GetWeaponItemById(EquippedWeapon).Speed > cooldown)
+                    {
+                        cooldown = ItemDatabase.GetWeaponItemById(EquippedWeapon).Speed;
+                    }
                 }
-                return 1 / speed;
+                if (cooldown > 0)
+                {
+                    return 1 / cooldown;
+                }
+                else
+                {
+                    return 1;
+                }
             }
         }
 
+        // Damage including the Weapon Damage
         public float Damage
         {
             get
             {
-                float damage = 0;
+                float damage = Stats.Damage.Value;
                 if (EquippedWeapon > -1)
                 {
                     damage += ItemDatabase.GetWeaponItemById(EquippedWeapon).Damage;
@@ -654,7 +707,18 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Currently equipped Weapon, if any. Defaults to -1.</summary>
-        public int EquippedWeapon { get; set; } = -1;
+        public int EquippedWeapon
+        {
+            get
+            {
+                return _equippedWeapon;
+            }
+            set
+            {
+                _equippedWeapon = value;
+                EmitOnWeaponEquipped(value);
+            }
+        }
 
         /// <summary>
         /// A list of enemies in AttackRange.</summary>

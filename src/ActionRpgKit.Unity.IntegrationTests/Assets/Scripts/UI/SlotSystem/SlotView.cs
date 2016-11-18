@@ -209,10 +209,15 @@ namespace SlotSystem
         {
             if (slot == WeaponSlot)
             {
-                if (currentItem.Item == null) { return; }
-                if (currentItem.Item.Item is WeaponItem)
+                if (currentItem == null)
                 {
-                    var item = (WeaponItem)currentItem.Item.Item;
+                    GamePlayer.Instance.Character.EquippedWeapon = -1;
+                    return;
+                }
+                if (currentItem.Item is WeaponItemData)
+                {
+                    var itemData = (WeaponItemData)currentItem.Item;
+                    var item = itemData.Item;
                     GamePlayer.Instance.Character.EquippedWeapon = item.Id;
                 }
             }

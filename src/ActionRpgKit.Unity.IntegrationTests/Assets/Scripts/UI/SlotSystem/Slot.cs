@@ -119,7 +119,7 @@ namespace SlotSystem
     public interface ISlotChanged : IEventSystemHandler
     {
         void SlotChanged(Slot slot,
-                          SlottableItem newItem,
-                          SlottableItem oldItem);
+                         SlottableItem newItem,
+                         SlottableItem oldItem);
     }
 }

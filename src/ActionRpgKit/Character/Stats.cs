@@ -53,6 +53,10 @@ namespace ActionRpgKit.Character.Stats
         public BaseAttribute AttackRange;
 
         /// <summary>
+        /// The base damage.</summary>
+        public BaseAttribute Damage;
+
+        /// <summary>
         /// Speed corresponding to the Unity nav mesh agent's speed.</summary>
         public BaseAttribute MovementSpeed;
 
@@ -82,6 +86,7 @@ namespace ActionRpgKit.Character.Stats
             Dict.Add("Magic", Magic);
             Dict.Add("AlertnessRange", AlertnessRange);
             Dict.Add("AttackRange", AttackRange);
+            Dict.Add("Damage", Damage);
             Dict.Add("MovementSpeed", MovementSpeed);
             Dict.Add("Alertness", Alertness);
             Dict.Add("ChasePersistency", ChasePersistency);
@@ -100,6 +105,7 @@ namespace ActionRpgKit.Character.Stats
             Magic.Value = stats.Magic.Value;
             AlertnessRange.Value = stats.AlertnessRange.Value;
             AttackRange.Value = stats.AttackRange.Value;
+            Damage.Value = stats.Damage.Value;
             MovementSpeed.Value = stats.MovementSpeed.Value;
             Alertness.Value = stats.Alertness.Value;
             ChasePersistency.Value = stats.ChasePersistency.Value;
@@ -113,7 +119,7 @@ namespace ActionRpgKit.Character.Stats
             string repr = string.Format("--- Primary Attributes ------------\n" +
                                          "{0}\n{1}\n{2}\n{3}\n" +
                                          "--- Secondary Attributes ------------\n" +
-                                         "{4}\n{5}\n{6}\n{7}\n{8}\n{9}\n{10}\n{11}\n{12}\n",
+                                         "{4}\n{5}\n{6}\n{7}\n{8}\n{9}\n{10}\n{11}\n{12}\n{13}\n",
                                          Body.ToString(),
                                          Mind.ToString(),
                                          Soul.ToString(),
@@ -124,6 +130,7 @@ namespace ActionRpgKit.Character.Stats
                                          MagicRegenerationRate.ToString(),
                                          AlertnessRange.ToString(),
                                          AttackRange.ToString(),
+                                         Damage.ToString(),
                                          MovementSpeed.ToString(),
                                          Alertness.ToString(),
                                          ChasePersistency.ToString());
@@ -147,9 +154,10 @@ namespace ActionRpgKit.Character.Stats
             Mind = new PrimaryAttribute("Mind", 0, 999, 0);
             Soul = new PrimaryAttribute("Soul", 0, 999, 0);
             Experience = new PrimaryAttribute("Experience", 0, 980100, 0);
-            AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 1);
+            AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 2);
             AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
-            MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 100, 0);
+            Damage = new PrimaryAttribute("Damage", 1, 999, 1);
+            MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 100, 1);
             Alertness = new PrimaryAttribute("Alertness", 0, 10, 0);
             ChasePersistency = new PrimaryAttribute("ChasePersistency", 0, 100, 0);
 
@@ -190,7 +198,8 @@ namespace ActionRpgKit.Character.Stats
             Life = new PrimaryAttribute("Life", 0, 999, 0);
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate", 0, 2, 0);
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
-            AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 1);
+            AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 2);
+            Damage = new PrimaryAttribute("Damage", 1, 999, 1);
             AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
             MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 100, 1);
             Alertness = new PrimaryAttribute("Alertness", 0, 10, 0);

@@ -42,7 +42,7 @@ public class GameMenu : MonoBehaviour
     public Text ExperienceValueText;
     public Text LevelValueText;
     public Text AttackRangeValueText;
-    public Text AttackSpeedValueText;
+    public Text AttacksPerSecondValueText;
     public Text DamageValueText;
     public Text MagicRegenerationRateValueText;
 
@@ -70,6 +70,7 @@ public class GameMenu : MonoBehaviour
         GamePlayer.Instance.Character.Stats.Body.OnValueChanged += new ValueChangedHandler(UpdateStats);
         GamePlayer.Instance.Character.Stats.Mind.OnValueChanged += new ValueChangedHandler(UpdateStats);
         GamePlayer.Instance.Character.Stats.Soul.OnValueChanged += new ValueChangedHandler(UpdateStats);
+        GamePlayer.Instance.Character.OnWeaponEquipped += new WeaponEquippedHandler(UpdateWeaponStats);
 
         // Set the initial values
         UpdateLifeSlider(GamePlayer.Instance.Character.Stats.Life, GamePlayer.Instance.Character.Stats.Life.Value);
@@ -135,9 +136,17 @@ public class GameMenu : MonoBehaviour
         ExperienceValueText.text = GamePlayer.Instance.Character.Stats.Experience.Value.ToString();
         LevelValueText.text = GamePlayer.Instance.Character.Stats.Level.Value.ToString();
         AttackRangeValueText.text = GamePlayer.Instance.Character.Stats.AttackRange.Value.ToString();
-        AttackSpeedValueText.text = GamePlayer.Instance.Character.AttackSpeed.ToString();
+        AttacksPerSecondValueText.text = GamePlayer.Instance.Character.AttacksPerSecond.ToString();
         DamageValueText.text = GamePlayer.Instance.Character.Damage.ToString();
         MagicRegenerationRateValueText.text = GamePlayer.Instance.Character.Stats.MagicRegenerationRate.Value.ToString();
+    }
+
+    void UpdateWeaponStats(int weaponId)
+    {
+        Debug.Log(weaponId);
+        AttackRangeValueText.text = GamePlayer.Instance.Character.Stats.AttackRange.Value.ToString();
+        AttacksPerSecondValueText.text = GamePlayer.Instance.Character.AttacksPerSecond.ToString();
+        DamageValueText.text = GamePlayer.Instance.Character.Damage.ToString();
     }
 }
 
