@@ -58,7 +58,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 #endif
         RaycastHit hit;
-        Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Characters",
+        Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Character",
                                                              "Terrain"));
         return hit;
     }
@@ -71,7 +71,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         GameBaseCharacter enemy = hit.collider.gameObject.GetComponent<GameBaseCharacter>();
         GamePlayer.Instance.Character.AddEnemy(enemy.Character, 0);
-        GamePlayer.Instance.Character.IsMoving = true;
+        GamePlayer.Instance.Character.TargetedEnemy = enemy.Character;
     }
 
     /// <summary>
@@ -79,6 +79,8 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     private void HitTerrain(RaycastHit hit)
     {
         GamePlayer.Instance.NavMeshAgent.SetDestination(hit.point);
-        GamePlayer.Instance.Character.IsMoving = true;
+        GamePlayer.Instance.Character.ChangeState(GamePlayer.Instance.Character.MoveState);
+        GamePlayer.Instance.Character.TargetedEnemy = null;
+        GamePlayer.Instance.Character.Enemies.Clear();
     }
 }

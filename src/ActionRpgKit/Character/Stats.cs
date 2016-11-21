@@ -157,7 +157,7 @@ namespace ActionRpgKit.Character.Stats
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 2);
             AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
             Damage = new PrimaryAttribute("Damage", 1, 999, 1);
-            MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 100, 1);
+            MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 10, 1);
             Alertness = new PrimaryAttribute("Alertness", 0, 10, 0);
             ChasePersistency = new PrimaryAttribute("ChasePersistency", 0, 100, 0);
 
@@ -201,7 +201,7 @@ namespace ActionRpgKit.Character.Stats
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 2);
             Damage = new PrimaryAttribute("Damage", 1, 999, 1);
             AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
-            MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 100, 1);
+            MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 10, 1);
             Alertness = new PrimaryAttribute("Alertness", 0, 10, 0);
             ChasePersistency = new PrimaryAttribute("ChasePersistency", 0, 100, 0);
             AssignAttributesToDict();

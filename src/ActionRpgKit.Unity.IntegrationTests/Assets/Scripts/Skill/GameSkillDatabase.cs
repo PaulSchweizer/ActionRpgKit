@@ -34,6 +34,18 @@ public class GameSkillDatabase : ScriptableObject
         SkillDatabase.MagicSkills = magicSkills.ToArray();
     }
 
+    public PassiveMagicSkillData GetMagicSkillById(int skillId)
+    {
+        foreach (var skillData in PassiveMagicSkillsData)
+        {
+            if (skillData.Skill.Id == skillId)
+            {
+                return skillData;
+            }
+        }
+        return null;
+    }
+
     public GenericCombatSkillData GetCombatSkillById (int skillId)
     {
         foreach (var skillData in GenericCombatSkillsData)

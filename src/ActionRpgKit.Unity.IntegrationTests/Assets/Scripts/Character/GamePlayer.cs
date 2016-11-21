@@ -59,15 +59,7 @@ public class GamePlayer : GameBaseCharacter
 
     #region Character Events
 
-    public override void StatsChanged(BaseAttribute sender, float value)
-    {
-    }
-
     public void MagicSkillLearned(IMagicUser sender, int skillId)
-    {
-    }
-
-    public override void MagicSkillTriggered(IMagicUser sender, int skillId)
     {
     }
 

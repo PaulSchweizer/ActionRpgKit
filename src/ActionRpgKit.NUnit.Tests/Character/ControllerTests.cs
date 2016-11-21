@@ -32,7 +32,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.Stats.AlertnessRange.Value = 10*10;
             Assert.AreEqual(1000, Controller.Enemies.Count);
             Controller.Update();
-            Assert.AreEqual(11, player.Enemies.Count);
+            Assert.AreEqual(2, player.Enemies.Count);
         }
 
     }

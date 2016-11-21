@@ -111,6 +111,7 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
         }
 
         // Inventory
+        Character.Inventory.Reset();
         for (i = 0; i < _serializedInventoryItems.Length; i++)
         {
             Character.Inventory.AddItem(_serializedInventoryItems[i],

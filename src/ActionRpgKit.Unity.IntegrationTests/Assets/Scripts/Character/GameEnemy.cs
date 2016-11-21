@@ -41,13 +41,5 @@ public class GameEnemy : GameBaseCharacter
 
     #region Character Events
 
-    public override void StatsChanged(BaseAttribute sender, float value)
-    {
-    }
-
-    public override void MagicSkillTriggered(IMagicUser sender, int skillId)
-    {
-    }
-
     #endregion
 }

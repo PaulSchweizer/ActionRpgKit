@@ -52,11 +52,15 @@ namespace ActionRpgKit.Character
                     }
                     var distance = Player.Position.SquaredDistanceTo(Enemies[i].Position);
 
-                    CharacterInAlertnessRange(Player, Enemies[i], distance);
-                    CharacterInAlertnessRange(Enemies[i], Player, distance);
+                    //CharacterInAlertnessRange(Player, Enemies[i], distance);
+                    var inRange = CharacterInAlertnessRange(Enemies[i], Player, distance);
+                    if (inRange)
+                    {
+                        CharacterInAttackRange(Enemies[i], Player, distance);
+                    }
 
+                    // Player Distance Check
                     CharacterInAttackRange(Player, Enemies[i], distance);
-                    CharacterInAttackRange(Enemies[i], Player, distance);
 
                     Enemies[i].Update();
                 }
@@ -69,17 +73,19 @@ namespace ActionRpgKit.Character
         /// <param name="source">The source Character for the testing.</param>
         /// <param name="target">The targeted Character.</param>
         /// <param name="distance">The squared distance between them.</param>
-        private static void CharacterInAlertnessRange(BaseCharacter source, 
+        private static bool CharacterInAlertnessRange(BaseCharacter source, 
                                                       BaseCharacter target, 
                                                       float distance)
         {
             if (distance <= source.Stats.AlertnessRange.Value)
             {
                 source.AddEnemy(target);
+                return true;
             }
             else
             {
                 source.RemoveEnemy(target);
+                return false;
             }
         }
 
@@ -96,6 +102,7 @@ namespace ActionRpgKit.Character
             {
                 if (!source.EnemiesInAttackRange.Contains(target))
                 {
+                    source.Enemies.Add(target);
                     source.EnemiesInAttackRange.Add(target);
                 }
             }
@@ -103,6 +110,7 @@ namespace ActionRpgKit.Character
             {
                 if (source.EnemiesInAttackRange.Contains(target))
                 {
+                    source.Enemies.Remove(target);
                     source.EnemiesInAttackRange.Remove(target);
                 }
             }

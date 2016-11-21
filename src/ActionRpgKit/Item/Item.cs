@@ -26,7 +26,7 @@ namespace ActionRpgKit.Item
     [Serializable]
     public class UsableItem : BaseItem
     {
-
+        public bool DestroyOnUse;
     }
 
     /// <summary>

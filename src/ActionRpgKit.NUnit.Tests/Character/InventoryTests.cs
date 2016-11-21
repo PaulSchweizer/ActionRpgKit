@@ -17,6 +17,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
         
         SimpleInventory simpleInventory;
         PlayerInventory playerInventory;
+        int _itemAddedCalled;
+        int _itemRemovedCalled;
 
         [SetUp]
         public void SetUp()
@@ -105,12 +107,47 @@ namespace ActionRpgKit.NUnit.Tests.Character
                                                   new int[] { 1 });
             Assert.AreEqual(1, playerInventory.ItemCount);
             Assert.AreEqual(1, simpleInventory.ItemCount);
-            simpleInventory.Items = new int[] { };
-            simpleInventory.Quantities = new int[] { };
-            playerInventory.Items = new List<int>();
-            playerInventory.Quantities = new List<int>();
+            simpleInventory.Reset();
+            playerInventory.Reset();
             Assert.AreEqual(0, playerInventory.ItemCount);
             Assert.AreEqual(0, simpleInventory.ItemCount);
+        }
+
+        [Test]
+        public void InventoryEventsTest()
+        {
+            BaseItem herb = ItemDatabase.GetItemByName("Herb");
+            BaseItem coin = ItemDatabase.GetItemByName("Coin");
+
+            // Simple Inventory
+            simpleInventory = new SimpleInventory();
+
+            simpleInventory.OnItemAdded += new ItemAddedHandler(ItemAdded);
+            simpleInventory.OnItemRemoved += new ItemRemovedHandler(ItemRemoved);
+
+            simpleInventory.AddItem(herb.Id);
+            simpleInventory.AddItem(herb.Id);
+            simpleInventory.RemoveItem(herb.Id);
+            simpleInventory.RemoveItem(herb.Id);
+            simpleInventory.RemoveItem(herb.Id);
+
+            Assert.AreEqual(2, _itemAddedCalled);
+            Assert.AreEqual(2, _itemRemovedCalled);
+
+            // Player Inventory
+            playerInventory = new PlayerInventory();
+
+            playerInventory.OnItemAdded += new ItemAddedHandler(ItemAdded);
+            playerInventory.OnItemRemoved += new ItemRemovedHandler(ItemRemoved);
+
+            playerInventory.AddItem(herb.Id);
+            playerInventory.AddItem(herb.Id);
+            playerInventory.RemoveItem(herb.Id);
+            playerInventory.RemoveItem(herb.Id);
+            playerInventory.RemoveItem(herb.Id);
+
+            Assert.AreEqual(4, _itemAddedCalled);
+            Assert.AreEqual(4, _itemRemovedCalled);
         }
 
         [Test]
@@ -170,6 +207,16 @@ namespace ActionRpgKit.NUnit.Tests.Character
             stream.Close();
             File.Delete(serializedFile);
             return serializedStats;
+        }
+
+        private void ItemAdded(int itemId, int quantity)
+        {
+            _itemAddedCalled += 1;
+        }
+
+        private void ItemRemoved(int itemId, int quantity)
+        {
+            _itemRemovedCalled += 1;
         }
     }
 }

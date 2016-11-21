@@ -110,17 +110,13 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // Initial State
             Assert.IsTrue(player.CurrentState is IdleState);
 
-            // Add Enemy switches to alert state
-            Controller.Update();
-            Assert.IsTrue(player.CurrentState is AlertState);
-
-            // No more Enemy switches to idle state
-            enemy.Position.Set(5, 0);
+            // It's not enough to have an Enemy in alterness range for the Player.
+            // It is up to the Player to actually command the Avatar to Attack or Move.
             Controller.Update();
             Assert.IsTrue(player.CurrentState is IdleState);
 
             // Add Enemy and go into Chase state
-            enemy.Position.Set(4, 0);
+            enemy.Position.Set(1, 0);
             Controller.Update();
             Assert.IsTrue(player.CurrentState is AlertState);
             Controller.Update();
@@ -136,23 +132,15 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.IsTrue(player.CurrentState is AlertState);
 
             // Enemy is back and the chase continues 
-            enemy.Position.Set(4, 0);
+            //     0 1 2 3 4
+            //   + - - - - - 
+            // 0 | P E + + +
+            enemy.Position.Set(1, 0);
             GameTime.time += 10 - player.Alertness;
             Controller.Update();
             Assert.IsTrue(player.CurrentState is ChaseState);
-            
-            //     0 1 2 3 4
-            //   + - - - - - 
-            // 0 | + + P + E
-            player.Position.Set(2, 0);
-            player.IsMoving = true;
-            Controller.Update();
-            Assert.IsTrue(player.CurrentState is ChaseState);
 
-            //     0 1 2 3 4
-            //   + - - - - - 
-            // 0 | + + + P E
-            player.Position.Set(3, 0);
+            // Third update should switch the Player to AttackState 
             Controller.Update();
             player.IsMoving = false;
             Assert.IsTrue(player.CurrentState is AttackState);
@@ -175,46 +163,12 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // Reset the enemy and simulate a fleeing enemy after it has been attacked
             //     0 1 2 3 4
             //   + - - - - - 
-            // 0 | + + E P +
+            // 0 | P + E + +
             GameTime.time += 1;
             enemy.IsDefeated = false;
             enemy.Life.Value = 10;
             enemy.Position.Set(2, 0);
             player.AddEnemy(enemy);
-            Controller.Update();
-            Assert.IsTrue(player.CurrentState is AlertState);
-            GameTime.time += 10 - player.Alertness;
-            Controller.Update();
-            Assert.IsTrue(player.CurrentState is ChaseState);
-            Controller.Update();
-            Assert.IsTrue(player.CurrentState is AttackState);
-            Controller.Update();
-
-            // Enemy flees
-            //     0 1 2 3 4
-            //   + - - - - - 
-            // 0 | + E + P +
-            enemy.Position.Set(1, 0);
-            Controller.Update();
-            Assert.IsTrue(player.CurrentState is ChaseState);
-
-            // Player chases after the enemy
-            //     0 1 2 3 4
-            //   + - - - - - 
-            // 0 | + E P + +
-            player.Position.Set(2, 0);
-            Controller.Update();
-            Assert.IsTrue(player.CurrentState is AttackState);
-
-            // Enemy is out of AlertnessRange so we eventually return to Idle
-            //     0 1 2 3 4 5
-            //   + - - - - - - 
-            // 0 | E + + + P
-            player.Position.Set(4, 0);
-            enemy.Position.Set(0, 0);
-            player.Stats.AlertnessRange.Value = 1;
-            Controller.Update();
-            Assert.IsTrue(player.CurrentState is AlertState);
             Controller.Update();
             Assert.IsTrue(player.CurrentState is IdleState);
 

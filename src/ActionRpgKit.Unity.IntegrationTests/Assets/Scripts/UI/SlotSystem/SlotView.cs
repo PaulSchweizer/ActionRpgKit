@@ -51,6 +51,9 @@ namespace SlotSystem
             }
 
             InitFromInventory(GamePlayer.Instance.Character.Inventory);
+
+            GamePlayer.Instance.Character.Inventory.OnItemAdded += new ItemAddedHandler(AddItem);
+            GamePlayer.Instance.Character.Inventory.OnItemRemoved += new ItemRemovedHandler(RemoveItem);
         }
         
         /// <summary>
@@ -71,40 +74,38 @@ namespace SlotSystem
             var quantities = inventory.Quantities.GetEnumerator();
             while (items.MoveNext() && quantities.MoveNext())
             {
-                var invItem = AddItem(items.Current, quantities.Current);
+                AddItem(items.Current, quantities.Current);
             }
-
-
-
-            //int currentActionSlot = 0;
-            //for (int i = 0; i < inventory._items.Count; i++)
-            //{
-                //// Update the weapon Slot
-                //if (inventory._items[i] == Player._player.Stats.EquippedWeapon)
-                //{
-                //    _weaponSlot.Swap(invItem);
-                //}
-                //if (Player._player.Stats._equippedItems.Contains(inventory._items[i]))
-                //{
-                //    PlayerMenu._playerMenu._actionSlots[currentActionSlot]._allowsDrag = true;
-                //    PlayerMenu._playerMenu._actionSlots[currentActionSlot].Swap(invItem);
-                //    PlayerMenu._playerMenu._actionSlots[currentActionSlot]._allowsDrag = false;
-                //    currentActionSlot += 1;
-                //}
-            //}
         }
 
-
-
-
-
-
-
-
-
-
-
-
+        /// <summary>
+        /// Delete the given quantity of the given Item.</summary>
+        public void RemoveItem(int itemId, int quantity)
+        {
+            SlottableItem viewItem;
+            if (_items.TryGetValue(itemId, out viewItem))
+            {
+                viewItem.Quantity -= quantity;
+                if (viewItem.Quantity <= 0)
+                {
+                    _items.Remove(itemId);
+                    viewItem.Slot.Clear();
+                    Destroy(viewItem.gameObject);
+                }
+                else
+                {
+                    viewItem.UpdateDisplay();
+                }
+            }
+            else
+            {
+                var item = ActionRpgKitController.Instance.ItemDatabase.Items[itemId];
+                viewItem = Instantiate(ViewItem);
+                viewItem.Init(item, quantity);
+                _items[itemId] = viewItem;
+                AddItem(viewItem);
+            }
+        }
 
         /// <summary>
         /// Reset all the slots.</summary>
@@ -165,16 +166,15 @@ namespace SlotSystem
             }
         }
 
-
         /// <summary>
         /// Add an Item to the View.
         /// If it already exists, update the quantity.</summary>
-        public SlottableItem AddItem(int itemId, int quantity)
+        public void AddItem(int itemId, int quantity)
         {
             SlottableItem viewItem;
             if (_items.TryGetValue(itemId, out viewItem))
             {
-                viewItem.Quantity = quantity;
+                viewItem.Quantity += quantity;
                 viewItem.UpdateDisplay();
             }
             else
@@ -185,7 +185,6 @@ namespace SlotSystem
                 _items[itemId] = viewItem;
                 AddItem(viewItem);
             }
-            return viewItem;
         }
 
         /// <summary>
@@ -224,38 +223,3 @@ namespace SlotSystem
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ///// <summary>
-    ///// Delete the given Item.</summary>
-    //public void RemoveItem(InventoryItem item)
-    //{
-    //    var invItem = _items[item];
-    //    _items.Remove(item);
-    //    Destroy(invItem.gameObject);
-    //}
-
-    ///// <summary>
-    ///// Change and updates the Display data on the Item.</summary>
-    //public void ChangeItemData(InventoryItem item, int quantity)
-    //{
-    //    var invItem = _items[item];
-    //    invItem._quantity = quantity;
-    //    invItem.UpdateDisplay();
-    //}
-
-

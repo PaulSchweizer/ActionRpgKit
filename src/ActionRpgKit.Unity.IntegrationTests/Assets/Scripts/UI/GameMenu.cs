@@ -76,6 +76,9 @@ public class GameMenu : MonoBehaviour
         UpdateLifeSlider(GamePlayer.Instance.Character.Stats.Life, GamePlayer.Instance.Character.Stats.Life.Value);
         UpdateMagicSlider(GamePlayer.Instance.Character.Stats.Magic, GamePlayer.Instance.Character.Stats.Magic.Value);
         UpdateStats(GamePlayer.Instance.Character.Stats.Body, GamePlayer.Instance.Character.Stats.Body.Value);
+
+        // Reset the UI
+        EnemyPanel.SetActive(false);
     }
 
     public void SwitchToGame()
@@ -92,29 +95,34 @@ public class GameMenu : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    void UpdateLifeSlider(BaseAttribute sender, float value)
+    private void UpdateLifeSlider(BaseAttribute sender, float value)
     {
         LifeSlider.minValue = sender.MinValue;
         LifeSlider.maxValue = sender.MaxValue;
         LifeSlider.value = value;
     }
 
-    void UpdateMagicSlider(BaseAttribute sender, float value)
+    private void UpdateMagicSlider(BaseAttribute sender, float value)
     {
         MagicSlider.minValue = sender.MinValue;
         MagicSlider.maxValue = sender.MaxValue;
         MagicSlider.value = value;
     }
 
-    void UpdateEnemyLifeSlider(IFighter sender, int skillId)
+    private void UpdateEnemyLifeSlider(IFighter sender, int skillId)
     {
+        if (sender.TargetedEnemy == null)
+        {
+            EnemyPanel.SetActive(false);
+            return;
+        }
         EnemyName.text = sender.TargetedEnemy.Name;
         EnemyLifeSlider.minValue = sender.TargetedEnemy.Life.MinValue;
         EnemyLifeSlider.maxValue = sender.TargetedEnemy.Life.MaxValue;
         EnemyLifeSlider.value = sender.TargetedEnemy.Life.Value;
     }
 
-    void ToggleEnemyPanel(ICharacter sender, IState previousState, IState newState)
+    private void ToggleEnemyPanel(ICharacter sender, IState previousState, IState newState)
     {
         if (newState is AttackState)
         {
@@ -127,7 +135,7 @@ public class GameMenu : MonoBehaviour
         }
     }
 
-    void UpdateStats(BaseAttribute sender, float value)
+    private void UpdateStats(BaseAttribute sender, float value)
     {
         BodyValueText.text = GamePlayer.Instance.Character.Stats.Body.Value.ToString();
         MindValueText.text = GamePlayer.Instance.Character.Stats.Mind.Value.ToString();
@@ -141,9 +149,8 @@ public class GameMenu : MonoBehaviour
         MagicRegenerationRateValueText.text = GamePlayer.Instance.Character.Stats.MagicRegenerationRate.Value.ToString();
     }
 
-    void UpdateWeaponStats(int weaponId)
+    private void UpdateWeaponStats(int weaponId)
     {
-        Debug.Log(weaponId);
         AttackRangeValueText.text = GamePlayer.Instance.Character.Stats.AttackRange.Value.ToString();
         AttacksPerSecondValueText.text = GamePlayer.Instance.Character.AttacksPerSecond.ToString();
         DamageValueText.text = GamePlayer.Instance.Character.Damage.ToString();

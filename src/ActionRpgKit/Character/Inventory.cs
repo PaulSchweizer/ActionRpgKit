@@ -52,7 +52,39 @@ namespace ActionRpgKit.Character
         /// <param name="itemId">The id of the Item</param>
         /// <returns>The quantity of this Item.</returns>
         public abstract int GetQuantity (int itemId);
+
+        /// <summary>
+        /// Reset the entire inventory and delete every item in it.</summary>
+        public abstract void Reset();
+
+        /// <summary>
+        /// Transfer all the Items from the given Inventory.</summary>
+        public void AddInventory(BaseInventory inventory)
+        {
+            for (int i = 0; i < inventory.ItemCount; i++)
+            {
+                AddItem(inventory.Items.ElementAt(i), inventory.Quantities.ElementAt(i));
+            }
+        }
+
+        /// <summary>
+        /// Emit when a Item has been added.</summary>
+        public abstract event ItemAddedHandler OnItemAdded;
+
+        /// <summary>
+        /// Emit when a Item has been removed.</summary>
+        public abstract event ItemRemovedHandler OnItemRemoved;
     }
+
+    /// <summary>
+    /// Handler operates whenever an Item has been added to the Inventory.</summary>
+    /// <param name="itemId">The id of the added item</param>
+    public delegate void ItemAddedHandler(int itemId, int quantity);
+
+    /// <summary>
+    /// Handler operates whenever an Item has been removed from the Inventory.</summary>
+    /// <param name="itemId">The id of the removed item</param>
+    public delegate void ItemRemovedHandler(int itemId, int quantity);
 
     #endregion
 
@@ -63,6 +95,9 @@ namespace ActionRpgKit.Character
     [Serializable]
     public class SimpleInventory : BaseInventory
     {
+        public override event ItemAddedHandler OnItemAdded;
+        public override event ItemRemovedHandler OnItemRemoved;
+        
         /// <summary>
         /// Items are stored in an array.</summary>
         private int[] _items = new int[] { };
@@ -153,7 +188,7 @@ namespace ActionRpgKit.Character
                 _items[_items.Length - 1] = itemId;
                 _quantities[_quantities.Length - 1] = quantity;
             }
-
+            EmitItemAdded(itemId, quantity);
         }
 
         /// <summary>
@@ -184,8 +219,35 @@ namespace ActionRpgKit.Character
                     _items = newItems;
                     _quantities = newQuantities;
                 }
+                EmitItemRemoved(itemId, quantity);
             }
 
+        }
+
+        /// <summary>
+        /// Clear the underlying Arrays.</summary>
+        public override void Reset()
+        {
+            _items = new int[] { };
+            _quantities = new int[] { };
+        }
+
+        private void EmitItemAdded(int itemId, int quantity)
+        {
+            var handler = OnItemAdded;
+            if (handler != null)
+            {
+                handler(itemId, quantity);
+            }
+        }
+
+        private void EmitItemRemoved(int itemId, int quantity)
+        {
+            var handler = OnItemRemoved;
+            if (handler != null)
+            {
+                handler(itemId, quantity);
+            }
         }
 
         /// <summary>
@@ -210,6 +272,9 @@ namespace ActionRpgKit.Character
     [Serializable]
     public class PlayerInventory : BaseInventory
     {
+        public override event ItemAddedHandler OnItemAdded;
+        public override event ItemRemovedHandler OnItemRemoved;
+
         /// <summary>
         /// Items are stored in a list.</summary>
         public List<int> _items = new List<int>();
@@ -296,6 +361,7 @@ namespace ActionRpgKit.Character
                 _items.Add(itemId);
                 _quantities.Add(quantity);
             }
+            EmitItemAdded(itemId, quantity);
         }
 
         /// <summary>
@@ -312,16 +378,25 @@ namespace ActionRpgKit.Character
                     _quantities.RemoveAt(_items.IndexOf(itemId));
                     _items.Remove(itemId);
                 }
+                EmitItemRemoved(itemId, quantity);
             }
         }
 
-        /// <summary>
-        /// Transfer all the Items from the given Inventory.</summary>
-        public void AddInventory(BaseInventory inventory)
+        private void EmitItemAdded(int itemId, int quantity)
         {
-            for (int i = 0; i < inventory.ItemCount; i++)
+            var handler = OnItemAdded;
+            if (handler != null)
             {
-                AddItem(inventory.Items.ElementAt(i), inventory.Quantities.ElementAt(i));
+                handler(itemId, quantity);
+            }
+        }
+
+        private void EmitItemRemoved(int itemId, int quantity)
+        {
+            var handler = OnItemRemoved;
+            if (handler != null)
+            {
+                handler(itemId, quantity);
             }
         }
 
@@ -339,6 +414,14 @@ namespace ActionRpgKit.Character
                 repr += string.Format("+---------------+----+\n");
             }
             return repr;
+        }
+
+        /// <summary>
+        /// Clear the underlying Lists.</summary>
+        public override void Reset()
+        {
+            _items.Clear();
+            _quantities.Clear();
         }
     }
 

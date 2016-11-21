@@ -12,6 +12,8 @@ public class GameBaseCharacter : MonoBehaviour
     // Unity related fields
     public NavMeshAgent NavMeshAgent;
     public Animator Animator;
+    public Collider Collider;
+    public Loot LootPrefab;
     protected GameCharacterState CurrentState;
     protected GameIdleState IdleState = GameIdleState.Instance;
     protected GameMoveState MoveState = GameMoveState.Instance;
@@ -42,7 +44,7 @@ public class GameBaseCharacter : MonoBehaviour
         Character.OnCombatSkillTriggered += new CombatSkillTriggeredHandler(CombatSkillTriggered);
         foreach (KeyValuePair<string, BaseAttribute> attr in Character.Stats.Dict)
         {
-            attr.Value.OnValueChanged += new ValueChangedHandler(StatsChanged);
+            attr.Value.OnModifierAdded += new ModifierAddedHandler(ModifierAdded);
         }
 
         // NavMeshAgent
@@ -79,12 +81,24 @@ public class GameBaseCharacter : MonoBehaviour
     }
 
     /// <summary>
-    /// Update the visual display of the Stats and trigger other dependent processes.</summary>
+    /// A Modifier has been added.</summary>
     /// <param name="sender">The Attribute</param>
-    /// <param name="value">The value of the Attribute</param>
-    public virtual void StatsChanged(BaseAttribute sender, float value)
+    /// <param name="modifier">The Modifier</param>
+    public virtual void ModifierAdded(BaseAttribute sender, AttributeModifier modifier)
     {
-        Debug.Log(string.Format("{0}: {1} Changed", sender.Name, value));
+        if (modifier is TimeBasedModifier)
+        {
+            StartCoroutine(TimeBasedModifierCountdown(sender, (TimeBasedModifier)modifier));
+        }
+    }
+
+    private IEnumerator TimeBasedModifierCountdown(BaseAttribute sender, TimeBasedModifier modifier)
+    {
+        while (modifier.RemainingTime > 0)
+        {
+            yield return null;
+        }
+        sender.RemoveModifier(modifier);
     }
 
     public virtual void StateChanged(ICharacter sender, IState previousState, IState newState)
@@ -123,12 +137,32 @@ public class GameBaseCharacter : MonoBehaviour
 
     public virtual void MagicSkillTriggered(IMagicUser sender, int skillId)
     {
-        throw new NotImplementedException();
+        StartCoroutine(MagicSkillCountdown(sender, skillId));
     }
 
     public virtual void CombatSkillTriggered(IFighter sender, int skillId)
     {
         StartCoroutine(CombatSkillCountdown(sender, skillId));
+    }
+
+    /// <summary>
+    /// Run a countdown after a skill has been used.</summary>
+    private IEnumerator MagicSkillCountdown(IMagicUser sender, int skillId)
+    {
+        float endTime = Character.MagicSkillEndTimes[Character.MagicSkills.IndexOf(skillId)];
+
+        var skillData = ActionRpgKitController.Instance.SkillDatabase.GetMagicSkillById(skillId);
+
+        Animator.SetFloat("MagicAnimation", skillData.AnimationIndex);
+        Animator.SetTrigger("Magic");
+
+        endTime = Time.time + skillData.CastingTime;
+
+        while (Time.time < endTime)
+        {
+            yield return null;
+        }
+        Character.UseMagicSkill(skillId);
     }
 
     /// <summary>
@@ -154,12 +188,14 @@ public class GameBaseCharacter : MonoBehaviour
         Animator.SetTrigger("Attack");
 
         endTime = Time.time + skillData.HitTime;
-
         while (Time.time < endTime)
         {
             yield return null;
         }
-        Character.UseCombatSkill(skillId);
+        if (Character.TargetedEnemy != null)
+        {
+            Character.UseCombatSkill(skillId);
+        }
     }
 
     #endregion
@@ -239,17 +275,13 @@ public class GameIdleState : GameCharacterState
     {
         character.NavMeshAgent.Stop();
         character.Animator.SetBool("IdleState", true);
+        character.Animator.SetFloat("MovementSpeed", 0);
     }
 
     /// <summary>
     /// Bring the movement speed down to a still stand.</summary>
     public override void Update(GameBaseCharacter character)
     {
-        if (character.Animator.GetFloat("MovementSpeed") > 0)
-        {
-            character.Animator.SetFloat("MovementSpeed", 
-                Math.Max(0, character.Animator.GetFloat("MovementSpeed") - Time.deltaTime * 6));
-        }
         if (character.Character.Enemies.Count > 0)
         {
             character.NavMeshAgent.SetDestination(new Vector3(character.Character.Enemies[0].Position.X, 0,
@@ -288,10 +320,11 @@ public class GameMoveState : GameCharacterState
         {
             return;
         }
-        if (character.Animator.GetFloat("MovementSpeed") < 1)
+        if (character.Animator.GetFloat("MovementSpeed") < character.Character.Stats.MovementSpeed.Value)
         {
             character.Animator.SetFloat("MovementSpeed", 
-                Math.Min(1, character.Animator.GetFloat("MovementSpeed") + Time.deltaTime * 6));
+                Math.Min(character.Character.Stats.MovementSpeed.Value, 
+                         character.Animator.GetFloat("MovementSpeed") + Time.deltaTime));
         }
 
         if (character.NavMeshAgent.remainingDistance <= character.NavMeshAgent.stoppingDistance)
@@ -412,6 +445,7 @@ public class GameAttackState : GameCharacterState
     /// Stop the NavMeshAgent.</summary>
     public override void Exit(GameBaseCharacter character)
     {
+        character.StopCoroutine("CombatSkillCountdown");
         character.Animator.SetBool("AttackState", false);
     }
 }
@@ -425,8 +459,9 @@ public class GameDefeatedState : GameCharacterState
     /// Stop the NavMeshAgent.</summary>
     public override void Enter(GameBaseCharacter character)
     {
-        character.NavMeshAgent.Stop();
         character.Animator.SetBool("DefeatedState", true);
+        character.NavMeshAgent.enabled = false;
+        character.gameObject.tag = "Untagged";
         character.StartCoroutine(DefeatAnimation(character));
     }
 
@@ -445,13 +480,27 @@ public class GameDefeatedState : GameCharacterState
     /// Play the dying animation and remove the Character after a time.</summary>
     public IEnumerator DefeatAnimation(GameBaseCharacter character)
     {
-        float endTime = Time.time + 20;
+        float endTime = Time.time + 3;
         character.Animator.SetFloat("DefeatAnimation", UnityEngine.Random.Range(0, 2));
         while (Time.time < endTime)
         {
             yield return null;
         }
-        character.Animator.SetBool("DefeatedState", false);
-        character.gameObject.SetActive(false);
+        DropLoot(character);
+        character.Animator.enabled = false;
+        character.Collider.enabled = false;
+        character.enabled = false;
+    }
+
+    /// <summary>
+    /// Instantiate loot.</summary>
+    public void DropLoot(GameBaseCharacter character)
+    {
+        var loot = (Loot)ScriptableObject.Instantiate(character.LootPrefab,
+                                                      new Vector3(character.Character.Position.X, 0,
+                                                                  character.Character.Position.Y),
+                                                      character.transform.rotation);
+        loot.Inventory = character.Character.Inventory;
+        character.transform.SetParent(loot.transform);
     }
 }
