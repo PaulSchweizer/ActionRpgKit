@@ -197,6 +197,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a8681b83e9516decf00bc09102abc0538"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a8681b83e9516decf00bc09102abc0538">WeaponEquippedHandler</a> (int itemId)</td></tr>
 <tr class="memdesc:a8681b83e9516decf00bc09102abc0538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when the weapon has been changed. <a href="#a8681b83e9516decf00bc09102abc0538">More...</a><br /></td></tr>
 <tr class="separator:a8681b83e9516decf00bc09102abc0538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9b06e837c440eeb527b40242fcd60a6"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af9b06e837c440eeb527b40242fcd60a6">ItemAddedHandler</a> (int itemId, int quantity)</td></tr>
+<tr class="memdesc:af9b06e837c440eeb527b40242fcd60a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever an <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> has been added to the Inventory. <a href="#af9b06e837c440eeb527b40242fcd60a6">More...</a><br /></td></tr>
+<tr class="separator:af9b06e837c440eeb527b40242fcd60a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa21933ad46365d631cb22c6eb7e28320"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#aa21933ad46365d631cb22c6eb7e28320">ItemRemovedHandler</a> (int itemId, int quantity)</td></tr>
+<tr class="memdesc:aa21933ad46365d631cb22c6eb7e28320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler operates whenever an <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> has been removed from the Inventory. <a href="#aa21933ad46365d631cb22c6eb7e28320">More...</a><br /></td></tr>
+<tr class="separator:aa21933ad46365d631cb22c6eb7e28320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ab26a7c08e58573d5b233e6f09f33cf6e"></a>
@@ -488,13 +494,81 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af9b06e837c440eeb527b40242fcd60a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.ItemAddedHandler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>itemId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>quantity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever an <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> has been added to the Inventory.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">itemId</td><td>The id of the added item</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa21933ad46365d631cb22c6eb7e28320"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void ActionRpgKit.Character.ItemRemovedHandler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>itemId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>quantity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler operates whenever an <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> has been removed from the Inventory.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">itemId</td><td>The id of the removed item</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li>
-    <li class="footer">Generated on Fri Nov 18 2016 07:36:20 for Action RPG Kit by
+    <li class="footer">Generated on Mon Nov 21 2016 05:41:40 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

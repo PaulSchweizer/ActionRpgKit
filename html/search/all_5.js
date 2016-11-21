@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['emititemadded',['EmitItemAdded',['../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#af0ef43f5f6a74a3cbee816b45705ded6',1,'ActionRpgKit.Character.SimpleInventory.EmitItemAdded()'],['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#af0ef43f5f6a74a3cbee816b45705ded6',1,'ActionRpgKit.Character.PlayerInventory.EmitItemAdded()']]],
+  ['emititemremoved',['EmitItemRemoved',['../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a4e2abe8ed6808c068245dbf5331782e2',1,'ActionRpgKit.Character.SimpleInventory.EmitItemRemoved()'],['../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a4e2abe8ed6808c068245dbf5331782e2',1,'ActionRpgKit.Character.PlayerInventory.EmitItemRemoved()']]],
   ['emitmaxreached',['EmitMaxReached',['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a71f946d9d4bfa7e4d8a369e0745a93a4',1,'ActionRpgKit::Character::Attribute::PrimaryAttribute']]],
   ['emitminreached',['EmitMinReached',['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa64674aff0b295c73235db07565e64ce',1,'ActionRpgKit::Character::Attribute::PrimaryAttribute']]],
   ['emitmodifieradded',['EmitModifierAdded',['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#a8fa3a2eae51637df274ae3c2d91d146e',1,'ActionRpgKit::Character::Attribute::PrimaryAttribute']]],

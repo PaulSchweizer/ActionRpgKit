@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('d3/d19/class_action_rpg_kit_1_1_charac
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#events">Events</a> &#124;
 <a href="../../dd/d2b/class_action_rpg_kit_1_1_character_1_1_base_inventory-members.xhtml">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">BaseInventory Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -123,6 +124,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab0ccc302c6a48fc18cadf1933efc4ea4"><td class="memItemLeft" align="right" valign="top">abstract int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#ab0ccc302c6a48fc18cadf1933efc4ea4">GetQuantity</a> (int itemId)</td></tr>
 <tr class="memdesc:ab0ccc302c6a48fc18cadf1933efc4ea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The quantity of the given <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a>. <a href="#ab0ccc302c6a48fc18cadf1933efc4ea4">More...</a><br /></td></tr>
 <tr class="separator:ab0ccc302c6a48fc18cadf1933efc4ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18e2b147f6c34812adfcc9c977a5ecb"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#ab18e2b147f6c34812adfcc9c977a5ecb">Reset</a> ()</td></tr>
+<tr class="memdesc:ab18e2b147f6c34812adfcc9c977a5ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the entire inventory and delete every item in it. <a href="#ab18e2b147f6c34812adfcc9c977a5ecb">More...</a><br /></td></tr>
+<tr class="separator:ab18e2b147f6c34812adfcc9c977a5ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae85d89aded3b39daacf697ce7a1a7586"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#ae85d89aded3b39daacf697ce7a1a7586">AddInventory</a> (<a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml">BaseInventory</a> inventory)</td></tr>
+<tr class="memdesc:ae85d89aded3b39daacf697ce7a1a7586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer all the Items from the given Inventory. <a href="#ae85d89aded3b39daacf697ce7a1a7586">More...</a><br /></td></tr>
+<tr class="separator:ae85d89aded3b39daacf697ce7a1a7586"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -135,6 +142,15 @@ Properties</h2></td></tr>
 <tr class="memitem:af1ec7f6c1ef8b307d6d327f7dac755b2"><td class="memItemLeft" align="right" valign="top">abstract int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#af1ec7f6c1ef8b307d6d327f7dac755b2">ItemCount</a><code> [get]</code></td></tr>
 <tr class="memdesc:af1ec7f6c1ef8b307d6d327f7dac755b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The count of the different Items. Not the total count of items. <a href="#af1ec7f6c1ef8b307d6d327f7dac755b2">More...</a><br /></td></tr>
 <tr class="separator:af1ec7f6c1ef8b307d6d327f7dac755b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
+Events</h2></td></tr>
+<tr class="memitem:a9beb192fa2480f2837c787a32ca679c0"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af9b06e837c440eeb527b40242fcd60a6">ItemAddedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#a9beb192fa2480f2837c787a32ca679c0">OnItemAdded</a></td></tr>
+<tr class="memdesc:a9beb192fa2480f2837c787a32ca679c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emit when a <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> has been added. <a href="#a9beb192fa2480f2837c787a32ca679c0">More...</a><br /></td></tr>
+<tr class="separator:a9beb192fa2480f2837c787a32ca679c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af270bd470a34a5358c35c2d9c284c35f"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#aa21933ad46365d631cb22c6eb7e28320">ItemRemovedHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml#af270bd470a34a5358c35c2d9c284c35f">OnItemRemoved</a></td></tr>
+<tr class="memdesc:af270bd470a34a5358c35c2d9c284c35f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emit when a <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> has been removed. <a href="#af270bd470a34a5358c35c2d9c284c35f">More...</a><br /></td></tr>
+<tr class="separator:af270bd470a34a5358c35c2d9c284c35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An Inventory holds Items and their quantity. It can be thought of as a table with two columns, like this: +=======+============+ | Items | Quantities | +=======+============+ | Sword | 1 | +----&mdash;+---------&mdash;+ | Gold | 12 | +----&mdash;+---------&mdash;+ </p>
@@ -264,6 +280,59 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab18e2b147f6c34812adfcc9c977a5ecb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">abstract void Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset the entire inventory and delete every item in it.</p>
+
+<p>Implemented in <a class="el" href="../../d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml#a298cb68f7f3fb7f40595f4302af4ae25">PlayerInventory</a>, and <a class="el" href="../../de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml#a298cb68f7f3fb7f40595f4302af4ae25">SimpleInventory</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae85d89aded3b39daacf697ce7a1a7586"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AddInventory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml">BaseInventory</a>&#160;</td>
+          <td class="paramname"><em>inventory</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transfer all the Items from the given Inventory.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Property Documentation</h2>
 <a class="anchor" id="a784422982815c79a84ee4d31c6132d91"></a>
 <div class="memitem">
@@ -331,6 +400,35 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Event Documentation</h2>
+<a class="anchor" id="a9beb192fa2480f2837c787a32ca679c0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">abstract <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af9b06e837c440eeb527b40242fcd60a6">ItemAddedHandler</a> OnItemAdded</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Emit when a <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> has been added.</p>
+
+</div>
+</div>
+<a class="anchor" id="af270bd470a34a5358c35c2d9c284c35f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">abstract <a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#aa21933ad46365d631cb22c6eb7e28320">ItemRemovedHandler</a> OnItemRemoved</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Emit when a <a class="el" href="../../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml">Item</a> has been removed.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Inventory.cs</li>
 </ul>
@@ -340,7 +438,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../d3/d19/class_action_rpg_kit_1_1_character_1_1_base_inventory.xhtml">BaseInventory</a></li>
-    <li class="footer">Generated on Fri Nov 18 2016 07:36:20 for Action RPG Kit by
+    <li class="footer">Generated on Mon Nov 21 2016 05:41:40 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
