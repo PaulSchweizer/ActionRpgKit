@@ -156,7 +156,7 @@ namespace ActionRpgKit.Character.Stats
             Experience = new PrimaryAttribute("Experience", 0, 980100, 0);
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 2);
             AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
-            Damage = new PrimaryAttribute("Damage", 1, 999, 1);
+            Damage = new PrimaryAttribute("Damage", 0, 999, 0);
             MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 10, 1);
             Alertness = new PrimaryAttribute("Alertness", 0, 10, 0);
             ChasePersistency = new PrimaryAttribute("ChasePersistency", 0, 100, 0);
@@ -199,7 +199,7 @@ namespace ActionRpgKit.Character.Stats
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate", 0, 2, 0);
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 2);
-            Damage = new PrimaryAttribute("Damage", 1, 999, 1);
+            Damage = new PrimaryAttribute("Damage", 0, 999, 0);
             AttackRange = new PrimaryAttribute("AttackRange", 1, 999, 1);
             MovementSpeed = new PrimaryAttribute("MovementSpeed", 1, 10, 1);
             Alertness = new PrimaryAttribute("Alertness", 0, 10, 0);

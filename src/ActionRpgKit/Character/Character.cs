@@ -362,6 +362,9 @@ namespace ActionRpgKit.Character
             
             // Connect internal signals
             Stats.Life.OnMinReached += new MinReachedHandler(OnDefeated);
+
+            // Learn the default CombatSkill
+            LearnCombatSkill(SkillDatabase.GetCombatSkillByName("__Default__").Id);
         }
 
         /// <summary>
@@ -669,10 +672,10 @@ namespace ActionRpgKit.Character
             get
             {
                 float cooldown = 0;
-                if (CurrentAttackSkill > -1)
-                {
-                    cooldown = SkillDatabase.GetCombatSkillById(CurrentAttackSkill).CooldownTime;
-                }
+                //if (CurrentAttackSkill > -1)
+                //{
+                //    cooldown = SkillDatabase.GetCombatSkillById(CurrentAttackSkill).CooldownTime;
+                //}
                 if (EquippedWeapon > -1)
                 {
                     if (ItemDatabase.GetWeaponItemById(EquippedWeapon).Speed > cooldown)
@@ -795,11 +798,7 @@ namespace ActionRpgKit.Character
                 return false;
             }
             var combatSkill = SkillDatabase.GetCombatSkillById(skillId);
-            float endTime = GameTime.time + combatSkill.CooldownTime;
-            if (EquippedWeapon > -1)
-            {
-                endTime += 1 / ItemDatabase.GetWeaponItemById(EquippedWeapon).Speed;
-            }
+            float endTime = GameTime.time + combatSkill.CooldownTime + AttacksPerSecond;
             CombatSkillEndTimes[CombatSkills.IndexOf(skillId)] = endTime; 
             EmitOnCombatSkillTriggered(skillId);
             return true;
@@ -836,7 +835,7 @@ namespace ActionRpgKit.Character
         /// <returns> Whether the Skill van be used.</returns>
         private bool CombatSkillCanBeUsed(int skillId)
         {
-            if (!CombatSkills.Contains(skillId))
+            if (!CombatSkills.Contains(skillId) && skillId != -1)
             {
                 return false;
             }

@@ -71,13 +71,32 @@ namespace ActionRpgKit.NUnit.Tests.Character
         }
 
         [Test]
+        public void DefaultWeaponAndSkillTest()
+        {
+            // Set the equipped Waepon to no Weapon
+            player.EquippedWeapon = -1;
+            Assert.AreEqual(-1, player.EquippedWeapon);
+
+            // Set the Skill to no Skill
+            player.TriggerCombatSkill(-1);
+            Console.WriteLine(player.CurrentAttackSkill);
+
+            Assert.AreEqual("__Default__", SkillDatabase.GetCombatSkillById(-1).Name);
+
+            player.Stats.Damage.Value = 100;
+            Assert.AreEqual(100, player.Damage);
+        }
+
+        [Test]
         public void SimpleMeeSkillTest()
         {
             // Prepare the enemy by learning the meleeSkill and going into the 
             // attack state
             enemy1.ChangeState(enemy1.AttackState);
             enemy1.LearnCombatSkill(meleeSkill.Id);
+            enemy1.CurrentAttackSkill = meleeSkill.Id;
             Assert.IsTrue(enemy1.CombatSkills.Contains(meleeSkill.Id));
+            enemy1.CombatSkillEndTimes[1] = -1;
 
             // Add the Player as an enemy
             enemy1.AddEnemy(player);
@@ -90,7 +109,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
                 Controller.Update();
                 enemy1.TriggerCombatSkill(meleeSkill.Id);
                 Assert.AreEqual(20 - (i + 1), player.Life.Value);
-                GameTime.time += 1;
+                GameTime.time += 2;
             }
         }
 
@@ -101,7 +120,8 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // Prepare the player by learning the multiMeleeSkill
             player.ChangeState(player.AttackState);
             player.LearnCombatSkill(meleeMultiTargetsSkill.Id);
-            player.CombatSkillEndTimes[0] = -1;
+            player.CurrentAttackSkill = meleeMultiTargetsSkill.Id;
+            player.CombatSkillEndTimes[1] = -1;
 
             player.Position.Set(0, 0);
             enemy1.Position.Set(0, 0);
@@ -113,12 +133,14 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.TargetedEnemy = enemy1;
 
             // Attack the Enemy until his health runs out
+            var enemy1InitialValue = enemy1.Life.Value;
+            var enemy2InitialValue = enemy2.Life.Value;
             for (int i = 0; i < 5; i++)
             {
                 Controller.Update();
                 player.TriggerCombatSkill(meleeMultiTargetsSkill.Id);
-                Assert.AreEqual(10 - (i*2 + 2), enemy1.Life.Value);
-                Assert.AreEqual(10 - (i*2 + 2), enemy2.Life.Value);
+                Assert.AreEqual(enemy1InitialValue - (i*2 + 2), enemy1.Life.Value);
+                Assert.AreEqual(enemy2InitialValue - (i*2 + 2), enemy2.Life.Value);
                 Assert.AreEqual(10, enemy3.Life.Value);
                 GameTime.time += 2;
             }

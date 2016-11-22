@@ -247,11 +247,7 @@ namespace ActionRpgKit.Character.Skill
         /// Inform the attacked Characters that they are being attacked.</summary>
         public override void Use(IFighter user)
         {
-            float damage = Damage;
-            if (user.EquippedWeapon > -1)
-            {
-                damage += ItemDatabase.GetWeaponItemById(user.EquippedWeapon).Damage;
-            }
+            float damage = Damage + user.Damage;
             for (int i = 0; i < Math.Min(MaximumTargets, user.EnemiesInAttackRange.Count); i++)
             {
                 if (i == 0)
@@ -275,6 +271,15 @@ namespace ActionRpgKit.Character.Skill
     public static class SkillDatabase
     {
         /// <summary>
+        /// A default combat skill that is being used when there is no other 
+        /// Skill available.</summary>
+        private static CombatSkill DefaultCombatSkill = 
+            new GenericCombatSkill(id: -1, name: "__Default__", 
+                                   description: "The default combat Skill", 
+                                   cooldownTime: 1, itemSequence: new int[] {}, 
+                                   damage: 0, maximumTargets: 1, range: 1);
+
+        /// <summary>
         /// The index of the array corresponds to the id of the MagicSkill.</summary>
         public static MagicSkill[] MagicSkills { get; set; }
 
@@ -293,6 +298,10 @@ namespace ActionRpgKit.Character.Skill
         /// Retrieve the CombatSkill by it's Id.</summary>
         public static CombatSkill GetCombatSkillById(int id)
         {
+            if (id == -1)
+            {
+                return DefaultCombatSkill;
+            }
             return CombatSkills[id];
         }
 
@@ -314,6 +323,10 @@ namespace ActionRpgKit.Character.Skill
         /// Retrieve the CombatSkill by Name.</summary>
         public static CombatSkill GetCombatSkillByName(string name)
         {
+            if (name == "__Default__")
+            {
+                return DefaultCombatSkill;
+            }
             for (int i = 0; i < CombatSkills.Length; i++)
             {
                 if (CombatSkills[i].Name == name)

@@ -8,6 +8,8 @@ using System.IO;
 [CreateAssetMenu(fileName = "SkillDatabase", menuName = "ActionRpgKit/Create Skill Database")]
 public class GameSkillDatabase : ScriptableObject
 {
+    public GenericCombatSkillData DefaultCombatSkill;
+
     public PassiveMagicSkillData[] PassiveMagicSkillsData;
 
     public GenericCombatSkillData[] GenericCombatSkillsData;
@@ -48,6 +50,11 @@ public class GameSkillDatabase : ScriptableObject
 
     public GenericCombatSkillData GetCombatSkillById (int skillId)
     {
+        if (skillId == -1)
+        {
+            return DefaultCombatSkill;
+        }
+
         foreach (var skillData in GenericCombatSkillsData)
         {
             if (skillData.Skill.Id == skillId)
