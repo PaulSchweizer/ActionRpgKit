@@ -1,6 +1,7 @@
 var searchData=
 [
   ['damage',['Damage',['../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2',1,'ActionRpgKit.Character.IFighter.Damage()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2',1,'ActionRpgKit.Character.BaseCharacter.Damage()'],['../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2',1,'ActionRpgKit.Character.Skill.CombatSkill.Damage()'],['../db/dd8/class_action_rpg_kit_1_1_character_1_1_stats_1_1_base_stats.xhtml#a119235862c7f9dd2f1f993d316841f8b',1,'ActionRpgKit.Character.Stats.BaseStats.Damage()'],['../d1/dd7/class_action_rpg_kit_1_1_item_1_1_weapon_item.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2',1,'ActionRpgKit.Item.WeaponItem.Damage()']]],
+  ['defaultcombatskill',['DefaultCombatSkill',['../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a6ca9f6c2dbdd719237f874790225bfc1',1,'ActionRpgKit::Character::Skill::SkillDatabase']]],
   ['defeatedstate',['DefeatedState',['../d6/d11/class_action_rpg_kit_1_1_character_1_1_defeated_state.xhtml',1,'ActionRpgKit::Character']]],
   ['defeatedstate',['DefeatedState',['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#af13f2c4a9311644c5dbb501c098b0868',1,'ActionRpgKit::Character::BaseCharacter']]],
   ['deltatime',['deltaTime',['../d7/d54/class_action_rpg_kit_1_1_core_1_1_game_time.xhtml#a1a61318ed6aa02b4ff346e7eb8f68891',1,'ActionRpgKit::Core::GameTime']]],

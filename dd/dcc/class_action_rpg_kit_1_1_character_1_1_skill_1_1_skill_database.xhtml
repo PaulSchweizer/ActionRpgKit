@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('dd/dcc/class_action_rpg_kit_1_1_charac
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="../../d5/db7/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database-members.xhtml">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SkillDatabase Class Reference</div>  </div>
@@ -125,6 +126,12 @@ Properties</h2></td></tr>
 <tr class="memitem:a87e96f137643ee7d50cf874619fe9953"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a87e96f137643ee7d50cf874619fe9953">CombatSkills</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a87e96f137643ee7d50cf874619fe9953"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the array corresponds to the id of the <a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml" title="A Skill to be used as an Attack in Combat.">CombatSkill</a>. <a href="#a87e96f137643ee7d50cf874619fe9953">More...</a><br /></td></tr>
 <tr class="separator:a87e96f137643ee7d50cf874619fe9953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a6ca9f6c2dbdd719237f874790225bfc1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml#a6ca9f6c2dbdd719237f874790225bfc1">DefaultCombatSkill</a></td></tr>
+<tr class="memdesc:a6ca9f6c2dbdd719237f874790225bfc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A default combat skill that is being used when there is no other <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> available. <a href="#a6ca9f6c2dbdd719237f874790225bfc1">More...</a><br /></td></tr>
+<tr class="separator:a6ca9f6c2dbdd719237f874790225bfc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds all the Skills available in the Game.</p>
@@ -233,6 +240,34 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a6ca9f6c2dbdd719237f874790225bfc1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/dec/class_action_rpg_kit_1_1_character_1_1_skill_1_1_combat_skill.xhtml">CombatSkill</a> DefaultCombatSkill</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= </div>
+<div class="line">            <span class="keyword">new</span> GenericCombatSkill(<span class="keywordtype">id</span>: -1, name: <span class="stringliteral">&quot;__Default__&quot;</span>, </div>
+<div class="line">                                   description: <span class="stringliteral">&quot;The default combat Skill&quot;</span>, </div>
+<div class="line">                                   cooldownTime: 1, itemSequence: <span class="keyword">new</span> <span class="keywordtype">int</span>[] {}, </div>
+<div class="line">                                   damage: 0, maximumTargets: 1, range: 1)</div>
+</div><!-- fragment -->
+<p>A default combat skill that is being used when there is no other <a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a> available.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Property Documentation</h2>
 <a class="anchor" id="abe61ec79be33c24894792b1cf834495f"></a>
 <div class="memitem">
@@ -287,7 +322,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml">Skill</a></li><li class="navelem"><a class="el" href="../../dd/dcc/class_action_rpg_kit_1_1_character_1_1_skill_1_1_skill_database.xhtml">SkillDatabase</a></li>
-    <li class="footer">Generated on Mon Nov 21 2016 05:41:40 for Action RPG Kit by
+    <li class="footer">Generated on Tue Nov 22 2016 07:16:18 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

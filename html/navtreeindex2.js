@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"functions_vars.xhtml":[1,3,2],
 "functions_x.xhtml":[1,3,0,20],
 "functions_y.xhtml":[1,3,0,21],
 "hierarchy.xhtml":[1,2],
