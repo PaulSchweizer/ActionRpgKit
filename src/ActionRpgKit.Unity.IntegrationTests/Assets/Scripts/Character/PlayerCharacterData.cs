@@ -133,6 +133,10 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
         {
             Character.CombatSkillEndTimes.Add(-1);
         }
+
+        // Attribute Points
+        var player = (Player)Character;
+        player.AvailableAttributePoints = 0;
     }
 
     #endregion

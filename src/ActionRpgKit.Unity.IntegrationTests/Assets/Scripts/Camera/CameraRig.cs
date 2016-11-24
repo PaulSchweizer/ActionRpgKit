@@ -7,29 +7,25 @@ public class CameraRig : MonoBehaviour
 {
     /// <summary>
     /// Static reference, so the CameraRig is kept unique.</summary>
-    public static CameraRig _cameraRig;
+    public static CameraRig Instance;
 
     /// <summary>
     /// The camera.</summary>
-    public Camera _camera;
+    public Camera Camera;
 
     /// <summary>
     /// The target for the camera to look at.</summary>
-    public Transform _target;
-
-    //--------------------------------------------------------------------------
-    // mono methods
-    //--------------------------------------------------------------------------
+    public Transform Target;
 
     /// <summary>
     /// Keep the CameraRig a singleton.</summary>
     void Awake()
     {
-        if (_cameraRig == null)
+        if (Instance == null)
         {
-            _cameraRig = this;
+            Instance = this;
         }
-        else if (_cameraRig != null)
+        else if (Instance != null)
         {
             Destroy(gameObject);
         }
@@ -37,13 +33,13 @@ public class CameraRig : MonoBehaviour
 
     /// <summary>
     /// Aim at the target and process the mouse wheel zoom in and out.</summary>
-    void Update()
+    public void Update()
     {
-        if (_target == null)
+        if (Target == null)
         {
             return;
         }
-        transform.position = _target.position;
-        _camera.transform.LookAt(_target);
+        transform.position = Target.position;
+        Camera.transform.LookAt(Target);
     }
 }

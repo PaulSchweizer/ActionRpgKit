@@ -121,6 +121,8 @@ namespace ActionRpgKit.Character
 
         float Damage { get; }
 
+        float ExperienceOnDefeat { get; }
+
         /// <summary>
         /// The currently equipped Weapon.</summary>
         int EquippedWeapon { get; set; }
@@ -165,6 +167,11 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// The Fighter is being attacked.</summary>
         void OnAttacked(IFighter attacker, float damage);
+
+        /// <summary>
+        /// The Fighter is notified that he has defeated the given Enemy.</summary>
+        /// <param name="defeatedEnemy">The defeated Enemy.</param>
+        void HasDefeated(IFighter defeatedEnemy);
 
         /// <summary>
         /// Event is fired when a new CombatSkill is learned.</summary>
@@ -723,6 +730,14 @@ namespace ActionRpgKit.Character
             }
         }
 
+        public float ExperienceOnDefeat
+        {
+            get
+            {
+                return Stats.Experience.Value;
+            }
+        }
+
         /// <summary>
         /// A list of enemies in AttackRange.</summary>
         public List<IFighter> EnemiesInAttackRange { get; set; } = new List<IFighter>();
@@ -816,6 +831,11 @@ namespace ActionRpgKit.Character
             }
             AddEnemy(attacker);
             Stats.Life.Value -= damage;
+
+            if (Stats.Life.Value <= 0)
+            {
+                attacker.HasDefeated(this);
+            }
         }
 
         /// <summary>
@@ -847,6 +867,11 @@ namespace ActionRpgKit.Character
         }
         
         /// <summary>
+        /// Nothing happens here.</summary>
+        /// <param name="defeatedEnemy"></param>
+        public virtual void HasDefeated(IFighter defeatedEnemy) { }
+
+        /// <summary>
         /// The Character has just been killed.</summary>
         private void OnDefeated(BaseAttribute sender)
         {
@@ -867,10 +892,20 @@ namespace ActionRpgKit.Character
     public class Player : BaseCharacter
     {
         /// <summary>
+        /// The experience points that the character can use to increase 
+        /// his Attributes.</summary>
+        public int AvailableAttributePoints;
+
+        /// <summary>
+        /// Store the previous level to calculate the difference</summary>
+        private float _levelBefore;
+
+        /// <summary>
         /// Constructor is needed for seamless serialization.</summary>
         public Player() : base(new PlayerStats(), new PlayerInventory())
         {
             Controller.Register(this);
+            Stats.Level.OnValueChanged += new ValueChangedHandler(NextLevelReached);
         }
 
         /// <summary>
@@ -879,6 +914,26 @@ namespace ActionRpgKit.Character
         {
             Name = name;
             Controller.Register(this);
+            Stats.Level.OnValueChanged += new ValueChangedHandler(NextLevelReached);
+        }
+
+        /// <summary>
+        /// Nothing happens here.</summary>
+        /// <param name="defeatedEnemy"></param>
+        public override void HasDefeated(IFighter defeatedEnemy)
+        {
+            Stats.Experience.Value += defeatedEnemy.ExperienceOnDefeat;
+        }
+
+        /// <summary>
+        /// Increase the available attribute points when a new level has 
+        /// been reached.</summary>
+        /// <param name="attr">The level attribute</param>
+        /// <param name="value">The current level</param>
+        private void NextLevelReached(BaseAttribute attr, float value)
+        {
+            AvailableAttributePoints += (int)((Stats.Level.Value - _levelBefore) * 10);
+            _levelBefore = Stats.Level.Value;
         }
     }
 
@@ -892,6 +947,7 @@ namespace ActionRpgKit.Character
         public Enemy() : base(new EnemyStats(), new SimpleInventory())
         {
             Controller.Register(this);
+            //Stats.Life.OnMinReached += new MinReachedHandler(EnemyKilled);
         }
 
         /// <summary>
@@ -900,6 +956,15 @@ namespace ActionRpgKit.Character
         {
             Name = name;
             Controller.Register(this);
+        }
+
+        /// <summary>
+        /// The </summary>
+        /// <param name="attr"></param>
+        /// <param name="value"></param>
+        private void EnemyKilled(BaseAttribute attr, float value)
+        {
+
         }
     }
 

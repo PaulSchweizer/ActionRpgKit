@@ -24,11 +24,14 @@ public class ActionRpgKitController : MonoBehaviour
         SkillDatabase.InitDatabase();
     }
 
-    void Start()
+    public void Reset()
     {
-        // Reset the Controller
-        ActionRpgKit.Character.Controller.Player = (Player)GamePlayer.Instance.Character;
         ActionRpgKit.Character.Controller.Enemies = new List<Enemy>();
+    }
+
+    public void Initialize()
+    {
+        ActionRpgKit.Character.Controller.Player = (Player)GamePlayer.Instance.Character;
         foreach (GameEnemy enemy in FindObjectsOfType<GameEnemy>())
         {
             ActionRpgKit.Character.Controller.Enemies.Add((Enemy)enemy.Character);

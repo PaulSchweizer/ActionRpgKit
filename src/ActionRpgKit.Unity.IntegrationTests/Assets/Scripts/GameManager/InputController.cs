@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class InputController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-
+    /// <summary>
+    /// Whether the User is pressing mouse / touching the screen.</summary>
     private bool _pointerIsDown;
 
     public void OnPointerDown(PointerEventData data)
@@ -32,7 +33,6 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         var hit = HitFromInput();
 
-        // Idle State if hit outside of terrain
         if (hit.collider == null)
         {
             return;

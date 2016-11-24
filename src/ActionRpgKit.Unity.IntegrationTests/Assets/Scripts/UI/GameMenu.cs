@@ -33,11 +33,15 @@ public class GameMenu : MonoBehaviour
     /// Text displaying the Enemy.</summary>
     public GameObject EnemyPanel;
 
+    public ActionPanel ActionPanel;
+
     public GameObject HUDPanel;
     public GameObject MainMenuPanel;
     public Text BodyValueText;
     public Text MindValueText;
     public Text SoulValueText;
+
+    public Text AvailableAttributePointsText;
 
     public Text ExperienceValueText;
     public Text LevelValueText;
@@ -45,6 +49,8 @@ public class GameMenu : MonoBehaviour
     public Text AttacksPerSecondValueText;
     public Text DamageValueText;
     public Text MagicRegenerationRateValueText;
+
+    private Player Player;
 
     /// <summary>
     /// Keep the GameMenu a Singleton.</summary>
@@ -62,20 +68,24 @@ public class GameMenu : MonoBehaviour
 
     void Start()
     {
+        Player = (Player)GamePlayer.Instance.Character;
+
         // Connect the Signals from the Player
-        GamePlayer.Instance.Character.Stats.Life.OnValueChanged += new ValueChangedHandler(UpdateLifeSlider);
-        GamePlayer.Instance.Character.Stats.Magic.OnValueChanged += new ValueChangedHandler(UpdateMagicSlider);
-        GamePlayer.Instance.Character.OnCombatSkillUsed += new CombatSkillUsedHandler(UpdateEnemyLifeSlider);
-        GamePlayer.Instance.Character.OnStateChanged += new StateChangedHandler(ToggleEnemyPanel);
-        GamePlayer.Instance.Character.Stats.Body.OnValueChanged += new ValueChangedHandler(UpdateStats);
-        GamePlayer.Instance.Character.Stats.Mind.OnValueChanged += new ValueChangedHandler(UpdateStats);
-        GamePlayer.Instance.Character.Stats.Soul.OnValueChanged += new ValueChangedHandler(UpdateStats);
-        GamePlayer.Instance.Character.OnWeaponEquipped += new WeaponEquippedHandler(UpdateWeaponStats);
+        Player.Stats.Life.OnValueChanged += new ValueChangedHandler(UpdateLifeSlider);
+        Player.Stats.Magic.OnValueChanged += new ValueChangedHandler(UpdateMagicSlider);
+        Player.OnCombatSkillUsed += new CombatSkillUsedHandler(UpdateEnemyLifeSlider);
+        Player.OnStateChanged += new StateChangedHandler(ToggleEnemyPanel);
+        Player.Stats.Body.OnValueChanged += new ValueChangedHandler(UpdateStats);
+        Player.Stats.Mind.OnValueChanged += new ValueChangedHandler(UpdateStats);
+        Player.Stats.Soul.OnValueChanged += new ValueChangedHandler(UpdateStats);
+        Player.OnWeaponEquipped += new WeaponEquippedHandler(UpdateWeaponStats);
+        Player.Stats.Level.OnValueChanged += new ValueChangedHandler(NextLevelReached);
 
         // Set the initial values
-        UpdateLifeSlider(GamePlayer.Instance.Character.Stats.Life, GamePlayer.Instance.Character.Stats.Life.Value);
-        UpdateMagicSlider(GamePlayer.Instance.Character.Stats.Magic, GamePlayer.Instance.Character.Stats.Magic.Value);
-        UpdateStats(GamePlayer.Instance.Character.Stats.Body, GamePlayer.Instance.Character.Stats.Body.Value);
+        UpdateLifeSlider(Player.Stats.Life, Player.Stats.Life.Value);
+        UpdateMagicSlider(Player.Stats.Magic, Player.Stats.Magic.Value);
+        UpdateStats(Player.Stats.Body, Player.Stats.Body.Value);
+        AvailableAttributePointsText.text = Player.AvailableAttributePoints.ToString();
 
         // Reset the UI
         EnemyPanel.SetActive(false);
@@ -85,14 +95,36 @@ public class GameMenu : MonoBehaviour
     {
         HUDPanel.SetActive(true);
         MainMenuPanel.SetActive(false);
+        ActionPanel.SlotA.AllowsDrag = false;
+        ActionPanel.SlotB.AllowsDrag = false;
+        ActionPanel.SlotC.AllowsDrag = false;
+        ActionPanel.SlotD.AllowsDrag = false;
+        ActionPanel.WeaponSlot.AllowsDrag = false;
         Time.timeScale = 1;
+
     }
 
     public void SwitchToMainMenu()
     {
         HUDPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
+        ActionPanel.SlotA.AllowsDrag = true;
+        ActionPanel.SlotB.AllowsDrag = true;
+        ActionPanel.SlotC.AllowsDrag = true;
+        ActionPanel.SlotD.AllowsDrag = true;
+        ActionPanel.WeaponSlot.AllowsDrag = true;
         Time.timeScale = 0;
+    }
+
+    public void UseAttributePoint(string attribute)
+    {
+        if (Player.AvailableAttributePoints > 0 && 
+            Player.Stats.Dict[attribute].Value != Player.Stats.Dict[attribute].MaxValue)
+        {
+            Player.Stats.Dict[attribute].Value += 1;
+            Player.AvailableAttributePoints -= 1;
+            AvailableAttributePointsText.text = Player.AvailableAttributePoints.ToString();
+        }
     }
 
     private void UpdateLifeSlider(BaseAttribute sender, float value)
@@ -126,7 +158,7 @@ public class GameMenu : MonoBehaviour
     {
         if (newState is AttackState)
         {
-            UpdateEnemyLifeSlider(GamePlayer.Instance.Character, 0);
+            UpdateEnemyLifeSlider(Player, 0);
             EnemyPanel.SetActive(true);
         }
         else
@@ -135,25 +167,31 @@ public class GameMenu : MonoBehaviour
         }
     }
 
-    private void UpdateStats(BaseAttribute sender, float value)
+    private void UpdateStats(BaseAttribute attribute, float value)
     {
-        BodyValueText.text = GamePlayer.Instance.Character.Stats.Body.Value.ToString();
-        MindValueText.text = GamePlayer.Instance.Character.Stats.Mind.Value.ToString();
-        SoulValueText.text = GamePlayer.Instance.Character.Stats.Soul.Value.ToString();
+        BodyValueText.text = Player.Stats.Body.Value.ToString();
+        MindValueText.text = Player.Stats.Mind.Value.ToString();
+        SoulValueText.text = Player.Stats.Soul.Value.ToString();
 
-        ExperienceValueText.text = GamePlayer.Instance.Character.Stats.Experience.Value.ToString();
-        LevelValueText.text = GamePlayer.Instance.Character.Stats.Level.Value.ToString();
-        AttackRangeValueText.text = GamePlayer.Instance.Character.Stats.AttackRange.Value.ToString();
-        AttacksPerSecondValueText.text = GamePlayer.Instance.Character.AttacksPerSecond.ToString();
-        DamageValueText.text = GamePlayer.Instance.Character.Damage.ToString();
-        MagicRegenerationRateValueText.text = GamePlayer.Instance.Character.Stats.MagicRegenerationRate.Value.ToString();
+        ExperienceValueText.text = Player.Stats.Experience.Value.ToString();
+        LevelValueText.text = Player.Stats.Level.Value.ToString();
+        AttackRangeValueText.text = Player.Stats.AttackRange.Value.ToString();
+        AttacksPerSecondValueText.text = Player.AttacksPerSecond.ToString();
+        DamageValueText.text = Player.Damage.ToString();
+        MagicRegenerationRateValueText.text = Player.Stats.MagicRegenerationRate.Value.ToString();
     }
 
     private void UpdateWeaponStats(int weaponId)
     {
-        AttackRangeValueText.text = GamePlayer.Instance.Character.Stats.AttackRange.Value.ToString();
-        AttacksPerSecondValueText.text = GamePlayer.Instance.Character.AttacksPerSecond.ToString();
-        DamageValueText.text = GamePlayer.Instance.Character.Damage.ToString();
+        AttackRangeValueText.text = Player.Stats.AttackRange.Value.ToString();
+        AttacksPerSecondValueText.text = Player.AttacksPerSecond.ToString();
+        DamageValueText.text = Player.Damage.ToString();
+    }
+
+    private void NextLevelReached(BaseAttribute attribute, float value)
+    {
+        AvailableAttributePointsText.text = Player.AvailableAttributePoints.ToString();
+        UpdateStats(attribute, value);
     }
 }
 

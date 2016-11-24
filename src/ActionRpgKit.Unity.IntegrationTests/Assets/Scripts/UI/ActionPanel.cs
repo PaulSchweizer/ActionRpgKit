@@ -8,6 +8,7 @@ public class ActionPanel : MonoBehaviour
     public Slot SlotB;
     public Slot SlotC;
     public Slot SlotD;
+    public Slot WeaponSlot;
 
     public float MaxInbetweenTime;
 

@@ -74,7 +74,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\IntegrationTests\CharacterStatesTest.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRig.cs" />
     <Compile Include="Assets\Scripts\Character\BaseCharacterData.cs" />
     <Compile Include="Assets\Scripts\Character\EnemyCharacterData.cs" />
@@ -89,7 +88,8 @@
     <Compile Include="Assets\Scripts\EditorTools\SkillCreator.cs" />
     <Compile Include="Assets\Scripts\External\DebugDrawingExtension\DebugExtension.cs" />
     <Compile Include="Assets\Scripts\GameManager\ActionRpgKitController.cs" />
-    <Compile Include="Assets\Scripts\GameManager\InputManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager\InputController.cs" />
+    <Compile Include="Assets\Scripts\GameManager\MainController.cs" />
     <Compile Include="Assets\Scripts\Item\GameItemDatabase.cs" />
     <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Item\UsableItemData.cs" />

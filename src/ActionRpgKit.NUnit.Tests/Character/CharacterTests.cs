@@ -74,6 +74,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.LearnCombatSkill(meleeSkill.Id);
             player.LearnMagicSkill(passiveMagicSkill.Id);
             enemy.Stats.Life.Value = 10;
+            enemy.Stats.Experience.Value = 66;
             GameTime.Reset();
             player.OnCombatSkillTriggered += CombatSkillTriggered;
             enemy.OnCombatSkillTriggered += CombatSkillTriggered;
@@ -155,6 +156,10 @@ namespace ActionRpgKit.NUnit.Tests.Character
             // All of the enemies are gone, so the Character switches back to 
             // AlertState and then to IdleState.
             Assert.AreEqual(0, player.Enemies.Count);
+
+            // Player gathers experience for defeating the Enemy.
+            Assert.AreEqual(enemy.Stats.Experience.Value, player.Stats.Experience.Value);
+
             Controller.Update();
             Assert.IsTrue(player.CurrentState is IdleState);
 
@@ -324,6 +329,16 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.AreEqual(10, player.Damage);
             Assert.AreEqual(11, player.AttackRange);
             Assert.AreEqual(0.5, player.AttacksPerSecond);
+        }
+
+        [Test]
+        public void PlayerAttribuePointsTest()
+        {
+            player.Stats.Experience.Value = 0;
+            player.Stats.Experience.Value = 100;
+            Assert.AreEqual(10, player.AvailableAttributePoints);
+            player.Stats.Experience.Value = 1000;
+            Assert.AreEqual(30, player.AvailableAttributePoints);
         }
 
         public void StateChangedTest(ICharacter sender, IState previousState, IState newState)
