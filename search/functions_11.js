@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['weaponequippedhandler',['WeaponEquippedHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#a8681b83e9516decf00bc09102abc0538',1,'ActionRpgKit::Character']]]
+  ['valuechanged',['ValueChanged',['../d5/ddc/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_primary_attribute.xhtml#aa24ace4343b8f74570014ac80b5150cf',1,'ActionRpgKit::Character::Attribute::PrimaryAttribute']]],
+  ['valuechangedhandler',['ValueChangedHandler',['../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml#ad89ebc2011a07f17680a7ee745287122',1,'ActionRpgKit::Character::Attribute']]],
+  ['valueofformulatattributechanged',['ValueOfFormulatAttributeChanged',['../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#ac3d5aea3bf1ad7fea66740bd903c7148',1,'ActionRpgKit.Character.Attribute.SecondaryAttribute.ValueOfFormulatAttributeChanged()'],['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#a9b758451169a827195d9b564b15443d4',1,'ActionRpgKit.Character.Attribute.VolumeAttribute.ValueOfFormulatAttributeChanged()']]],
+  ['volumeattribute',['VolumeAttribute',['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#a7506c30461d9122ff6ce92c8c138803d',1,'ActionRpgKit.Character.Attribute.VolumeAttribute.VolumeAttribute()'],['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_volume_attribute.xhtml#ac1f0e854b1b9f3af5d8946a2af1cf219',1,'ActionRpgKit.Character.Attribute.VolumeAttribute.VolumeAttribute(string name, Formula formula, BaseAttribute[] attributes, float minValue=float.MinValue, float maxValue=float.MaxValue)']]]
 ];

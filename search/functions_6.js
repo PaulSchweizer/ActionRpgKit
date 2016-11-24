@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['initialize',['Initialize',['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml#a678b79632495f1c0a947a8bf3bdfdadb',1,'ActionRpgKit::Character::EnemyPool']]],
-  ['itemaddedhandler',['ItemAddedHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af9b06e837c440eeb527b40242fcd60a6',1,'ActionRpgKit::Character']]],
-  ['itemremovedhandler',['ItemRemovedHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#aa21933ad46365d631cb22c6eb7e28320',1,'ActionRpgKit::Character']]]
+  ['hasdefeated',['HasDefeated',['../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a114154a8cfa9e5928f7ec3723aa88298',1,'ActionRpgKit.Character.IFighter.HasDefeated()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a632210ad7a8eead71fbc14e7b8cd8f3a',1,'ActionRpgKit.Character.BaseCharacter.HasDefeated()'],['../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml#ad1fe930bb41e2120c59a2b7b73fe6128',1,'ActionRpgKit.Character.Player.HasDefeated()']]]
 ];

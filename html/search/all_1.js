@@ -22,6 +22,7 @@ var searchData=
   ['attribute',['Attribute',['../d3/d44/namespace_action_rpg_kit_1_1_character_1_1_attribute.xhtml',1,'ActionRpgKit::Character']]],
   ['attributemodifier',['AttributeModifier',['../dd/d1b/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_attribute_modifier.xhtml',1,'ActionRpgKit::Character::Attribute']]],
   ['attributes',['Attributes',['../df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a86b01c1fe886db3cca7507d034a9ae4d',1,'ActionRpgKit::Character::Attribute::SecondaryAttribute']]],
+  ['availableattributepoints',['AvailableAttributePoints',['../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml#a92a94dccda1789176b4ef3a43b689ceb',1,'ActionRpgKit::Character::Player']]],
   ['character',['Character',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml',1,'ActionRpgKit']]],
   ['core',['Core',['../d1/db9/namespace_action_rpg_kit_1_1_core.xhtml',1,'ActionRpgKit']]],
   ['item',['Item',['../d0/dbf/namespace_action_rpg_kit_1_1_item.xhtml',1,'ActionRpgKit']]],

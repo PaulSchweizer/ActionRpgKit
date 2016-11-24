@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['learncombatskill',['LearnCombatSkill',['../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a06dbce2d7075f15c02271269f2a1eafb',1,'ActionRpgKit.Character.IFighter.LearnCombatSkill()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a06dbce2d7075f15c02271269f2a1eafb',1,'ActionRpgKit.Character.BaseCharacter.LearnCombatSkill()']]],
-  ['learnmagicskill',['LearnMagicSkill',['../dd/db0/interface_action_rpg_kit_1_1_character_1_1_i_magic_user.xhtml#a81241b736f6ec5a4d7ddfc901fcdded9',1,'ActionRpgKit.Character.IMagicUser.LearnMagicSkill()'],['../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a81241b736f6ec5a4d7ddfc901fcdded9',1,'ActionRpgKit.Character.BaseCharacter.LearnMagicSkill()']]]
+  ['initialize',['Initialize',['../d6/ddf/class_action_rpg_kit_1_1_character_1_1_enemy_pool.xhtml#a678b79632495f1c0a947a8bf3bdfdadb',1,'ActionRpgKit::Character::EnemyPool']]],
+  ['itemaddedhandler',['ItemAddedHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#af9b06e837c440eeb527b40242fcd60a6',1,'ActionRpgKit::Character']]],
+  ['itemremovedhandler',['ItemRemovedHandler',['../de/d84/namespace_action_rpg_kit_1_1_character.xhtml#aa21933ad46365d631cb22c6eb7e28320',1,'ActionRpgKit::Character']]]
 ];

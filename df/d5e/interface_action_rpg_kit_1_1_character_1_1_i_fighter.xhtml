@@ -140,6 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afe0130a66c72c58cb2bc272a46298d71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#afe0130a66c72c58cb2bc272a46298d71">OnAttacked</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> attacker, float damage)</td></tr>
 <tr class="memdesc:afe0130a66c72c58cb2bc272a46298d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fighter is being attacked. <a href="#afe0130a66c72c58cb2bc272a46298d71">More...</a><br /></td></tr>
 <tr class="separator:afe0130a66c72c58cb2bc272a46298d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114154a8cfa9e5928f7ec3723aa88298"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a114154a8cfa9e5928f7ec3723aa88298">HasDefeated</a> (<a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a> defeatedEnemy)</td></tr>
+<tr class="memdesc:a114154a8cfa9e5928f7ec3723aa88298"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fighter is notified that he has defeated the given <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a>. <a href="#a114154a8cfa9e5928f7ec3723aa88298">More...</a><br /></td></tr>
+<tr class="separator:a114154a8cfa9e5928f7ec3723aa88298"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -173,6 +176,8 @@ Properties</h2></td></tr>
 <tr class="separator:a5af6ca454af3f100d7670e027fea9f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f0ef041b6375994f5cb5a1ba5b93df2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7f0ef041b6375994f5cb5a1ba5b93df2">Damage</a><code> [get]</code></td></tr>
 <tr class="separator:a7f0ef041b6375994f5cb5a1ba5b93df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3992aacb9f40b88ca26ea99410d5fa1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#ab3992aacb9f40b88ca26ea99410d5fa1">ExperienceOnDefeat</a><code> [get]</code></td></tr>
+<tr class="separator:ab3992aacb9f40b88ca26ea99410d5fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c6296d3ea4af57473f102c58917bdb4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7c6296d3ea4af57473f102c58917bdb4">EquippedWeapon</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a7c6296d3ea4af57473f102c58917bdb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The currently equipped Weapon. <a href="#a7c6296d3ea4af57473f102c58917bdb4">More...</a><br /></td></tr>
 <tr class="separator:a7c6296d3ea4af57473f102c58917bdb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -380,6 +385,32 @@ Events</h2></td></tr>
 <p>The Fighter is being attacked.</p>
 
 <p>Implemented in <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#afe0130a66c72c58cb2bc272a46298d71">BaseCharacter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a114154a8cfa9e5928f7ec3723aa88298"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HasDefeated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a>&#160;</td>
+          <td class="paramname"><em>defeatedEnemy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The Fighter is notified that he has defeated the given <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">defeatedEnemy</td><td>The defeated <a class="el" href="../../d2/df0/class_action_rpg_kit_1_1_character_1_1_enemy.xhtml" title="Representation of a hostile, game controlled character.">Enemy</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="../../d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml#ad1fe930bb41e2120c59a2b7b73fe6128">Player</a>, and <a class="el" href="../../d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#a632210ad7a8eead71fbc14e7b8cd8f3a">BaseCharacter</a>.</p>
 
 </div>
 </div>
@@ -620,6 +651,26 @@ Events</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab3992aacb9f40b88ca26ea99410d5fa1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ExperienceOnDefeat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a7c6296d3ea4af57473f102c58917bdb4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -766,7 +817,7 @@ Events</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db3/namespace_action_rpg_kit.xhtml">ActionRpgKit</a></li><li class="navelem"><a class="el" href="../../de/d84/namespace_action_rpg_kit_1_1_character.xhtml">Character</a></li><li class="navelem"><a class="el" href="../../df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml">IFighter</a></li>
-    <li class="footer">Generated on Tue Nov 22 2016 07:16:18 for Action RPG Kit by
+    <li class="footer">Generated on Thu Nov 24 2016 07:14:39 for Action RPG Kit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
