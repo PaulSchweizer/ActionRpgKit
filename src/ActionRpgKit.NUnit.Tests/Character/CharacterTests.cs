@@ -188,6 +188,15 @@ namespace ActionRpgKit.NUnit.Tests.Character
         }
 
         [Test]
+        public void InstantiateFromPlayerData()
+        {
+            var player2 = new Player(player);
+            Console.WriteLine(player);
+            Console.WriteLine(player2);
+            Assert.AreEqual(player2.ToString(), player.ToString());
+        }
+
+        [Test]
         public void SerializeCharacterTest()
         {
             player.Position.Set(6, 6);

@@ -127,6 +127,11 @@ public class GameMenu : MonoBehaviour
         }
     }
 
+    public void SaveGameState()
+    {
+        MainController.Instance.SaveGameState();
+    }
+
     private void UpdateLifeSlider(BaseAttribute sender, float value)
     {
         LifeSlider.minValue = sender.MinValue;

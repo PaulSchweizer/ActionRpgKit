@@ -1,4 +1,8 @@
-﻿using System;
+﻿using ActionRpgKit.Character;
+using System;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -38,6 +42,7 @@ public class MainController : MonoBehaviour
     private SceneState sceneState;
     private delegate void UpdateDelegate();
     private UpdateDelegate[] updateDelegates;
+    private Player _playerDataToLoad;
 
     /// <summary>
     /// Switch the scene to the given scene name.</summary>
@@ -185,6 +190,7 @@ public class MainController : MonoBehaviour
     /// </summary>
     private void UpdateSceneReady()
     {
+
         // Reset the ActionRpgKit Controller
         ActionRpgKitController.Instance.Reset();
 
@@ -200,6 +206,17 @@ public class MainController : MonoBehaviour
             if (GamePlayer.Instance == null)
             {
                 Instantiate(PlayerPrefab);
+            }
+
+            // If there is Player data to load, load it and reset it to null
+            if (_playerDataToLoad != null)
+            {
+                Debug.Log(_playerDataToLoad.ToString());
+                var playerLive = (Player)GamePlayer.Instance.Character;
+                playerLive.InitFromPlayer(_playerDataToLoad);
+                GamePlayer.Instance.transform.position = 
+                    new Vector3(_playerDataToLoad.Position.X, 0, _playerDataToLoad.Position.Y);
+                _playerDataToLoad = null;
             }
 
             // Instantiate the PlayerMenu 
@@ -232,7 +249,6 @@ public class MainController : MonoBehaviour
             // Initialize the ActionRpgKit Controller
             ActionRpgKitController.Instance.Initialize();
         }
-
 
         // The Game is now ready to run
         sceneState = SceneState.FadeIn;
@@ -274,6 +290,78 @@ public class MainController : MonoBehaviour
     public void StartNewGame()
     {
         SwitchScene(StartScene);
+    }
+
+    /// <summary>
+    /// Save the GameState.
+    /// Create a inbetween player object for serialization.</summary>
+    public void SaveGameState()
+    {
+        // The Player
+        var player = (Player)GamePlayer.Instance.Character;
+        var playerForSerialization = new Player(player);
+        SaveData("Player", playerForSerialization);
+
+        // The current Scene
+        SaveData("CurrentScene", CurrentSceneName);
+    }
+
+    /// <summary>
+    /// Save the given object under the given file name.</summary>
+    public static void SaveData(string fileName, object data)
+    {
+        string dataFile = String.Format("{0}/{1}.dat", GameStatesDirectory, fileName);
+        IFormatter formatter = new BinaryFormatter();
+        Stream stream = new FileStream(dataFile,
+                                       FileMode.OpenOrCreate,
+                                       FileAccess.Write,
+                                       FileShare.None);
+        formatter.Serialize(stream, data);
+        stream.Close();
+        Debug.Log("Saved: " + dataFile);
+    }
+
+    /// <summary>
+    /// Create a location for the Save Game.</summary>
+    public static string GameStatesDirectory
+    {
+        get
+        {
+            var directory = String.Format("{0}/GameStates", Application.persistentDataPath);
+            Directory.CreateDirectory(directory);
+            return directory;
+        }
+    }
+
+    /// <summary>
+    /// Load the Game Progress from a saved location.</summary>
+    public void LoadGameState()
+    {
+        // Load the Player data
+        _playerDataToLoad = (Player)LoadData("Player");
+
+        // Load the scene
+        var scene = (string)LoadData("CurrentScene");
+        SwitchScene(scene);
+    }
+
+    /// <summary>
+    /// Load the given object stored at the given file name.</summary>
+    public static object LoadData(string fileName)
+    {
+        string dataFile = String.Format("{0}/{1}.dat", GameStatesDirectory, fileName);
+        if (File.Exists(dataFile))
+        {
+            IFormatter formatter = new BinaryFormatter();
+            var stream = new FileStream(dataFile,
+                                        FileMode.Open,
+                                        FileAccess.Read,
+                                        FileShare.Read);
+            var data = (object)formatter.Deserialize(stream);
+            stream.Close();
+            return data;
+        }
+        return null;
     }
 
     #endregion

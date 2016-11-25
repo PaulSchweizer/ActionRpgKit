@@ -22,6 +22,7 @@ public class ActionRpgKitController : MonoBehaviour
         }
         ItemDatabase.InitDatabase();
         SkillDatabase.InitDatabase();
+        ActionRpgKit.Character.Controller.Enemies = new List<Enemy>();
     }
 
     public void Reset()

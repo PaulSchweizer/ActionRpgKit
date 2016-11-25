@@ -283,7 +283,6 @@ namespace ActionRpgKit.Character
 
         #region States
 
-        [NonSerialized]
         private int _equippedWeapon = -1;
 
         /// <summary>
@@ -915,6 +914,40 @@ namespace ActionRpgKit.Character
             Name = name;
             Controller.Register(this);
             Stats.Level.OnValueChanged += new ValueChangedHandler(NextLevelReached);
+        }
+
+        /// <summary>
+        /// Constructor is needed for seamless serialization in Unity.</summary>
+        public Player(Player player) : base(new PlayerStats(), new PlayerInventory())
+        {
+            InitFromPlayer(player);
+        }
+
+        public void InitFromPlayer(Player player)
+        {
+            Id = player.Id;
+            Name = player.Name;
+            AvailableAttributePoints = player.AvailableAttributePoints;
+            _levelBefore = player._levelBefore;
+            Stats.Set(player.Stats);
+            Inventory.Reset();
+            Inventory.AddInventory(player.Inventory);
+            Position.Set(player.Position.X, player.Position.Y);
+
+            CombatSkills.Clear();
+            foreach (int combatSkill in player.CombatSkills)
+            {
+                CombatSkills.Add(combatSkill);
+            }
+
+            MagicSkills.Clear();
+            foreach (int magicSkill in player.MagicSkills)
+            {
+                MagicSkills.Add(magicSkill);
+            }
+
+            CurrentAttackSkill = player.CurrentAttackSkill;
+            EquippedWeapon = player.EquippedWeapon;
         }
 
         /// <summary>
