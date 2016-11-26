@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#aae675cc1ade48758b96f03e5488afce9":[1,0,0,0,5,30],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab14281ebd03b9554c72a19c118bf6cf1":[1,0,0,0,5,67],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab3992aacb9f40b88ca26ea99410d5fa1":[1,0,0,0,5,61],
 "d9/d5c/class_action_rpg_kit_1_1_character_1_1_base_character.xhtml#ab6bbef0def5034c9ca948f60f45226ca":[1,0,0,0,5,39],
@@ -167,8 +168,8 @@ var NAVTREEINDEX1 =
 "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml":[1,0,0,1,1],
 "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml#a51d5d92d61f0c8e344e8562a655d27de":[1,0,0,1,1,1],
 "de/d0d/interface_action_rpg_kit_1_1_core_1_1_i_game_object.xhtml#aec0783b5a136e042adcc47bae4fe5291":[1,0,0,1,1,0],
-"de/d84/namespace_action_rpg_kit_1_1_character.xhtml":[0,0,0,0],
 "de/d84/namespace_action_rpg_kit_1_1_character.xhtml":[1,0,0,0],
+"de/d84/namespace_action_rpg_kit_1_1_character.xhtml":[0,0,0,0],
 "de/de6/namespace_action_rpg_kit_1_1_story.xhtml":[0,0,0,3],
 "de/de6/namespace_action_rpg_kit_1_1_story.xhtml":[1,0,0,3],
 "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml":[1,0,0,0,21],
@@ -193,8 +194,8 @@ var NAVTREEINDEX1 =
 "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#a7e0cb1d26a2e1acf99e909755d5ba070":[1,0,0,0,3,0],
 "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#aa4ef50600d70685a523d3e86c054ad02":[1,0,0,0,3,2],
 "df/d02/class_action_rpg_kit_1_1_character_1_1_alert_state.xhtml#ac13eb79ea71577ad010cec21ba6f2753":[1,0,0,0,3,3],
-"df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml":[1,0,0,0,1],
 "df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml":[0,0,0,0,1],
+"df/d1b/namespace_action_rpg_kit_1_1_character_1_1_skill.xhtml":[1,0,0,0,1],
 "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml":[1,0,0,0,0,3],
 "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a697d4eeb85af05a765aaa2dc35e0c623":[1,0,0,0,0,3,5],
 "df/d43/class_action_rpg_kit_1_1_character_1_1_attribute_1_1_secondary_attribute.xhtml#a86b01c1fe886db3cca7507d034a9ae4d":[1,0,0,0,0,3,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "functions_f.xhtml":[1,3,0,6],
 "functions_func.xhtml":[1,3,1],
 "functions_g.xhtml":[1,3,0,7],
-"functions_h.xhtml":[1,3,0,8],
-"functions_i.xhtml":[1,3,0,9]
+"functions_h.xhtml":[1,3,0,8]
 };
