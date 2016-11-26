@@ -6,8 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Attribute;
+using SlotSystem;
 
-public class GameMenu : MonoBehaviour
+public class GameMenu : MonoBehaviour, ISlotChanged
 {
     /// <summary>
     /// Keep the game menu as Singleton.</summary>
@@ -34,6 +35,8 @@ public class GameMenu : MonoBehaviour
     public GameObject EnemyPanel;
 
     public ActionPanel ActionPanel;
+
+    public SlotView InventoryView;
 
     public GameObject HUDPanel;
     public GameObject MainMenuPanel;
@@ -68,6 +71,11 @@ public class GameMenu : MonoBehaviour
 
     void Start()
     {
+        Initialize();
+    }
+
+    public void Initialize()
+    {
         Player = (Player)GamePlayer.Instance.Character;
 
         // Connect the Signals from the Player
@@ -86,6 +94,37 @@ public class GameMenu : MonoBehaviour
         UpdateMagicSlider(Player.Stats.Magic, Player.Stats.Magic.Value);
         UpdateStats(Player.Stats.Body, Player.Stats.Body.Value);
         AvailableAttributePointsText.text = Player.AvailableAttributePoints.ToString();
+
+        // The Inventory and the equipped Weapon
+        InventoryView.Initialize();
+        foreach (KeyValuePair<int, SlottableItem> entry in InventoryView._items)
+        {
+            if (entry.Value.Item is WeaponItemData)
+            {
+                var weaponItemData = entry.Value.Item as WeaponItemData;
+                if (weaponItemData.Item.Id == Player.EquippedWeapon)
+                {
+                    ActionPanel.WeaponSlot.Swap(entry.Value);
+                    break;
+                }
+            }
+        }
+
+        // The equipped items 
+        for (int i = 0; i < Player.EquippedItems.Length; i++) { 
+            foreach (KeyValuePair<int, SlottableItem> entry in InventoryView._items)
+            {
+                if (entry.Value.Item is UsableItemData)
+                {
+                    var usableItemData = entry.Value.Item as UsableItemData;
+                    if (usableItemData.Item.Id == Player.EquippedItems[i])
+                    {
+                        ActionPanel.Slots[i].Swap(entry.Value);
+                        break;
+                    }
+                }
+            }
+        }
 
         // Reset the UI
         EnemyPanel.SetActive(false);
@@ -197,6 +236,40 @@ public class GameMenu : MonoBehaviour
     {
         AvailableAttributePointsText.text = Player.AvailableAttributePoints.ToString();
         UpdateStats(attribute, value);
+    }
+
+    public void SlotChanged(Slot slot, SlottableItem newItem, SlottableItem oldItem)
+    {
+        if (!Array.Exists(ActionPanel.Slots, element => element == slot))
+        {
+            return;
+        }
+
+        int id = -1;
+        if (newItem != null)
+        {
+            UsableItemData item = newItem.Item as UsableItemData;
+            if (item != null)
+            {
+                id = item.Id;
+            }
+        }
+        if (slot == ActionPanel.SlotA)
+        {
+            Player.EquippedItems[0] = id;
+        }
+        else if (slot == ActionPanel.SlotB)
+        {
+            Player.EquippedItems[1] = id;
+        }
+        else if (slot == ActionPanel.SlotC)
+        {
+            Player.EquippedItems[2] = id;
+        }
+        else if (slot == ActionPanel.SlotD)
+        {
+            Player.EquippedItems[3] = id;
+        }
     }
 }
 

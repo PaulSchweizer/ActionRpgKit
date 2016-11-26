@@ -462,6 +462,7 @@ public class GameDefeatedState : GameCharacterState
         character.Animator.SetBool("DefeatedState", true);
         character.NavMeshAgent.enabled = false;
         character.gameObject.tag = "Untagged";
+        character.Collider.enabled = false;
         character.StartCoroutine(DefeatAnimation(character));
     }
 
@@ -488,7 +489,6 @@ public class GameDefeatedState : GameCharacterState
         }
         DropLoot(character);
         character.Animator.enabled = false;
-        character.Collider.enabled = false;
         character.enabled = false;
     }
 

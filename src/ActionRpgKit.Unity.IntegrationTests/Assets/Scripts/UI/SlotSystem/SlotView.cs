@@ -43,7 +43,7 @@ namespace SlotSystem
 
         /// <summary>
         /// Instantiate the Slots</summary>
-        void Start()
+        public void Initialize()
         {
             for (int i = 0; i < NumberOfSlots; i++)
             {

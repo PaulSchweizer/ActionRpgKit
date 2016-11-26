@@ -896,6 +896,10 @@ namespace ActionRpgKit.Character
         public int AvailableAttributePoints;
 
         /// <summary>
+        /// The equipped items.</summary>
+        public int[] EquippedItems = new int[4];
+
+        /// <summary>
         /// Store the previous level to calculate the difference</summary>
         private float _levelBefore;
 
@@ -948,6 +952,10 @@ namespace ActionRpgKit.Character
 
             CurrentAttackSkill = player.CurrentAttackSkill;
             EquippedWeapon = player.EquippedWeapon;
+            for (int i = 0; i < player.EquippedItems.Length; i++)
+            {
+                EquippedItems[i] = player.EquippedItems[i];
+            }
         }
 
         /// <summary>

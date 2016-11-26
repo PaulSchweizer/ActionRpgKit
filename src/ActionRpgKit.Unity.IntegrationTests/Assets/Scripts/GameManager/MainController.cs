@@ -211,7 +211,6 @@ public class MainController : MonoBehaviour
             // If there is Player data to load, load it and reset it to null
             if (_playerDataToLoad != null)
             {
-                Debug.Log(_playerDataToLoad.ToString());
                 var playerLive = (Player)GamePlayer.Instance.Character;
                 playerLive.InitFromPlayer(_playerDataToLoad);
                 GamePlayer.Instance.transform.position = 
@@ -225,6 +224,7 @@ public class MainController : MonoBehaviour
                 Instantiate(GameMenuPrefab);
                 GameMenu.Instance.SwitchToGame();
             }
+            GameMenu.Instance.Initialize();
 
             // Instantiate the CameraRig
             if (CameraRig.Instance == null)
