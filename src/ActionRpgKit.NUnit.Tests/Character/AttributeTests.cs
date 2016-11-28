@@ -68,6 +68,10 @@ namespace ActionRpgKit.NUnit.Tests.Character
             attr.AddModifier(new TimeBasedModifier("StrengthBuff", 10, 10));
             Assert.AreEqual(attr.MinValue + 10, attr.Value);
 
+            attr.BaseValue += 1;
+            Assert.AreEqual(attr.MinValue + 11, attr.Value);
+            attr.BaseValue -= 1;
+
             // Advance in time
             for (int i = 0; i < 10; i++)
             {
@@ -224,7 +228,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Body.OnValueChanged += new ValueChangedHandler(ValueChangedDemo);
             Body.Value = 100;
             Assert.AreEqual(1, _valueChangedEventTriggered);
-            
+
             // Adding a modifier triggers the signal
             var modifier = new TimeBasedModifier("StrengthBuff", 10, 10);
             Body.AddModifier(modifier);
@@ -270,6 +274,9 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Life.OnMinReached += new MinReachedHandler(MinReachedDemo);
             Life.Value = -100;
             Assert.AreEqual(2, _minReachedEventTriggered);
+
+            Body.BaseValue = 200;
+            Assert.AreEqual(14, _valueChangedEventTriggered);
         }
 
         [Test]

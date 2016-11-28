@@ -38,6 +38,8 @@ public class GameMenu : MonoBehaviour, ISlotChanged
 
     public SlotView InventoryView;
 
+    public GameObject SaveButton;
+
     public GameObject HUDPanel;
     public GameObject MainMenuPanel;
     public Text BodyValueText;
@@ -128,6 +130,7 @@ public class GameMenu : MonoBehaviour, ISlotChanged
 
         // Reset the UI
         EnemyPanel.SetActive(false);
+        DisableSaving();
     }
 
     public void SwitchToGame()
@@ -140,7 +143,6 @@ public class GameMenu : MonoBehaviour, ISlotChanged
         ActionPanel.SlotD.AllowsDrag = false;
         ActionPanel.WeaponSlot.AllowsDrag = false;
         Time.timeScale = 1;
-
     }
 
     public void SwitchToMainMenu()
@@ -158,9 +160,9 @@ public class GameMenu : MonoBehaviour, ISlotChanged
     public void UseAttributePoint(string attribute)
     {
         if (Player.AvailableAttributePoints > 0 && 
-            Player.Stats.Dict[attribute].Value != Player.Stats.Dict[attribute].MaxValue)
+            Player.Stats.Dict[attribute].BaseValue != Player.Stats.Dict[attribute].MaxValue)
         {
-            Player.Stats.Dict[attribute].Value += 1;
+            Player.Stats.Dict[attribute].BaseValue += 1;
             Player.AvailableAttributePoints -= 1;
             AvailableAttributePointsText.text = Player.AvailableAttributePoints.ToString();
         }
@@ -169,6 +171,23 @@ public class GameMenu : MonoBehaviour, ISlotChanged
     public void SaveGameState()
     {
         MainController.Instance.SaveGameState();
+    }
+
+    public void ExitToMainMenu()
+    {
+        Time.timeScale = 1;
+        MainController.Instance.LoadingText.text = "Loading Main Menu";
+        MainController.SwitchScene(MainController.Instance.MainMenuScene);
+    }
+
+    public void EnableSaving()
+    {
+        SaveButton.SetActive(true);
+    }
+
+    public void DisableSaving()
+    {
+        SaveButton.SetActive(false);
     }
 
     private void UpdateLifeSlider(BaseAttribute sender, float value)

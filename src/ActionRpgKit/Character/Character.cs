@@ -973,8 +973,13 @@ namespace ActionRpgKit.Character
         /// <param name="value">The current level</param>
         private void NextLevelReached(BaseAttribute attr, float value)
         {
-            AvailableAttributePoints += (int)((Stats.Level.Value - _levelBefore) * 10);
-            _levelBefore = Stats.Level.Value;
+            if (Stats.Level.Value > _levelBefore)
+            {
+                AvailableAttributePoints += (int)((Stats.Level.Value - _levelBefore) * 10);
+                _levelBefore = Stats.Level.Value;
+                Stats.Life.Value = Stats.Life.MaxValue;
+                Stats.Magic.Value = Stats.Magic.MaxValue;
+            }
         }
     }
 

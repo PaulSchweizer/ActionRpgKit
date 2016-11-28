@@ -1,5 +1,6 @@
 ﻿using ActionRpgKit.Character;
 using System;
+using System.Collections;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -19,6 +20,7 @@ public class MainController : MonoBehaviour
     /// <summary>
     /// The name of the starting scene for the Game.</summary>
     public string StartScene;
+    public string MainMenuScene;
     public GameObject PlayerPrefab;
     public GameObject GameMenuPrefab;
     public GameObject CameraRigPrefab;
@@ -165,6 +167,8 @@ public class MainController : MonoBehaviour
     {
         if (resourceUnloadTask == null)
         {
+            // Reset the ActionRpgKit Controller
+            ActionRpgKitController.Instance.Reset();
             resourceUnloadTask = Resources.UnloadUnusedAssets();
         }
         else
@@ -190,9 +194,7 @@ public class MainController : MonoBehaviour
     /// </summary>
     private void UpdateSceneReady()
     {
-
-        // Reset the ActionRpgKit Controller
-        ActionRpgKitController.Instance.Reset();
+        ActionRpgKitController.Instance.enabled = false;
 
         // TODO
         // TODO Instantiate an Event System??? 
@@ -202,6 +204,8 @@ public class MainController : MonoBehaviour
         // Init the Player and other game objects
         if (Array.Exists(GameScenes, element => element == NextSceneName))
         {
+            ActionRpgKitController.Instance.enabled = true;
+
             // Instantiate the Player
             if (GamePlayer.Instance == null)
             {
@@ -216,6 +220,18 @@ public class MainController : MonoBehaviour
                 GamePlayer.Instance.transform.position = 
                     new Vector3(_playerDataToLoad.Position.X, 0, _playerDataToLoad.Position.Y);
                 _playerDataToLoad = null;
+            }
+            else
+            {
+                // Find a spawn point in the level and put the player there
+                foreach(SavePoint savePoint in FindObjectsOfType<SavePoint>())
+                {
+                    if (savePoint.IsSpawnPoint)
+                    {
+                        GamePlayer.Instance.transform.position = savePoint.transform.position;
+                        break;
+                    }
+                }
             }
 
             // Instantiate the PlayerMenu 
@@ -289,6 +305,7 @@ public class MainController : MonoBehaviour
     /// Start a new game by switching to the starting scene.</summary>
     public void StartNewGame()
     {
+        LoadingText.text = "Starting New Game";
         SwitchScene(StartScene);
     }
 
@@ -304,6 +321,43 @@ public class MainController : MonoBehaviour
 
         // The current Scene
         SaveData("CurrentScene", CurrentSceneName);
+    }
+
+    /// <summary>
+    /// Load the Game Progress from a saved location.</summary>
+    public void LoadGameState()
+    {
+        // Load the Player data
+        _playerDataToLoad = (Player)LoadData("Player");
+
+        // Load the scene
+        var scene = (string)LoadData("CurrentScene");
+
+        LoadingText.text = "Loading...";
+        SwitchScene(scene);
+    }
+
+    /// <summary>
+    /// Act when the Player has been defeated.</summary>
+    public void GameOver()
+    {
+        InputController.Instance.enabled = false;
+        ActionRpgKitController.Instance.enabled = false;
+        StartCoroutine(FadeInGameOverMenu());
+    }
+
+    private IEnumerator FadeInGameOverMenu()
+    {
+        FadingSpeed = 0.75f;
+        float endTime = Time.time + 1 / FadingSpeed + 1;
+        LoadingText.text = "GameOver";
+        while (Time.time < endTime)
+        {
+            UpdateSceneFadeOut();
+            yield return null;
+        }
+        FadingSpeed = 3;
+        SwitchScene(MainMenuScene);
     }
 
     /// <summary>
@@ -331,18 +385,6 @@ public class MainController : MonoBehaviour
             Directory.CreateDirectory(directory);
             return directory;
         }
-    }
-
-    /// <summary>
-    /// Load the Game Progress from a saved location.</summary>
-    public void LoadGameState()
-    {
-        // Load the Player data
-        _playerDataToLoad = (Player)LoadData("Player");
-
-        // Load the scene
-        var scene = (string)LoadData("CurrentScene");
-        SwitchScene(scene);
     }
 
     /// <summary>

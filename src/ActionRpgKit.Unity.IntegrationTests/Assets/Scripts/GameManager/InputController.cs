@@ -4,8 +4,26 @@ using UnityEngine.EventSystems;
 public class InputController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     /// <summary>
+    /// The Singleton instance.</summary>
+    public static InputController Instance;
+
+    /// <summary>
     /// Whether the User is pressing mouse / touching the screen.</summary>
     private bool _pointerIsDown;
+
+    /// <summary>
+    /// Keep the Controller a Singleton.</summary>
+    protected void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void OnPointerDown(PointerEventData data)
     {

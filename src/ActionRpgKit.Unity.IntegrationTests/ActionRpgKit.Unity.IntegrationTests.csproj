@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\GameManager\ActionRpgKitController.cs" />
     <Compile Include="Assets\Scripts\GameManager\InputController.cs" />
     <Compile Include="Assets\Scripts\GameManager\MainController.cs" />
+    <Compile Include="Assets\Scripts\GameManager\SavePoint.cs" />
     <Compile Include="Assets\Scripts\Item\GameItemDatabase.cs" />
     <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Item\UsableItemData.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\Scripts\Skill\SkillData.cs" />
     <Compile Include="Assets\Scripts\UI\ActionPanel.cs" />
     <Compile Include="Assets\Scripts\UI\GameMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SlotSystem\Slot.cs" />
     <Compile Include="Assets\Scripts\UI\SlotSystem\SlotView.cs" />
     <Compile Include="Assets\Scripts\UI\SlotSystem\SlottableItem.cs" />

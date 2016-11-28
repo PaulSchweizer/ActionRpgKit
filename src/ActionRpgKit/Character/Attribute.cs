@@ -155,6 +155,7 @@ namespace ActionRpgKit.Character.Attribute
             set
             {
                 _value = Math.Max(MinValue, Math.Min(MaxValue, value));
+                ValueChanged(value);
             }
         }
 
@@ -182,7 +183,6 @@ namespace ActionRpgKit.Character.Attribute
             set
             {
                 BaseValue = value;
-                ValueChanged(value);
             }
         }
 
@@ -402,7 +402,7 @@ namespace ActionRpgKit.Character.Attribute
             }
         }
 
-        public void ValueOfFormulatAttributeChanged(BaseAttribute sender, float value)
+        public virtual void ValueOfFormulatAttributeChanged(BaseAttribute sender, float value)
         {
             ValueChanged(value);
         }
@@ -446,7 +446,7 @@ namespace ActionRpgKit.Character.Attribute
             _absoluteMaxValue = maxValue;
         }
 
-        public new void ValueOfFormulatAttributeChanged(BaseAttribute sender, float value)
+        public override void ValueOfFormulatAttributeChanged(BaseAttribute sender, float value)
         {
             ValueChanged(Value);
             Value = Value;

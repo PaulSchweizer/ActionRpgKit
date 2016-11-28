@@ -474,6 +474,8 @@ public class GameDefeatedState : GameCharacterState
     /// Reset the dying state.</summary>
     public override void Exit(GameBaseCharacter character)
     {
+        character.enabled = true;
+        character.Animator.enabled = true;
         character.Animator.SetBool("DefeatedState", false);
     }
 

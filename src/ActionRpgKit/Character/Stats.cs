@@ -97,18 +97,18 @@ namespace ActionRpgKit.Character.Stats
         /// <param name="stats">The stats to copy the values from.</param>
         public void Set(BaseStats stats)
         {
-            Body.Value = stats.Body.Value;
-            Mind.Value = stats.Mind.Value;
-            Soul.Value = stats.Soul.Value;
-            Experience.Value = stats.Experience.Value;
-            Life.Value = stats.Life.Value;
-            Magic.Value = stats.Magic.Value;
-            AlertnessRange.Value = stats.AlertnessRange.Value;
+            Body.Value = stats.Body.BaseValue;
+            Mind.Value = stats.Mind.BaseValue;
+            Soul.Value = stats.Soul.BaseValue;
+            Experience.Value = stats.Experience.BaseValue;
+            Life.Value = stats.Life.BaseValue;
+            Magic.Value = stats.Magic.BaseValue;
+            AlertnessRange.Value = stats.AlertnessRange.BaseValue;
             AttackRange.Value = stats.AttackRange.Value;
-            Damage.Value = stats.Damage.Value;
-            MovementSpeed.Value = stats.MovementSpeed.Value;
-            Alertness.Value = stats.Alertness.Value;
-            ChasePersistency.Value = stats.ChasePersistency.Value;
+            Damage.Value = stats.Damage.BaseValue;
+            MovementSpeed.Value = stats.MovementSpeed.BaseValue;
+            Alertness.Value = stats.Alertness.BaseValue;
+            ChasePersistency.Value = stats.ChasePersistency.BaseValue;
         }
 
         /// <summary>

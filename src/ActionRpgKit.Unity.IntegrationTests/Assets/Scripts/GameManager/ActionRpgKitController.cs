@@ -28,6 +28,7 @@ public class ActionRpgKitController : MonoBehaviour
     public void Reset()
     {
         ActionRpgKit.Character.Controller.Enemies = new List<Enemy>();
+        ActionRpgKit.Character.Controller.Player = null;
     }
 
     public void Initialize()
