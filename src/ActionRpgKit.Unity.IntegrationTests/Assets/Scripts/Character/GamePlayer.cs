@@ -37,7 +37,6 @@ public class GamePlayer : GameBaseCharacter
         {
             Destroy(gameObject);
         }
-
         playerData = (PlayerCharacterData)Instantiate(CharacterData);
         base.Awake();
 

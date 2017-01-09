@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-public class ActionPanel : MonoBehaviour
+public class ActionPanel : MonoBehaviour, ISlotChanged
 {
     public Slot SlotA;
     public Slot SlotB;
@@ -58,6 +58,29 @@ public class ActionPanel : MonoBehaviour
             {
                 GamePlayer.Instance.Character.TriggerMagicSkill(skillId);
                 return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Update the Character in case the Item is placed in a special
+    /// Slot, like the Weapon Slot.</summary>
+    public void SlotChanged(Slot slot, SlottableItem newItem, SlottableItem previousItem)
+    {
+        if (slot == WeaponSlot)
+        {
+            if (newItem == null)
+            {
+                GamePlayer.Instance.Character.EquippedWeapon = -1;
+                GamePlayer.Instance.Character.CurrentAttackSkill = -1;
+                return;
+            }
+            if (newItem.Item is WeaponItemData)
+            {
+                var itemData = (WeaponItemData)newItem.Item;
+                var item = itemData.Item;
+                GamePlayer.Instance.Character.EquippedWeapon = item.Id;
+                GamePlayer.Instance.Character.CurrentAttackSkill = itemData.Skill.Skill.Id;
             }
         }
     }

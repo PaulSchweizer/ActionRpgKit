@@ -243,4 +243,53 @@ namespace ActionRpgKit.Character
     }
 
     #endregion
+
+    #region Player States
+
+    /// <summary>
+    /// An Enemy is in attack range.</summary>
+    [Serializable]
+    public sealed class PlayerAttackState : IState
+    {
+        /// <summary>
+        /// Keeping the class a singleton.</summary>
+        public static readonly PlayerAttackState Instance = new PlayerAttackState();
+
+        public void EnterState(BaseCharacter character) { }
+
+        public void ExitState(BaseCharacter character) { }
+
+        /// <summary>
+        /// Attack the first Enemy in range.</summary>
+        /// <param name="character"></param>
+        public void UpdateState(BaseCharacter character)
+        {
+            if (character.IsMoving)
+            {
+                character.ChangeState(character.MoveState);
+                return;
+            }
+
+            if (character.Enemies.Count == 0 || character.TargetedEnemy == null)
+            {
+                character.ChangeState(character.AlertState);
+                return;
+            }
+
+            // If not in Attack Range any more, chase the enemy
+            if (!character.EnemiesInAttackRange.Contains(character.TargetedEnemy))
+            {
+                character.ChangeState(character.ChaseState);
+                return;
+            }
+
+            // Attack
+            if (character.CanAttack())
+            {
+                character.Attack(character.TargetedEnemy);
+            }
+        }
+    }
+
+    #endregion
 }

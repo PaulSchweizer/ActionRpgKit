@@ -248,16 +248,23 @@ namespace ActionRpgKit.Character.Skill
         public override void Use(IFighter user)
         {
             float damage = Damage + user.Damage;
-            for (int i = 0; i < Math.Min(MaximumTargets, user.EnemiesInAttackRange.Count); i++)
+
+            // Attack the targeted enemy first 
+            user.TargetedEnemy.OnAttacked(user, damage);
+
+            // Then attack the rest of the enemies
+            int attacked = 1;
+            for (int i = 0; i < user.EnemiesInAttackRange.Count; i++)
             {
-                if (i == 0)
+                if (attacked == MaximumTargets)
                 {
-                    user.TargetedEnemy.OnAttacked(user, damage);
+                    break;
                 }
-                else
+                if (user.EnemiesInAttackRange[i] != user.TargetedEnemy)
                 {
                     user.EnemiesInAttackRange[i].OnAttacked(user, damage);
                 }
+                
             }
         }
 

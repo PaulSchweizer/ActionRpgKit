@@ -206,20 +206,7 @@ namespace SlotSystem
         /// Slot, like the Weapon Slot.</summary>
         public void SlotChanged(Slot slot, SlottableItem currentItem, SlottableItem previousItem)
         {
-            if (slot == WeaponSlot)
-            {
-                if (currentItem == null)
-                {
-                    GamePlayer.Instance.Character.EquippedWeapon = -1;
-                    return;
-                }
-                if (currentItem.Item is WeaponItemData)
-                {
-                    var itemData = (WeaponItemData)currentItem.Item;
-                    var item = itemData.Item;
-                    GamePlayer.Instance.Character.EquippedWeapon = item.Id;
-                }
-            }
+
         }
     }
 }

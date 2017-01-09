@@ -126,7 +126,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.Position.Set(0, 0);
             enemy1.Position.Set(0, 0);
             enemy2.Position.Set(0, 0);
-            enemy3.Position.Set(1, 0);
+            enemy3.Position.Set(2, 0);
             enemy1.Life.Value = 10;
             enemy2.Life.Value = 10;
             enemy3.Life.Value = 10;

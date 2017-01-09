@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\UI\ActionPanel.cs" />
     <Compile Include="Assets\Scripts\UI\GameMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SkillPanel.cs" />
     <Compile Include="Assets\Scripts\UI\SlotSystem\Slot.cs" />
     <Compile Include="Assets\Scripts\UI\SlotSystem\SlotView.cs" />
     <Compile Include="Assets\Scripts\UI\SlotSystem\SlottableItem.cs" />

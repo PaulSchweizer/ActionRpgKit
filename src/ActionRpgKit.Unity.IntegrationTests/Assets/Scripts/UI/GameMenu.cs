@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using ActionRpgKit.Character;
 using ActionRpgKit.Character.Attribute;
 using SlotSystem;
+using ActionRpgKit.Character.Skill;
 
 public class GameMenu : MonoBehaviour, ISlotChanged
 {
@@ -41,19 +42,22 @@ public class GameMenu : MonoBehaviour, ISlotChanged
     public GameObject SaveButton;
 
     public GameObject HUDPanel;
+
+    // Attributes
     public GameObject MainMenuPanel;
     public Text BodyValueText;
     public Text MindValueText;
     public Text SoulValueText;
-
     public Text AvailableAttributePointsText;
-
     public Text ExperienceValueText;
     public Text LevelValueText;
     public Text AttackRangeValueText;
     public Text AttacksPerSecondValueText;
     public Text DamageValueText;
     public Text MagicRegenerationRateValueText;
+
+    public GameObject SkillsPanel;
+    public GameObject SkillPanelPrefab;
 
     private Player Player;
 
@@ -90,6 +94,8 @@ public class GameMenu : MonoBehaviour, ISlotChanged
         Player.Stats.Soul.OnValueChanged += new ValueChangedHandler(UpdateStats);
         Player.OnWeaponEquipped += new WeaponEquippedHandler(UpdateWeaponStats);
         Player.Stats.Level.OnValueChanged += new ValueChangedHandler(NextLevelReached);
+        Player.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearned);
+        Player.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearned);
 
         // Set the initial values
         UpdateLifeSlider(Player.Stats.Life, Player.Stats.Life.Value);
@@ -125,6 +131,25 @@ public class GameMenu : MonoBehaviour, ISlotChanged
                         break;
                     }
                 }
+            }
+        }
+
+        // The Skill Panels
+        foreach (int skillId in Player.MagicSkills)
+        {
+            if (skillId > -1)
+            {
+                BaseSkill skill = SkillDatabase.GetMagicSkillById(skillId);
+                AddSkillPanel(skill);
+            }
+        }
+
+        foreach (int skillId in Player.CombatSkills)
+        {
+            if (skillId > -1)
+            {
+                BaseSkill skill = SkillDatabase.GetCombatSkillById(skillId);
+                AddSkillPanel(skill);
             }
         }
 
@@ -219,7 +244,7 @@ public class GameMenu : MonoBehaviour, ISlotChanged
 
     private void ToggleEnemyPanel(ICharacter sender, IState previousState, IState newState)
     {
-        if (newState is AttackState)
+        if (newState is PlayerAttackState)
         {
             UpdateEnemyLifeSlider(Player, 0);
             EnemyPanel.SetActive(true);
@@ -257,13 +282,30 @@ public class GameMenu : MonoBehaviour, ISlotChanged
         UpdateStats(attribute, value);
     }
 
+    private void CombatSkillLearned(IFighter sender, int skillId)
+    {
+        if (skillId > -1)
+        {
+            BaseSkill skill = SkillDatabase.GetCombatSkillById(skillId);
+            AddSkillPanel(skill);
+        }
+    }
+
+    private void MagicSkillLearned(IMagicUser sender, int skillId)
+    {
+        if (skillId > -1)
+        {
+            BaseSkill skill = SkillDatabase.GetMagicSkillById(skillId);
+            AddSkillPanel(skill);
+        }
+    }
+
     public void SlotChanged(Slot slot, SlottableItem newItem, SlottableItem oldItem)
     {
         if (!Array.Exists(ActionPanel.Slots, element => element == slot))
         {
             return;
         }
-
         int id = -1;
         if (newItem != null)
         {
@@ -289,6 +331,12 @@ public class GameMenu : MonoBehaviour, ISlotChanged
         {
             Player.EquippedItems[3] = id;
         }
+    }
+
+    public void AddSkillPanel(BaseSkill skill)
+    {
+        var skillsPanel = (GameObject)Instantiate(SkillPanelPrefab, SkillsPanel.transform);
+        skillsPanel.GetComponent<SkillPanel>().Initialize(skill);
     }
 }
 

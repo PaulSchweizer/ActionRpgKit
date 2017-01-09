@@ -15,12 +15,12 @@ public class GameBaseCharacter : MonoBehaviour
     public Collider Collider;
     public Loot LootPrefab;
     protected GameCharacterState CurrentState;
-    protected GameIdleState IdleState = GameIdleState.Instance;
-    protected GameMoveState MoveState = GameMoveState.Instance;
-    protected GameAlertState AlertState = GameAlertState.Instance;
-    protected GameChaseState ChaseState = GameChaseState.Instance;
-    protected GameAttackState AttackState = GameAttackState.Instance;
-    protected GameDefeatedState DefeatedState = GameDefeatedState.Instance;
+    protected GameCharacterState IdleState = GameIdleState.Instance;
+    protected GameCharacterState MoveState = GameMoveState.Instance;
+    protected GameCharacterState AlertState = GameAlertState.Instance;
+    protected GameCharacterState ChaseState = GameChaseState.Instance;
+    protected GameCharacterState AttackState = GameAttackState.Instance;
+    protected GameCharacterState DefeatedState = GameDefeatedState.Instance;
 
     // ActionRpgKit related fields
     public BaseCharacterData CharacterData;
@@ -120,7 +120,7 @@ public class GameBaseCharacter : MonoBehaviour
         {
             CurrentState = ChaseState;
         }
-        else if (newState is AttackState)
+        else if (newState is AttackState || newState is PlayerAttackState)
         {
             CurrentState = AttackState;
         }
@@ -223,7 +223,7 @@ public class GameBaseCharacter : MonoBehaviour
         {
             color = Color.magenta;
         }
-        else if (Character.CurrentState is AttackState)
+        else if (Character.CurrentState is AttackState || Character.CurrentState is PlayerAttackState)
         {
             color = Color.red;
         }

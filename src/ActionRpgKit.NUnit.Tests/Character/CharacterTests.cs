@@ -139,7 +139,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             enemy.Position.Set(1, 0);
 
             Controller.Update();
-            Assert.IsTrue(player.CurrentState is AttackState);
+            Assert.IsTrue(player.CurrentState is PlayerAttackState);
 
             // Attack and get rid of the enemy
             GameTime.time += 2;
@@ -148,6 +148,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             for (int i = 1; i < 11; i++)
             {
                 Controller.Update();
+                player.TriggerCombatSkill(player.CurrentAttackSkill);
                 Assert.AreEqual(10 - i, enemy.Stats.Life.Value);
                 GameTime.time += 2;
             }
@@ -215,7 +216,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             Assert.AreSame(player.IdleState, IdleState.Instance);
             Assert.AreSame(player.AlertState, AlertState.Instance);
             Assert.AreSame(player.ChaseState, ChaseState.Instance);
-            Assert.AreSame(player.AttackState, AttackState.Instance);
+            Assert.AreSame(player.AttackState, PlayerAttackState.Instance);
             Assert.AreSame(player.DefeatedState, DefeatedState.Instance);
 
             enemy.Position.Set(6, 6);
@@ -309,13 +310,13 @@ namespace ActionRpgKit.NUnit.Tests.Character
             GameTime.time += 1;
             Controller.Update();
             player.TriggerCombatSkill(meleeSkill.Id);
-            Assert.AreEqual(2, _combatSkillTriggered);
-            Assert.AreEqual(2, _combatSkillUsed);
+            Assert.AreEqual(1, _combatSkillTriggered);
+            Assert.AreEqual(1, _combatSkillUsed);
             
             // Not enough time has passed to trigger again
             player.TriggerCombatSkill(meleeSkill.Id);
-            Assert.AreEqual(2, _combatSkillTriggered);
-            Assert.AreEqual(2, _combatSkillUsed);
+            Assert.AreEqual(1, _combatSkillTriggered);
+            Assert.AreEqual(1, _combatSkillUsed);
         }
 
         [Test]

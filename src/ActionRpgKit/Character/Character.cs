@@ -314,32 +314,32 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// The Character is idling.</summary>
         [NonSerialized]
-        public IdleState IdleState = IdleState.Instance;
+        public IState IdleState = Character.IdleState.Instance;
 
         /// <summary>
         /// The Character is moving from one point to another.</summary>
         [NonSerialized]
-        public MoveState MoveState = MoveState.Instance;
+        public IState MoveState = Character.MoveState.Instance;
 
         /// <summary>
         /// The Character is aware of enemies somewhere around him.</summary>
         [NonSerialized]
-        public AlertState AlertState = AlertState.Instance;
+        public IState AlertState = Character.AlertState.Instance;
 
         /// <summary>
         /// The Character is running after an enemy.</summary>
         [NonSerialized]
-        public ChaseState ChaseState = ChaseState.Instance;
+        public IState ChaseState = Character.ChaseState.Instance;
 
         /// <summary>
         /// The Character is close enough to attack an enemy.</summary>
         [NonSerialized]
-        public AttackState AttackState = AttackState.Instance;
+        public IState AttackState = Character.AttackState.Instance;
 
         /// <summary>
         /// The Character has been defeated and is about to be removed.</summary>
         [NonSerialized]
-        public DefeatedState DefeatedState = DefeatedState.Instance;
+        public IState DefeatedState = Character.DefeatedState.Instance;
 
         #endregion
 
@@ -907,6 +907,7 @@ namespace ActionRpgKit.Character
         /// Constructor is needed for seamless serialization.</summary>
         public Player() : base(new PlayerStats(), new PlayerInventory())
         {
+            AttackState = PlayerAttackState.Instance;
             Controller.Register(this);
             Stats.Level.OnValueChanged += new ValueChangedHandler(NextLevelReached);
         }
@@ -916,6 +917,7 @@ namespace ActionRpgKit.Character
         public Player(string name) : base(new PlayerStats(), new PlayerInventory())
         {
             Name = name;
+            AttackState = PlayerAttackState.Instance;
             Controller.Register(this);
             Stats.Level.OnValueChanged += new ValueChangedHandler(NextLevelReached);
         }
@@ -993,7 +995,6 @@ namespace ActionRpgKit.Character
         public Enemy() : base(new EnemyStats(), new SimpleInventory())
         {
             Controller.Register(this);
-            //Stats.Life.OnMinReached += new MinReachedHandler(EnemyKilled);
         }
 
         /// <summary>
@@ -1002,15 +1003,6 @@ namespace ActionRpgKit.Character
         {
             Name = name;
             Controller.Register(this);
-        }
-
-        /// <summary>
-        /// The </summary>
-        /// <param name="attr"></param>
-        /// <param name="value"></param>
-        private void EnemyKilled(BaseAttribute attr, float value)
-        {
-
         }
     }
 
