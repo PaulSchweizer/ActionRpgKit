@@ -240,7 +240,6 @@ public class MainController : MonoBehaviour
                 Instantiate(GameMenuPrefab);
                 GameMenu.Instance.SwitchToGame();
             }
-            GameMenu.Instance.Initialize();
 
             // Instantiate the CameraRig
             if (CameraRig.Instance == null)

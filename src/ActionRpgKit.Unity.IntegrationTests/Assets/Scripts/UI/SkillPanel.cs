@@ -27,6 +27,7 @@ public class SkillPanel : MonoBehaviour
             var itemId = skill.ItemSequence[i];
             var item = ActionRpgKitController.Instance.ItemDatabase.Items[itemId];
             TriggerItems[i].sprite = item.Sprite;
+            TriggerItems[i].enabled = true;
         }
     }
 }

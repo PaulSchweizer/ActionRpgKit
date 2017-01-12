@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\Skill\GenericCombatSkillData.cs" />
     <Compile Include="Assets\Scripts\Skill\PassiveMagicSkillData.cs" />
     <Compile Include="Assets\Scripts\Skill\SkillData.cs" />
+    <Compile Include="Assets\Scripts\Story\Story.cs" />
     <Compile Include="Assets\Scripts\UI\ActionPanel.cs" />
     <Compile Include="Assets\Scripts\UI\GameMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
