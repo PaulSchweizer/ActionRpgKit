@@ -29,6 +29,9 @@ public class MainController : MonoBehaviour
     /// The list of actual Game Scenes as opposed to other scenes that do not contain GamePlay.</summary>
     public string[] GameScenes;
 
+    // Story
+    public UStoryline Storyline;
+
     // Fade out
     public Canvas FadingCanvas;
     public Image FadingScreen;
@@ -263,6 +266,12 @@ public class MainController : MonoBehaviour
 
             // Initialize the ActionRpgKit Controller
             ActionRpgKitController.Instance.Initialize();
+
+            // Start the Story
+            if (CurrentSceneName == StartScene)
+            {
+                Storyline.StartStory();
+            }
         }
 
         // The Game is now ready to run
