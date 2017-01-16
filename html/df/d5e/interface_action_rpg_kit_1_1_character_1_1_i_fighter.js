@@ -9,7 +9,6 @@ var interface_action_rpg_kit_1_1_character_1_1_i_fighter =
     [ "UseCombatSkill", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a6785af5fa1b0862c3801ddd26a2945d3", null ],
     [ "OnAttacked", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#afe0130a66c72c58cb2bc272a46298d71", null ],
     [ "HasDefeated", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a114154a8cfa9e5928f7ec3723aa88298", null ],
-    [ "Name", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a7ee9065718e6628dc7791b756fa6c0f9", null ],
     [ "Position", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a51d5d92d61f0c8e344e8562a655d27de", null ],
     [ "Life", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#a29b241cfd0819374917ae7cf16d93bd9", null ],
     [ "IsDefeated", "df/d5e/interface_action_rpg_kit_1_1_character_1_1_i_fighter.xhtml#acaf34350310799a89e8062b107e0704c", null ],

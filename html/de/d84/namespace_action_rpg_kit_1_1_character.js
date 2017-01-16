@@ -20,6 +20,7 @@ var namespace_action_rpg_kit_1_1_character =
     [ "IState", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state.xhtml", "db/d3f/interface_action_rpg_kit_1_1_character_1_1_i_state" ],
     [ "MoveState", "d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state.xhtml", "d2/d59/class_action_rpg_kit_1_1_character_1_1_move_state" ],
     [ "Player", "d7/dd8/class_action_rpg_kit_1_1_character_1_1_player.xhtml", "d7/dd8/class_action_rpg_kit_1_1_character_1_1_player" ],
+    [ "PlayerAttackState", "dc/dbe/class_action_rpg_kit_1_1_character_1_1_player_attack_state.xhtml", "dc/dbe/class_action_rpg_kit_1_1_character_1_1_player_attack_state" ],
     [ "PlayerInventory", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory.xhtml", "d7/d0f/class_action_rpg_kit_1_1_character_1_1_player_inventory" ],
     [ "SimpleInventory", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory.xhtml", "de/def/class_action_rpg_kit_1_1_character_1_1_simple_inventory" ]
 ];
