@@ -134,9 +134,16 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
             Character.CombatSkillEndTimes.Add(-1);
         }
 
+        // Reset the MagicSkill end times
+        Character.MagicSkillEndTimes.Clear();
+        for (i = 0; i < Character.MagicSkills.Count; i++)
+        {
+            Character.MagicSkillEndTimes.Add(-1);
+        }
+
         // Attribute Points
-        var player = (Player)Character;
-        player.AvailableAttributePoints = 0;
+        //var player = (Player)Character;
+        //player.AvailableAttributePoints = 0;
     }
 
     #endregion

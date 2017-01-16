@@ -29,6 +29,6 @@ public class ReachLocationQuest : UQuest
 
     public override void OnCompletion()
     {
-        Debug.Log("Location Reached");
+        
     }
 }

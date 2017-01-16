@@ -1,44 +1,44 @@
 [
+    /*
+    Intro:
+
+
+    */
     {
         "Name": "A drop of blood",
         "Description": "Follow the blood trail.",
-        "Type": "ReachLocation",
-        "Experience": 100
+        "StartText":"",
+        "CompleteText": "",
+        "Type": "ReachLocation"
     },
     {
         "Name": "Investigations",
         "Description": "Investigate the murder scene.",
-        "Type": "FindItems",
-        "Experience": 100
+        "Type": "FindItems"
     },
     {
         "Name": "Creatures!",
         "Description": "Fight your way through the creatures.",
-        "Type": "KillNumberOfEnemies",
-        "Experience": 200
+        "Type": "KillNumberOfEnemies"
     },
     {
         "Name": "Dark Waters.",
         "Description": "Defeat the giant beast.",
-        "Type": "KillNumberOfEnemies",
-        "Experience": 600
+        "Type": "KillNumberOfEnemies"
     },
     {
         "Name": "Heart of evil.",
         "Description": "Search the lair of the beast.",
-        "Type": "FindItems",
-        "Experience": 100
+        "Type": "FindItems"
     },
     {
         "Name": "Investigations.",
         "Description": "Investigate the gruesome findings.",
-        "Type": "FindItems",
-        "Experience": 200
+        "Type": "FindItems"
     },
     {
         "Name": "Nightmares.",
         "Description": "Find a way out of the nightmare.",
-        "Type": "ReachLocation",
-        "Experience": 400
+        "Type": "ReachLocation"
     },
 ]

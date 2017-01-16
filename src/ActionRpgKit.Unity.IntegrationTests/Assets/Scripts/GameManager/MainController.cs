@@ -23,6 +23,7 @@ public class MainController : MonoBehaviour
     public string MainMenuScene;
     public GameObject PlayerPrefab;
     public GameObject GameMenuPrefab;
+    public GameObject StoryViewerPrefab;
     public GameObject CameraRigPrefab;
 
     /// <summary>
@@ -48,6 +49,11 @@ public class MainController : MonoBehaviour
     private delegate void UpdateDelegate();
     private UpdateDelegate[] updateDelegates;
     private Player _playerDataToLoad;
+
+    /// <summary>
+    /// Handler operates after the scene is ready.</summary>
+    public delegate void SceneReadyHandler();
+    public event SceneReadyHandler OnSceneReady;
 
     /// <summary>
     /// Switch the scene to the given scene name.</summary>
@@ -244,6 +250,13 @@ public class MainController : MonoBehaviour
                 GameMenu.Instance.SwitchToGame();
             }
 
+            // Instantiate the StoryViewer 
+            if (StoryViewer.Instance == null)
+            {
+                Instantiate(StoryViewerPrefab);
+                StoryViewer.Instance.Hide();
+            }
+
             // Instantiate the CameraRig
             if (CameraRig.Instance == null)
             {
@@ -267,11 +280,18 @@ public class MainController : MonoBehaviour
             // Initialize the ActionRpgKit Controller
             ActionRpgKitController.Instance.Initialize();
 
-            // Start the Story
-            if (CurrentSceneName == StartScene)
-            {
-                Storyline.StartStory();
-            }
+            // Resume the Storyline
+            Storyline.ResumeStory();
+        }
+        else
+        {
+            Storyline.PauseStory();
+        }
+
+        var handler = OnSceneReady;
+        if (handler != null)
+        {
+            handler();
         }
 
         // The Game is now ready to run
@@ -315,6 +335,13 @@ public class MainController : MonoBehaviour
     {
         LoadingText.text = "Starting New Game";
         SwitchScene(StartScene);
+        OnSceneReady += StartStory;
+    }
+
+    public void StartStory()
+    {
+        Storyline.StartStory();
+        OnSceneReady -= StartStory;
     }
 
     /// <summary>
@@ -326,6 +353,14 @@ public class MainController : MonoBehaviour
         var player = (Player)GamePlayer.Instance.Character;
         var playerForSerialization = new Player(player);
         SaveData("Player", playerForSerialization);
+
+        // Save the Quest progress
+        foreach(UQuest quest in Storyline.Quests)
+        {
+            SaveJsonData(quest.Name, quest);
+        }
+
+        SaveJsonData("Player", GamePlayer.Instance.playerData);
 
         // The current Scene
         SaveData("CurrentScene", CurrentSceneName);
@@ -340,6 +375,14 @@ public class MainController : MonoBehaviour
 
         // Load the scene
         var scene = (string)LoadData("CurrentScene");
+
+        // Load the story progress
+        foreach (UQuest quest in Storyline.Quests)
+        {
+            string json = LoadJsonData(quest.Name);
+            JsonUtility.FromJsonOverwrite(json, quest);
+        }
+        Storyline.ResumeStory();
 
         LoadingText.text = "Loading...";
         SwitchScene(scene);
@@ -383,6 +426,13 @@ public class MainController : MonoBehaviour
         Debug.Log("Saved: " + dataFile);
     }
 
+    public static void SaveJsonData(string fileName, object data)
+    {
+        string dataFile = String.Format("{0}/{1}.json", GameStatesDirectory, fileName);
+        var json = JsonUtility.ToJson(data, true);
+        System.IO.File.WriteAllText(@dataFile, json);
+    }
+
     /// <summary>
     /// Create a location for the Save Game.</summary>
     public static string GameStatesDirectory
@@ -410,6 +460,16 @@ public class MainController : MonoBehaviour
             var data = (object)formatter.Deserialize(stream);
             stream.Close();
             return data;
+        }
+        return null;
+    }
+
+    public static string LoadJsonData(string fileName)
+    {
+        string dataFile = String.Format("{0}/{1}.json", GameStatesDirectory, fileName);
+        if (File.Exists(dataFile))
+        {
+            return System.IO.File.ReadAllText(@dataFile);
         }
         return null;
     }

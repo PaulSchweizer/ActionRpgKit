@@ -83,8 +83,6 @@ namespace ActionRpgKit.Character
     /// Character can fight.</summary>  
     public interface IFighter
     {
-        string Name { get; set; }
-
         /// <summary>
         /// World space position of the IFighter.</summary>
         Position Position { get; set; }
@@ -242,7 +240,7 @@ namespace ActionRpgKit.Character
 
         /// <summary>
         /// Name of the character.</summary>
-        public string Name { get; set; }
+        public string Name;
 
         /// <summary>
         /// Stats describing the Character.</summary>
@@ -251,6 +249,10 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Inventory of the Character.</summary>
         public BaseInventory Inventory;
+
+        /// <summary>
+        /// The equipped items.</summary>
+        public int[] EquippedItems = new int[4];
 
         /// <summary>
         /// Event handler.</summary>
@@ -894,10 +896,6 @@ namespace ActionRpgKit.Character
         /// The experience points that the character can use to increase 
         /// his Attributes.</summary>
         public int AvailableAttributePoints;
-
-        /// <summary>
-        /// The equipped items.</summary>
-        public int[] EquippedItems = new int[4];
 
         /// <summary>
         /// Store the previous level to calculate the difference</summary>

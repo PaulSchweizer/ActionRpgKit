@@ -309,12 +309,12 @@ namespace ActionRpgKit.NUnit.Tests.Character
             player.ChangeState(player.AttackState);
             GameTime.time += 1;
             Controller.Update();
-            player.TriggerCombatSkill(meleeSkill.Id);
+            //player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(1, _combatSkillTriggered);
             Assert.AreEqual(1, _combatSkillUsed);
             
             // Not enough time has passed to trigger again
-            player.TriggerCombatSkill(meleeSkill.Id);
+            //player.TriggerCombatSkill(meleeSkill.Id);
             Assert.AreEqual(1, _combatSkillTriggered);
             Assert.AreEqual(1, _combatSkillUsed);
         }

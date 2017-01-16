@@ -9,7 +9,7 @@ public class GamePlayer : GameBaseCharacter
     public static GamePlayer Instance;
 
     // ActionRpgKit related fields
-    private PlayerCharacterData playerData;
+    public PlayerCharacterData playerData;
 
     public override BaseCharacter Character
     {
@@ -65,6 +65,7 @@ public class GamePlayer : GameBaseCharacter
 
     public void MagicSkillLearned(IMagicUser sender, int skillId)
     {
+        Debug.Log(skillId);
     }
 
     public void CombatSkillLearned(IFighter sender, int skillId)

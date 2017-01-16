@@ -203,7 +203,6 @@ public class BaseCharacterDataEditor : Editor
                     weaponIds.Add(item.Id);
                     i++;
                 }
-
             }
             equippedWeaponRow = EditorGUILayout.Popup(weaponIds.IndexOf(character.EquippedWeapon),
                                                       weaponNames.ToArray(), GUILayout.Width(150));
@@ -214,7 +213,7 @@ public class BaseCharacterDataEditor : Editor
             // Attack Skill
             EditorGUILayout.BeginHorizontal("box");
             EditorGUILayout.LabelField("Attack Skill:", GUILayout.Width(80));
-            var learnedCombatSkillsNames = new List<string>() { "None" };
+            var learnedCombatSkillsNames = new List<string>() { "__Default__" };
             var learnedCombatSkillsIds = new List<int>() { -1 };
             for (i = 0; i < character.CombatSkills.Count; i++)
             {
@@ -291,6 +290,11 @@ public class BaseCharacterDataEditor : Editor
             if (GUILayout.Button("X", GUILayout.Width(25)))
             {
                 character.MagicSkills.Remove(skill);
+                character.MagicSkillEndTimes = new List<float>();
+                foreach (int s in character.MagicSkills)
+                {
+                    character.MagicSkillEndTimes.Add(-1);
+                }
                 EditorUtility.SetDirty(target);
                 EditorGUILayout.EndHorizontal();
                 break;
@@ -305,6 +309,11 @@ public class BaseCharacterDataEditor : Editor
             if (GUILayout.Button("X", GUILayout.Width(25)))
             {
                 character.CombatSkills.Remove(skill);
+                character.CombatSkillEndTimes = new List<float>();
+                foreach (int c in character.CombatSkills)
+                {
+                    character.CombatSkillEndTimes.Add(-1);
+                }
                 EditorUtility.SetDirty(target);
                 EditorGUILayout.EndHorizontal();
                 break;

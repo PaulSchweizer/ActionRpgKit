@@ -236,7 +236,8 @@ public class GameMenu : MonoBehaviour, ISlotChanged
             EnemyPanel.SetActive(false);
             return;
         }
-        EnemyName.text = sender.TargetedEnemy.Name;
+        var character = (BaseCharacter)sender.TargetedEnemy;
+        EnemyName.text = character.Name;
         EnemyLifeSlider.minValue = sender.TargetedEnemy.Life.MinValue;
         EnemyLifeSlider.maxValue = sender.TargetedEnemy.Life.MaxValue;
         EnemyLifeSlider.value = sender.TargetedEnemy.Life.Value;

@@ -10,6 +10,8 @@ public class UStoryline : MonoBehaviour
 
     public List<UQuest> Quests;
 
+    public bool Paused;
+
     public void Awake ()
     {
         if (Instance == null)
@@ -27,8 +29,22 @@ public class UStoryline : MonoBehaviour
         Quests[0].Start();
     }
 
+    public void PauseStory ()
+    {
+        Paused = true;
+    }
+
+    public void ResumeStory()
+    {
+        Paused = false;
+    }
+
     public void Update ()
     {
+        if (Paused)
+        {
+            return;
+        }
         for (int i = 0; i < Quests.Count; i++)
         {
             if (Quests[i].IsActive)
