@@ -1,9 +1,65 @@
 [
-    /*
-    Intro:
+
+/*****************************************************************************/
+/* Intro */
+/*****************************************************************************/
+/*
+Intro:
+When die Sonne in ihrem Blut ertrinkt und ie Nacht ihren finsteren Schleier püber das anltlitz der Welt legt
+erwachen sie. Jene Wesen aus een Schatten. UA s schwarzen Abgründen stiegen sie empor geteiben von dunklen Mächten
+Tote auf der Suche nach Leben HUngernde dämonen, blutsäufer, nachtmahre seelnefresser
+nacht für nacht bin ich auf der jagd nach diesen Kreaturen
+Allein, immer allein ...
 
 
-    */
+Das licht der strasenlatenren tacuhte die stadt in ein trügherrisches zwielicht und irgendwetaas sage mir dass sich das bald ändern würde.
+
+
+"Wo bist du?"
+
+When the sun drowns in her own blood and the night places a shroud of darkness
+over the face of the earth, they wake up. Creatures from the shadows.
+They crawl from the crevices of darkness,
+
+*/
+
+/*****************************************************************************/
+/* Level 1 */
+/*****************************************************************************/
+
+    {
+        "Name": "A bloody trace",
+        "Description": "",
+        "StartText": "Blood on the streets is nothing unusual these nights.
+                      But this is a whole trail of blood.
+                      I have to see where it leads.",
+        "CompleteText": "A dead body with bite marks all over.
+                         This looks like a feeding ground for Zombies to me.",
+        "Type": "ReachLocation"
+    },
+    {
+        "Name": "Zombies",
+        "Description": "A nest of undead creatures.",
+        "StartText":"There are Zombies in the area. I have to hunt them all down",
+        "CompleteText": "Always a gritty job, getting rid of the undead.",
+        "Type": "KillNumberOfEnemies"
+    },
+
+/*****************************************************************************/
+/* Cinematic */
+/*****************************************************************************/
+
+/*
+
+
+*/
+
+/*****************************************************************************/
+/* Level 2 */
+/*****************************************************************************/
+
+
+
     {
         "Name": "A drop of blood",
         "Description": "Follow the blood trail.",
