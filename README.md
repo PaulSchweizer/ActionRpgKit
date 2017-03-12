@@ -1,6 +1,6 @@
 # ActionRpgKit
 
-![Build Status](https://travis-ci.org/PaulSchweizer/ActionRpgKit.svg?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/mqj6fnpo5mml4iq5?svg=true)](https://ci.appveyor.com/project/PaulSchweizer/actionrpgkit) [![Code Climate](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit/badges/gpa.svg)](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit) [![Coverage Status](https://coveralls.io/repos/github/PaulSchweizer/ActionRpgKit/badge.svg)](https://coveralls.io/github/PaulSchweizer/ActionRpgKit)
+[![Build status](https://ci.appveyor.com/api/projects/status/mqj6fnpo5mml4iq5?svg=true)](https://ci.appveyor.com/project/PaulSchweizer/actionrpgkit) [![Code Climate](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit/badges/gpa.svg)](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit) [![Coverage Status](https://coveralls.io/repos/github/PaulSchweizer/ActionRpgKit/badge.svg)](https://coveralls.io/github/PaulSchweizer/ActionRpgKit)
 
 ## Overview
 The Kit is meant to be used within the Unity Game Engine, but is designed to have no dependency to Unity.
