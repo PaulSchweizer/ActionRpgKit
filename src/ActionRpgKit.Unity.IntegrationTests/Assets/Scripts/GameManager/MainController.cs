@@ -17,14 +17,22 @@ public class MainController : MonoBehaviour
     /// To keep the Controller a Singleton</summary>
     public static MainController Instance;
 
-    /// <summary>
+    /// <summary>Leverl
     /// The name of the starting scene for the Game.</summary>
     public string StartScene;
     public string MainMenuScene;
+    public string GameOverScene;
     public GameObject PlayerPrefab;
     public GameObject GameMenuPrefab;
     public GameObject StoryViewerPrefab;
     public GameObject CameraRigPrefab;
+
+    public AudioClip MainMenuMusic;
+    public AudioClip IntroMusic;
+    public AudioClip IntroText;
+    public AudioClip GhostCinematicText;
+    public AudioClip EndMusic;
+    public AudioClip EndText;
 
     /// <summary>
     /// The list of actual Game Scenes as opposed to other scenes that do not contain GamePlay.</summary>
@@ -65,6 +73,7 @@ public class MainController : MonoBehaviour
             if (Instance.CurrentSceneName != nextSceneName)
             {
                 Instance.NextSceneName = nextSceneName;
+                Instance.LoadingText.text = string.Format("{0}", nextSceneName); 
             }
         }
     }
@@ -135,6 +144,7 @@ public class MainController : MonoBehaviour
         }
         else
         {
+            AudioControl.Instance.StopText();
             LoadingText.enabled = true;
             sceneState = SceneState.Reset;
         }
@@ -144,6 +154,17 @@ public class MainController : MonoBehaviour
     /// Attach the new scene controller to start cascade of loading.</summary>
     private void UpdateSceneReset()
     {
+        UStoryline.Instance.PauseStory();
+
+        ActionRpgKitController.Instance.enabled = false;
+
+        // Disable the Player
+        if (GamePlayer.Instance != null)
+        {
+            GamePlayer.Instance.NavMeshAgent.enabled = false;
+            GamePlayer.Instance.enabled = false;
+        }
+
         GC.Collect();
         sceneState = SceneState.Preload;
     }
@@ -205,11 +226,6 @@ public class MainController : MonoBehaviour
     {
         ActionRpgKitController.Instance.enabled = false;
 
-        // TODO
-        // TODO Instantiate an Event System??? 
-        // TODO Or attach it to the maincontroller itself???
-        // TODO
-
         // Init the Player and other game objects
         if (Array.Exists(GameScenes, element => element == NextSceneName))
         {
@@ -220,6 +236,10 @@ public class MainController : MonoBehaviour
             {
                 Instantiate(PlayerPrefab);
             }
+
+            // Set the main Audio Source
+            //var audioSource = GamePlayer.Instance.gameObject.GetComponentInChildren<AudioSource>();
+            //AudioControl.Instance.mainAudioSource = audioSource;
 
             // If there is Player data to load, load it and reset it to null
             if (_playerDataToLoad != null)
@@ -237,7 +257,9 @@ public class MainController : MonoBehaviour
                 {
                     if (savePoint.IsSpawnPoint)
                     {
+                        GamePlayer.Instance.NavMeshAgent.enabled = false;
                         GamePlayer.Instance.transform.position = savePoint.transform.position;
+                        GamePlayer.Instance.NavMeshAgent.enabled = true;
                         break;
                     }
                 }
@@ -276,22 +298,46 @@ public class MainController : MonoBehaviour
                 CameraRig.Instance.Target = GamePlayer.Instance.transform;
                 CameraRig.Instance.Update();
             }
+            else
+            {
+                CameraRig.Instance.Target = GamePlayer.Instance.transform;
+                CameraRig.Instance.Update();
+            }
+
+            foreach (Camera camera in FindObjectsOfType<Camera>())
+            {
+                if (camera != CameraRig.Instance.Camera)
+                {
+                    camera.gameObject.SetActive(false);
+                }
+                else
+                {
+                    camera.gameObject.SetActive(true);
+                }
+            }
 
             // Initialize the ActionRpgKit Controller
             ActionRpgKitController.Instance.Initialize();
 
             // Resume the Storyline
             Storyline.ResumeStory();
+
+            // Disable the Player
+            if (GamePlayer.Instance != null)
+            {
+                GamePlayer.Instance.NavMeshAgent.enabled = true;
+                GamePlayer.Instance.enabled = true;
+            }
+
         }
         else
         {
             Storyline.PauseStory();
         }
 
-        var handler = OnSceneReady;
-        if (handler != null)
+        if (CurrentSceneName == "Main Menu" || CurrentSceneName == "")
         {
-            handler();
+            AudioControl.Instance.PlaySound(MainMenuMusic);
         }
 
         // The Game is now ready to run
@@ -312,6 +358,43 @@ public class MainController : MonoBehaviour
             FadingCanvas.sortingOrder = 0;
             FadingCanvas.enabled = false;
             sceneState = SceneState.Run;
+
+            var handler = OnSceneReady;
+            if (handler != null)
+            {
+                handler();
+            }
+
+            // Some hacky stuff
+            if (CurrentSceneName == "The Swamp")
+            {
+                UStoryline.Instance.Quests[3].Start();
+            }
+            else if (CurrentSceneName == "The Lair of the Necromancer")
+            {
+                UStoryline.Instance.Quests[4].Start();
+            }
+            else if (CurrentSceneName == "Main Menu")
+            {
+                AudioControl.Instance.PlaySound(MainMenuMusic);
+            }
+            else if (CurrentSceneName == "Shadowhunter")
+            {
+                AudioControl.Instance.PlaySound(IntroMusic);
+                AudioControl.Instance.PlayText(IntroText);
+            }
+            else if (CurrentSceneName == "Asking a Ghost")
+            {
+                AudioControl.Instance.PlayText(GhostCinematicText);
+            }
+            else if (CurrentSceneName == "The End")
+            {
+                GamePlayer.Instance.enabled = false;
+                Destroy(GamePlayer.Instance.gameObject);
+                Destroy(GameMenu.Instance.gameObject);
+                AudioControl.Instance.PlaySound(EndMusic);
+                AudioControl.Instance.PlayText(EndText);
+            }
         }
     }
 
@@ -333,15 +416,18 @@ public class MainController : MonoBehaviour
     /// Start a new game by switching to the starting scene.</summary>
     public void StartNewGame()
     {
-        LoadingText.text = "Starting New Game";
         SwitchScene(StartScene);
+        LoadingText.text = "Starting New Game";
         OnSceneReady += StartStory;
     }
 
     public void StartStory()
     {
-        Storyline.StartStory();
-        OnSceneReady -= StartStory;
+        if (CurrentSceneName == "Nightly Streets")
+        {
+            Storyline.StartStory();
+            OnSceneReady -= StartStory;
+        }
     }
 
     /// <summary>
@@ -382,8 +468,6 @@ public class MainController : MonoBehaviour
             string json = LoadJsonData(quest.Name);
             JsonUtility.FromJsonOverwrite(json, quest);
         }
-        Storyline.ResumeStory();
-
         LoadingText.text = "Loading...";
         SwitchScene(scene);
     }
@@ -401,14 +485,22 @@ public class MainController : MonoBehaviour
     {
         FadingSpeed = 0.75f;
         float endTime = Time.time + 1 / FadingSpeed + 1;
-        LoadingText.text = "GameOver";
+        LoadingText.text = "Game Over";
         while (Time.time < endTime)
         {
             UpdateSceneFadeOut();
             yield return null;
         }
         FadingSpeed = 3;
-        SwitchScene(MainMenuScene);
+
+        GamePlayer.Instance.enabled = false;
+        Destroy(GamePlayer.Instance.gameObject);
+        Destroy(GameMenu.Instance.gameObject);
+        // Destroy(AudioControl.Instance.gameObject);
+        // Destroy(StoryViewer.Instance.gameObject);
+        //Destroy(CameraRig.Instance.gameObject);
+
+        SwitchScene(GameOverScene);
     }
 
     /// <summary>

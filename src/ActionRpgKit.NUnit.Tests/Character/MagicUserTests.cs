@@ -18,6 +18,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
         UsableItem coin;
 
         MagicSkill passiveMagicSkill;
+        MagicSkill offensiveMagicSkill;
 
         [SetUp]
         public void SetUp ()
@@ -44,7 +45,18 @@ namespace ActionRpgKit.NUnit.Tests.Character
                                             modifierValue: 10,
                                             modifiedAttributeName: "Body",
                                             itemSequence: new int[] { herb.Id });
-            SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill };
+
+            offensiveMagicSkill = new OffensiveMagicSkill(id: 1,
+                                                    name: "Fireball",
+                                                      description: "A ball of fire.",
+                                                      cooldownTime: 5,
+                                                      itemSequence: new int[] { herb.Id },
+                                                      damage: 1,
+                                                      maximumTargets: 2,
+                                                      range: 2,
+                                                      cost: 1);
+
+            SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill, offensiveMagicSkill };
 
             player.OnMagicSkillTriggered += MagicSkillTriggered;
         }
@@ -94,6 +106,43 @@ namespace ActionRpgKit.NUnit.Tests.Character
             GameTime.time = 10;
             triggered = player.TriggerMagicSkill(passiveMagicSkill.Id);
             Assert.IsFalse(triggered);
+        }
+
+        [Test]
+        public void OffensiveMagicSkillTest()
+        {
+            // Check the basics
+            Assert.AreEqual(1, offensiveMagicSkill.Id);
+
+            // Check if the combination matches
+            Assert.IsFalse(offensiveMagicSkill.Match(new int[] { }));
+            Assert.IsFalse(offensiveMagicSkill.Match(new int[] { coin.Id }));
+            Assert.IsFalse(offensiveMagicSkill.Match(new int[] { herb.Id, coin.Id }));
+            Assert.IsFalse(offensiveMagicSkill.Match(new int[] { coin.Id, herb.Id }));
+            Assert.IsTrue(offensiveMagicSkill.Match(new int[] { herb.Id }));
+
+            // Player triggers a Skill that is not learned yet
+            bool triggered = player.TriggerMagicSkill(offensiveMagicSkill.Id);
+            Assert.IsFalse(triggered);
+
+            // Player learns the Skill and triggers it
+            player.LearnMagicSkill(offensiveMagicSkill.Id);
+            triggered = player.TriggerMagicSkill(offensiveMagicSkill.Id);
+            Assert.IsTrue(triggered);
+
+            // Player triggers it again right away, which is not possible due to cooldown time
+            triggered = player.TriggerMagicSkill(offensiveMagicSkill.Id);
+            Assert.IsFalse(triggered);
+
+            // Enemy uses the same passive skill
+            enemy.LearnMagicSkill(offensiveMagicSkill.Id);
+            triggered = enemy.TriggerMagicSkill(offensiveMagicSkill.Id);
+            Assert.IsTrue(triggered);
+
+            // Advance in Time and trigger again
+            GameTime.time += 5;
+            triggered = player.TriggerMagicSkill(offensiveMagicSkill.Id);
+            Assert.IsTrue(triggered);
         }
 
         private void MagicSkillTriggered(IMagicUser sender, int skillId)

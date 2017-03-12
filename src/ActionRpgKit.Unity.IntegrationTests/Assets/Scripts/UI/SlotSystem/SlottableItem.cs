@@ -30,6 +30,10 @@ namespace SlotSystem
         public Image Image;
 
         /// <summary>
+        /// The background image.</summary>
+        public Image Background;
+
+        /// <summary>
         /// The currently dragged Item.</summary>
         public static SlottableItem DraggedItem;
 

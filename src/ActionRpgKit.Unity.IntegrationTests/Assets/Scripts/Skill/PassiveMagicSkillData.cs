@@ -7,6 +7,10 @@ public class PassiveMagicSkillData : SkillData
     /// The ARPG Skill object.</summary>
     public PassiveMagicSkill Skill;
 
+    public OffensiveMagicSkill OffensiveSkill;
+
+    public bool IsOffensive;
+
     /// <summary>
     /// The associated animation when this Skill is being used.</summary>
     public AnimationClip AnimationClip;

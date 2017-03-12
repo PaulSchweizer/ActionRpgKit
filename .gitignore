@@ -4,15 +4,31 @@ OpenCover
 doc
 packages
 integrationtests
-src/ActionRpgKit.Unity.IntegrationTests/.vs
-src/ActionRpgKit.Unity.IntegrationTests/Temp/
-src/ActionRpgKit.Unity.IntegrationTests/ProjectSettings/
-src/ActionRpgKit.Unity.IntegrationTests/obj/
+.vs
+
+src/ActionRpgKit.Unity.IntegrationTests/Build/
 src/ActionRpgKit.Unity.IntegrationTests/Library/
+src/ActionRpgKit.Unity.IntegrationTests/obj/
+src/ActionRpgKit.Unity.IntegrationTests/packages
+src/ActionRpgKit.Unity.IntegrationTests/ProjectSettings/
+src/ActionRpgKit.Unity.IntegrationTests/Temp/
+src/ActionRpgKit.Unity.IntegrationTests/WebBuild/
+
+src/ActionRpgKit.Unity.IntegrationTests/Assets/AnimationsUnity/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/Assets/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/Audio/
 src/ActionRpgKit.Unity.IntegrationTests/Assets/Data/
 src/ActionRpgKit.Unity.IntegrationTests/Assets/dlls/
-src/ActionRpgKit.Unity.IntegrationTests/Assets/UnityTestTools/Examples/
-src/ActionRpgKit.Unity.IntegrationTests/Assets/UnityTestTools/UnitTesting/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/DownloadedPackages/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/Json/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/Prefabs/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/Scenes/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/Soryline/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/Textures/
+src/ActionRpgKit.Unity.IntegrationTests/Assets/UI/
+*.asset
+*.meta
+*.giparams
 
 #################
 ## Sublime

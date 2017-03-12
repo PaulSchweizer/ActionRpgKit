@@ -10,7 +10,7 @@ using ActionRpgKit.Core;
 public class GameBaseCharacter : MonoBehaviour
 {
     // Unity related fields
-    public NavMeshAgent NavMeshAgent;
+    public UnityEngine.AI.NavMeshAgent NavMeshAgent;
     public Animator Animator;
     public Collider Collider;
     public Loot LootPrefab;
@@ -406,8 +406,19 @@ public class GameChaseState : GameCharacterState
             character.Animator.SetFloat("MovementSpeed",
                 Math.Min(1, character.Animator.GetFloat("MovementSpeed") + Time.deltaTime * 6));
         }
-        character.NavMeshAgent.destination = new Vector3(character.Character.TargetedEnemy.Position.X, 0,
-                                                         character.Character.TargetedEnemy.Position.Y);
+
+        var enemyPos = new Vector3(character.Character.TargetedEnemy.Position.X, 0, 
+                                   character.Character.TargetedEnemy.Position.Y);
+        var charPos = new Vector3(character.Character.Position.X, 0,
+                                   character.Character.Position.Y);
+
+        var direction = (enemyPos - charPos).normalized * 
+                        (float)Math.Sqrt(character.Character.AttackRange);
+
+        var destination = new Vector3(character.Character.TargetedEnemy.Position.X, 0,
+                                      character.Character.TargetedEnemy.Position.Y) + direction;
+
+        character.NavMeshAgent.destination = destination;
     }
 
     /// <summary>

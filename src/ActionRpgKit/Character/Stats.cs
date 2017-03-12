@@ -37,6 +37,10 @@ namespace ActionRpgKit.Character.Stats
         public BaseAttribute Life;
 
         /// <summary>
+        /// Regeneration rate in points per second.</summary>
+        public BaseAttribute LifeRegenerationRate;
+
+        /// <summary>
         /// The magic energy.</summary>
         public BaseAttribute Magic;
 
@@ -82,6 +86,7 @@ namespace ActionRpgKit.Character.Stats
             Dict.Add("Experience", Experience);
             Dict.Add("Level", Level);
             Dict.Add("Life", Life);
+            Dict.Add("LifeRegenerationRate", LifeRegenerationRate);
             Dict.Add("MagicRegenerationRate", MagicRegenerationRate);
             Dict.Add("Magic", Magic);
             Dict.Add("AlertnessRange", AlertnessRange);
@@ -169,6 +174,10 @@ namespace ActionRpgKit.Character.Stats
                                     "MagicRegenerationRate",
                                     x => 1 + (x[0].Value / 1000),
                                     new BaseAttribute[] { Mind }, 0, 99);
+            LifeRegenerationRate = new SecondaryAttribute(
+                                    "LifeRegenerationRate",
+                                    x => 1 + (x[0].Value / 1000),
+                                    new BaseAttribute[] { Body }, 0, 99);
 
             // Volume Attributes
             Life = new VolumeAttribute("Life", 
@@ -197,6 +206,7 @@ namespace ActionRpgKit.Character.Stats
             Level = new PrimaryAttribute("Level", 0, 99, 0);
             Life = new PrimaryAttribute("Life", 0, 999, 0);
             MagicRegenerationRate = new PrimaryAttribute("MagicRegenerationRate", 0, 2, 0);
+            LifeRegenerationRate = new PrimaryAttribute("LifeRegenerationRate", 0, 2, 0);
             Magic = new PrimaryAttribute("Magic", 0, 999, 0);
             AlertnessRange = new PrimaryAttribute("AlertnessRange", 2, 999, 2);
             Damage = new PrimaryAttribute("Damage", 0, 999, 0);

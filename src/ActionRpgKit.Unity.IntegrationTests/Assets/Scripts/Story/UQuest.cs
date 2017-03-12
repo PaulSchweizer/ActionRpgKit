@@ -11,10 +11,13 @@ public class UQuest : ScriptableObject
 {
     public string Name;
 
+    [TextArea(3, 10)]
     public string Description;
 
+    [TextArea(3, 10)]
     public string StartText;
 
+    [TextArea(3, 10)]
     public string CompleteText;
 
     public int Experience;
@@ -25,23 +28,38 @@ public class UQuest : ScriptableObject
 
     public UQuest NextQuest;
 
-    public float viewerTime = 10;
+    public Sprite StartPortrait;
+    public Sprite CompletePortrait;
+
+    public AudioClip StartAudio;
+    public AudioClip CompleteAudio;
 
     public void Start()
     {
-        StoryViewer.Instance.Show(Name, StartText, viewerTime, StoryViewer.Style.Started);
+        AudioControl.Instance.PlaySound(UStoryline.Instance.QuestStartedSound);
+        StoryViewer.Instance.PushMessage(new MessageStruct(Name, StartText, portrait: StartPortrait, audio: StartAudio));
+
         IsActive = true;
+        GameMenu.Instance.ActiveQuestText.text = Name;
+        OnStarted();
+        GameMenu.Instance.UpdateQuestPanels();
     }
 
     public void Complete()
     {
-        StoryViewer.Instance.Show(Name, CompleteText, viewerTime, StoryViewer.Style.Completed, Experience);
+        StoryViewer.Instance.PushMessage(new MessageStruct(Name, CompleteText, 1, Experience, CompletePortrait, CompleteAudio));
+
         IsActive = false;
         IsCompleted = true;
         if (NextQuest != null)
         {
-            UStoryline.Instance.StartCoroutine(StartNextQuest());
+            NextQuest.Start();
         }
+        else
+        {
+            GameMenu.Instance.ActiveQuestText.text = "";
+        }
+        GameMenu.Instance.UpdateQuestPanels();
     }
 
     public void Completed()
@@ -51,21 +69,12 @@ public class UQuest : ScriptableObject
         Complete();
     }
 
-    public IEnumerator StartNextQuest()
-    {
-        float endTime = Time.time + viewerTime;
-        Debug.Log(viewerTime);
-        while (Time.time < endTime)
-        {
-            yield return null;
-        }
-        NextQuest.Start();
-    }
-
     public virtual bool CheckProgress()
     {
         return false;
     }
+
+    public virtual void OnStarted() { }
 
     public virtual void OnCompletion() { }
 }

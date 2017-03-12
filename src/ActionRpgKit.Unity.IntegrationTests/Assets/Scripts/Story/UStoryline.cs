@@ -12,6 +12,11 @@ public class UStoryline : MonoBehaviour
 
     public bool Paused;
 
+    public AudioClip QuestStartedSound;
+    public AudioClip QuestCompletedSound;
+
+    private UQuest _nextQuest;
+
     public void Awake ()
     {
         if (Instance == null)
@@ -26,6 +31,12 @@ public class UStoryline : MonoBehaviour
 
     public void StartStory ()
     {
+        foreach(UQuest quest in Quests)
+        {
+            quest.IsActive = false;
+            quest.IsCompleted = false;
+        }
+
         Quests[0].Start();
     }
 
@@ -45,6 +56,7 @@ public class UStoryline : MonoBehaviour
         {
             return;
         }
+
         for (int i = 0; i < Quests.Count; i++)
         {
             if (Quests[i].IsActive)
@@ -53,6 +65,7 @@ public class UStoryline : MonoBehaviour
                 if (completed)
                 {
                     Quests[i].Completed();
+                    AudioControl.Instance.PlaySound(QuestCompletedSound);
                 }
             }
         }

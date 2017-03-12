@@ -24,7 +24,14 @@ public class GameSkillDatabase : ScriptableObject
 
         foreach (var skillData in PassiveMagicSkillsData)
         {
-            magicSkills.Add(skillData.Skill);
+            if (skillData.IsOffensive)
+            {
+                magicSkills.Add(skillData.OffensiveSkill);
+            }
+            else
+            {
+                magicSkills.Add(skillData.Skill);
+            }
         }
 
         foreach (var skillData in GenericCombatSkillsData)

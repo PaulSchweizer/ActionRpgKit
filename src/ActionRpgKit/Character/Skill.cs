@@ -212,6 +212,68 @@ namespace ActionRpgKit.Character.Skill
     }
 
     /// <summary>
+    /// Allows to attack with magic.</summary>
+    [Serializable]
+    public class OffensiveMagicSkill : PassiveMagicSkill
+    {
+        public float Damage;
+        public int MaximumTargets;
+        public float Range;
+
+        public OffensiveMagicSkill(int id,
+                                  string name,
+                                  string description,
+                                  float cooldownTime,
+                                  int[] itemSequence,
+                                  float damage,
+                                  int maximumTargets,
+                                  float range, 
+                                  float cost) : base(id,
+                                                     name,
+                                                     description,
+                                                     cooldownTime,
+                                                     itemSequence,
+                                                     cost, 0, 0, "")
+        {
+            Damage = damage;
+            MaximumTargets = maximumTargets;
+            Range = range;
+        }
+
+        /// <summary>
+        /// Pretty representation of the Skill.</summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return String.Format("{0} (Damage: {1}, MaxTargets: {2})", Name, Damage, MaximumTargets);
+        }
+
+        #region CombatSkill implementations
+
+        /// <summary>
+        /// Inform the attacked Characters that they are being attacked.</summary>
+        public override void Use(BaseCharacter user)
+        {
+            //Console.WriteLine(user);
+            float damage = Damage + user.Damage;
+
+            // Then attack the rest of the enemies
+            int attacked = 0;
+            for (int i = 0; i < user.EnemiesInAttackRange.Count; i++)
+            {
+                if (attacked >= MaximumTargets)
+                {
+                    break;
+                }
+                user.EnemiesInAttackRange[i].OnAttacked(user, damage);
+                attacked += 1;
+            }
+        }
+
+        #endregion
+    }
+
+    /// <summary>
     /// Allows to attack with a melee weapon.</summary>
     [Serializable]
     public class GenericCombatSkill : CombatSkill
@@ -256,13 +318,14 @@ namespace ActionRpgKit.Character.Skill
             int attacked = 1;
             for (int i = 0; i < user.EnemiesInAttackRange.Count; i++)
             {
-                if (attacked == MaximumTargets)
+                if (attacked >= MaximumTargets)
                 {
                     break;
                 }
                 if (user.EnemiesInAttackRange[i] != user.TargetedEnemy)
                 {
                     user.EnemiesInAttackRange[i].OnAttacked(user, damage);
+                    attacked += 1;
                 }
                 
             }

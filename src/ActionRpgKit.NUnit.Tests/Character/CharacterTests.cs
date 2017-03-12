@@ -139,7 +139,7 @@ namespace ActionRpgKit.NUnit.Tests.Character
             enemy.Position.Set(1, 0);
 
             Controller.Update();
-            Assert.IsTrue(player.CurrentState is PlayerAttackState);
+            Assert.IsTrue(player.CurrentState is AlertState);
 
             // Attack and get rid of the enemy
             GameTime.time += 2;
@@ -174,13 +174,13 @@ namespace ActionRpgKit.NUnit.Tests.Character
             enemy.Position.Set(2, 0);
             player.AddEnemy(enemy);
             Controller.Update();
-            Assert.IsTrue(player.CurrentState is IdleState);
+            Assert.IsTrue(player.CurrentState is AlertState);
 
             // Player starts walking from point A to point B 
             player.Position.Set(10, 0);
             player.IsMoving = true;
             Controller.Update();
-            Assert.IsTrue(player.CurrentState is MoveState);
+            Assert.IsTrue(player.CurrentState is AlertState);
 
             // And eventually encounters an Enemy
             enemy.Position.Set(10, 0);

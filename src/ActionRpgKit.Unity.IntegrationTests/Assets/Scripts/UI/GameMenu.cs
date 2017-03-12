@@ -8,6 +8,8 @@ using ActionRpgKit.Character;
 using ActionRpgKit.Character.Attribute;
 using SlotSystem;
 using ActionRpgKit.Character.Skill;
+using ActionRpgKit.Item;
+using System.Collections;
 
 public class GameMenu : MonoBehaviour, ISlotChanged
 {
@@ -22,6 +24,14 @@ public class GameMenu : MonoBehaviour, ISlotChanged
     /// <summary>
     /// Slider showing the Player's magic.</summary>
     public Slider MagicSlider;
+
+    /// <summary>
+    /// Text displaying the Currently active Quest.</summary>
+    public Text ActiveQuestText;
+
+    /// <summary>
+    /// Text displaying the Currently active Quest.</summary>
+    public Text InfoText;
 
     /// <summary>
     /// Slider showing the Player's targeted Enemy.</summary>
@@ -55,10 +65,23 @@ public class GameMenu : MonoBehaviour, ISlotChanged
     public Text AttacksPerSecondValueText;
     public Text DamageValueText;
     public Text MagicRegenerationRateValueText;
+    public Text LifeRegenerationRateValueText;
+    public Text LifeText;
+    public Text MagicText;
 
     public GameObject SkillsPanel;
     public GameObject SkillPanelPrefab;
 
+    // Quests
+    public GameObject QuestPanel;
+    public Text QuestText;
+    public QuestPanel QuestPanelPrefab;
+    public List<QuestPanel> QuestPanels;
+
+    public GameObject StatsPanel;
+    public GameObject QuestsPanel;
+
+    // Internals
     private Player Player;
 
     /// <summary>
@@ -94,8 +117,8 @@ public class GameMenu : MonoBehaviour, ISlotChanged
         Player.Stats.Soul.OnValueChanged += new ValueChangedHandler(UpdateStats);
         Player.OnWeaponEquipped += new WeaponEquippedHandler(UpdateWeaponStats);
         Player.Stats.Level.OnValueChanged += new ValueChangedHandler(NextLevelReached);
-        Player.OnCombatSkillLearned += new CombatSkillLearnedHandler(CombatSkillLearned);
         Player.OnMagicSkillLearned += new MagicSkillLearnedHandler(MagicSkillLearned);
+        Player.Inventory.OnItemAdded += new ItemAddedHandler(FoundItem);
 
         // Set the initial values
         UpdateLifeSlider(Player.Stats.Life, Player.Stats.Life.Value);
@@ -144,17 +167,20 @@ public class GameMenu : MonoBehaviour, ISlotChanged
             }
         }
 
-        foreach (int skillId in Player.CombatSkills)
+        // The Quest Panel
+        foreach (UQuest quest in UStoryline.Instance.Quests)
         {
-            if (skillId > -1)
-            {
-                BaseSkill skill = SkillDatabase.GetCombatSkillById(skillId);
-                AddSkillPanel(skill);
-            }
+            var panel = Instantiate<QuestPanel>(QuestPanelPrefab);
+            panel.Initialize(quest);
+            panel.transform.SetParent(QuestPanel.transform);
+            panel.transform.localScale = new Vector3(1, 1, 1);
+            panel.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+            QuestPanels.Add(panel);
         }
 
         // Reset the UI
         EnemyPanel.SetActive(false);
+        InfoText.enabled = false;
         DisableSaving();
     }
 
@@ -167,6 +193,7 @@ public class GameMenu : MonoBehaviour, ISlotChanged
         ActionPanel.SlotC.AllowsDrag = false;
         ActionPanel.SlotD.AllowsDrag = false;
         ActionPanel.WeaponSlot.AllowsDrag = false;
+        ActionPanel.Enabled = true;
         Time.timeScale = 1;
     }
 
@@ -179,7 +206,20 @@ public class GameMenu : MonoBehaviour, ISlotChanged
         ActionPanel.SlotC.AllowsDrag = true;
         ActionPanel.SlotD.AllowsDrag = true;
         ActionPanel.WeaponSlot.AllowsDrag = true;
+        ActionPanel.Enabled = false;
         Time.timeScale = 0;
+    }
+
+    public void SwitchToStatsMenu()
+    {
+        StatsPanel.SetActive(true);
+        QuestsPanel.SetActive(false);
+    }
+
+    public void SwitchToQuestsMenu()
+    {
+        QuestsPanel.SetActive(true);
+        StatsPanel.SetActive(false);
     }
 
     public void UseAttributePoint(string attribute)
@@ -265,15 +305,18 @@ public class GameMenu : MonoBehaviour, ISlotChanged
         ExperienceValueText.text = Player.Stats.Experience.Value.ToString();
         LevelValueText.text = Player.Stats.Level.Value.ToString();
         AttackRangeValueText.text = Player.Stats.AttackRange.Value.ToString();
-        AttacksPerSecondValueText.text = Player.AttacksPerSecond.ToString();
+        AttacksPerSecondValueText.text = (1f / Player.AttacksPerSecond).ToString(); 
         DamageValueText.text = Player.Damage.ToString();
+        LifeRegenerationRateValueText.text = Player.Stats.LifeRegenerationRate.Value.ToString();
         MagicRegenerationRateValueText.text = Player.Stats.MagicRegenerationRate.Value.ToString();
+        LifeText.text =Player.Stats.Life.MaxValue.ToString();
+        MagicText.text = Player.Stats.Magic.MaxValue.ToString();
     }
 
     private void UpdateWeaponStats(int weaponId)
     {
         AttackRangeValueText.text = Player.Stats.AttackRange.Value.ToString();
-        AttacksPerSecondValueText.text = Player.AttacksPerSecond.ToString();
+        AttacksPerSecondValueText.text = (1f / Player.AttacksPerSecond).ToString();
         DamageValueText.text = Player.Damage.ToString();
     }
 
@@ -281,15 +324,6 @@ public class GameMenu : MonoBehaviour, ISlotChanged
     {
         AvailableAttributePointsText.text = Player.AvailableAttributePoints.ToString();
         UpdateStats(attribute, value);
-    }
-
-    private void CombatSkillLearned(IFighter sender, int skillId)
-    {
-        if (skillId > -1)
-        {
-            BaseSkill skill = SkillDatabase.GetCombatSkillById(skillId);
-            AddSkillPanel(skill);
-        }
     }
 
     private void MagicSkillLearned(IMagicUser sender, int skillId)
@@ -334,10 +368,47 @@ public class GameMenu : MonoBehaviour, ISlotChanged
         }
     }
 
+    public void FoundItem(int itemId, int quantity)
+    {
+        if (InfoText.enabled)
+        {
+            var item = ItemDatabase.GetItemById(itemId).Name;
+            if (!InfoText.text.Contains(item))
+            {
+                InfoText.text = String.Format("{0}, {1}", InfoText.text, item);
+            }
+        }
+        else
+        {
+            InfoText.text = String.Format("Found: {0}", 
+                                          ItemDatabase.GetItemById(itemId).Name);
+            StartCoroutine("ShowInfoText");
+        }
+    }
+
     public void AddSkillPanel(BaseSkill skill)
     {
         var skillsPanel = (GameObject)Instantiate(SkillPanelPrefab, SkillsPanel.transform);
         skillsPanel.GetComponent<SkillPanel>().Initialize(skill);
+    }
+
+    public void UpdateQuestPanels()
+    {
+        foreach(QuestPanel panel in QuestPanels)
+        {
+            panel.UpdateDisplay();
+        }
+    }
+
+    public IEnumerator ShowInfoText()
+    {
+        InfoText.enabled = true;
+        float endTime = Time.time + 5;
+        while (Time.time < endTime)
+        {
+            yield return null;
+        }
+        InfoText.enabled = false;
     }
 }
 

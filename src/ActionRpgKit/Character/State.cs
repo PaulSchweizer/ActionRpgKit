@@ -276,18 +276,18 @@ namespace ActionRpgKit.Character
                 return;
             }
 
-            // If not in Attack Range any more, chase the enemy
-            if (!character.EnemiesInAttackRange.Contains(character.TargetedEnemy))
-            {
-                character.ChangeState(character.ChaseState);
-                return;
-            }
+            //// If not in Attack Range any more, chase the enemy
+            //if (!character.EnemiesInAttackRange.Contains(character.TargetedEnemy))
+            //{
+            //    character.ChangeState(character.ChaseState);
+            //    return;
+            //}
 
-            // Attack
-            if (character.CanAttack())
-            {
-                character.Attack(character.TargetedEnemy);
-            }
+            //// Attack
+            //if (character.CanAttack())
+            //{
+            //    character.Attack(character.TargetedEnemy);
+            //}
         }
     }
 

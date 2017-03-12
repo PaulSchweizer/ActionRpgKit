@@ -190,6 +190,10 @@ namespace ActionRpgKit.Character
         /// <summary>
         /// Event is fired when an Enemy leaves the alterness range.</summary>
         event EnemyLeftAltertnessRangeHandler OnEnemyLeftAltertnessRange;
+
+        /// <summary>
+        /// Event is fired when Character is being attacked.</summary>
+        event BeingAttackedHandler OnBeingAttacked;
     }
 
     /// <summary>
@@ -221,9 +225,18 @@ namespace ActionRpgKit.Character
     public delegate void EnemyLeftAltertnessRangeHandler(IFighter enemy);
 
     /// <summary>
+    /// An enemy has been defeated by the Player.</summary>
+    /// <param name="enemy">The Enemy</param>
+    public delegate void EnemyDefeatedHandler(IFighter enemy);
+
+    /// <summary>
     /// Emitted when the weapon has been changed.</summary>
     /// <param name="itemId">The id of the weapon item</param>
     public delegate void WeaponEquippedHandler(int itemId);
+
+    /// <summary>
+    /// Handler operates whenever an Character is attacked.</summary>
+    public delegate void BeingAttackedHandler(IFighter attacker);
 
     #endregion
 
@@ -282,6 +295,9 @@ namespace ActionRpgKit.Character
 
         [field: NonSerialized]
         public event WeaponEquippedHandler OnWeaponEquipped;
+
+        [field: NonSerialized]
+        public event BeingAttackedHandler OnBeingAttacked;
 
         #region States
 
@@ -545,6 +561,17 @@ namespace ActionRpgKit.Character
             }
         }
 
+        /// <summary>
+        /// Emit when the Weapon has Changed.</summary>
+        protected void EmitOnBeingAttacked(IFighter attacker)
+        {
+            var handler = OnBeingAttacked;
+            if (handler != null)
+            {
+                handler(attacker);
+            }
+        }
+
         #endregion
 
         #region IMagicUser Implementations
@@ -613,6 +640,10 @@ namespace ActionRpgKit.Character
         /// <returns> Whether the Skill van be used.</returns>
         private bool MagicSkillCanBeUsed(int skillId)
         {
+            if (GameTime.time < TimeUntilNextAttack)
+            {
+                return false;
+            }
             if (!MagicSkills.Contains(skillId))
             {
                 return false;
@@ -766,6 +797,10 @@ namespace ActionRpgKit.Character
                 Enemies.Remove(enemy);
                 EmitOnEnemyLeftAltertnessRange();
             }
+            if (EnemiesInAttackRange.Contains(enemy))
+            {
+                EnemiesInAttackRange.Remove(enemy);
+            }
         }
 
         /// <summary>
@@ -773,6 +808,13 @@ namespace ActionRpgKit.Character
         /// <returns>Whether the Character is allowed to attack.</returns>
         public bool CanAttack()
         {
+            for (int i = 0; i < MagicSkillEndTimes.Count; i++)
+            {
+                if (GameTime.time < MagicSkillEndTimes[i])
+                {
+                    return false;
+                }
+            }
             return GameTime.time > TimeUntilNextAttack;
         }
 
@@ -815,6 +857,7 @@ namespace ActionRpgKit.Character
             }
             var combatSkill = SkillDatabase.GetCombatSkillById(skillId);
             float endTime = GameTime.time + combatSkill.CooldownTime + AttacksPerSecond;
+            TimeUntilNextAttack = endTime;
             CombatSkillEndTimes[CombatSkills.IndexOf(skillId)] = endTime; 
             EmitOnCombatSkillTriggered(skillId);
             return true;
@@ -836,6 +879,10 @@ namespace ActionRpgKit.Character
             if (Stats.Life.Value <= 0)
             {
                 attacker.HasDefeated(this);
+            }
+            else
+            {
+                EmitOnBeingAttacked(attacker);
             }
         }
 
@@ -901,6 +948,9 @@ namespace ActionRpgKit.Character
         /// Store the previous level to calculate the difference</summary>
         private float _levelBefore;
 
+        [field: NonSerialized]
+        public event EnemyDefeatedHandler OnEnemyDefeated;
+
         /// <summary>
         /// Constructor is needed for seamless serialization.</summary>
         public Player() : base(new PlayerStats(), new PlayerInventory())
@@ -959,11 +1009,23 @@ namespace ActionRpgKit.Character
         }
 
         /// <summary>
-        /// Nothing happens here.</summary>
+        /// Emit a singal that the enemy has been defeated.</summary>
         /// <param name="defeatedEnemy"></param>
         public override void HasDefeated(IFighter defeatedEnemy)
         {
             Stats.Experience.Value += defeatedEnemy.ExperienceOnDefeat;
+            EmitOnEnemyDefeated(defeatedEnemy);
+        }
+
+        /// <summary>
+        /// Emit when the Weapon has Changed.</summary>
+        protected void EmitOnEnemyDefeated(IFighter enemy)
+        {
+            var handler = OnEnemyDefeated;
+            if (handler != null)
+            {
+                handler(enemy);
+            }
         }
 
         /// <summary>

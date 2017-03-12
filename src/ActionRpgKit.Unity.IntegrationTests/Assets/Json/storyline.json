@@ -12,14 +12,26 @@ nacht für nacht bin ich auf der jagd nach diesen Kreaturen
 Allein, immer allein ...
 
 
-Das licht der strasenlatenren tacuhte die stadt in ein trügherrisches zwielicht und irgendwetaas sage mir dass sich das bald ändern würde.
+Das licht der strasenlatenren tacuhte die stadt in ein trügherrisches zwielicht
+seit tagen hatte ich keine untoten mehr gesehen
+und irgendwetaas sage mir dass sich das bald ändern würde.
 
 
 "Wo bist du?"
 
 When the sun drowns in her own blood and the night places a shroud of darkness
 over the face of the earth, they wake up. Creatures from the shadows.
-They crawl from the crevices of darkness,
+They crawl from the blackest crevices, driven by dark forces.
+Dead in search for life, hungering demons, drinkers of blood, nightmares, eaters of souls.
+Night after night I am on the hunt for these creatures.
+Alone, always alone ...
+
+*/
+
+/* Cinematic
+
+The light of the streetlamps bathed the city in a treacherous twilight.
+It had been days since I last
 
 */
 
@@ -38,12 +50,18 @@ They crawl from the crevices of darkness,
         "Type": "ReachLocation"
     },
     {
-        "Name": "Zombies",
-        "Description": "A nest of undead creatures.",
-        "StartText":"There are Zombies in the area. I have to hunt them all down",
-        "CompleteText": "Always a gritty job, getting rid of the undead.",
-        "Type": "KillNumberOfEnemies"
+        "Name": "Gruesome findings",
+        "StartText": "I have to examine the remains and the area to find out more.",
+        "CompleteText": "A beretta! The guy must have been a police officer. I have to be careful, the creatures must still be in the area",
+        "Type": "FindItems" -->> Beretta
     },
+    {
+        "Name": "A nest of undead creatures",
+        "Description": "",
+        "StartText":"There are Zombies in the area. I have to hunt them all down.",
+        "CompleteText": "I haven't seen that many Zombies in a while. I have to find their master. Let's get out of here.",
+        "Type": "KillNumberOfEnemies" -->> 20
+    }
 
 /*****************************************************************************/
 /* Cinematic */
@@ -53,6 +71,41 @@ They crawl from the crevices of darkness,
 
 
 */
+
+
+Sounds:
+
+Necromancer when attacking:
+    - Your soul will be mine!
+    - I am the soulcollector!
+    - You are weak!
+
+
+
+
+Quest 4:
+    I have to find the entrance to the Necromancer's hideout.
+    "Type": "ReachLocation"
+
+Quest 5:
+    Where is the Necromancer?
+    The Soul collector commands these undead creatures.
+
+    End:
+    I am the soul collector ...
+    Your soul belongs to me Shadowhunter.
+
+    "Type": "ReachLocation"
+
+Quest 6:
+
+    The mastermind behind the zombie plague.
+
+    End:
+    The Zombies lost their master and will return to their graves where they belong.
+
+
+    KillEnemies
 
 /*****************************************************************************/
 /* Level 2 */

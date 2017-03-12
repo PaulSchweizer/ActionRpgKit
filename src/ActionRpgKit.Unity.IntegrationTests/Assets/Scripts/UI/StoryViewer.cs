@@ -16,6 +16,16 @@ public class StoryViewer : MonoBehaviour
     public Text Content;
     public Text Header;
     public Text XP;
+    public Image Portrait;
+
+    private bool _showNext;
+    private string _savedHeadline;
+    private string _savedContent;
+    private int _savedStyle;
+    private int _savedExperience;
+    private bool _savedPause;
+
+    private List<MessageStruct> _messages = new List<MessageStruct>();
 
     public void Awake()
     {
@@ -29,42 +39,62 @@ public class StoryViewer : MonoBehaviour
         }
     }
 
-    public void Show(string headline, string content, float time, int style, int experience = 0)
+    /// <summary>
+    /// Push a new message on the stack
+    /// </summary>
+    public void PushMessage(MessageStruct message)
     {
-        if (style == Style.Started)
+        _messages.Add(message);
+        if (!gameObject.active)
         {
-            Header.text = "New Quest";
+            Show();
+        }
+    }
+
+    public void Show()
+    {
+        var message = _messages[0];
+        Headline.text = message.Headline;
+        Content.text = message.Content;
+        if (message.Experience == 0)
+        {
             XP.enabled = false;
         }
-        else if (style == Style.Completed)
+        else
         {
-            Header.text = "Quest Completed!";
-            XP.text = String.Format("+ {0} XP", experience);
             XP.enabled = true;
+            XP.text = String.Format("+{0} XP", message.Experience);
         }
-        Headline.text = headline;
-        Content.text = content;
+
+        Portrait.sprite = message.Portrait;
+
+        if (message.Audio != null)
+        {
+            AudioControl.Instance.PlayText(message.Audio);
+        }
+
         gameObject.SetActive(true);
-        StopCoroutine("Display");
-        StartCoroutine(Display(time));
+        Time.timeScale = 0;
     }
 
     public void Hide()
     {
-        StopCoroutine("Display");
-        gameObject.SetActive(false);
-    }
-
-    public IEnumerator Display(float time)
-    {
-        float endTime = Time.time + time;
-        while (Time.time < endTime)
+        if (_messages.Count > 0)
         {
-            yield return null;
-        }
-        Hide();
-    }
+            if (_messages[0].Audio != null)
+            {
+                AudioControl.Instance.StopText();
+            }
 
+            _messages.Remove(_messages[0]);
+            if (_messages.Count > 0) {
+                Show();
+                return;
+            }
+        }
+        gameObject.SetActive(false);
+        Time.timeScale = 1;
+    }
 }
 
 
@@ -77,5 +107,26 @@ public struct StyleStruct
     {
         Started = started;
         Completed = completed;
+    }
+}
+
+
+public struct MessageStruct
+{
+    public string Headline;
+    public string Content;
+    public int Experience;
+    public int Style;
+    public Sprite Portrait;
+    public AudioClip Audio;
+
+    public MessageStruct(string headline, string content, int style=0, int experience=0, Sprite portrait=null, AudioClip audio=null)
+    {
+        Headline = headline;
+        Content = content;
+        Style = style;
+        Experience = experience;
+        Portrait = portrait;
+        Audio = audio;
     }
 }

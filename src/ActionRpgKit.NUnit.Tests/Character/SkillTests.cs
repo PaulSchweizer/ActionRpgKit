@@ -19,6 +19,7 @@ namespace ActionRpgKit.NUnit.Tests.Skill
         CombatSkill meleeSkill;
         CombatSkill meleeMultiTargetsSkill;
         CombatSkill rangedSkill;
+        OffensiveMagicSkill offensiveMagicSkill;
 
         [SetUp]
         public void SetUp ()
@@ -43,6 +44,15 @@ namespace ActionRpgKit.NUnit.Tests.Skill
                                                       duration: 10,
                                                       modifierValue: 10,
                                                       modifiedAttributeName: "Body");
+            offensiveMagicSkill = new OffensiveMagicSkill(id: 1,
+                                                    name: "Fireball",
+                                                      description: "A ball of fire.",
+                                                      cooldownTime: 5,
+                                                      itemSequence: new int[] { coin.Id, herb.Id },
+                                                      damage: 1,
+                                                      maximumTargets: 2,
+                                                      range: 2,
+                                                      cost: 1);
             meleeSkill = new GenericCombatSkill(id: 1,
                                                 name: "SwordFighting",
                                                 description: "Wield a sword effectively.",
@@ -67,18 +77,26 @@ namespace ActionRpgKit.NUnit.Tests.Skill
                                                  maximumTargets: 1,
                                                  range: 10,
                                                  itemSequence: new int[] { });
+
         }
 
         [Test]
         public void SkillDatabaseTest()
         {
-            SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill };
+            SkillDatabase.MagicSkills = new MagicSkill[] { passiveMagicSkill, offensiveMagicSkill };
             SkillDatabase.CombatSkills = new CombatSkill[] { meleeSkill, meleeMultiTargetsSkill, rangedSkill };
 
             Assert.IsNull(SkillDatabase.GetMagicSkillByName("DoesNotExist"));
             Assert.IsNull(SkillDatabase.GetCombatSkillByName("DoesNotExist"));
             Assert.AreSame(passiveMagicSkill, SkillDatabase.GetMagicSkillByName("ShadowStrength"));
+            Assert.AreSame(offensiveMagicSkill, SkillDatabase.GetMagicSkillByName("Fireball"));
             Assert.AreSame(meleeSkill, SkillDatabase.GetCombatSkillByName("SwordFighting"));
+        }
+
+        [Test]
+        public void TriggerSequenceTest()
+        {
+            Assert.IsTrue(offensiveMagicSkill.Match(new int[] { 1, 0}));
         }
 
         [Test]

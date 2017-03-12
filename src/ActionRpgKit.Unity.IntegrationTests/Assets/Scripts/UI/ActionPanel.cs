@@ -1,6 +1,9 @@
 ﻿using SlotSystem;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActionPanel : MonoBehaviour, ISlotChanged
 {
@@ -13,7 +16,12 @@ public class ActionPanel : MonoBehaviour, ISlotChanged
 
     public float MaxInbetweenTime;
 
-    private int[] _triggeredItems = new int[] { };
+    public Color DefaultColor = new Color(0, 0, 0, 1);
+    public Color ActivatedColor;
+
+    public bool Enabled;
+
+    public List<int> _triggeredItems = new List<int>();
     private float _triggerTime;
 
     /// <summary>
@@ -22,24 +30,24 @@ public class ActionPanel : MonoBehaviour, ISlotChanged
     /// <param name="slot">The clicked Slot.</param>
     public void SlotTriggered (Slot slot)
     {
+        if (!Enabled)
+        {
+            return;
+        }
         if (slot.Item == null)
         {
             return;
         }
 
         var item = (UsableItemData)slot.Item.Item;
+        StartCoroutine(CooldownEffect(Time.time + MaxInbetweenTime, slot.Item.Background));
 
         // Clear the item list if the time difference is too big
         if (Time.time - _triggerTime > MaxInbetweenTime)
         {
-            Array.Clear(_triggeredItems, 0, _triggeredItems.Length);
-            Array.Resize(ref _triggeredItems, 1);
+            _triggeredItems = new List<int>();
         }
-        else
-        {
-            Array.Resize(ref _triggeredItems, _triggeredItems.Length + 1);
-        }
-        _triggeredItems[_triggeredItems.Length - 1] = item.Item.Id;
+        _triggeredItems.Add(item.Item.Id);
 
         // Remove the item from the Inventory if it is not a permanent Item.
         if (item.Item.DestroyOnUse)
@@ -50,11 +58,13 @@ public class ActionPanel : MonoBehaviour, ISlotChanged
         // Add the item and check if the sequence matches any of the available Skills
         _triggerTime = Time.time;
 
-        for(int i = 0; i < GamePlayer.Instance.Character.MagicSkills.Count; i++)
+        for (int i = 0; i < GamePlayer.Instance.Character.MagicSkills.Count; i++)
         {
             var skillId = GamePlayer.Instance.Character.MagicSkills[i];
+
             var skill = ActionRpgKitController.Instance.SkillDatabase.GetMagicSkillById(skillId).Skill;
-            if (skill.Match(_triggeredItems))
+
+            if (skill.Match(_triggeredItems.ToArray()))
             {
                 GamePlayer.Instance.Character.TriggerMagicSkill(skillId);
                 return;
@@ -82,6 +92,49 @@ public class ActionPanel : MonoBehaviour, ISlotChanged
                 GamePlayer.Instance.Character.EquippedWeapon = item.Id;
                 GamePlayer.Instance.Character.CurrentAttackSkill = itemData.Skill.Skill.Id;
             }
+        }
+    }
+
+    public void Attack()
+    {
+        if (GamePlayer.Instance.Character.CanAttack() 
+            && GamePlayer.Instance.Character.TargetedEnemy != null 
+            && GamePlayer.Instance.Character.CurrentState != GamePlayer.Instance.Character.MoveState)
+        {
+            var dist = GamePlayer.Instance.Character.Position.SquaredDistanceTo(GamePlayer.Instance.Character.TargetedEnemy.Position);
+            if (dist > GamePlayer.Instance.Character.Stats.AttackRange.Value * GamePlayer.Instance.Character.Stats.AttackRange.Value)
+            {
+                return;
+            }
+
+            GamePlayer.Instance.Character.Attack(GamePlayer.Instance.Character.TargetedEnemy);
+            if (WeaponSlot.IsFree)
+            {
+                StartCoroutine(CooldownEffect(GamePlayer.Instance.Character.TimeUntilNextAttack, WeaponSlot.GetComponent<Image>()));
+            }
+            else
+            {
+                StartCoroutine(CooldownEffect(GamePlayer.Instance.Character.TimeUntilNextAttack, WeaponSlot.Item.Background));
+            }
+        }
+    }
+
+    public IEnumerator CooldownEffect(float endTime, Image image)
+    {
+        float d = endTime - Time.time;
+
+        while (Time.time < endTime)
+        {
+            if (image != null)
+            {
+                float value = (endTime - Time.time) / d;
+                image.color = Color.Lerp(DefaultColor, ActivatedColor, value);
+            }
+            yield return null;
+        }
+        if (image != null)
+        {
+            image.color = DefaultColor;
         }
     }
 }

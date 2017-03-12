@@ -14,7 +14,7 @@ public class SavePoint : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            GameMenu.Instance.EnableSaving();
+            //GameMenu.Instance.EnableSaving();
         }
     }
 

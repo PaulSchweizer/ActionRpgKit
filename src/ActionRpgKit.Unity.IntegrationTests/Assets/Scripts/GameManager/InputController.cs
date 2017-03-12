@@ -69,12 +69,12 @@ public class InputController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     /// Raycast the user input to retrieve a possible hit.</summary>
     private RaycastHit HitFromInput()
     {
-#if UNITY_EDITOR
+//#if (UNITY_EDITOR || UNITY_WEBPLAYER)
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //for touch device
-#elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
-        Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-#endif
+//#elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
+//        Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+//#endif
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Character",
                                                              "Terrain"));
@@ -90,13 +90,21 @@ public class InputController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         GameBaseCharacter enemy = hit.collider.gameObject.GetComponent<GameBaseCharacter>();
         GamePlayer.Instance.Character.AddEnemy(enemy.Character, 0);
         GamePlayer.Instance.Character.TargetedEnemy = enemy.Character;
+        // Attack
+        if (GamePlayer.Instance.Character.CanAttack())
+        {
+            GamePlayer.Instance.Character.Attack(enemy.Character);
+        }
     }
 
     /// <summary>
     /// Move to the hit destination on the terrain.</summary>
     private void HitTerrain(RaycastHit hit)
     {
-        GamePlayer.Instance.NavMeshAgent.SetDestination(hit.point);
+        if (GamePlayer.Instance.NavMeshAgent.isOnNavMesh)
+        {
+            GamePlayer.Instance.NavMeshAgent.SetDestination(hit.point);
+        }
         GamePlayer.Instance.Character.ChangeState(GamePlayer.Instance.Character.MoveState);
         GamePlayer.Instance.Character.TargetedEnemy = null;
         GamePlayer.Instance.Character.Enemies.Clear();

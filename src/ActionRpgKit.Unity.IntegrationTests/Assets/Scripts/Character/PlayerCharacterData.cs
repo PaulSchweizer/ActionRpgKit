@@ -31,6 +31,9 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
     private int _equippedWeapon;
 
     [SerializeField]
+    private int[] _equippedItems;
+
+    [SerializeField]
     private int _currentAttackSkill;
 
     /// <summary>
@@ -57,6 +60,10 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
                 _serializedCombatSkills[j] = Character.CombatSkills[j];
             }
         }
+        else
+        {
+            _serializedCombatSkills = new int[] { };
+        }
         if (Character.MagicSkills.Count > 0)
         {
             _serializedMagicSkills = new int[Character.MagicSkills.Count];
@@ -64,6 +71,10 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
             {
                 _serializedMagicSkills[k] = Character.MagicSkills[k];
             }
+        }
+        else
+        {
+            _serializedMagicSkills = new int[] { };
         }
 
         // Inventory
@@ -84,6 +95,9 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
 
         // Current Attack Skill
         _currentAttackSkill = Character.CurrentAttackSkill;
+
+        // Equipped Items
+        _equippedItems = Character.EquippedItems;
     }
 
     /// <summary>
@@ -101,10 +115,12 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
         }
 
         // Skills
+        Character.CombatSkills = new List<int>();
         for (int k = 0; k < _serializedCombatSkills.Length; k++)
         {
             Character.LearnCombatSkill(_serializedCombatSkills[k]);
         }
+        Character.MagicSkills = new List<int>();
         for (int k = 0; k < _serializedMagicSkills.Length; k++)
         {
             Character.LearnMagicSkill(_serializedMagicSkills[k]);
@@ -120,6 +136,19 @@ public class PlayerCharacterData : BaseCharacterData, ISerializationCallbackRece
 
         // Equipped Weapon
         Character.EquippedWeapon = _equippedWeapon;
+
+        // Equipped Items
+        for (i = 0; i < Character.EquippedItems.Length; i++)
+        {
+            if (i < _equippedItems.Length)
+            {
+                Character.EquippedItems[i] = _equippedItems[i];
+            }
+            else
+            {
+                Character.EquippedItems[i] = -1;
+            }
+        }
 
         // Current Attack Skill
         Character.CurrentAttackSkill = _currentAttackSkill;
