@@ -4,9 +4,11 @@
 
 ## Shadowhunter - The Game
 The game I created with this library:
+
 ![Shadowhunter - The Game](http://www.leifproductions.de/schattenjaeger/game/)
-![Game](/docs/game.jpg)
-![Menu](/docs/menu.jpg)
+
+![Game](/docs/game.jpg =250x)
+![Menu](/docs/menu.jpg =250x)
 
 ## Overview
 The Kit is meant to be used within the Unity Game Engine, but is designed to have no dependency to Unity.
