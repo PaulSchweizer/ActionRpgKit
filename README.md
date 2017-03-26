@@ -5,7 +5,7 @@
 ## Shadowhunter - The Game
 The game I created with this library:
 
-![Shadowhunter - The Game](http://www.leifproductions.de/schattenjaeger/game/)
+http://www.leifproductions.de/schattenjaeger/game/
 
 ![Game](/docs/game.jpg)
 ![Menu](/docs/menu.jpg)
