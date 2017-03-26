@@ -2,6 +2,12 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/mqj6fnpo5mml4iq5?svg=true)](https://ci.appveyor.com/project/PaulSchweizer/actionrpgkit) [![Code Climate](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit/badges/gpa.svg)](https://codeclimate.com/github/PaulSchweizer/ActionRpgKit) [![Coverage Status](https://coveralls.io/repos/github/PaulSchweizer/ActionRpgKit/badge.svg)](https://coveralls.io/github/PaulSchweizer/ActionRpgKit)
 
+## Shadowhunter - The Game
+The game I created with this library:
+![Shadowhunter - The Game](http://www.leifproductions.de/schattenjaeger/game/)
+![Game](/docs/game.jpg)
+![Menu](/docs/menu.jpg)
+
 ## Overview
 The Kit is meant to be used within the Unity Game Engine, but is designed to have no dependency to Unity.
 This ensures a clean separation of logic and implementation.
